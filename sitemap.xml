@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://seda.org.sg/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
+
+  <!-- 新加坡教育 -->
+  <url><loc>https://seda.org.sg/singapore-education/</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://seda.org.sg/government-schools/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://seda.org.sg/private-schools/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://seda.org.sg/international-school/</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+
+  <!-- 考试攻略 -->
+  <url><loc>https://seda.org.sg/wace/</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://seda.org.sg/o-level/</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://seda.org.sg/o-level/subjects/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/o-level/scoring/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/o-level/preparation/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/o-level/chinese-students/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/a-level/</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://seda.org.sg/aeis/</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://seda.org.sg/aeis/preparation/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/aeis/english/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/aeis/math/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/aeis/results/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/aeis/s-aeis/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/aeis/age-requirements/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/aeis/timeline/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/ib/</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+
+  <!-- 升学路径 -->
+  <url><loc>https://seda.org.sg/pathway/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://seda.org.sg/wace-vs-a-level/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://seda.org.sg/wace-atar/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://seda.org.sg/wace-nus-ntu/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://seda.org.sg/o-level-jc/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://seda.org.sg/o-level-poly/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://seda.org.sg/o-level-schools/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <!-- 学校数据库 -->
+  <url><loc>https://seda.org.sg/school-database/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+
+  <!-- 留学指南 -->
+  <url><loc>https://seda.org.sg/guides/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/guides/student-pass/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://seda.org.sg/guides/cost/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://seda.org.sg/guides/accommodation/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/guides/dependent-pass/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <!-- 资讯 -->
+  <url><loc>https://seda.org.sg/news/</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+
+  <!-- 关于 -->
+  <url><loc>https://seda.org.sg/about/</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://seda.org.sg/contact/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+</urlset>

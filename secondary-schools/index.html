@@ -300,17 +300,17 @@
 
           <!-- Filters -->
           <div class="filter-bar">
-            <input type="text" id="searchInput" placeholder="搜索学校名称（中文/英文）..." aria-label="搜索学校" />
-            <select id="areaFilter" aria-label="按地区筛选">
+            <input type="text" id="searchInput" placeholder="搜索学校名称（中文/英文）..." aria-label="搜索学校" oninput="window._applyFilters&&window._applyFilters()" />
+            <select id="areaFilter" aria-label="按地区筛选" onchange="window._applyFilters&&window._applyFilters()">
               <option value="">全部地区</option>
             </select>
-            <select id="programFilter" aria-label="按特色项目筛选">
+            <select id="programFilter" aria-label="按特色项目筛选" onchange="window._applyFilters&&window._applyFilters()">
               <option value="">全部项目</option>
               <option value="IP">IP 直通车</option>
               <option value="SAP">SAP 特选</option>
               <option value="GEP">GEP 高才</option>
             </select>
-            <select id="copFilter" aria-label="按 COP 范围筛选">
+            <select id="copFilter" aria-label="按 COP 范围筛选" onchange="window._applyFilters&&window._applyFilters()">
               <option value="">全部 COP</option>
               <option value="4-9">精英校 (COP 4-9)</option>
               <option value="10-14">优质校 (COP 10-14)</option>
@@ -318,7 +318,7 @@
               <option value="19-22">社区校 (COP 19-22)</option>
               <option value="null">特殊招生 (无COP)</option>
             </select>
-            <select id="typeFilter" aria-label="按学校类型筛选">
+            <select id="typeFilter" aria-label="按学校类型筛选" onchange="window._applyFilters&&window._applyFilters()">
               <option value="">全部类型</option>
               <option value="Independent">独立学校</option>
               <option value="Autonomous">自主学校</option>
@@ -1027,6 +1027,7 @@
         renderCards(list);
       }
 
+      window._applyFilters = applyFilters;
       search.addEventListener('input',applyFilters);
       areaF.addEventListener('change',applyFilters);
       progF.addEventListener('change',applyFilters);

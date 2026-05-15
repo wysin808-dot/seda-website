@@ -123,8 +123,34 @@
       .ps-card .card-desc{font-size:.85rem;color:#666;line-height:1.5;margin-top:.5rem}
       .ps-card .card-area{font-size:.8rem;color:#888;margin-top:.3rem}
 
+      .ps-card .p2b-badge{position:absolute;top:.8rem;right:.8rem;width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.8rem;color:#fff;line-height:1}
+      .p2b-hot{background:linear-gradient(135deg,#dc2626,#b91c1c)}
+      .p2b-warm{background:linear-gradient(135deg,#ea580c,#c2410c)}
+      .p2b-mid{background:linear-gradient(135deg,#2563eb,#1d4ed8)}
+      .p2b-cool{background:linear-gradient(135deg,#059669,#047857)}
+      .ps-card .p2b-label{font-size:.7rem;color:#999;text-align:right;margin-top:.3rem}
+
+      .view-btn{padding:.45rem 1rem;border:1px solid #d0d5dd;border-radius:8px;background:#fff;cursor:pointer;font-size:.85rem;transition:all .2s}
+      .view-btn.active{background:var(--brand,#c8102e);color:#fff;border-color:var(--brand,#c8102e)}
+      .view-btn:hover:not(.active){background:#f3f4f6}
+
+      /* Table view */
+      .rank-table{width:100%;border-collapse:collapse;font-size:.88rem}
+      .rank-table th{position:sticky;top:0;background:#c8102e;color:#fff;padding:.6rem .8rem;text-align:left;font-weight:600;white-space:nowrap}
+      .rank-table td{padding:.55rem .8rem;border-bottom:1px solid #e5e7eb}
+      .rank-table tr:hover{background:#fef2f2}
+      .rank-table .rank-num{font-weight:700;color:#c8102e;text-align:center;width:40px}
+      .rank-table .rank-p2b{text-align:center;font-weight:700}
+      .rank-table .rank-tier{text-align:center}
+      .rank-table .rank-prog span{display:inline-block;padding:.1rem .4rem;border-radius:3px;font-size:.75rem;margin:.1rem;font-weight:600}
+      .rank-table .rank-prog .gep{background:#fef3c7;color:#92400e}
+      .rank-table .rank-prog .sap{background:#ede9fe;color:#6d28d9}
+
       .ps-no-results{text-align:center;padding:3rem 1rem;color:#888;font-size:1.1rem}
       .ps-no-results span{display:block;font-size:2.5rem;margin-bottom:.5rem}
+
+      .filter-active{animation:filterPulse .3s ease}
+      @keyframes filterPulse{0%{opacity:.7}100%{opacity:1}}
 
       /* Tier legend */
       .tier-legend{display:flex;flex-wrap:wrap;gap:.75rem;margin:.75rem 0 0;font-size:.82rem}
@@ -320,26 +346,42 @@
           <!-- Filter Bar -->
           <div class="ps-filter-bar">
             <input type="text" id="psSearch" placeholder="搜索学校名称（中文/英文）..." />
-            <select id="psArea">
+            <select id="psArea" onchange="window._applyFilters&&window._applyFilters()">
               <option value="">全部区域</option>
             </select>
-            <select id="psTier">
+            <select id="psTier" onchange="window._applyFilters&&window._applyFilters()">
               <option value="">全部梯队</option>
               <option value="1">Tier 1 顶尖名校</option>
               <option value="2">Tier 2 优质学校</option>
               <option value="3">Tier 3 良好社区校</option>
               <option value="4">Tier 4 发展中学校</option>
             </select>
-            <select id="psProgram">
+            <select id="psProgram" onchange="window._applyFilters&&window._applyFilters()">
               <option value="">全部类型</option>
               <option value="GEP">GEP 高才班</option>
               <option value="SAP">SAP 特选</option>
             </select>
+            <select id="psRanking" onchange="window._applyFilters&&window._applyFilters()">
+              <option value="">全部排名</option>
+              <option value="20-30">Top 20（Phase 2B ≤30）</option>
+              <option value="31-45">Top 50（Phase 2B 31-45）</option>
+              <option value="46-60">中等偏上（Phase 2B 46-60）</option>
+              <option value="61-80">中等（Phase 2B 61-80）</option>
+              <option value="81-999">社区型（Phase 2B >80）</option>
+            </select>
             <span class="filter-count" id="psCount">显示 186 / 186 所</span>
+          </div>
+
+          <!-- View toggle -->
+          <div style="display:flex;gap:.5rem;margin-bottom:1rem;justify-content:flex-end">
+            <button id="viewCards" class="view-btn active" onclick="window._setView&&window._setView('cards')">📇 卡片</button>
+            <button id="viewTable" class="view-btn" onclick="window._setView&&window._setView('table')">📊 排名表</button>
           </div>
 
           <!-- School Cards Container -->
           <div class="ps-grid" id="psGrid"></div>
+          <!-- Table View Container -->
+          <div id="psTable" style="display:none"></div>
           <div class="ps-no-results" id="psNoResults" style="display:none">
             <span>🔍</span>
             没有找到符合条件的学校，请调整筛选条件。
@@ -834,221 +876,228 @@
        ═══════════════════════════════════════════════════ */
     (function(){
       const schools = [
-        {name:"Admiralty Primary School",cn:"海军部小学",area:"Woodlands",tier:4,programs:[],desc:"兀兰北部社区小学。"},
-        {name:"Ahmad Ibrahim Primary School",cn:"阿末依布拉欣小学",area:"Yishun",tier:4,programs:[],desc:"义顺区社区小学。"},
-        {name:"Ai Tong School",cn:"爱同学校",area:"Ang Mo Kio",tier:1,programs:["GEP"],desc:"宏茂桥区顶尖小学，设有高才班（GEP），学术竞争力强。"},
-        {name:"Alexandra Primary School",cn:"亚历山大小学",area:"Queenstown",tier:3,programs:[],desc:"女皇镇区社区小学。"},
-        {name:"Anchor Green Primary School",cn:"翠苑小学",area:"Sengkang",tier:3,programs:[],desc:"盛港区较新小学。"},
-        {name:"Anderson Primary School",cn:"安德逊小学",area:"Ang Mo Kio",tier:2,programs:[],desc:"宏茂桥区口碑良好的小学，学术表现不错。"},
-        {name:"Ang Mo Kio Primary School",cn:"宏茂桥小学",area:"Ang Mo Kio",tier:3,programs:[],desc:"宏茂桥区社区小学。"},
-        {name:"Anglo-Chinese School (Junior)",cn:"英华学校（经禧）",area:"Queenstown",tier:1,programs:["GEP"],desc:"英华大家庭小学部，顶尖名校，设有GEP高才班。"},
-        {name:"Anglo-Chinese School (Primary)",cn:"英华小学",area:"Bukit Timah",tier:1,programs:["GEP"],desc:"武吉知马区顶尖名校，高才班，学术与品格教育双强。"},
-        {name:"Angsana Primary School",cn:"安善小学",area:"Ang Mo Kio",tier:4,programs:[],desc:"宏茂桥区社区小学。"},
-        {name:"Beacon Primary School",cn:"明志小学",area:"Bukit Panjang",tier:3,programs:[],desc:"武吉班让区小学。"},
-        {name:"Bedok Green Primary School",cn:"勿洛绿苑小学",area:"Bedok",tier:3,programs:[],desc:"勿洛区社区小学。"},
-        {name:"Bendemeer Primary School",cn:"明地迷亚小学",area:"Kallang",tier:3,programs:[],desc:"加冷区社区小学。"},
-        {name:"Blangah Rise Primary School",cn:"布兰雅坡小学",area:"Bukit Merah",tier:3,programs:[],desc:"红山区小学。"},
-        {name:"Boon Lay Garden Primary School",cn:"文礼花园小学",area:"Jurong West",tier:3,programs:[],desc:"裕廊西区社区小学。"},
-        {name:"Bukit Panjang Primary School",cn:"武吉班让小学",area:"Bukit Panjang",tier:3,programs:[],desc:"武吉班让区社区小学。"},
-        {name:"Bukit Timah Primary School",cn:"武吉知马小学",area:"Bukit Timah",tier:3,programs:[],desc:"武吉知马区社区小学。"},
-        {name:"Bukit View Primary School",cn:"武吉景小学",area:"Bukit Batok",tier:3,programs:[],desc:"武吉巴督区小学。"},
-        {name:"Canberra Primary School",cn:"坎培拉小学",area:"Sembawang",tier:3,programs:[],desc:"三巴旺区较新小学，设施现代。"},
-        {name:"Canossa Catholic Primary School",cn:"嘉诺撒天主教小学",area:"Bedok",tier:2,programs:[],desc:"勿洛区天主教女校，学术表现不错。"},
-        {name:"Cantonment Primary School",cn:"贞德小学",area:"Queenstown",tier:3,programs:[],desc:"女皇镇区社区小学。"},
-        {name:"Casuarina Primary School",cn:"木麻黄小学",area:"Tampines",tier:3,programs:[],desc:"淡滨尼区社区小学。"},
-        {name:"Cedar Primary School",cn:"四德小学",area:"Toa Payoh",tier:2,programs:[],desc:"大巴窑区小学，与四德女中同系。"},
-        {name:"Changkat Primary School",cn:"昌凯小学",area:"Bukit Merah",tier:3,programs:[],desc:"红山区社区小学。"},
-        {name:"CHIJ (Katong) Primary",cn:"圣婴女校（加东）小学",area:"Marine Parade",tier:2,programs:[],desc:"东海岸区天主教女校，学术口碑良好。"},
-        {name:"CHIJ (Kellock)",cn:"圣婴女校（基洛）",area:"Queenstown",tier:2,programs:[],desc:"女皇镇区天主教女校。"},
-        {name:"CHIJ Our Lady Queen of Peace",cn:"圣婴女校（和平之后）",area:"Bukit Panjang",tier:2,programs:[],desc:"武吉班让区天主教女校。"},
-        {name:"CHIJ Our Lady of Good Counsel",cn:"圣婴女校（善导之母）",area:"Toa Payoh",tier:2,programs:[],desc:"大巴窑区天主教女校，排名不错。"},
-        {name:"CHIJ Our Lady of the Nativity",cn:"圣婴女校（诞生之母）",area:"Hougang",tier:3,programs:[],desc:"后港区天主教女校。"},
-        {name:"CHIJ (Toa Payoh)",cn:"圣婴女校（大巴窑）",area:"Toa Payoh",tier:3,programs:[],desc:"大巴窑区天主教女校。"},
-        {name:"CHIJ St. Nicholas Girls' School (Primary)",cn:"圣尼各拉女校小学",area:"Ang Mo Kio",tier:1,programs:["SAP","GEP"],desc:"顶尖女校小学部，特选小学+高才班，宏茂桥区名校。"},
-        {name:"Chongfu School",cn:"崇福学校",area:"Yishun",tier:2,programs:[],desc:"义顺区传统华校，学术不错。"},
-        {name:"Chongzheng Primary School",cn:"崇正小学",area:"Tampines",tier:3,programs:[],desc:"淡滨尼区小学。"},
-        {name:"Chua Chu Kang Primary School",cn:"蔡厝港小学",area:"Choa Chu Kang",tier:3,programs:[],desc:"蔡厝港区社区小学。"},
-        {name:"Clementi Primary School",cn:"金文泰小学",area:"Clementi",tier:3,programs:[],desc:"金文泰区社区小学。"},
-        {name:"Compassvale Primary School",cn:"康柏小学",area:"Sengkang",tier:3,programs:[],desc:"盛港区社区小学。"},
-        {name:"Concord Primary School",cn:"康科德小学",area:"Choa Chu Kang",tier:3,programs:[],desc:"蔡厝港区社区小学。"},
-        {name:"Corporation Primary School",cn:"公司小学",area:"Jurong East",tier:3,programs:[],desc:"裕廊东区社区小学。"},
-        {name:"Damai Primary School",cn:"达迈小学",area:"Bedok",tier:3,programs:[],desc:"勿洛区社区小学。"},
-        {name:"Dazhong Primary School",cn:"大众小学",area:"Jurong West",tier:3,programs:[],desc:"裕廊西区社区小学。"},
-        {name:"De La Salle School",cn:"德拉萨尔学校",area:"Hougang",tier:3,programs:[],desc:"后港区天主教学校。"},
-        {name:"East Spring Primary School",cn:"东泉小学",area:"Tampines",tier:3,programs:[],desc:"淡滨尼区社区小学。"},
-        {name:"Edgefield Primary School",cn:"毅道小学",area:"Punggol",tier:3,programs:[],desc:"榜鹅区较新小学。"},
-        {name:"Elias Park Primary School",cn:"以利雅公园小学",area:"Pasir Ris",tier:3,programs:[],desc:"巴西立区社区小学。"},
-        {name:"Endeavour Primary School",cn:"恩得小学",area:"Jurong West",tier:3,programs:[],desc:"裕廊西区社区小学。"},
-        {name:"Eunos Primary School",cn:"友诺士小学",area:"Bedok",tier:3,programs:[],desc:"勿洛区社区小学。"},
-        {name:"Evergreen Primary School",cn:"常青小学",area:"Woodlands",tier:3,programs:[],desc:"兀兰区社区小学。"},
-        {name:"Fairfield Methodist School (Primary)",cn:"花菲卫理小学",area:"Queenstown",tier:2,programs:[],desc:"女皇镇区卫理公会小学，学术口碑不错。"},
-        {name:"Farrer Park Primary School",cn:"花拉公园小学",area:"Novena",tier:3,programs:[],desc:"诺维娜区社区小学。"},
-        {name:"Fengshan Primary School",cn:"凤山小学",area:"Bedok",tier:2,programs:[],desc:"勿洛区学术表现不错的小学。"},
-        {name:"Fern Green Primary School",cn:"蕨绿小学",area:"Sengkang",tier:3,programs:[],desc:"盛港区较新小学。"},
-        {name:"Fernvale Primary School",cn:"锦泉小学",area:"Sengkang",tier:3,programs:[],desc:"盛港区社区小学。"},
-        {name:"First Toa Payoh Primary School",cn:"第一大巴窑小学",area:"Toa Payoh",tier:3,programs:[],desc:"大巴窑区社区小学。"},
-        {name:"Frontier Primary School",cn:"先锋小学",area:"Jurong West",tier:3,programs:[],desc:"裕廊西区社区小学。"},
-        {name:"Fuchun Primary School",cn:"福春小学",area:"Woodlands",tier:3,programs:[],desc:"兀兰区社区小学。"},
-        {name:"Fuhua Primary School",cn:"辅华小学",area:"Jurong West",tier:3,programs:[],desc:"裕廊西区社区小学。"},
-        {name:"Gan Eng Seng Primary School",cn:"颜永成小学",area:"Bukit Merah",tier:3,programs:[],desc:"红山区社区小学。"},
-        {name:"Geylang Methodist School (Primary)",cn:"芽笼美以美小学",area:"Central",tier:2,programs:[],desc:"市中心地段，卫理公会小学。"},
-        {name:"Gongshang Primary School",cn:"工商小学",area:"Tampines",tier:3,programs:[],desc:"淡滨尼区社区小学。"},
-        {name:"Greendale Primary School",cn:"青景小学",area:"Punggol",tier:3,programs:[],desc:"榜鹅区社区小学。"},
-        {name:"Greenridge Primary School",cn:"青岭小学",area:"Bukit Panjang",tier:3,programs:[],desc:"武吉班让区社区小学。"},
-        {name:"Greenwood Primary School",cn:"绿林小学",area:"Bukit Panjang",tier:2,programs:[],desc:"武吉班让区口碑不错的小学。"},
-        {name:"Guangyang Primary School",cn:"光洋小学",area:"Bishan",tier:3,programs:[],desc:"碧山区社区小学。"},
-        {name:"Haig Girls' School",cn:"海格女校",area:"Geylang",tier:2,programs:[],desc:"芽笼区女校，学术表现不错。"},
-        {name:"Henry Park Primary School",cn:"恒力小学",area:"Bukit Timah",tier:1,programs:["GEP"],desc:"武吉知马区顶尖名校，设有GEP高才班，排名前十。"},
-        {name:"Holy Innocents' Primary School",cn:"圣婴小学",area:"Serangoon",tier:3,programs:[],desc:"实龙岗区天主教小学。"},
-        {name:"Hong Wen School",cn:"宏文学校",area:"Kallang",tier:3,programs:[],desc:"加冷区传统华校。"},
-        {name:"Horizon Primary School",cn:"地平线小学",area:"Punggol",tier:3,programs:[],desc:"榜鹅区较新小学。"},
-        {name:"Hougang Primary School",cn:"后港小学",area:"Hougang",tier:3,programs:[],desc:"后港区社区小学。"},
-        {name:"Huamin Primary School",cn:"华民小学",area:"Hougang",tier:3,programs:[],desc:"后港区社区小学。"},
-        {name:"Innova Primary School",cn:"创新小学",area:"Jurong West",tier:3,programs:[],desc:"裕廊西区社区小学。"},
-        {name:"Jiemin Primary School",cn:"洁明小学",area:"Sengkang",tier:3,programs:[],desc:"盛港区社区小学。"},
-        {name:"Jing Shan Primary School",cn:"景山小学",area:"Ang Mo Kio",tier:3,programs:[],desc:"宏茂桥区社区小学。"},
-        {name:"Junyuan Primary School",cn:"俊源小学",area:"Tampines",tier:3,programs:[],desc:"淡滨尼区社区小学。"},
-        {name:"Jurong Primary School",cn:"裕廊小学",area:"Jurong East",tier:3,programs:[],desc:"裕廊东区社区小学。"},
-        {name:"Jurong West Primary School",cn:"裕廊西小学",area:"Jurong West",tier:3,programs:[],desc:"裕廊西区社区小学。"},
-        {name:"Juying Primary School",cn:"聚英小学",area:"Jurong West",tier:3,programs:[],desc:"裕廊西区社区小学。"},
-        {name:"Keming Primary School",cn:"克明小学",area:"Bukit Batok",tier:3,programs:[],desc:"武吉巴督区社区小学。"},
-        {name:"Kheng Cheng School",cn:"庆成学校",area:"Queenstown",tier:3,programs:[],desc:"女皇镇区传统华校。"},
-        {name:"Kong Hwa School",cn:"光华学校",area:"Bedok",tier:2,programs:[],desc:"勿洛区传统华校，学术表现不错。"},
-        {name:"Kranji Primary School",cn:"克兰芝小学",area:"Choa Chu Kang",tier:3,programs:[],desc:"蔡厝港区社区小学。"},
-        {name:"Kuo Chuan Presbyterian Primary School",cn:"国专长老会小学",area:"Bishan",tier:2,programs:[],desc:"碧山区基督教长老会小学，口碑不错。"},
-        {name:"Lakeside Primary School",cn:"湖畔小学",area:"Jurong West",tier:3,programs:[],desc:"裕廊西区社区小学。"},
-        {name:"Lianhua Primary School",cn:"联华小学",area:"Bukit Batok",tier:3,programs:[],desc:"武吉巴督区社区小学。"},
-        {name:"Maha Bodhi School",cn:"菩提学校",area:"Tampines",tier:2,programs:[],desc:"淡滨尼区佛教学校，学术口碑不错。"},
-        {name:"Maris Stella High School (Primary)",cn:"海星中学小学部",area:"Bedok",tier:2,programs:["SAP"],desc:"特选小学，华文教育传统深厚。"},
-        {name:"Marsiling Primary School",cn:"马西岭小学",area:"Woodlands",tier:3,programs:[],desc:"兀兰区社区小学。"},
-        {name:"Marymount Convent School",cn:"玛丽蒙修道院学校",area:"Bishan",tier:2,programs:[],desc:"碧山区天主教女校，口碑良好。"},
-        {name:"Mayflower Primary School",cn:"美华小学",area:"Ang Mo Kio",tier:3,programs:[],desc:"宏茂桥区社区小学。"},
-        {name:"Mee Toh School",cn:"美桃学校",area:"Punggol",tier:3,programs:[],desc:"榜鹅区社区小学。"},
-        {name:"Meridian Primary School",cn:"美廉小学",area:"Pasir Ris",tier:3,programs:[],desc:"巴西立区社区小学。"},
-        {name:"Methodist Girls' School (Primary)",cn:"美以美女校小学",area:"Bukit Timah",tier:1,programs:["GEP"],desc:"武吉知马区顶尖女校小学部，设有GEP高才班。"},
-        {name:"Montfort Junior School",cn:"蒙福学校小学部",area:"Hougang",tier:3,programs:[],desc:"后港区天主教男校。"},
-        {name:"Nan Chiau Primary School",cn:"南侨小学",area:"Sengkang",tier:2,programs:["SAP"],desc:"盛港区特选小学，华文教育强校。"},
-        {name:"Nan Hua Primary School",cn:"南华小学",area:"Clementi",tier:1,programs:["SAP","GEP"],desc:"金文泰区顶尖名校，特选+高才班，华文教育强校。"},
-        {name:"Nanyang Primary School",cn:"南洋小学",area:"Bukit Timah",tier:1,programs:["SAP","GEP"],desc:"武吉知马区最顶尖小学之一，特选+高才班，全国排名前三。"},
-        {name:"Naval Base Primary School",cn:"海军基地小学",area:"Yishun",tier:3,programs:[],desc:"义顺区社区小学。"},
-        {name:"New Town Primary School",cn:"新镇小学",area:"Queenstown",tier:3,programs:[],desc:"女皇镇区社区小学。"},
-        {name:"Ngee Ann Primary School",cn:"义安小学",area:"Clementi",tier:3,programs:[],desc:"金文泰区社区小学。"},
-        {name:"North Spring Primary School",cn:"北泉小学",area:"Yishun",tier:3,programs:[],desc:"义顺区社区小学。"},
-        {name:"North View Primary School",cn:"北景小学",area:"Yishun",tier:3,programs:[],desc:"义顺区社区小学。"},
-        {name:"North Vista Primary School",cn:"北景小学",area:"Sengkang",tier:3,programs:[],desc:"盛港区社区小学。"},
-        {name:"Northland Primary School",cn:"北地小学",area:"Yishun",tier:3,programs:[],desc:"义顺区社区小学。"},
-        {name:"Northoaks Primary School",cn:"北橡小学",area:"Woodlands",tier:3,programs:[],desc:"兀兰区较新小学。"},
-        {name:"Northshore Primary School",cn:"北岸小学",area:"Punggol",tier:3,programs:[],desc:"榜鹅区较新小学。"},
-        {name:"Oasis Primary School",cn:"绿洲小学",area:"Punggol",tier:3,programs:[],desc:"榜鹅区较新小学。"},
-        {name:"Opera Estate Primary School",cn:"歌剧园小学",area:"Bedok",tier:3,programs:[],desc:"勿洛区社区小学。"},
-        {name:"Palm View Primary School",cn:"棕榈景小学",area:"Bukit Panjang",tier:3,programs:[],desc:"武吉班让区社区小学。"},
-        {name:"Park View Primary School",cn:"百景小学",area:"Sengkang",tier:3,programs:[],desc:"盛港区社区小学。"},
-        {name:"Pasir Ris Primary School",cn:"巴西立小学",area:"Pasir Ris",tier:3,programs:[],desc:"巴西立区社区小学。"},
-        {name:"Paya Lebar Methodist Girls' School (Primary)",cn:"巴耶利峇美以美女校小学",area:"Hougang",tier:2,programs:[],desc:"后港区卫理公会女校。"},
-        {name:"Pei Chun Public School",cn:"培群学校",area:"Toa Payoh",tier:2,programs:["SAP"],desc:"大巴窑区特选小学，华文教育传统深厚。"},
-        {name:"Pei Hwa Presbyterian Primary School",cn:"培华长老会小学",area:"Bukit Panjang",tier:3,programs:[],desc:"武吉班让区基督教小学。"},
-        {name:"Pei Tong Primary School",cn:"培同小学",area:"Clementi",tier:3,programs:[],desc:"金文泰区社区小学。"},
-        {name:"Peiying Primary School",cn:"培英小学",area:"Yishun",tier:3,programs:[],desc:"义顺区社区小学。"},
-        {name:"Pioneer Primary School",cn:"先驱小学",area:"Jurong West",tier:3,programs:[],desc:"裕廊西区社区小学。"},
-        {name:"Poi Ching School",cn:"培青学校",area:"Tampines",tier:2,programs:[],desc:"淡滨尼区传统华校，学术表现不错。"},
-        {name:"Princess Elizabeth Primary School",cn:"伊丽莎白公主小学",area:"Bukit Batok",tier:3,programs:[],desc:"武吉巴督区社区小学。"},
-        {name:"Punggol Cove Primary School",cn:"榜鹅湾小学",area:"Punggol",tier:3,programs:[],desc:"榜鹅区较新小学。"},
-        {name:"Punggol Green Primary School",cn:"榜鹅绿苑小学",area:"Punggol",tier:3,programs:[],desc:"榜鹅区社区小学。"},
-        {name:"Punggol Primary School",cn:"榜鹅小学",area:"Punggol",tier:3,programs:[],desc:"榜鹅区社区小学。"},
-        {name:"Punggol View Primary School",cn:"榜鹅景小学",area:"Punggol",tier:3,programs:[],desc:"榜鹅区社区小学。"},
-        {name:"Qifa Primary School",cn:"启发小学",area:"Queenstown",tier:2,programs:[],desc:"女皇镇区社区小学，学术口碑不错。"},
-        {name:"Qihua Primary School",cn:"启化小学",area:"Woodlands",tier:3,programs:[],desc:"兀兰区社区小学。"},
-        {name:"Queenstown Primary School",cn:"女皇镇小学",area:"Queenstown",tier:3,programs:[],desc:"女皇镇区社区小学。"},
-        {name:"Radin Mas Primary School",cn:"拉丁马士小学",area:"Queenstown",tier:3,programs:[],desc:"女皇镇区社区小学。"},
-        {name:"Raffles Girls' Primary School",cn:"莱佛士女小",area:"Toa Payoh",tier:1,programs:["GEP"],desc:"全国最顶尖女子小学之一，设有GEP高才班。"},
-        {name:"Red Swastika School",cn:"卍慈学校",area:"Bedok",tier:1,programs:[],desc:"勿洛区顶尖小学，道教背景，学术竞争力极强。"},
-        {name:"River Valley Primary School",cn:"立化小学",area:"Queenstown",tier:2,programs:[],desc:"女皇镇区小学，学术表现不错。"},
-        {name:"Riverside Primary School",cn:"河畔小学",area:"Woodlands",tier:3,programs:[],desc:"兀兰区社区小学。"},
-        {name:"Rivervale Primary School",cn:"河谷小学",area:"Sengkang",tier:3,programs:[],desc:"盛港区社区小学。"},
-        {name:"Rosyth School",cn:"乐赛学校",area:"Serangoon",tier:1,programs:["GEP"],desc:"实龙岗区顶尖名校，设有GEP高才班。"},
-        {name:"Rulang Primary School",cn:"如兰小学",area:"Jurong West",tier:1,programs:["GEP"],desc:"裕廊西区顶尖名校，设有GEP高才班，西部最强小学。"},
-        {name:"Sembawang Primary School",cn:"三巴旺小学",area:"Sembawang",tier:3,programs:[],desc:"三巴旺区社区小学。"},
-        {name:"Seng Kang Primary School",cn:"盛港小学",area:"Sengkang",tier:3,programs:[],desc:"盛港区社区小学。"},
-        {name:"Sengkang Green Primary School",cn:"盛港绿苑小学",area:"Sengkang",tier:3,programs:[],desc:"盛港区社区小学。"},
-        {name:"Shuqun Primary School",cn:"淑群小学",area:"Jurong West",tier:3,programs:[],desc:"裕廊西区社区小学。"},
-        {name:"Si Ling Primary School",cn:"思励小学",area:"Woodlands",tier:3,programs:[],desc:"兀兰区社区小学。"},
-        {name:"Singapore Chinese Girls' School (Primary)",cn:"新加坡华族女校小学",area:"Novena",tier:1,programs:["GEP"],desc:"顶尖女校小学部，诺维娜区百年名校，设有GEP。"},
-        {name:"South View Primary School",cn:"南景小学",area:"Jurong West",tier:3,programs:[],desc:"裕廊西区社区小学。"},
-        {name:"Springdale Primary School",cn:"春田小学",area:"Bukit Panjang",tier:3,programs:[],desc:"武吉班让区社区小学。"},
-        {name:"St. Andrew's Junior School",cn:"圣安德烈小学",area:"Toa Payoh",tier:2,programs:[],desc:"大巴窑区基督教小学，学术口碑良好。"},
-        {name:"St. Anthony's Canossian Primary School",cn:"圣安东尼天主教小学",area:"Bedok",tier:2,programs:[],desc:"勿洛区天主教女校小学。"},
-        {name:"St. Anthony's Primary School",cn:"圣安东尼小学",area:"Woodlands",tier:3,programs:[],desc:"兀兰区天主教小学。"},
-        {name:"St. Gabriel's Primary School",cn:"圣嘉百利小学",area:"Serangoon",tier:3,programs:[],desc:"实龙岗区天主教男校。"},
-        {name:"St. Hilda's Primary School",cn:"圣希尔达小学",area:"Tampines",tier:1,programs:["GEP"],desc:"淡滨尼区名校，设有GEP高才班，东部学术强校。"},
-        {name:"St. Joseph's Institution Junior",cn:"圣约瑟书院小学",area:"Novena",tier:2,programs:[],desc:"诺维娜区天主教名校小学部。"},
-        {name:"St. Margaret's Primary School",cn:"圣玛格烈小学",area:"Queenstown",tier:2,programs:[],desc:"女皇镇区历史悠久的女校。"},
-        {name:"St. Stephen's School",cn:"圣斯特芬学校",area:"Bedok",tier:3,programs:[],desc:"勿洛区基督教小学。"},
-        {name:"Stamford Primary School",cn:"斯坦福小学",area:"Hougang",tier:3,programs:[],desc:"后港区社区小学。"},
-        {name:"Tampines North Primary School",cn:"淡滨尼北小学",area:"Tampines",tier:3,programs:[],desc:"淡滨尼区社区小学。"},
-        {name:"Tampines Primary School",cn:"淡滨尼小学",area:"Tampines",tier:3,programs:[],desc:"淡滨尼区社区小学。"},
-        {name:"Tanjong Katong Primary School",cn:"丹绒加东小学",area:"Marine Parade",tier:2,programs:[],desc:"东海岸区学术表现不错的小学。"},
-        {name:"Tao Nan School",cn:"道南学校",area:"Marine Parade",tier:1,programs:["SAP","GEP"],desc:"东海岸区顶尖名校，特选+高才班，传统华校名门。"},
-        {name:"Teck Ghee Primary School",cn:"德义小学",area:"Ang Mo Kio",tier:2,programs:[],desc:"宏茂桥区社区小学，口碑不错。"},
-        {name:"Teck Whye Primary School",cn:"德惠小学",area:"Choa Chu Kang",tier:3,programs:[],desc:"蔡厝港区社区小学。"},
-        {name:"Telok Kurau Primary School",cn:"直落古楼小学",area:"Bedok",tier:3,programs:[],desc:"勿洛区社区小学。"},
-        {name:"Temasek Primary School",cn:"淡马锡小学",area:"Bedok",tier:2,programs:[],desc:"勿洛区口碑不错的小学。"},
-        {name:"Townsville Primary School",cn:"镇仁小学",area:"Sengkang",tier:3,programs:[],desc:"盛港区社区小学。"},
-        {name:"Unity Primary School",cn:"友诺小学",area:"Choa Chu Kang",tier:3,programs:[],desc:"蔡厝港区社区小学。"},
-        {name:"Valour Primary School",cn:"勇毅小学",area:"Punggol",tier:3,programs:[],desc:"榜鹅区较新小学。"},
-        {name:"Waterway Primary School",cn:"水道小学",area:"Punggol",tier:3,programs:[],desc:"榜鹅区较新小学。"},
-        {name:"Wellington Primary School",cn:"威灵顿小学",area:"Pasir Ris",tier:3,programs:[],desc:"巴西立区社区小学。"},
-        {name:"West Grove Primary School",cn:"西丛小学",area:"Jurong West",tier:3,programs:[],desc:"裕廊西区社区小学。"},
-        {name:"West Spring Primary School",cn:"西泉小学",area:"Bukit Panjang",tier:3,programs:[],desc:"武吉班让区社区小学。"},
-        {name:"West View Primary School",cn:"西景小学",area:"Bukit Batok",tier:3,programs:[],desc:"武吉巴督区社区小学。"},
-        {name:"Westwood Primary School",cn:"西林小学",area:"Jurong West",tier:3,programs:[],desc:"裕廊西区社区小学。"},
-        {name:"White Sands Primary School",cn:"白沙小学",area:"Pasir Ris",tier:3,programs:[],desc:"巴西立区社区小学。"},
-        {name:"Woodgrove Primary School",cn:"林景小学",area:"Woodlands",tier:3,programs:[],desc:"兀兰区社区小学。"},
-        {name:"Woodlands Primary School",cn:"兀兰小学",area:"Woodlands",tier:3,programs:[],desc:"兀兰区社区小学。"},
-        {name:"Woodlands Ring Primary School",cn:"兀兰环小学",area:"Woodlands",tier:3,programs:[],desc:"兀兰区社区小学。"},
-        {name:"Xinghua Primary School",cn:"兴化小学",area:"Punggol",tier:3,programs:[],desc:"榜鹅区社区小学。"},
-        {name:"Xingnan Primary School",cn:"兴南小学",area:"Jurong West",tier:3,programs:[],desc:"裕廊西区社区小学。"},
-        {name:"Xinmin Primary School",cn:"新民小学",area:"Hougang",tier:3,programs:[],desc:"后港区社区小学。"},
-        {name:"Xishan Primary School",cn:"西山小学",area:"Choa Chu Kang",tier:3,programs:[],desc:"蔡厝港区社区小学。"},
-        {name:"Yangzheng Primary School",cn:"养正小学",area:"Ang Mo Kio",tier:2,programs:[],desc:"宏茂桥区传统华校，学术口碑不错。"},
-        {name:"Yew Tee Primary School",cn:"油池小学",area:"Choa Chu Kang",tier:3,programs:[],desc:"蔡厝港区社区小学。"},
-        {name:"Yio Chu Kang Primary School",cn:"杨厝港小学",area:"Ang Mo Kio",tier:3,programs:[],desc:"宏茂桥区社区小学。"},
-        {name:"Yishun Primary School",cn:"义顺小学",area:"Yishun",tier:3,programs:[],desc:"义顺区社区小学。"},
-        {name:"Yu Neng Primary School",cn:"育能小学",area:"Jurong West",tier:3,programs:[],desc:"裕廊西区社区小学。"},
-        {name:"Yuhua Primary School",cn:"裕华小学",area:"Jurong East",tier:3,programs:[],desc:"裕廊东区社区小学。"},
-        {name:"Yumin Primary School",cn:"裕民小学",area:"Ang Mo Kio",tier:3,programs:[],desc:"宏茂桥区社区小学。"},
-        {name:"Zhangde Primary School",cn:"彰德小学",area:"Ang Mo Kio",tier:3,programs:[],desc:"宏茂桥区社区小学。"},
-        {name:"Zhenghua Primary School",cn:"正华小学",area:"Bukit Panjang",tier:3,programs:[],desc:"武吉班让区社区小学。"},
-        {name:"Zhonghua Primary School",cn:"中华小学",area:"Serangoon",tier:2,programs:[],desc:"实龙岗区传统华校。"},
-        {name:"Catholic High School (Primary)",cn:"公教小学",area:"Bishan",tier:1,programs:["SAP","GEP"],desc:"碧山区顶尖男校小学部，特选+高才班，全国排名前五。"}
+        {name:"Admiralty Primary School",cn:"海军部小学",area:"Woodlands",tier:4,p2b:53,programs:[],desc:"兀兰北部社区小学。"},
+        {name:"Ahmad Ibrahim Primary School",cn:"阿末依布拉欣小学",area:"Yishun",tier:4,p2b:92,programs:[],desc:"义顺区社区小学。"},
+        {name:"Ai Tong School",cn:"爱同学校",area:"Ang Mo Kio",tier:1,p2b:30,programs:["GEP"],desc:"宏茂桥区顶尖小学，设有高才班（GEP），学术竞争力强。"},
+        {name:"Alexandra Primary School",cn:"亚历山大小学",area:"Queenstown",tier:3,p2b:54,programs:[],desc:"女皇镇区社区小学。"},
+        {name:"Anchor Green Primary School",cn:"翠苑小学",area:"Sengkang",tier:3,p2b:75,programs:[],desc:"盛港区较新小学。"},
+        {name:"Anderson Primary School",cn:"安德逊小学",area:"Ang Mo Kio",tier:2,p2b:47,programs:[],desc:"宏茂桥区口碑良好的小学，学术表现不错。"},
+        {name:"Ang Mo Kio Primary School",cn:"宏茂桥小学",area:"Ang Mo Kio",tier:3,p2b:45,programs:[],desc:"宏茂桥区社区小学。"},
+        {name:"Anglo-Chinese School (Junior)",cn:"英华学校（经禧）",area:"Queenstown",tier:1,p2b:46,programs:["GEP"],desc:"英华大家庭小学部，顶尖名校，设有GEP高才班。"},
+        {name:"Anglo-Chinese School (Primary)",cn:"英华小学",area:"Bukit Timah",tier:1,p2b:28,programs:["GEP"],desc:"武吉知马区顶尖名校，高才班，学术与品格教育双强。"},
+        {name:"Angsana Primary School",cn:"安善小学",area:"Ang Mo Kio",tier:4,p2b:43,programs:[],desc:"宏茂桥区社区小学。"},
+        {name:"Beacon Primary School",cn:"明志小学",area:"Bukit Panjang",tier:3,p2b:72,programs:[],desc:"武吉班让区小学。"},
+        {name:"Bedok Green Primary School",cn:"勿洛绿苑小学",area:"Bedok",tier:3,p2b:74,programs:[],desc:"勿洛区社区小学。"},
+        {name:"Bendemeer Primary School",cn:"明地迷亚小学",area:"Kallang",tier:3,p2b:56,programs:[],desc:"加冷区社区小学。"},
+        {name:"Blangah Rise Primary School",cn:"布兰雅坡小学",area:"Bukit Merah",tier:3,p2b:36,programs:[],desc:"红山区小学。"},
+        {name:"Boon Lay Garden Primary School",cn:"文礼花园小学",area:"Jurong West",tier:3,p2b:90,programs:[],desc:"裕廊西区社区小学。"},
+        {name:"Bukit Panjang Primary School",cn:"武吉班让小学",area:"Bukit Panjang",tier:3,p2b:44,programs:[],desc:"武吉班让区社区小学。"},
+        {name:"Bukit Timah Primary School",cn:"武吉知马小学",area:"Bukit Timah",tier:3,p2b:65,programs:[],desc:"武吉知马区社区小学。"},
+        {name:"Bukit View Primary School",cn:"武吉景小学",area:"Bukit Batok",tier:3,p2b:61,programs:[],desc:"武吉巴督区小学。"},
+        {name:"Canberra Primary School",cn:"坎培拉小学",area:"Sembawang",tier:3,p2b:52,programs:[],desc:"三巴旺区较新小学，设施现代。"},
+        {name:"Canossa Catholic Primary School",cn:"嘉诺撒天主教小学",area:"Bedok",tier:2,p2b:47,programs:[],desc:"勿洛区天主教女校，学术表现不错。"},
+        {name:"Cantonment Primary School",cn:"贞德小学",area:"Queenstown",tier:3,p2b:58,programs:[],desc:"女皇镇区社区小学。"},
+        {name:"Casuarina Primary School",cn:"木麻黄小学",area:"Tampines",tier:3,p2b:48,programs:[],desc:"淡滨尼区社区小学。"},
+        {name:"Cedar Primary School",cn:"四德小学",area:"Toa Payoh",tier:2,p2b:83,programs:[],desc:"大巴窑区小学，与四德女中同系。"},
+        {name:"Changkat Primary School",cn:"昌凯小学",area:"Bukit Merah",tier:3,p2b:44,programs:[],desc:"红山区社区小学。"},
+        {name:"CHIJ (Katong) Primary",cn:"圣婴女校（加东）小学",area:"Marine Parade",tier:2,p2b:67,programs:[],desc:"东海岸区天主教女校，学术口碑良好。"},
+        {name:"CHIJ (Kellock)",cn:"圣婴女校（基洛）",area:"Queenstown",tier:2,p2b:70,programs:[],desc:"女皇镇区天主教女校。"},
+        {name:"CHIJ Our Lady Queen of Peace",cn:"圣婴女校（和平之后）",area:"Bukit Panjang",tier:2,p2b:66,programs:[],desc:"武吉班让区天主教女校。"},
+        {name:"CHIJ Our Lady of Good Counsel",cn:"圣婴女校（善导之母）",area:"Toa Payoh",tier:2,p2b:50,programs:[],desc:"大巴窑区天主教女校，排名不错。"},
+        {name:"CHIJ Our Lady of the Nativity",cn:"圣婴女校（诞生之母）",area:"Hougang",tier:3,p2b:76,programs:[],desc:"后港区天主教女校。"},
+        {name:"CHIJ (Toa Payoh)",cn:"圣婴女校（大巴窑）",area:"Toa Payoh",tier:3,p2b:70,programs:[],desc:"大巴窑区天主教女校。"},
+        {name:"CHIJ St. Nicholas Girls' School (Primary)",cn:"圣尼各拉女校小学",area:"Ang Mo Kio",tier:1,p2b:20,programs:["SAP","GEP"],desc:"顶尖女校小学部，特选小学+高才班，宏茂桥区名校。"},
+        {name:"Chongfu School",cn:"崇福学校",area:"Yishun",tier:2,p2b:46,programs:[],desc:"义顺区传统华校，学术不错。"},
+        {name:"Chongzheng Primary School",cn:"崇正小学",area:"Tampines",tier:3,p2b:42,programs:[],desc:"淡滨尼区小学。"},
+        {name:"Chua Chu Kang Primary School",cn:"蔡厝港小学",area:"Choa Chu Kang",tier:3,p2b:68,programs:[],desc:"蔡厝港区社区小学。"},
+        {name:"Clementi Primary School",cn:"金文泰小学",area:"Clementi",tier:3,p2b:75,programs:[],desc:"金文泰区社区小学。"},
+        {name:"Compassvale Primary School",cn:"康柏小学",area:"Sengkang",tier:3,p2b:72,programs:[],desc:"盛港区社区小学。"},
+        {name:"Concord Primary School",cn:"康科德小学",area:"Choa Chu Kang",tier:3,p2b:73,programs:[],desc:"蔡厝港区社区小学。"},
+        {name:"Corporation Primary School",cn:"公司小学",area:"Jurong East",tier:3,p2b:64,programs:[],desc:"裕廊东区社区小学。"},
+        {name:"Damai Primary School",cn:"达迈小学",area:"Bedok",tier:3,p2b:56,programs:[],desc:"勿洛区社区小学。"},
+        {name:"Dazhong Primary School",cn:"大众小学",area:"Jurong West",tier:3,p2b:50,programs:[],desc:"裕廊西区社区小学。"},
+        {name:"De La Salle School",cn:"德拉萨尔学校",area:"Hougang",tier:3,p2b:66,programs:[],desc:"后港区天主教学校。"},
+        {name:"East Spring Primary School",cn:"东泉小学",area:"Tampines",tier:3,p2b:44,programs:[],desc:"淡滨尼区社区小学。"},
+        {name:"Edgefield Primary School",cn:"毅道小学",area:"Punggol",tier:3,p2b:68,programs:[],desc:"榜鹅区较新小学。"},
+        {name:"Elias Park Primary School",cn:"以利雅公园小学",area:"Pasir Ris",tier:3,p2b:52,programs:[],desc:"巴西立区社区小学。"},
+        {name:"Endeavour Primary School",cn:"恩得小学",area:"Jurong West",tier:3,p2b:66,programs:[],desc:"裕廊西区社区小学。"},
+        {name:"Eunos Primary School",cn:"友诺士小学",area:"Bedok",tier:3,p2b:26,programs:[],desc:"勿洛区社区小学。"},
+        {name:"Evergreen Primary School",cn:"常青小学",area:"Woodlands",tier:3,p2b:43,programs:[],desc:"兀兰区社区小学。"},
+        {name:"Fairfield Methodist School (Primary)",cn:"花菲卫理小学",area:"Queenstown",tier:2,p2b:32,programs:[],desc:"女皇镇区卫理公会小学，学术口碑不错。"},
+        {name:"Farrer Park Primary School",cn:"花拉公园小学",area:"Novena",tier:3,p2b:57,programs:[],desc:"诺维娜区社区小学。"},
+        {name:"Fengshan Primary School",cn:"凤山小学",area:"Bedok",tier:2,p2b:46,programs:[],desc:"勿洛区学术表现不错的小学。"},
+        {name:"Fern Green Primary School",cn:"蕨绿小学",area:"Sengkang",tier:3,p2b:83,programs:[],desc:"盛港区较新小学。"},
+        {name:"Fernvale Primary School",cn:"锦泉小学",area:"Sengkang",tier:3,p2b:67,programs:[],desc:"盛港区社区小学。"},
+        {name:"First Toa Payoh Primary School",cn:"第一大巴窑小学",area:"Toa Payoh",tier:3,p2b:51,programs:[],desc:"大巴窑区社区小学。"},
+        {name:"Frontier Primary School",cn:"先锋小学",area:"Jurong West",tier:3,p2b:34,programs:[],desc:"裕廊西区社区小学。"},
+        {name:"Fuchun Primary School",cn:"福春小学",area:"Woodlands",tier:3,p2b:72,programs:[],desc:"兀兰区社区小学。"},
+        {name:"Fuhua Primary School",cn:"辅华小学",area:"Jurong West",tier:3,p2b:52,programs:[],desc:"裕廊西区社区小学。"},
+        {name:"Gan Eng Seng Primary School",cn:"颜永成小学",area:"Bukit Merah",tier:3,p2b:66,programs:[],desc:"红山区社区小学。"},
+        {name:"Geylang Methodist School (Primary)",cn:"芽笼美以美小学",area:"Central",tier:2,p2b:78,programs:[],desc:"市中心地段，卫理公会小学。"},
+        {name:"Gongshang Primary School",cn:"工商小学",area:"Tampines",tier:3,p2b:38,programs:[],desc:"淡滨尼区社区小学。"},
+        {name:"Greendale Primary School",cn:"青景小学",area:"Punggol",tier:3,p2b:106,programs:[],desc:"榜鹅区社区小学。"},
+        {name:"Greenridge Primary School",cn:"青岭小学",area:"Bukit Panjang",tier:3,p2b:66,programs:[],desc:"武吉班让区社区小学。"},
+        {name:"Greenwood Primary School",cn:"绿林小学",area:"Bukit Panjang",tier:2,p2b:61,programs:[],desc:"武吉班让区口碑不错的小学。"},
+        {name:"Guangyang Primary School",cn:"光洋小学",area:"Bishan",tier:3,p2b:46,programs:[],desc:"碧山区社区小学。"},
+        {name:"Haig Girls' School",cn:"海格女校",area:"Geylang",tier:2,p2b:55,programs:[],desc:"芽笼区女校，学术表现不错。"},
+        {name:"Henry Park Primary School",cn:"恒力小学",area:"Bukit Timah",tier:1,p2b:32,programs:["GEP"],desc:"武吉知马区顶尖名校，设有GEP高才班，排名前十。"},
+        {name:"Holy Innocents' Primary School",cn:"圣婴小学",area:"Serangoon",tier:3,p2b:45,programs:[],desc:"实龙岗区天主教小学。"},
+        {name:"Hong Wen School",cn:"宏文学校",area:"Kallang",tier:3,p2b:48,programs:[],desc:"加冷区传统华校。"},
+        {name:"Horizon Primary School",cn:"地平线小学",area:"Punggol",tier:3,p2b:91,programs:[],desc:"榜鹅区较新小学。"},
+        {name:"Hougang Primary School",cn:"后港小学",area:"Hougang",tier:3,p2b:60,programs:[],desc:"后港区社区小学。"},
+        {name:"Huamin Primary School",cn:"华民小学",area:"Hougang",tier:3,p2b:54,programs:[],desc:"后港区社区小学。"},
+        {name:"Innova Primary School",cn:"创新小学",area:"Jurong West",tier:3,p2b:39,programs:[],desc:"裕廊西区社区小学。"},
+        {name:"Jiemin Primary School",cn:"洁明小学",area:"Sengkang",tier:3,p2b:46,programs:[],desc:"盛港区社区小学。"},
+        {name:"Jing Shan Primary School",cn:"景山小学",area:"Ang Mo Kio",tier:3,p2b:36,programs:[],desc:"宏茂桥区社区小学。"},
+        {name:"Junyuan Primary School",cn:"俊源小学",area:"Tampines",tier:3,p2b:24,programs:[],desc:"淡滨尼区社区小学。"},
+        {name:"Jurong Primary School",cn:"裕廊小学",area:"Jurong East",tier:3,p2b:33,programs:[],desc:"裕廊东区社区小学。"},
+        {name:"Jurong West Primary School",cn:"裕廊西小学",area:"Jurong West",tier:3,p2b:45,programs:[],desc:"裕廊西区社区小学。"},
+        {name:"Juying Primary School",cn:"聚英小学",area:"Jurong West",tier:3,p2b:33,programs:[],desc:"裕廊西区社区小学。"},
+        {name:"Keming Primary School",cn:"克明小学",area:"Bukit Batok",tier:3,p2b:39,programs:[],desc:"武吉巴督区社区小学。"},
+        {name:"Kheng Cheng School",cn:"庆成学校",area:"Queenstown",tier:3,p2b:75,programs:[],desc:"女皇镇区传统华校。"},
+        {name:"Kong Hwa School",cn:"光华学校",area:"Bedok",tier:2,p2b:51,programs:[],desc:"勿洛区传统华校，学术表现不错。"},
+        {name:"Kranji Primary School",cn:"克兰芝小学",area:"Choa Chu Kang",tier:3,p2b:61,programs:[],desc:"蔡厝港区社区小学。"},
+        {name:"Kuo Chuan Presbyterian Primary School",cn:"国专长老会小学",area:"Bishan",tier:2,p2b:45,programs:[],desc:"碧山区基督教长老会小学，口碑不错。"},
+        {name:"Lakeside Primary School",cn:"湖畔小学",area:"Jurong West",tier:3,p2b:63,programs:[],desc:"裕廊西区社区小学。"},
+        {name:"Lianhua Primary School",cn:"联华小学",area:"Bukit Batok",tier:3,p2b:68,programs:[],desc:"武吉巴督区社区小学。"},
+        {name:"Maha Bodhi School",cn:"菩提学校",area:"Tampines",tier:2,p2b:43,programs:[],desc:"淡滨尼区佛教学校，学术口碑不错。"},
+        {name:"Maris Stella High School (Primary)",cn:"海星中学小学部",area:"Bedok",tier:2,p2b:55,programs:["SAP"],desc:"特选小学，华文教育传统深厚。"},
+        {name:"Marsiling Primary School",cn:"马西岭小学",area:"Woodlands",tier:3,p2b:54,programs:[],desc:"兀兰区社区小学。"},
+        {name:"Marymount Convent School",cn:"玛丽蒙修道院学校",area:"Bishan",tier:2,p2b:83,programs:[],desc:"碧山区天主教女校，口碑良好。"},
+        {name:"Mayflower Primary School",cn:"美华小学",area:"Ang Mo Kio",tier:3,p2b:63,programs:[],desc:"宏茂桥区社区小学。"},
+        {name:"Mee Toh School",cn:"美桃学校",area:"Punggol",tier:3,p2b:93,programs:[],desc:"榜鹅区社区小学。"},
+        {name:"Meridian Primary School",cn:"美廉小学",area:"Pasir Ris",tier:3,p2b:62,programs:[],desc:"巴西立区社区小学。"},
+        {name:"Methodist Girls' School (Primary)",cn:"美以美女校小学",area:"Bukit Timah",tier:1,p2b:21,programs:["GEP"],desc:"武吉知马区顶尖女校小学部，设有GEP高才班。"},
+        {name:"Montfort Junior School",cn:"蒙福学校小学部",area:"Hougang",tier:3,p2b:51,programs:[],desc:"后港区天主教男校。"},
+        {name:"Nan Chiau Primary School",cn:"南侨小学",area:"Sengkang",tier:2,p2b:59,programs:["SAP"],desc:"盛港区特选小学，华文教育强校。"},
+        {name:"Nan Hua Primary School",cn:"南华小学",area:"Clementi",tier:1,p2b:20,programs:["SAP","GEP"],desc:"金文泰区顶尖名校，特选+高才班，华文教育强校。"},
+        {name:"Nanyang Primary School",cn:"南洋小学",area:"Bukit Timah",tier:1,p2b:20,programs:["SAP","GEP"],desc:"武吉知马区最顶尖小学之一，特选+高才班，全国排名前三。"},
+        {name:"Naval Base Primary School",cn:"海军基地小学",area:"Yishun",tier:3,p2b:74,programs:[],desc:"义顺区社区小学。"},
+        {name:"New Town Primary School",cn:"新镇小学",area:"Queenstown",tier:3,p2b:82,programs:[],desc:"女皇镇区社区小学。"},
+        {name:"Ngee Ann Primary School",cn:"义安小学",area:"Clementi",tier:3,p2b:65,programs:[],desc:"金文泰区社区小学。"},
+        {name:"North Spring Primary School",cn:"北泉小学",area:"Yishun",tier:3,p2b:67,programs:[],desc:"义顺区社区小学。"},
+        {name:"North View Primary School",cn:"北景小学",area:"Yishun",tier:3,p2b:44,programs:[],desc:"义顺区社区小学。"},
+        {name:"North Vista Primary School",cn:"北景小学",area:"Sengkang",tier:3,p2b:79,programs:[],desc:"盛港区社区小学。"},
+        {name:"Northland Primary School",cn:"北地小学",area:"Yishun",tier:3,p2b:53,programs:[],desc:"义顺区社区小学。"},
+        {name:"Northoaks Primary School",cn:"北橡小学",area:"Woodlands",tier:3,p2b:93,programs:[],desc:"兀兰区较新小学。"},
+        {name:"Northshore Primary School",cn:"北岸小学",area:"Punggol",tier:3,p2b:80,programs:[],desc:"榜鹅区较新小学。"},
+        {name:"Oasis Primary School",cn:"绿洲小学",area:"Punggol",tier:3,p2b:57,programs:[],desc:"榜鹅区较新小学。"},
+        {name:"Opera Estate Primary School",cn:"歌剧园小学",area:"Bedok",tier:3,p2b:41,programs:[],desc:"勿洛区社区小学。"},
+        {name:"Palm View Primary School",cn:"棕榈景小学",area:"Bukit Panjang",tier:3,p2b:71,programs:[],desc:"武吉班让区社区小学。"},
+        {name:"Park View Primary School",cn:"百景小学",area:"Sengkang",tier:3,p2b:52,programs:[],desc:"盛港区社区小学。"},
+        {name:"Pasir Ris Primary School",cn:"巴西立小学",area:"Pasir Ris",tier:3,p2b:34,programs:[],desc:"巴西立区社区小学。"},
+        {name:"Paya Lebar Methodist Girls' School (Primary)",cn:"巴耶利峇美以美女校小学",area:"Hougang",tier:2,p2b:75,programs:[],desc:"后港区卫理公会女校。"},
+        {name:"Pei Chun Public School",cn:"培群学校",area:"Toa Payoh",tier:2,p2b:27,programs:["SAP"],desc:"大巴窑区特选小学，华文教育传统深厚。"},
+        {name:"Pei Hwa Presbyterian Primary School",cn:"培华长老会小学",area:"Bukit Panjang",tier:3,p2b:20,programs:[],desc:"武吉班让区基督教小学。"},
+        {name:"Pei Tong Primary School",cn:"培同小学",area:"Clementi",tier:3,p2b:84,programs:[],desc:"金文泰区社区小学。"},
+        {name:"Peiying Primary School",cn:"培英小学",area:"Yishun",tier:3,p2b:57,programs:[],desc:"义顺区社区小学。"},
+        {name:"Pioneer Primary School",cn:"先驱小学",area:"Jurong West",tier:3,p2b:66,programs:[],desc:"裕廊西区社区小学。"},
+        {name:"Poi Ching School",cn:"培青学校",area:"Tampines",tier:2,p2b:70,programs:[],desc:"淡滨尼区传统华校，学术表现不错。"},
+        {name:"Princess Elizabeth Primary School",cn:"伊丽莎白公主小学",area:"Bukit Batok",tier:3,p2b:40,programs:[],desc:"武吉巴督区社区小学。"},
+        {name:"Punggol Cove Primary School",cn:"榜鹅湾小学",area:"Punggol",tier:3,p2b:61,programs:[],desc:"榜鹅区较新小学。"},
+        {name:"Punggol Green Primary School",cn:"榜鹅绿苑小学",area:"Punggol",tier:3,p2b:25,programs:[],desc:"榜鹅区社区小学。"},
+        {name:"Punggol Primary School",cn:"榜鹅小学",area:"Punggol",tier:3,p2b:64,programs:[],desc:"榜鹅区社区小学。"},
+        {name:"Punggol View Primary School",cn:"榜鹅景小学",area:"Punggol",tier:3,p2b:60,programs:[],desc:"榜鹅区社区小学。"},
+        {name:"Qifa Primary School",cn:"启发小学",area:"Queenstown",tier:2,p2b:69,programs:[],desc:"女皇镇区社区小学，学术口碑不错。"},
+        {name:"Qihua Primary School",cn:"启化小学",area:"Woodlands",tier:3,p2b:48,programs:[],desc:"兀兰区社区小学。"},
+        {name:"Queenstown Primary School",cn:"女皇镇小学",area:"Queenstown",tier:3,p2b:60,programs:[],desc:"女皇镇区社区小学。"},
+        {name:"Radin Mas Primary School",cn:"拉丁马士小学",area:"Queenstown",tier:3,p2b:33,programs:[],desc:"女皇镇区社区小学。"},
+        {name:"Raffles Girls' Primary School",cn:"莱佛士女小",area:"Toa Payoh",tier:1,p2b:74,programs:["GEP"],desc:"全国最顶尖女子小学之一，设有GEP高才班。"},
+        {name:"Red Swastika School",cn:"卍慈学校",area:"Bedok",tier:1,p2b:20,programs:[],desc:"勿洛区顶尖小学，道教背景，学术竞争力极强。"},
+        {name:"River Valley Primary School",cn:"立化小学",area:"Queenstown",tier:2,p2b:33,programs:[],desc:"女皇镇区小学，学术表现不错。"},
+        {name:"Riverside Primary School",cn:"河畔小学",area:"Woodlands",tier:3,p2b:23,programs:[],desc:"兀兰区社区小学。"},
+        {name:"Rivervale Primary School",cn:"河谷小学",area:"Sengkang",tier:3,p2b:62,programs:[],desc:"盛港区社区小学。"},
+        {name:"Rosyth School",cn:"乐赛学校",area:"Serangoon",tier:1,p2b:20,programs:["GEP"],desc:"实龙岗区顶尖名校，设有GEP高才班。"},
+        {name:"Rulang Primary School",cn:"如兰小学",area:"Jurong West",tier:1,p2b:22,programs:["GEP"],desc:"裕廊西区顶尖名校，设有GEP高才班，西部最强小学。"},
+        {name:"Sembawang Primary School",cn:"三巴旺小学",area:"Sembawang",tier:3,p2b:55,programs:[],desc:"三巴旺区社区小学。"},
+        {name:"Seng Kang Primary School",cn:"盛港小学",area:"Sengkang",tier:3,p2b:87,programs:[],desc:"盛港区社区小学。"},
+        {name:"Sengkang Green Primary School",cn:"盛港绿苑小学",area:"Sengkang",tier:3,p2b:43,programs:[],desc:"盛港区社区小学。"},
+        {name:"Shuqun Primary School",cn:"淑群小学",area:"Jurong West",tier:3,p2b:29,programs:[],desc:"裕廊西区社区小学。"},
+        {name:"Si Ling Primary School",cn:"思励小学",area:"Woodlands",tier:3,p2b:54,programs:[],desc:"兀兰区社区小学。"},
+        {name:"Singapore Chinese Girls' School (Primary)",cn:"新加坡华族女校小学",area:"Novena",tier:1,p2b:34,programs:["GEP"],desc:"顶尖女校小学部，诺维娜区百年名校，设有GEP。"},
+        {name:"South View Primary School",cn:"南景小学",area:"Jurong West",tier:3,p2b:38,programs:[],desc:"裕廊西区社区小学。"},
+        {name:"Springdale Primary School",cn:"春田小学",area:"Bukit Panjang",tier:3,p2b:53,programs:[],desc:"武吉班让区社区小学。"},
+        {name:"St. Andrew's Junior School",cn:"圣安德烈小学",area:"Toa Payoh",tier:2,p2b:50,programs:[],desc:"大巴窑区基督教小学，学术口碑良好。"},
+        {name:"St. Anthony's Canossian Primary School",cn:"圣安东尼天主教小学",area:"Bedok",tier:2,p2b:84,programs:[],desc:"勿洛区天主教女校小学。"},
+        {name:"St. Anthony's Primary School",cn:"圣安东尼小学",area:"Woodlands",tier:3,p2b:49,programs:[],desc:"兀兰区天主教小学。"},
+        {name:"St. Gabriel's Primary School",cn:"圣嘉百利小学",area:"Serangoon",tier:3,p2b:45,programs:[],desc:"实龙岗区天主教男校。"},
+        {name:"St. Hilda's Primary School",cn:"圣希尔达小学",area:"Tampines",tier:1,p2b:56,programs:["GEP"],desc:"淡滨尼区名校，设有GEP高才班，东部学术强校。"},
+        {name:"St. Joseph's Institution Junior",cn:"圣约瑟书院小学",area:"Novena",tier:2,p2b:60,programs:[],desc:"诺维娜区天主教名校小学部。"},
+        {name:"St. Margaret's Primary School",cn:"圣玛格烈小学",area:"Queenstown",tier:2,p2b:65,programs:[],desc:"女皇镇区历史悠久的女校。"},
+        {name:"St. Stephen's School",cn:"圣斯特芬学校",area:"Bedok",tier:3,p2b:74,programs:[],desc:"勿洛区基督教小学。"},
+        {name:"Stamford Primary School",cn:"斯坦福小学",area:"Hougang",tier:3,p2b:62,programs:[],desc:"后港区社区小学。"},
+        {name:"Tampines North Primary School",cn:"淡滨尼北小学",area:"Tampines",tier:3,p2b:71,programs:[],desc:"淡滨尼区社区小学。"},
+        {name:"Tampines Primary School",cn:"淡滨尼小学",area:"Tampines",tier:3,p2b:46,programs:[],desc:"淡滨尼区社区小学。"},
+        {name:"Tanjong Katong Primary School",cn:"丹绒加东小学",area:"Marine Parade",tier:2,p2b:49,programs:[],desc:"东海岸区学术表现不错的小学。"},
+        {name:"Tao Nan School",cn:"道南学校",area:"Marine Parade",tier:1,p2b:34,programs:["SAP","GEP"],desc:"东海岸区顶尖名校，特选+高才班，传统华校名门。"},
+        {name:"Teck Ghee Primary School",cn:"德义小学",area:"Ang Mo Kio",tier:2,p2b:47,programs:[],desc:"宏茂桥区社区小学，口碑不错。"},
+        {name:"Teck Whye Primary School",cn:"德惠小学",area:"Choa Chu Kang",tier:3,p2b:73,programs:[],desc:"蔡厝港区社区小学。"},
+        {name:"Telok Kurau Primary School",cn:"直落古楼小学",area:"Bedok",tier:3,p2b:66,programs:[],desc:"勿洛区社区小学。"},
+        {name:"Temasek Primary School",cn:"淡马锡小学",area:"Bedok",tier:2,p2b:20,programs:[],desc:"勿洛区口碑不错的小学。"},
+        {name:"Townsville Primary School",cn:"镇仁小学",area:"Sengkang",tier:3,p2b:57,programs:[],desc:"盛港区社区小学。"},
+        {name:"Unity Primary School",cn:"友诺小学",area:"Choa Chu Kang",tier:3,p2b:54,programs:[],desc:"蔡厝港区社区小学。"},
+        {name:"Valour Primary School",cn:"勇毅小学",area:"Punggol",tier:3,p2b:110,programs:[],desc:"榜鹅区较新小学。"},
+        {name:"Waterway Primary School",cn:"水道小学",area:"Punggol",tier:3,p2b:82,programs:[],desc:"榜鹅区较新小学。"},
+        {name:"Wellington Primary School",cn:"威灵顿小学",area:"Pasir Ris",tier:3,p2b:85,programs:[],desc:"巴西立区社区小学。"},
+        {name:"West Grove Primary School",cn:"西丛小学",area:"Jurong West",tier:3,p2b:40,programs:[],desc:"裕廊西区社区小学。"},
+        {name:"West Spring Primary School",cn:"西泉小学",area:"Bukit Panjang",tier:3,p2b:23,programs:[],desc:"武吉班让区社区小学。"},
+        {name:"West View Primary School",cn:"西景小学",area:"Bukit Batok",tier:3,p2b:64,programs:[],desc:"武吉巴督区社区小学。"},
+        {name:"Westwood Primary School",cn:"西林小学",area:"Jurong West",tier:3,p2b:29,programs:[],desc:"裕廊西区社区小学。"},
+        {name:"White Sands Primary School",cn:"白沙小学",area:"Pasir Ris",tier:3,p2b:40,programs:[],desc:"巴西立区社区小学。"},
+        {name:"Woodgrove Primary School",cn:"林景小学",area:"Woodlands",tier:3,p2b:41,programs:[],desc:"兀兰区社区小学。"},
+        {name:"Woodlands Primary School",cn:"兀兰小学",area:"Woodlands",tier:3,p2b:39,programs:[],desc:"兀兰区社区小学。"},
+        {name:"Woodlands Ring Primary School",cn:"兀兰环小学",area:"Woodlands",tier:3,p2b:61,programs:[],desc:"兀兰区社区小学。"},
+        {name:"Xinghua Primary School",cn:"兴化小学",area:"Punggol",tier:3,p2b:63,programs:[],desc:"榜鹅区社区小学。"},
+        {name:"Xingnan Primary School",cn:"兴南小学",area:"Jurong West",tier:3,p2b:37,programs:[],desc:"裕廊西区社区小学。"},
+        {name:"Xinmin Primary School",cn:"新民小学",area:"Hougang",tier:3,p2b:48,programs:[],desc:"后港区社区小学。"},
+        {name:"Xishan Primary School",cn:"西山小学",area:"Choa Chu Kang",tier:3,p2b:83,programs:[],desc:"蔡厝港区社区小学。"},
+        {name:"Yangzheng Primary School",cn:"养正小学",area:"Ang Mo Kio",tier:2,p2b:44,programs:[],desc:"宏茂桥区传统华校，学术口碑不错。"},
+        {name:"Yew Tee Primary School",cn:"油池小学",area:"Choa Chu Kang",tier:3,p2b:55,programs:[],desc:"蔡厝港区社区小学。"},
+        {name:"Yio Chu Kang Primary School",cn:"杨厝港小学",area:"Ang Mo Kio",tier:3,p2b:65,programs:[],desc:"宏茂桥区社区小学。"},
+        {name:"Yishun Primary School",cn:"义顺小学",area:"Yishun",tier:3,p2b:55,programs:[],desc:"义顺区社区小学。"},
+        {name:"Yu Neng Primary School",cn:"育能小学",area:"Jurong West",tier:3,p2b:25,programs:[],desc:"裕廊西区社区小学。"},
+        {name:"Yuhua Primary School",cn:"裕华小学",area:"Jurong East",tier:3,p2b:65,programs:[],desc:"裕廊东区社区小学。"},
+        {name:"Yumin Primary School",cn:"裕民小学",area:"Ang Mo Kio",tier:3,p2b:46,programs:[],desc:"宏茂桥区社区小学。"},
+        {name:"Zhangde Primary School",cn:"彰德小学",area:"Ang Mo Kio",tier:3,p2b:62,programs:[],desc:"宏茂桥区社区小学。"},
+        {name:"Zhenghua Primary School",cn:"正华小学",area:"Bukit Panjang",tier:3,p2b:51,programs:[],desc:"武吉班让区社区小学。"},
+        {name:"Zhonghua Primary School",cn:"中华小学",area:"Serangoon",tier:2,p2b:47,programs:[],desc:"实龙岗区传统华校。"},
+        {name:"Catholic High School (Primary)",cn:"公教小学",area:"Bishan",tier:1,p2b:20,programs:["SAP","GEP"],desc:"碧山区顶尖男校小学部，特选+高才班，全国排名前五。"}
       ];
 
       /* ── Tier helpers ── */
       const tierLabels = {1:"Tier 1 顶尖",2:"Tier 2 优质",3:"Tier 3 良好",4:"Tier 4 社区"};
       const tierClass  = {1:"tier-1",2:"tier-2",3:"tier-3",4:"tier-4"};
 
+      /* ── P2B badge color ── */
+      function p2bClass(v){if(v<=30)return"p2b-hot";if(v<=45)return"p2b-warm";if(v<=60)return"p2b-mid";return"p2b-cool";}
+
       /* ── Populate area dropdown ── */
       const areaSet = [...new Set(schools.map(s=>s.area))].sort();
       const areaSel = document.getElementById("psArea");
       areaSet.forEach(a=>{const o=document.createElement("option");o.value=a;o.textContent=a;areaSel.appendChild(o)});
 
-      /* ── Render cards ── */
+      /* ── DOM refs ── */
       const grid = document.getElementById("psGrid");
+      const tableDiv = document.getElementById("psTable");
       const noRes = document.getElementById("psNoResults");
       const countEl = document.getElementById("psCount");
+      let currentView = "cards";
 
+      /* ── Render cards ── */
       function renderCards(list){
         grid.innerHTML = "";
         if(!list.length){grid.style.display="none";noRes.style.display="";countEl.textContent="显示 0 / "+schools.length+" 所";return;}
         grid.style.display="";noRes.style.display="none";
         countEl.textContent="显示 "+list.length+" / "+schools.length+" 所";
-        list.forEach(s=>{
+        list.forEach((s,i)=>{
           const card = document.createElement("div");
-          card.className = "ps-card";
+          card.className = "ps-card filter-active";
           let progHTML = "";
           s.programs.forEach(p=>{
             progHTML += '<span class="meta-tag '+(p==="GEP"?"gep":"sap")+'">'+p+'</span>';
           });
           card.innerHTML =
+            '<span class="p2b-badge '+p2bClass(s.p2b)+'" title="Phase 2B 剩余学额: '+s.p2b+'">'+s.p2b+'</span>'+
             '<div class="card-top">'+
               '<div><h3>'+s.name+'</h3><div class="cn-name">'+s.cn+'</div></div>'+
               '<span class="tier-badge '+tierClass[s.tier]+'">'+tierLabels[s.tier]+'</span>'+
@@ -1057,10 +1106,40 @@
               '<span class="meta-tag">'+s.area+'</span>'+
               progHTML+
             '</div>'+
-            '<div class="card-desc">'+s.desc+'</div>';
+            '<div class="card-desc">'+s.desc+'</div>'+
+            '<div class="p2b-label">Phase 2B 剩余学额: '+s.p2b+'</div>';
           grid.appendChild(card);
         });
       }
+
+      /* ── Render table ── */
+      function renderTable(list){
+        if(!list.length){tableDiv.innerHTML="<div class='ps-no-results'><span>🔍</span>没有找到符合条件的学校。</div>";return;}
+        let html = '<table class="rank-table"><thead><tr><th>#</th><th>学校名称</th><th>中文名</th><th>地区</th><th>P2B</th><th>梯队</th><th>项目</th></tr></thead><tbody>';
+        list.forEach((s,i)=>{
+          let progHTML = "";
+          s.programs.forEach(p=>{progHTML+='<span class="'+(p==="GEP"?"gep":"sap")+'">'+p+'</span>';});
+          html += '<tr><td class="rank-num">'+(i+1)+'</td>'+
+            '<td><strong>'+s.name+'</strong></td>'+
+            '<td>'+s.cn+'</td>'+
+            '<td>'+s.area+'</td>'+
+            '<td class="rank-p2b" style="color:'+(s.p2b<=30?'#b91c1c':s.p2b<=45?'#c2410c':s.p2b<=60?'#1d4ed8':'#059669')+'">'+s.p2b+'</td>'+
+            '<td class="rank-tier"><span class="tier-badge '+tierClass[s.tier]+'" style="font-size:.7rem;padding:.1rem .4rem">'+tierLabels[s.tier]+'</span></td>'+
+            '<td class="rank-prog">'+progHTML+'</td></tr>';
+        });
+        html += '</tbody></table>';
+        tableDiv.innerHTML = html;
+      }
+
+      /* ── View toggle ── */
+      window._setView = function(v){
+        currentView = v;
+        document.getElementById("viewCards").classList.toggle("active",v==="cards");
+        document.getElementById("viewTable").classList.toggle("active",v==="table");
+        grid.style.display = v==="cards"?"":"none";
+        tableDiv.style.display = v==="table"?"":"none";
+        applyFilters();
+      };
 
       /* ── Filter logic ── */
       function applyFilters(){
@@ -1068,25 +1147,43 @@
         const area = areaSel.value;
         const tier = document.getElementById("psTier").value;
         const prog = document.getElementById("psProgram").value;
+        const rank = document.getElementById("psRanking").value;
         const filtered = schools.filter(s=>{
           if(q && !(s.name.toLowerCase().includes(q) || s.cn.includes(q))) return false;
           if(area && s.area !== area) return false;
           if(tier && s.tier !== +tier) return false;
           if(prog && !s.programs.includes(prog)) return false;
+          if(rank){
+            const [lo,hi] = rank.split("-").map(Number);
+            if(s.p2b < lo || s.p2b > hi) return false;
+          }
           return true;
         });
-        /* Sort: tier asc, then name */
-        filtered.sort((a,b)=> a.tier - b.tier || a.name.localeCompare(b.name));
-        renderCards(filtered);
+        /* Sort: P2B asc (lower = more popular), then tier, then name */
+        filtered.sort((a,b)=> a.p2b - b.p2b || a.tier - b.tier || a.name.localeCompare(b.name));
+        countEl.textContent="显示 "+filtered.length+" / "+schools.length+" 所";
+        if(!filtered.length){
+          grid.style.display="none";tableDiv.style.display="none";noRes.style.display="";return;
+        }
+        noRes.style.display="none";
+        if(currentView==="cards"){
+          grid.style.display="";tableDiv.style.display="none";
+          renderCards(filtered);
+        } else {
+          grid.style.display="none";tableDiv.style.display="";
+          renderTable(filtered);
+        }
       }
+      window._applyFilters = applyFilters;
 
       document.getElementById("psSearch").addEventListener("input",applyFilters);
       areaSel.addEventListener("change",applyFilters);
       document.getElementById("psTier").addEventListener("change",applyFilters);
       document.getElementById("psProgram").addEventListener("change",applyFilters);
+      document.getElementById("psRanking").addEventListener("change",applyFilters);
 
-      /* Initial render */
-      schools.sort((a,b)=> a.tier - b.tier || a.name.localeCompare(b.name));
+      /* Initial render (sorted by P2B) */
+      schools.sort((a,b)=> a.p2b - b.p2b || a.tier - b.tier || a.name.localeCompare(b.name));
       renderCards(schools);
     })();
     </script>

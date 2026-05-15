@@ -29,6 +29,7 @@
   <!-- 升学路径 -->
   <url><loc>https://seda.org.sg/pathway/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://seda.org.sg/pathway/university-matcher/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://seda.org.sg/pathway/study-planner/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://seda.org.sg/wace-vs-a-level/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://seda.org.sg/wace-atar/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://seda.org.sg/wace-nus-ntu/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
@@ -38,6 +39,8 @@
 
   <!-- 学校数据库 -->
   <url><loc>https://seda.org.sg/school-database/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://seda.org.sg/primary-schools/</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://seda.org.sg/secondary-schools/</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
 
   <!-- 留学指南 -->
   <url><loc>https://seda.org.sg/guides/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>

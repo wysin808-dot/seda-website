@@ -28,6 +28,7 @@
 
   <!-- 升学路径 -->
   <url><loc>https://seda.org.sg/pathway/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://seda.org.sg/pathway/university-matcher/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://seda.org.sg/wace-vs-a-level/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://seda.org.sg/wace-atar/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://seda.org.sg/wace-nus-ntu/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>

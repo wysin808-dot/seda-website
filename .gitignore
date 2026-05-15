@@ -1,0 +1,6 @@
+.vercel
+.claude/
+seda-github-pages/
+deploy-package/
+*.zip
+node_modules/

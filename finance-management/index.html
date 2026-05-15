@@ -1,0 +1,626 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>新加坡私立学校财务管理系统</title>
+    <style>
+      :root {
+        --ink: #172033;
+        --muted: #667085;
+        --line: #e4e7ec;
+        --paper: #ffffff;
+        --wash: #f5f7fb;
+        --nav: #101828;
+        --brand: #1d4ed8;
+        --brand-dark: #173ea6;
+        --green: #0f9f6e;
+        --amber: #b7791f;
+        --red: #d92d20;
+        --violet: #6941c6;
+        --shadow: 0 18px 50px rgba(16, 24, 40, 0.1);
+      }
+
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        background: var(--wash);
+        color: var(--ink);
+        font-family: Inter, "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+      }
+      button, input, select { font: inherit; }
+      a { color: inherit; text-decoration: none; }
+
+      .app {
+        min-height: 100vh;
+        display: grid;
+        grid-template-columns: 260px minmax(0, 1fr);
+      }
+
+      .sidebar {
+        position: sticky;
+        top: 0;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        gap: 22px;
+        padding: 24px 18px;
+        background: var(--nav);
+        color: #fff;
+      }
+
+      .brand {
+        display: grid;
+        gap: 5px;
+        padding: 6px 8px 18px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+      }
+
+      .brand strong { font-size: 20px; }
+      .brand span { color: rgba(255, 255, 255, 0.62); font-size: 12px; }
+
+      .nav {
+        display: grid;
+        gap: 6px;
+      }
+
+      .nav a {
+        padding: 12px 13px;
+        border-radius: 8px;
+        color: rgba(255, 255, 255, 0.72);
+        font-weight: 700;
+      }
+
+      .nav a.active,
+      .nav a:hover {
+        background: rgba(255, 255, 255, 0.1);
+        color: #fff;
+      }
+
+      .sidebar-foot {
+        margin-top: auto;
+        padding: 14px;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 8px;
+        color: rgba(255, 255, 255, 0.72);
+        font-size: 13px;
+        line-height: 1.55;
+      }
+
+      .main {
+        min-width: 0;
+        padding: 28px;
+      }
+
+      .topbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+        margin-bottom: 24px;
+      }
+
+      .eyebrow {
+        margin: 0 0 7px;
+        color: var(--brand);
+        font-size: 12px;
+        font-weight: 900;
+        text-transform: uppercase;
+      }
+
+      h1, h2, h3, p { margin-top: 0; }
+      h1 { margin-bottom: 8px; font-size: clamp(30px, 4vw, 46px); line-height: 1.12; }
+      .subtitle { margin: 0; max-width: 900px; color: var(--muted); font-size: 18px; line-height: 1.65; }
+
+      .actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .button {
+        min-height: 42px;
+        padding: 0 16px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #fff;
+        color: var(--ink);
+        cursor: pointer;
+        font-weight: 800;
+      }
+
+      .button.primary {
+        border-color: var(--brand);
+        background: var(--brand);
+        color: #fff;
+      }
+
+      .button.primary:hover { background: var(--brand-dark); }
+
+      .hero-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1.2fr) minmax(320px, 0.8fr);
+        gap: 18px;
+        margin-bottom: 18px;
+      }
+
+      .panel, .kpi, .workflow-card {
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--paper);
+        box-shadow: 0 1px 2px rgba(16, 24, 40, 0.04);
+      }
+
+      .hero-panel {
+        padding: 26px;
+        background:
+          linear-gradient(135deg, rgba(29, 78, 216, 0.08), rgba(15, 159, 110, 0.08)),
+          #fff;
+      }
+
+      .hero-panel h2 {
+        margin-bottom: 12px;
+        font-size: 28px;
+      }
+
+      .hero-points {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 10px;
+        margin-top: 22px;
+      }
+
+      .hero-points span {
+        padding: 12px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.78);
+        color: var(--muted);
+        font-weight: 800;
+      }
+
+      .summary-card {
+        padding: 22px;
+      }
+
+      .summary-head,
+      .panel-head,
+      .invoice-row,
+      .calc-line {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 14px;
+      }
+
+      .summary-head span,
+      .kpi span,
+      .kpi small,
+      .panel-head p,
+      .invoice-row span,
+      .calc-field span,
+      .workflow-card p {
+        color: var(--muted);
+      }
+
+      .meter {
+        height: 12px;
+        margin: 22px 0;
+        overflow: hidden;
+        border-radius: 999px;
+        background: #e9edf5;
+      }
+
+      .meter span {
+        display: block;
+        width: 82%;
+        height: 100%;
+        border-radius: inherit;
+        background: linear-gradient(90deg, var(--brand), var(--green));
+      }
+
+      .summary-stats {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 10px;
+      }
+
+      .summary-stats div {
+        padding: 12px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+      }
+
+      .summary-stats strong {
+        display: block;
+        margin-top: 5px;
+        font-size: 24px;
+      }
+
+      .kpi-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 14px;
+        margin-bottom: 18px;
+      }
+
+      .kpi {
+        display: grid;
+        gap: 8px;
+        padding: 20px;
+        border-top: 4px solid var(--brand);
+      }
+
+      .kpi.amber { border-top-color: var(--amber); }
+      .kpi.green { border-top-color: var(--green); }
+      .kpi.violet { border-top-color: var(--violet); }
+      .kpi strong { font-size: clamp(24px, 3vw, 32px); }
+
+      .content-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1.35fr) minmax(320px, 0.65fr);
+        gap: 18px;
+        margin-bottom: 18px;
+      }
+
+      .panel {
+        min-width: 0;
+        padding: 22px;
+      }
+
+      .panel-head {
+        margin-bottom: 18px;
+      }
+
+      .panel-head h3 { margin-bottom: 6px; font-size: 22px; }
+      .panel-head p { margin-bottom: 0; line-height: 1.55; }
+
+      .segmented {
+        display: inline-flex;
+        padding: 3px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #f8fafc;
+      }
+
+      .segmented button {
+        min-height: 34px;
+        padding: 0 12px;
+        border: 0;
+        border-radius: 6px;
+        background: transparent;
+        color: var(--muted);
+        cursor: pointer;
+        font-weight: 800;
+      }
+
+      .segmented button.active {
+        background: #fff;
+        color: var(--brand);
+        box-shadow: 0 1px 2px rgba(16, 24, 40, 0.08);
+      }
+
+      .invoice-list { display: grid; gap: 10px; }
+      .invoice-row { padding: 14px 0; border-top: 1px solid var(--line); }
+      .invoice-row:first-child { border-top: 0; }
+      .invoice-row[hidden] { display: none; }
+      .invoice-row div { display: grid; gap: 4px; }
+      .invoice-row > strong { white-space: nowrap; }
+
+      .badge {
+        padding: 5px 9px;
+        border-radius: 999px;
+        background: #eff6ff;
+        color: var(--brand);
+        font-size: 12px;
+        font-weight: 900;
+        white-space: nowrap;
+      }
+
+      .badge.green { background: #ecfdf3; color: var(--green); }
+      .badge.red { background: #fff1f0; color: var(--red); }
+      .badge.amber { background: #fffaeb; color: var(--amber); }
+
+      .calc-panel { display: grid; align-content: start; gap: 14px; }
+      .calc-field { display: grid; gap: 7px; }
+      .calc-field input {
+        width: 100%;
+        min-height: 44px;
+        padding: 0 12px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #fff;
+      }
+
+      .calc-box {
+        display: grid;
+        gap: 1px;
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--line);
+      }
+
+      .calc-line {
+        padding: 13px 14px;
+        background: #fff;
+      }
+
+      .calc-line strong { color: var(--brand); }
+
+      .compliance-grid,
+      .workflow-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 14px;
+        margin-bottom: 18px;
+      }
+
+      .compliance-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .status-dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 999px;
+        background: var(--green);
+      }
+
+      .status-dot.amber { background: var(--amber); }
+      .status-dot.red { background: var(--red); }
+
+      .compliance-card {
+        display: grid;
+        gap: 10px;
+        min-height: 170px;
+      }
+
+      .compliance-card strong {
+        margin-top: auto;
+        font-size: 22px;
+      }
+
+      .table-wrap { overflow-x: auto; }
+      table { width: 100%; border-collapse: collapse; min-width: 720px; }
+      th, td { padding: 14px 12px; border-bottom: 1px solid var(--line); text-align: left; }
+      th { background: #f8fafc; color: #344054; font-size: 13px; }
+      td { color: #344054; }
+
+      .workflow-card { padding: 22px; }
+      .workflow-card span { display: block; margin-bottom: 12px; color: var(--brand); font-size: 12px; font-weight: 900; }
+      .workflow-card h3 { margin-bottom: 8px; font-size: 20px; }
+      .workflow-card p { margin-bottom: 0; line-height: 1.65; }
+
+      @media (max-width: 1080px) {
+        .app { grid-template-columns: 1fr; }
+        .sidebar { position: static; height: auto; }
+        .nav { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+        .hero-grid, .content-grid, .kpi-grid, .compliance-grid, .workflow-grid { grid-template-columns: 1fr 1fr; }
+      }
+
+      @media (max-width: 720px) {
+        .main { padding: 18px; }
+        .topbar, .summary-head, .panel-head, .invoice-row { align-items: stretch; flex-direction: column; }
+        .actions, .button { width: 100%; }
+        .nav, .hero-grid, .hero-points, .summary-stats, .content-grid, .kpi-grid, .compliance-grid, .workflow-grid { grid-template-columns: 1fr; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="app">
+      <aside class="sidebar">
+        <div class="brand">
+          <strong>Campus Finance OS</strong>
+          <span>Singapore Private School</span>
+        </div>
+        <nav class="nav" aria-label="系统导航">
+          <a class="active" href="#overview">总览</a>
+          <a href="#billing">学费账单</a>
+          <a href="#compliance">FPS / GST</a>
+          <a href="#reports">报表中心</a>
+        </nav>
+        <div class="sidebar-foot">
+          当前账期：May 2026<br />
+          校区：全部校区<br />
+          角色：Finance Manager
+        </div>
+      </aside>
+
+      <main class="main">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">Finance Management System</p>
+            <h1>新加坡私立学校财务管理系统</h1>
+            <p class="subtitle">独立后台系统，用于管理招生合同、学费应收、FPS 费用保护、GST、退款审批、校区预算和审计证据。</p>
+          </div>
+          <div class="actions">
+            <button class="button" type="button">导出报表</button>
+            <button class="button primary" type="button">新建账单</button>
+          </div>
+        </header>
+
+        <section class="hero-grid" aria-label="财务摘要">
+          <div class="panel hero-panel">
+            <p class="eyebrow">Command Centre</p>
+            <h2>把校长、财务、招生和合规团队放到同一套数字里</h2>
+            <p class="subtitle">系统按学生合同生成付款计划，自动计算 GST，标记 FPS 保护范围，并把逾期、退款、credit note 和校区 P&L 统一到管理层工作台。</p>
+            <div class="hero-points">
+              <span>合同费用表</span>
+              <span>银行流水匹配</span>
+              <span>EduTrust 审计包</span>
+            </div>
+          </div>
+
+          <div class="panel summary-card">
+            <div class="summary-head">
+              <span>Orchard Campus</span>
+              <strong>May 2026</strong>
+            </div>
+            <div class="meter"><span></span></div>
+            <div class="summary-stats">
+              <div><span>收款率</span><strong>82%</strong></div>
+              <div><span>FPS 覆盖</span><strong>100%</strong></div>
+              <div><span>待审批</span><strong>17</strong></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="kpi-grid" id="overview">
+          <article class="kpi"><span>学费应收</span><strong>S$1,248,600</strong><small>较上月 +12.4%</small></article>
+          <article class="kpi green"><span>已收款</span><strong>S$1,021,350</strong><small>收款率 81.8%</small></article>
+          <article class="kpi amber"><span>逾期账款</span><strong>S$92,480</strong><small>42 名学生需跟进</small></article>
+          <article class="kpi violet"><span>受保护课程费</span><strong>S$880,200</strong><small>FPS 覆盖 100%</small></article>
+        </section>
+
+        <section class="content-grid">
+          <div class="panel" id="billing">
+            <div class="panel-head">
+              <div>
+                <h3>学费账单流水</h3>
+                <p>按合同、课程、校区和付款计划自动生成账单。</p>
+              </div>
+              <div class="segmented" data-tabs>
+                <button class="active" type="button" data-target="all">全部</button>
+                <button type="button" data-target="due">待收</button>
+                <button type="button" data-target="risk">风险</button>
+              </div>
+            </div>
+            <div class="invoice-list">
+              <article class="invoice-row" data-status="due">
+                <div><strong>INV-2026-0515</strong><span>WACE Year 11 · Chen Y.</span></div>
+                <strong>S$18,900</strong>
+                <span class="badge">待收款</span>
+              </article>
+              <article class="invoice-row" data-status="paid">
+                <div><strong>INV-2026-0509</strong><span>O-Level Prep · Lim K.</span></div>
+                <strong>S$8,400</strong>
+                <span class="badge green">已支付</span>
+              </article>
+              <article class="invoice-row" data-status="risk">
+                <div><strong>INV-2026-0472</strong><span>A-Level Prep · Zhang M.</span></div>
+                <strong>S$11,200</strong>
+                <span class="badge red">逾期 14 天</span>
+              </article>
+              <article class="invoice-row" data-status="due">
+                <div><strong>INV-2026-0468</strong><span>English Bridging · Priya S.</span></div>
+                <strong>S$3,250</strong>
+                <span class="badge">待收款</span>
+              </article>
+            </div>
+          </div>
+
+          <div class="panel calc-panel">
+            <div class="panel-head">
+              <div>
+                <h3>学费 + GST 试算</h3>
+                <p>用于报价、合同 Schedule B 和发票预览。</p>
+              </div>
+            </div>
+            <label class="calc-field">
+              <span>课程费（未含 GST）</span>
+              <input id="tuitionBase" type="number" value="18000" min="0" step="100" />
+            </label>
+            <label class="calc-field">
+              <span>折扣 / 奖学金</span>
+              <input id="tuitionDiscount" type="number" value="1200" min="0" step="100" />
+            </label>
+            <div class="calc-box" aria-live="polite">
+              <div class="calc-line"><span>应税金额</span><strong id="taxableAmount">S$16,800.00</strong></div>
+              <div class="calc-line"><span>GST 9%</span><strong id="gstAmount">S$1,512.00</strong></div>
+              <div class="calc-line"><span>学生应付</span><strong id="totalAmount">S$18,312.00</strong></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="compliance-grid" id="compliance">
+          <article class="panel compliance-card">
+            <span class="status-dot"></span>
+            <h3>FPS 费用保护</h3>
+            <p>课程费与学生合同、保险批次和收款上限自动核对。</p>
+            <strong>0 个缺口</strong>
+          </article>
+          <article class="panel compliance-card">
+            <span class="status-dot amber"></span>
+            <h3>GST 发票</h3>
+            <p>支持 9% GST、credit note、付款拆分与审计 trail。</p>
+            <strong>6 张待开票</strong>
+          </article>
+          <article class="panel compliance-card">
+            <span class="status-dot red"></span>
+            <h3>收款异常</h3>
+            <p>识别超合同金额、重复付款、未匹配银行流水。</p>
+            <strong>4 条待处理</strong>
+          </article>
+        </section>
+
+        <section class="panel" id="reports">
+          <div class="panel-head">
+            <div>
+              <h3>管理报表</h3>
+              <p>为董事会、校区负责人和 EduTrust 审核准备同源数据。</p>
+            </div>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr><th>报表</th><th>频率</th><th>负责人</th><th>状态</th><th>下一步</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>校区 P&L</td><td>每月</td><td>Finance Manager</td><td><span class="badge green">已生成</span></td><td>发送董事会</td></tr>
+                <tr><td>应收账龄分析</td><td>每周</td><td>Accounts Executive</td><td><span class="badge amber">需复核</span></td><td>跟进 42 名学生</td></tr>
+                <tr><td>FPS 保护对账</td><td>每日</td><td>Compliance Officer</td><td><span class="badge green">无缺口</span></td><td>归档批次凭证</td></tr>
+                <tr><td>GST Output Tax</td><td>季度</td><td>Tax Agent</td><td><span class="badge amber">待锁账</span></td><td>核对 credit note</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section style="margin-top:18px">
+          <div class="workflow-grid">
+            <article class="workflow-card"><span>01</span><h3>招生合同</h3><p>录取后自动创建学生账户、课程计划、付款计划和合同费用表。</p></article>
+            <article class="workflow-card"><span>02</span><h3>账单收款</h3><p>按付款节点生成发票，匹配 PayNow、银行转账和信用卡流水。</p></article>
+            <article class="workflow-card"><span>03</span><h3>合规保护</h3><p>课程费进入 FPS 核对清单，杂费、教材费和押金分开管理。</p></article>
+            <article class="workflow-card"><span>04</span><h3>管理决策</h3><p>生成现金流、校区利润、逾期风险和审计包。</p></article>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script>
+      document.querySelectorAll("[data-tabs]").forEach((tabs) => {
+        const panel = tabs.closest(".panel");
+        const rows = panel ? panel.querySelectorAll(".invoice-row") : [];
+        tabs.querySelectorAll("button").forEach((button) => {
+          button.addEventListener("click", () => {
+            const target = button.dataset.target;
+            tabs.querySelectorAll("button").forEach((item) => item.classList.remove("active"));
+            button.classList.add("active");
+            rows.forEach((row) => {
+              row.hidden = !(target === "all" || row.dataset.status === target);
+            });
+          });
+        });
+      });
+
+      (() => {
+        const baseInput = document.querySelector("#tuitionBase");
+        const discountInput = document.querySelector("#tuitionDiscount");
+        const taxableAmount = document.querySelector("#taxableAmount");
+        const gstAmount = document.querySelector("#gstAmount");
+        const totalAmount = document.querySelector("#totalAmount");
+        const formatter = new Intl.NumberFormat("en-SG", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+        const update = () => {
+          const taxable = Math.max((Number(baseInput.value) || 0) - (Number(discountInput.value) || 0), 0);
+          const gst = taxable * 0.09;
+          taxableAmount.textContent = `S$${formatter.format(taxable)}`;
+          gstAmount.textContent = `S$${formatter.format(gst)}`;
+          totalAmount.textContent = `S$${formatter.format(taxable + gst)}`;
+        };
+        baseInput.addEventListener("input", update);
+        discountInput.addEventListener("input", update);
+        update();
+      })();
+    </script>
+  </body>
+</html>

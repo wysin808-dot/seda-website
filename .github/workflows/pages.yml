@@ -25,6 +25,19 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Rewrite paths for GitHub Pages sub-path
+        run: |
+          BASE="/seda-website"
+          find . -name '*.html' -not -path './.git/*' | while read f; do
+            sed -i \
+              -e "s|href=\"/\"|href=\"${BASE}/\"|g" \
+              -e "s|href=\"/\\([^\"]*\\)\"|href=\"${BASE}/\\1\"|g" \
+              -e "s|src=\"/\\([^\"]*\\)\"|src=\"${BASE}/\\1\"|g" \
+              -e "s|url(\"/\\([^\"]*\\)\")|url(\"${BASE}/\\1\")|g" \
+              "$f"
+          done
+          echo "Path rewrite complete"
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
 

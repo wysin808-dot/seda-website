@@ -1,0 +1,1744 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>O-Level → Poly AI 升学匹配工具：ELR2B2 计算 & 理工学院课程匹配 | SEDA</title>
+  <meta name="description" content="输入 O-Level 成绩，AI 智能计算 ELR2B2 分数并匹配新加坡 5 所理工学院 (SP/NP/TP/NYP/RP) 的录取课程，覆盖工程、IT、商科、设计、健康科学等热门方向。" />
+  <meta name="keywords" content="O-Level升学,ELR2B2计算器,新加坡理工学院录取,Poly COP,SP NP TP NYP RP,O-Level成绩匹配" />
+  <link rel="canonical" href="https://seda.org.sg/pathway/poly-matcher/" />
+  <link rel="stylesheet" href="/seda-site.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "O-Level → Poly AI 升学匹配工具",
+    "applicationCategory": "EducationalApplication",
+    "operatingSystem": "Any",
+    "description": "根据 O-Level 成绩自动计算 ELR2B2 分数，智能匹配新加坡 5 所理工学院课程录取概率",
+    "publisher": {"@type": "Organization", "name": "SEDA 新加坡国际教育中心", "url": "https://seda.org.sg/"},
+    "inLanguage": ["zh-CN", "en"]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "首页", "item": "https://seda.org.sg/"},
+      {"@type": "ListItem", "position": 2, "name": "升学路径", "item": "https://seda.org.sg/pathway/"},
+      {"@type": "ListItem", "position": 3, "name": "Poly 匹配工具"}
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {"@type": "Question", "name": "什么是 ELR2B2 分数？", "acceptedAnswer": {"@type": "Answer", "text": "ELR2B2 是新加坡理工学院录取使用的分数计算方式：E = English (英语)、L2 = 2nd Language (第二语言)、R2 = 2 Relevant subjects (2 门相关科目)、B2 = Best 2 remaining (最佳 2 门其他科目)。总分范围为 6–54，分数越低越好。"}},
+      {"@type": "Question", "name": "COP 是什么意思？", "acceptedAnswer": {"@type": "Answer", "text": "COP 即 Cut-Off Point（截止分数），是每年理工学院各课程最后一名被录取学生的 ELR2B2 分数。COP 越低代表该课程竞争越激烈。"}},
+      {"@type": "Question", "name": "O-Level 多少分可以进 Poly？", "acceptedAnswer": {"@type": "Answer", "text": "大部分理工学院课程 COP 在 8–20 之间。热门课程如生物医学科学 (COP 7)、网络安全 (COP 8–9) 竞争激烈；工程类课程通常 COP 在 13–20，门槛较低。"}},
+      {"@type": "Question", "name": "新加坡有几所理工学院？", "acceptedAnswer": {"@type": "Answer", "text": "新加坡共有 5 所理工学院：Singapore Polytechnic (SP)、Ngee Ann Polytechnic (NP)、Temasek Polytechnic (TP)、Nanyang Polytechnic (NYP)、Republic Polytechnic (RP)。"}},
+      {"@type": "Question", "name": "ELR2B2 中的 Relevant subjects 怎么算？", "acceptedAnswer": {"@type": "Answer", "text": "Relevant subjects 取决于申请的课程。例如工程类课程的相关科目为数学和科学；商科的相关科目通常为数学和英语；设计类可能要求美术或设计与工艺。系统会自动根据课程要求计算最优组合。"}},
+      {"@type": "Question", "name": "Poly 毕业后可以升大学吗？", "acceptedAnswer": {"@type": "Answer", "text": "可以。Poly 毕业后凭 GPA 可申请新加坡 6 所公立大学、海外大学等。一般 GPA 3.5+ 有望进入 NUS/NTU，GPA 3.0+ 可申请 SIT/SUSS 等。约 30% 的 Poly 毕业生选择继续升学。"}}
+    ]
+  }
+  </script>
+  <style>
+    /* ── CSS Variables (SEDA theme) ── */
+    :root {
+      --brand: #c62828;
+      --brand-light: #fca5a5;
+      --ink: #1a1a2e;
+      --muted: #6b7280;
+      --wash: #f8f9fa;
+      --line: #e5e7eb;
+      --radius: 16px;
+      --shadow: 0 2px 12px rgba(0,0,0,0.06);
+      --shadow-lg: 0 8px 32px rgba(0,0,0,0.10);
+    }
+
+    /* ── Reset & Base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans SC", sans-serif;
+      color: var(--ink);
+      background: #fff;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: var(--brand); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Header (compact single-line) ── */
+    .site-header {
+      border-bottom: 1px solid var(--line);
+      background: #fff;
+      position: sticky; top: 0; z-index: 100;
+    }
+    .header-main {
+      display: flex; align-items: center; gap: 24px;
+      padding: 12px clamp(20px, 6vw, 80px);
+      max-width: 1400px; margin: 0 auto;
+    }
+    .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--ink); }
+    .brand-word { font-size: 22px; font-weight: 900; color: var(--brand); letter-spacing: -0.5px; }
+    .brand-copy strong { font-size: 13px; display: block; color: var(--ink); }
+    .brand-copy small { font-size: 11px; color: var(--muted); }
+    .main-nav { display: flex; flex-wrap: wrap; gap: 4px; flex: 1; font-size: 13px; font-weight: 500; }
+    .nav-group { position: relative; padding: 6px 10px; border-radius: 6px; cursor: pointer; white-space: nowrap; }
+    .nav-group:hover { background: var(--wash); }
+    .mega-dropdown {
+      display: none; position: absolute; top: 100%; left: 0;
+      background: #fff; border: 1px solid var(--line); border-radius: 10px;
+      padding: 12px; min-width: 200px; box-shadow: var(--shadow-lg); z-index: 200;
+    }
+    .nav-group:hover .mega-dropdown { display: flex; flex-direction: column; gap: 6px; }
+    .mega-dropdown a { padding: 6px 10px; border-radius: 6px; font-size: 13px; color: var(--ink); white-space: nowrap; }
+    .mega-dropdown a:hover { background: var(--wash); text-decoration: none; color: var(--brand); }
+    .nav-cta {
+      margin-left: auto; padding: 8px 18px; background: var(--brand); color: #fff;
+      border-radius: 8px; font-size: 13px; font-weight: 600; white-space: nowrap;
+      text-decoration: none; transition: background 0.2s;
+    }
+    .nav-cta:hover { background: #a71d1d; text-decoration: none; }
+    .trending-bar {
+      display: flex; align-items: center; gap: 12px;
+      padding: 6px clamp(20px, 6vw, 80px);
+      background: var(--wash); font-size: 12px; color: var(--muted);
+      overflow-x: auto; white-space: nowrap;
+    }
+    .trending-bar a { color: var(--ink); padding: 3px 10px; border-radius: 100px; background: #fff; border: 1px solid var(--line); font-size: 11px; }
+    .trending-bar a:hover { border-color: var(--brand); color: var(--brand); text-decoration: none; }
+
+    /* ── Breadcrumb ── */
+    .breadcrumb {
+      padding: 12px clamp(20px, 6vw, 80px);
+      font-size: 12px; color: var(--muted);
+    }
+    .breadcrumb a { color: var(--muted); }
+    .breadcrumb a:hover { color: var(--brand); }
+    .breadcrumb span { margin: 0 6px; }
+
+    /* ── Hero ── */
+    .matcher-hero {
+      background: linear-gradient(135deg, #2a1215 0%, #1a0a0c 100%);
+      color: #fff;
+      padding: 56px clamp(20px, 6vw, 80px) 48px;
+      border-radius: var(--radius);
+      margin: 0 clamp(20px, 6vw, 80px) 32px;
+      position: relative;
+      overflow: hidden;
+    }
+    .matcher-hero::before {
+      content: "";
+      position: absolute; top: 0; right: 0;
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(198,40,40,0.25), transparent 70%);
+      border-radius: 50%;
+      filter: blur(80px);
+      pointer-events: none;
+    }
+    .matcher-hero .eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 6px 14px;
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 100px;
+      font-size: 12px; font-weight: 600; letter-spacing: 0.06em;
+      color: var(--brand-light);
+      margin-bottom: 20px;
+      background: rgba(198,40,40,0.15);
+    }
+    .matcher-hero .eyebrow::before {
+      content: ""; width: 6px; height: 6px;
+      border-radius: 50%; background: #ef4444;
+      box-shadow: 0 0 12px #ef4444;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
+    .matcher-hero h1 {
+      font-size: clamp(28px, 4vw, 42px);
+      font-weight: 800; line-height: 1.15;
+      margin-bottom: 16px; position: relative;
+    }
+    .matcher-hero h1 em { font-style: normal; color: var(--brand-light); }
+    .matcher-hero .lead {
+      font-size: 16px; color: rgba(255,255,255,0.7);
+      line-height: 1.6; max-width: 580px; margin-bottom: 28px;
+    }
+    .hero-stats {
+      display: flex; gap: 32px; position: relative;
+    }
+    .hero-stats > div { text-align: center; }
+    .stat-num { font-size: 28px; font-weight: 800; color: #fff; }
+    .stat-label { font-size: 12px; color: rgba(255,255,255,0.5); margin-top: 2px; }
+
+    /* ── Matcher Wizard ── */
+    .matcher-wrap {
+      max-width: 860px;
+      margin: 0 auto 48px;
+      padding: 0 clamp(20px, 6vw, 80px);
+    }
+    .matcher {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-lg);
+      overflow: hidden;
+    }
+    .matcher-tabs {
+      display: flex; border-bottom: 1px solid var(--line); background: var(--wash);
+    }
+    .matcher-tab {
+      flex: 1; padding: 14px 16px; font-size: 13px; font-weight: 600;
+      color: var(--muted); text-align: center; position: relative;
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+    }
+    .matcher-tab.active { color: var(--brand); background: #fff; }
+    .matcher-tab.active::after {
+      content: ""; position: absolute; bottom: -1px; left: 0; right: 0;
+      height: 2px; background: var(--brand);
+    }
+    .matcher-tab.done { color: #16a34a; }
+    .step-num {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 22px; height: 22px; border-radius: 50%;
+      background: var(--line); font-size: 11px; font-weight: 700;
+    }
+    .matcher-tab.active .step-num { background: var(--brand); color: #fff; }
+    .matcher-tab.done .step-num { background: #16a34a; color: #fff; }
+
+    .matcher-body { padding: 28px 28px 20px; }
+    .matcher-body.hidden { display: none; }
+    .matcher-q { font-size: 18px; font-weight: 700; margin-bottom: 20px; }
+    .matcher-q em { font-style: normal; color: var(--brand); }
+
+    /* ── Subject Input Grid ── */
+    .subject-grid {
+      display: grid; grid-template-columns: 1fr; gap: 10px;
+      margin-bottom: 20px;
+    }
+    .subject-group-title {
+      font-size: 13px; font-weight: 700; color: var(--brand);
+      padding: 8px 0 4px; border-bottom: 1px solid var(--line);
+      margin-top: 12px;
+    }
+    .subject-group-title:first-child { margin-top: 0; }
+    .subject-row {
+      display: flex; align-items: center; gap: 12px;
+      padding: 8px 12px; border-radius: 8px;
+      background: var(--wash); border: 1px solid transparent;
+      transition: border-color 0.2s;
+    }
+    .subject-row:hover { border-color: var(--line); }
+    .subject-row.has-grade { border-color: var(--brand); background: #fff5f5; }
+    .subject-name { flex: 1; font-size: 13px; font-weight: 500; }
+    .subject-name small { display: block; font-weight: 400; color: var(--muted); font-size: 11px; }
+    .grade-select {
+      width: 90px; padding: 6px 10px; border: 1px solid var(--line);
+      border-radius: 6px; font-size: 13px; background: #fff;
+      cursor: pointer; appearance: auto;
+    }
+    .grade-select:focus { outline: 2px solid var(--brand); outline-offset: 1px; }
+
+    /* ── Interest Cards ── */
+    .interest-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 12px; margin-bottom: 20px;
+    }
+    .interest-card {
+      padding: 16px; border: 2px solid var(--line); border-radius: 12px;
+      cursor: pointer; text-align: center; transition: all 0.2s;
+      background: #fff;
+    }
+    .interest-card:hover { border-color: var(--brand); transform: translateY(-2px); }
+    .interest-card.selected { border-color: var(--brand); background: #fff5f5; box-shadow: 0 0 0 3px rgba(198,40,40,0.1); }
+    .interest-card .ic-icon { font-size: 28px; margin-bottom: 8px; }
+    .interest-card .ic-label { font-size: 14px; font-weight: 700; }
+    .interest-card .ic-sub { font-size: 11px; color: var(--muted); margin-top: 4px; }
+
+    /* ── Buttons ── */
+    .matcher-actions {
+      display: flex; gap: 12px; justify-content: flex-end;
+      padding-top: 20px; border-top: 1px solid var(--line); margin-top: 20px;
+    }
+    .btn-m-primary {
+      padding: 10px 24px; background: var(--brand); color: #fff;
+      border: none; border-radius: 8px; font-size: 14px; font-weight: 600;
+      cursor: pointer; transition: background 0.2s;
+    }
+    .btn-m-primary:hover { background: #a71d1d; }
+    .btn-m-primary:disabled { opacity: 0.5; cursor: not-allowed; }
+    .btn-m-secondary {
+      padding: 10px 24px; background: #fff; color: var(--ink);
+      border: 1px solid var(--line); border-radius: 8px;
+      font-size: 14px; font-weight: 500; cursor: pointer; transition: all 0.2s;
+      text-decoration: none; display: inline-flex; align-items: center;
+    }
+    .btn-m-secondary:hover { border-color: var(--brand); color: var(--brand); text-decoration: none; }
+
+    /* ── AI Thinking Animation ── */
+    .ai-thinking {
+      display: none; flex-direction: column; align-items: center;
+      padding: 60px 28px; text-align: center;
+    }
+    .ai-thinking.show { display: flex; }
+    .thinking-dots { display: flex; gap: 6px; margin-bottom: 16px; }
+    .thinking-dots span {
+      width: 10px; height: 10px; border-radius: 50%;
+      background: var(--brand); animation: bounce 1.4s infinite;
+    }
+    .thinking-dots span:nth-child(2) { animation-delay: 0.2s; }
+    .thinking-dots span:nth-child(3) { animation-delay: 0.4s; }
+    @keyframes bounce { 0%,80%,100%{transform:scale(0.6);opacity:0.4} 40%{transform:scale(1);opacity:1} }
+    .thinking-text { font-size: 14px; color: var(--muted); }
+
+    /* ── Result Panel ── */
+    .result-panel { display: none; padding: 28px; }
+    .result-panel.show { display: block; }
+    .result-headline { font-size: 22px; font-weight: 800; margin-bottom: 6px; }
+    .result-sub { font-size: 14px; color: var(--muted); margin-bottom: 24px; }
+
+    .score-breakdown {
+      background: linear-gradient(135deg, #fef2f2, #fff7ed);
+      border: 1px solid #fecaca; border-radius: 12px;
+      padding: 16px 20px; margin-bottom: 24px;
+    }
+    .score-breakdown h4 { font-size: 14px; font-weight: 700; margin-bottom: 10px; color: var(--brand); }
+    .score-breakdown-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 8px;
+    }
+    .score-item { text-align: center; padding: 8px; background: #fff; border-radius: 8px; }
+    .score-item .si-label { font-size: 11px; color: var(--muted); }
+    .score-item .si-value { font-size: 18px; font-weight: 800; color: var(--ink); }
+    .score-total { font-size: 28px; font-weight: 900; color: var(--brand); }
+
+    .result-grid { display: grid; gap: 12px; }
+    .result-card {
+      border: 1px solid var(--line); border-radius: 12px;
+      padding: 16px 20px; display: flex; align-items: center; gap: 16px;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .result-card:hover { border-color: var(--brand); box-shadow: var(--shadow); }
+    .result-card .rc-poly {
+      font-size: 11px; font-weight: 700; color: #fff;
+      background: var(--ink); padding: 4px 10px; border-radius: 6px;
+      white-space: nowrap;
+    }
+    .result-card .rc-info { flex: 1; }
+    .result-card .rc-name { font-size: 14px; font-weight: 700; }
+    .result-card .rc-cn { font-size: 12px; color: var(--muted); }
+    .result-card .rc-cop { font-size: 12px; color: var(--muted); margin-top: 4px; }
+    .result-card .rc-badge {
+      padding: 6px 14px; border-radius: 100px; font-size: 13px; font-weight: 700;
+      white-space: nowrap;
+    }
+    .badge-safe { background: #dcfce7; color: #166534; }
+    .badge-reach { background: #fef9c3; color: #854d0e; }
+    .badge-risk { background: #fee2e2; color: #991b1b; }
+
+    .no-results {
+      text-align: center; padding: 40px 20px; color: var(--muted);
+    }
+    .no-results h4 { font-size: 16px; color: var(--ink); margin-bottom: 8px; }
+
+    /* ── COP Reference Table ── */
+    .cop-section {
+      max-width: 860px; margin: 0 auto 48px;
+      padding: 0 clamp(20px, 6vw, 80px);
+    }
+    .cop-section h2 { font-size: 22px; font-weight: 800; margin-bottom: 8px; }
+    .cop-section h2 em { font-style: normal; color: var(--brand); }
+    .cop-section .cop-sub { font-size: 14px; color: var(--muted); margin-bottom: 20px; }
+    .cop-table-wrap { overflow-x: auto; border-radius: 12px; border: 1px solid var(--line); }
+    .cop-table {
+      width: 100%; border-collapse: collapse; font-size: 13px;
+    }
+    .cop-table th {
+      background: var(--wash); padding: 10px 14px; text-align: left;
+      font-weight: 700; font-size: 12px; color: var(--muted);
+      border-bottom: 1px solid var(--line);
+    }
+    .cop-table td {
+      padding: 10px 14px; border-bottom: 1px solid var(--line);
+    }
+    .cop-table tr:last-child td { border-bottom: none; }
+    .cop-table tr:hover td { background: #fef2f2; }
+    .cop-range { font-weight: 700; color: var(--brand); }
+
+    /* ── FAQ ── */
+    .tool-faq {
+      max-width: 860px; margin: 0 auto 48px;
+      padding: 0 clamp(20px, 6vw, 80px);
+    }
+    .tool-faq h2 { font-size: 22px; font-weight: 800; margin-bottom: 20px; }
+    .tool-faq h2 em { font-style: normal; color: var(--brand); }
+    .faq-item { border-bottom: 1px solid var(--line); }
+    .faq-q {
+      padding: 16px 0; font-size: 15px; font-weight: 600;
+      cursor: pointer; display: flex; align-items: center; justify-content: space-between;
+    }
+    .faq-q::after { content: "+"; font-size: 20px; color: var(--muted); transition: transform 0.2s; }
+    .faq-item.open .faq-q::after { content: "-"; }
+    .faq-a {
+      max-height: 0; overflow: hidden; transition: max-height 0.3s ease;
+      font-size: 14px; color: var(--muted); line-height: 1.7;
+    }
+    .faq-item.open .faq-a { max-height: 300px; padding-bottom: 16px; }
+
+    /* ── CTA Section ── */
+    .cta-section {
+      background: linear-gradient(135deg, #2a1215, #1a0a0c);
+      color: #fff; padding: 48px clamp(20px, 6vw, 80px);
+      border-radius: var(--radius); margin: 0 clamp(20px, 6vw, 80px) 48px;
+      text-align: center;
+    }
+    .cta-section h2 { font-size: 24px; font-weight: 800; margin-bottom: 12px; }
+    .cta-section p { font-size: 15px; color: rgba(255,255,255,0.7); margin-bottom: 24px; max-width: 500px; margin-left: auto; margin-right: auto; }
+    .cta-btn {
+      display: inline-block; padding: 12px 32px; background: var(--brand); color: #fff;
+      border-radius: 8px; font-size: 15px; font-weight: 700; text-decoration: none;
+      transition: background 0.2s;
+    }
+    .cta-btn:hover { background: #ef4444; text-decoration: none; }
+
+    /* ── Footer ── */
+    .site-footer {
+      border-top: 1px solid var(--line); padding: 32px clamp(20px, 6vw, 80px);
+      text-align: center; font-size: 12px; color: var(--muted);
+    }
+    .footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; margin-bottom: 12px; }
+    .footer-links a { color: var(--muted); }
+    .footer-links a:hover { color: var(--brand); }
+
+    /* ── Poly Cards Section ── */
+    .poly-section {
+      max-width: 860px; margin: 0 auto 48px;
+      padding: 0 clamp(20px, 6vw, 80px);
+    }
+    .poly-section h2 { font-size: 22px; font-weight: 800; margin-bottom: 8px; }
+    .poly-section h2 em { font-style: normal; color: var(--brand); }
+    .poly-section .poly-sub { font-size: 14px; color: var(--muted); margin-bottom: 20px; }
+    .poly-cards {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 16px;
+    }
+    .poly-card {
+      border: 1px solid var(--line); border-radius: 12px; padding: 20px;
+      transition: border-color 0.2s, box-shadow 0.2s; background: #fff;
+    }
+    .poly-card:hover { border-color: var(--brand); box-shadow: var(--shadow); }
+    .poly-card .pc-abbr {
+      font-size: 18px; font-weight: 900; color: var(--brand); margin-bottom: 4px;
+    }
+    .poly-card .pc-name { font-size: 14px; font-weight: 700; margin-bottom: 4px; }
+    .poly-card .pc-cn { font-size: 13px; color: var(--muted); margin-bottom: 10px; }
+    .poly-card .pc-meta { font-size: 12px; color: var(--muted); line-height: 1.6; }
+    .poly-card .pc-meta strong { color: var(--ink); }
+
+    /* ── Lead Gate Modal ── */
+    .lead-overlay {
+      display: none; position: fixed; inset: 0;
+      background: rgba(0,0,0,0.6); z-index: 1000;
+      align-items: center; justify-content: center; padding: 20px;
+    }
+    .lead-overlay.show { display: flex; }
+    .lead-modal {
+      background: #fff; border-radius: 16px; padding: 32px;
+      max-width: 420px; width: 100%; position: relative;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    }
+    .lead-close {
+      position: absolute; top: 12px; right: 16px;
+      background: none; border: none; font-size: 24px;
+      cursor: pointer; color: var(--muted); line-height: 1;
+    }
+    .lead-close:hover { color: var(--ink); }
+    .lead-modal h3 { font-size: 18px; font-weight: 800; margin-bottom: 10px; text-align: center; }
+    .lead-sub { font-size: 13px; color: var(--muted); text-align: center; line-height: 1.6; margin-bottom: 16px; }
+    .lead-submit {
+      display: block; width: 100%; padding: 12px;
+      background: var(--brand); color: #fff; border: none;
+      border-radius: 8px; font-size: 14px; font-weight: 700;
+      cursor: pointer; transition: background 0.2s;
+    }
+    .lead-submit:hover { background: #a71d1d; }
+    .lead-trust {
+      text-align: center; font-size: 11px; color: var(--muted);
+      margin-top: 12px; line-height: 1.6;
+    }
+
+    /* ── How It Works Section ── */
+    .how-section {
+      max-width: 860px; margin: 0 auto 48px;
+      padding: 0 clamp(20px, 6vw, 80px);
+    }
+    .how-section h2 { font-size: 22px; font-weight: 800; margin-bottom: 20px; }
+    .how-section h2 em { font-style: normal; color: var(--brand); }
+    .how-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px;
+    }
+    .how-card {
+      text-align: center; padding: 24px 16px;
+      border: 1px solid var(--line); border-radius: 12px; background: var(--wash);
+    }
+    .how-card .hc-num {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 36px; height: 36px; border-radius: 50%;
+      background: var(--brand); color: #fff; font-weight: 800;
+      font-size: 16px; margin-bottom: 12px;
+    }
+    .how-card .hc-title { font-size: 14px; font-weight: 700; margin-bottom: 6px; }
+    .how-card .hc-desc { font-size: 12px; color: var(--muted); line-height: 1.5; }
+
+    /* ── Result Filter Tabs ── */
+    .result-filters {
+      display: flex; gap: 8px; margin-bottom: 16px; flex-wrap: wrap;
+    }
+    .result-filter-btn {
+      padding: 6px 14px; border: 1px solid var(--line); border-radius: 100px;
+      font-size: 12px; font-weight: 600; cursor: pointer;
+      background: #fff; color: var(--ink); transition: all 0.2s;
+    }
+    .result-filter-btn:hover { border-color: var(--brand); color: var(--brand); }
+    .result-filter-btn.active { background: var(--brand); color: #fff; border-color: var(--brand); }
+
+    /* ── Result Summary Cards ── */
+    .result-summary {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;
+      margin-bottom: 20px;
+    }
+    .rs-card {
+      text-align: center; padding: 12px; border-radius: 10px;
+    }
+    .rs-card.rs-safe { background: #dcfce7; }
+    .rs-card.rs-reach { background: #fef9c3; }
+    .rs-card.rs-risk { background: #fee2e2; }
+    .rs-card .rs-num { font-size: 24px; font-weight: 900; }
+    .rs-card.rs-safe .rs-num { color: #166534; }
+    .rs-card.rs-reach .rs-num { color: #854d0e; }
+    .rs-card.rs-risk .rs-num { color: #991b1b; }
+    .rs-card .rs-label { font-size: 11px; color: var(--muted); margin-top: 2px; }
+
+    /* ── Disclaimer Banner ── */
+    .disclaimer-banner {
+      max-width: 860px; margin: 0 auto 32px;
+      padding: 0 clamp(20px, 6vw, 80px);
+    }
+    .disclaimer-banner .db-inner {
+      background: #fffbeb; border: 1px solid #fde68a; border-radius: 10px;
+      padding: 12px 16px; font-size: 12px; color: #92400e; line-height: 1.6;
+      display: flex; gap: 8px; align-items: flex-start;
+    }
+    .disclaimer-banner .db-icon { font-size: 16px; flex-shrink: 0; }
+
+    /* ── Responsive ── */
+    @media (max-width: 768px) {
+      .main-nav { display: none; }
+      .hero-stats { gap: 20px; }
+      .matcher-body { padding: 20px 16px; }
+      .interest-grid { grid-template-columns: repeat(2, 1fr); }
+      .result-card { flex-direction: column; align-items: flex-start; }
+      .score-breakdown-grid { grid-template-columns: repeat(3, 1fr); }
+      .poly-cards { grid-template-columns: 1fr; }
+      .how-grid { grid-template-columns: 1fr; }
+      .result-summary { grid-template-columns: repeat(3, 1fr); }
+      .matcher-tabs { font-size: 11px; }
+      .matcher-tab { padding: 10px 8px; gap: 4px; }
+      .step-num { width: 18px; height: 18px; font-size: 10px; }
+      .cop-table { font-size: 12px; }
+      .cop-table th, .cop-table td { padding: 8px 10px; }
+    }
+    @media (max-width: 480px) {
+      .matcher-hero { padding: 36px 20px 32px; margin: 0 16px 24px; }
+      .matcher-wrap { padding: 0 16px; }
+      .cop-section, .tool-faq, .poly-section, .how-section { padding: 0 16px; }
+      .cta-section { margin: 0 16px 32px; padding: 32px 20px; }
+      .interest-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
+      .interest-card { padding: 12px 8px; }
+      .interest-card .ic-icon { font-size: 22px; }
+      .result-summary { grid-template-columns: 1fr 1fr 1fr; gap: 8px; }
+    }
+  </style>
+</head>
+<body>
+  <!-- ── Header ── -->
+  <header class="site-header">
+    <div class="header-main">
+      <a class="brand" href="/" aria-label="SEDA 首页">
+        <span class="brand-word">SEDA</span>
+        <span class="brand-copy">
+          <strong>新加坡国际教育中心</strong>
+          <small>Singapore Education Pathways</small>
+        </span>
+      </a>
+      <nav class="main-nav" aria-label="主导航">
+        <div class="nav-group">AEIS（政府学校）
+          <div class="mega-dropdown">
+            <a href="/aeis/">AEIS 考试攻略</a>
+            <a href="/aeis/preparation/">备考攻略</a>
+            <a href="/government-schools/">政府学校指南</a>
+            <a href="/primary-schools/">小学数据库</a>
+          </div>
+        </div>
+        <div class="nav-group">O-Level（中学）
+          <div class="mega-dropdown">
+            <a href="/o-level/">O-Level 考试攻略</a>
+            <a href="/o-level-schools/">O-Level 学校</a>
+            <a href="/secondary-schools/">中学数据库</a>
+            <a href="/o-level-jc/">O-Level → JC</a>
+            <a href="/o-level-poly/">O-Level → Poly</a>
+          </div>
+        </div>
+        <div class="nav-group">POLY（理工学院）
+          <div class="mega-dropdown">
+            <a href="/poly/">理工学院完全指南</a>
+            <a href="/poly/admission/">中国学生入学攻略</a>
+            <a href="/poly/sp/">SP 新加坡理工学院</a>
+            <a href="/poly/np/">NP 义安理工学院</a>
+            <a href="/poly/tp/">TP 淡马锡理工学院</a>
+            <a href="/poly/nyp/">NYP 南洋理工学院</a>
+            <a href="/poly/rp/">RP 共和理工学院</a>
+          </div>
+        </div>
+        <div class="nav-group">公立大学
+          <div class="mega-dropdown">
+            <a href="/university/">公立大学总览</a>
+            <a href="/university/nus/">NUS 新加坡国立大学</a>
+            <a href="/university/ntu/">NTU 南洋理工大学</a>
+            <a href="/university/smu/">SMU 新加坡管理大学</a>
+          </div>
+        </div>
+        <div class="nav-group">AI 工具
+          <div class="mega-dropdown">
+            <a href="/pathway/university-matcher/">AI 大学匹配</a>
+            <a href="/pathway/poly-matcher/">AI Poly 匹配</a>
+            <a href="/pathway/study-planner/">AI 升学规划</a>
+          </div>
+        </div>
+        <div class="nav-group">留学指南
+          <div class="mega-dropdown">
+            <a href="/guides/student-pass/">学生准证</a>
+            <a href="/guides/cost/">留学费用</a>
+            <a href="/guides/accommodation/">住宿方案</a>
+            <a href="/guides/">全部指南</a>
+          </div>
+        </div>
+      </nav>
+      <a class="nav-cta" href="#contact">免费咨询</a>
+    </div>
+    <div class="trending-bar" aria-label="热门搜索">
+      <span>热门搜索：</span>
+      <a href="/o-level-poly/">O-Level → Poly</a>
+      <a href="/poly/">理工学院</a>
+      <a href="/o-level/">O-Level</a>
+      <a href="/wace/">WACE</a>
+      <a href="/guides/cost/">留学费用</a>
+    </div>
+  </header>
+
+  <nav class="breadcrumb" aria-label="面包屑导航">
+    <a href="/">首页</a> <span>›</span>
+    <a href="/pathway/">升学路径</a> <span>›</span>
+    <span>Poly 匹配工具</span>
+  </nav>
+
+  <main>
+    <!-- ── Hero ── -->
+    <div class="matcher-hero">
+      <div class="eyebrow">AI 智能匹配</div>
+      <h1>O-Level → Poly<br><em>AI 升学匹配工具</em></h1>
+      <p class="lead">输入你的 O-Level 各科成绩，AI 自动计算 ELR2B2 分数并智能匹配 5 所理工学院的录取课程与概率。</p>
+      <div class="hero-stats">
+        <div><div class="stat-num">5</div><div class="stat-label">理工学院</div></div>
+        <div><div class="stat-num">60+</div><div class="stat-label">热门课程</div></div>
+        <div><div class="stat-num">7</div><div class="stat-label">学科方向</div></div>
+      </div>
+    </div>
+
+    <!-- ── AI Matcher Tool ── -->
+    <div class="matcher-wrap" id="matcher">
+      <div class="matcher">
+        <div class="matcher-tabs">
+          <div class="matcher-tab active" id="tab1"><span class="step-num">1</span> 输入 O-Level 成绩</div>
+          <div class="matcher-tab" id="tab2"><span class="step-num">2</span> 选择兴趣方向</div>
+          <div class="matcher-tab" id="tab3"><span class="step-num">3</span> AI 匹配结果</div>
+        </div>
+
+        <!-- Step 1: Subject Grades -->
+        <div class="matcher-body" id="step1">
+          <div class="matcher-q">输入你的 <em>O-Level 各科成绩</em></div>
+          <p style="font-size:13px;color:var(--muted);margin-bottom:16px;">选择你已参加的科目并填入对应等级。至少需要填写 6 科（含英语和母语）才能计算 ELR2B2。</p>
+          <div class="subject-grid" id="subjectGrid"></div>
+          <div class="matcher-actions">
+            <button class="btn-m-primary" id="toStep2">下一步 →</button>
+          </div>
+        </div>
+
+        <!-- Step 2: Interest Areas -->
+        <div class="matcher-body hidden" id="step2">
+          <div class="matcher-q">选择你感兴趣的<em>课程方向</em>（可多选）</div>
+          <p style="font-size:13px;color:var(--muted);margin-bottom:16px;">选择后系统将优先匹配该方向的课程。不选则匹配所有方向。</p>
+          <div class="interest-grid" id="interestGrid"></div>
+          <div class="matcher-actions">
+            <button class="btn-m-secondary" id="backStep1">← 上一步</button>
+            <button class="btn-m-primary" id="runMatch">开始 AI 匹配 →</button>
+          </div>
+        </div>
+
+        <!-- Thinking -->
+        <div class="ai-thinking" id="thinking">
+          <div class="thinking-dots"><span></span><span></span><span></span></div>
+          <div class="thinking-text" id="thinkingText">正在计算 ELR2B2 分数...</div>
+        </div>
+
+        <!-- Result -->
+        <div class="result-panel" id="result">
+          <div class="result-headline">匹配结果</div>
+          <div class="result-sub" id="resultSub"></div>
+          <div id="scoreBreakdown"></div>
+          <div class="result-grid" id="resultGrid"></div>
+          <div class="matcher-actions" style="border-top:0;padding-top:16px">
+            <button class="btn-m-primary" id="resetMatch">重新匹配</button>
+            <a class="btn-m-secondary" href="#contact">咨询顾问，深度评估 →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── How It Works ── -->
+    <div class="how-section">
+      <h2>如何<em>使用</em>本工具</h2>
+      <div class="how-grid">
+        <div class="how-card">
+          <div class="hc-num">1</div>
+          <div class="hc-title">输入 O-Level 成绩</div>
+          <div class="hc-desc">选择你参加的所有科目，填入对应等级 (A1–F9)。至少需要 6 科。</div>
+        </div>
+        <div class="how-card">
+          <div class="hc-num">2</div>
+          <div class="hc-title">选择兴趣方向</div>
+          <div class="hc-desc">勾选感兴趣的课程类别，系统将优先匹配对应方向的课程。</div>
+        </div>
+        <div class="how-card">
+          <div class="hc-num">3</div>
+          <div class="hc-title">获取 AI 匹配报告</div>
+          <div class="hc-desc">系统自动计算 ELR2B2，对比各课程 COP，给出稳/冲/危评估。</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Disclaimer Banner ── -->
+    <div class="disclaimer-banner">
+      <div class="db-inner">
+        <span class="db-icon">&#9888;</span>
+        <span>本工具基于 2024 年 COP 数据估算录取概率，实际录取以各理工学院当年公布的 COP 为准。ELR2B2 计算中的 Relevant Subjects 由系统根据课程要求自动选取最优组合。</span>
+      </div>
+    </div>
+
+    <!-- ── COP Reference Table ── -->
+    <div class="cop-section">
+      <h2>ELR2B2 COP <em>参考范围</em></h2>
+      <p class="cop-sub">各课程类别的典型截止分数 (COP) 范围，基于 2024 年数据。COP 越低竞争越激烈。</p>
+      <div class="cop-table-wrap">
+        <table class="cop-table">
+          <thead>
+            <tr>
+              <th>课程类别</th>
+              <th>COP 范围</th>
+              <th>竞争程度</th>
+              <th>典型课程</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>健康科学 Health Sciences</td>
+              <td><span class="cop-range">7 – 15</span></td>
+              <td>极高 ~ 高</td>
+              <td>生物医学、药学、护理</td>
+            </tr>
+            <tr>
+              <td>IT / 计算机 Computing</td>
+              <td><span class="cop-range">8 – 15</span></td>
+              <td>极高 ~ 中</td>
+              <td>网络安全、AI、信息技术</td>
+            </tr>
+            <tr>
+              <td>人文社科 Humanities</td>
+              <td><span class="cop-range">8 – 16</span></td>
+              <td>高 ~ 中</td>
+              <td>心理学、社会工作、幼教</td>
+            </tr>
+            <tr>
+              <td>商科 Business</td>
+              <td><span class="cop-range">10 – 16</span></td>
+              <td>高 ~ 中</td>
+              <td>银行金融、会计、市场营销</td>
+            </tr>
+            <tr>
+              <td>设计 / 传媒 Design</td>
+              <td><span class="cop-range">8 – 14</span></td>
+              <td>高 ~ 中</td>
+              <td>大众传播、动画、室内设计</td>
+            </tr>
+            <tr>
+              <td>应用科学 Applied Sciences</td>
+              <td><span class="cop-range">9 – 16</span></td>
+              <td>高 ~ 中</td>
+              <td>食品科学、药学、化妆品科学</td>
+            </tr>
+            <tr>
+              <td>工程 Engineering</td>
+              <td><span class="cop-range">9 – 20</span></td>
+              <td>中 ~ 低</td>
+              <td>航空、机械、电子、计算机工程</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:12px;color:var(--muted);margin-top:12px;">* 数据仅供参考，每年 COP 会根据申请人数和成绩浮动。以各理工学院官方公布为准。</p>
+    </div>
+
+    <!-- ── FAQ ── -->
+    <div class="tool-faq">
+      <h2>常见<em>问题</em></h2>
+      <div id="faqList">
+        <div class="faq-item">
+          <div class="faq-q">什么是 ELR2B2 分数？怎么算？</div>
+          <div class="faq-a">ELR2B2 是理工学院录取使用的分数系统。E = English (英语)，L2 = 第二语言 (Mother Tongue)，R2 = 2 门相关科目 (由课程决定)，B2 = 最佳 2 门其他科目。等级对应分数为 A1=1, A2=2, B3=3, B4=4, C5=5, C6=6, D7=7, E8=8, F9=9。总分范围 6–54，越低越好。</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">COP 是什么意思？</div>
+          <div class="faq-a">COP (Cut-Off Point) 是每年各课程最后一名被录取学生的 ELR2B2 分数。例如某课程 COP 为 10，意味着 ELR2B2 ≤ 10 的学生在当年获得了录取。COP 每年变化，越低代表竞争越激烈。</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">O-Level 多少分可以进 Poly？</div>
+          <div class="faq-a">大部分课程 COP 在 8–20 之间。热门课程如 Biomedical Science (COP 7)、Cybersecurity (COP 8–9) 门槛很高；Engineering 类课程通常 COP 13–20，更容易录取。总分在 26 以内一般能被至少一所 Poly 录取。</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">5 所理工学院有什么区别？</div>
+          <div class="faq-a">SP (新加坡理工) 历史最悠久，工程强；NP (义安) 综合实力强，传媒和商科出色；TP (淡马锡) IT 和设计出色；NYP (南洋) 动画游戏和健康科学强；RP (共和) 最年轻，采用独特的 PBL (问题导向学习) 教学法。5 所 Poly 文凭认可度相同。</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Relevant subjects 是怎么确定的？</div>
+          <div class="faq-a">由所申请的课程决定。工程类通常要求数学 + 科学；商科要求数学 + 英语；设计类可能要求美术/D&T + 英语；健康科学要求科学 + 数学/英语。本工具会根据每个课程的要求自动选取你最优的科目组合。</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Poly 毕业后可以升大学吗？</div>
+          <div class="faq-a">可以。凭 Poly 的 GPA 可申请新加坡公立大学 (NUS, NTU, SMU, SUTD, SIT, SUSS) 或海外大学。一般 GPA 3.5+ 有机会进 NUS/NTU，GPA 3.0+ 可申请 SIT/SUSS。约 30% 毕业生选择继续升学，其余直接就业（起薪通常 SGD 2,200–3,000/月）。</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── 5 Polys Overview ── -->
+    <div class="poly-section">
+      <h2>新加坡 5 所<em>理工学院</em>概览</h2>
+      <p class="poly-sub">5 所 Poly 文凭认可度相同，但各有优势学科与特色。</p>
+      <div class="poly-cards">
+        <div class="poly-card">
+          <div class="pc-abbr">SP</div>
+          <div class="pc-name">Singapore Polytechnic</div>
+          <div class="pc-cn">新加坡理工学院</div>
+          <div class="pc-meta">
+            <strong>建校：</strong>1954 年（最早）<br>
+            <strong>位置：</strong>Dover<br>
+            <strong>优势：</strong>工程、应用科学、建筑<br>
+            <strong>课程数：</strong>40+
+          </div>
+        </div>
+        <div class="poly-card">
+          <div class="pc-abbr">NP</div>
+          <div class="pc-name">Ngee Ann Polytechnic</div>
+          <div class="pc-cn">义安理工学院</div>
+          <div class="pc-meta">
+            <strong>建校：</strong>1963 年<br>
+            <strong>位置：</strong>Clementi<br>
+            <strong>优势：</strong>传媒、商科、生命科学<br>
+            <strong>课程数：</strong>39
+          </div>
+        </div>
+        <div class="poly-card">
+          <div class="pc-abbr">TP</div>
+          <div class="pc-name">Temasek Polytechnic</div>
+          <div class="pc-cn">淡马锡理工学院</div>
+          <div class="pc-meta">
+            <strong>建校：</strong>1990 年<br>
+            <strong>位置：</strong>Tampines<br>
+            <strong>优势：</strong>IT、设计、应用科学<br>
+            <strong>课程数：</strong>37
+          </div>
+        </div>
+        <div class="poly-card">
+          <div class="pc-abbr">NYP</div>
+          <div class="pc-name">Nanyang Polytechnic</div>
+          <div class="pc-cn">南洋理工学院</div>
+          <div class="pc-meta">
+            <strong>建校：</strong>1992 年<br>
+            <strong>位置：</strong>Ang Mo Kio<br>
+            <strong>优势：</strong>动画、游戏、健康科学<br>
+            <strong>课程数：</strong>35
+          </div>
+        </div>
+        <div class="poly-card">
+          <div class="pc-abbr">RP</div>
+          <div class="pc-name">Republic Polytechnic</div>
+          <div class="pc-cn">共和理工学院</div>
+          <div class="pc-meta">
+            <strong>建校：</strong>2002 年（最新）<br>
+            <strong>位置：</strong>Woodlands<br>
+            <strong>优势：</strong>PBL 教学法、运动科学<br>
+            <strong>课程数：</strong>34
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Lead Gate Modal ── -->
+    <div class="lead-overlay" id="leadOverlay">
+      <div class="lead-modal">
+        <button class="lead-close" id="leadClose" type="button" aria-label="关闭">&times;</button>
+        <h3>获取完整匹配报告</h3>
+        <p class="lead-sub">添加 SEDA 留学顾问微信，即刻获取个性化录取分析与升学规划建议</p>
+        <div style="text-align:center;margin:16px 0 20px">
+          <div style="width:160px;height:160px;margin:0 auto;background:var(--wash);border-radius:12px;display:flex;align-items:center;justify-content:center;border:1px solid var(--line)">
+            <span style="font-size:13px;color:var(--muted)">微信二维码</span>
+          </div>
+          <p style="font-size:13px;color:var(--ink);font-weight:700;margin-top:10px">微信号：SEDA_SG</p>
+          <p style="font-size:11px;color:var(--muted);margin-top:2px">长按识别 或 搜索微信号添加</p>
+        </div>
+        <button class="lead-submit" id="leadSubmit" type="button">我已添加微信，查看完整报告 →</button>
+        <div class="lead-trust">已有 2,800+ 家庭通过 SEDA 获得免费咨询<br>添加后发送「Poly匹配」即可获取完整分析</div>
+      </div>
+    </div>
+
+    <!-- ── CTA ── -->
+    <div class="cta-section" id="contact">
+      <h2>需要专业升学规划？</h2>
+      <p>SEDA 资深顾问一对一分析你的成绩与兴趣，制定最优 Poly 申请策略。</p>
+      <a class="cta-btn" href="/contact/">免费咨询预约 →</a>
+    </div>
+  </main>
+
+  <!-- ── Footer ── -->
+  <footer class="site-footer">
+    <div class="footer-links">
+      <a href="/">首页</a>
+      <a href="/o-level-poly/">O-Level → Poly</a>
+      <a href="/poly/">理工学院指南</a>
+      <a href="/pathway/university-matcher/">大学匹配工具</a>
+      <a href="/about/">关于 SEDA</a>
+      <a href="/contact/">联系我们</a>
+    </div>
+    <p>&copy; 2024–2026 SEDA 新加坡国际教育中心. All rights reserved.</p>
+  </footer>
+
+  <!-- ══════════════════════════════════════════════════════ -->
+  <!-- ── JavaScript ── -->
+  <!-- ══════════════════════════════════════════════════════ -->
+  <script>
+  (function() {
+    'use strict';
+
+    // ── Course Database ──
+    const POLY_COURSES = [
+      // SP - Singapore Polytechnic
+      {id:'sp-aero', poly:'SP', name:'Aerospace Engineering', cn:'航空工程', cop:11, cat:'engineering', relevant:['math','science']},
+      {id:'sp-biomed-eng', poly:'SP', name:'Biomedical Engineering', cn:'生物医学工程', cop:13, cat:'engineering', relevant:['math','science']},
+      {id:'sp-computer-eng', poly:'SP', name:'Computer Engineering', cn:'计算机工程', cop:11, cat:'engineering', relevant:['math','science']},
+      {id:'sp-electrical', poly:'SP', name:'Electrical & Electronic Engineering', cn:'电气电子工程', cop:15, cat:'engineering', relevant:['math','science']},
+      {id:'sp-mechanical', poly:'SP', name:'Mechanical Engineering', cn:'机械工程', cop:15, cat:'engineering', relevant:['math','science']},
+      {id:'sp-common-eng', poly:'SP', name:'Common Engineering Programme', cn:'通用工程', cop:17, cat:'engineering', relevant:['math','science']},
+      {id:'sp-it', poly:'SP', name:'Information Technology', cn:'信息技术', cop:10, cat:'it', relevant:['math','science']},
+      {id:'sp-cybersec', poly:'SP', name:'Cybersecurity & Digital Forensics', cn:'网络安全与数字取证', cop:8, cat:'it', relevant:['math','science']},
+      {id:'sp-business', poly:'SP', name:'Business Administration', cn:'工商管理', cop:11, cat:'business', relevant:['math','english']},
+      {id:'sp-accountancy', poly:'SP', name:'Accountancy', cn:'会计学', cop:12, cat:'business', relevant:['math','english']},
+      {id:'sp-banking', poly:'SP', name:'Banking & Finance', cn:'银行与金融', cop:10, cat:'business', relevant:['math','english']},
+      {id:'sp-biomed-sci', poly:'SP', name:'Biomedical Science', cn:'生物医学科学', cop:7, cat:'health', relevant:['science','math']},
+      {id:'sp-optometry', poly:'SP', name:'Optometry', cn:'验光学', cop:9, cat:'health', relevant:['science','math']},
+      {id:'sp-perfume', poly:'SP', name:'Perfumery & Cosmetic Science', cn:'香水与化妆品科学', cop:10, cat:'sciences', relevant:['science','math']},
+      {id:'sp-archi', poly:'SP', name:'Architecture', cn:'建筑学', cop:12, cat:'design', relevant:['math','art_or_dnt']},
+
+      // NP - Ngee Ann Polytechnic
+      {id:'np-biomed', poly:'NP', name:'Biomedical Engineering', cn:'生物医学工程', cop:13, cat:'engineering', relevant:['math','science']},
+      {id:'np-engineering', poly:'NP', name:'Engineering Science', cn:'工程科学', cop:9, cat:'engineering', relevant:['math','science']},
+      {id:'np-electronic', poly:'NP', name:'Electronic & Computer Engineering', cn:'电子与计算机工程', cop:15, cat:'engineering', relevant:['math','science']},
+      {id:'np-cybersec', poly:'NP', name:'Cybersecurity & Networking', cn:'网络安全与网络', cop:10, cat:'it', relevant:['math','science']},
+      {id:'np-infotech', poly:'NP', name:'Information Technology', cn:'信息技术', cop:10, cat:'it', relevant:['math','science']},
+      {id:'np-data-science', poly:'NP', name:'Data Science & Analytics', cn:'数据科学与分析', cop:8, cat:'it', relevant:['math','science']},
+      {id:'np-business', poly:'NP', name:'Business Studies', cn:'商学', cop:12, cat:'business', relevant:['math','english']},
+      {id:'np-accountancy', poly:'NP', name:'Accountancy', cn:'会计学', cop:11, cat:'business', relevant:['math','english']},
+      {id:'np-mass-comm', poly:'NP', name:'Mass Communication', cn:'大众传播', cop:8, cat:'design', relevant:['english','humanities']},
+      {id:'np-film', poly:'NP', name:'Film, Sound & Video', cn:'影视声音制作', cop:10, cat:'design', relevant:['english','art_or_dnt']},
+      {id:'np-nursing', poly:'NP', name:'Nursing', cn:'护理学', cop:14, cat:'health', relevant:['science','english']},
+      {id:'np-biomedical-sci', poly:'NP', name:'Biomedical Science', cn:'生物医学科学', cop:7, cat:'health', relevant:['science','math']},
+      {id:'np-vet', poly:'NP', name:'Veterinary Bioscience', cn:'兽医生物科学', cop:7, cat:'health', relevant:['science','math']},
+      {id:'np-psych', poly:'NP', name:'Psychology Studies', cn:'心理学', cop:8, cat:'humanities', relevant:['english','humanities']},
+
+      // TP - Temasek Polytechnic
+      {id:'tp-aerospace', poly:'TP', name:'Aerospace Engineering', cn:'航空航天工程', cop:13, cat:'engineering', relevant:['math','science']},
+      {id:'tp-computer-eng', poly:'TP', name:'Computer Engineering', cn:'计算机工程', cop:13, cat:'engineering', relevant:['math','science']},
+      {id:'tp-cybersec', poly:'TP', name:'Cybersecurity & Digital Forensics', cn:'网络安全', cop:9, cat:'it', relevant:['math','science']},
+      {id:'tp-ai', poly:'TP', name:'Artificial Intelligence & Data Engineering', cn:'人工智能与数据工程', cop:8, cat:'it', relevant:['math','science']},
+      {id:'tp-appdev', poly:'TP', name:'App Design & Development', cn:'应用设计与开发', cop:12, cat:'it', relevant:['math','science']},
+      {id:'tp-business', poly:'TP', name:'Business', cn:'商学', cop:13, cat:'business', relevant:['math','english']},
+      {id:'tp-accounting', poly:'TP', name:'Accounting & Finance', cn:'会计与金融', cop:12, cat:'business', relevant:['math','english']},
+      {id:'tp-marketing', poly:'TP', name:'Marketing', cn:'市场营销', cop:14, cat:'business', relevant:['english','humanities']},
+      {id:'tp-design', poly:'TP', name:'Communication Design', cn:'传播设计', cop:11, cat:'design', relevant:['english','art_or_dnt']},
+      {id:'tp-interiordesign', poly:'TP', name:'Interior Architecture & Design', cn:'室内建筑设计', cop:12, cat:'design', relevant:['art_or_dnt','math']},
+      {id:'tp-vet', poly:'TP', name:'Veterinary Technology', cn:'兽医技术', cop:10, cat:'health', relevant:['science','math']},
+      {id:'tp-pharma', poly:'TP', name:'Pharmaceutical Science', cn:'药学', cop:9, cat:'sciences', relevant:['science','math']},
+      {id:'tp-food-sci', poly:'TP', name:'Food, Nutrition & Culinary Science', cn:'食品营养与烹饪科学', cop:13, cat:'sciences', relevant:['science','english']},
+      {id:'tp-early-childhood', poly:'TP', name:'Early Childhood Development & Education', cn:'幼儿教育', cop:14, cat:'humanities', relevant:['english','humanities']},
+      {id:'tp-psychology', poly:'TP', name:'Applied Psychology', cn:'应用心理学', cop:9, cat:'humanities', relevant:['english','humanities']},
+
+      // NYP - Nanyang Polytechnic
+      {id:'nyp-animation', poly:'NYP', name:'Animation & Visual Effects', cn:'动画与视觉特效', cop:11, cat:'design', relevant:['english','art_or_dnt']},
+      {id:'nyp-game', poly:'NYP', name:'Game Design & Development', cn:'游戏设计', cop:12, cat:'it', relevant:['math','science']},
+      {id:'nyp-it', poly:'NYP', name:'Information Technology', cn:'信息技术', cop:12, cat:'it', relevant:['math','science']},
+      {id:'nyp-cybersec', poly:'NYP', name:'Cybersecurity & Digital Forensics', cn:'网络安全', cop:10, cat:'it', relevant:['math','science']},
+      {id:'nyp-nursing', poly:'NYP', name:'Nursing', cn:'护理学', cop:15, cat:'health', relevant:['science','english']},
+      {id:'nyp-oral-health', poly:'NYP', name:'Oral Health Therapy', cn:'口腔健康治疗', cop:8, cat:'health', relevant:['science','english']},
+      {id:'nyp-business', poly:'NYP', name:'Business Management', cn:'商业管理', cop:13, cat:'business', relevant:['math','english']},
+      {id:'nyp-banking', poly:'NYP', name:'Banking & Finance', cn:'银行与金融', cop:11, cat:'business', relevant:['math','english']},
+      {id:'nyp-accountancy', poly:'NYP', name:'Accountancy & Finance', cn:'会计与金融', cop:12, cat:'business', relevant:['math','english']},
+      {id:'nyp-nanotechnology', poly:'NYP', name:'Nanotechnology & Materials Science', cn:'纳米技术与材料科学', cop:16, cat:'sciences', relevant:['science','math']},
+      {id:'nyp-social-work', poly:'NYP', name:'Social Work', cn:'社会工作', cop:12, cat:'humanities', relevant:['english','humanities']},
+      {id:'nyp-childpsych', poly:'NYP', name:'Child Psychology & Early Education', cn:'儿童心理学', cop:11, cat:'humanities', relevant:['english','humanities']},
+      {id:'nyp-mechanical', poly:'NYP', name:'Mechanical Engineering', cn:'机械工程', cop:17, cat:'engineering', relevant:['math','science']},
+
+      // RP - Republic Polytechnic
+      {id:'rp-engineering', poly:'RP', name:'Common Engineering Programme', cn:'通用工程', cop:20, cat:'engineering', relevant:['math','science']},
+      {id:'rp-infotech', poly:'RP', name:'Infocomm Technology', cn:'信息通讯技术', cop:15, cat:'it', relevant:['math','science']},
+      {id:'rp-cybersec', poly:'RP', name:'Cybersecurity', cn:'网络安全', cop:12, cat:'it', relevant:['math','science']},
+      {id:'rp-business', poly:'RP', name:'Business', cn:'商学', cop:16, cat:'business', relevant:['math','english']},
+      {id:'rp-sport-health', poly:'RP', name:'Sport & Exercise Science', cn:'运动科学', cop:14, cat:'health', relevant:['science','english']},
+      {id:'rp-pharma', poly:'RP', name:'Pharmaceutical Science', cn:'药学', cop:11, cat:'sciences', relevant:['science','math']},
+      {id:'rp-biomedical', poly:'RP', name:'Biomedical Science', cn:'生物医学', cop:10, cat:'health', relevant:['science','math']},
+      {id:'rp-game', poly:'RP', name:'Game Design', cn:'游戏设计', cop:14, cat:'design', relevant:['english','art_or_dnt']},
+      {id:'rp-media', poly:'RP', name:'Mass Communication', cn:'大众传播', cop:12, cat:'design', relevant:['english','humanities']},
+      {id:'rp-outdoor', poly:'RP', name:'Outdoor & Adventure Learning', cn:'户外探险学习', cop:16, cat:'humanities', relevant:['english','science']},
+      {id:'rp-social-enterprise', poly:'RP', name:'Social Enterprise Management', cn:'社会企业管理', cop:15, cat:'humanities', relevant:['english','humanities']}
+    ];
+
+    // ── Subject Definitions ──
+    const SUBJECTS = [
+      { group: '必修科目 Compulsory', items: [
+        { id: 'english', name: 'English Language', cn: '英语', type: 'english' },
+        { id: 'chinese', name: 'Chinese', cn: '华文', type: 'mt' },
+        { id: 'malay', name: 'Malay', cn: '马来文', type: 'mt' },
+        { id: 'tamil', name: 'Tamil', cn: '淡米尔文', type: 'mt' },
+        { id: 'higher-chinese', name: 'Higher Chinese', cn: '高级华文', type: 'mt' },
+        { id: 'higher-malay', name: 'Higher Malay', cn: '高级马来文', type: 'mt' },
+        { id: 'higher-tamil', name: 'Higher Tamil', cn: '高级淡米尔文', type: 'mt' },
+      ]},
+      { group: '数学 Mathematics', items: [
+        { id: 'emath', name: 'Elementary Mathematics', cn: '基础数学', type: 'math' },
+        { id: 'amath', name: 'Additional Mathematics', cn: '高等数学', type: 'math' },
+      ]},
+      { group: '科学 Sciences', items: [
+        { id: 'physics', name: 'Physics', cn: '物理', type: 'science' },
+        { id: 'chemistry', name: 'Chemistry', cn: '化学', type: 'science' },
+        { id: 'biology', name: 'Biology', cn: '生物', type: 'science' },
+        { id: 'combined-sci-pc', name: 'Combined Science (Phy/Chem)', cn: '综合科学（物理/化学）', type: 'science' },
+        { id: 'combined-sci-cb', name: 'Combined Science (Chem/Bio)', cn: '综合科学（化学/生物）', type: 'science' },
+      ]},
+      { group: '人文 Humanities', items: [
+        { id: 'ss-hist', name: 'Social Studies + History', cn: '社会学+历史', type: 'humanities' },
+        { id: 'ss-geog', name: 'Social Studies + Geography', cn: '社会学+地理', type: 'humanities' },
+        { id: 'ss-lit', name: 'Social Studies + Literature', cn: '社会学+文学', type: 'humanities' },
+        { id: 'history', name: 'History (Pure)', cn: '纯历史', type: 'humanities' },
+        { id: 'geography', name: 'Geography (Pure)', cn: '纯地理', type: 'humanities' },
+        { id: 'literature', name: 'Literature (Pure)', cn: '纯文学', type: 'humanities' },
+      ]},
+      { group: '其他科目 Others', items: [
+        { id: 'poa', name: 'Principles of Accounts', cn: '会计基础', type: 'other' },
+        { id: 'dnt', name: 'Design & Technology', cn: '设计与工艺', type: 'art_or_dnt' },
+        { id: 'fnn', name: 'Food & Nutrition', cn: '食品与营养', type: 'other' },
+        { id: 'art', name: 'Art', cn: '美术', type: 'art_or_dnt' },
+        { id: 'music', name: 'Music', cn: '音乐', type: 'other' },
+        { id: 'computing', name: 'Computing', cn: '计算机', type: 'other' },
+        { id: 'higher-art', name: 'Higher Art', cn: '高级美术', type: 'art_or_dnt' },
+        { id: 'higher-music', name: 'Higher Music', cn: '高级音乐', type: 'other' },
+        { id: 'chinese-lit', name: 'Chinese Literature', cn: '华文文学', type: 'humanities' },
+        { id: 'malay-lit', name: 'Malay Literature', cn: '马来文学', type: 'humanities' },
+        { id: 'tamil-lit', name: 'Tamil Literature', cn: '淡米尔文学', type: 'humanities' },
+      ]}
+    ];
+
+    const GRADES = ['', 'A1', 'A2', 'B3', 'B4', 'C5', 'C6', 'D7', 'E8', 'F9'];
+    const GRADE_POINTS = { A1:1, A2:2, B3:3, B4:4, C5:5, C6:6, D7:7, E8:8, F9:9 };
+
+    const INTERESTS = [
+      { id: 'engineering', icon: '⚙️', label: '工程类', sub: 'Engineering', en: 'Engineering' },
+      { id: 'it', icon: '💻', label: 'IT/计算机', sub: 'Computing & IT', en: 'Computing' },
+      { id: 'business', icon: '💼', label: '商科', sub: 'Business & Finance', en: 'Business' },
+      { id: 'design', icon: '🎨', label: '设计/传媒', sub: 'Media & Design', en: 'Media & Design' },
+      { id: 'health', icon: '🏥', label: '健康科学', sub: 'Health Sciences', en: 'Health Sciences' },
+      { id: 'sciences', icon: '🧪', label: '应用科学', sub: 'Applied Sciences', en: 'Applied Sciences' },
+      { id: 'humanities', icon: '📚', label: '人文社科', sub: 'Humanities & Social Sci', en: 'Humanities' },
+    ];
+
+    // ── DOM Elements ──
+    const $ = (sel) => document.querySelector(sel);
+    const $$ = (sel) => document.querySelectorAll(sel);
+
+    // ── State ──
+    let selectedInterests = [];
+
+    // ── Initialize Subject Grid ──
+    function initSubjectGrid() {
+      const grid = $('#subjectGrid');
+      let html = '';
+      SUBJECTS.forEach(group => {
+        html += `<div class="subject-group-title">${group.group}</div>`;
+        group.items.forEach(subj => {
+          html += `
+            <div class="subject-row" data-subject="${subj.id}">
+              <div class="subject-name">${subj.cn}<small>${subj.name}</small></div>
+              <select class="grade-select" data-subject="${subj.id}" data-type="${subj.type}">
+                <option value="">未选</option>
+                ${GRADES.slice(1).map(g => `<option value="${g}">${g}</option>`).join('')}
+              </select>
+            </div>`;
+        });
+      });
+      grid.innerHTML = html;
+
+      // Highlight rows with grades
+      grid.addEventListener('change', function(e) {
+        if (e.target.classList.contains('grade-select')) {
+          const row = e.target.closest('.subject-row');
+          if (e.target.value) {
+            row.classList.add('has-grade');
+          } else {
+            row.classList.remove('has-grade');
+          }
+        }
+      });
+    }
+
+    // ── Initialize Interest Grid ──
+    function initInterestGrid() {
+      const grid = $('#interestGrid');
+      grid.innerHTML = INTERESTS.map(i => `
+        <div class="interest-card" data-interest="${i.id}">
+          <div class="ic-icon">${i.icon}</div>
+          <div class="ic-label">${i.label}</div>
+          <div class="ic-sub">${i.sub}</div>
+        </div>
+      `).join('');
+
+      grid.addEventListener('click', function(e) {
+        const card = e.target.closest('.interest-card');
+        if (!card) return;
+        const id = card.dataset.interest;
+        card.classList.toggle('selected');
+        if (card.classList.contains('selected')) {
+          if (!selectedInterests.includes(id)) selectedInterests.push(id);
+        } else {
+          selectedInterests = selectedInterests.filter(x => x !== id);
+        }
+      });
+    }
+
+    // ── Collect Grades ──
+    function collectGrades() {
+      const grades = {};
+      $$('.grade-select').forEach(sel => {
+        if (sel.value) {
+          grades[sel.dataset.subject] = {
+            grade: sel.value,
+            points: GRADE_POINTS[sel.value],
+            type: sel.dataset.type
+          };
+        }
+      });
+      return grades;
+    }
+
+    // ── Validate Step 1 ──
+    function validateStep1() {
+      const grades = collectGrades();
+      const subjects = Object.keys(grades);
+      const hasEnglish = grades['english'];
+      const hasMT = subjects.some(s => {
+        const sel = $(`.grade-select[data-subject="${s}"]`);
+        return sel && sel.dataset.type === 'mt';
+      });
+      const totalSubjects = subjects.length;
+
+      if (!hasEnglish) {
+        alert('请填写英语 (English Language) 成绩');
+        return false;
+      }
+      if (!hasMT) {
+        alert('请填写至少一门母语 (Mother Tongue) 成绩');
+        return false;
+      }
+      if (totalSubjects < 6) {
+        alert('至少需要填写 6 个科目成绩（含英语和母语）才能计算 ELR2B2');
+        return false;
+      }
+      return true;
+    }
+
+    // ── Calculate ELR2B2 for a specific course ──
+    function calculateELR2B2(grades, course) {
+      // E = English
+      const englishPoints = grades['english'] ? grades['english'].points : 9;
+
+      // L2 = Best Mother Tongue
+      let mtPoints = 9;
+      Object.entries(grades).forEach(([id, data]) => {
+        if (data.type === 'mt' && data.points < mtPoints) {
+          mtPoints = data.points;
+        }
+      });
+
+      // R2 = 2 Relevant subjects (best grades matching the course requirement)
+      const relevantTypes = course.relevant;
+      let relevantCandidates = [];
+
+      Object.entries(grades).forEach(([id, data]) => {
+        if (id === 'english' || data.type === 'mt') return; // already used
+        relevantTypes.forEach(reqType => {
+          if (reqType === 'english') {
+            // English already counted as E; skip
+          } else if (data.type === reqType || (reqType === 'art_or_dnt' && data.type === 'art_or_dnt')) {
+            relevantCandidates.push({ id, points: data.points, type: data.type });
+          }
+        });
+      });
+
+      // Special case: if relevant includes 'english', it means English counts twice conceptually
+      // but in ELR2B2, E is already counted. In practice courses that list 'english' as relevant
+      // mean English is the relevant subject; we just count it from the remaining pool.
+      let relevantFromEnglish = false;
+      if (relevantTypes.includes('english') && grades['english']) {
+        relevantFromEnglish = true;
+      }
+
+      // Deduplicate candidates
+      const seen = new Set();
+      relevantCandidates = relevantCandidates.filter(c => {
+        if (seen.has(c.id)) return false;
+        seen.add(c.id);
+        return true;
+      });
+
+      // Sort by points (ascending = best first)
+      relevantCandidates.sort((a, b) => a.points - b.points);
+
+      let r2Points = 0;
+      let r2Used = [];
+      let r2Needed = 2;
+
+      // If course relevance includes 'english', one relevant slot is satisfied by English
+      if (relevantFromEnglish) {
+        r2Needed = 1; // only need 1 more from the pool
+        r2Points += 0; // English already counted in E
+        // Actually for ELR2B2, if English is relevant, it still only counts once under E
+        // The R2 picks the next best subjects of the relevant type
+        r2Needed = 2; // Back to 2 - find 2 relevant subjects from non-English pool
+      }
+
+      for (let i = 0; i < Math.min(r2Needed, relevantCandidates.length); i++) {
+        r2Points += relevantCandidates[i].points;
+        r2Used.push(relevantCandidates[i].id);
+      }
+      // If not enough relevant subjects found, use 9 (F9) as penalty
+      while (r2Used.length < r2Needed) {
+        r2Points += 9;
+        r2Used.push(null);
+      }
+
+      // B2 = Best 2 remaining subjects
+      const usedIds = new Set(['english', ...Object.keys(grades).filter(id => grades[id].type === 'mt'), ...r2Used.filter(Boolean)]);
+      let remaining = [];
+      Object.entries(grades).forEach(([id, data]) => {
+        if (!usedIds.has(id)) {
+          remaining.push({ id, points: data.points });
+        }
+      });
+      remaining.sort((a, b) => a.points - b.points);
+
+      let b2Points = 0;
+      let b2Used = [];
+      for (let i = 0; i < Math.min(2, remaining.length); i++) {
+        b2Points += remaining[i].points;
+        b2Used.push(remaining[i].id);
+      }
+      while (b2Used.length < 2) {
+        b2Points += 9;
+        b2Used.push(null);
+      }
+
+      const total = englishPoints + mtPoints + r2Points + b2Points;
+
+      return {
+        total,
+        english: englishPoints,
+        mt: mtPoints,
+        r2: r2Points,
+        b2: b2Points,
+        r2Subjects: r2Used,
+        b2Subjects: b2Used
+      };
+    }
+
+    // ── Calculate best possible ELR2B2 (generic, for display) ──
+    function calculateBestELR2B2(grades) {
+      const englishPoints = grades['english'] ? grades['english'].points : 9;
+
+      let mtPoints = 9;
+      Object.entries(grades).forEach(([id, data]) => {
+        if (data.type === 'mt' && data.points < mtPoints) {
+          mtPoints = data.points;
+        }
+      });
+
+      // All non-English, non-MT subjects sorted by points
+      let others = [];
+      Object.entries(grades).forEach(([id, data]) => {
+        if (id === 'english' || data.type === 'mt') return;
+        others.push({ id, points: data.points, type: data.type });
+      });
+      others.sort((a, b) => a.points - b.points);
+
+      // Best 4 remaining
+      let best4 = 0;
+      for (let i = 0; i < Math.min(4, others.length); i++) {
+        best4 += others[i].points;
+      }
+      while (others.length < 4) {
+        best4 += 9;
+        others.push({ id: null, points: 9, type: 'none' });
+      }
+
+      return {
+        total: englishPoints + mtPoints + best4,
+        english: englishPoints,
+        mt: mtPoints,
+        best4: best4
+      };
+    }
+
+    // ── Matching Logic ──
+    function runMatching() {
+      const grades = collectGrades();
+      let courses = POLY_COURSES;
+
+      // Filter by interest if selected
+      if (selectedInterests.length > 0) {
+        courses = courses.filter(c => selectedInterests.includes(c.cat));
+      }
+
+      // Calculate ELR2B2 for each course
+      const results = courses.map(course => {
+        const score = calculateELR2B2(grades, course);
+        let likelihood, badge, badgeClass;
+
+        if (score.total <= course.cop - 3) {
+          likelihood = 1; badge = '稳'; badgeClass = 'badge-safe';
+        } else if (score.total <= course.cop + 2) {
+          likelihood = 2; badge = '冲'; badgeClass = 'badge-reach';
+        } else {
+          likelihood = 3; badge = '危'; badgeClass = 'badge-risk';
+        }
+
+        return {
+          ...course,
+          score: score.total,
+          scoreDetail: score,
+          likelihood,
+          badge,
+          badgeClass
+        };
+      });
+
+      // Sort: safe first, then reach, then risk. Within same likelihood, by COP ascending
+      results.sort((a, b) => {
+        if (a.likelihood !== b.likelihood) return a.likelihood - b.likelihood;
+        return a.cop - b.cop;
+      });
+
+      return { results, bestScore: calculateBestELR2B2(grades) };
+    }
+
+    // ── Store results globally for filtering ──
+    let allResults = [];
+    let currentFilter = 'all';
+
+    // ── Poly Full Names ──
+    const POLY_FULL_NAMES = {
+      SP: 'Singapore Polytechnic',
+      NP: 'Ngee Ann Polytechnic',
+      TP: 'Temasek Polytechnic',
+      NYP: 'Nanyang Polytechnic',
+      RP: 'Republic Polytechnic'
+    };
+
+    // ── Category Names ──
+    const CAT_NAMES = {
+      engineering: '工程 Engineering',
+      it: 'IT 计算机',
+      business: '商科 Business',
+      design: '设计/传媒 Design',
+      health: '健康科学 Health',
+      sciences: '应用科学 Sciences',
+      humanities: '人文社科 Humanities'
+    };
+
+    // ── Render Result Filter Buttons ──
+    function renderFilters(results) {
+      const safeCount = results.filter(r => r.likelihood === 1).length;
+      const reachCount = results.filter(r => r.likelihood === 2).length;
+      const riskCount = results.filter(r => r.likelihood === 3).length;
+
+      // Collect unique polys
+      const polys = [...new Set(results.map(r => r.poly))];
+
+      let html = `<button class="result-filter-btn active" data-filter="all">全部 (${results.length})</button>`;
+      if (safeCount > 0) html += `<button class="result-filter-btn" data-filter="safe">稳 (${safeCount})</button>`;
+      if (reachCount > 0) html += `<button class="result-filter-btn" data-filter="reach">冲 (${reachCount})</button>`;
+      if (riskCount > 0) html += `<button class="result-filter-btn" data-filter="risk">危 (${riskCount})</button>`;
+      polys.forEach(p => {
+        const count = results.filter(r => r.poly === p).length;
+        html += `<button class="result-filter-btn" data-filter="poly-${p}">${p} (${count})</button>`;
+      });
+
+      return html;
+    }
+
+    // ── Filter Results ──
+    function filterResults(filter) {
+      currentFilter = filter;
+      let filtered = allResults;
+
+      if (filter === 'safe') filtered = allResults.filter(r => r.likelihood === 1);
+      else if (filter === 'reach') filtered = allResults.filter(r => r.likelihood === 2);
+      else if (filter === 'risk') filtered = allResults.filter(r => r.likelihood === 3);
+      else if (filter.startsWith('poly-')) filtered = allResults.filter(r => r.poly === filter.replace('poly-', ''));
+
+      renderResultCards(filtered);
+
+      // Update active button
+      $$('.result-filter-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.filter === filter);
+      });
+    }
+
+    // ── Render Result Cards ──
+    function renderResultCards(results) {
+      const grid = $('#resultGrid');
+      if (results.length === 0) {
+        grid.innerHTML = `
+          <div class="no-results">
+            <h4>未找到匹配课程</h4>
+            <p>请尝试选择更多兴趣方向，或检查你的成绩输入是否完整。</p>
+          </div>`;
+        return;
+      }
+
+      grid.innerHTML = results.map(r => {
+        const diff = r.score - r.cop;
+        const diffText = diff < 0 ? `低于 COP ${Math.abs(diff)} 分` : diff === 0 ? '刚好达到 COP' : `高于 COP ${diff} 分`;
+        return `
+        <div class="result-card" data-likelihood="${r.likelihood}" data-poly="${r.poly}">
+          <span class="rc-poly">${r.poly}</span>
+          <div class="rc-info">
+            <div class="rc-name">${r.name}</div>
+            <div class="rc-cn">${r.cn}</div>
+            <div class="rc-cop">COP: ${r.cop} | 你的分数: ${r.score} | ${diffText}</div>
+          </div>
+          <span class="rc-badge ${r.badgeClass}">${r.badge}</span>
+        </div>`;
+      }).join('');
+    }
+
+    // ── Render Results ──
+    function renderResults(data) {
+      const { results, bestScore } = data;
+      allResults = results;
+      currentFilter = 'all';
+
+      // Score breakdown
+      const breakdownEl = $('#scoreBreakdown');
+      breakdownEl.innerHTML = `
+        <div class="score-breakdown">
+          <h4>你的 ELR2B2 分数估算（最优组合）</h4>
+          <div class="score-breakdown-grid">
+            <div class="score-item">
+              <div class="si-label">E (英语)</div>
+              <div class="si-value">${bestScore.english}</div>
+            </div>
+            <div class="score-item">
+              <div class="si-label">L2 (母语)</div>
+              <div class="si-value">${bestScore.mt}</div>
+            </div>
+            <div class="score-item">
+              <div class="si-label">R2+B2 (最佳4科)</div>
+              <div class="si-value">${bestScore.best4}</div>
+            </div>
+            <div class="score-item">
+              <div class="si-label">ELR2B2 总分</div>
+              <div class="si-value score-total">${bestScore.total}</div>
+            </div>
+          </div>
+        </div>
+      `;
+
+      if (results.length === 0) {
+        $('#resultSub').textContent = '';
+        $('#resultGrid').innerHTML = `
+          <div class="no-results">
+            <h4>未找到匹配课程</h4>
+            <p>请尝试选择更多兴趣方向，或检查你的成绩输入是否完整。</p>
+          </div>`;
+        return;
+      }
+
+      const safeCount = results.filter(r => r.likelihood === 1).length;
+      const reachCount = results.filter(r => r.likelihood === 2).length;
+      const riskCount = results.filter(r => r.likelihood === 3).length;
+
+      $('#resultSub').innerHTML = `共匹配 <strong>${results.length}</strong> 个课程`;
+
+      // Summary cards
+      let summaryHtml = `
+        <div class="result-summary">
+          <div class="rs-card rs-safe">
+            <div class="rs-num">${safeCount}</div>
+            <div class="rs-label">稳 (安全录取)</div>
+          </div>
+          <div class="rs-card rs-reach">
+            <div class="rs-num">${reachCount}</div>
+            <div class="rs-label">冲 (有机会)</div>
+          </div>
+          <div class="rs-card rs-risk">
+            <div class="rs-num">${riskCount}</div>
+            <div class="rs-label">危 (风险较高)</div>
+          </div>
+        </div>
+      `;
+
+      // Filter buttons
+      summaryHtml += `<div class="result-filters" id="resultFilters">${renderFilters(results)}</div>`;
+
+      // Insert before result grid
+      const existingSummary = $('#resultSummaryWrap');
+      if (existingSummary) existingSummary.remove();
+      const wrap = document.createElement('div');
+      wrap.id = 'resultSummaryWrap';
+      wrap.innerHTML = summaryHtml;
+      $('#resultGrid').before(wrap);
+
+      // Bind filter clicks
+      $$('.result-filter-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+          filterResults(this.dataset.filter);
+        });
+      });
+
+      // Render cards
+      renderResultCards(results);
+    }
+
+    // ── Tab Management ──
+    function setActiveTab(step) {
+      $$('.matcher-tab').forEach((tab, i) => {
+        tab.classList.remove('active');
+        if (i < step - 1) tab.classList.add('done');
+        if (i === step - 1) tab.classList.add('active');
+      });
+    }
+
+    function showStep(step) {
+      $('#step1').classList.add('hidden');
+      $('#step2').classList.add('hidden');
+      $('#thinking').classList.remove('show');
+      $('#result').classList.remove('show');
+
+      if (step === 1) {
+        $('#step1').classList.remove('hidden');
+        setActiveTab(1);
+      } else if (step === 2) {
+        $('#step2').classList.remove('hidden');
+        setActiveTab(2);
+      } else if (step === 3) {
+        setActiveTab(3);
+        // Show thinking animation
+        $('#thinking').classList.add('show');
+        const msgs = [
+          '正在计算 ELR2B2 分数...',
+          '分析 5 所理工学院数据库...',
+          '匹配课程 COP 截止分数...',
+          '生成最终匹配报告...'
+        ];
+        let i = 0;
+        const interval = setInterval(() => {
+          i++;
+          if (i < msgs.length) {
+            $('#thinkingText').textContent = msgs[i];
+          }
+        }, 600);
+
+        setTimeout(() => {
+          clearInterval(interval);
+          $('#thinking').classList.remove('show');
+          const data = runMatching();
+          renderResults(data);
+          $('#result').classList.add('show');
+        }, 2500);
+      }
+    }
+
+    // ── Event Listeners ──
+    function initEvents() {
+      // Step 1 → Step 2
+      $('#toStep2').addEventListener('click', function() {
+        if (validateStep1()) {
+          showStep(2);
+        }
+      });
+
+      // Step 2 → Back to Step 1
+      $('#backStep1').addEventListener('click', function() {
+        showStep(1);
+      });
+
+      // Run Match
+      $('#runMatch').addEventListener('click', function() {
+        showStep(3);
+      });
+
+      // Reset
+      $('#resetMatch').addEventListener('click', function() {
+        selectedInterests = [];
+        $$('.interest-card').forEach(c => c.classList.remove('selected'));
+        showStep(1);
+      });
+    }
+
+    // ── FAQ Toggle ──
+    function initFAQ() {
+      $$('.faq-q').forEach(q => {
+        q.addEventListener('click', function() {
+          const item = this.closest('.faq-item');
+          item.classList.toggle('open');
+        });
+      });
+    }
+
+    // ── Lead Gate Modal ──
+    function initLeadGate() {
+      const overlay = $('#leadOverlay');
+      const closeBtn = $('#leadClose');
+      const submitBtn = $('#leadSubmit');
+
+      if (closeBtn) {
+        closeBtn.addEventListener('click', function() {
+          overlay.classList.remove('show');
+        });
+      }
+      if (submitBtn) {
+        submitBtn.addEventListener('click', function() {
+          overlay.classList.remove('show');
+        });
+      }
+      // Close on overlay background click
+      if (overlay) {
+        overlay.addEventListener('click', function(e) {
+          if (e.target === overlay) {
+            overlay.classList.remove('show');
+          }
+        });
+      }
+    }
+
+    // ── Smooth Scroll for anchor links ──
+    function initSmoothScroll() {
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            e.preventDefault();
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        });
+      });
+    }
+
+    // ── Grade Input Helper: Auto-advance to next subject ──
+    function initGradeHelper() {
+      $$('.grade-select').forEach((sel, idx, all) => {
+        sel.addEventListener('change', function() {
+          if (this.value && idx < all.length - 1) {
+            // Scroll next row into view if needed
+            const nextRow = all[idx + 1].closest('.subject-row');
+            if (nextRow) {
+              nextRow.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }
+          }
+        });
+      });
+    }
+
+    // ── Track subject count display ──
+    function initSubjectCounter() {
+      const grid = $('#subjectGrid');
+      const counterEl = document.createElement('div');
+      counterEl.style.cssText = 'font-size:12px;color:var(--muted);margin-top:12px;text-align:right;';
+      counterEl.id = 'subjectCounter';
+      counterEl.textContent = '已填写 0 科';
+      grid.after(counterEl);
+
+      grid.addEventListener('change', function() {
+        const filled = $$('.grade-select').length ?
+          [...$$('.grade-select')].filter(s => s.value).length : 0;
+        counterEl.textContent = `已填写 ${filled} 科`;
+        counterEl.style.color = filled >= 6 ? '#16a34a' : 'var(--muted)';
+      });
+    }
+
+    // ── Print-friendly results ──
+    function initPrintButton() {
+      // Will be called when results are shown
+    }
+
+    // ── Analytics tracking (placeholder) ──
+    function trackEvent(action, label) {
+      // GA4 event tracking placeholder
+      if (window.gtag) {
+        window.gtag('event', action, {
+          event_category: 'poly_matcher',
+          event_label: label
+        });
+      }
+    }
+
+    // ── Init ──
+    function init() {
+      initSubjectGrid();
+      initInterestGrid();
+      initEvents();
+      initFAQ();
+      initLeadGate();
+      initSmoothScroll();
+      initGradeHelper();
+      initSubjectCounter();
+
+      // Track page view
+      trackEvent('page_view', 'poly_matcher_loaded');
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', init);
+    } else {
+      init();
+    }
+  })();
+  </script>
+</body>
+</html>

@@ -1,18 +1,6 @@
-# SEDA 新加坡国际教育中心
+# BCI 自媒体矩阵获客系统原型
 
-`seda.org.sg` 中文新加坡留学资讯门户，承接 SEO 流量。
-
-## 部署
-
-- **GitHub Pages**：`wysin808-dot.github.io/seda-website/`
-- **Vercel**：`edu-mvp-crm.vercel.app`
-
-## 内容覆盖
-
-- 5 大考试体系：WACE / O-Level / A-Level / AEIS / IB
-- 3 类学校对比：政府 / 私立 / 国际学校
-- 25+ 深度攻略页（3,000-5,000 字）
-- AI 工具：大学匹配器（163 专业 × 6 大学）、升学规划器
+这是 BCI 自媒体矩阵获客管理系统的静态原型，用于团队讨论页面结构、字段和工作流。
 
 ## 本地预览
 
@@ -20,27 +8,61 @@
 python3 -m http.server 4175 --bind 127.0.0.1
 ```
 
-## 同步到 GitHub Pages
+打开：
 
-```bash
-node scripts/build-seda-github-pages-multipage.mjs
-cd seda-github-pages && git add -A && git commit -m "Sync" && git push origin gh-pages
+```text
+http://127.0.0.1:4175/
 ```
 
-## 文件结构
+## 云端部署
 
-```
-index.html          SEDA 首页
-seda-site.css       样式
-seda-site.js        交互逻辑
-sitemap.xml         SEO 站点地图
-vercel.json         Vercel 配置
-pathway/            升学路径 + AI 工具
-  university-matcher/   AI 大学匹配
-  study-planner/        AI 升学规划
-aeis/               AEIS 考试（含 7 个子页面）
-o-level/            O-Level（含 4 个子页面）
-wace/               WACE 课程
-guides/             留学指南
-...                 其他内容目录
-```
+当前版本可以作为静态站点部署到：
+
+- Vercel
+- Netlify
+- Cloudflare Pages
+- GitHub Pages
+
+推荐先用 Vercel：
+
+1. 新建 GitHub 仓库
+2. 上传当前项目
+3. 登录 Vercel
+4. Import Git Repository
+5. 选择该仓库
+6. Framework Preset 选择 Other
+7. Build Command 留空
+8. Output Directory 留空或使用根目录
+9. Deploy
+
+## 当前限制
+
+这是静态原型：
+
+- 默认仍可用浏览器本地保存；配置 Supabase 后，新建资料 / 内容 / IP / 账号 / 发布归档会写入云端数据库
+- 不支持真实登录
+- 不支持多人同时编辑
+- 上传图片/视频只是表单展示，不会真正存储
+
+## Supabase 数据库上线
+
+1. 在 Supabase 新建项目
+2. 打开 SQL Editor，执行 `docs/supabase-mvp-launch.sql`
+3. 在 Vercel Project Settings → Environment Variables 添加：
+   - `SUPABASE_URL`
+   - `SUPABASE_ANON_KEY`
+4. 重新部署 Vercel
+
+当前 MVP 会把以下记录写入 Supabase：
+
+- 真实资料库
+- 内容资产库
+- IP 矩阵
+- 账号矩阵
+- 今日发布归档
+
+下一步真实多人协作版本建议继续加入：
+
+- Supabase Auth 登录
+- 角色权限 RLS
+- Supabase Storage / 阿里云 OSS / Cloudflare R2 文件上传

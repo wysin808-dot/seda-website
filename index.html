@@ -3,465 +3,519 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>BCI 自媒体矩阵获客系统</title>
-    <link rel="stylesheet" href="./crm-prototype.css" />
+    <title>SEDA 新加坡留学中心 | 最全中文新加坡教育资讯平台</title>
+    <meta name="description" content="SEDA 新加坡留学中心，最全面的中文新加坡留学资讯门户。覆盖 WACE、O-Level、A-Level、AEIS、IB 考试体系，政府学校、私立学校、国际学校选校指南，以及升学路径与实用留学攻略。" />
+    <meta name="keywords" content="新加坡留学,WACE,O-Level,A-Level,AEIS,IB,新加坡国际学校,新加坡政府学校,新加坡私立学校,新加坡留学费用,新加坡留学路径" />
+    <link rel="canonical" href="https://seda.org.sg/" />
+    <link rel="stylesheet" href="/seda-site.css" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "EducationalOrganization",
+        "name": "SEDA 新加坡留学中心",
+        "legalName": "Singapore Educational Development Association Ltd.",
+        "url": "https://seda.org.sg/",
+        "description": "最全面的中文新加坡留学资讯平台，覆盖 WACE、O-Level、A-Level、AEIS、IB 考试体系，政府学校、私立学校、国际学校选校指南，以及升学路径与留学攻略。",
+        "areaServed": ["China", "Singapore"],
+        "inLanguage": "zh-CN"
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "SEDA 是什么机构？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "SEDA（新加坡国际教育中心）是一个中文新加坡留学资讯平台，为中国家庭提供关于新加坡教育体系、考试课程、学校选择和升学路径的全面信息。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "中国学生去新加坡留学有哪些途径？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "主要有三条路径：通过 AEIS 考试进入政府学校、进入私立学校读 WACE 或 A-Level 课程、进入国际学校读 IB 或其他国际课程。选择取决于孩子年龄、英文水平和目标大学。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "新加坡留学一年大概需要多少钱？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "因学校类型差异较大：政府学校约 15-25 万人民币/年，私立学校约 25-40 万/年，国际学校约 40-65 万/年（含学费和生活费）。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "WACE、O-Level、A-Level、IB 怎么选？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "WACE 节奏稳定适合英文爬坡阶段，O-Level 是新加坡本地体系基础，A-Level 学术要求最高，IB 最全面但压力大。选择要看孩子当前学术状态和大学方向。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "SEDA 提供免费咨询吗？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "是的。家长可以通过网站表单或微信/WhatsApp 联系我们，我们会根据孩子的年龄、英文水平和目标，推荐最合适的课程体系和学校。"
+            }
+          }
+        ]
+      }
+    </script>
   </head>
   <body>
-    <div class="app-shell">
-      <aside class="sidebar">
-        <div class="brand">
-          <div class="brand-mark">BCI</div>
-          <div>
-            <strong>自媒体矩阵</strong>
-            <span>Content to Enrollment</span>
-          </div>
-        </div>
-
-        <nav class="nav-list" aria-label="主导航">
-          <button class="nav-item active" data-view="dashboard"><span class="nav-icon">⚡</span>工作台</button>
-          <button class="nav-item" data-view="publishing"><span class="nav-icon">📋</span>今日发布</button>
-          <div class="nav-divider"></div>
-          <button class="nav-item" data-view="content"><span class="nav-icon">📝</span>内容库</button>
-          <button class="nav-item" data-view="knowledge"><span class="nav-icon">📚</span>资料库</button>
-          <button class="nav-item" data-view="ai"><span class="nav-icon">🤖</span>AI 内容</button>
-          <div class="nav-divider"></div>
-          <button class="nav-item" data-view="persona"><span class="nav-icon">👤</span>IP 矩阵</button>
-          <button class="nav-item" data-view="accounts"><span class="nav-icon">📱</span>账号矩阵</button>
-          <button class="nav-item" data-view="calendar"><span class="nav-icon">📅</span>内容日历</button>
-          <div class="nav-divider"></div>
-          <button class="nav-item" data-view="crm"><span class="nav-icon">🎯</span>招生 CRM</button>
-          <button class="nav-item" data-view="analytics"><span class="nav-icon">📈</span>数据复盘</button>
-          <button class="nav-item" data-view="team"><span class="nav-icon">⚙️</span>权限</button>
+    <header class="site-header">
+      <div class="header-main">
+        <a class="brand" href="/" aria-label="SEDA 首页">
+          <span class="brand-word">SEDA</span>
+          <span class="brand-copy">
+            <strong>新加坡国际教育中心</strong>
+            <small>Singapore Education Pathways</small>
+          </span>
+        </a>
+        <nav class="main-nav" aria-label="主导航">
+          <div class="nav-group">AEIS（政府学校）<div class="mega-dropdown"><a href="/aeis/">AEIS 考试攻略</a><a href="/aeis/preparation/">备考攻略</a><a href="/aeis/age-requirements/">年龄要求</a><a href="/aeis/timeline/">考试时间</a><a href="/government-schools/">政府学校指南</a><a href="/primary-schools/">小学数据库（179所）</a></div></div>
+          <div class="nav-group">O-Level（中学）<div class="mega-dropdown"><a href="/o-level/">O-Level 考试攻略</a><a href="/o-level-schools/">O-Level 学校</a><a href="/secondary-schools/">中学数据库（146所）</a><a href="/o-level-jc/">O-Level → JC</a><a href="/o-level-poly/">O-Level → Poly</a></div></div>
+          <div class="nav-group">JC（高中）<div class="mega-dropdown"><a href="/jc/">JC 初级学院指南</a><a href="/a-level/">A-Level 考试</a><a href="/o-level-jc/">O-Level → JC</a><a href="/wace-vs-a-level/">WACE vs A-Level</a></div></div>
+          <div class="nav-group">POLY（理工学院）<div class="mega-dropdown"><a href="/poly/">理工学院完全指南</a><a href="/poly/admission/">中国学生入学攻略</a><a href="/poly/sp/">SP 新加坡理工学院</a><a href="/poly/np/">NP 义安理工学院</a><a href="/poly/tp/">TP 淡马锡理工学院</a><a href="/poly/nyp/">NYP 南洋理工学院</a><a href="/poly/rp/">RP 共和理工学院</a><a href="/o-level-poly/">O-Level → Poly</a></div></div>
+          <div class="nav-group">公立大学<div class="mega-dropdown"><a href="/university/">公立大学总览</a><a href="/university/admission/">中国学生申请攻略</a><a href="/university/nus/">NUS 新加坡国立大学</a><a href="/university/ntu/">NTU 南洋理工大学</a><a href="/university/smu/">SMU 新加坡管理大学</a><a href="/university/sutd/">SUTD 新加坡科技设计大学</a><a href="/university/sit/">SIT 新加坡理工大学</a><a href="/university/suss/">SUSS 新跃社科大学</a></div></div>
+          <div class="nav-group">私立大学<div class="mega-dropdown"><a href="/private-university/">私立大学总览与推荐</a><a href="/private-university/sim/">SIM 新加坡管理学院</a><a href="/private-university/kaplan/">Kaplan 新加坡</a><a href="/private-university/psb/">PSB Academy</a><a href="/private-university/jcu/">JCU 詹姆斯库克大学</a><a href="/private-university/curtin/">Curtin 科廷大学</a><a href="/private-university/mdis/">MDIS 管理发展学院</a></div></div>
+          <div class="nav-group">海外名校校区<div class="mega-dropdown"><a href="/foreign-university/">海外名校新加坡校区</a><a href="/foreign-university/insead/">INSEAD 欧洲工商管理学院</a><a href="/foreign-university/essec/">ESSEC 高等商学院</a><a href="/foreign-university/chicago-booth/">芝加哥大学 Booth 商学院</a><a href="/foreign-university/sp-jain/">SP Jain 全球管理学院</a><a href="/foreign-university/tum-asia/">TUM Asia 慕尼黑工大亚洲</a></div></div>
+          <div class="nav-group">国际学校<div class="mega-dropdown"><a href="/international-school/">国际学校指南</a><a href="/international-school/uwcsea/">UWCSEA 世界联合书院</a><a href="/international-school/tanglin-trust/">Tanglin Trust School</a><a href="/international-school/singapore-american/">新加坡美国学校 SAS</a><a href="/international-school/canadian-international/">加拿大国际学校 CIS</a><a href="/international-school/stamford-american/">Stamford 美国国际学校</a><a href="/international-school/dulwich/">Dulwich 德威书院</a><a href="/international-school/australian-international/">澳洲国际学校 AIS</a><a href="/international-school/hwa-chong-international/">华中国际学校</a><a href="/international-school/acs-international/">ACS 英华国际学校</a><a href="/ib/">IB 课程</a><a href="/wace/">WACE 课程</a></div></div>
+          <div class="nav-group">AI 工具<div class="mega-dropdown"><a href="/pathway/university-matcher/">🎯 AI 大学匹配</a><a href="/pathway/study-planner/">📋 AI 升学规划</a></div></div>
+          <div class="nav-group">留学指南<div class="mega-dropdown"><a href="/guides/student-pass/">学生准证</a><a href="/guides/cost/">留学费用</a><a href="/guides/accommodation/">住宿方案</a><a href="/guides/dependent-pass/">陪读准证</a></div></div>
         </nav>
-
-        <div class="sidebar-note" id="sidebar-daily-goal">
-          <span>今日目标</span>
-          <strong>12 条内容归档</strong>
-          <p>所有已发布内容必须上传正文、图片、链接和截图。</p>
-        </div>
-      </aside>
-
-      <main class="main">
-        <header class="topbar">
-          <div>
-            <p class="eyebrow">BCI WACE 7-12 招生增长系统</p>
-            <h1 id="view-title">⚡工作台</h1>
-          </div>
-          <div class="topbar-actions">
-            <label class="role-switch">
-              <span>当前角色</span>
-              <select id="role-select">
-                <option value="operator">运营人员</option>
-                <option value="lead">部门负责人</option>
-                <option value="admin">超级管理员</option>
-                <option value="ai">AI 内容编辑</option>
-                <option value="admission">招生顾问</option>
-              </select>
-            </label>
-            <button class="notif-bell" type="button" aria-label="通知" data-action="notifications">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
-              <span class="notif-dot"></span>
-            </button>
-          </div>
-        </header>
-
-        <section class="view active" id="dashboard-view">
-          <div class="role-panel">
-            <div>
-              <h2 id="role-title">运营人员</h2>
-              <p id="role-summary">负责账号内容生产、提交审核、发布归档和数据回填。</p>
-            </div>
-            <div class="role-actions">
-              <button class="ghost-button action-button" type="button" data-action="upload-post">上传发布</button>
-              <button class="primary-button action-button" type="button" data-action="new-content">创建计划</button>
-            </div>
-          </div>
-
-          <div class="metric-grid" id="kpi-cards"></div>
-
-          <div class="dashboard-grid">
-            <section class="panel wide" style="grid-column:1/-1">
-              <div class="panel-header">
-                <div>
-                  <h3>内容管道</h3>
-                  <p>点击查看各状态内容列表。</p>
-                </div>
-                <button class="ghost-button nav-shortcut" type="button" data-target-view="publishing">去今日发布 →</button>
-              </div>
-              <div class="task-summary" id="task-summary"></div>
-            </section>
-          </div>
-
-          <div class="archive-brief" style="margin-top:20px">
-            <strong>发布查询</strong>
-            <span>按日期、平台、账号查看已发布内容，关联数据表现和招生线索。</span>
-          </div>
-          <div class="toolbar">
-            <input id="archive-date" type="date" value="2026-05-11" />
-            <select id="archive-platform"><option>全部平台</option><option>小红书</option><option>视频号</option><option>公众号</option></select>
-            <select id="archive-account"><option>全部账号</option><option>BCI升学顾问号</option><option>BCI官方视频号</option><option>BCI招生老师号</option></select>
-            <input id="archive-search" type="search" placeholder="搜索标题、IP" />
-            <button class="primary-button" id="archive-query" type="button">查询</button>
-          </div>
-          <div class="query-result" id="query-result"></div>
-          <div class="table-card">
-            <table>
-              <thead>
-                <tr><th>日期</th><th>平台</th><th>账号</th><th>IP</th><th>内容</th><th>状态</th><th>数据</th></tr>
-              </thead>
-              <tbody id="publishing-table"></tbody>
-            </table>
-          </div>
-        </section>
-
-        <section class="view" id="publishing-view">
-          <div class="section-heading">
-            <div>
-              <p class="eyebrow">Daily Archive</p>
-              <h2>今日发布任务</h2>
-            </div>
-            <button class="primary-button action-button" type="button" data-action="upload-post">上传发布</button>
-          </div>
-
-          <div class="today-workflow">
-            <section class="panel">
-              <div class="panel-header">
-                <div>
-                  <h3>我的今日任务</h3>
-                  <p>运营人员每天先看这里：哪个账号、哪个 IP、要发什么内容、现在到哪一步。</p>
-                </div>
-                <button class="ghost-button action-button" type="button" data-action="all-tasks">查看全部任务</button>
-              </div>
-              <div class="daily-task-list" id="daily-task-list"></div>
-            </section>
-
-            <section class="panel">
-              <div class="panel-header">
-                <div>
-                  <h3>今日完成度</h3>
-                  <p>发布后必须回填链接、截图和发布正文。</p>
-                </div>
-              </div>
-              <div class="progress-list" id="publishing-progress"></div>
-            </section>
-          </div>
-        </section>
-
-        <section class="view" id="content-view">
-          <div class="section-heading">
-            <div>
-              <p class="eyebrow">Content Assets</p>
-              <h2>内容资产库</h2>
-            </div>
-            <button class="primary-button action-button" type="button" data-action="new-content">创建计划</button>
-          </div>
-          <div class="library-search">
-            <input id="content-search" type="search" placeholder="搜索标题、账号、受众、CTA、关键词、主题簇" />
-            <button class="primary-button library-search-button" type="button" data-library="content">搜索</button>
-          </div>
-          <div class="strategy-filter-bar">
-            <div class="filter-group">
-              <span class="filter-label">漏斗阶段</span>
-              <button class="strat-filter active" data-filter="funnel" data-value="">全部</button>
-              <button class="strat-filter" data-filter="funnel" data-value="Awareness">Awareness</button>
-              <button class="strat-filter" data-filter="funnel" data-value="Consideration">Consideration</button>
-              <button class="strat-filter" data-filter="funnel" data-value="Trust">Trust</button>
-              <button class="strat-filter" data-filter="funnel" data-value="Visit">Visit</button>
-              <button class="strat-filter" data-filter="funnel" data-value="Enroll">Enroll</button>
-            </div>
-            <div class="filter-group">
-              <span class="filter-label">情绪钩子</span>
-              <button class="strat-filter active" data-filter="emotion" data-value="">全部</button>
-              <button class="strat-filter" data-filter="emotion" data-value="反常识">反常识</button>
-              <button class="strat-filter" data-filter="emotion" data-value="焦虑共鸣">焦虑共鸣</button>
-              <button class="strat-filter" data-filter="emotion" data-value="痛点">痛点</button>
-              <button class="strat-filter" data-filter="emotion" data-value="数字震撼">数字震撼</button>
-              <button class="strat-filter" data-filter="emotion" data-value="案例代入">案例代入</button>
-            </div>
-            <div class="filter-group">
-              <span class="filter-label">复用状态</span>
-              <button class="strat-filter active" data-filter="repurpose" data-value="">全部</button>
-              <button class="strat-filter" data-filter="repurpose" data-value="可二改">可二改</button>
-              <button class="strat-filter" data-filter="repurpose" data-value="可转">可转</button>
-              <button class="strat-filter" data-filter="repurpose" data-value="已">已复用</button>
-            </div>
-          </div>
-          <div class="asset-layout">
-            <div class="panel">
-              <h3>主题簇</h3>
-              <div class="filter-list">
-                <button class="filter active" type="button">全部</button>
-                <button class="filter" type="button">WACE</button>
-                <button class="filter" type="button">NUS / NTU</button>
-                <button class="filter" type="button">学费</button>
-                <button class="filter" type="button">签证</button>
-                <button class="filter" type="button">毕业生案例</button>
-              </div>
-            </div>
-            <div class="content-cards" id="content-cards"></div>
-          </div>
-        </section>
-
-        <section class="view" id="knowledge-view">
-          <div class="section-heading">
-            <div>
-              <p class="eyebrow">Knowledge Base</p>
-              <h2>真实资料库</h2>
-            </div>
-            <button class="primary-button action-button" type="button" data-action="new-knowledge">新增资料</button>
-          </div>
-          <div class="library-search">
-            <input id="knowledge-search" type="search" placeholder="搜索事实资料、来源、Subject、Type、Notes、Numeric Data" />
-            <button class="primary-button library-search-button" type="button" data-library="knowledge">搜索</button>
-          </div>
-          <div class="knowledge-grid" id="knowledge-grid"></div>
-        </section>
-
-        <section class="view" id="ai-view">
-          <div class="section-heading">
-            <div>
-              <p class="eyebrow">AI Production</p>
-              <h2>AI 内容库 / Prompt 模板库</h2>
-            </div>
-            <button class="primary-button action-button" type="button" data-action="generate-ai">生成内容</button>
-          </div>
-          <div class="archive-brief">
-            <strong>AI 库定位</strong>
-            <span>这里保存 prompt 模板、标题公式、改写规则、输出示例、质量评分和使用次数。内容资产库只保存最终作品。</span>
-          </div>
-          <div class="library-search">
-            <input id="ai-search" type="search" placeholder="搜索 prompt、模板、平台、阶段、目标 IP、输出示例" />
-            <button class="primary-button library-search-button" type="button" data-library="ai">搜索</button>
-          </div>
-          <div class="ai-workbench">
-            <section class="panel">
-              <h3>调用设置</h3>
-              <label>资料主题<select><option>NUS 接受 WACE ATAR</option><option>WACE 课程结构</option><option>新加坡陪读签证</option></select></label>
-              <label>目标 IP<select><option>升学顾问 IP</option><option>校长 IP</option><option>招生老师 IP</option></select></label>
-              <label>目标平台<select><option>小红书</option><option>视频号</option><option>公众号</option></select></label>
-              <button class="primary-button full action-button" type="button" data-action="generate-ai">生成 3 个版本</button>
-            </section>
-            <section class="panel ai-output">
-              <h3>生成结果</h3>
-              <article>
-                <span>小红书版本</span>
-                <p>如果孩子未来想申请 NUS，WACE 路径到底能不能走？重点不是课程名字，而是 ATAR 成绩、科目组合和申请专业要求。</p>
-              </article>
-              <article>
-                <span>视频口播版本</span>
-                <p>很多家长问：在新加坡读 WACE，将来申请本地大学有没有认可度？我们用 NTU/NUS 的要求拆开讲。</p>
-              </article>
-            </section>
-          </div>
-          <div class="section-heading compact-heading">
-            <div>
-              <p class="eyebrow">Prompt Library</p>
-              <h2>可复用模板</h2>
-            </div>
-            <button class="ghost-button action-button" type="button" data-action="generate-ai">新增模板</button>
-          </div>
-          <div class="knowledge-grid" id="ai-library"></div>
-        </section>
-
-        <section class="view" id="persona-view">
-          <div class="section-heading">
-            <div>
-              <p class="eyebrow">Persona Matrix</p>
-              <h2>IP 矩阵</h2>
-            </div>
-            <button class="primary-button action-button" type="button" data-action="new-persona">新增 IP</button>
-          </div>
-          <div class="library-search">
-            <input id="persona-search" type="search" placeholder="搜索 IP 名称、定位、渠道、线索表现" />
-            <button class="primary-button library-search-button" type="button" data-library="persona">搜索</button>
-          </div>
-          <div class="matrix-grid" id="persona-grid"></div>
-        </section>
-
-        <section class="view" id="accounts-view">
-          <div class="section-heading">
-            <div>
-              <p class="eyebrow">Account Matrix</p>
-              <h2>账号矩阵</h2>
-            </div>
-            <button class="primary-button action-button" type="button" data-action="new-account">新增账号</button>
-          </div>
-          <div class="library-search">
-            <input id="account-search" type="search" placeholder="搜索账号、平台、运营人、主体、IP、状态" />
-            <button class="primary-button library-search-button" type="button" data-library="account">搜索</button>
-          </div>
-          <div class="table-card">
-            <table>
-              <thead>
-                <tr><th>平台</th><th>账号</th><th>绑定 IP</th><th>负责人</th><th>阶段</th><th>本月发布</th><th>线索</th></tr>
-              </thead>
-              <tbody id="accounts-table"></tbody>
-            </table>
-          </div>
-        </section>
-
-        <section class="view" id="calendar-view">
-          <div class="calendar-toolbar">
-            <div class="calendar-controls">
-              <button class="ghost-button" id="cal-prev" type="button">&larr;</button>
-              <strong id="cal-month-label">2026 年 5 月</strong>
-              <button class="ghost-button" id="cal-next" type="button">&rarr;</button>
-            </div>
-            <div class="calendar-legend">
-              <span><i class="dot dot-awareness"></i>Aw</span>
-              <span><i class="dot dot-consideration"></i>Co</span>
-              <span><i class="dot dot-trust"></i>Tr</span>
-              <span><i class="dot dot-visit"></i>Vi</span>
-              <span><i class="dot dot-enroll"></i>En</span>
-            </div>
-          </div>
-          <div class="calendar-grid" id="calendar-grid"></div>
-          <div class="calendar-summary" id="calendar-summary"></div>
-        </section>
-
-        <section class="view" id="crm-view">
-          <div class="section-heading">
-            <div>
-              <p class="eyebrow">Admissions CRM</p>
-              <h2>招生 CRM</h2>
-            </div>
-            <button class="primary-button action-button" type="button" data-action="new-lead">新增线索</button>
-          </div>
-          <div class="kanban" id="crm-kanban"></div>
-        </section>
-
-        <section class="view" id="analytics-view">
-          <div class="section-heading">
-            <div>
-              <p class="eyebrow">Review Dashboard</p>
-              <h2>数据复盘</h2>
-            </div>
-            <button class="ghost-button action-button" type="button" data-action="export-report">导出月报</button>
-          </div>
-          <div class="analytics-grid">
-            <section class="panel wide">
-              <h3>平台线索表现</h3>
-              <div class="bar-chart" id="platform-bars"></div>
-            </section>
-            <section class="panel">
-              <h3>招生漏斗</h3>
-              <div class="funnel">
-                <div><span>曝光</span><strong>128,400</strong></div>
-                <div><span>私信</span><strong>386</strong></div>
-                <div><span>有效线索</span><strong>143</strong></div>
-                <div><span>到访</span><strong>41</strong></div>
-                <div><span>报名</span><strong>9</strong></div>
-              </div>
-            </section>
-          </div>
-          <div class="section-heading compact-heading">
-            <div>
-              <p class="eyebrow">Content Strategy Health</p>
-              <h2>内容策略体检</h2>
-            </div>
-          </div>
-          <div class="analytics-grid strategy-health-grid">
-            <section class="panel">
-              <h3>漏斗阶段分布</h3>
-              <p>内容是否覆盖了全漏斗？避免"头重脚轻"。</p>
-              <div class="bar-chart" id="funnel-dist-bars"></div>
-            </section>
-            <section class="panel">
-              <h3>情绪钩子分布</h3>
-              <p>哪种情绪钩子在用？避免单一打法。</p>
-              <div class="bar-chart" id="emotion-dist-bars"></div>
-            </section>
-            <section class="panel">
-              <h3>复用效率</h3>
-              <p>多少内容只在单平台发了？</p>
-              <div class="bar-chart" id="repurpose-dist-bars"></div>
-            </section>
-            <section class="panel">
-              <h3>WACE 内容追踪</h3>
-              <p>本周 WACE Focus 内容是否 ≥ 2 条？</p>
-              <div id="wace-tracker"></div>
-            </section>
-          </div>
-          <div class="section-heading compact-heading">
-            <div>
-              <p class="eyebrow">Top Content</p>
-              <h2>内容表现排行</h2>
-            </div>
-          </div>
-          <div class="table-card">
-            <table>
-              <thead>
-                <tr><th>#</th><th>内容标题</th><th>账号</th><th>阅读</th><th>赞</th><th>评论</th><th>私信</th><th>线索</th><th>综合分</th></tr>
-              </thead>
-              <tbody id="top-content-table"></tbody>
-            </table>
-          </div>
-          <div class="section-heading compact-heading">
-            <div>
-              <p class="eyebrow">SEO Tracking</p>
-              <h2>关键词表现追踪</h2>
-            </div>
-          </div>
-          <div class="table-card">
-            <table>
-              <thead>
-                <tr><th>关键词</th><th>内容数</th><th>总阅读</th><th>总线索</th><th>平均综合分</th><th>覆盖漏斗</th></tr>
-              </thead>
-              <tbody id="keyword-table"></tbody>
-            </table>
-          </div>
-          <div class="section-heading compact-heading">
-            <div>
-              <p class="eyebrow">A/B Testing</p>
-              <h2>内容 A/B 测试</h2>
-            </div>
-          </div>
-          <div id="ab-test-panel"></div>
-        </section>
-
-        <section class="view" id="team-view">
-          <div class="section-heading">
-            <div>
-              <p class="eyebrow">Access Control</p>
-              <h2>团队与权限</h2>
-            </div>
-            <button class="primary-button action-button" type="button" data-action="invite-member">邀请成员</button>
-          </div>
-          <div class="permission-grid" id="permission-grid"></div>
-        </section>
-      </main>
-    </div>
-
-    <div class="notification-panel" id="notification-panel" aria-hidden="true">
-      <div class="notif-header">
-        <h3>通知与提醒</h3>
-        <button class="ghost-button" id="notif-close" type="button">关闭</button>
+        <a class="nav-cta" href="#contact">免费咨询</a>
       </div>
-      <div class="notif-list" id="notif-list"></div>
-    </div>
-    <div class="notification-overlay" id="notification-overlay"></div>
+      <div class="trending-bar" aria-label="热门搜索">
+        <span>热门搜索：</span>
+        <a href="/wace/">WACE 课程</a>
+        <a href="/aeis/">AEIS 考试</a>
+        <a href="/o-level/">O-Level</a>
+        <a href="/a-level/">A-Level</a>
+        <a href="/ib/">IB 课程</a>
+        <a href="/international-school/">国际学校</a>
+        <a href="/guides/cost/">留学费用</a>
+      </div>
+    </header>
 
-    <div class="modal-backdrop" id="modal-backdrop" aria-hidden="true">
-      <section class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
-        <div class="modal-header">
-          <div>
-            <p class="eyebrow" id="modal-kicker">System Action</p>
-            <h2 id="modal-title">操作</h2>
+    <main>
+      <section class="hero">
+        <div class="hero-content">
+          <p class="eyebrow">最全中文新加坡留学资讯平台</p>
+          <h1>SEDA 新加坡留学中心</h1>
+          <p class="hero-subtitle">覆盖 WACE、O-Level、A-Level、AEIS、IB 全课程体系，政府学校、私立学校、国际学校全类型选校，以及升学路径规划与留学实用指南。</p>
+          <div class="hero-actions">
+            <a class="primary-button" href="/pathway/">查看升学路径</a>
+            <a class="secondary-button" href="/school-database/">学校数据库</a>
           </div>
-          <button class="icon-button modal-close" type="button" aria-label="关闭">×</button>
+          <div class="hero-proof" aria-label="核心内容方向">
+            <span>5 大考试体系</span>
+            <span>3 类学校对比</span>
+            <span>25+ 深度攻略</span>
+          </div>
         </div>
-        <div class="modal-body" id="modal-body"></div>
-        <div class="modal-footer">
-          <button class="ghost-button modal-close" type="button">取消</button>
-          <button class="ghost-button" type="button" id="modal-draft" style="display:none">存草稿</button>
-          <button class="primary-button" type="button" id="modal-confirm">保存到系统</button>
+        <aside class="hero-brief" aria-label="教育信息入口">
+          <div class="brief-block lead">
+            <span class="brief-label">热门专题</span>
+            <a href="/aeis/">AEIS 考试完全攻略：国际学生进入新加坡政府学校全指南</a>
+            <p>2025-2026 考试时间表、年龄要求、英文数学题型分析与备考策略。</p>
+          </div>
+          <div class="brief-block">
+            <span class="brief-label">课程对比</span>
+            <div class="keyword-list">
+              <a href="/wace-vs-a-level/">WACE vs A-Level</a>
+              <a href="/wace-atar/">ATAR 成绩</a>
+              <a href="/ib/">IB 课程</a>
+              <a href="/a-level/">A-Level</a>
+            </div>
+          </div>
+          <div class="brief-block">
+            <span class="brief-label">升学路径</span>
+            <div class="keyword-list">
+              <a href="/wace-nus-ntu/">WACE→NUS/NTU</a>
+              <a href="/o-level-jc/">O-Level→JC</a>
+              <a href="/o-level-poly/">O-Level→Poly</a>
+              <a href="/pathway/">路径总览</a>
+            </div>
+          </div>
+          <div class="path-mini" aria-label="升学路径示意">
+            <span>中国学生</span>
+            <span>WACE / O-Level / AEIS / IB</span>
+            <span>NUS / NTU / 澳洲 / 英国大学</span>
+          </div>
+        </aside>
+      </section>
+
+      <div class="trust-bar">
+        <div class="trust-item">
+          <div class="trust-icon blue">&#x1F393;</div>
+          <div class="trust-text"><strong>5 大课程体系</strong><span>WACE / O-Level / A-Level / AEIS / IB</span></div>
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon teal">&#x1F3EB;</div>
+          <div class="trust-text"><strong>60+ 学校数据</strong><span>政府 / 私立 / 国际学校</span></div>
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon amber">&#x1F4D6;</div>
+          <div class="trust-text"><strong>25+ 深度攻略</strong><span>3,000-5,000 字全面指南</span></div>
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon rose">&#x2705;</div>
+          <div class="trust-text"><strong>免费咨询</strong><span>微信 / WhatsApp 即时响应</span></div>
+        </div>
+      </div>
+
+      <section class="search-section" aria-labelledby="hot-search-title">
+        <div class="section-head">
+          <p class="eyebrow">热门问题</p>
+          <h2 id="hot-search-title">家长最常搜索的新加坡留学问题</h2>
+        </div>
+        <div class="search-grid">
+          <a href="/aeis/"><span>AEIS 考试怎么准备？</span><small>时间表、题型与备考策略</small></a>
+          <a href="/wace/"><span>WACE 是什么课程？</span><small>课程结构、ATAR 与大学出口</small></a>
+          <a href="/wace-vs-a-level/"><span>WACE vs A-Level 怎么选？</span><small>课程难度、英文要求、认可度对比</small></a>
+          <a href="/o-level/"><span>O-Level 考试全攻略</span><small>科目、评分、JC/Poly 升学</small></a>
+          <a href="/international-school/"><span>新加坡国际学校怎么选？</span><small>学费、课程、Top 10 推荐</small></a>
+          <a href="/guides/cost/"><span>新加坡留学一年多少钱？</span><small>学费、生活费、总预算核算</small></a>
+          <a href="/pathway/"><span>中国学生升学路径怎么选？</span><small>按年龄、目标大学选最优方案</small></a>
+          <a href="/guides/student-pass/"><span>学生准证怎么申请？</span><small>材料、流程、常见拒签原因</small></a>
         </div>
       </section>
-    </div>
 
-    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+      <section class="content-band" aria-labelledby="articles-title">
+        <div class="section-head split">
+          <div>
+            <p class="eyebrow">深度攻略</p>
+            <h2 id="articles-title">每个考试体系都有一篇完全指南</h2>
+          </div>
+          <a class="text-link" href="/guides/">查看全部攻略</a>
+        </div>
+        <div class="article-grid">
+          <article class="article-card">
+            <a href="/aeis/">
+              <span class="tag">AEIS</span>
+              <h3>AEIS 考试完全攻略</h3>
+              <p>国际学生进入新加坡政府学校的唯一途径。涵盖 2025 时间表、年龄要求、英文数学题型和备考策略。</p>
+            </a>
+          </article>
+          <article class="article-card">
+            <a href="/wace/">
+              <span class="tag">WACE</span>
+              <h3>WACE 课程完全攻略</h3>
+              <p>西澳课程结构、ATAR 计算方式、科目选择策略、适合什么中国学生，以及新加坡开设学校一览。</p>
+            </a>
+          </article>
+          <article class="article-card">
+            <a href="/o-level/">
+              <span class="tag alt">O-Level</span>
+              <h3>O-Level 考试完全攻略</h3>
+              <p>科目体系、L1R5 与 ELR2B2 评分详解、JC 和 Poly 两条升学出口、国际学生备考策略。</p>
+            </a>
+          </article>
+          <article class="article-card">
+            <a href="/a-level/">
+              <span class="tag alt">A-Level</span>
+              <h3>A-Level 考试完全攻略</h3>
+              <p>H1/H2/H3 科目体系、GP 考试详解、JC 两年学习安排和各大学 Rank Points 门槛。</p>
+            </a>
+          </article>
+          <article class="article-card">
+            <a href="/ib/">
+              <span class="tag">IB</span>
+              <h3>IB 课程完全攻略</h3>
+              <p>IBDP 六大科目组、TOK/EE/CAS 核心、评分体系，以及新加坡 IB 学校推荐与成绩排名。</p>
+            </a>
+          </article>
+          <article class="article-card">
+            <a href="/international-school/">
+              <span class="tag alt">选校</span>
+              <h3>国际学校完全指南</h3>
+              <p>课程类型对比、学费一览、Top 10 学校推荐、中国学生选校策略和申请流程。</p>
+            </a>
+          </article>
+        </div>
+      </section>
 
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <script src="./crm-prototype.js"></script>
+      <section class="topic-section" aria-labelledby="wace-topic-title">
+        <div class="section-head split">
+          <div>
+            <p class="eyebrow">WACE 专题</p>
+            <h2 id="wace-topic-title">中文世界最全面的 WACE 攻略</h2>
+          </div>
+          <a class="text-link" href="/wace/">进入 WACE 专题</a>
+        </div>
+        <div class="topic-layout">
+          <article class="topic-lead">
+            <a href="/wace-vs-a-level/">
+              <span class="tag">核心对比</span>
+              <h3>WACE vs A-Level：新加坡国际高中怎么选？</h3>
+              <p>从课程结构、难度、评分方式、大学认可、英文要求和费用六个维度做完全对比。</p>
+            </a>
+          </article>
+          <div class="topic-list">
+            <a href="/wace/"><strong>WACE 课程完全攻略</strong><span>课程结构、科目选择、适合人群</span></a>
+            <a href="/wace-atar/"><strong>ATAR 成绩详解</strong><span>计算方式、Scaling、大学门槛</span></a>
+            <a href="/wace-nus-ntu/"><strong>WACE 申请 NUS/NTU</strong><span>专业要求、ATAR 区间、选课策略</span></a>
+            <a href="/private-schools/"><strong>WACE 私立学校推荐</strong><span>BCI、学费、EduTrust 认证</span></a>
+          </div>
+        </div>
+      </section>
+
+      <section class="topic-section alt-topic" aria-labelledby="olevel-topic-title">
+        <div class="section-head split">
+          <div>
+            <p class="eyebrow">O-Level · A-Level 专题</p>
+            <h2 id="olevel-topic-title">新加坡本地升学体系完全解读</h2>
+          </div>
+          <a class="text-link" href="/o-level/">进入 O-Level 专题</a>
+        </div>
+        <div class="topic-layout">
+          <article class="topic-lead">
+            <a href="/o-level-jc/">
+              <span class="tag alt">核心阅读</span>
+              <h3>O-Level 之后，孩子适合 JC 还是 Poly？</h3>
+              <p>JC 走学术路线读 A-Level，Poly 走专业路线读三年文凭。选择取决于孩子的英文基础、学术耐力和长期目标。</p>
+            </a>
+          </article>
+          <div class="topic-list">
+            <a href="/o-level/"><strong>O-Level 完全攻略</strong><span>科目、评分、国际学生路径</span></a>
+            <a href="/a-level/"><strong>A-Level 完全攻略</strong><span>H1/H2 科目、GP、大学申请</span></a>
+            <a href="/o-level-jc/"><strong>O-Level 申请 JC</strong><span>L1R5 计算、JC 排名选校</span></a>
+            <a href="/o-level-poly/"><strong>O-Level 申请 Poly</strong><span>ELR2B2、专业选择、升大学</span></a>
+          </div>
+        </div>
+      </section>
+
+      <section class="database-section" aria-labelledby="database-title">
+        <div class="section-head split">
+          <div>
+            <p class="eyebrow">学校数据库</p>
+            <h2 id="database-title">按路径筛选新加坡学校</h2>
+          </div>
+          <a class="text-link" href="/school-database/">进入数据库</a>
+        </div>
+        <div class="database-layout">
+          <div class="filters" aria-label="学校筛选条件">
+            <button class="filter active" type="button">WACE 国际高中</button>
+            <button class="filter" type="button">O-Level 政府路径</button>
+            <button class="filter" type="button">国际学校</button>
+            <button class="filter" type="button">可申请 NUS/NTU</button>
+          </div>
+          <div class="school-list">
+            <article class="school-row">
+              <div>
+                <h3>WACE 国际高中路径</h3>
+                <p>适合希望用澳洲高中体系申请新加坡、澳洲、香港等大学的学生。</p>
+              </div>
+              <span>重点：ATAR / 科目组合 / 英语</span>
+            </article>
+            <article class="school-row">
+              <div>
+                <h3>O-Level 政府学校路径</h3>
+                <p>适合目标 JC、Poly 或长期留在新加坡体系内发展的学生。</p>
+              </div>
+              <span>重点：英文 / 数学 / 入学年级</span>
+            </article>
+            <article class="school-row">
+              <div>
+                <h3>国际高中转轨路径</h3>
+                <p>适合国内初三、高一、高二阶段需要重新规划课程出口的家庭。</p>
+              </div>
+              <span>重点：转学时间 / 学分 / 大学方向</span>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="pathway-section" aria-labelledby="pathway-title">
+        <div class="section-head">
+          <p class="eyebrow">升学路径</p>
+          <h2 id="pathway-title">先确定目标大学，再反推课程选择</h2>
+        </div>
+        <div class="pathway-grid">
+          <a href="/wace-nus-ntu/">
+            <strong>WACE → NUS/NTU</strong>
+            <span>ATAR 要求、先修科目、选课策略</span>
+          </a>
+          <a href="/o-level-jc/">
+            <strong>O-Level → JC → 大学</strong>
+            <span>L1R5、JC 选校、A-Level 准备</span>
+          </a>
+          <a href="/o-level-poly/">
+            <strong>O-Level → Poly → 就业/大学</strong>
+            <span>专业选择、GPA、升大学路径</span>
+          </a>
+          <a href="/aeis/">
+            <strong>AEIS → 政府学校</strong>
+            <span>国际学生进入政府体系的唯一途径</span>
+          </a>
+          <a href="/international-school/">
+            <strong>国际学校 IB/A-Level</strong>
+            <span>课程选择、学费、申请流程</span>
+          </a>
+          <a href="/pathway/">
+            <strong>按年龄选路径</strong>
+            <span>8-18 岁各阶段最优方案</span>
+          </a>
+          <a href="/pathway/university-matcher/" style="background:linear-gradient(135deg,#2a1215,#1a0a0c);color:#fff;border:none">
+            <strong>AI 大学匹配工具</strong>
+            <span style="color:rgba(255,255,255,.7)">输入成绩，AI 匹配 6 所公立大学录取概率</span>
+          </a>
+          <a href="/pathway/study-planner/" style="background:linear-gradient(135deg,#1a2332,#0f172a);color:#fff;border:none">
+            <strong>AI 升学规划器</strong>
+            <span style="color:rgba(255,255,255,.7)">选目标专业+年级，生成个性化升学时间表</span>
+          </a>
+        </div>
+      </section>
+
+      <section class="parent-section" aria-labelledby="parent-title">
+        <div class="section-head split">
+          <div>
+            <p class="eyebrow">留学实用指南</p>
+            <h2 id="parent-title">家长最关心的留学实际问题</h2>
+          </div>
+          <a class="text-link" href="/guides/">查看全部指南</a>
+        </div>
+        <div class="guide-grid">
+          <a href="/guides/cost/"><strong>新加坡留学一年费用是多少？</strong><span>学费、生活费、住宿费完整核算</span></a>
+          <a href="/guides/student-pass/"><strong>学生准证怎么申请？</strong><span>材料、流程、费用和常见拒签原因</span></a>
+          <a href="/guides/accommodation/"><strong>孩子住宿怎么安排？</strong><span>宿舍、寄宿家庭和租房方案对比</span></a>
+          <a href="/singapore-education/"><strong>新加坡教育体系是什么样的？</strong><span>从幼儿园到大学的完整体系解读</span></a>
+          <a href="/government-schools/"><strong>政府学校和私立学校怎么选？</strong><span>学费、入学方式、课程对比</span></a>
+          <a href="/pathway/"><strong>中国学生有哪些升学路径？</strong><span>按年龄和目标大学选最优方案</span></a>
+        </div>
+      </section>
+
+      <section class="finder-section" aria-labelledby="finder-title">
+        <div class="section-head">
+          <p class="eyebrow">快速定位</p>
+          <h2 id="finder-title">孩子现在几年级？帮你找到最合适的路径</h2>
+        </div>
+        <div class="finder-grid">
+          <a class="finder-card" href="/aeis/">
+            <div class="finder-age">7-12</div>
+            <strong>小学阶段 (小1-小6)</strong>
+            <span>通过 AEIS 考试进入新加坡政府小学，全英文环境沉浸，最早起步</span>
+          </a>
+          <a class="finder-card" href="/pathway/">
+            <div class="finder-age">13-15</div>
+            <strong>初中阶段 (初1-初3)</strong>
+            <span>AEIS 进政府中学，或直接入读私立 WACE / O-Level 预备课程</span>
+          </a>
+          <a class="finder-card" href="/wace/">
+            <div class="finder-age">15-17</div>
+            <strong>高中阶段 (高1-高2)</strong>
+            <span>WACE Year 11-12 / A-Level / IB，两年完成国际高中并申请大学</span>
+          </a>
+          <a class="finder-card" href="/wace-nus-ntu/">
+            <div class="finder-age">17+</div>
+            <strong>高三 / 高考后</strong>
+            <span>用高考成绩直申 NUS/NTU，或读一年 WACE/A-Level 作为跳板</span>
+          </a>
+        </div>
+      </section>
+
+      <section class="faq-section" aria-labelledby="faq-title">
+        <div class="section-head">
+          <p class="eyebrow">FAQ</p>
+          <h2 id="faq-title">新加坡留学常见问题</h2>
+        </div>
+        <div class="faq-list">
+          <details open>
+            <summary>SEDA 是什么机构？</summary>
+            <p>SEDA（新加坡国际教育中心）是一个中文新加坡留学资讯平台，为中国家庭提供关于新加坡教育体系、考试课程、学校选择和升学路径的全面信息。我们不是学校，而是帮助家长做出更明智留学决策的信息服务平台。</p>
+          </details>
+          <details>
+            <summary>中国学生去新加坡留学有哪些途径？</summary>
+            <p>主要有三条路径：通过 AEIS 考试进入政府学校（走 O-Level → JC/Poly 路线）、进入私立学校读 WACE 或 A-Level 课程、进入国际学校读 IB 或其他国际课程。选择取决于孩子年龄、英文水平和目标大学。详见<a href="/pathway/">升学路径总览</a>。</p>
+          </details>
+          <details>
+            <summary>新加坡留学一年大概需要多少钱？</summary>
+            <p>因学校类型差异较大：政府学校约 15-25 万人民币/年，私立学校约 25-40 万/年，国际学校约 40-65 万/年（含学费和生活费）。详见<a href="/guides/cost/">留学费用指南</a>。</p>
+          </details>
+          <details>
+            <summary>WACE、O-Level、A-Level、IB 怎么选？</summary>
+            <p>这四种课程体系面向不同学生：WACE 节奏稳定适合英文爬坡阶段，O-Level 是新加坡本地体系基础，A-Level 学术要求最高，IB 最全面但压力大。选择要看孩子当前学术状态和大学方向。</p>
+          </details>
+          <details>
+            <summary>SEDA 提供免费咨询吗？</summary>
+            <p>是的。家长可以通过本页底部表单或微信/WhatsApp 联系我们，我们会根据孩子的年龄、英文水平和目标，推荐最合适的课程体系和学校。</p>
+          </details>
+        </div>
+      </section>
+
+      <section class="contact-section" id="contact" aria-labelledby="contact-title">
+        <div>
+          <p class="eyebrow">免费咨询</p>
+          <h2 id="contact-title">告诉我们孩子的情况，获取个性化留学方案</h2>
+          <p>我们的顾问会根据孩子的年龄、英文水平和目标大学，推荐最合适的课程体系和学校选择。</p>
+        </div>
+        <form class="lead-form">
+          <label>
+            <span>学生当前年级</span>
+            <input type="text" name="grade" placeholder="例如：国内初三 / 新加坡 Sec 3" />
+          </label>
+          <label>
+            <span>关注方向</span>
+            <select name="track">
+              <option>WACE 国际高中</option>
+              <option>O-Level 升学</option>
+              <option>A-Level / JC</option>
+              <option>IB 国际课程</option>
+              <option>AEIS 政府学校</option>
+              <option>国际学校转学</option>
+              <option>还不确定，需要规划</option>
+            </select>
+          </label>
+          <label>
+            <span>联系方式</span>
+            <input type="text" name="contact" placeholder="微信 / WhatsApp / 手机" />
+          </label>
+          <button class="primary-button" type="submit">提交咨询</button>
+          <div class="contact-options">
+            <a href="weixin://">微信咨询</a>
+            <a href="https://wa.me/" rel="nofollow">WhatsApp</a>
+          </div>
+        </form>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div>
+        <strong>SEDA 新加坡留学中心</strong>
+        <p>最全面的中文新加坡留学资讯平台，覆盖考试攻略、学校选择、升学路径与留学指南。</p>
+        <p style="margin-top:.5rem;font-size:.85rem;opacity:.7">Singapore Educational Development Association Ltd.</p>
+      </div>
+      <div>
+        <span>考试攻略</span>
+        <p><a href="/wace/">WACE</a> · <a href="/o-level/">O-Level</a> · <a href="/a-level/">A-Level</a> · <a href="/aeis/">AEIS</a> · <a href="/ib/">IB</a></p>
+      </div>
+      <div>
+        <span>学校类型</span>
+        <p><a href="/government-schools/">政府学校</a> · <a href="/primary-schools/">小学(179所)</a> · <a href="/secondary-schools/">中学(146所)</a> · <a href="/private-schools/">私立学校</a> · <a href="/international-school/">国际学校</a> · <a href="/school-database/">学校数据库</a></p>
+      </div>
+      <div>
+        <span>升学路径</span>
+        <p><a href="/pathway/">路径总览</a> · <a href="/wace-nus-ntu/">WACE→NUS/NTU</a> · <a href="/o-level-jc/">O-Level→JC</a> · <a href="/o-level-poly/">O-Level→Poly</a></p>
+      </div>
+      <div>
+        <span>留学指南</span>
+        <p><a href="/guides/student-pass/">学生准证</a> · <a href="/guides/cost/">留学费用</a> · <a href="/guides/accommodation/">住宿方案</a> · <a href="/about/">关于我们</a> · <a href="/contact/">联系我们</a></p>
+      </div>
+    </footer>
+
+    <a class="wechat-float" href="#contact" aria-label="微信咨询">
+      <svg viewBox="0 0 24 24"><path d="M8.691 2.188C3.891 2.188 0 5.476 0 9.53c0 2.212 1.17 4.203 3.002 5.55a.59.59 0 0 1 .213.665l-.39 1.48c-.019.07-.048.141-.048.213 0 .163.13.295.29.295a.326.326 0 0 0 .167-.054l1.903-1.114a.864.864 0 0 1 .717-.098 10.16 10.16 0 0 0 2.837.403c.276 0 .543-.027.811-.05-.857-2.578.157-4.972 1.932-6.446 1.703-1.415 3.882-1.98 5.853-1.838-.576-3.583-4.196-6.348-8.596-6.348zM5.785 5.991c.642 0 1.162.529 1.162 1.18a1.17 1.17 0 0 1-1.162 1.178A1.17 1.17 0 0 1 4.623 7.17c0-.651.52-1.18 1.162-1.18zm5.813 0c.642 0 1.162.529 1.162 1.18a1.17 1.17 0 0 1-1.162 1.178 1.17 1.17 0 0 1-1.162-1.178c0-.651.52-1.18 1.162-1.18zm3.825 4.15c-2.19 0-4.166.88-5.481 2.255-1.208 1.262-1.942 2.94-1.942 4.773 0 3.708 3.286 6.643 7.423 6.643.826 0 1.622-.12 2.361-.336a.722.722 0 0 1 .598.082l1.584.926a.272.272 0 0 0 .14.045c.133 0 .241-.11.241-.245 0-.06-.024-.12-.04-.178l-.326-1.233a.49.49 0 0 1 .177-.554C21.886 21.065 23 19.18 23 17.17c0-3.832-3.339-7.028-7.577-7.028zm-2.57 3.198c.535 0 .969.44.969.983a.976.976 0 0 1-.969.983.976.976 0 0 1-.969-.983c0-.543.434-.983.97-.983zm5.14 0c.535 0 .969.44.969.983a.976.976 0 0 1-.97.983.976.976 0 0 1-.968-.983c0-.543.434-.983.969-.983z"/></svg>
+      <span>微信咨询</span>
+    </a>
+
+    <script src="/seda-site.js"></script>
   </body>
 </html>

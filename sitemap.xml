@@ -1,58 +1,233 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Generated: 2026-05-17 | Total: 170 pages -->
+
+  <!-- 首页 -->
   <url><loc>https://seda.org.sg/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
 
   <!-- 新加坡教育 -->
   <url><loc>https://seda.org.sg/singapore-education/</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://seda.org.sg/government-schools/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://seda.org.sg/private-schools/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://seda.org.sg/international-school/</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
 
-  <!-- 考试攻略 -->
+  <!-- 政府学校 -->
+  <url><loc>https://seda.org.sg/government-schools/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+
+  <!-- 私立学校 -->
+  <url><loc>https://seda.org.sg/private-schools/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+
+  <!-- 小学数据库 -->
+  <url><loc>https://seda.org.sg/primary-schools/</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://seda.org.sg/primary-schools/ai-tong/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/primary-schools/alexandra-primary/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/primary-schools/anderson-primary/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/primary-schools/anglo-chinese-primary/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/primary-schools/bukit-timah-primary/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/primary-schools/canossa-primary/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/primary-schools/catholic-high-primary/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/primary-schools/chij-kellock/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/primary-schools/chij-primary/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/primary-schools/chongfu/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/primary-schools/compassvale-primary/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/primary-schools/de-la-salle/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/primary-schools/elias-park-primary/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/primary-schools/fairfield-methodist-primary/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/primary-schools/gongshang-primary/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/primary-schools/greendale-primary/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/primary-schools/haig-girls/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/primary-schools/henry-park/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/primary-schools/holy-innocents-primary/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/primary-schools/jurong-primary/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/primary-schools/kong-hwa/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/primary-schools/lianhua-primary/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/primary-schools/maha-bodhi/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/primary-schools/maris-stella-high-primary/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/primary-schools/mayflower-primary/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/primary-schools/nan-hua-primary/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/primary-schools/nanyang-primary/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/primary-schools/north-spring-primary/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/primary-schools/pei-hwa-presbyterian/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/primary-schools/poi-ching/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/primary-schools/princess-elizabeth-primary/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/primary-schools/punggol-primary/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/primary-schools/raffles-girls-primary/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/primary-schools/red-swastika/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/primary-schools/river-valley-primary/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/primary-schools/rosyth/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/primary-schools/rulang/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/primary-schools/sengkang-primary/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/primary-schools/south-view-primary/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/primary-schools/st-hildas-primary/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/primary-schools/st-margarets-primary/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/primary-schools/tanjong-katong-primary/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/primary-schools/tao-nan/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/primary-schools/temasek-primary/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/primary-schools/west-spring-primary/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/primary-schools/woodlands-primary/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/primary-schools/xinghua-primary/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/primary-schools/xinmin-primary/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/primary-schools/yumin-primary/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/primary-schools/zhangde-primary/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <!-- 中学数据库 -->
+  <url><loc>https://seda.org.sg/secondary-schools/</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://seda.org.sg/secondary-schools/anglo-chinese-independent/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/secondary-schools/cedar-girls/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/secondary-schools/chij-st-nicholas/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/secondary-schools/dunman-high/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/secondary-schools/hwa-chong-institution/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/secondary-schools/methodist-girls/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/secondary-schools/nanyang-girls/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/secondary-schools/raffles-institution/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/secondary-schools/st-josephs-institution/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/secondary-schools/victoria-school/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <!-- 初级学院 JC -->
+  <url><loc>https://seda.org.sg/jc/</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://seda.org.sg/jc/anderson-serangoon-jc/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/jc/anglo-chinese-jc/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/jc/catholic-jc/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/jc/dunman-high/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/jc/eunoia-jc/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/jc/hwa-chong-institution/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/jc/jurong-pioneer-jc/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/jc/nanyang-jc/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/jc/national-jc/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/jc/raffles-institution/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/jc/river-valley-high/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/jc/st-andrews-jc/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/jc/tampines-meridian-jc/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/jc/temasek-jc/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/jc/victoria-jc/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/jc/yishun-innova-jc/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <!-- 理工学院 Poly -->
+  <url><loc>https://seda.org.sg/poly/</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://seda.org.sg/poly/admission/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/poly/np/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/poly/nyp/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/poly/rp/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/poly/sp/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/poly/tp/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <!-- 公立大学 -->
+  <url><loc>https://seda.org.sg/university/</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://seda.org.sg/university/admission/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/university/ntu/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/university/nus/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/university/sit/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/university/smu/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/university/suss/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/university/sutd/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <!-- 私立大学 -->
+  <url><loc>https://seda.org.sg/private-university/</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://seda.org.sg/private-university/curtin/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/private-university/jcu/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/private-university/kaplan/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/private-university/mdis/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/private-university/psb/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/private-university/sim/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <!-- 海外名校校区 -->
+  <url><loc>https://seda.org.sg/foreign-university/</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://seda.org.sg/foreign-university/chicago-booth/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/foreign-university/essec/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/foreign-university/insead/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/foreign-university/sp-jain/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/foreign-university/tum-asia/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <!-- 国际学校 -->
+  <url><loc>https://seda.org.sg/international-school/</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://seda.org.sg/international-school/acs-international/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/international-school/australian-international/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/international-school/canadian-international/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/international-school/dover-court/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/international-school/dulwich/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/international-school/gems-world-academy/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/international-school/global-indian/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/international-school/hwa-chong-international/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/international-school/iss/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/international-school/nexus/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/international-school/one-world/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/international-school/singapore-american/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/international-school/stamford-american/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/international-school/tanglin-trust/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/international-school/uwcsea/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <!-- WACE 课程 -->
   <url><loc>https://seda.org.sg/wace/</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+
+  <!-- WACE ATAR -->
+  <url><loc>https://seda.org.sg/wace-atar/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+
+  <!-- WACE → NUS/NTU -->
+  <url><loc>https://seda.org.sg/wace-nus-ntu/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+
+  <!-- WACE vs A-Level -->
+  <url><loc>https://seda.org.sg/wace-vs-a-level/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+
+  <!-- O-Level 考试 -->
   <url><loc>https://seda.org.sg/o-level/</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://seda.org.sg/o-level/subjects/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://seda.org.sg/o-level/scoring/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://seda.org.sg/o-level/preparation/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://seda.org.sg/o-level/chinese-students/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/o-level/exam-format/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/o-level/preparation/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/o-level/private-school/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/o-level/registration/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/o-level/results-grading/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/o-level/retake/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/o-level/scoring/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/o-level/subjects/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/o-level/timeline/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/o-level/tips-by-subject/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/o-level/vs-igcse/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <!-- O-Level → JC -->
+  <url><loc>https://seda.org.sg/o-level-jc/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+
+  <!-- O-Level → Poly -->
+  <url><loc>https://seda.org.sg/o-level-poly/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+
+  <!-- O-Level 学校 -->
+  <url><loc>https://seda.org.sg/o-level-schools/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+
+  <!-- A-Level 考试 -->
   <url><loc>https://seda.org.sg/a-level/</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+
+  <!-- AEIS 考试 -->
   <url><loc>https://seda.org.sg/aeis/</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://seda.org.sg/aeis/preparation/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/aeis/age-requirements/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://seda.org.sg/aeis/english/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://seda.org.sg/aeis/math/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/aeis/preparation/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://seda.org.sg/aeis/results/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://seda.org.sg/aeis/s-aeis/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://seda.org.sg/aeis/age-requirements/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://seda.org.sg/aeis/timeline/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <!-- IB 课程 -->
   <url><loc>https://seda.org.sg/ib/</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
 
   <!-- 升学路径 -->
   <url><loc>https://seda.org.sg/pathway/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://seda.org.sg/pathway/university-matcher/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://seda.org.sg/pathway/study-planner/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://seda.org.sg/wace-vs-a-level/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://seda.org.sg/wace-atar/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://seda.org.sg/wace-nus-ntu/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://seda.org.sg/o-level-jc/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://seda.org.sg/o-level-poly/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://seda.org.sg/o-level-schools/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/pathway/poly-matcher/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/pathway/study-planner/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/pathway/university-matcher/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
 
   <!-- 学校数据库 -->
   <url><loc>https://seda.org.sg/school-database/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://seda.org.sg/primary-schools/</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://seda.org.sg/secondary-schools/</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
 
   <!-- 留学指南 -->
-  <url><loc>https://seda.org.sg/guides/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://seda.org.sg/guides/student-pass/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://seda.org.sg/guides/cost/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://seda.org.sg/guides/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://seda.org.sg/guides/accommodation/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/guides/cost/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://seda.org.sg/guides/dependent-pass/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/guides/student-pass/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
 
   <!-- 资讯 -->
-  <url><loc>https://seda.org.sg/news/</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/news/</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
 
   <!-- 关于 -->
   <url><loc>https://seda.org.sg/about/</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
-  <url><loc>https://seda.org.sg/contact/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+
+  <!-- 联系 -->
+  <url><loc>https://seda.org.sg/contact/</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+
 </urlset>

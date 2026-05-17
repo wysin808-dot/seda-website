@@ -16,7 +16,9 @@
   --rose: #e11d48;
   --shadow: 0 18px 50px rgba(15, 23, 42, 0.1);
   --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.08);
+  --shadow-md: 0 4px 16px rgba(15, 23, 42, 0.08);
   --radius: 12px;
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 * {
@@ -1643,5 +1645,486 @@ main > section:not(.hero) {
 
   .wechat-float span {
     display: none;
+  }
+}
+
+/* ══════════════════════════════════════════════════════
+   UI Design Upgrade — 2026-05-17
+   ══════════════════════════════════════════════════════ */
+
+/* ── Stats Bar (school/university profile pages) ── */
+.stats-bar {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 0;
+  margin: 0;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--wash);
+  overflow: hidden;
+}
+
+.stats-bar .stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 24px 16px;
+  background: #fff;
+  border-right: 1px solid var(--line);
+  text-align: center;
+  transition: background 0.2s var(--ease);
+}
+
+.stats-bar .stat-item:last-child {
+  border-right: 0;
+}
+
+.stats-bar .stat-item:hover {
+  background: var(--brand-light);
+}
+
+.stats-bar .stat-item .num {
+  color: var(--brand);
+  font-size: 26px;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.stats-bar .stat-item .label {
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+@media (max-width: 680px) {
+  .stats-bar {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .stats-bar .stat-item {
+    border-bottom: 1px solid var(--line);
+  }
+
+  .stats-bar .stat-item:nth-child(2n) {
+    border-right: 0;
+  }
+
+  .stats-bar .stat-item:nth-last-child(-n+2) {
+    border-bottom: 0;
+  }
+}
+
+/* ── Smoother Transitions Everywhere ── */
+a, button, .filter, .article-card, .pathway-grid a, .search-grid a,
+.sidebar-nav a, .sidebar-card li a, .finder-card, .school-row {
+  transition: all 0.2s var(--ease);
+}
+
+/* ── Enhanced Card Hover Effects ── */
+.article-card {
+  box-shadow: var(--shadow-sm);
+}
+
+.article-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(15, 23, 42, 0.12);
+  border-color: var(--brand);
+}
+
+.search-grid a {
+  transition: all 0.2s var(--ease);
+}
+
+.search-grid a:hover {
+  background: var(--brand-light);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.1);
+}
+
+.pathway-grid a {
+  box-shadow: var(--shadow-sm);
+}
+
+.pathway-grid a:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(15, 23, 42, 0.12);
+  border-color: var(--brand);
+}
+
+/* ── School Row Hover ── */
+.school-row {
+  transition: all 0.2s var(--ease);
+}
+
+.school-row:hover {
+  border-color: rgba(198, 40, 40, 0.25);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-1px);
+}
+
+/* ── Better Button Styles ── */
+.primary-button {
+  transition: all 0.2s var(--ease);
+  box-shadow: 0 2px 8px rgba(198, 40, 40, 0.25);
+}
+
+.primary-button:hover {
+  background: var(--brand-strong);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(198, 40, 40, 0.35);
+}
+
+.primary-button:active {
+  transform: translateY(0);
+  box-shadow: 0 1px 4px rgba(198, 40, 40, 0.25);
+}
+
+.secondary-button {
+  transition: all 0.2s var(--ease);
+}
+
+.secondary-button:hover {
+  border-color: var(--brand);
+  color: var(--brand);
+  background: var(--brand-light);
+  transform: translateY(-1px);
+}
+
+.nav-cta {
+  transition: all 0.2s var(--ease);
+  box-shadow: 0 2px 8px rgba(198, 40, 40, 0.2);
+}
+
+.nav-cta:hover {
+  background: var(--brand-strong);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(198, 40, 40, 0.3);
+}
+
+/* ── Enhanced Data Table ── */
+.data-table {
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--line);
+}
+
+.data-table th,
+.data-table td {
+  border-color: var(--line);
+}
+
+.data-table thead th {
+  background: linear-gradient(135deg, var(--deep) 0%, #3d1e22 100%);
+  font-size: 13px;
+  text-transform: none;
+  letter-spacing: 0.02em;
+  padding: 14px 16px;
+}
+
+.data-table tbody td {
+  font-size: 14px;
+  vertical-align: middle;
+}
+
+.data-table tbody tr {
+  transition: background 0.15s var(--ease);
+}
+
+.data-table tbody tr:hover {
+  background: #fef2f2;
+}
+
+/* ── Better Page Hero ── */
+.page-hero {
+  position: relative;
+  background: linear-gradient(160deg, #fef2f2 0%, #ffffff 35%, #f8fafc 70%, #fef2f2 100%);
+}
+
+.page-hero::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 40%;
+  height: 100%;
+  background: radial-gradient(ellipse at 80% 50%, rgba(198, 40, 40, 0.04) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.page-hero .eyebrow {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: var(--brand-light);
+  font-size: 12px;
+  margin-bottom: 16px;
+}
+
+/* ── Better Breadcrumb ── */
+.breadcrumb {
+  font-size: 13px;
+  background: linear-gradient(90deg, #fafafa 0%, #fff 100%);
+}
+
+.breadcrumb::before {
+  content: '';
+  display: inline-block;
+  width: 3px;
+  height: 16px;
+  margin-right: 10px;
+  background: var(--brand);
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+/* ── Improved FAQ ── */
+.faq-list {
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+
+.faq-list details {
+  transition: background 0.2s var(--ease);
+}
+
+.faq-list details[open] {
+  background: #fefefe;
+}
+
+.faq-list summary {
+  transition: color 0.2s var(--ease), background 0.2s var(--ease);
+  position: relative;
+  padding-right: 48px;
+}
+
+.faq-list summary:hover {
+  color: var(--brand);
+  background: #fef8f8;
+}
+
+.faq-list summary::marker {
+  color: var(--brand);
+}
+
+.faq-list details[open] summary {
+  color: var(--brand);
+  background: var(--brand-light);
+}
+
+/* ── Better Sidebar ── */
+.sidebar-nav {
+  box-shadow: var(--shadow-sm);
+}
+
+.sidebar-card {
+  box-shadow: var(--shadow-sm);
+}
+
+.sidebar-cta {
+  box-shadow: 0 8px 32px rgba(198, 40, 40, 0.2);
+  transition: transform 0.2s var(--ease), box-shadow 0.2s var(--ease);
+}
+
+.sidebar-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(198, 40, 40, 0.3);
+}
+
+/* ── Info Box Polish ── */
+.info-box {
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+}
+
+/* ── Smoother Section Spacing ── */
+main > section:not(.hero) {
+  padding-top: 52px;
+  padding-bottom: 52px;
+}
+
+.section-head {
+  margin-bottom: 24px;
+}
+
+/* ── Trust Bar Polish ── */
+.trust-bar {
+  box-shadow: inset 0 -1px 0 var(--line);
+}
+
+.trust-item {
+  transition: background 0.2s var(--ease);
+}
+
+.trust-item:hover {
+  background: #fef8f8;
+}
+
+.trust-icon {
+  transition: transform 0.2s var(--ease);
+}
+
+.trust-item:hover .trust-icon {
+  transform: scale(1.08);
+}
+
+/* ── Enhanced Footer ── */
+.site-footer {
+  background: linear-gradient(180deg, #f8fafb 0%, #f1f5f9 100%);
+  padding-top: 42px;
+  padding-bottom: 42px;
+}
+
+.site-footer a:hover {
+  color: var(--brand);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* ── Contact Section Polish ── */
+.contact-section {
+  background: linear-gradient(135deg, #1a0a0c 0%, var(--deep) 50%, #2d1518 100%);
+}
+
+.lead-form {
+  border-radius: var(--radius);
+  backdrop-filter: blur(12px);
+}
+
+/* ── Finder Cards Polish ── */
+.finder-card {
+  border-radius: var(--radius);
+}
+
+.finder-card:hover {
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
+}
+
+/* ── Floating WeChat Button Polish ── */
+.wechat-float {
+  border-radius: var(--radius);
+  backdrop-filter: blur(8px);
+  animation: wechat-pulse 3s ease-in-out infinite;
+}
+
+@keyframes wechat-pulse {
+  0%, 100% { box-shadow: 0 8px 30px rgba(7, 193, 96, 0.35); }
+  50% { box-shadow: 0 8px 30px rgba(7, 193, 96, 0.55), 0 0 0 6px rgba(7, 193, 96, 0.1); }
+}
+
+/* ── VS Grid Polish ── */
+.vs-grid {
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+
+/* ── Scroll Reveal Animation ── */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.content-main h2 {
+  animation: fadeUp 0.4s var(--ease) both;
+}
+
+/* ── Better Focus Styles ── */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+details summary:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* ── Tag Polish ── */
+.tag {
+  transition: transform 0.2s var(--ease);
+  letter-spacing: 0.02em;
+}
+
+.article-card:hover .tag {
+  transform: translateY(-1px);
+}
+
+/* ── Topic List Card Hover ── */
+.topic-list a {
+  transition: all 0.2s var(--ease);
+}
+
+.topic-list a:hover {
+  background: var(--brand-light);
+}
+
+.topic-lead a {
+  transition: all 0.2s var(--ease);
+}
+
+.topic-lead a:hover {
+  background: #fef8f8;
+}
+
+/* ── Guide Grid Hover ── */
+.guide-grid a {
+  transition: all 0.2s var(--ease);
+}
+
+.guide-grid a:hover {
+  background: var(--brand-light);
+}
+
+/* ── Filter Button Polish ── */
+.filter {
+  border-radius: var(--radius);
+  transition: all 0.2s var(--ease);
+  font-weight: 700;
+}
+
+.filter:hover {
+  transform: translateX(3px);
+}
+
+.filter.active {
+  box-shadow: inset 3px 0 0 var(--brand);
+}
+
+/* ── Content Main Image ── */
+.content-main img {
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+}
+
+/* ── Selection Color ── */
+::selection {
+  background: rgba(198, 40, 40, 0.15);
+  color: var(--deep);
+}
+
+/* ── Print Styles ── */
+@media print {
+  .site-header, .wechat-float, .sidebar-cta, .contact-section, .menu-toggle {
+    display: none !important;
+  }
+  .content-layout {
+    grid-template-columns: 1fr !important;
+  }
+  .content-main a {
+    text-decoration: underline;
+  }
+  .content-main a::after {
+    content: " (" attr(href) ")";
+    font-size: 12px;
+    color: #666;
   }
 }

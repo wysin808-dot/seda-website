@@ -331,21 +331,21 @@
         <div class="form-row">
           <label class="form-label">计划参加哪次考试？</label>
           <div class="exam-select">
-            <div class="exam-option active" data-exam="aeis-2025" onclick="selectExam(this)">
-              <div class="eo-name">AEIS 2025</div>
-              <div class="eo-time">2025年9月考试 → 2026年1月入学</div>
-            </div>
-            <div class="exam-option" data-exam="saeis-2026" onclick="selectExam(this)">
-              <div class="eo-name">S-AEIS 2026</div>
-              <div class="eo-time">2026年2月考试 → 2026年4月入学</div>
-            </div>
-            <div class="exam-option" data-exam="aeis-2026" onclick="selectExam(this)">
+            <div class="exam-option active" data-exam="aeis-2026" onclick="selectExam(this)">
               <div class="eo-name">AEIS 2026</div>
               <div class="eo-time">2026年9月考试 → 2027年1月入学</div>
             </div>
             <div class="exam-option" data-exam="saeis-2027" onclick="selectExam(this)">
               <div class="eo-name">S-AEIS 2027</div>
               <div class="eo-time">2027年2月考试 → 2027年4月入学</div>
+            </div>
+            <div class="exam-option" data-exam="aeis-2027" onclick="selectExam(this)">
+              <div class="eo-name">AEIS 2027</div>
+              <div class="eo-time">2027年9月考试 → 2028年1月入学</div>
+            </div>
+            <div class="exam-option" data-exam="saeis-2028" onclick="selectExam(this)">
+              <div class="eo-name">S-AEIS 2028</div>
+              <div class="eo-time">2028年2月考试 → 2028年4月入学</div>
             </div>
           </div>
         </div>
@@ -446,7 +446,7 @@
 'use strict';
 
 const $ = s => document.querySelector(s);
-let selectedExam = 'aeis-2025';
+let selectedExam = 'aeis-2026';
 
 function selectExam(el) {
   document.querySelectorAll('.exam-option').forEach(e => e.classList.remove('active'));
@@ -480,10 +480,10 @@ const GRADE_RULES = {
 // Map exam code to admission year and type
 function getExamInfo(code) {
   const map = {
-    'aeis-2025':  { type: 'aeis',  admYear: 2026, examTime: '2025年9月', admTime: '2026年1月' },
-    'saeis-2026': { type: 'saeis', admYear: 2026, examTime: '2026年2月', admTime: '2026年4月' },
     'aeis-2026':  { type: 'aeis',  admYear: 2027, examTime: '2026年9月', admTime: '2027年1月' },
-    'saeis-2027': { type: 'saeis', admYear: 2027, examTime: '2027年2月', admTime: '2027年4月' }
+    'saeis-2027': { type: 'saeis', admYear: 2027, examTime: '2027年2月', admTime: '2027年4月' },
+    'aeis-2027':  { type: 'aeis',  admYear: 2028, examTime: '2027年9月', admTime: '2028年1月' },
+    'saeis-2028': { type: 'saeis', admYear: 2028, examTime: '2028年2月', admTime: '2028年4月' }
   };
   return map[code];
 }

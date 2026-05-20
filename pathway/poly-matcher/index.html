@@ -508,6 +508,53 @@
     }
     .pp-prog:hover { border-color: var(--brand); color: var(--brand); }
 
+    /* ── COP Explanation Section ── */
+    .cop-explain {
+      max-width: 860px; margin: 0 auto 48px;
+      padding: 0 clamp(20px, 6vw, 80px);
+    }
+    .cop-explain h2 { font-size: 22px; font-weight: 800; margin-bottom: 8px; }
+    .cop-explain h2 em { font-style: normal; color: var(--brand); }
+    .cop-explain-sub {
+      font-size: 14px; color: var(--muted); margin-bottom: 24px; line-height: 1.7;
+    }
+    .cop-explain-sub strong { color: var(--ink); }
+    .cop-explain-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px;
+      margin-bottom: 20px;
+    }
+    .cop-level {
+      border-radius: 12px; padding: 18px 16px; text-align: center;
+      border: 1px solid var(--line); background: #fff;
+    }
+    .cop-level-range {
+      font-size: 22px; font-weight: 900; margin-bottom: 8px;
+    }
+    .cop-level-bar {
+      height: 4px; border-radius: 2px; margin: 0 auto 12px; width: 60%;
+    }
+    .cop-level-hard .cop-level-range { color: #dc2626; }
+    .cop-level-hard .cop-level-bar { background: linear-gradient(90deg, #dc2626, #f87171); }
+    .cop-level-hard { border-color: #fecaca; background: #fef2f2; }
+    .cop-level-mid .cop-level-range { color: #d97706; }
+    .cop-level-mid .cop-level-bar { background: linear-gradient(90deg, #d97706, #fbbf24); }
+    .cop-level-mid { border-color: #fde68a; background: #fffbeb; }
+    .cop-level-easy .cop-level-range { color: #059669; }
+    .cop-level-easy .cop-level-bar { background: linear-gradient(90deg, #059669, #34d399); }
+    .cop-level-easy { border-color: #a7f3d0; background: #ecfdf5; }
+    .cop-level-open .cop-level-range { color: #0284c7; }
+    .cop-level-open .cop-level-bar { background: linear-gradient(90deg, #0284c7, #38bdf8); }
+    .cop-level-open { border-color: #bae6fd; background: #f0f9ff; }
+    .cop-level-label { font-size: 14px; font-weight: 700; margin-bottom: 6px; }
+    .cop-level-desc { font-size: 12px; color: var(--muted); line-height: 1.5; margin-bottom: 6px; }
+    .cop-level-eg { font-size: 11px; color: var(--muted); font-style: italic; }
+    .cop-explain-note {
+      background: var(--wash); border: 1px solid var(--line);
+      border-radius: 10px; padding: 14px 18px;
+      font-size: 13px; color: var(--muted); line-height: 1.7;
+    }
+    .cop-explain-note strong { color: var(--ink); }
+
     /* ── Lead Gate Modal ── */
     .lead-overlay {
       display: none; position: fixed; inset: 0;
@@ -625,7 +672,8 @@
     @media (max-width: 480px) {
       .matcher-hero { padding: 36px 20px 32px; margin: 0 16px 24px; }
       .matcher-wrap { padding: 0 16px; }
-      .cop-section, .tool-faq, .poly-section, .how-section { padding: 0 16px; }
+      .cop-explain-grid { grid-template-columns: repeat(2, 1fr); }
+      .cop-section, .tool-faq, .poly-section, .how-section, .cop-explain { padding: 0 16px; }
       .cta-section { margin: 0 16px 32px; padding: 32px 20px; }
       .interest-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
       .interest-card { padding: 12px 8px; }
@@ -1007,6 +1055,45 @@
           </div>
         </div>
 
+      </div>
+    </div>
+
+    <!-- ── COP Explanation ── -->
+    <div class="cop-explain">
+      <h2>什么是 <em>COP</em>？如何看懂分数？</h2>
+      <p class="cop-explain-sub">COP（Cut-Off Point）= 该专业最后一名被录取学生的 ELR2B2 分数。<strong>数字越小，竞争越激烈</strong>。</p>
+      <div class="cop-explain-grid">
+        <div class="cop-level cop-level-hard">
+          <div class="cop-level-range">6 – 9</div>
+          <div class="cop-level-bar"></div>
+          <div class="cop-level-label">🔥 竞争激烈</div>
+          <div class="cop-level-desc">热门专业，需要几乎全 A 才能进入</div>
+          <div class="cop-level-eg">例：生物医学科学 (7)、数据科学 (8)</div>
+        </div>
+        <div class="cop-level cop-level-mid">
+          <div class="cop-level-range">10 – 14</div>
+          <div class="cop-level-bar"></div>
+          <div class="cop-level-label">⚡ 中等竞争</div>
+          <div class="cop-level-desc">大部分课程落在此区间，成绩中上即可</div>
+          <div class="cop-level-eg">例：网络安全 (10)、会计学 (12)</div>
+        </div>
+        <div class="cop-level cop-level-easy">
+          <div class="cop-level-range">15 – 20</div>
+          <div class="cop-level-bar"></div>
+          <div class="cop-level-label">✅ 相对宽松</div>
+          <div class="cop-level-desc">入学门槛较低，适合稳妥选择</div>
+          <div class="cop-level-eg">例：通用工程 (17)、商学 (16)</div>
+        </div>
+        <div class="cop-level cop-level-open">
+          <div class="cop-level-range">21 – 26</div>
+          <div class="cop-level-bar"></div>
+          <div class="cop-level-label">🟢 门槛最低</div>
+          <div class="cop-level-desc">几乎所有及格考生都有机会</div>
+          <div class="cop-level-eg">例：部分 RP 工程课程 (20)</div>
+        </div>
+      </div>
+      <div class="cop-explain-note">
+        <strong>💡 ELR2B2 计算方式：</strong>英语 (E) + 母语 (L2) + 2 门相关科目 (R2) + 最佳 2 门其他科目 (B2)，共 6 科成绩相加。每科 1-9 分，<strong>总分范围 6–54，分数越低越好</strong>。
       </div>
     </div>
 

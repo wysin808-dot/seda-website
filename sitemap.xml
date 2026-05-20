@@ -232,6 +232,14 @@
 
   <!-- 香港八大 -->
   <url><loc>https://seda.org.sg/hk-university/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://seda.org.sg/hk-university/hku/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/hk-university/cuhk/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/hk-university/hkust/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/hk-university/cityu/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/hk-university/polyu/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/hk-university/hkbu/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/hk-university/lingnan/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/hk-university/eduhk/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://seda.org.sg/hk-university/matcher/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://seda.org.sg/hk-university/planner/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
 

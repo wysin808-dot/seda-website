@@ -143,6 +143,8 @@
     .uni-info strong { color: var(--ink); font-weight: 600; }
     .uni-tuition { margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--line); font-size: 13px; }
     .uni-tuition span { font-weight: 700; color: #7c3aed; font-size: 16px; }
+    .uni-detail-link { display: block; margin-top: 12px; padding: 8px 16px; background: var(--purple-light, #ede9fe); color: #7c3aed; border-radius: 8px; font-size: 13px; font-weight: 600; text-align: center; text-decoration: none; transition: background 0.2s; }
+    .uni-detail-link:hover { background: #ddd6fe; text-decoration: none; }
 
     /* Comparison Table */
     .table-wrap { overflow-x: auto; margin-bottom: 48px; border: 1px solid var(--line); border-radius: var(--radius); }
@@ -243,7 +245,7 @@
       <div class="nav-group">JC（高中）<div class="mega-dropdown"><a href="/jc/">JC 初级学院指南</a><a href="/a-level/">A-Level 考试</a><a href="/o-level-jc/">O-Level → JC</a><a href="/wace-vs-a-level/">WACE vs A-Level</a></div></div>
       <div class="nav-group">POLY（理工学院）<div class="mega-dropdown"><a href="/poly/">理工学院完全指南</a><a href="/poly/admission/">中国学生入学攻略</a><a href="/poly/sp/">SP</a><a href="/poly/np/">NP</a><a href="/poly/tp/">TP</a><a href="/poly/nyp/">NYP</a><a href="/poly/rp/">RP</a><a href="/o-level-poly/">O-Level → Poly</a></div></div>
       <div class="nav-group">公立大学<div class="mega-dropdown"><a href="/university/">公立大学总览</a><a href="/university/admission/">中国学生申请攻略</a><a href="/university/nus/">NUS</a><a href="/university/ntu/">NTU</a><a href="/university/smu/">SMU</a></div></div>
-      <div class="nav-group">香港八大<div class="mega-dropdown"><a href="/hk-university/">香港八大总览</a><a href="/hk-university/matcher/">🎯 AI 大学匹配</a><a href="/hk-university/planner/">📋 AI 升学规划</a></div></div>
+      <div class="nav-group">香港八大<div class="mega-dropdown"><a href="/hk-university/">香港八大总览</a><a href="/hk-university/hku/">HKU 香港大学</a><a href="/hk-university/cuhk/">CUHK 中文大学</a><a href="/hk-university/hkust/">HKUST 科技大学</a><a href="/hk-university/cityu/">CityU 城市大学</a><a href="/hk-university/polyu/">PolyU 理工大学</a><a href="/hk-university/hkbu/">HKBU 浸会大学</a><a href="/hk-university/lingnan/">LU 岭南大学</a><a href="/hk-university/eduhk/">EdUHK 教育大学</a><a href="/hk-university/matcher/">🎯 AI 大学匹配</a><a href="/hk-university/planner/">📋 AI 升学规划</a></div></div>
       <div class="nav-group">AI 工具<div class="mega-dropdown"><a href="/pathway/university-matcher/">🎯 AI 大学匹配（新加坡）</a><a href="/pathway/poly-matcher/">📐 AI Poly 匹配</a><a href="/pathway/study-planner/">📋 AI 升学规划（新加坡）</a><a href="/aeis/grade-checker/">📋 AEIS 年级测算</a><a href="/hk-university/matcher/">🎯 AI 大学匹配（香港）</a><a href="/hk-university/planner/">📋 AI 升学规划（香港）</a></div></div>
       <div class="nav-group">留学指南<div class="mega-dropdown"><a href="/guides/student-pass/">学生准证</a><a href="/guides/cost/">留学费用</a><a href="/guides/accommodation/">住宿方案</a><a href="/guides/dependent-pass/">陪读准证</a></div></div>
     </nav>
@@ -293,6 +295,7 @@
           <strong>特色：</strong>百年名校，全英教学，国际化程度最高
         </div>
         <div class="uni-tuition">学费：<span>HK$182,000</span>/年</div>
+        <a class="uni-detail-link" href="/hk-university/hku/">查看详情 →</a>
       </div>
 
       <!-- CUHK -->
@@ -309,6 +312,7 @@
           <strong>特色：</strong>唯一书院制大学，中英双语，校园环境最美
         </div>
         <div class="uni-tuition">学费：<span>HK$145,000</span>/年</div>
+        <a class="uni-detail-link" href="/hk-university/cuhk/">查看详情 →</a>
       </div>
 
       <!-- HKUST -->
@@ -325,6 +329,7 @@
           <strong>特色：</strong>最年轻的港三名校，理工科和商科极强
         </div>
         <div class="uni-tuition">学费：<span>HK$155,000</span>/年</div>
+        <a class="uni-detail-link" href="/hk-university/hkust/">查看详情 →</a>
       </div>
 
       <!-- PolyU -->
@@ -341,6 +346,7 @@
           <strong>特色：</strong>全球酒店管理排名第一，注重实践应用
         </div>
         <div class="uni-tuition">学费：<span>HK$160,000</span>/年</div>
+        <a class="uni-detail-link" href="/hk-university/polyu/">查看详情 →</a>
       </div>
 
       <!-- CityU -->
@@ -357,6 +363,7 @@
           <strong>特色：</strong>拥有香港唯一兽医学院，创意媒体亚洲领先
         </div>
         <div class="uni-tuition">学费：<span>HK$160,000</span>/年</div>
+        <a class="uni-detail-link" href="/hk-university/cityu/">查看详情 →</a>
       </div>
 
       <!-- HKBU -->
@@ -373,6 +380,7 @@
           <strong>特色：</strong>新闻传媒亚洲顶尖，中医药学全港独家
         </div>
         <div class="uni-tuition">学费：<span>HK$145,000</span>/年</div>
+        <a class="uni-detail-link" href="/hk-university/hkbu/">查看详情 →</a>
       </div>
 
       <!-- LU -->
@@ -389,6 +397,7 @@
           <strong>特色：</strong>香港唯一博雅大学，师生比极低，关注全人教育
         </div>
         <div class="uni-tuition">学费：<span>HK$140,000</span>/年</div>
+        <a class="uni-detail-link" href="/hk-university/lingnan/">查看详情 →</a>
       </div>
 
       <!-- EdUHK -->
@@ -405,6 +414,7 @@
           <strong>特色：</strong>亚洲教育学科排名前三，教师培训首选
         </div>
         <div class="uni-tuition">学费：<span>HK$140,000</span>/年</div>
+        <a class="uni-detail-link" href="/hk-university/eduhk/">查看详情 →</a>
       </div>
     </div>
 

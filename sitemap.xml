@@ -230,4 +230,9 @@
   <!-- 联系 -->
   <url><loc>https://seda.org.sg/contact/</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
 
+  <!-- 香港八大 -->
+  <url><loc>https://seda.org.sg/hk-university/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://seda.org.sg/hk-university/matcher/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://seda.org.sg/hk-university/planner/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+
 </urlset>

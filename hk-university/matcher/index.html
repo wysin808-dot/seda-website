@@ -1,0 +1,575 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI 香港大学匹配工具：输入成绩，智能推荐适合你的香港大学 | SEDA</title>
+  <meta name="description" content="输入高考/A-Level/IB/WACE/SAT 成绩和意向专业，AI 智能匹配最适合你的香港八大名校和专业，含冲刺、匹配、保底方案。" />
+  <meta name="keywords" content="香港大学匹配,香港大学申请,AI选校,香港八大录取分数,高考申请香港" />
+  <link rel="canonical" href="https://seda.org.sg/hk-university/matcher/" />
+  <link rel="stylesheet" href="/seda-site.css" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org", "@type": "WebApplication",
+    "name": "AI 香港大学匹配工具", "applicationCategory": "EducationalApplication",
+    "operatingSystem": "Any", "description": "根据考试成绩智能匹配香港八大名校",
+    "publisher": {"@type": "Organization", "name": "SEDA 新加坡国际教育中心", "url": "https://seda.org.sg/"},
+    "inLanguage": ["zh-CN", "en"]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org", "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "首页", "item": "https://seda.org.sg/"},
+      {"@type": "ListItem", "position": 2, "name": "香港八大", "item": "https://seda.org.sg/hk-university/"},
+      {"@type": "ListItem", "position": 3, "name": "AI 大学匹配"}
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org", "@type": "FAQPage",
+    "mainEntity": [
+      {"@type": "Question", "name": "这个匹配工具准确吗？", "acceptedAnswer": {"@type": "Answer", "text": "本工具基于各大学公布的历年录取数据和要求，提供参考性匹配建议。实际录取还受面试表现、课外活动、文书质量等因素影响。建议将结果作为选校参考，并咨询专业顾问获得更精准的评估。"}},
+      {"@type": "Question", "name": "哪些考试成绩可以申请香港大学？", "acceptedAnswer": {"@type": "Answer", "text": "香港八大接受多种考试成绩：中国高考、A-Level(GCE)、IB、HKDSE、SAT/AP、WACE ATAR 等。不同大学和专业对各考试的要求不同，使用本工具可一键查看匹配结果。"}},
+      {"@type": "Question", "name": "WACE成绩可以申请香港大学吗？", "acceptedAnswer": {"@type": "Answer", "text": "可以。香港八大均接受 WACE ATAR 成绩。ATAR 85+ 可申请大部分港校，92+ 可冲刺港三（港大、中大、科大）。在新加坡 BCI 读 WACE 还可同时申请新加坡和澳洲大学。"}}
+    ]
+  }
+  </script>
+
+  <style>
+    :root {
+      --brand: #c62828; --brand-light: #fca5a5; --ink: #1a1a2e; --muted: #6b7280;
+      --wash: #f8f9fa; --line: #e5e7eb; --radius: 16px;
+      --shadow: 0 2px 12px rgba(0,0,0,0.06); --shadow-lg: 0 8px 32px rgba(0,0,0,0.10);
+      --purple: #7c3aed; --purple-light: #ede9fe;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans SC", sans-serif; color: var(--ink); background: #fff; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    a { color: var(--brand); text-decoration: none; } a:hover { text-decoration: underline; }
+
+    .site-header { border-bottom: 1px solid var(--line); background: #fff; position: sticky; top: 0; z-index: 100; }
+    .header-main { display: flex; align-items: center; gap: 24px; padding: 12px clamp(20px,6vw,80px); max-width: 1400px; margin: 0 auto; }
+    .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--ink); }
+    .brand-word { font-size: 22px; font-weight: 900; color: var(--brand); letter-spacing: -0.5px; }
+    .brand-copy strong { font-size: 13px; display: block; color: var(--ink); }
+    .brand-copy small { font-size: 11px; color: var(--muted); }
+    .main-nav { display: flex; flex-wrap: wrap; gap: 4px; flex: 1; font-size: 13px; font-weight: 500; }
+    .nav-group { position: relative; padding: 6px 10px; border-radius: 6px; cursor: pointer; white-space: nowrap; }
+    .nav-group:hover { background: var(--wash); }
+    .mega-dropdown { display: none; position: absolute; top: 100%; left: 0; background: #fff; border: 1px solid var(--line); border-radius: 10px; padding: 12px; min-width: 200px; box-shadow: var(--shadow-lg); z-index: 200; }
+    .nav-group:hover .mega-dropdown { display: flex; flex-direction: column; gap: 6px; }
+    .mega-dropdown a { padding: 6px 10px; border-radius: 6px; font-size: 13px; color: var(--ink); white-space: nowrap; }
+    .mega-dropdown a:hover { background: var(--wash); text-decoration: none; color: var(--brand); }
+    .nav-cta { margin-left: auto; padding: 8px 18px; background: var(--brand); color: #fff; border-radius: 8px; font-size: 13px; font-weight: 600; white-space: nowrap; text-decoration: none; transition: background 0.2s; }
+    .nav-cta:hover { background: #a71d1d; text-decoration: none; }
+    .trending-bar { display: flex; align-items: center; gap: 12px; padding: 6px clamp(20px,6vw,80px); background: var(--wash); font-size: 12px; color: var(--muted); overflow-x: auto; white-space: nowrap; }
+    .trending-bar a { color: var(--ink); padding: 3px 10px; border-radius: 100px; background: #fff; border: 1px solid var(--line); font-size: 11px; }
+    .trending-bar a:hover { border-color: var(--brand); color: var(--brand); text-decoration: none; }
+    .breadcrumb { padding: 12px clamp(20px,6vw,80px); font-size: 12px; color: var(--muted); }
+    .breadcrumb a { color: var(--muted); } .breadcrumb a:hover { color: var(--brand); }
+
+    .page-hero {
+      background: linear-gradient(135deg, #2d1b69 0%, #1a0a3e 100%);
+      color: #fff; padding: 56px clamp(20px,6vw,80px) 48px;
+      border-radius: var(--radius); margin: 0 clamp(20px,6vw,80px) 32px;
+      position: relative; overflow: hidden;
+    }
+    .page-hero::before { content: ""; position: absolute; top: -60px; right: -60px; width: 400px; height: 400px; background: radial-gradient(circle, rgba(168,85,247,0.3), transparent 70%); border-radius: 50%; filter: blur(80px); pointer-events: none; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px; border: 1px solid rgba(255,255,255,0.15); border-radius: 100px; font-size: 12px; font-weight: 600; color: #c4b5fd; margin-bottom: 20px; background: rgba(168,85,247,0.15); }
+    .eyebrow::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: #a855f7; box-shadow: 0 0 12px #a855f7; animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
+    .page-hero h1 { font-size: clamp(26px,4vw,40px); font-weight: 800; line-height: 1.15; margin-bottom: 16px; }
+    .page-hero h1 em { font-style: normal; color: #c4b5fd; }
+    .page-hero .lead { font-size: 15px; color: rgba(255,255,255,0.7); line-height: 1.6; max-width: 560px; }
+
+    .tool-wrap { max-width: 800px; margin: 0 auto 48px; padding: 0 clamp(20px,6vw,80px); }
+    .tool-card { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow-lg); overflow: hidden; }
+    .tool-header { padding: 20px 24px; background: var(--purple-light); border-bottom: 1px solid var(--line); }
+    .tool-header h2 { font-size: 16px; font-weight: 700; color: var(--purple); }
+    .tool-header p { font-size: 13px; color: var(--muted); }
+    .tool-body { padding: 24px; }
+
+    .step-indicator { display: flex; gap: 8px; margin-bottom: 20px; }
+    .step-dot { width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; background: var(--line); color: var(--muted); }
+    .step-dot.active { background: var(--purple); color: #fff; }
+    .step-dot.done { background: #16a34a; color: #fff; }
+
+    .exam-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 20px; }
+    .exam-option {
+      padding: 14px 12px; border: 2px solid var(--line); border-radius: 10px; text-align: center;
+      cursor: pointer; transition: all 0.2s; font-size: 14px; font-weight: 600;
+    }
+    .exam-option:hover { border-color: var(--purple); background: var(--purple-light); }
+    .exam-option.active { border-color: var(--purple); background: var(--purple-light); color: var(--purple); }
+    .exam-option small { display: block; font-size: 11px; font-weight: 400; color: var(--muted); margin-top: 2px; }
+
+    .form-group { margin-bottom: 16px; }
+    .form-group label { display: block; font-size: 13px; font-weight: 600; margin-bottom: 6px; }
+    .form-group select, .form-group input {
+      width: 100%; padding: 10px 14px; border: 1px solid var(--line); border-radius: 8px;
+      font-size: 14px; background: #fff; color: var(--ink);
+    }
+    .form-group select:focus, .form-group input:focus { outline: none; border-color: var(--purple); box-shadow: 0 0 0 3px rgba(124,58,237,0.1); }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+    .btn-primary {
+      width: 100%; padding: 14px; background: var(--purple); color: #fff; border: none;
+      border-radius: 10px; font-size: 15px; font-weight: 700; cursor: pointer; transition: background 0.2s;
+    }
+    .btn-primary:hover { background: #6d28d9; }
+    .btn-primary:disabled { background: var(--line); color: var(--muted); cursor: not-allowed; }
+    .btn-back { background: none; border: 1px solid var(--line); color: var(--muted); padding: 10px 20px; border-radius: 8px; cursor: pointer; font-size: 13px; margin-bottom: 16px; }
+
+    .hidden { display: none !important; }
+
+    /* Loading */
+    .loading-wrap { text-align: center; padding: 60px 20px; }
+    .loading-dots { display: flex; justify-content: center; gap: 8px; margin-bottom: 16px; }
+    .loading-dots span { width: 12px; height: 12px; border-radius: 50%; background: var(--purple); animation: bounce 1.4s ease-in-out infinite; }
+    .loading-dots span:nth-child(2) { animation-delay: 0.2s; }
+    .loading-dots span:nth-child(3) { animation-delay: 0.4s; }
+    @keyframes bounce { 0%,80%,100%{transform:scale(0)} 40%{transform:scale(1)} }
+    .loading-text { font-size: 15px; font-weight: 600; color: var(--purple); }
+    .loading-sub { font-size: 12px; color: var(--muted); margin-top: 4px; }
+
+    /* Results */
+    .results-wrap { max-width: 900px; margin: 0 auto 48px; padding: 0 clamp(20px,6vw,80px); }
+    .results-summary { background: linear-gradient(135deg, #2d1b69, #1a0a3e); color: #fff; border-radius: var(--radius); padding: 24px; margin-bottom: 24px; }
+    .results-summary h2 { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
+    .results-summary .score-info { font-size: 13px; color: rgba(255,255,255,0.7); }
+
+    .category-label { font-size: 14px; font-weight: 700; margin: 24px 0 12px; padding-left: 4px; }
+    .cat-reach { color: #f59e0b; }
+    .cat-match { color: #16a34a; }
+    .cat-safe { color: #3b82f6; }
+
+    .result-card {
+      border: 1px solid var(--line); border-radius: 12px; padding: 20px; margin-bottom: 12px;
+      transition: box-shadow 0.2s;
+    }
+    .result-card:hover { box-shadow: var(--shadow); }
+    .result-card-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
+    .result-uni { font-size: 16px; font-weight: 700; }
+    .result-uni small { font-size: 12px; font-weight: 400; color: var(--muted); }
+    .result-match { font-size: 14px; font-weight: 700; padding: 4px 12px; border-radius: 100px; }
+    .match-reach { background: #fef3c7; color: #d97706; }
+    .match-good { background: #dcfce7; color: #16a34a; }
+    .match-safe { background: #dbeafe; color: #2563eb; }
+    .result-program { font-size: 14px; font-weight: 600; margin-bottom: 4px; }
+    .result-details { font-size: 12px; color: var(--muted); line-height: 1.7; }
+    .result-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+    .result-tag { font-size: 11px; padding: 2px 8px; border-radius: 100px; background: var(--purple-light); color: var(--purple); }
+
+    .no-results { text-align: center; padding: 40px 20px; }
+    .no-results h3 { font-size: 18px; margin-bottom: 8px; }
+    .no-results p { font-size: 13px; color: var(--muted); }
+    .alt-link { display: inline-block; margin-top: 12px; padding: 10px 24px; background: var(--purple); color: #fff; border-radius: 8px; font-weight: 600; font-size: 14px; }
+    .alt-link:hover { text-decoration: none; background: #6d28d9; }
+
+    .cta-section { text-align: center; padding: 40px 20px; background: var(--wash); border-radius: var(--radius); margin-bottom: 32px; }
+    .cta-section h3 { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
+    .cta-section p { font-size: 13px; color: var(--muted); margin-bottom: 16px; }
+    .cta-buttons { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
+    .cta-buttons a { padding: 10px 24px; border-radius: 8px; font-weight: 600; font-size: 14px; }
+    .cta-btn-primary { background: var(--purple); color: #fff; } .cta-btn-primary:hover { background: #6d28d9; text-decoration: none; }
+    .cta-btn-secondary { background: #fff; color: var(--purple); border: 1px solid var(--purple); } .cta-btn-secondary:hover { background: var(--purple-light); text-decoration: none; }
+
+    .faq-list { max-width: 800px; margin: 0 auto 48px; padding: 0 clamp(20px,6vw,80px); }
+    .faq-title { font-size: 20px; font-weight: 800; margin-bottom: 16px; text-align: center; }
+    .faq-item { border: 1px solid var(--line); border-radius: 10px; margin-bottom: 8px; overflow: hidden; }
+    .faq-q { padding: 16px 20px; font-weight: 600; font-size: 14px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: #fff; }
+    .faq-q:hover { background: var(--wash); }
+    .faq-q::after { content: "▾"; font-size: 12px; color: var(--muted); transition: transform 0.2s; }
+    .faq-item.open .faq-q::after { transform: rotate(180deg); }
+    .faq-a { padding: 0 20px; max-height: 0; overflow: hidden; transition: max-height 0.3s, padding 0.3s; font-size: 13px; color: var(--muted); line-height: 1.7; }
+    .faq-item.open .faq-a { max-height: 300px; padding: 0 20px 16px; }
+
+    .site-footer { border-top: 1px solid var(--line); padding: 32px clamp(20px,6vw,80px); text-align: center; font-size: 12px; color: var(--muted); }
+    .footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; margin-bottom: 12px; }
+    .footer-links a { color: var(--muted); } .footer-links a:hover { color: var(--brand); }
+
+    @media (max-width: 768px) {
+      .page-hero { padding: 36px 20px 32px; margin: 0 12px 24px; }
+      .exam-grid { grid-template-columns: repeat(2, 1fr); }
+      .form-row { grid-template-columns: 1fr; }
+      .main-nav { display: none; }
+      .tool-wrap, .results-wrap, .faq-list { padding: 0 16px; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-main">
+    <a class="brand" href="/"><span class="brand-word">SEDA</span><span class="brand-copy"><strong>新加坡国际教育中心</strong><small>Singapore Education Pathways</small></span></a>
+    <nav class="main-nav" aria-label="主导航">
+      <div class="nav-group">AEIS（政府学校）<div class="mega-dropdown"><a href="/aeis/">AEIS 考试攻略</a><a href="/aeis/preparation/">备考攻略</a><a href="/aeis/age-requirements/">年龄要求</a><a href="/aeis/timeline/">考试时间</a><a href="/government-schools/">政府学校指南</a><a href="/primary-schools/">小学数据库（179所）</a><a href="/aeis/grade-checker/">📋 年级测算工具</a></div></div>
+      <div class="nav-group">O-Level（中学）<div class="mega-dropdown"><a href="/o-level/">O-Level 考试攻略</a><a href="/o-level-schools/">O-Level 学校</a><a href="/secondary-schools/">中学数据库（146所）</a><a href="/o-level-jc/">O-Level → JC</a><a href="/o-level-poly/">O-Level → Poly</a></div></div>
+      <div class="nav-group">JC（高中）<div class="mega-dropdown"><a href="/jc/">JC 初级学院指南</a><a href="/a-level/">A-Level 考试</a><a href="/o-level-jc/">O-Level → JC</a><a href="/wace-vs-a-level/">WACE vs A-Level</a></div></div>
+      <div class="nav-group">POLY（理工学院）<div class="mega-dropdown"><a href="/poly/">理工学院完全指南</a><a href="/poly/admission/">中国学生入学攻略</a><a href="/poly/sp/">SP</a><a href="/poly/np/">NP</a><a href="/poly/tp/">TP</a><a href="/poly/nyp/">NYP</a><a href="/poly/rp/">RP</a><a href="/o-level-poly/">O-Level → Poly</a></div></div>
+      <div class="nav-group">公立大学<div class="mega-dropdown"><a href="/university/">公立大学总览</a><a href="/university/admission/">中国学生申请攻略</a><a href="/university/nus/">NUS</a><a href="/university/ntu/">NTU</a><a href="/university/smu/">SMU</a></div></div>
+      <div class="nav-group">香港八大<div class="mega-dropdown"><a href="/hk-university/">香港八大总览</a><a href="/hk-university/matcher/">🎯 AI 大学匹配</a><a href="/hk-university/planner/">📋 AI 升学规划</a></div></div>
+      <div class="nav-group">AI 工具<div class="mega-dropdown"><a href="/pathway/university-matcher/">🎯 AI 大学匹配（新加坡）</a><a href="/pathway/poly-matcher/">📐 AI Poly 匹配</a><a href="/pathway/study-planner/">📋 AI 升学规划（新加坡）</a><a href="/aeis/grade-checker/">📋 AEIS 年级测算</a><a href="/hk-university/matcher/">🎯 AI 大学匹配（香港）</a><a href="/hk-university/planner/">📋 AI 升学规划（香港）</a></div></div>
+      <div class="nav-group">留学指南<div class="mega-dropdown"><a href="/guides/student-pass/">学生准证</a><a href="/guides/cost/">留学费用</a><a href="/guides/accommodation/">住宿方案</a><a href="/guides/dependent-pass/">陪读准证</a></div></div>
+    </nav>
+    <a class="nav-cta" href="/contact/">免费咨询</a>
+  </div>
+  <div class="trending-bar"><span>热门搜索：</span><a href="/hk-university/">香港八大</a><a href="/hk-university/planner/">升学规划</a><a href="/aeis/">AEIS</a><a href="/guides/cost/">留学费用</a></div>
+</header>
+
+<nav class="breadcrumb">
+  <a href="/">首页</a> <span>›</span> <a href="/hk-university/">香港八大</a> <span>›</span> <span>AI 大学匹配</span>
+</nav>
+
+<main>
+  <div class="page-hero">
+    <div class="eyebrow">AI 智能匹配引擎</div>
+    <h1>输入成绩<br>AI 推荐最适合你的<em>香港大学</em></h1>
+    <p class="lead">支持高考、A-Level、IB、HKDSE、SAT、WACE 六大考试体系，智能匹配 8 所香港名校的 40+ 热门专业。</p>
+  </div>
+
+  <!-- Tool -->
+  <div class="tool-wrap">
+    <div class="tool-card">
+      <div class="tool-header">
+        <h2>🎯 AI 大学匹配</h2>
+        <p>两步操作，即刻获取个性化推荐</p>
+      </div>
+      <div class="tool-body">
+
+        <!-- Step 1 -->
+        <div id="step1">
+          <div class="step-indicator"><span class="step-dot active">1</span><span class="step-dot">2</span></div>
+          <h3 style="font-size:15px;font-weight:700;margin-bottom:14px;">第一步：选择你的考试类型</h3>
+          <div class="exam-grid">
+            <div class="exam-option" data-exam="gaokao" onclick="selectExam(this)">📝 高考<small>中国高考</small></div>
+            <div class="exam-option" data-exam="alevel" onclick="selectExam(this)">🇬🇧 A-Level<small>GCE A-Level</small></div>
+            <div class="exam-option" data-exam="ib" onclick="selectExam(this)">🌍 IB<small>国际文凭</small></div>
+            <div class="exam-option" data-exam="hkdse" onclick="selectExam(this)">🇭🇰 HKDSE<small>香港中学文凭</small></div>
+            <div class="exam-option" data-exam="sat" onclick="selectExam(this)">🇺🇸 SAT<small>美国高考</small></div>
+            <div class="exam-option" data-exam="wace" onclick="selectExam(this)">🇦🇺 WACE<small>ATAR 成绩</small></div>
+          </div>
+          <button class="btn-primary" id="btnNext" disabled onclick="goStep2()">下一步：填写成绩 →</button>
+        </div>
+
+        <!-- Step 2 -->
+        <div id="step2" class="hidden">
+          <div class="step-indicator"><span class="step-dot done">✓</span><span class="step-dot active">2</span></div>
+          <button class="btn-back" onclick="goStep1()">← 返回修改考试类型</button>
+
+          <div id="scoreFields"></div>
+
+          <div class="form-group">
+            <label>意向专业方向</label>
+            <select id="fieldInterest">
+              <option value="">请选择（可不选）</option>
+              <option value="商科">商科/金融</option><option value="工程">工程</option>
+              <option value="计算机">计算机/数据科学</option><option value="理学">理学</option>
+              <option value="医学">医学</option><option value="法学">法学</option>
+              <option value="文学">文学/人文</option><option value="社科">社会科学</option>
+              <option value="教育">教育</option><option value="传媒">传媒/新闻</option>
+              <option value="艺术设计">艺术/设计</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>英语水平</label>
+            <select id="engLevel">
+              <option value="7">雅思 7.0+ / 托福 100+</option>
+              <option value="6.5" selected>雅思 6.5 / 托福 90</option>
+              <option value="6">雅思 6.0 / 托福 80</option>
+              <option value="5.5">雅思 5.5 以下</option>
+            </select>
+          </div>
+          <button class="btn-primary" onclick="runMatch()">🎯 开始 AI 匹配</button>
+        </div>
+
+        <!-- Loading -->
+        <div id="loading" class="hidden">
+          <div class="loading-wrap">
+            <div class="loading-dots"><span></span><span></span><span></span></div>
+            <div class="loading-text">AI 正在分析你的成绩...</div>
+            <div class="loading-sub">对比 8 所大学 × 40+ 专业录取数据</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Results -->
+  <div id="results" class="results-wrap hidden"></div>
+
+  <!-- CTA -->
+  <div id="ctaSection" class="results-wrap hidden">
+    <div class="cta-section">
+      <h3>想要更详细的升学方案？</h3>
+      <p>使用 AI 升学规划工具，获取包含时间线、备考计划和行动步骤的完整方案</p>
+      <div class="cta-buttons">
+        <a class="cta-btn-primary" href="/hk-university/planner/">📋 AI 升学规划 →</a>
+        <a class="cta-btn-secondary" href="/contact/">💬 免费咨询</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- FAQ -->
+  <div class="faq-list">
+    <h2 class="faq-title">常见问题</h2>
+    <div class="faq-item">
+      <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">这个匹配工具准确吗？</div>
+      <div class="faq-a">本工具基于各大学公布的历年录取数据和要求，提供参考性匹配建议。实际录取还受面试表现、课外活动、文书质量等因素影响。建议将结果作为选校参考，并咨询专业顾问获得更精准的评估。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">哪些考试成绩可以申请香港大学？</div>
+      <div class="faq-a">香港八大接受多种考试成绩：中国高考、A-Level(GCE)、IB、HKDSE、SAT/AP、WACE ATAR 等。不同大学和专业对各考试的要求不同。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">WACE 成绩可以申请香港大学吗？</div>
+      <div class="faq-a">可以。香港八大均接受 WACE ATAR 成绩。ATAR 85+ 可申请大部分港校，92+ 可冲刺港三（港大、中大、科大）。在新加坡 BCI 读 WACE 还可同时申请新加坡和澳洲大学。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">匹配结果中的"冲刺""匹配""保底"是什么意思？</div>
+      <div class="faq-a">🟡 冲刺：你的成绩接近但未完全达到要求，有一定录取可能，需要努力争取。🟢 匹配：你的成绩符合该校该专业的平均录取水平，录取概率较高。🔵 保底：你的成绩明显超过要求，录取概率很高。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">高考成绩不理想，还有什么途径？</div>
+      <div class="faq-a">可以考虑：1）副学士 2+2 途径，先读 2 年副学士再升入本科；2）在新加坡读 WACE/A-Level 等国际课程，用国际成绩申请；3）申请门槛较低的岭南大学或教育大学。建议使用 AI 升学规划工具获取个性化方案。</div>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="/">首页</a><a href="/hk-university/">香港八大</a><a href="/hk-university/planner/">升学规划</a><a href="/about/">关于 SEDA</a><a href="/contact/">联系我们</a>
+  </div>
+  <p>&copy; 2024–2026 SEDA 新加坡国际教育中心. All rights reserved.</p>
+</footer>
+
+<script>
+'use strict';
+
+let chosenExam = '';
+
+/* ── Programs Database ── */
+const PROGRAMS = [
+  // HKU
+  {uni:'HKU',name:'香港大学',prog:'工商管理',field:'商科',gaokao:680,alevel:54,ib:38,hkdse:24,sat:1480,atar:95,ielts:6.5,diff:5,qs:17},
+  {uni:'HKU',name:'香港大学',prog:'法学',field:'法学',gaokao:690,alevel:56,ib:40,hkdse:26,sat:1500,atar:97,ielts:7,diff:5,qs:17},
+  {uni:'HKU',name:'香港大学',prog:'计算机科学',field:'计算机',gaokao:670,alevel:54,ib:37,hkdse:23,sat:1460,atar:94,ielts:6.5,diff:5,qs:17},
+  {uni:'HKU',name:'香港大学',prog:'工程学',field:'工程',gaokao:660,alevel:52,ib:36,hkdse:22,sat:1440,atar:93,ielts:6,diff:4,qs:17},
+  {uni:'HKU',name:'香港大学',prog:'文学',field:'文学',gaokao:650,alevel:50,ib:35,hkdse:21,sat:1400,atar:90,ielts:7,diff:4,qs:17},
+  // CUHK
+  {uni:'CUHK',name:'香港中文大学',prog:'商学院',field:'商科',gaokao:660,alevel:52,ib:36,hkdse:22,sat:1440,atar:92,ielts:6.5,diff:5,qs:36},
+  {uni:'CUHK',name:'香港中文大学',prog:'计算机工程',field:'计算机',gaokao:650,alevel:50,ib:35,hkdse:21,sat:1420,atar:91,ielts:6.5,diff:4,qs:36},
+  {uni:'CUHK',name:'香港中文大学',prog:'翻译',field:'文学',gaokao:640,alevel:48,ib:34,hkdse:20,sat:1380,atar:88,ielts:7,diff:4,qs:36},
+  {uni:'CUHK',name:'香港中文大学',prog:'社会科学',field:'社科',gaokao:630,alevel:46,ib:33,hkdse:19,sat:1360,atar:87,ielts:6.5,diff:3,qs:36},
+  {uni:'CUHK',name:'香港中文大学',prog:'医学',field:'医学',gaokao:700,alevel:56,ib:42,hkdse:28,sat:1520,atar:98,ielts:7,diff:5,qs:36},
+  // HKUST
+  {uni:'HKUST',name:'香港科技大学',prog:'商学院',field:'商科',gaokao:670,alevel:54,ib:37,hkdse:23,sat:1460,atar:94,ielts:6.5,diff:5,qs:47},
+  {uni:'HKUST',name:'香港科技大学',prog:'计算机科学',field:'计算机',gaokao:665,alevel:52,ib:36,hkdse:22,sat:1450,atar:93,ielts:6.5,diff:5,qs:47},
+  {uni:'HKUST',name:'香港科技大学',prog:'工程学',field:'工程',gaokao:650,alevel:50,ib:35,hkdse:21,sat:1420,atar:91,ielts:6,diff:4,qs:47},
+  {uni:'HKUST',name:'香港科技大学',prog:'理学',field:'理学',gaokao:640,alevel:48,ib:34,hkdse:20,sat:1400,atar:89,ielts:6,diff:4,qs:47},
+  // CityU
+  {uni:'CityU',name:'香港城市大学',prog:'商学院',field:'商科',gaokao:630,alevel:46,ib:33,hkdse:19,sat:1360,atar:87,ielts:6.5,diff:4,qs:62},
+  {uni:'CityU',name:'香港城市大学',prog:'工程学',field:'工程',gaokao:620,alevel:44,ib:32,hkdse:18,sat:1340,atar:85,ielts:6,diff:3,qs:62},
+  {uni:'CityU',name:'香港城市大学',prog:'创意媒体',field:'艺术设计',gaokao:610,alevel:42,ib:31,hkdse:17,sat:1300,atar:83,ielts:6,diff:3,qs:62},
+  {uni:'CityU',name:'香港城市大学',prog:'计算机科学',field:'计算机',gaokao:625,alevel:46,ib:33,hkdse:19,sat:1350,atar:86,ielts:6,diff:4,qs:62},
+  {uni:'CityU',name:'香港城市大学',prog:'兽医学',field:'理学',gaokao:650,alevel:50,ib:35,hkdse:22,sat:1420,atar:91,ielts:6.5,diff:4,qs:62},
+  // PolyU
+  {uni:'PolyU',name:'香港理工大学',prog:'酒店及旅游管理',field:'商科',gaokao:620,alevel:44,ib:32,hkdse:18,sat:1340,atar:85,ielts:6,diff:3,qs:57},
+  {uni:'PolyU',name:'香港理工大学',prog:'设计学',field:'艺术设计',gaokao:615,alevel:42,ib:31,hkdse:17,sat:1320,atar:84,ielts:6,diff:3,qs:57},
+  {uni:'PolyU',name:'香港理工大学',prog:'工程学',field:'工程',gaokao:620,alevel:44,ib:32,hkdse:18,sat:1340,atar:85,ielts:6,diff:3,qs:57},
+  {uni:'PolyU',name:'香港理工大学',prog:'护理学',field:'医学',gaokao:610,alevel:42,ib:31,hkdse:17,sat:1300,atar:83,ielts:6,diff:3,qs:57},
+  {uni:'PolyU',name:'香港理工大学',prog:'计算机科学',field:'计算机',gaokao:620,alevel:44,ib:32,hkdse:18,sat:1340,atar:85,ielts:6,diff:3,qs:57},
+  // HKBU
+  {uni:'HKBU',name:'香港浸会大学',prog:'传理学',field:'传媒',gaokao:600,alevel:40,ib:30,hkdse:16,sat:1280,atar:80,ielts:6,diff:3,qs:252},
+  {uni:'HKBU',name:'香港浸会大学',prog:'电影学',field:'艺术设计',gaokao:590,alevel:38,ib:29,hkdse:15,sat:1260,atar:78,ielts:6,diff:2,qs:252},
+  {uni:'HKBU',name:'香港浸会大学',prog:'中医学',field:'医学',gaokao:600,alevel:40,ib:30,hkdse:16,sat:1280,atar:80,ielts:6,diff:3,qs:252},
+  {uni:'HKBU',name:'香港浸会大学',prog:'商学院',field:'商科',gaokao:600,alevel:40,ib:30,hkdse:16,sat:1280,atar:80,ielts:6,diff:3,qs:252},
+  {uni:'HKBU',name:'香港浸会大学',prog:'社会科学',field:'社科',gaokao:585,alevel:38,ib:28,hkdse:15,sat:1240,atar:77,ielts:6,diff:2,qs:252},
+  // LU
+  {uni:'LU',name:'岭南大学',prog:'商学院',field:'商科',gaokao:560,alevel:36,ib:27,hkdse:14,sat:1200,atar:72,ielts:6,diff:2,qs:641},
+  {uni:'LU',name:'岭南大学',prog:'人文学',field:'文学',gaokao:550,alevel:34,ib:26,hkdse:13,sat:1180,atar:70,ielts:6,diff:2,qs:641},
+  {uni:'LU',name:'岭南大学',prog:'社会科学',field:'社科',gaokao:550,alevel:34,ib:26,hkdse:13,sat:1180,atar:70,ielts:6,diff:2,qs:641},
+  {uni:'LU',name:'岭南大学',prog:'翻译',field:'文学',gaokao:555,alevel:34,ib:26,hkdse:13,sat:1180,atar:70,ielts:6.5,diff:2,qs:641},
+  // EdUHK
+  {uni:'EdUHK',name:'香港教育大学',prog:'教育学',field:'教育',gaokao:565,alevel:36,ib:27,hkdse:14,sat:1200,atar:72,ielts:6,diff:2,qs:0},
+  {uni:'EdUHK',name:'香港教育大学',prog:'心理学',field:'社科',gaokao:570,alevel:38,ib:28,hkdse:15,sat:1220,atar:74,ielts:6,diff:2,qs:0},
+  {uni:'EdUHK',name:'香港教育大学',prog:'社会科学',field:'社科',gaokao:555,alevel:34,ib:26,hkdse:13,sat:1180,atar:70,ielts:6,diff:2,qs:0},
+  {uni:'EdUHK',name:'香港教育大学',prog:'创意艺术',field:'艺术设计',gaokao:550,alevel:34,ib:26,hkdse:13,sat:1180,atar:70,ielts:6,diff:1,qs:0},
+];
+
+// A-Level: points A*=6, A=5, B=4, C=3, D=2, E=1; store best-3 total
+const ALEVEL_PTS = {'A*':6,'A':5,'B':4,'C':3,'D':2,'E':1};
+
+function selectExam(el) {
+  document.querySelectorAll('.exam-option').forEach(e => e.classList.remove('active'));
+  el.classList.add('active');
+  chosenExam = el.dataset.exam;
+  document.getElementById('btnNext').disabled = false;
+}
+
+function goStep1() {
+  document.getElementById('step1').classList.remove('hidden');
+  document.getElementById('step2').classList.add('hidden');
+}
+
+function goStep2() {
+  if (!chosenExam) return;
+  document.getElementById('step1').classList.add('hidden');
+  document.getElementById('step2').classList.remove('hidden');
+  renderScoreFields();
+}
+
+function renderScoreFields() {
+  const wrap = document.getElementById('scoreFields');
+  const map = {
+    gaokao: `
+      <div class="form-group"><label>高考总分（满分 750）</label><input type="number" id="score1" min="300" max="750" placeholder="例：650"></div>
+      <div class="form-row">
+        <div class="form-group"><label>省份</label><select id="score2"><option value="general">一般省份</option><option value="beijing">北京</option><option value="shanghai">上海</option><option value="guangdong">广东</option><option value="zhejiang">浙江</option><option value="jiangsu">江苏</option></select></div>
+        <div class="form-group"><label>英语单科</label><input type="number" id="score3" min="0" max="150" placeholder="例：130"></div>
+      </div>`,
+    alevel: `
+      <p style="font-size:13px;color:var(--muted);margin-bottom:12px;">填写最好的 3 科等级</p>
+      <div class="form-row">
+        <div class="form-group"><label>科目 1</label><select id="score1"><option>A*</option><option>A</option><option>B</option><option>C</option><option>D</option><option>E</option></select></div>
+        <div class="form-group"><label>科目 2</label><select id="score2"><option>A*</option><option selected>A</option><option>B</option><option>C</option><option>D</option><option>E</option></select></div>
+      </div>
+      <div class="form-group"><label>科目 3</label><select id="score3"><option>A*</option><option selected>A</option><option>B</option><option>C</option><option>D</option><option>E</option></select></div>`,
+    ib: `<div class="form-group"><label>IB 总分（满分 45）</label><input type="number" id="score1" min="20" max="45" placeholder="例：38"></div>`,
+    hkdse: `<div class="form-group"><label>最佳 5 科总分（满分 35）</label><input type="number" id="score1" min="10" max="35" placeholder="例：22"></div>`,
+    sat: `
+      <div class="form-row">
+        <div class="form-group"><label>SAT 总分（满分 1600）</label><input type="number" id="score1" min="800" max="1600" placeholder="例：1400"></div>
+        <div class="form-group"><label>GPA（满分 4.0）</label><input type="number" id="score2" min="0" max="4" step="0.1" placeholder="例：3.7"></div>
+      </div>`,
+    wace: `<div class="form-group"><label>WACE ATAR 分数（满分 99.95）</label><input type="number" id="score1" min="50" max="99.95" step="0.05" placeholder="例：90"></div>`,
+  };
+  wrap.innerHTML = map[chosenExam] || '';
+}
+
+function getStudentScore() {
+  const s = {};
+  if (chosenExam === 'gaokao') { s.gaokao = +document.getElementById('score1').value; s.eng = +document.getElementById('score3').value; }
+  else if (chosenExam === 'alevel') {
+    const g1 = document.getElementById('score1').value, g2 = document.getElementById('score2').value, g3 = document.getElementById('score3').value;
+    s.alevel = (ALEVEL_PTS[g1]||0)+(ALEVEL_PTS[g2]||0)+(ALEVEL_PTS[g3]||0);
+    s.alevelGrades = [g1,g2,g3].join('');
+  }
+  else if (chosenExam === 'ib') { s.ib = +document.getElementById('score1').value; }
+  else if (chosenExam === 'hkdse') { s.hkdse = +document.getElementById('score1').value; }
+  else if (chosenExam === 'sat') { s.sat = +document.getElementById('score1').value; }
+  else if (chosenExam === 'wace') { s.atar = +document.getElementById('score1').value; }
+  s.field = document.getElementById('fieldInterest').value;
+  s.eng_level = +document.getElementById('engLevel').value;
+  return s;
+}
+
+function calcMatch(prog, stu) {
+  let score = 0;
+  let scoreVal = 0, minVal = 0;
+
+  if (chosenExam === 'gaokao' && stu.gaokao) { scoreVal = stu.gaokao; minVal = prog.gaokao; }
+  else if (chosenExam === 'alevel' && stu.alevel) { scoreVal = stu.alevel; minVal = prog.alevel; }
+  else if (chosenExam === 'ib' && stu.ib) { scoreVal = stu.ib; minVal = prog.ib; }
+  else if (chosenExam === 'hkdse' && stu.hkdse) { scoreVal = stu.hkdse; minVal = prog.hkdse; }
+  else if (chosenExam === 'sat' && stu.sat) { scoreVal = stu.sat; minVal = prog.sat; }
+  else if (chosenExam === 'wace' && stu.atar) { scoreVal = stu.atar; minVal = prog.atar; }
+  else return -1;
+
+  if (minVal === 0) return -1;
+
+  const ratio = scoreVal / minVal;
+  if (ratio >= 1.08) score += 70;
+  else if (ratio >= 1.0) score += 55;
+  else if (ratio >= 0.95) score += 40;
+  else if (ratio >= 0.88) score += 25;
+  else score += 10;
+
+  // field bonus
+  if (stu.field && stu.field === prog.field) score += 15;
+
+  // english bonus
+  if (stu.eng_level >= prog.ielts) score += 10;
+  else if (stu.eng_level >= prog.ielts - 0.5) score += 5;
+
+  // cap
+  return Math.min(score, 100);
+}
+
+function runMatch() {
+  const stu = getStudentScore();
+  // validate
+  const hasScore = stu.gaokao || stu.alevel || stu.ib || stu.hkdse || stu.sat || stu.atar;
+  if (!hasScore) { alert('请填写你的考试成绩'); return; }
+
+  document.getElementById('step2').classList.add('hidden');
+  document.getElementById('loading').classList.remove('hidden');
+
+  setTimeout(() => {
+    document.getElementById('loading').classList.add('hidden');
+
+    const matches = [];
+    PROGRAMS.forEach(p => {
+      const score = calcMatch(p, stu);
+      if (score > 0) matches.push({...p, matchScore: score});
+    });
+    matches.sort((a,b) => b.matchScore - a.matchScore);
+
+    renderResults(matches, stu);
+  }, 2500);
+}
+
+function renderResults(matches, stu) {
+  const wrap = document.getElementById('results');
+  const cta = document.getElementById('ctaSection');
+  wrap.classList.remove('hidden');
+  cta.classList.remove('hidden');
+
+  if (matches.length === 0) {
+    wrap.innerHTML = `<div class="no-results"><h3>暂无精准匹配</h3><p>你的成绩可能需要提升，或可以尝试其他申请途径</p><a class="alt-link" href="/hk-university/planner/">📋 试试 AI 升学规划 →</a><br><a class="alt-link" href="/pathway/university-matcher/" style="margin-top:8px;background:var(--brand)">🎯 匹配新加坡大学 →</a></div>`;
+    return;
+  }
+
+  const reach = matches.filter(m => m.matchScore >= 25 && m.matchScore < 50);
+  const match = matches.filter(m => m.matchScore >= 50 && m.matchScore < 75);
+  const safe  = matches.filter(m => m.matchScore >= 75);
+
+  const examLabel = {gaokao:'高考',alevel:'A-Level',ib:'IB',hkdse:'HKDSE',sat:'SAT',wace:'WACE ATAR'}[chosenExam];
+
+  let html = `<div class="results-summary"><h2>🎯 匹配完成！</h2><div class="score-info">考试类型：${examLabel} | 匹配到 ${matches.length} 个专业 | 覆盖 ${new Set(matches.map(m=>m.uni)).size} 所大学</div></div>`;
+
+  function renderGroup(items, label, cls, matchCls) {
+    if (items.length === 0) return '';
+    let s = `<div class="category-label ${cls}">${label}（${items.length} 个）</div>`;
+    items.forEach(m => {
+      const qsText = m.qs > 0 ? `QS ${m.qs}` : '教育专科';
+      s += `<div class="result-card"><div class="result-card-top"><div class="result-uni">${m.name} <small>${qsText}</small></div><span class="result-match ${matchCls}">${m.matchScore}%</span></div><div class="result-program">${m.prog}</div><div class="result-details">最低要求：${getMinText(m)} | 英语：雅思 ${m.ielts}+</div><div class="result-tags">${m.field?`<span class="result-tag">${m.field}</span>`:''}${m.diff>=4?'<span class="result-tag" style="background:#fef2f2;color:#dc2626">竞争激烈</span>':''}</div></div>`;
+    });
+    return s;
+  }
+
+  html += renderGroup(safe, '🔵 保底 — 录取概率高', 'cat-safe', 'match-safe');
+  html += renderGroup(match, '🟢 匹配 — 符合录取水平', 'cat-match', 'match-good');
+  html += renderGroup(reach, '🟡 冲刺 — 需要努力争取', 'cat-reach', 'match-reach');
+
+  wrap.innerHTML = html;
+  wrap.scrollIntoView({behavior: 'smooth', block: 'start'});
+}
+
+function getMinText(m) {
+  if (chosenExam === 'gaokao') return `高考 ${m.gaokao}+`;
+  if (chosenExam === 'alevel') return `A-Level ${m.alevel} 点`;
+  if (chosenExam === 'ib') return `IB ${m.ib}+`;
+  if (chosenExam === 'hkdse') return `DSE 最佳5科 ${m.hkdse}+`;
+  if (chosenExam === 'sat') return `SAT ${m.sat}+`;
+  if (chosenExam === 'wace') return `ATAR ${m.atar}+`;
+  return '';
+}
+</script>
+
+</body>
+</html>

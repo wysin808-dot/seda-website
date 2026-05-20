@@ -1,0 +1,618 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AEIS 年级测算工具：输入出生日期，查看可报考年级 | SEDA</title>
+  <meta name="description" content="输入孩子出生日期，自动计算可报考的 AEIS/S-AEIS 年级（小学 P2-P5 / 中学 S1-S3），对照中国年级，含考试时间与备考建议。" />
+  <meta name="keywords" content="AEIS年级测算,AEIS年龄要求,AEIS报考年级,AEIS几年级,S-AEIS年级" />
+  <link rel="canonical" href="https://seda.org.sg/aeis/grade-checker/" />
+  <link rel="stylesheet" href="/seda-site.css" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "AEIS 年级测算工具",
+    "applicationCategory": "EducationalApplication",
+    "operatingSystem": "Any",
+    "description": "根据孩子出生日期自动计算可报考的 AEIS/S-AEIS 年级",
+    "publisher": {"@type": "Organization", "name": "SEDA 新加坡国际教育中心", "url": "https://seda.org.sg/"},
+    "inLanguage": ["zh-CN", "en"]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "首页", "item": "https://seda.org.sg/"},
+      {"@type": "ListItem", "position": 2, "name": "AEIS 考试", "item": "https://seda.org.sg/aeis/"},
+      {"@type": "ListItem", "position": 3, "name": "年级测算工具"}
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {"@type": "Question", "name": "AEIS 考试年龄怎么算？", "acceptedAnswer": {"@type": "Answer", "text": "以入学年份的1月1日孩子的实际周岁年龄为准。例如 2026 年 1 月入学，则以 2026 年 1 月 1 日孩子的年龄来判断可报考年级。"}},
+      {"@type": "Question", "name": "AEIS 和 S-AEIS 有什么区别？", "acceptedAnswer": {"@type": "Answer", "text": "AEIS 在每年 9-10 月举行，可报考 P2-P5、S1-S3；S-AEIS 在每年 2 月举行，只能报考 P2-P4、S1-S2（不含 P5 和 S3，因即将参加 PSLE/O-Level）。"}},
+      {"@type": "Question", "name": "中国几年级对应新加坡几年级？", "acceptedAnswer": {"@type": "Answer", "text": "大致对应：中国小学1-6年级 ≈ 新加坡 P1-P6，中国初一至初三 ≈ 新加坡 S1-S3。但 AEIS 报考以年龄为准，不以中国在读年级为准。"}},
+      {"@type": "Question", "name": "超龄了怎么办？", "acceptedAnswer": {"@type": "Answer", "text": "如果超过 AEIS 最大年龄限制，可以考虑：1) 私立学校 O-Level 预备课程；2) 国际学校；3) WACE 等国际课程。SEDA 可以免费帮您规划替代方案。"}}
+    ]
+  }
+  </script>
+
+  <style>
+    :root {
+      --brand: #c62828;
+      --brand-light: #fca5a5;
+      --ink: #1a1a2e;
+      --muted: #6b7280;
+      --wash: #f8f9fa;
+      --line: #e5e7eb;
+      --radius: 16px;
+      --shadow: 0 2px 12px rgba(0,0,0,0.06);
+      --shadow-lg: 0 8px 32px rgba(0,0,0,0.10);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans SC", sans-serif;
+      color: var(--ink); background: #fff; line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--brand); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Header ── */
+    .site-header { border-bottom: 1px solid var(--line); background: #fff; position: sticky; top: 0; z-index: 100; }
+    .header-main { display: flex; align-items: center; gap: 24px; padding: 12px clamp(20px,6vw,80px); max-width: 1400px; margin: 0 auto; }
+    .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--ink); }
+    .brand-word { font-size: 22px; font-weight: 900; color: var(--brand); letter-spacing: -0.5px; }
+    .brand-copy strong { font-size: 13px; display: block; color: var(--ink); }
+    .brand-copy small { font-size: 11px; color: var(--muted); }
+    .main-nav { display: flex; flex-wrap: wrap; gap: 4px; flex: 1; font-size: 13px; font-weight: 500; }
+    .nav-group { position: relative; padding: 6px 10px; border-radius: 6px; cursor: pointer; white-space: nowrap; }
+    .nav-group:hover { background: var(--wash); }
+    .mega-dropdown { display: none; position: absolute; top: 100%; left: 0; background: #fff; border: 1px solid var(--line); border-radius: 10px; padding: 12px; min-width: 200px; box-shadow: var(--shadow-lg); z-index: 200; }
+    .nav-group:hover .mega-dropdown { display: flex; flex-direction: column; gap: 6px; }
+    .mega-dropdown a { padding: 6px 10px; border-radius: 6px; font-size: 13px; color: var(--ink); white-space: nowrap; }
+    .mega-dropdown a:hover { background: var(--wash); text-decoration: none; color: var(--brand); }
+    .nav-cta { margin-left: auto; padding: 8px 18px; background: var(--brand); color: #fff; border-radius: 8px; font-size: 13px; font-weight: 600; white-space: nowrap; text-decoration: none; transition: background 0.2s; }
+    .nav-cta:hover { background: #a71d1d; text-decoration: none; }
+    .trending-bar { display: flex; align-items: center; gap: 12px; padding: 6px clamp(20px,6vw,80px); background: var(--wash); font-size: 12px; color: var(--muted); overflow-x: auto; white-space: nowrap; }
+    .trending-bar a { color: var(--ink); padding: 3px 10px; border-radius: 100px; background: #fff; border: 1px solid var(--line); font-size: 11px; }
+    .trending-bar a:hover { border-color: var(--brand); color: var(--brand); text-decoration: none; }
+
+    /* ── Breadcrumb ── */
+    .breadcrumb { padding: 12px clamp(20px,6vw,80px); font-size: 12px; color: var(--muted); }
+    .breadcrumb a { color: var(--muted); }
+    .breadcrumb a:hover { color: var(--brand); }
+
+    /* ── Hero ── */
+    .checker-hero {
+      background: linear-gradient(135deg, #1a237e 0%, #0d1b3e 100%);
+      color: #fff; padding: 56px clamp(20px,6vw,80px) 48px;
+      border-radius: var(--radius); margin: 0 clamp(20px,6vw,80px) 32px;
+      position: relative; overflow: hidden;
+    }
+    .checker-hero::before {
+      content: ""; position: absolute; top: -50px; right: -50px;
+      width: 350px; height: 350px;
+      background: radial-gradient(circle, rgba(66,165,245,0.25), transparent 70%);
+      border-radius: 50%; filter: blur(80px); pointer-events: none;
+    }
+    .checker-hero .eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 6px 14px; border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 100px; font-size: 12px; font-weight: 600;
+      color: #90caf9; margin-bottom: 20px; background: rgba(66,165,245,0.15);
+    }
+    .checker-hero .eyebrow::before {
+      content: ""; width: 6px; height: 6px; border-radius: 50%;
+      background: #42a5f5; box-shadow: 0 0 12px #42a5f5;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
+    .checker-hero h1 { font-size: clamp(26px,4vw,40px); font-weight: 800; line-height: 1.15; margin-bottom: 16px; }
+    .checker-hero h1 em { font-style: normal; color: #90caf9; }
+    .checker-hero .lead { font-size: 15px; color: rgba(255,255,255,0.7); line-height: 1.6; max-width: 560px; }
+
+    /* ── Checker Tool ── */
+    .checker-wrap { max-width: 720px; margin: 0 auto 48px; padding: 0 clamp(20px,6vw,80px); }
+    .checker-card {
+      background: #fff; border: 1px solid var(--line); border-radius: var(--radius);
+      box-shadow: var(--shadow-lg); overflow: hidden;
+    }
+    .checker-card-header {
+      padding: 20px 28px; background: var(--wash); border-bottom: 1px solid var(--line);
+      font-size: 16px; font-weight: 700;
+    }
+    .checker-card-header small { font-weight: 400; color: var(--muted); font-size: 13px; display: block; margin-top: 4px; }
+    .checker-body { padding: 28px; }
+
+    .form-row { margin-bottom: 20px; }
+    .form-label { font-size: 14px; font-weight: 600; margin-bottom: 8px; display: block; }
+    .form-label small { font-weight: 400; color: var(--muted); }
+    .form-input {
+      width: 100%; padding: 12px 16px; border: 1px solid var(--line);
+      border-radius: 10px; font-size: 15px; color: var(--ink);
+      transition: border-color 0.2s; outline: none;
+      font-family: inherit;
+    }
+    .form-input:focus { border-color: #1a237e; box-shadow: 0 0 0 3px rgba(26,35,126,0.1); }
+
+    .form-row-inline { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+    .exam-select {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 4px;
+    }
+    .exam-option {
+      padding: 12px 16px; border: 2px solid var(--line); border-radius: 10px;
+      cursor: pointer; text-align: center; transition: all 0.2s; background: #fff;
+    }
+    .exam-option:hover { border-color: #1a237e; }
+    .exam-option.active { border-color: #1a237e; background: #e8eaf6; }
+    .exam-option .eo-name { font-size: 14px; font-weight: 700; }
+    .exam-option .eo-time { font-size: 11px; color: var(--muted); margin-top: 2px; }
+
+    .btn-check {
+      width: 100%; padding: 14px; background: #1a237e; color: #fff;
+      border: none; border-radius: 10px; font-size: 15px; font-weight: 700;
+      cursor: pointer; transition: background 0.2s; margin-top: 8px;
+    }
+    .btn-check:hover { background: #283593; }
+    .btn-check:disabled { opacity: 0.5; cursor: not-allowed; }
+
+    /* ── Result ── */
+    .result-panel { display: none; margin-top: 24px; }
+    .result-panel.show { display: block; }
+
+    .result-card {
+      border-radius: 14px; padding: 24px; margin-bottom: 16px;
+      border: 1px solid var(--line);
+    }
+    .result-card.eligible { background: #ecfdf5; border-color: #a7f3d0; }
+    .result-card.not-eligible { background: #fef2f2; border-color: #fecaca; }
+    .result-card.alt { background: #f0f9ff; border-color: #bae6fd; }
+
+    .rc-header { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+    .rc-icon { font-size: 28px; }
+    .rc-title { font-size: 18px; font-weight: 800; }
+    .rc-subtitle { font-size: 13px; color: var(--muted); }
+
+    .grade-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
+    .grade-chip {
+      padding: 8px 16px; border-radius: 10px; font-size: 14px; font-weight: 700;
+      background: #fff; border: 1px solid var(--line);
+    }
+    .grade-chip.primary { border-color: #a7f3d0; color: #166534; background: #dcfce7; }
+    .grade-chip.secondary { border-color: #c4b5fd; color: #5b21b6; background: #ede9fe; }
+    .grade-chip.best { border-color: #1a237e; color: #1a237e; background: #e8eaf6; box-shadow: 0 0 0 2px rgba(26,35,126,0.15); }
+
+    .result-info { font-size: 13px; color: var(--muted); line-height: 1.7; }
+    .result-info strong { color: var(--ink); }
+
+    .detail-table {
+      width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 12px;
+      border-radius: 10px; overflow: hidden; border: 1px solid var(--line);
+    }
+    .detail-table th {
+      background: var(--wash); padding: 10px 14px; text-align: left;
+      font-weight: 700; font-size: 12px; color: var(--muted); border-bottom: 1px solid var(--line);
+    }
+    .detail-table td { padding: 10px 14px; border-bottom: 1px solid #f3f4f6; }
+    .detail-table tr:last-child td { border-bottom: none; }
+    .detail-table tr:hover td { background: #f0f9ff; }
+    .detail-table .highlight td { background: #e8eaf6; font-weight: 600; }
+
+    .china-grade-tag {
+      display: inline-block; padding: 2px 8px; border-radius: 4px;
+      font-size: 11px; font-weight: 600; background: #fef3c7; color: #92400e;
+    }
+
+    /* ── Age Reference Table ── */
+    .ref-section {
+      max-width: 720px; margin: 0 auto 48px; padding: 0 clamp(20px,6vw,80px);
+    }
+    .ref-section h2 { font-size: 22px; font-weight: 800; margin-bottom: 8px; }
+    .ref-section h2 em { font-style: normal; color: #1a237e; }
+    .ref-section .ref-sub { font-size: 14px; color: var(--muted); margin-bottom: 20px; }
+
+    .age-table-wrap { overflow-x: auto; border-radius: 12px; border: 1px solid var(--line); }
+    .age-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    .age-table th { background: #1a237e; color: #fff; padding: 10px 14px; text-align: left; font-size: 12px; font-weight: 600; }
+    .age-table td { padding: 10px 14px; border-bottom: 1px solid var(--line); }
+    .age-table tr:last-child td { border-bottom: none; }
+    .age-table tr:hover td { background: #e8eaf6; }
+    .age-table .level-primary { color: #166534; font-weight: 700; }
+    .age-table .level-secondary { color: #5b21b6; font-weight: 700; }
+    .age-table .no { color: #dc2626; font-size: 11px; }
+    .age-table .yes { color: #166534; font-size: 11px; font-weight: 600; }
+
+    /* ── FAQ ── */
+    .tool-faq { max-width: 720px; margin: 0 auto 48px; padding: 0 clamp(20px,6vw,80px); }
+    .tool-faq h2 { font-size: 22px; font-weight: 800; margin-bottom: 20px; }
+    .tool-faq h2 em { font-style: normal; color: #1a237e; }
+    .faq-item { border-bottom: 1px solid var(--line); }
+    .faq-q { padding: 16px 0; font-size: 15px; font-weight: 600; cursor: pointer; display: flex; align-items: center; justify-content: space-between; }
+    .faq-q::after { content: "+"; font-size: 20px; color: var(--muted); transition: transform 0.2s; }
+    .faq-item.open .faq-q::after { content: "−"; }
+    .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; font-size: 14px; color: var(--muted); line-height: 1.7; }
+    .faq-item.open .faq-a { max-height: 400px; padding-bottom: 16px; }
+
+    /* ── Disclaimer ── */
+    .disclaimer {
+      max-width: 720px; margin: 0 auto 32px; padding: 0 clamp(20px,6vw,80px);
+    }
+    .disclaimer .db-inner {
+      background: #fffbeb; border: 1px solid #fde68a; border-radius: 10px;
+      padding: 12px 16px; font-size: 12px; color: #92400e; line-height: 1.6;
+      display: flex; gap: 8px; align-items: flex-start;
+    }
+    .disclaimer .db-icon { font-size: 16px; flex-shrink: 0; }
+
+    /* ── CTA ── */
+    .cta-section {
+      background: linear-gradient(135deg, #1a237e, #0d1b3e); color: #fff;
+      padding: 48px clamp(20px,6vw,80px); border-radius: var(--radius);
+      margin: 0 clamp(20px,6vw,80px) 48px; text-align: center;
+    }
+    .cta-section h2 { font-size: 24px; font-weight: 800; margin-bottom: 12px; }
+    .cta-section p { font-size: 15px; color: rgba(255,255,255,0.7); margin-bottom: 24px; max-width: 500px; margin-left: auto; margin-right: auto; }
+    .cta-btn { display: inline-block; padding: 12px 32px; background: #42a5f5; color: #fff; border-radius: 8px; font-size: 15px; font-weight: 700; text-decoration: none; transition: background 0.2s; }
+    .cta-btn:hover { background: #64b5f6; text-decoration: none; }
+
+    /* ── Footer ── */
+    .site-footer { border-top: 1px solid var(--line); padding: 32px clamp(20px,6vw,80px); text-align: center; font-size: 12px; color: var(--muted); }
+    .footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; margin-bottom: 12px; }
+    .footer-links a { color: var(--muted); }
+    .footer-links a:hover { color: var(--brand); }
+
+    /* ── Responsive ── */
+    @media (max-width: 768px) {
+      .main-nav { display: none; }
+      .checker-hero { margin: 0 12px 24px; padding: 36px 20px 32px; }
+      .checker-wrap, .ref-section, .tool-faq, .disclaimer { padding: 0 16px; }
+      .cta-section { margin: 0 12px 32px; padding: 32px 20px; }
+      .form-row-inline { grid-template-columns: 1fr; }
+      .exam-select { grid-template-columns: 1fr; }
+      .age-table { font-size: 12px; }
+      .age-table th, .age-table td { padding: 8px 10px; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-main">
+    <a class="brand" href="/"><span class="brand-word">SEDA</span><span class="brand-copy"><strong>新加坡国际教育中心</strong><small>Singapore Education Pathways</small></span></a>
+    <nav class="main-nav" aria-label="主导航">
+      <div class="nav-group">AEIS（政府学校）<div class="mega-dropdown"><a href="/aeis/">AEIS 考试攻略</a><a href="/aeis/preparation/">备考攻略</a><a href="/aeis/age-requirements/">年龄要求</a><a href="/aeis/timeline/">考试时间</a><a href="/government-schools/">政府学校指南</a><a href="/primary-schools/">小学数据库（179所）</a><a href="/aeis/grade-checker/">📋 年级测算工具</a></div></div>
+      <div class="nav-group">O-Level（中学）<div class="mega-dropdown"><a href="/o-level/">O-Level 考试攻略</a><a href="/o-level-schools/">O-Level 学校</a><a href="/secondary-schools/">中学数据库（146所）</a><a href="/o-level-jc/">O-Level → JC</a><a href="/o-level-poly/">O-Level → Poly</a></div></div>
+      <div class="nav-group">JC（高中）<div class="mega-dropdown"><a href="/jc/">JC 初级学院指南</a><a href="/a-level/">A-Level 考试</a><a href="/o-level-jc/">O-Level → JC</a><a href="/wace-vs-a-level/">WACE vs A-Level</a></div></div>
+      <div class="nav-group">POLY（理工学院）<div class="mega-dropdown"><a href="/poly/">理工学院完全指南</a><a href="/poly/admission/">中国学生入学攻略</a><a href="/poly/sp/">SP</a><a href="/poly/np/">NP</a><a href="/poly/tp/">TP</a><a href="/poly/nyp/">NYP</a><a href="/poly/rp/">RP</a><a href="/o-level-poly/">O-Level → Poly</a></div></div>
+      <div class="nav-group">公立大学<div class="mega-dropdown"><a href="/university/">公立大学总览</a><a href="/university/admission/">中国学生申请攻略</a><a href="/university/nus/">NUS</a><a href="/university/ntu/">NTU</a><a href="/university/smu/">SMU</a></div></div>
+      <div class="nav-group">AI 工具<div class="mega-dropdown"><a href="/pathway/university-matcher/">🎯 AI 大学匹配</a><a href="/pathway/poly-matcher/">📐 AI Poly 匹配</a><a href="/pathway/study-planner/">📋 AI 升学规划</a><a href="/aeis/grade-checker/">📋 AEIS 年级测算</a></div></div>
+      <div class="nav-group">留学指南<div class="mega-dropdown"><a href="/guides/student-pass/">学生准证</a><a href="/guides/cost/">留学费用</a><a href="/guides/accommodation/">住宿方案</a><a href="/guides/dependent-pass/">陪读准证</a></div></div>
+    </nav>
+    <a class="nav-cta" href="/contact/">免费咨询</a>
+  </div>
+  <div class="trending-bar"><span>热门搜索：</span><a href="/aeis/">AEIS</a><a href="/aeis/age-requirements/">年龄要求</a><a href="/aeis/preparation/">备考攻略</a><a href="/government-schools/">政府学校</a><a href="/guides/cost/">留学费用</a></div>
+</header>
+
+<nav class="breadcrumb">
+  <a href="/">首页</a> <span>›</span> <a href="/aeis/">AEIS 考试</a> <span>›</span> <span>年级测算工具</span>
+</nav>
+
+<main>
+  <!-- ── Hero ── -->
+  <div class="checker-hero">
+    <div class="eyebrow">AEIS / S-AEIS 年级测算</div>
+    <h1>输入出生日期<br>查看孩子可报考的<em>年级</em></h1>
+    <p class="lead">根据新加坡教育部（MOE）的年龄规则，自动计算 AEIS 和 S-AEIS 可报考的小学/中学年级，同步对照中国年级。</p>
+  </div>
+
+  <!-- ── Checker Tool ── -->
+  <div class="checker-wrap">
+    <div class="checker-card">
+      <div class="checker-card-header">
+        📋 AEIS 年级测算
+        <small>输入孩子信息，一键查看可报考年级</small>
+      </div>
+      <div class="checker-body">
+        <div class="form-row">
+          <label class="form-label">孩子出生日期</label>
+          <input type="date" class="form-input" id="birthDate" max="2020-12-31" min="2005-01-01" />
+        </div>
+
+        <div class="form-row">
+          <label class="form-label">计划参加哪次考试？</label>
+          <div class="exam-select">
+            <div class="exam-option active" data-exam="aeis-2025" onclick="selectExam(this)">
+              <div class="eo-name">AEIS 2025</div>
+              <div class="eo-time">2025年9月考试 → 2026年1月入学</div>
+            </div>
+            <div class="exam-option" data-exam="saeis-2026" onclick="selectExam(this)">
+              <div class="eo-name">S-AEIS 2026</div>
+              <div class="eo-time">2026年2月考试 → 2026年4月入学</div>
+            </div>
+            <div class="exam-option" data-exam="aeis-2026" onclick="selectExam(this)">
+              <div class="eo-name">AEIS 2026</div>
+              <div class="eo-time">2026年9月考试 → 2027年1月入学</div>
+            </div>
+            <div class="exam-option" data-exam="saeis-2027" onclick="selectExam(this)">
+              <div class="eo-name">S-AEIS 2027</div>
+              <div class="eo-time">2027年2月考试 → 2027年4月入学</div>
+            </div>
+          </div>
+        </div>
+
+        <button class="btn-check" id="btnCheck" onclick="runCheck()">查看可报考年级 →</button>
+
+        <div class="result-panel" id="resultPanel"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Disclaimer ── -->
+  <div class="disclaimer">
+    <div class="db-inner">
+      <span class="db-icon">⚠️</span>
+      <div>本工具结果仅供参考，最终以新加坡教育部（MOE）官方为准。<a href="https://www.moe.gov.sg/international-students/aeis" target="_blank" rel="noopener">点击查看 MOE 官方页面 →</a></div>
+    </div>
+  </div>
+
+  <!-- ── Age Reference Table ── -->
+  <div class="ref-section">
+    <h2>AEIS / S-AEIS <em>年龄年级对照表</em></h2>
+    <p class="ref-sub">以入学年份的 1 月 1 日年龄为准。AEIS 可报 P2-P5、S1-S3；S-AEIS 可报 P2-P4、S1-S2。</p>
+    <div class="age-table-wrap">
+      <table class="age-table">
+        <thead>
+          <tr>
+            <th>新加坡年级</th>
+            <th>入学时年龄（周岁）</th>
+            <th>≈ 中国年级</th>
+            <th>AEIS</th>
+            <th>S-AEIS</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td class="level-primary">P2 小二</td><td>7 – 8+</td><td><span class="china-grade-tag">小学二年级</span></td><td class="yes">✓ 可报</td><td class="yes">✓ 可报</td></tr>
+          <tr><td class="level-primary">P3 小三</td><td>8 – 9+</td><td><span class="china-grade-tag">小学三年级</span></td><td class="yes">✓ 可报</td><td class="yes">✓ 可报</td></tr>
+          <tr><td class="level-primary">P4 小四</td><td>9 – 10+</td><td><span class="china-grade-tag">小学四年级</span></td><td class="yes">✓ 可报</td><td class="yes">✓ 可报</td></tr>
+          <tr><td class="level-primary">P5 小五</td><td>10 – 11+</td><td><span class="china-grade-tag">小学五年级</span></td><td class="yes">✓ 可报</td><td class="no">✗ 不可</td></tr>
+          <tr><td class="level-secondary">S1 中一</td><td>12 – 14+</td><td><span class="china-grade-tag">初一</span></td><td class="yes">✓ 可报</td><td class="yes">✓ 可报</td></tr>
+          <tr><td class="level-secondary">S2 中二</td><td>13 – 15+</td><td><span class="china-grade-tag">初二</span></td><td class="yes">✓ 可报</td><td class="yes">✓ 可报</td></tr>
+          <tr><td class="level-secondary">S3 中三</td><td>14 – 16+</td><td><span class="china-grade-tag">初三</span></td><td class="yes">✓ 可报</td><td class="no">✗ 不可</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ── FAQ ── -->
+  <div class="tool-faq">
+    <h2>常见<em>问题</em></h2>
+    <div class="faq-item">
+      <div class="faq-q">AEIS 考试年龄怎么算？</div>
+      <div class="faq-a">以入学年份的 1 月 1 日孩子的实际周岁年龄为准。例如，AEIS 2025（2026年1月入学），年龄以 2026 年 1 月 1 日为基准。这与中国按 9 月 1 日划分的方式不同，请特别注意。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">AEIS 和 S-AEIS 有什么区别？</div>
+      <div class="faq-a">AEIS 在每年 9–10 月举行，可报考 P2–P5、S1–S3，通过后次年 1 月入学。S-AEIS 在每年 2 月举行，只能报考 P2–P4、S1–S2（P5 和 S3 不可，因为即将参加 PSLE / O-Level 全国考试），通过后同年 4 月入学。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">中国几年级对应新加坡几年级？</div>
+      <div class="faq-a">大致对应：中国小学 1-6 年级 ≈ 新加坡 P1-P6，中国初一至初三 ≈ 新加坡 S1-S3。但 AEIS 以年龄为准，不看中国在读年级。新加坡孩子入学年龄偏大，中国学生往往发现自己对应的年级比国内低一级。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">超龄了怎么办？</div>
+      <div class="faq-a">如果超过 AEIS 最大年龄限制，可以考虑：1) 私立学校 O-Level/IGCSE 预备课程；2) 国际学校（无年龄限制）；3) WACE 等国际课程（2年读完，直接申请大学）。SEDA 可以帮您免费评估替代方案。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">哪个年级录取率更高？</div>
+      <div class="faq-a">一般来说，小学低年级（P2–P3）录取率相对较高，因为学位更充裕。中学 S1 的录取率通常高于 S2 和 S3。但录取率每年变化，取决于报考人数和学位供给。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">AEIS 考什么内容？</div>
+      <div class="faq-a">小学组：英语 + 数学（需先通过 CEQ 剑桥英语测试）。中学组：英语 + 数学。小学英语包括阅读理解、完形填空、语法、写作；数学涵盖新加坡对应年级的知识点。详见 <a href="/aeis/preparation/">AEIS 备考攻略</a>。</div>
+    </div>
+  </div>
+
+  <!-- ── CTA ── -->
+  <div class="cta-section">
+    <h2>需要 AEIS 备考指导？</h2>
+    <p>SEDA 资深顾问帮您评估孩子水平，制定个性化 AEIS 备考方案。</p>
+    <a class="cta-btn" href="/contact/">免费咨询预约 →</a>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="/">首页</a>
+    <a href="/aeis/">AEIS 考试</a>
+    <a href="/aeis/age-requirements/">年龄要求</a>
+    <a href="/aeis/preparation/">备考攻略</a>
+    <a href="/about/">关于 SEDA</a>
+    <a href="/contact/">联系我们</a>
+  </div>
+  <p>&copy; 2024–2026 SEDA 新加坡国际教育中心. All rights reserved.</p>
+</footer>
+
+<script>
+'use strict';
+
+const $ = s => document.querySelector(s);
+let selectedExam = 'aeis-2025';
+
+function selectExam(el) {
+  document.querySelectorAll('.exam-option').forEach(e => e.classList.remove('active'));
+  el.classList.add('active');
+  selectedExam = el.dataset.exam;
+}
+
+// ── Age-grade eligibility rules ──
+// Age = age on 1 Jan of admission year (full years)
+const GRADE_RULES = {
+  // AEIS: P2-P5, S1-S3
+  'aeis': [
+    { level: 'P2', label: '小学二年级', minAge: 7, maxAge: 8, type: 'primary', china: '小学二年级' },
+    { level: 'P3', label: '小学三年级', minAge: 8, maxAge: 9, type: 'primary', china: '小学三年级' },
+    { level: 'P4', label: '小学四年级', minAge: 9, maxAge: 10, type: 'primary', china: '小学四年级' },
+    { level: 'P5', label: '小学五年级', minAge: 10, maxAge: 11, type: 'primary', china: '小学五年级' },
+    { level: 'S1', label: '中学一年级', minAge: 12, maxAge: 14, type: 'secondary', china: '初一' },
+    { level: 'S2', label: '中学二年级', minAge: 13, maxAge: 15, type: 'secondary', china: '初二' },
+    { level: 'S3', label: '中学三年级', minAge: 14, maxAge: 16, type: 'secondary', china: '初三' }
+  ],
+  // S-AEIS: P2-P4, S1-S2 (no P5, no S3)
+  'saeis': [
+    { level: 'P2', label: '小学二年级', minAge: 7, maxAge: 8, type: 'primary', china: '小学二年级' },
+    { level: 'P3', label: '小学三年级', minAge: 8, maxAge: 9, type: 'primary', china: '小学三年级' },
+    { level: 'P4', label: '小学四年级', minAge: 9, maxAge: 10, type: 'primary', china: '小学四年级' },
+    { level: 'S1', label: '中学一年级', minAge: 12, maxAge: 14, type: 'secondary', china: '初一' },
+    { level: 'S2', label: '中学二年级', minAge: 13, maxAge: 15, type: 'secondary', china: '初二' }
+  ]
+};
+
+// Map exam code to admission year and type
+function getExamInfo(code) {
+  const map = {
+    'aeis-2025':  { type: 'aeis',  admYear: 2026, examTime: '2025年9月', admTime: '2026年1月' },
+    'saeis-2026': { type: 'saeis', admYear: 2026, examTime: '2026年2月', admTime: '2026年4月' },
+    'aeis-2026':  { type: 'aeis',  admYear: 2027, examTime: '2026年9月', admTime: '2027年1月' },
+    'saeis-2027': { type: 'saeis', admYear: 2027, examTime: '2027年2月', admTime: '2027年4月' }
+  };
+  return map[code];
+}
+
+// Calculate age on 1 Jan of a given year
+function ageOn1Jan(birthDate, year) {
+  const birth = new Date(birthDate);
+  const ref = new Date(year, 0, 1); // Jan 1
+  let age = ref.getFullYear() - birth.getFullYear();
+  // If birthday hasn't occurred yet by Jan 1 (i.e. born after Jan 1), subtract 1
+  const monthDiff = ref.getMonth() - birth.getMonth();
+  if (monthDiff < 0 || (monthDiff === 0 && ref.getDate() < birth.getDate())) {
+    age--;
+  }
+  return age;
+}
+
+function runCheck() {
+  const birthInput = $('#birthDate').value;
+  if (!birthInput) {
+    alert('请先选择孩子的出生日期');
+    return;
+  }
+
+  const examInfo = getExamInfo(selectedExam);
+  const age = ageOn1Jan(birthInput, examInfo.admYear);
+  const rules = GRADE_RULES[examInfo.type];
+  const birthDate = new Date(birthInput);
+
+  // Find eligible grades
+  const eligible = rules.filter(r => age >= r.minAge && age <= r.maxAge);
+
+  // Find the recommended grade (closest to standard age)
+  let recommended = null;
+  if (eligible.length > 0) {
+    // Prefer the grade where age equals minAge (standard entry)
+    recommended = eligible.find(r => age === r.minAge) || eligible[0];
+  }
+
+  const panel = $('#resultPanel');
+  let html = '';
+
+  const birthStr = `${birthDate.getFullYear()}年${birthDate.getMonth()+1}月${birthDate.getDate()}日`;
+  const examLabel = examInfo.type === 'aeis' ? 'AEIS' : 'S-AEIS';
+
+  if (eligible.length > 0) {
+    html += `
+    <div class="result-card eligible">
+      <div class="rc-header">
+        <span class="rc-icon">✅</span>
+        <div>
+          <div class="rc-title">可以报考${examLabel}！</div>
+          <div class="rc-subtitle">出生日期：${birthStr} | 入学时年龄：${age} 周岁（${examInfo.admYear}年1月1日）</div>
+        </div>
+      </div>
+      <div class="grade-chips">
+        ${eligible.map(r => `<span class="grade-chip ${r.type}${r === recommended ? ' best' : ''}">${r.level} ${r.label}${r === recommended ? ' ⭐推荐' : ''}</span>`).join('')}
+      </div>
+      <table class="detail-table">
+        <thead><tr><th>年级</th><th>年龄范围</th><th>≈ 中国</th><th>匹配度</th></tr></thead>
+        <tbody>
+          ${eligible.map(r => `
+          <tr class="${r === recommended ? 'highlight' : ''}">
+            <td><strong>${r.level}</strong> ${r.label}</td>
+            <td>${r.minAge}–${r.maxAge} 岁</td>
+            <td><span class="china-grade-tag">${r.china}</span></td>
+            <td>${r === recommended ? '⭐ 最匹配' : '✓ 可报考'}</td>
+          </tr>`).join('')}
+        </tbody>
+      </table>
+      <div class="result-info" style="margin-top:16px">
+        <strong>📅 考试安排：</strong>${examInfo.examTime}考试 → ${examInfo.admTime}入学<br>
+        <strong>📝 考试内容：</strong>${eligible[0].type === 'primary' ? '英语（需先过 CEQ）+ 数学' : '英语 + 数学'}<br>
+        <strong>💡 建议：</strong>${recommended && age === recommended.minAge ? '孩子年龄刚好匹配标准入学年龄，竞争力较强。' : '孩子可以报考多个年级组别，建议根据实际学业水平选择。年龄偏大选低年级有利于适应。'}
+      </div>
+    </div>`;
+  } else {
+    // Not eligible - determine why
+    let reason = '';
+    if (age < 7) {
+      reason = `孩子目前 ${age} 岁，AEIS 最低报考年龄为 7 岁。建议等孩子满 7 岁后再申请。`;
+    } else if (age > 16) {
+      reason = `孩子已 ${age} 岁，超过 AEIS 最大报考年龄（16岁）。`;
+    } else if (age === 11) {
+      reason = `孩子 ${age} 岁，处于小学和中学之间的年龄段。${examInfo.type === 'saeis' ? 'S-AEIS 不设 P5，建议参加 AEIS（9月考试）报考 P5。' : '可以尝试报考 P5 或等待下一年报 S1。'}`;
+    } else {
+      reason = `该年龄段在此次考试中没有匹配的年级。`;
+    }
+
+    html += `
+    <div class="result-card not-eligible">
+      <div class="rc-header">
+        <span class="rc-icon">⚠️</span>
+        <div>
+          <div class="rc-title">暂不符合此次${examLabel}报考条件</div>
+          <div class="rc-subtitle">出生日期：${birthStr} | 入学时年龄：${age} 周岁</div>
+        </div>
+      </div>
+      <div class="result-info">${reason}</div>
+    </div>`;
+
+    // Show alternatives
+    html += `
+    <div class="result-card alt">
+      <div class="rc-header">
+        <span class="rc-icon">💡</span>
+        <div>
+          <div class="rc-title">替代方案</div>
+          <div class="rc-subtitle">以下路径不受 AEIS 年龄限制</div>
+        </div>
+      </div>
+      <div class="result-info">
+        <strong>1. 私立学校</strong> — O-Level / IGCSE 预备课程，灵活入学，无年龄限制。<a href="/private-schools/">了解更多 →</a><br>
+        <strong>2. 国际学校</strong> — 自主招生，随时申请，课程选择多。<a href="/international-school/">了解更多 →</a><br>
+        <strong>3. WACE 课程</strong> — 2年完成高中，直接用 ATAR 成绩申请大学。<a href="/wace/">了解更多 →</a><br>
+        <strong>4. 等下一次考试</strong> — ${examInfo.type === 'aeis' ? '可以尝试明年的 S-AEIS（2月考试）' : '可以尝试今年的 AEIS（9月考试）'}
+      </div>
+    </div>`;
+  }
+
+  panel.innerHTML = html;
+  panel.classList.add('show');
+  panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+// FAQ accordion
+document.querySelectorAll('.faq-q').forEach(q => {
+  q.addEventListener('click', () => q.parentElement.classList.toggle('open'));
+});
+</script>
+</body>
+</html>

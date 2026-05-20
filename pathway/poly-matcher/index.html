@@ -315,25 +315,64 @@
     .score-item .si-value { font-size: 18px; font-weight: 800; color: var(--ink); }
     .score-total { font-size: 28px; font-weight: 900; color: var(--brand); }
 
-    .result-grid { display: grid; gap: 12px; }
-    .result-card {
-      border: 1px solid var(--line); border-radius: 12px;
-      padding: 16px 20px; display: flex; align-items: center; gap: 16px;
-      transition: border-color 0.2s, box-shadow 0.2s;
+    .result-grid { display: grid; gap: 20px; }
+
+    /* ── Poly Group Card (grouped by school) ── */
+    .poly-group {
+      border: 1px solid var(--line); border-radius: 14px;
+      overflow: hidden; background: #fff;
+      transition: box-shadow 0.2s;
     }
-    .result-card:hover { border-color: var(--brand); box-shadow: var(--shadow); }
-    .result-card .rc-poly {
-      font-size: 11px; font-weight: 700; color: #fff;
-      background: var(--ink); padding: 4px 10px; border-radius: 6px;
-      white-space: nowrap;
+    .poly-group:hover { box-shadow: var(--shadow); }
+    .poly-group-header {
+      display: flex; align-items: center; gap: 14px;
+      padding: 16px 20px; background: var(--wash);
+      border-bottom: 1px solid var(--line); cursor: pointer;
     }
-    .result-card .rc-info { flex: 1; }
-    .result-card .rc-name { font-size: 14px; font-weight: 700; }
-    .result-card .rc-cn { font-size: 12px; color: var(--muted); }
-    .result-card .rc-cop { font-size: 12px; color: var(--muted); margin-top: 4px; }
-    .result-card .rc-badge {
-      padding: 6px 14px; border-radius: 100px; font-size: 13px; font-weight: 700;
-      white-space: nowrap;
+    .poly-group-header .pg-abbr {
+      font-size: 16px; font-weight: 900; color: #fff;
+      background: var(--brand); padding: 6px 14px; border-radius: 8px;
+      min-width: 52px; text-align: center;
+    }
+    .poly-group-header .pg-name { flex: 1; }
+    .poly-group-header .pg-name strong { font-size: 15px; display: block; }
+    .poly-group-header .pg-name span { font-size: 12px; color: var(--muted); }
+    .poly-group-header .pg-count {
+      font-size: 13px; font-weight: 700; color: var(--brand);
+      background: #fef2f2; padding: 4px 12px; border-radius: 100px;
+    }
+    .poly-group-header .pg-toggle {
+      font-size: 18px; color: var(--muted); transition: transform 0.2s;
+    }
+    .poly-group.collapsed .pg-toggle { transform: rotate(-90deg); }
+    .poly-group.collapsed .poly-group-body { display: none; }
+    .poly-group-body { padding: 0; }
+
+    /* ── Individual Course Row ── */
+    .course-row {
+      display: flex; align-items: center; gap: 14px;
+      padding: 12px 20px;
+      border-bottom: 1px solid #f3f4f6;
+      transition: background 0.15s;
+    }
+    .course-row:last-child { border-bottom: none; }
+    .course-row:hover { background: #fef2f2; }
+    .course-row .cr-cat {
+      font-size: 10px; font-weight: 600; color: var(--muted);
+      background: var(--wash); padding: 3px 8px; border-radius: 4px;
+      white-space: nowrap; min-width: 56px; text-align: center;
+      text-transform: uppercase; letter-spacing: 0.04em;
+    }
+    .course-row .cr-info { flex: 1; min-width: 0; }
+    .course-row .cr-name { font-size: 14px; font-weight: 600; }
+    .course-row .cr-cn { font-size: 12px; color: var(--muted); }
+    .course-row .cr-score {
+      font-size: 11px; color: var(--muted); margin-top: 2px;
+    }
+    .course-row .cr-score strong { color: var(--ink); }
+    .course-row .cr-badge {
+      padding: 5px 12px; border-radius: 100px; font-size: 12px; font-weight: 700;
+      white-space: nowrap; flex-shrink: 0;
     }
     .badge-safe { background: #dcfce7; color: #166534; }
     .badge-reach { background: #fef9c3; color: #854d0e; }
@@ -413,7 +452,7 @@
     .footer-links a { color: var(--muted); }
     .footer-links a:hover { color: var(--brand); }
 
-    /* ── Poly Cards Section ── */
+    /* ── Poly Programs Section (bottom overview) ── */
     .poly-section {
       max-width: 860px; margin: 0 auto 48px;
       padding: 0 clamp(20px, 6vw, 80px);
@@ -421,21 +460,53 @@
     .poly-section h2 { font-size: 22px; font-weight: 800; margin-bottom: 8px; }
     .poly-section h2 em { font-style: normal; color: var(--brand); }
     .poly-section .poly-sub { font-size: 14px; color: var(--muted); margin-bottom: 20px; }
-    .poly-cards {
-      display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 16px;
+    .poly-programs-grid {
+      display: grid; gap: 16px;
     }
-    .poly-card {
-      border: 1px solid var(--line); border-radius: 12px; padding: 20px;
-      transition: border-color 0.2s, box-shadow 0.2s; background: #fff;
+    .pp-school {
+      border: 1px solid var(--line); border-radius: 12px;
+      overflow: hidden; background: #fff;
     }
-    .poly-card:hover { border-color: var(--brand); box-shadow: var(--shadow); }
-    .poly-card .pc-abbr {
-      font-size: 18px; font-weight: 900; color: var(--brand); margin-bottom: 4px;
+    .pp-school-header {
+      display: flex; align-items: center; gap: 12px;
+      padding: 14px 18px; background: var(--wash);
+      border-bottom: 1px solid var(--line);
     }
-    .poly-card .pc-name { font-size: 14px; font-weight: 700; margin-bottom: 4px; }
-    .poly-card .pc-cn { font-size: 13px; color: var(--muted); margin-bottom: 10px; }
-    .poly-card .pc-meta { font-size: 12px; color: var(--muted); line-height: 1.6; }
-    .poly-card .pc-meta strong { color: var(--ink); }
+    .pp-school-header .pp-abbr {
+      font-size: 15px; font-weight: 900; color: var(--brand);
+    }
+    .pp-school-header .pp-name { font-size: 14px; font-weight: 700; }
+    .pp-school-header .pp-cn { font-size: 12px; color: var(--muted); margin-left: 4px; }
+    .pp-school-header .pp-count {
+      margin-left: auto; font-size: 11px; color: var(--muted);
+      background: #fff; padding: 2px 10px; border-radius: 100px;
+      border: 1px solid var(--line);
+    }
+    .pp-cats {
+      padding: 14px 18px;
+      display: flex; flex-wrap: wrap; gap: 8px;
+    }
+    .pp-cat-tag {
+      font-size: 12px; padding: 5px 12px;
+      border-radius: 6px; background: #f0f9ff;
+      color: #0369a1; font-weight: 500;
+      display: inline-flex; align-items: center; gap: 4px;
+    }
+    .pp-cat-tag .pp-cat-count {
+      font-weight: 700; background: rgba(3,105,161,0.1);
+      padding: 1px 6px; border-radius: 4px; font-size: 11px;
+    }
+    .pp-programs {
+      padding: 0 18px 14px;
+      display: flex; flex-wrap: wrap; gap: 6px;
+    }
+    .pp-prog {
+      font-size: 11px; padding: 3px 10px;
+      border-radius: 100px; border: 1px solid var(--line);
+      color: var(--muted); background: #fff;
+      transition: all 0.15s;
+    }
+    .pp-prog:hover { border-color: var(--brand); color: var(--brand); }
 
     /* ── Lead Gate Modal ── */
     .lead-overlay {
@@ -539,9 +610,10 @@
       .hero-stats { gap: 20px; }
       .matcher-body { padding: 20px 16px; }
       .interest-grid { grid-template-columns: repeat(2, 1fr); }
-      .result-card { flex-direction: column; align-items: flex-start; }
+      .course-row { flex-direction: column; align-items: flex-start; gap: 6px; }
+      .course-row .cr-badge { align-self: flex-end; }
       .score-breakdown-grid { grid-template-columns: repeat(3, 1fr); }
-      .poly-cards { grid-template-columns: 1fr; }
+      .poly-programs-grid { gap: 12px; }
       .how-grid { grid-template-columns: 1fr; }
       .result-summary { grid-template-columns: repeat(3, 1fr); }
       .matcher-tabs { font-size: 11px; }
@@ -790,66 +862,151 @@
       </div>
     </div>
 
-    <!-- ── 5 Polys Overview ── -->
+    <!-- ── 5 Polys: Programs You Can Apply ── -->
     <div class="poly-section">
-      <h2>新加坡 5 所<em>理工学院</em>概览</h2>
-      <p class="poly-sub">5 所 Poly 文凭认可度相同，但各有优势学科与特色。</p>
-      <div class="poly-cards">
-        <div class="poly-card">
-          <div class="pc-abbr">SP</div>
-          <div class="pc-name">Singapore Polytechnic</div>
-          <div class="pc-cn">新加坡理工学院</div>
-          <div class="pc-meta">
-            <strong>建校：</strong>1954 年（最早）<br>
-            <strong>位置：</strong>Dover<br>
-            <strong>优势：</strong>工程、应用科学、建筑<br>
-            <strong>课程数：</strong>40+
+      <h2>各 Poly <em>可申请专业</em>一览</h2>
+      <p class="poly-sub">5 所理工学院覆盖 200+ 课程，以下为各校热门专业方向，O-Level 成绩达标即可申请。</p>
+      <div class="poly-programs-grid">
+
+        <div class="pp-school">
+          <div class="pp-school-header">
+            <span class="pp-abbr">SP</span>
+            <span class="pp-name">Singapore Polytechnic</span>
+            <span class="pp-cn">新加坡理工</span>
+            <span class="pp-count">40+ 课程</span>
+          </div>
+          <div class="pp-cats">
+            <span class="pp-cat-tag">🔧 工程 <span class="pp-cat-count">6</span></span>
+            <span class="pp-cat-tag">💻 IT <span class="pp-cat-count">2</span></span>
+            <span class="pp-cat-tag">📊 商科 <span class="pp-cat-count">3</span></span>
+            <span class="pp-cat-tag">🏥 健康 <span class="pp-cat-count">2</span></span>
+            <span class="pp-cat-tag">🔬 科学 <span class="pp-cat-count">1</span></span>
+            <span class="pp-cat-tag">🎨 设计 <span class="pp-cat-count">1</span></span>
+          </div>
+          <div class="pp-programs">
+            <span class="pp-prog">航空工程 COP:11</span>
+            <span class="pp-prog">计算机工程 COP:11</span>
+            <span class="pp-prog">网络安全 COP:8</span>
+            <span class="pp-prog">信息技术 COP:10</span>
+            <span class="pp-prog">工商管理 COP:11</span>
+            <span class="pp-prog">银行与金融 COP:10</span>
+            <span class="pp-prog">生物医学科学 COP:7</span>
+            <span class="pp-prog">验光学 COP:9</span>
+            <span class="pp-prog">建筑学 COP:12</span>
           </div>
         </div>
-        <div class="poly-card">
-          <div class="pc-abbr">NP</div>
-          <div class="pc-name">Ngee Ann Polytechnic</div>
-          <div class="pc-cn">义安理工学院</div>
-          <div class="pc-meta">
-            <strong>建校：</strong>1963 年<br>
-            <strong>位置：</strong>Clementi<br>
-            <strong>优势：</strong>传媒、商科、生命科学<br>
-            <strong>课程数：</strong>39
+
+        <div class="pp-school">
+          <div class="pp-school-header">
+            <span class="pp-abbr">NP</span>
+            <span class="pp-name">Ngee Ann Polytechnic</span>
+            <span class="pp-cn">义安理工</span>
+            <span class="pp-count">39 课程</span>
+          </div>
+          <div class="pp-cats">
+            <span class="pp-cat-tag">🔧 工程 <span class="pp-cat-count">3</span></span>
+            <span class="pp-cat-tag">💻 IT <span class="pp-cat-count">3</span></span>
+            <span class="pp-cat-tag">📊 商科 <span class="pp-cat-count">2</span></span>
+            <span class="pp-cat-tag">🎨 传媒/设计 <span class="pp-cat-count">2</span></span>
+            <span class="pp-cat-tag">🏥 健康 <span class="pp-cat-count">3</span></span>
+            <span class="pp-cat-tag">📖 人文 <span class="pp-cat-count">1</span></span>
+          </div>
+          <div class="pp-programs">
+            <span class="pp-prog">工程科学 COP:9</span>
+            <span class="pp-prog">数据科学 COP:8</span>
+            <span class="pp-prog">网络安全 COP:10</span>
+            <span class="pp-prog">大众传播 COP:8</span>
+            <span class="pp-prog">影视制作 COP:10</span>
+            <span class="pp-prog">生物医学科学 COP:7</span>
+            <span class="pp-prog">兽医生物科学 COP:7</span>
+            <span class="pp-prog">心理学 COP:8</span>
+            <span class="pp-prog">护理学 COP:14</span>
           </div>
         </div>
-        <div class="poly-card">
-          <div class="pc-abbr">TP</div>
-          <div class="pc-name">Temasek Polytechnic</div>
-          <div class="pc-cn">淡马锡理工学院</div>
-          <div class="pc-meta">
-            <strong>建校：</strong>1990 年<br>
-            <strong>位置：</strong>Tampines<br>
-            <strong>优势：</strong>IT、设计、应用科学<br>
-            <strong>课程数：</strong>37
+
+        <div class="pp-school">
+          <div class="pp-school-header">
+            <span class="pp-abbr">TP</span>
+            <span class="pp-name">Temasek Polytechnic</span>
+            <span class="pp-cn">淡马锡理工</span>
+            <span class="pp-count">37 课程</span>
+          </div>
+          <div class="pp-cats">
+            <span class="pp-cat-tag">🔧 工程 <span class="pp-cat-count">2</span></span>
+            <span class="pp-cat-tag">💻 IT <span class="pp-cat-count">3</span></span>
+            <span class="pp-cat-tag">📊 商科 <span class="pp-cat-count">3</span></span>
+            <span class="pp-cat-tag">🎨 设计 <span class="pp-cat-count">2</span></span>
+            <span class="pp-cat-tag">🔬 科学 <span class="pp-cat-count">2</span></span>
+            <span class="pp-cat-tag">📖 人文 <span class="pp-cat-count">2</span></span>
+          </div>
+          <div class="pp-programs">
+            <span class="pp-prog">人工智能 COP:8</span>
+            <span class="pp-prog">网络安全 COP:9</span>
+            <span class="pp-prog">应用设计开发 COP:12</span>
+            <span class="pp-prog">应用心理学 COP:9</span>
+            <span class="pp-prog">药学 COP:9</span>
+            <span class="pp-prog">传播设计 COP:11</span>
+            <span class="pp-prog">兽医技术 COP:10</span>
+            <span class="pp-prog">市场营销 COP:14</span>
+            <span class="pp-prog">幼儿教育 COP:14</span>
           </div>
         </div>
-        <div class="poly-card">
-          <div class="pc-abbr">NYP</div>
-          <div class="pc-name">Nanyang Polytechnic</div>
-          <div class="pc-cn">南洋理工学院</div>
-          <div class="pc-meta">
-            <strong>建校：</strong>1992 年<br>
-            <strong>位置：</strong>Ang Mo Kio<br>
-            <strong>优势：</strong>动画、游戏、健康科学<br>
-            <strong>课程数：</strong>35
+
+        <div class="pp-school">
+          <div class="pp-school-header">
+            <span class="pp-abbr">NYP</span>
+            <span class="pp-name">Nanyang Polytechnic</span>
+            <span class="pp-cn">南洋理工</span>
+            <span class="pp-count">35 课程</span>
+          </div>
+          <div class="pp-cats">
+            <span class="pp-cat-tag">🔧 工程 <span class="pp-cat-count">1</span></span>
+            <span class="pp-cat-tag">💻 IT <span class="pp-cat-count">3</span></span>
+            <span class="pp-cat-tag">📊 商科 <span class="pp-cat-count">3</span></span>
+            <span class="pp-cat-tag">🎨 设计 <span class="pp-cat-count">1</span></span>
+            <span class="pp-cat-tag">🏥 健康 <span class="pp-cat-count">2</span></span>
+            <span class="pp-cat-tag">📖 人文 <span class="pp-cat-count">2</span></span>
+          </div>
+          <div class="pp-programs">
+            <span class="pp-prog">动画与视觉特效 COP:11</span>
+            <span class="pp-prog">游戏设计 COP:12</span>
+            <span class="pp-prog">网络安全 COP:10</span>
+            <span class="pp-prog">口腔健康治疗 COP:8</span>
+            <span class="pp-prog">儿童心理学 COP:11</span>
+            <span class="pp-prog">银行与金融 COP:11</span>
+            <span class="pp-prog">社会工作 COP:12</span>
+            <span class="pp-prog">机械工程 COP:17</span>
+            <span class="pp-prog">护理学 COP:15</span>
           </div>
         </div>
-        <div class="poly-card">
-          <div class="pc-abbr">RP</div>
-          <div class="pc-name">Republic Polytechnic</div>
-          <div class="pc-cn">共和理工学院</div>
-          <div class="pc-meta">
-            <strong>建校：</strong>2002 年（最新）<br>
-            <strong>位置：</strong>Woodlands<br>
-            <strong>优势：</strong>PBL 教学法、运动科学<br>
-            <strong>课程数：</strong>34
+
+        <div class="pp-school">
+          <div class="pp-school-header">
+            <span class="pp-abbr">RP</span>
+            <span class="pp-name">Republic Polytechnic</span>
+            <span class="pp-cn">共和理工</span>
+            <span class="pp-count">34 课程</span>
+          </div>
+          <div class="pp-cats">
+            <span class="pp-cat-tag">🔧 工程 <span class="pp-cat-count">1</span></span>
+            <span class="pp-cat-tag">💻 IT <span class="pp-cat-count">2</span></span>
+            <span class="pp-cat-tag">📊 商科 <span class="pp-cat-count">1</span></span>
+            <span class="pp-cat-tag">🏥 健康 <span class="pp-cat-count">2</span></span>
+            <span class="pp-cat-tag">🎨 设计 <span class="pp-cat-count">2</span></span>
+            <span class="pp-cat-tag">📖 人文 <span class="pp-cat-count">2</span></span>
+          </div>
+          <div class="pp-programs">
+            <span class="pp-prog">网络安全 COP:12</span>
+            <span class="pp-prog">信息通讯 COP:15</span>
+            <span class="pp-prog">生物医学 COP:10</span>
+            <span class="pp-prog">运动科学 COP:14</span>
+            <span class="pp-prog">药学 COP:11</span>
+            <span class="pp-prog">游戏设计 COP:14</span>
+            <span class="pp-prog">大众传播 COP:12</span>
+            <span class="pp-prog">社会企业管理 COP:15</span>
           </div>
         </div>
+
       </div>
     </div>
 
@@ -1388,7 +1545,7 @@
       });
     }
 
-    // ── Render Result Cards ──
+    // ── Render Result Cards (grouped by Poly) ──
     function renderResultCards(results) {
       const grid = $('#resultGrid');
       if (results.length === 0) {
@@ -1400,20 +1557,67 @@
         return;
       }
 
-      grid.innerHTML = results.map(r => {
-        const diff = r.score - r.cop;
-        const diffText = diff < 0 ? `低于 COP ${Math.abs(diff)} 分` : diff === 0 ? '刚好达到 COP' : `高于 COP ${diff} 分`;
-        return `
-        <div class="result-card" data-likelihood="${r.likelihood}" data-poly="${r.poly}">
-          <span class="rc-poly">${r.poly}</span>
-          <div class="rc-info">
-            <div class="rc-name">${r.name}</div>
-            <div class="rc-cn">${r.cn}</div>
-            <div class="rc-cop">COP: ${r.cop} | 你的分数: ${r.score} | ${diffText}</div>
-          </div>
-          <span class="rc-badge ${r.badgeClass}">${r.badge}</span>
-        </div>`;
-      }).join('');
+      // Group results by Poly
+      const polyOrder = ['SP', 'NP', 'TP', 'NYP', 'RP'];
+      const grouped = {};
+      results.forEach(r => {
+        if (!grouped[r.poly]) grouped[r.poly] = [];
+        grouped[r.poly].push(r);
+      });
+
+      // Sort within each group: safe > reach > risk, then by COP
+      Object.values(grouped).forEach(arr => {
+        arr.sort((a, b) => {
+          if (a.likelihood !== b.likelihood) return a.likelihood - b.likelihood;
+          return a.cop - b.cop;
+        });
+      });
+
+      grid.innerHTML = polyOrder
+        .filter(p => grouped[p] && grouped[p].length > 0)
+        .map(p => {
+          const courses = grouped[p];
+          const safeN = courses.filter(c => c.likelihood === 1).length;
+          const reachN = courses.filter(c => c.likelihood === 2).length;
+          const riskN = courses.filter(c => c.likelihood === 3).length;
+          const countText = [
+            safeN > 0 ? `${safeN} 稳` : '',
+            reachN > 0 ? `${reachN} 冲` : '',
+            riskN > 0 ? `${riskN} 危` : ''
+          ].filter(Boolean).join(' · ');
+
+          const courseRows = courses.map(r => {
+            const diff = r.score - r.cop;
+            const diffText = diff < 0 ? `低 ${Math.abs(diff)} 分 ✓` : diff === 0 ? '刚好达线' : `高 ${diff} 分`;
+            const catLabel = CAT_NAMES[r.cat] ? CAT_NAMES[r.cat].split(' ')[0] : r.cat;
+            return `
+            <div class="course-row" data-likelihood="${r.likelihood}">
+              <span class="cr-cat">${catLabel}</span>
+              <div class="cr-info">
+                <div class="cr-name">${r.cn}</div>
+                <div class="cr-cn">${r.name}</div>
+                <div class="cr-score">COP: <strong>${r.cop}</strong> | 你的分: <strong>${r.score}</strong> | ${diffText}</div>
+              </div>
+              <span class="cr-badge ${r.badgeClass}">${r.badge}</span>
+            </div>`;
+          }).join('');
+
+          return `
+          <div class="poly-group" data-poly="${p}">
+            <div class="poly-group-header" onclick="this.parentElement.classList.toggle('collapsed')">
+              <span class="pg-abbr">${p}</span>
+              <div class="pg-name">
+                <strong>${POLY_FULL_NAMES[p]}</strong>
+                <span>${countText}</span>
+              </div>
+              <span class="pg-count">${courses.length} 个专业可申请</span>
+              <span class="pg-toggle">▾</span>
+            </div>
+            <div class="poly-group-body">
+              ${courseRows}
+            </div>
+          </div>`;
+        }).join('');
     }
 
     // ── Render Results ──
@@ -1462,22 +1666,24 @@
       const reachCount = results.filter(r => r.likelihood === 2).length;
       const riskCount = results.filter(r => r.likelihood === 3).length;
 
-      $('#resultSub').innerHTML = `共匹配 <strong>${results.length}</strong> 个课程`;
+      // Count unique polys with results
+      const polyCount = [...new Set(results.map(r => r.poly))].length;
+      $('#resultSub').innerHTML = `在 <strong>${polyCount}</strong> 所 Poly 中共有 <strong>${results.length}</strong> 个专业可申请`;
 
       // Summary cards
       let summaryHtml = `
         <div class="result-summary">
           <div class="rs-card rs-safe">
             <div class="rs-num">${safeCount}</div>
-            <div class="rs-label">稳 (安全录取)</div>
+            <div class="rs-label">稳 · 可安全申请的专业</div>
           </div>
           <div class="rs-card rs-reach">
             <div class="rs-num">${reachCount}</div>
-            <div class="rs-label">冲 (有机会)</div>
+            <div class="rs-label">冲 · 有机会录取的专业</div>
           </div>
           <div class="rs-card rs-risk">
             <div class="rs-num">${riskCount}</div>
-            <div class="rs-label">危 (风险较高)</div>
+            <div class="rs-label">危 · 风险较高的专业</div>
           </div>
         </div>
       `;

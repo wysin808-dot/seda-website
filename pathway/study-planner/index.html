@@ -345,6 +345,44 @@
     }
     .result-summary-meta strong { color: var(--ink); }
 
+    /* ── China Advice Card ── */
+    .china-advice-card {
+      display: flex; gap: 18px; align-items: flex-start;
+      background: linear-gradient(135deg, #eff6ff 0%, #f0fdf4 100%);
+      border: 2px solid #93c5fd;
+      border-radius: 14px; padding: 22px 24px; margin-bottom: 24px;
+      position: relative; overflow: hidden;
+    }
+    .china-advice-card::before {
+      content: ""; position: absolute; top: -20px; right: -20px;
+      width: 120px; height: 120px;
+      background: radial-gradient(circle, rgba(59,130,246,0.1), transparent 70%);
+      border-radius: 50%; pointer-events: none;
+    }
+    .china-advice-icon { font-size: 36px; flex-shrink: 0; margin-top: 2px; }
+    .china-advice-body h4 {
+      font-size: 16px; font-weight: 800; color: #1e40af; margin-bottom: 10px;
+    }
+    .china-advice-body p {
+      font-size: 13px; color: #374151; line-height: 1.7; margin-bottom: 8px;
+    }
+    .china-advice-body p strong { color: #1e40af; }
+    .china-advice-body ul {
+      list-style: none; padding: 0; margin: 0 0 6px;
+    }
+    .china-advice-body ul li {
+      font-size: 13px; color: #374151; line-height: 1.7;
+      padding: 5px 0 5px 20px; position: relative;
+      border-bottom: 1px solid rgba(147,197,253,0.3);
+    }
+    .china-advice-body ul li:last-child { border-bottom: none; }
+    .china-advice-body ul li::before {
+      content: "✓"; position: absolute; left: 0; color: #059669; font-weight: 700;
+    }
+    .china-advice-body ul li strong { color: #1e3a5f; }
+    .china-advice-body a { color: #2563eb; font-weight: 600; font-size: 13px; }
+    .china-advice-body a:hover { color: #1d4ed8; }
+
     /* ── Pathway Cards ── */
     .pathway-grid {
       display: grid;
@@ -1849,6 +1887,24 @@
     html += '<span><strong>当前：</strong>' + gradeLabel + ' · ' + locLabel + '</span>';
     html += '<span><strong>可行路径：</strong>' + results.length + ' 条</span>';
     html += '</div></div>';
+
+    // China students: recommend coming to Singapore
+    if(state.location === 'china'){
+      html += '<div class="china-advice-card">';
+      html += '<div class="china-advice-icon">🇸🇬</div>';
+      html += '<div class="china-advice-body">';
+      html += '<h4>重要建议：尽早来新加坡就读，用新加坡学籍身份申请大学</h4>';
+      html += '<p>以新加坡本地学籍申请 NUS、NTU 等大学，<strong>录取率远高于以中国高考成绩直接申请</strong>。建议家长尽早安排孩子来新加坡读书，获得本地学历优势：</p>';
+      html += '<ul>';
+      html += '<li><strong>学籍优势：</strong>在新加坡完成 A-Level / WACE / IB 等课程后，以「本地学生」身份申请大学，竞争压力远小于中国高考直申</li>';
+      html += '<li><strong>语言优势：</strong>提前适应英文教学环境，大学入学后无缝衔接，无需额外雅思/托福</li>';
+      html += '<li><strong>路径灵活：</strong>可根据孩子水平选择 AEIS → 政府学校、私立 O-Level/WACE、国际学校 IB 等多种路径</li>';
+      html += '<li><strong>陪读签证：</strong>16 岁以下学生，母亲/祖母可申请陪读准证（Dependent Pass），合法在新加坡陪读</li>';
+      html += '<li><strong>时间成本：</strong>越早过来适应，英文基础越扎实，未来升学选择越多</li>';
+      html += '</ul>';
+      html += '<p style="margin-top:10px"><a href="/guides/student-pass/">了解学生准证 →</a> &nbsp; <a href="/guides/dependent-pass/">了解陪读准证 →</a> &nbsp; <a href="/pathway/">查看所有升学路径 →</a></p>';
+      html += '</div></div>';
+    }
 
     if(results.length === 0){
       html += '<div style="text-align:center;padding:40px 20px;color:var(--muted)">';

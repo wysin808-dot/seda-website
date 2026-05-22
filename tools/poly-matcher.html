@@ -1,0 +1,1821 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Poly 匹配 — O-Level → 理工学院 | SEDA 顾问工具</title>
+  <meta name="description" content="O-Level 成绩计算 ELR2B2，匹配理工学院课程" />
+  <style>
+    /* ── CSS Variables (SEDA theme) ── */
+    :root {
+      --brand: #c62828;
+      --brand-light: #fca5a5;
+      --ink: #1a1a2e;
+      --muted: #6b7280;
+      --wash: #f8f9fa;
+      --line: #e5e7eb;
+      --radius: 16px;
+      --shadow: 0 2px 12px rgba(0,0,0,0.06);
+      --shadow-lg: 0 8px 32px rgba(0,0,0,0.10);
+    }
+
+    /* ── Reset & Base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans SC", sans-serif;
+      color: var(--ink);
+      background: #fff;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: var(--brand); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Header (compact single-line) ── */
+    .site-header {
+      border-bottom: 1px solid var(--line);
+      background: #fff;
+      position: sticky; top: 0; z-index: 100;
+    }
+    .header-main {
+      display: flex; align-items: center; gap: 24px;
+      padding: 12px clamp(20px, 6vw, 80px);
+      max-width: 1400px; margin: 0 auto;
+    }
+    .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--ink); }
+    .brand-word { font-size: 22px; font-weight: 900; color: var(--brand); letter-spacing: -0.5px; }
+    .brand-copy strong { font-size: 13px; display: block; color: var(--ink); }
+    .brand-copy small { font-size: 11px; color: var(--muted); }
+    .main-nav { display: flex; flex-wrap: wrap; gap: 4px; flex: 1; font-size: 13px; font-weight: 500; }
+    .nav-group { position: relative; padding: 6px 10px; border-radius: 6px; cursor: pointer; white-space: nowrap; }
+    .nav-group:hover { background: var(--wash); }
+    .mega-dropdown {
+      display: none; position: absolute; top: 100%; left: 0;
+      background: #fff; border: 1px solid var(--line); border-radius: 10px;
+      padding: 12px; min-width: 200px; box-shadow: var(--shadow-lg); z-index: 200;
+    }
+    .nav-group:hover .mega-dropdown { display: flex; flex-direction: column; gap: 6px; }
+    .mega-dropdown a { padding: 6px 10px; border-radius: 6px; font-size: 13px; color: var(--ink); white-space: nowrap; }
+    .mega-dropdown a:hover { background: var(--wash); text-decoration: none; color: var(--brand); }
+    .nav-cta {
+      margin-left: auto; padding: 8px 18px; background: var(--brand); color: #fff;
+      border-radius: 8px; font-size: 13px; font-weight: 600; white-space: nowrap;
+      text-decoration: none; transition: background 0.2s;
+    }
+    .nav-cta:hover { background: #a71d1d; text-decoration: none; }
+    .trending-bar {
+      display: flex; align-items: center; gap: 12px;
+      padding: 6px clamp(20px, 6vw, 80px);
+      background: var(--wash); font-size: 12px; color: var(--muted);
+      overflow-x: auto; white-space: nowrap;
+    }
+    .trending-bar a { color: var(--ink); padding: 3px 10px; border-radius: 100px; background: #fff; border: 1px solid var(--line); font-size: 11px; }
+    .trending-bar a:hover { border-color: var(--brand); color: var(--brand); text-decoration: none; }
+
+    /* ── Breadcrumb ── */
+    .breadcrumb {
+      padding: 12px clamp(20px, 6vw, 80px);
+      font-size: 12px; color: var(--muted);
+    }
+    .breadcrumb a { color: var(--muted); }
+    .breadcrumb a:hover { color: var(--brand); }
+    .breadcrumb span { margin: 0 6px; }
+
+    /* ── Hero ── */
+    .matcher-hero {
+      background: linear-gradient(135deg, #2a1215 0%, #1a0a0c 100%);
+      color: #fff;
+      padding: 56px clamp(20px, 6vw, 80px) 48px;
+      border-radius: var(--radius);
+      margin: 0 clamp(20px, 6vw, 80px) 32px;
+      position: relative;
+      overflow: hidden;
+    }
+    .matcher-hero::before {
+      content: "";
+      position: absolute; top: 0; right: 0;
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(198,40,40,0.25), transparent 70%);
+      border-radius: 50%;
+      filter: blur(80px);
+      pointer-events: none;
+    }
+    .matcher-hero .eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 6px 14px;
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 100px;
+      font-size: 12px; font-weight: 600; letter-spacing: 0.06em;
+      color: var(--brand-light);
+      margin-bottom: 20px;
+      background: rgba(198,40,40,0.15);
+    }
+    .matcher-hero .eyebrow::before {
+      content: ""; width: 6px; height: 6px;
+      border-radius: 50%; background: #ef4444;
+      box-shadow: 0 0 12px #ef4444;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
+    .matcher-hero h1 {
+      font-size: clamp(28px, 4vw, 42px);
+      font-weight: 800; line-height: 1.15;
+      margin-bottom: 16px; position: relative;
+    }
+    .matcher-hero h1 em { font-style: normal; color: var(--brand-light); }
+    .matcher-hero .lead {
+      font-size: 16px; color: rgba(255,255,255,0.7);
+      line-height: 1.6; max-width: 580px; margin-bottom: 28px;
+    }
+    .hero-stats {
+      display: flex; gap: 32px; position: relative;
+    }
+    .hero-stats > div { text-align: center; }
+    .stat-num { font-size: 28px; font-weight: 800; color: #fff; }
+    .stat-label { font-size: 12px; color: rgba(255,255,255,0.5); margin-top: 2px; }
+
+    /* ── Matcher Wizard ── */
+    .matcher-wrap {
+      max-width: 860px;
+      margin: 0 auto 48px;
+      padding: 0 clamp(20px, 6vw, 80px);
+    }
+    .matcher {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-lg);
+      overflow: hidden;
+    }
+    .matcher-tabs {
+      display: flex; border-bottom: 1px solid var(--line); background: var(--wash);
+    }
+    .matcher-tab {
+      flex: 1; padding: 14px 16px; font-size: 13px; font-weight: 600;
+      color: var(--muted); text-align: center; position: relative;
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+    }
+    .matcher-tab.active { color: var(--brand); background: #fff; }
+    .matcher-tab.active::after {
+      content: ""; position: absolute; bottom: -1px; left: 0; right: 0;
+      height: 2px; background: var(--brand);
+    }
+    .matcher-tab.done { color: #16a34a; }
+    .step-num {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 22px; height: 22px; border-radius: 50%;
+      background: var(--line); font-size: 11px; font-weight: 700;
+    }
+    .matcher-tab.active .step-num { background: var(--brand); color: #fff; }
+    .matcher-tab.done .step-num { background: #16a34a; color: #fff; }
+
+    .matcher-body { padding: 28px 28px 20px; }
+    .matcher-body.hidden { display: none; }
+    .matcher-q { font-size: 18px; font-weight: 700; margin-bottom: 20px; }
+    .matcher-q em { font-style: normal; color: var(--brand); }
+
+    /* ── Subject Input Grid ── */
+    .subject-grid {
+      display: grid; grid-template-columns: 1fr; gap: 10px;
+      margin-bottom: 20px;
+    }
+    .subject-group-title {
+      font-size: 13px; font-weight: 700; color: var(--brand);
+      padding: 8px 0 4px; border-bottom: 1px solid var(--line);
+      margin-top: 12px;
+    }
+    .subject-group-title:first-child { margin-top: 0; }
+    .subject-row {
+      display: flex; align-items: center; gap: 12px;
+      padding: 8px 12px; border-radius: 8px;
+      background: var(--wash); border: 1px solid transparent;
+      transition: border-color 0.2s;
+    }
+    .subject-row:hover { border-color: var(--line); }
+    .subject-row.has-grade { border-color: var(--brand); background: #fff5f5; }
+    .subject-name { flex: 1; font-size: 13px; font-weight: 500; }
+    .subject-name small { display: block; font-weight: 400; color: var(--muted); font-size: 11px; }
+    .grade-select {
+      width: 90px; padding: 6px 10px; border: 1px solid var(--line);
+      border-radius: 6px; font-size: 13px; background: #fff;
+      cursor: pointer; appearance: auto;
+    }
+    .grade-select:focus { outline: 2px solid var(--brand); outline-offset: 1px; }
+
+    /* ── Interest Cards ── */
+    .interest-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 12px; margin-bottom: 20px;
+    }
+    .interest-card {
+      padding: 16px; border: 2px solid var(--line); border-radius: 12px;
+      cursor: pointer; text-align: center; transition: all 0.2s;
+      background: #fff;
+    }
+    .interest-card:hover { border-color: var(--brand); transform: translateY(-2px); }
+    .interest-card.selected { border-color: var(--brand); background: #fff5f5; box-shadow: 0 0 0 3px rgba(198,40,40,0.1); }
+    .interest-card .ic-icon { font-size: 28px; margin-bottom: 8px; }
+    .interest-card .ic-label { font-size: 14px; font-weight: 700; }
+    .interest-card .ic-sub { font-size: 11px; color: var(--muted); margin-top: 4px; }
+
+    /* ── Buttons ── */
+    .matcher-actions {
+      display: flex; gap: 12px; justify-content: flex-end;
+      padding-top: 20px; border-top: 1px solid var(--line); margin-top: 20px;
+    }
+    .btn-m-primary {
+      padding: 10px 24px; background: var(--brand); color: #fff;
+      border: none; border-radius: 8px; font-size: 14px; font-weight: 600;
+      cursor: pointer; transition: background 0.2s;
+    }
+    .btn-m-primary:hover { background: #a71d1d; }
+    .btn-m-primary:disabled { opacity: 0.5; cursor: not-allowed; }
+    .btn-m-secondary {
+      padding: 10px 24px; background: #fff; color: var(--ink);
+      border: 1px solid var(--line); border-radius: 8px;
+      font-size: 14px; font-weight: 500; cursor: pointer; transition: all 0.2s;
+      text-decoration: none; display: inline-flex; align-items: center;
+    }
+    .btn-m-secondary:hover { border-color: var(--brand); color: var(--brand); text-decoration: none; }
+
+    /* ── AI Thinking Animation ── */
+    .ai-thinking {
+      display: none; flex-direction: column; align-items: center;
+      padding: 60px 28px; text-align: center;
+    }
+    .ai-thinking.show { display: flex; }
+    .thinking-dots { display: flex; gap: 6px; margin-bottom: 16px; }
+    .thinking-dots span {
+      width: 10px; height: 10px; border-radius: 50%;
+      background: var(--brand); animation: bounce 1.4s infinite;
+    }
+    .thinking-dots span:nth-child(2) { animation-delay: 0.2s; }
+    .thinking-dots span:nth-child(3) { animation-delay: 0.4s; }
+    @keyframes bounce { 0%,80%,100%{transform:scale(0.6);opacity:0.4} 40%{transform:scale(1);opacity:1} }
+    .thinking-text { font-size: 14px; color: var(--muted); }
+
+    /* ── Result Panel ── */
+    .result-panel { display: none; padding: 28px; }
+    .result-panel.show { display: block; }
+    .result-headline { font-size: 22px; font-weight: 800; margin-bottom: 6px; }
+    .result-sub { font-size: 14px; color: var(--muted); margin-bottom: 24px; }
+
+    .score-breakdown {
+      background: linear-gradient(135deg, #fef2f2, #fff7ed);
+      border: 1px solid #fecaca; border-radius: 12px;
+      padding: 16px 20px; margin-bottom: 24px;
+    }
+    .score-breakdown h4 { font-size: 14px; font-weight: 700; margin-bottom: 10px; color: var(--brand); }
+    .score-breakdown-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 8px;
+    }
+    .score-item { text-align: center; padding: 8px; background: #fff; border-radius: 8px; }
+    .score-item .si-label { font-size: 11px; color: var(--muted); }
+    .score-item .si-value { font-size: 18px; font-weight: 800; color: var(--ink); }
+    .score-total { font-size: 28px; font-weight: 900; color: var(--brand); }
+
+    .result-grid { display: grid; gap: 20px; }
+
+    /* ── Poly Group Card (grouped by school) ── */
+    .poly-group {
+      border: 1px solid var(--line); border-radius: 14px;
+      overflow: hidden; background: #fff;
+      transition: box-shadow 0.2s;
+    }
+    .poly-group:hover { box-shadow: var(--shadow); }
+    .poly-group-header {
+      display: flex; align-items: center; gap: 14px;
+      padding: 16px 20px; background: var(--wash);
+      border-bottom: 1px solid var(--line); cursor: pointer;
+    }
+    .poly-group-header .pg-abbr {
+      font-size: 16px; font-weight: 900; color: #fff;
+      background: var(--brand); padding: 6px 14px; border-radius: 8px;
+      min-width: 52px; text-align: center;
+    }
+    .poly-group-header .pg-name { flex: 1; }
+    .poly-group-header .pg-name strong { font-size: 15px; display: block; }
+    .poly-group-header .pg-name span { font-size: 12px; color: var(--muted); }
+    .poly-group-header .pg-count {
+      font-size: 13px; font-weight: 700; color: var(--brand);
+      background: #fef2f2; padding: 4px 12px; border-radius: 100px;
+    }
+    .poly-group-header .pg-toggle {
+      font-size: 18px; color: var(--muted); transition: transform 0.2s;
+    }
+    .poly-group.collapsed .pg-toggle { transform: rotate(-90deg); }
+    .poly-group.collapsed .poly-group-body { display: none; }
+    .poly-group-body { padding: 0; }
+
+    /* ── Individual Course Row ── */
+    .course-row {
+      display: flex; align-items: center; gap: 14px;
+      padding: 12px 20px;
+      border-bottom: 1px solid #f3f4f6;
+      transition: background 0.15s;
+    }
+    .course-row:last-child { border-bottom: none; }
+    .course-row:hover { background: #fef2f2; }
+    .course-row .cr-cat {
+      font-size: 10px; font-weight: 600; color: var(--muted);
+      background: var(--wash); padding: 3px 8px; border-radius: 4px;
+      white-space: nowrap; min-width: 56px; text-align: center;
+      text-transform: uppercase; letter-spacing: 0.04em;
+    }
+    .course-row .cr-info { flex: 1; min-width: 0; }
+    .course-row .cr-name { font-size: 14px; font-weight: 600; }
+    .course-row .cr-cn { font-size: 12px; color: var(--muted); }
+    .course-row .cr-score {
+      font-size: 11px; color: var(--muted); margin-top: 2px;
+    }
+    .course-row .cr-score strong { color: var(--ink); }
+    .course-row .cr-badge {
+      padding: 5px 12px; border-radius: 100px; font-size: 12px; font-weight: 700;
+      white-space: nowrap; flex-shrink: 0;
+    }
+    .badge-safe { background: #dcfce7; color: #166534; }
+    .badge-reach { background: #fef9c3; color: #854d0e; }
+    .badge-risk { background: #fee2e2; color: #991b1b; }
+
+    .no-results {
+      text-align: center; padding: 40px 20px; color: var(--muted);
+    }
+    .no-results h4 { font-size: 16px; color: var(--ink); margin-bottom: 8px; }
+
+    /* ── COP Reference Table ── */
+    .cop-section {
+      max-width: 860px; margin: 0 auto 48px;
+      padding: 0 clamp(20px, 6vw, 80px);
+    }
+    .cop-section h2 { font-size: 22px; font-weight: 800; margin-bottom: 8px; }
+    .cop-section h2 em { font-style: normal; color: var(--brand); }
+    .cop-section .cop-sub { font-size: 14px; color: var(--muted); margin-bottom: 20px; }
+    .cop-table-wrap { overflow-x: auto; border-radius: 12px; border: 1px solid var(--line); }
+    .cop-table {
+      width: 100%; border-collapse: collapse; font-size: 13px;
+    }
+    .cop-table th {
+      background: var(--wash); padding: 10px 14px; text-align: left;
+      font-weight: 700; font-size: 12px; color: var(--muted);
+      border-bottom: 1px solid var(--line);
+    }
+    .cop-table td {
+      padding: 10px 14px; border-bottom: 1px solid var(--line);
+    }
+    .cop-table tr:last-child td { border-bottom: none; }
+    .cop-table tr:hover td { background: #fef2f2; }
+    .cop-range { font-weight: 700; color: var(--brand); }
+
+    /* ── FAQ ── */
+    .tool-faq {
+      max-width: 860px; margin: 0 auto 48px;
+      padding: 0 clamp(20px, 6vw, 80px);
+    }
+    .tool-faq h2 { font-size: 22px; font-weight: 800; margin-bottom: 20px; }
+    .tool-faq h2 em { font-style: normal; color: var(--brand); }
+    .faq-item { border-bottom: 1px solid var(--line); }
+    .faq-q {
+      padding: 16px 0; font-size: 15px; font-weight: 600;
+      cursor: pointer; display: flex; align-items: center; justify-content: space-between;
+    }
+    .faq-q::after { content: "+"; font-size: 20px; color: var(--muted); transition: transform 0.2s; }
+    .faq-item.open .faq-q::after { content: "-"; }
+    .faq-a {
+      max-height: 0; overflow: hidden; transition: max-height 0.3s ease;
+      font-size: 14px; color: var(--muted); line-height: 1.7;
+    }
+    .faq-item.open .faq-a { max-height: 300px; padding-bottom: 16px; }
+
+    /* ── CTA Section ── */
+    .cta-section {
+      background: linear-gradient(135deg, #2a1215, #1a0a0c);
+      color: #fff; padding: 48px clamp(20px, 6vw, 80px);
+      border-radius: var(--radius); margin: 0 clamp(20px, 6vw, 80px) 48px;
+      text-align: center;
+    }
+    .cta-section h2 { font-size: 24px; font-weight: 800; margin-bottom: 12px; }
+    .cta-section p { font-size: 15px; color: rgba(255,255,255,0.7); margin-bottom: 24px; max-width: 500px; margin-left: auto; margin-right: auto; }
+    .cta-btn {
+      display: inline-block; padding: 12px 32px; background: var(--brand); color: #fff;
+      border-radius: 8px; font-size: 15px; font-weight: 700; text-decoration: none;
+      transition: background 0.2s;
+    }
+    .cta-btn:hover { background: #ef4444; text-decoration: none; }
+
+    /* ── Footer ── */
+    .site-footer {
+      border-top: 1px solid var(--line); padding: 32px clamp(20px, 6vw, 80px);
+      text-align: center; font-size: 12px; color: var(--muted);
+    }
+    .footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; margin-bottom: 12px; }
+    .footer-links a { color: var(--muted); }
+    .footer-links a:hover { color: var(--brand); }
+
+    /* ── Poly Programs Section (bottom overview) ── */
+    .poly-section {
+      max-width: 860px; margin: 0 auto 48px;
+      padding: 0 clamp(20px, 6vw, 80px);
+    }
+    .poly-section h2 { font-size: 22px; font-weight: 800; margin-bottom: 8px; }
+    .poly-section h2 em { font-style: normal; color: var(--brand); }
+    .poly-section .poly-sub { font-size: 14px; color: var(--muted); margin-bottom: 20px; }
+    .poly-programs-grid {
+      display: grid; gap: 16px;
+    }
+    .pp-school {
+      border: 1px solid var(--line); border-radius: 12px;
+      overflow: hidden; background: #fff;
+    }
+    .pp-school-header {
+      display: flex; align-items: center; gap: 12px;
+      padding: 14px 18px; background: var(--wash);
+      border-bottom: 1px solid var(--line);
+    }
+    .pp-school-header .pp-abbr {
+      font-size: 15px; font-weight: 900; color: var(--brand);
+    }
+    .pp-school-header .pp-name { font-size: 14px; font-weight: 700; }
+    .pp-school-header .pp-cn { font-size: 12px; color: var(--muted); margin-left: 4px; }
+    .pp-school-header .pp-count {
+      margin-left: auto; font-size: 11px; color: var(--muted);
+      background: #fff; padding: 2px 10px; border-radius: 100px;
+      border: 1px solid var(--line);
+    }
+    .pp-cats {
+      padding: 14px 18px;
+      display: flex; flex-wrap: wrap; gap: 8px;
+    }
+    .pp-cat-tag {
+      font-size: 12px; padding: 5px 12px;
+      border-radius: 6px; background: #f0f9ff;
+      color: #0369a1; font-weight: 500;
+      display: inline-flex; align-items: center; gap: 4px;
+    }
+    .pp-cat-tag .pp-cat-count {
+      font-weight: 700; background: rgba(3,105,161,0.1);
+      padding: 1px 6px; border-radius: 4px; font-size: 11px;
+    }
+    .pp-programs {
+      padding: 0 18px 14px;
+      display: flex; flex-wrap: wrap; gap: 6px;
+    }
+    .pp-prog {
+      font-size: 11px; padding: 3px 10px;
+      border-radius: 100px; border: 1px solid var(--line);
+      color: var(--muted); background: #fff;
+      transition: all 0.15s;
+    }
+    .pp-prog:hover { border-color: var(--brand); color: var(--brand); }
+
+    /* ── COP Explanation Section ── */
+    .cop-explain {
+      max-width: 860px; margin: 0 auto 48px;
+      padding: 0 clamp(20px, 6vw, 80px);
+    }
+    .cop-explain h2 { font-size: 22px; font-weight: 800; margin-bottom: 8px; }
+    .cop-explain h2 em { font-style: normal; color: var(--brand); }
+    .cop-explain-sub {
+      font-size: 14px; color: var(--muted); margin-bottom: 24px; line-height: 1.7;
+    }
+    .cop-explain-sub strong { color: var(--ink); }
+    .cop-explain-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px;
+      margin-bottom: 20px;
+    }
+    .cop-level {
+      border-radius: 12px; padding: 18px 16px; text-align: center;
+      border: 1px solid var(--line); background: #fff;
+    }
+    .cop-level-range {
+      font-size: 22px; font-weight: 900; margin-bottom: 8px;
+    }
+    .cop-level-bar {
+      height: 4px; border-radius: 2px; margin: 0 auto 12px; width: 60%;
+    }
+    .cop-level-hard .cop-level-range { color: #dc2626; }
+    .cop-level-hard .cop-level-bar { background: linear-gradient(90deg, #dc2626, #f87171); }
+    .cop-level-hard { border-color: #fecaca; background: #fef2f2; }
+    .cop-level-mid .cop-level-range { color: #d97706; }
+    .cop-level-mid .cop-level-bar { background: linear-gradient(90deg, #d97706, #fbbf24); }
+    .cop-level-mid { border-color: #fde68a; background: #fffbeb; }
+    .cop-level-easy .cop-level-range { color: #059669; }
+    .cop-level-easy .cop-level-bar { background: linear-gradient(90deg, #059669, #34d399); }
+    .cop-level-easy { border-color: #a7f3d0; background: #ecfdf5; }
+    .cop-level-open .cop-level-range { color: #0284c7; }
+    .cop-level-open .cop-level-bar { background: linear-gradient(90deg, #0284c7, #38bdf8); }
+    .cop-level-open { border-color: #bae6fd; background: #f0f9ff; }
+    .cop-level-label { font-size: 14px; font-weight: 700; margin-bottom: 6px; }
+    .cop-level-desc { font-size: 12px; color: var(--muted); line-height: 1.5; margin-bottom: 6px; }
+    .cop-level-eg { font-size: 11px; color: var(--muted); font-style: italic; }
+    .cop-explain-note {
+      background: var(--wash); border: 1px solid var(--line);
+      border-radius: 10px; padding: 14px 18px;
+      font-size: 13px; color: var(--muted); line-height: 1.7;
+    }
+    .cop-explain-note strong { color: var(--ink); }
+
+    /* ── Lead Gate Modal ── */
+    .lead-overlay {
+      display: none; position: fixed; inset: 0;
+      background: rgba(0,0,0,0.6); z-index: 1000;
+      align-items: center; justify-content: center; padding: 20px;
+    }
+    .lead-overlay.show { display: flex; }
+    .lead-modal {
+      background: #fff; border-radius: 16px; padding: 32px;
+      max-width: 420px; width: 100%; position: relative;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    }
+    .lead-close {
+      position: absolute; top: 12px; right: 16px;
+      background: none; border: none; font-size: 24px;
+      cursor: pointer; color: var(--muted); line-height: 1;
+    }
+    .lead-close:hover { color: var(--ink); }
+    .lead-modal h3 { font-size: 18px; font-weight: 800; margin-bottom: 10px; text-align: center; }
+    .lead-sub { font-size: 13px; color: var(--muted); text-align: center; line-height: 1.6; margin-bottom: 16px; }
+    .lead-submit {
+      display: block; width: 100%; padding: 12px;
+      background: var(--brand); color: #fff; border: none;
+      border-radius: 8px; font-size: 14px; font-weight: 700;
+      cursor: pointer; transition: background 0.2s;
+    }
+    .lead-submit:hover { background: #a71d1d; }
+    .lead-trust {
+      text-align: center; font-size: 11px; color: var(--muted);
+      margin-top: 12px; line-height: 1.6;
+    }
+
+    /* ── How It Works Section ── */
+    .how-section {
+      max-width: 860px; margin: 0 auto 48px;
+      padding: 0 clamp(20px, 6vw, 80px);
+    }
+    .how-section h2 { font-size: 22px; font-weight: 800; margin-bottom: 20px; }
+    .how-section h2 em { font-style: normal; color: var(--brand); }
+    .how-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px;
+    }
+    .how-card {
+      text-align: center; padding: 24px 16px;
+      border: 1px solid var(--line); border-radius: 12px; background: var(--wash);
+    }
+    .how-card .hc-num {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 36px; height: 36px; border-radius: 50%;
+      background: var(--brand); color: #fff; font-weight: 800;
+      font-size: 16px; margin-bottom: 12px;
+    }
+    .how-card .hc-title { font-size: 14px; font-weight: 700; margin-bottom: 6px; }
+    .how-card .hc-desc { font-size: 12px; color: var(--muted); line-height: 1.5; }
+
+    /* ── Result Filter Tabs ── */
+    .result-filters {
+      display: flex; gap: 8px; margin-bottom: 16px; flex-wrap: wrap;
+    }
+    .result-filter-btn {
+      padding: 6px 14px; border: 1px solid var(--line); border-radius: 100px;
+      font-size: 12px; font-weight: 600; cursor: pointer;
+      background: #fff; color: var(--ink); transition: all 0.2s;
+    }
+    .result-filter-btn:hover { border-color: var(--brand); color: var(--brand); }
+    .result-filter-btn.active { background: var(--brand); color: #fff; border-color: var(--brand); }
+
+    /* ── Result Summary Cards ── */
+    .result-summary {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;
+      margin-bottom: 20px;
+    }
+    .rs-card {
+      text-align: center; padding: 12px; border-radius: 10px;
+    }
+    .rs-card.rs-safe { background: #dcfce7; }
+    .rs-card.rs-reach { background: #fef9c3; }
+    .rs-card.rs-risk { background: #fee2e2; }
+    .rs-card .rs-num { font-size: 24px; font-weight: 900; }
+    .rs-card.rs-safe .rs-num { color: #166534; }
+    .rs-card.rs-reach .rs-num { color: #854d0e; }
+    .rs-card.rs-risk .rs-num { color: #991b1b; }
+    .rs-card .rs-label { font-size: 11px; color: var(--muted); margin-top: 2px; }
+
+    /* ── Disclaimer Banner ── */
+    .disclaimer-banner {
+      max-width: 860px; margin: 0 auto 32px;
+      padding: 0 clamp(20px, 6vw, 80px);
+    }
+    .disclaimer-banner .db-inner {
+      background: #fffbeb; border: 1px solid #fde68a; border-radius: 10px;
+      padding: 12px 16px; font-size: 12px; color: #92400e; line-height: 1.6;
+      display: flex; gap: 8px; align-items: flex-start;
+    }
+    .disclaimer-banner .db-icon { font-size: 16px; flex-shrink: 0; }
+
+    /* ── Responsive ── */
+    @media (max-width: 768px) {
+      .hero-stats { gap: 20px; }
+      .matcher-body { padding: 20px 16px; }
+      .interest-grid { grid-template-columns: repeat(2, 1fr); }
+      .course-row { flex-direction: column; align-items: flex-start; gap: 6px; }
+      .course-row .cr-badge { align-self: flex-end; }
+      .score-breakdown-grid { grid-template-columns: repeat(3, 1fr); }
+      .poly-programs-grid { gap: 12px; }
+      .how-grid { grid-template-columns: 1fr; }
+      .result-summary { grid-template-columns: repeat(3, 1fr); }
+      .matcher-tabs { font-size: 11px; }
+      .matcher-tab { padding: 10px 8px; gap: 4px; }
+      .step-num { width: 18px; height: 18px; font-size: 10px; }
+      .cop-table { font-size: 12px; }
+      .cop-table th, .cop-table td { padding: 8px 10px; }
+    }
+    @media (max-width: 480px) {
+      .matcher-hero { padding: 36px 20px 32px; margin: 0 16px 24px; }
+      .matcher-wrap { padding: 0 16px; }
+      .cop-explain-grid { grid-template-columns: repeat(2, 1fr); }
+      .cop-section, .tool-faq, .poly-section, .how-section, .cop-explain { padding: 0 16px; }
+      .cta-section { margin: 0 16px 32px; padding: 32px 20px; }
+      .interest-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
+      .interest-card { padding: 12px 8px; }
+      .interest-card .ic-icon { font-size: 22px; }
+      .result-summary { grid-template-columns: 1fr 1fr 1fr; gap: 8px; }
+    }
+
+    /* ── Mobile Hamburger Nav ── */
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      width: 40px;
+      height: 40px;
+      padding: 8px;
+      border: 0;
+      border-radius: 6px;
+      background: transparent;
+      cursor: pointer;
+      margin-left: auto;
+      flex-shrink: 0;
+    }
+    .menu-toggle span {
+      display: block;
+      width: 100%;
+      height: 2.5px;
+      border-radius: 2px;
+      background: var(--ink);
+      transition: transform 0.25s ease, opacity 0.25s ease;
+    }
+    .menu-toggle.active span:nth-child(1) { transform: translateY(7.5px) rotate(45deg); }
+    .menu-toggle.active span:nth-child(2) { opacity: 0; }
+    .menu-toggle.active span:nth-child(3) { transform: translateY(-7.5px) rotate(-45deg); }
+
+    @media (max-width: 980px) {
+      .menu-toggle { display: flex; }
+      .main-nav {
+        display: none;
+        flex-basis: 100%;
+        flex-direction: column;
+        align-items: stretch;
+        padding: 8px 0;
+        border-top: 1px solid var(--line);
+        margin-top: 12px;
+        overflow-y: auto;
+        max-height: 70vh;
+      }
+      .main-nav.nav-open { display: flex; }
+      .nav-group {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 10px 4px;
+        border-bottom: 1px solid var(--line);
+        font-size: 14px;
+      }
+      .nav-group::after {
+        content: "›";
+        margin-left: 6px;
+        font-size: 16px;
+        color: var(--muted);
+        transition: transform 0.2s ease;
+      }
+      .nav-group.mobile-open::after { transform: rotate(90deg); }
+      .nav-group .mega-dropdown {
+        display: none;
+        position: static;
+        border: 0;
+        box-shadow: none;
+        min-width: 0;
+        border-radius: 0;
+        padding: 4px 0 4px 16px;
+        width: 100%;
+      }
+      .nav-group.mobile-open .mega-dropdown {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+      }
+      .mega-dropdown a { min-height: 40px; display: flex; align-items: center; font-size: 13px; }
+      .nav-cta { display: none; }
+      .header-main { flex-wrap: wrap; }
+      .trending-bar { display: none; }
+    }
+
+  
+    /* ── Presentation Mode Overrides ── */
+    .present-header {
+      background: #fff;
+      border-bottom: 2px solid #c62828;
+      position: sticky; top: 0; z-index: 100;
+    }
+    .present-header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px clamp(20px, 6vw, 80px);
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    .present-brand {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+    }
+    .present-brand-word {
+      font-size: 24px;
+      font-weight: 900;
+      color: #c62828;
+      letter-spacing: -0.5px;
+    }
+    .present-brand-sub {
+      font-size: 13px;
+      font-weight: 600;
+      color: #6b7280;
+    }
+    .present-badge {
+      font-size: 11px;
+      font-weight: 700;
+      padding: 5px 14px;
+      border-radius: 100px;
+      background: #fef3c7;
+      color: #92400e;
+      border: 1px solid #fde68a;
+      letter-spacing: 0.04em;
+    }
+    .present-footer {
+      border-top: 1px solid #e5e7eb;
+      padding: 20px clamp(20px, 6vw, 80px);
+      text-align: center;
+      font-size: 12px;
+      color: #6b7280;
+    }
+    .present-footer a { color: #c62828; text-decoration: none; }
+    .present-footer a:hover { text-decoration: underline; }
+    /* Hide breadcrumb in present mode */
+    .breadcrumb { display: none !important; }
+    /* Hide lead overlay in present mode */
+    .lead-overlay, #leadOverlay { display: none !important; }
+    /* Hide CTA sections that regex may have missed */
+    .cta-section { display: none !important; }
+    /* Hide nav-cta if somehow still present */
+    .nav-cta { display: none !important; }
+
+  </style>
+</head>
+<body>
+  <!-- ── Header ── -->
+  <header class="present-header">
+  <div class="present-header-inner">
+    <div class="present-brand">
+      <span class="present-brand-word">SEDA</span>
+      <span class="present-brand-sub">新加坡国际教育中心</span>
+    </div>
+    <div class="present-badge">顾问演示模式</div>
+  </div>
+</header>
+
+  <nav class="breadcrumb" aria-label="面包屑导航">
+    <a href="/">首页</a> <span>›</span>
+    <a href="/pathway/">升学路径</a> <span>›</span>
+    <span>Poly 匹配工具</span>
+  </nav>
+
+  <main>
+    <!-- ── Hero ── -->
+    <div class="matcher-hero">
+      <div class="eyebrow">AI 智能匹配</div>
+      <h1>O-Level → Poly<br><em>AI 升学匹配工具</em></h1>
+      <p class="lead">输入你的 O-Level 各科成绩，AI 自动计算 ELR2B2 分数并智能匹配 5 所理工学院的录取课程与概率。</p>
+      <div class="hero-stats">
+        <div><div class="stat-num">5</div><div class="stat-label">理工学院</div></div>
+        <div><div class="stat-num">60+</div><div class="stat-label">热门课程</div></div>
+        <div><div class="stat-num">7</div><div class="stat-label">学科方向</div></div>
+      </div>
+    </div>
+
+    <!-- ── AI Matcher Tool ── -->
+    <div class="matcher-wrap" id="matcher">
+      <div class="matcher">
+        <div class="matcher-tabs">
+          <div class="matcher-tab active" id="tab1"><span class="step-num">1</span> 输入 O-Level 成绩</div>
+          <div class="matcher-tab" id="tab2"><span class="step-num">2</span> 选择兴趣方向</div>
+          <div class="matcher-tab" id="tab3"><span class="step-num">3</span> AI 匹配结果</div>
+        </div>
+
+        <!-- Step 1: Subject Grades -->
+        <div class="matcher-body" id="step1">
+          <div class="matcher-q">输入你的 <em>O-Level 各科成绩</em></div>
+          <p style="font-size:13px;color:var(--muted);margin-bottom:16px;">选择你已参加的科目并填入对应等级。至少需要填写 6 科（含英语和母语）才能计算 ELR2B2。</p>
+          <div class="subject-grid" id="subjectGrid"></div>
+          <div class="matcher-actions">
+            <button class="btn-m-primary" id="toStep2">下一步 →</button>
+          </div>
+        </div>
+
+        <!-- Step 2: Interest Areas -->
+        <div class="matcher-body hidden" id="step2">
+          <div class="matcher-q">选择你感兴趣的<em>课程方向</em>（可多选）</div>
+          <p style="font-size:13px;color:var(--muted);margin-bottom:16px;">选择后系统将优先匹配该方向的课程。不选则匹配所有方向。</p>
+          <div class="interest-grid" id="interestGrid"></div>
+          <div class="matcher-actions">
+            <button class="btn-m-secondary" id="backStep1">← 上一步</button>
+            <button class="btn-m-primary" id="runMatch">开始 AI 匹配 →</button>
+          </div>
+        </div>
+
+        <!-- Thinking -->
+        <div class="ai-thinking" id="thinking">
+          <div class="thinking-dots"><span></span><span></span><span></span></div>
+          <div class="thinking-text" id="thinkingText">正在计算 ELR2B2 分数...</div>
+        </div>
+
+        <!-- Result -->
+        <div class="result-panel" id="result">
+          <div class="result-headline">匹配结果</div>
+          <div class="result-sub" id="resultSub"></div>
+          <div id="scoreBreakdown"></div>
+          <div class="result-grid" id="resultGrid"></div>
+          <div class="matcher-actions" style="border-top:0;padding-top:16px">
+            <button class="btn-m-primary" id="resetMatch">重新匹配</button>
+            <a class="btn-m-secondary" href="#contact">咨询顾问，深度评估 →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── How It Works ── -->
+    <div class="how-section">
+      <h2>如何<em>使用</em>本工具</h2>
+      <div class="how-grid">
+        <div class="how-card">
+          <div class="hc-num">1</div>
+          <div class="hc-title">输入 O-Level 成绩</div>
+          <div class="hc-desc">选择你参加的所有科目，填入对应等级 (A1–F9)。至少需要 6 科。</div>
+        </div>
+        <div class="how-card">
+          <div class="hc-num">2</div>
+          <div class="hc-title">选择兴趣方向</div>
+          <div class="hc-desc">勾选感兴趣的课程类别，系统将优先匹配对应方向的课程。</div>
+        </div>
+        <div class="how-card">
+          <div class="hc-num">3</div>
+          <div class="hc-title">获取 AI 匹配报告</div>
+          <div class="hc-desc">系统自动计算 ELR2B2，对比各课程 COP，给出稳/冲/危评估。</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Disclaimer Banner ── -->
+    <div class="disclaimer-banner">
+      <div class="db-inner">
+        <span class="db-icon">&#9888;</span>
+        <span>本工具基于 2024 年 COP 数据估算录取概率，实际录取以各理工学院当年公布的 COP 为准。ELR2B2 计算中的 Relevant Subjects 由系统根据课程要求自动选取最优组合。</span>
+      </div>
+    </div>
+
+    <!-- ── COP Reference Table ── -->
+    <div class="cop-section">
+      <h2>ELR2B2 COP <em>参考范围</em></h2>
+      <p class="cop-sub">各课程类别的典型截止分数 (COP) 范围，基于 2024 年数据。COP 越低竞争越激烈。</p>
+      <div class="cop-table-wrap">
+        <table class="cop-table">
+          <thead>
+            <tr>
+              <th>课程类别</th>
+              <th>COP 范围</th>
+              <th>竞争程度</th>
+              <th>典型课程</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>健康科学 Health Sciences</td>
+              <td><span class="cop-range">7 – 15</span></td>
+              <td>极高 ~ 高</td>
+              <td>生物医学、药学、护理</td>
+            </tr>
+            <tr>
+              <td>IT / 计算机 Computing</td>
+              <td><span class="cop-range">8 – 15</span></td>
+              <td>极高 ~ 中</td>
+              <td>网络安全、AI、信息技术</td>
+            </tr>
+            <tr>
+              <td>人文社科 Humanities</td>
+              <td><span class="cop-range">8 – 16</span></td>
+              <td>高 ~ 中</td>
+              <td>心理学、社会工作、幼教</td>
+            </tr>
+            <tr>
+              <td>商科 Business</td>
+              <td><span class="cop-range">10 – 16</span></td>
+              <td>高 ~ 中</td>
+              <td>银行金融、会计、市场营销</td>
+            </tr>
+            <tr>
+              <td>设计 / 传媒 Design</td>
+              <td><span class="cop-range">8 – 14</span></td>
+              <td>高 ~ 中</td>
+              <td>大众传播、动画、室内设计</td>
+            </tr>
+            <tr>
+              <td>应用科学 Applied Sciences</td>
+              <td><span class="cop-range">9 – 16</span></td>
+              <td>高 ~ 中</td>
+              <td>食品科学、药学、化妆品科学</td>
+            </tr>
+            <tr>
+              <td>工程 Engineering</td>
+              <td><span class="cop-range">9 – 20</span></td>
+              <td>中 ~ 低</td>
+              <td>航空、机械、电子、计算机工程</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:12px;color:var(--muted);margin-top:12px;">* 数据仅供参考，每年 COP 会根据申请人数和成绩浮动。以各理工学院官方公布为准。</p>
+    </div>
+
+    <!-- ── FAQ ── --></main>
+
+  <!-- ── Footer ── -->
+  <footer class="present-footer">
+  <p>SEDA 新加坡国际教育中心 &copy; 2024–2026 &nbsp;|&nbsp; <a href="/tools/">返回工具列表</a></p>
+</footer>
+
+  <!-- ══════════════════════════════════════════════════════ -->
+  <!-- ── JavaScript ── -->
+  <!-- ══════════════════════════════════════════════════════ -->
+  <script>
+  (function() {
+    'use strict';
+
+    // ── Course Database ──
+    const POLY_COURSES = [
+      // SP - Singapore Polytechnic
+      {id:'sp-aero', poly:'SP', name:'Aerospace Engineering', cn:'航空工程', cop:11, cat:'engineering', relevant:['math','science']},
+      {id:'sp-biomed-eng', poly:'SP', name:'Biomedical Engineering', cn:'生物医学工程', cop:13, cat:'engineering', relevant:['math','science']},
+      {id:'sp-computer-eng', poly:'SP', name:'Computer Engineering', cn:'计算机工程', cop:11, cat:'engineering', relevant:['math','science']},
+      {id:'sp-electrical', poly:'SP', name:'Electrical & Electronic Engineering', cn:'电气电子工程', cop:15, cat:'engineering', relevant:['math','science']},
+      {id:'sp-mechanical', poly:'SP', name:'Mechanical Engineering', cn:'机械工程', cop:15, cat:'engineering', relevant:['math','science']},
+      {id:'sp-common-eng', poly:'SP', name:'Common Engineering Programme', cn:'通用工程', cop:17, cat:'engineering', relevant:['math','science']},
+      {id:'sp-it', poly:'SP', name:'Information Technology', cn:'信息技术', cop:10, cat:'it', relevant:['math','science']},
+      {id:'sp-cybersec', poly:'SP', name:'Cybersecurity & Digital Forensics', cn:'网络安全与数字取证', cop:8, cat:'it', relevant:['math','science']},
+      {id:'sp-business', poly:'SP', name:'Business Administration', cn:'工商管理', cop:11, cat:'business', relevant:['math','english']},
+      {id:'sp-accountancy', poly:'SP', name:'Accountancy', cn:'会计学', cop:12, cat:'business', relevant:['math','english']},
+      {id:'sp-banking', poly:'SP', name:'Banking & Finance', cn:'银行与金融', cop:10, cat:'business', relevant:['math','english']},
+      {id:'sp-biomed-sci', poly:'SP', name:'Biomedical Science', cn:'生物医学科学', cop:7, cat:'health', relevant:['science','math']},
+      {id:'sp-optometry', poly:'SP', name:'Optometry', cn:'验光学', cop:9, cat:'health', relevant:['science','math']},
+      {id:'sp-perfume', poly:'SP', name:'Perfumery & Cosmetic Science', cn:'香水与化妆品科学', cop:10, cat:'sciences', relevant:['science','math']},
+      {id:'sp-archi', poly:'SP', name:'Architecture', cn:'建筑学', cop:12, cat:'design', relevant:['math','art_or_dnt']},
+
+      // NP - Ngee Ann Polytechnic
+      {id:'np-biomed', poly:'NP', name:'Biomedical Engineering', cn:'生物医学工程', cop:13, cat:'engineering', relevant:['math','science']},
+      {id:'np-engineering', poly:'NP', name:'Engineering Science', cn:'工程科学', cop:9, cat:'engineering', relevant:['math','science']},
+      {id:'np-electronic', poly:'NP', name:'Electronic & Computer Engineering', cn:'电子与计算机工程', cop:15, cat:'engineering', relevant:['math','science']},
+      {id:'np-cybersec', poly:'NP', name:'Cybersecurity & Networking', cn:'网络安全与网络', cop:10, cat:'it', relevant:['math','science']},
+      {id:'np-infotech', poly:'NP', name:'Information Technology', cn:'信息技术', cop:10, cat:'it', relevant:['math','science']},
+      {id:'np-data-science', poly:'NP', name:'Data Science & Analytics', cn:'数据科学与分析', cop:8, cat:'it', relevant:['math','science']},
+      {id:'np-business', poly:'NP', name:'Business Studies', cn:'商学', cop:12, cat:'business', relevant:['math','english']},
+      {id:'np-accountancy', poly:'NP', name:'Accountancy', cn:'会计学', cop:11, cat:'business', relevant:['math','english']},
+      {id:'np-mass-comm', poly:'NP', name:'Mass Communication', cn:'大众传播', cop:8, cat:'design', relevant:['english','humanities']},
+      {id:'np-film', poly:'NP', name:'Film, Sound & Video', cn:'影视声音制作', cop:10, cat:'design', relevant:['english','art_or_dnt']},
+      {id:'np-nursing', poly:'NP', name:'Nursing', cn:'护理学', cop:14, cat:'health', relevant:['science','english']},
+      {id:'np-biomedical-sci', poly:'NP', name:'Biomedical Science', cn:'生物医学科学', cop:7, cat:'health', relevant:['science','math']},
+      {id:'np-vet', poly:'NP', name:'Veterinary Bioscience', cn:'兽医生物科学', cop:7, cat:'health', relevant:['science','math']},
+      {id:'np-psych', poly:'NP', name:'Psychology Studies', cn:'心理学', cop:8, cat:'humanities', relevant:['english','humanities']},
+
+      // TP - Temasek Polytechnic
+      {id:'tp-aerospace', poly:'TP', name:'Aerospace Engineering', cn:'航空航天工程', cop:13, cat:'engineering', relevant:['math','science']},
+      {id:'tp-computer-eng', poly:'TP', name:'Computer Engineering', cn:'计算机工程', cop:13, cat:'engineering', relevant:['math','science']},
+      {id:'tp-cybersec', poly:'TP', name:'Cybersecurity & Digital Forensics', cn:'网络安全', cop:9, cat:'it', relevant:['math','science']},
+      {id:'tp-ai', poly:'TP', name:'Artificial Intelligence & Data Engineering', cn:'人工智能与数据工程', cop:8, cat:'it', relevant:['math','science']},
+      {id:'tp-appdev', poly:'TP', name:'App Design & Development', cn:'应用设计与开发', cop:12, cat:'it', relevant:['math','science']},
+      {id:'tp-business', poly:'TP', name:'Business', cn:'商学', cop:13, cat:'business', relevant:['math','english']},
+      {id:'tp-accounting', poly:'TP', name:'Accounting & Finance', cn:'会计与金融', cop:12, cat:'business', relevant:['math','english']},
+      {id:'tp-marketing', poly:'TP', name:'Marketing', cn:'市场营销', cop:14, cat:'business', relevant:['english','humanities']},
+      {id:'tp-design', poly:'TP', name:'Communication Design', cn:'传播设计', cop:11, cat:'design', relevant:['english','art_or_dnt']},
+      {id:'tp-interiordesign', poly:'TP', name:'Interior Architecture & Design', cn:'室内建筑设计', cop:12, cat:'design', relevant:['art_or_dnt','math']},
+      {id:'tp-vet', poly:'TP', name:'Veterinary Technology', cn:'兽医技术', cop:10, cat:'health', relevant:['science','math']},
+      {id:'tp-pharma', poly:'TP', name:'Pharmaceutical Science', cn:'药学', cop:9, cat:'sciences', relevant:['science','math']},
+      {id:'tp-food-sci', poly:'TP', name:'Food, Nutrition & Culinary Science', cn:'食品营养与烹饪科学', cop:13, cat:'sciences', relevant:['science','english']},
+      {id:'tp-early-childhood', poly:'TP', name:'Early Childhood Development & Education', cn:'幼儿教育', cop:14, cat:'humanities', relevant:['english','humanities']},
+      {id:'tp-psychology', poly:'TP', name:'Applied Psychology', cn:'应用心理学', cop:9, cat:'humanities', relevant:['english','humanities']},
+
+      // NYP - Nanyang Polytechnic
+      {id:'nyp-animation', poly:'NYP', name:'Animation & Visual Effects', cn:'动画与视觉特效', cop:11, cat:'design', relevant:['english','art_or_dnt']},
+      {id:'nyp-game', poly:'NYP', name:'Game Design & Development', cn:'游戏设计', cop:12, cat:'it', relevant:['math','science']},
+      {id:'nyp-it', poly:'NYP', name:'Information Technology', cn:'信息技术', cop:12, cat:'it', relevant:['math','science']},
+      {id:'nyp-cybersec', poly:'NYP', name:'Cybersecurity & Digital Forensics', cn:'网络安全', cop:10, cat:'it', relevant:['math','science']},
+      {id:'nyp-nursing', poly:'NYP', name:'Nursing', cn:'护理学', cop:15, cat:'health', relevant:['science','english']},
+      {id:'nyp-oral-health', poly:'NYP', name:'Oral Health Therapy', cn:'口腔健康治疗', cop:8, cat:'health', relevant:['science','english']},
+      {id:'nyp-business', poly:'NYP', name:'Business Management', cn:'商业管理', cop:13, cat:'business', relevant:['math','english']},
+      {id:'nyp-banking', poly:'NYP', name:'Banking & Finance', cn:'银行与金融', cop:11, cat:'business', relevant:['math','english']},
+      {id:'nyp-accountancy', poly:'NYP', name:'Accountancy & Finance', cn:'会计与金融', cop:12, cat:'business', relevant:['math','english']},
+      {id:'nyp-nanotechnology', poly:'NYP', name:'Nanotechnology & Materials Science', cn:'纳米技术与材料科学', cop:16, cat:'sciences', relevant:['science','math']},
+      {id:'nyp-social-work', poly:'NYP', name:'Social Work', cn:'社会工作', cop:12, cat:'humanities', relevant:['english','humanities']},
+      {id:'nyp-childpsych', poly:'NYP', name:'Child Psychology & Early Education', cn:'儿童心理学', cop:11, cat:'humanities', relevant:['english','humanities']},
+      {id:'nyp-mechanical', poly:'NYP', name:'Mechanical Engineering', cn:'机械工程', cop:17, cat:'engineering', relevant:['math','science']},
+
+      // RP - Republic Polytechnic
+      {id:'rp-engineering', poly:'RP', name:'Common Engineering Programme', cn:'通用工程', cop:20, cat:'engineering', relevant:['math','science']},
+      {id:'rp-infotech', poly:'RP', name:'Infocomm Technology', cn:'信息通讯技术', cop:15, cat:'it', relevant:['math','science']},
+      {id:'rp-cybersec', poly:'RP', name:'Cybersecurity', cn:'网络安全', cop:12, cat:'it', relevant:['math','science']},
+      {id:'rp-business', poly:'RP', name:'Business', cn:'商学', cop:16, cat:'business', relevant:['math','english']},
+      {id:'rp-sport-health', poly:'RP', name:'Sport & Exercise Science', cn:'运动科学', cop:14, cat:'health', relevant:['science','english']},
+      {id:'rp-pharma', poly:'RP', name:'Pharmaceutical Science', cn:'药学', cop:11, cat:'sciences', relevant:['science','math']},
+      {id:'rp-biomedical', poly:'RP', name:'Biomedical Science', cn:'生物医学', cop:10, cat:'health', relevant:['science','math']},
+      {id:'rp-game', poly:'RP', name:'Game Design', cn:'游戏设计', cop:14, cat:'design', relevant:['english','art_or_dnt']},
+      {id:'rp-media', poly:'RP', name:'Mass Communication', cn:'大众传播', cop:12, cat:'design', relevant:['english','humanities']},
+      {id:'rp-outdoor', poly:'RP', name:'Outdoor & Adventure Learning', cn:'户外探险学习', cop:16, cat:'humanities', relevant:['english','science']},
+      {id:'rp-social-enterprise', poly:'RP', name:'Social Enterprise Management', cn:'社会企业管理', cop:15, cat:'humanities', relevant:['english','humanities']}
+    ];
+
+    // ── Subject Definitions ──
+    const SUBJECTS = [
+      { group: '必修科目 Compulsory', items: [
+        { id: 'english', name: 'English Language', cn: '英语', type: 'english' },
+        { id: 'chinese', name: 'Chinese', cn: '华文', type: 'mt' },
+        { id: 'malay', name: 'Malay', cn: '马来文', type: 'mt' },
+        { id: 'tamil', name: 'Tamil', cn: '淡米尔文', type: 'mt' },
+        { id: 'higher-chinese', name: 'Higher Chinese', cn: '高级华文', type: 'mt' },
+        { id: 'higher-malay', name: 'Higher Malay', cn: '高级马来文', type: 'mt' },
+        { id: 'higher-tamil', name: 'Higher Tamil', cn: '高级淡米尔文', type: 'mt' },
+      ]},
+      { group: '数学 Mathematics', items: [
+        { id: 'emath', name: 'Elementary Mathematics', cn: '基础数学', type: 'math' },
+        { id: 'amath', name: 'Additional Mathematics', cn: '高等数学', type: 'math' },
+      ]},
+      { group: '科学 Sciences', items: [
+        { id: 'physics', name: 'Physics', cn: '物理', type: 'science' },
+        { id: 'chemistry', name: 'Chemistry', cn: '化学', type: 'science' },
+        { id: 'biology', name: 'Biology', cn: '生物', type: 'science' },
+        { id: 'combined-sci-pc', name: 'Combined Science (Phy/Chem)', cn: '综合科学（物理/化学）', type: 'science' },
+        { id: 'combined-sci-cb', name: 'Combined Science (Chem/Bio)', cn: '综合科学（化学/生物）', type: 'science' },
+      ]},
+      { group: '人文 Humanities', items: [
+        { id: 'ss-hist', name: 'Social Studies + History', cn: '社会学+历史', type: 'humanities' },
+        { id: 'ss-geog', name: 'Social Studies + Geography', cn: '社会学+地理', type: 'humanities' },
+        { id: 'ss-lit', name: 'Social Studies + Literature', cn: '社会学+文学', type: 'humanities' },
+        { id: 'history', name: 'History (Pure)', cn: '纯历史', type: 'humanities' },
+        { id: 'geography', name: 'Geography (Pure)', cn: '纯地理', type: 'humanities' },
+        { id: 'literature', name: 'Literature (Pure)', cn: '纯文学', type: 'humanities' },
+      ]},
+      { group: '其他科目 Others', items: [
+        { id: 'poa', name: 'Principles of Accounts', cn: '会计基础', type: 'other' },
+        { id: 'dnt', name: 'Design & Technology', cn: '设计与工艺', type: 'art_or_dnt' },
+        { id: 'fnn', name: 'Food & Nutrition', cn: '食品与营养', type: 'other' },
+        { id: 'art', name: 'Art', cn: '美术', type: 'art_or_dnt' },
+        { id: 'music', name: 'Music', cn: '音乐', type: 'other' },
+        { id: 'computing', name: 'Computing', cn: '计算机', type: 'other' },
+        { id: 'higher-art', name: 'Higher Art', cn: '高级美术', type: 'art_or_dnt' },
+        { id: 'higher-music', name: 'Higher Music', cn: '高级音乐', type: 'other' },
+        { id: 'chinese-lit', name: 'Chinese Literature', cn: '华文文学', type: 'humanities' },
+        { id: 'malay-lit', name: 'Malay Literature', cn: '马来文学', type: 'humanities' },
+        { id: 'tamil-lit', name: 'Tamil Literature', cn: '淡米尔文学', type: 'humanities' },
+      ]}
+    ];
+
+    const GRADES = ['', 'A1', 'A2', 'B3', 'B4', 'C5', 'C6', 'D7', 'E8', 'F9'];
+    const GRADE_POINTS = { A1:1, A2:2, B3:3, B4:4, C5:5, C6:6, D7:7, E8:8, F9:9 };
+
+    const INTERESTS = [
+      { id: 'engineering', icon: '⚙️', label: '工程类', sub: 'Engineering', en: 'Engineering' },
+      { id: 'it', icon: '💻', label: 'IT/计算机', sub: 'Computing & IT', en: 'Computing' },
+      { id: 'business', icon: '💼', label: '商科', sub: 'Business & Finance', en: 'Business' },
+      { id: 'design', icon: '🎨', label: '设计/传媒', sub: 'Media & Design', en: 'Media & Design' },
+      { id: 'health', icon: '🏥', label: '健康科学', sub: 'Health Sciences', en: 'Health Sciences' },
+      { id: 'sciences', icon: '🧪', label: '应用科学', sub: 'Applied Sciences', en: 'Applied Sciences' },
+      { id: 'humanities', icon: '📚', label: '人文社科', sub: 'Humanities & Social Sci', en: 'Humanities' },
+    ];
+
+    // ── DOM Elements ──
+    const $ = (sel) => document.querySelector(sel);
+    const $$ = (sel) => document.querySelectorAll(sel);
+
+    // ── State ──
+    let selectedInterests = [];
+
+    // ── Initialize Subject Grid ──
+    function initSubjectGrid() {
+      const grid = $('#subjectGrid');
+      let html = '';
+      SUBJECTS.forEach(group => {
+        html += `<div class="subject-group-title">${group.group}</div>`;
+        group.items.forEach(subj => {
+          html += `
+            <div class="subject-row" data-subject="${subj.id}">
+              <div class="subject-name">${subj.cn}<small>${subj.name}</small></div>
+              <select class="grade-select" data-subject="${subj.id}" data-type="${subj.type}">
+                <option value="">未选</option>
+                ${GRADES.slice(1).map(g => `<option value="${g}">${g}</option>`).join('')}
+              </select>
+            </div>`;
+        });
+      });
+      grid.innerHTML = html;
+
+      // Highlight rows with grades
+      grid.addEventListener('change', function(e) {
+        if (e.target.classList.contains('grade-select')) {
+          const row = e.target.closest('.subject-row');
+          if (e.target.value) {
+            row.classList.add('has-grade');
+          } else {
+            row.classList.remove('has-grade');
+          }
+        }
+      });
+    }
+
+    // ── Initialize Interest Grid ──
+    function initInterestGrid() {
+      const grid = $('#interestGrid');
+      grid.innerHTML = INTERESTS.map(i => `
+        <div class="interest-card" data-interest="${i.id}">
+          <div class="ic-icon">${i.icon}</div>
+          <div class="ic-label">${i.label}</div>
+          <div class="ic-sub">${i.sub}</div>
+        </div>
+      `).join('');
+
+      grid.addEventListener('click', function(e) {
+        const card = e.target.closest('.interest-card');
+        if (!card) return;
+        const id = card.dataset.interest;
+        card.classList.toggle('selected');
+        if (card.classList.contains('selected')) {
+          if (!selectedInterests.includes(id)) selectedInterests.push(id);
+        } else {
+          selectedInterests = selectedInterests.filter(x => x !== id);
+        }
+      });
+    }
+
+    // ── Collect Grades ──
+    function collectGrades() {
+      const grades = {};
+      $$('.grade-select').forEach(sel => {
+        if (sel.value) {
+          grades[sel.dataset.subject] = {
+            grade: sel.value,
+            points: GRADE_POINTS[sel.value],
+            type: sel.dataset.type
+          };
+        }
+      });
+      return grades;
+    }
+
+    // ── Validate Step 1 ──
+    function validateStep1() {
+      const grades = collectGrades();
+      const subjects = Object.keys(grades);
+      const hasEnglish = grades['english'];
+      const hasMT = subjects.some(s => {
+        const sel = $(`.grade-select[data-subject="${s}"]`);
+        return sel && sel.dataset.type === 'mt';
+      });
+      const totalSubjects = subjects.length;
+
+      if (!hasEnglish) {
+        alert('请填写英语 (English Language) 成绩');
+        return false;
+      }
+      if (!hasMT) {
+        alert('请填写至少一门母语 (Mother Tongue) 成绩');
+        return false;
+      }
+      if (totalSubjects < 6) {
+        alert('至少需要填写 6 个科目成绩（含英语和母语）才能计算 ELR2B2');
+        return false;
+      }
+      return true;
+    }
+
+    // ── Calculate ELR2B2 for a specific course ──
+    function calculateELR2B2(grades, course) {
+      // E = English
+      const englishPoints = grades['english'] ? grades['english'].points : 9;
+
+      // L2 = Best Mother Tongue
+      let mtPoints = 9;
+      Object.entries(grades).forEach(([id, data]) => {
+        if (data.type === 'mt' && data.points < mtPoints) {
+          mtPoints = data.points;
+        }
+      });
+
+      // R2 = 2 Relevant subjects (best grades matching the course requirement)
+      const relevantTypes = course.relevant;
+      let relevantCandidates = [];
+
+      Object.entries(grades).forEach(([id, data]) => {
+        if (id === 'english' || data.type === 'mt') return; // already used
+        relevantTypes.forEach(reqType => {
+          if (reqType === 'english') {
+            // English already counted as E; skip
+          } else if (data.type === reqType || (reqType === 'art_or_dnt' && data.type === 'art_or_dnt')) {
+            relevantCandidates.push({ id, points: data.points, type: data.type });
+          }
+        });
+      });
+
+      // Special case: if relevant includes 'english', it means English counts twice conceptually
+      // but in ELR2B2, E is already counted. In practice courses that list 'english' as relevant
+      // mean English is the relevant subject; we just count it from the remaining pool.
+      let relevantFromEnglish = false;
+      if (relevantTypes.includes('english') && grades['english']) {
+        relevantFromEnglish = true;
+      }
+
+      // Deduplicate candidates
+      const seen = new Set();
+      relevantCandidates = relevantCandidates.filter(c => {
+        if (seen.has(c.id)) return false;
+        seen.add(c.id);
+        return true;
+      });
+
+      // Sort by points (ascending = best first)
+      relevantCandidates.sort((a, b) => a.points - b.points);
+
+      let r2Points = 0;
+      let r2Used = [];
+      let r2Needed = 2;
+
+      // If course relevance includes 'english', one relevant slot is satisfied by English
+      if (relevantFromEnglish) {
+        r2Needed = 1; // only need 1 more from the pool
+        r2Points += 0; // English already counted in E
+        // Actually for ELR2B2, if English is relevant, it still only counts once under E
+        // The R2 picks the next best subjects of the relevant type
+        r2Needed = 2; // Back to 2 - find 2 relevant subjects from non-English pool
+      }
+
+      for (let i = 0; i < Math.min(r2Needed, relevantCandidates.length); i++) {
+        r2Points += relevantCandidates[i].points;
+        r2Used.push(relevantCandidates[i].id);
+      }
+      // If not enough relevant subjects found, use 9 (F9) as penalty
+      while (r2Used.length < r2Needed) {
+        r2Points += 9;
+        r2Used.push(null);
+      }
+
+      // B2 = Best 2 remaining subjects
+      const usedIds = new Set(['english', ...Object.keys(grades).filter(id => grades[id].type === 'mt'), ...r2Used.filter(Boolean)]);
+      let remaining = [];
+      Object.entries(grades).forEach(([id, data]) => {
+        if (!usedIds.has(id)) {
+          remaining.push({ id, points: data.points });
+        }
+      });
+      remaining.sort((a, b) => a.points - b.points);
+
+      let b2Points = 0;
+      let b2Used = [];
+      for (let i = 0; i < Math.min(2, remaining.length); i++) {
+        b2Points += remaining[i].points;
+        b2Used.push(remaining[i].id);
+      }
+      while (b2Used.length < 2) {
+        b2Points += 9;
+        b2Used.push(null);
+      }
+
+      const total = englishPoints + mtPoints + r2Points + b2Points;
+
+      return {
+        total,
+        english: englishPoints,
+        mt: mtPoints,
+        r2: r2Points,
+        b2: b2Points,
+        r2Subjects: r2Used,
+        b2Subjects: b2Used
+      };
+    }
+
+    // ── Calculate best possible ELR2B2 (generic, for display) ──
+    function calculateBestELR2B2(grades) {
+      const englishPoints = grades['english'] ? grades['english'].points : 9;
+
+      let mtPoints = 9;
+      Object.entries(grades).forEach(([id, data]) => {
+        if (data.type === 'mt' && data.points < mtPoints) {
+          mtPoints = data.points;
+        }
+      });
+
+      // All non-English, non-MT subjects sorted by points
+      let others = [];
+      Object.entries(grades).forEach(([id, data]) => {
+        if (id === 'english' || data.type === 'mt') return;
+        others.push({ id, points: data.points, type: data.type });
+      });
+      others.sort((a, b) => a.points - b.points);
+
+      // Best 4 remaining
+      let best4 = 0;
+      for (let i = 0; i < Math.min(4, others.length); i++) {
+        best4 += others[i].points;
+      }
+      while (others.length < 4) {
+        best4 += 9;
+        others.push({ id: null, points: 9, type: 'none' });
+      }
+
+      return {
+        total: englishPoints + mtPoints + best4,
+        english: englishPoints,
+        mt: mtPoints,
+        best4: best4
+      };
+    }
+
+    // ── Matching Logic ──
+    function runMatching() {
+      const grades = collectGrades();
+      let courses = POLY_COURSES;
+
+      // Filter by interest if selected
+      if (selectedInterests.length > 0) {
+        courses = courses.filter(c => selectedInterests.includes(c.cat));
+      }
+
+      // Calculate ELR2B2 for each course
+      const results = courses.map(course => {
+        const score = calculateELR2B2(grades, course);
+        let likelihood, badge, badgeClass;
+
+        if (score.total <= course.cop - 3) {
+          likelihood = 1; badge = '稳'; badgeClass = 'badge-safe';
+        } else if (score.total <= course.cop + 2) {
+          likelihood = 2; badge = '冲'; badgeClass = 'badge-reach';
+        } else {
+          likelihood = 3; badge = '危'; badgeClass = 'badge-risk';
+        }
+
+        return {
+          ...course,
+          score: score.total,
+          scoreDetail: score,
+          likelihood,
+          badge,
+          badgeClass
+        };
+      });
+
+      // Sort: safe first, then reach, then risk. Within same likelihood, by COP ascending
+      results.sort((a, b) => {
+        if (a.likelihood !== b.likelihood) return a.likelihood - b.likelihood;
+        return a.cop - b.cop;
+      });
+
+      return { results, bestScore: calculateBestELR2B2(grades) };
+    }
+
+    // ── Store results globally for filtering ──
+    let allResults = [];
+    let currentFilter = 'all';
+
+    // ── Poly Full Names ──
+    const POLY_FULL_NAMES = {
+      SP: 'Singapore Polytechnic',
+      NP: 'Ngee Ann Polytechnic',
+      TP: 'Temasek Polytechnic',
+      NYP: 'Nanyang Polytechnic',
+      RP: 'Republic Polytechnic'
+    };
+
+    // ── Category Names ──
+    const CAT_NAMES = {
+      engineering: '工程 Engineering',
+      it: 'IT 计算机',
+      business: '商科 Business',
+      design: '设计/传媒 Design',
+      health: '健康科学 Health',
+      sciences: '应用科学 Sciences',
+      humanities: '人文社科 Humanities'
+    };
+
+    // ── Render Result Filter Buttons ──
+    function renderFilters(results) {
+      const safeCount = results.filter(r => r.likelihood === 1).length;
+      const reachCount = results.filter(r => r.likelihood === 2).length;
+      const riskCount = results.filter(r => r.likelihood === 3).length;
+
+      // Collect unique polys
+      const polys = [...new Set(results.map(r => r.poly))];
+
+      let html = `<button class="result-filter-btn active" data-filter="all">全部 (${results.length})</button>`;
+      if (safeCount > 0) html += `<button class="result-filter-btn" data-filter="safe">稳 (${safeCount})</button>`;
+      if (reachCount > 0) html += `<button class="result-filter-btn" data-filter="reach">冲 (${reachCount})</button>`;
+      if (riskCount > 0) html += `<button class="result-filter-btn" data-filter="risk">危 (${riskCount})</button>`;
+      polys.forEach(p => {
+        const count = results.filter(r => r.poly === p).length;
+        html += `<button class="result-filter-btn" data-filter="poly-${p}">${p} (${count})</button>`;
+      });
+
+      return html;
+    }
+
+    // ── Filter Results ──
+    function filterResults(filter) {
+      currentFilter = filter;
+      let filtered = allResults;
+
+      if (filter === 'safe') filtered = allResults.filter(r => r.likelihood === 1);
+      else if (filter === 'reach') filtered = allResults.filter(r => r.likelihood === 2);
+      else if (filter === 'risk') filtered = allResults.filter(r => r.likelihood === 3);
+      else if (filter.startsWith('poly-')) filtered = allResults.filter(r => r.poly === filter.replace('poly-', ''));
+
+      renderResultCards(filtered);
+
+      // Update active button
+      $$('.result-filter-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.filter === filter);
+      });
+    }
+
+    // ── Render Result Cards (grouped by Poly) ──
+    function renderResultCards(results) {
+      const grid = $('#resultGrid');
+      if (results.length === 0) {
+        grid.innerHTML = `
+          <div class="no-results">
+            <h4>未找到匹配课程</h4>
+            <p>请尝试选择更多兴趣方向，或检查你的成绩输入是否完整。</p>
+          </div>`;
+        return;
+      }
+
+      // Group results by Poly
+      const polyOrder = ['SP', 'NP', 'TP', 'NYP', 'RP'];
+      const grouped = {};
+      results.forEach(r => {
+        if (!grouped[r.poly]) grouped[r.poly] = [];
+        grouped[r.poly].push(r);
+      });
+
+      // Sort within each group: safe > reach > risk, then by COP
+      Object.values(grouped).forEach(arr => {
+        arr.sort((a, b) => {
+          if (a.likelihood !== b.likelihood) return a.likelihood - b.likelihood;
+          return a.cop - b.cop;
+        });
+      });
+
+      grid.innerHTML = polyOrder
+        .filter(p => grouped[p] && grouped[p].length > 0)
+        .map(p => {
+          const courses = grouped[p];
+          const safeN = courses.filter(c => c.likelihood === 1).length;
+          const reachN = courses.filter(c => c.likelihood === 2).length;
+          const riskN = courses.filter(c => c.likelihood === 3).length;
+          const countText = [
+            safeN > 0 ? `${safeN} 稳` : '',
+            reachN > 0 ? `${reachN} 冲` : '',
+            riskN > 0 ? `${riskN} 危` : ''
+          ].filter(Boolean).join(' · ');
+
+          const courseRows = courses.map(r => {
+            const diff = r.score - r.cop;
+            const diffText = diff < 0 ? `低 ${Math.abs(diff)} 分 ✓` : diff === 0 ? '刚好达线' : `高 ${diff} 分`;
+            const catLabel = CAT_NAMES[r.cat] ? CAT_NAMES[r.cat].split(' ')[0] : r.cat;
+            return `
+            <div class="course-row" data-likelihood="${r.likelihood}">
+              <span class="cr-cat">${catLabel}</span>
+              <div class="cr-info">
+                <div class="cr-name">${r.cn}</div>
+                <div class="cr-cn">${r.name}</div>
+                <div class="cr-score">COP: <strong>${r.cop}</strong> | 你的分: <strong>${r.score}</strong> | ${diffText}</div>
+              </div>
+              <span class="cr-badge ${r.badgeClass}">${r.badge}</span>
+            </div>`;
+          }).join('');
+
+          return `
+          <div class="poly-group" data-poly="${p}">
+            <div class="poly-group-header" onclick="this.parentElement.classList.toggle('collapsed')">
+              <span class="pg-abbr">${p}</span>
+              <div class="pg-name">
+                <strong>${POLY_FULL_NAMES[p]}</strong>
+                <span>${countText}</span>
+              </div>
+              <span class="pg-count">${courses.length} 个专业可申请</span>
+              <span class="pg-toggle">▾</span>
+            </div>
+            <div class="poly-group-body">
+              ${courseRows}
+            </div>
+          </div>`;
+        }).join('');
+    }
+
+    // ── Render Results ──
+    function renderResults(data) {
+      const { results, bestScore } = data;
+      allResults = results;
+      currentFilter = 'all';
+
+      // Score breakdown
+      const breakdownEl = $('#scoreBreakdown');
+      breakdownEl.innerHTML = `
+        <div class="score-breakdown">
+          <h4>你的 ELR2B2 分数估算（最优组合）</h4>
+          <div class="score-breakdown-grid">
+            <div class="score-item">
+              <div class="si-label">E (英语)</div>
+              <div class="si-value">${bestScore.english}</div>
+            </div>
+            <div class="score-item">
+              <div class="si-label">L2 (母语)</div>
+              <div class="si-value">${bestScore.mt}</div>
+            </div>
+            <div class="score-item">
+              <div class="si-label">R2+B2 (最佳4科)</div>
+              <div class="si-value">${bestScore.best4}</div>
+            </div>
+            <div class="score-item">
+              <div class="si-label">ELR2B2 总分</div>
+              <div class="si-value score-total">${bestScore.total}</div>
+            </div>
+          </div>
+        </div>
+      `;
+
+      if (results.length === 0) {
+        $('#resultSub').textContent = '';
+        $('#resultGrid').innerHTML = `
+          <div class="no-results">
+            <h4>未找到匹配课程</h4>
+            <p>请尝试选择更多兴趣方向，或检查你的成绩输入是否完整。</p>
+          </div>`;
+        return;
+      }
+
+      const safeCount = results.filter(r => r.likelihood === 1).length;
+      const reachCount = results.filter(r => r.likelihood === 2).length;
+      const riskCount = results.filter(r => r.likelihood === 3).length;
+
+      // Count unique polys with results
+      const polyCount = [...new Set(results.map(r => r.poly))].length;
+      $('#resultSub').innerHTML = `在 <strong>${polyCount}</strong> 所 Poly 中共有 <strong>${results.length}</strong> 个专业可申请`;
+
+      // Summary cards
+      let summaryHtml = `
+        <div class="result-summary">
+          <div class="rs-card rs-safe">
+            <div class="rs-num">${safeCount}</div>
+            <div class="rs-label">稳 · 可安全申请的专业</div>
+          </div>
+          <div class="rs-card rs-reach">
+            <div class="rs-num">${reachCount}</div>
+            <div class="rs-label">冲 · 有机会录取的专业</div>
+          </div>
+          <div class="rs-card rs-risk">
+            <div class="rs-num">${riskCount}</div>
+            <div class="rs-label">危 · 风险较高的专业</div>
+          </div>
+        </div>
+      `;
+
+      // Filter buttons
+      summaryHtml += `<div class="result-filters" id="resultFilters">${renderFilters(results)}</div>`;
+
+      // Insert before result grid
+      const existingSummary = $('#resultSummaryWrap');
+      if (existingSummary) existingSummary.remove();
+      const wrap = document.createElement('div');
+      wrap.id = 'resultSummaryWrap';
+      wrap.innerHTML = summaryHtml;
+      $('#resultGrid').before(wrap);
+
+      // Bind filter clicks
+      $$('.result-filter-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+          filterResults(this.dataset.filter);
+        });
+      });
+
+      // Render cards
+      renderResultCards(results);
+    }
+
+    // ── Tab Management ──
+    function setActiveTab(step) {
+      $$('.matcher-tab').forEach((tab, i) => {
+        tab.classList.remove('active');
+        if (i < step - 1) tab.classList.add('done');
+        if (i === step - 1) tab.classList.add('active');
+      });
+    }
+
+    function showStep(step) {
+      $('#step1').classList.add('hidden');
+      $('#step2').classList.add('hidden');
+      $('#thinking').classList.remove('show');
+      $('#result').classList.remove('show');
+
+      if (step === 1) {
+        $('#step1').classList.remove('hidden');
+        setActiveTab(1);
+      } else if (step === 2) {
+        $('#step2').classList.remove('hidden');
+        setActiveTab(2);
+      } else if (step === 3) {
+        setActiveTab(3);
+        // Show thinking animation
+        $('#thinking').classList.add('show');
+        const msgs = [
+          '正在计算 ELR2B2 分数...',
+          '分析 5 所理工学院数据库...',
+          '匹配课程 COP 截止分数...',
+          '生成最终匹配报告...'
+        ];
+        let i = 0;
+        const interval = setInterval(() => {
+          i++;
+          if (i < msgs.length) {
+            $('#thinkingText').textContent = msgs[i];
+          }
+        }, 600);
+
+        setTimeout(() => {
+          clearInterval(interval);
+          $('#thinking').classList.remove('show');
+          const data = runMatching();
+          renderResults(data);
+          $('#result').classList.add('show');
+        }, 2500);
+      }
+    }
+
+    // ── Event Listeners ──
+    function initEvents() {
+      // Step 1 → Step 2
+      $('#toStep2').addEventListener('click', function() {
+        if (validateStep1()) {
+          showStep(2);
+        }
+      });
+
+      // Step 2 → Back to Step 1
+      $('#backStep1').addEventListener('click', function() {
+        showStep(1);
+      });
+
+      // Run Match
+      $('#runMatch').addEventListener('click', function() {
+        showStep(3);
+      });
+
+      // Reset
+      $('#resetMatch').addEventListener('click', function() {
+        selectedInterests = [];
+        $$('.interest-card').forEach(c => c.classList.remove('selected'));
+        showStep(1);
+      });
+    }
+
+    // ── FAQ Toggle ──
+    function initFAQ() {
+      $$('.faq-q').forEach(q => {
+        q.addEventListener('click', function() {
+          const item = this.closest('.faq-item');
+          item.classList.toggle('open');
+        });
+      });
+    }
+
+    // ── Lead Gate Modal ──
+    function initLeadGate() {
+      const overlay = $('#leadOverlay');
+      const closeBtn = $('#leadClose');
+      const submitBtn = $('#leadSubmit');
+
+      if (closeBtn) {
+        closeBtn.addEventListener('click', function() {
+          overlay.classList.remove('show');
+        });
+      }
+      if (submitBtn) {
+        submitBtn.addEventListener('click', function() {
+          overlay.classList.remove('show');
+        });
+      }
+      // Close on overlay background click
+      if (overlay) {
+        overlay.addEventListener('click', function(e) {
+          if (e.target === overlay) {
+            overlay.classList.remove('show');
+          }
+        });
+      }
+    }
+
+    // ── Smooth Scroll for anchor links ──
+    function initSmoothScroll() {
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            e.preventDefault();
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        });
+      });
+    }
+
+    // ── Grade Input Helper: Auto-advance to next subject ──
+    function initGradeHelper() {
+      $$('.grade-select').forEach((sel, idx, all) => {
+        sel.addEventListener('change', function() {
+          if (this.value && idx < all.length - 1) {
+            // Scroll next row into view if needed
+            const nextRow = all[idx + 1].closest('.subject-row');
+            if (nextRow) {
+              nextRow.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }
+          }
+        });
+      });
+    }
+
+    // ── Track subject count display ──
+    function initSubjectCounter() {
+      const grid = $('#subjectGrid');
+      const counterEl = document.createElement('div');
+      counterEl.style.cssText = 'font-size:12px;color:var(--muted);margin-top:12px;text-align:right;';
+      counterEl.id = 'subjectCounter';
+      counterEl.textContent = '已填写 0 科';
+      grid.after(counterEl);
+
+      grid.addEventListener('change', function() {
+        const filled = $$('.grade-select').length ?
+          [...$$('.grade-select')].filter(s => s.value).length : 0;
+        counterEl.textContent = `已填写 ${filled} 科`;
+        counterEl.style.color = filled >= 6 ? '#16a34a' : 'var(--muted)';
+      });
+    }
+
+    // ── Print-friendly results ──
+    function initPrintButton() {
+      // Will be called when results are shown
+    }
+
+    // ── Analytics tracking (placeholder) ──
+    function trackEvent(action, label) {
+      // GA4 event tracking placeholder
+      if (window.gtag) {
+        window.gtag('event', action, {
+          event_category: 'poly_matcher',
+          event_label: label
+        });
+      }
+    }
+
+    // ── Init ──
+    function init() {
+      initSubjectGrid();
+      initInterestGrid();
+      initEvents();
+      initFAQ();
+      initLeadGate();
+      initSmoothScroll();
+      initGradeHelper();
+      initSubjectCounter();
+
+      // Track page view
+      trackEvent('page_view', 'poly_matcher_loaded');
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', init);
+    } else {
+      init();
+    }
+  })();
+  </script>
+</body>
+</html>

@@ -57,6 +57,22 @@ TOOLS = [
         "desc": "量身定制香港大学申请方案与时间表",
         "category": "hk"
     },
+    {
+        "src": "../au-university/matcher/index.html",
+        "dest": "au-matcher.html",
+        "title": "AI 大学匹配 — 澳洲 Go8 + 名校",
+        "icon": "🦘",
+        "desc": "输入成绩，匹配澳洲八大及 UTS、RMIT 共 10 所名校",
+        "category": "au"
+    },
+    {
+        "src": "../au-university/planner/index.html",
+        "dest": "au-planner.html",
+        "title": "AI 升学规划 — 澳洲",
+        "icon": "🗺️",
+        "desc": "量身定制澳洲大学申请方案，含 7 大升学路径",
+        "category": "au"
+    },
 ]
 
 PRESENT_HEADER = '''<header class="present-header">
@@ -223,6 +239,7 @@ def build_hub():
 
     sg_tools = [t for t in TOOLS if t["category"] == "sg"]
     hk_tools = [t for t in TOOLS if t["category"] == "hk"]
+    au_tools = [t for t in TOOLS if t["category"] == "au"]
 
     def tool_card(t):
         return f'''      <a href="/tools/{t["dest"]}" class="tool-card">
@@ -406,6 +423,13 @@ def build_hub():
   <h2>🇭🇰 香港 <em>升学工具</em></h2>
   <div class="tool-list">
 {chr(10).join(tool_card(t) for t in hk_tools)}
+  </div>
+</div>
+
+<div class="hub-section">
+  <h2>🇦🇺 澳洲 <em>升学工具</em></h2>
+  <div class="tool-list">
+{chr(10).join(tool_card(t) for t in au_tools)}
   </div>
 </div>
 

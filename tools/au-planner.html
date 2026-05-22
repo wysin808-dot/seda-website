@@ -4,8 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="robots" content="noindex, nofollow" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AI 升学规划 — 香港 | SEDA 顾问工具</title>
-  <meta name="description" content="量身定制香港大学申请方案与时间表" />
+  <title>AI 升学规划 — 澳洲 | SEDA 顾问工具</title>
+  <meta name="description" content="量身定制澳洲大学申请方案，含 7 大升学路径" />
   <link rel="stylesheet" href="/seda-site.css" />
 
   <style>
@@ -328,29 +328,86 @@
     .badge-hard { background: #ffedd5; color: #9a3412; border: 1px solid #fdba74; }
     .badge-not-rec { background: #f3f4f6; color: #6b7280; border: 1px solid #d1d5db; }
 
+    .pathway-years {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 13px; font-weight: 600; color: var(--brand);
+      margin-bottom: 14px;
+      padding: 4px 12px;
+      background: var(--brand-light);
+      border-radius: 100px;
+    }
     .pathway-desc {
       font-size: 14px; color: var(--muted); line-height: 1.6; margin-bottom: 16px;
     }
-    .pathway-meta-grid {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 14px;
+    .pathway-detail-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 14px;
     }
+    @media (max-width: 540px) { .pathway-detail-grid { grid-template-columns: 1fr; } }
     .pathway-detail { font-size: 12px; }
     .pathway-detail strong {
       display: block; font-size: 11px; color: var(--muted);
       text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 2px;
     }
 
-    .timeline-bar { display: flex; align-items: center; gap: 4px; margin-bottom: 14px; }
-    .timeline-step { flex: 1; height: 6px; border-radius: 3px; background: var(--line); }
-    .timeline-step.active { background: var(--brand); }
-    .timeline-label { font-size: 11px; color: var(--muted); }
+    /* ── Timeline ── */
+    .timeline-wrap {
+      position: relative;
+      padding-left: 24px;
+      margin: 16px 0;
+    }
+    .timeline-wrap::before {
+      content: '';
+      position: absolute;
+      left: 7px; top: 8px; bottom: 8px;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--brand), rgba(198,40,40,0.15));
+      border-radius: 2px;
+    }
+    .timeline-item {
+      position: relative;
+      padding: 10px 0 14px;
+    }
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -21px; top: 14px;
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: #fff;
+      border: 2px solid var(--brand);
+    }
+    .timeline-item:first-child::before {
+      background: var(--brand);
+    }
+    .timeline-year {
+      font-size: 13px; font-weight: 700; color: var(--brand); margin-bottom: 4px;
+    }
+    .timeline-title {
+      font-size: 15px; font-weight: 700; color: var(--ink); margin-bottom: 6px;
+    }
+    .timeline-items {
+      list-style: none; padding: 0; margin: 0;
+    }
+    .timeline-items li {
+      font-size: 13px; color: var(--muted); line-height: 1.6;
+      padding-left: 16px;
+      position: relative;
+      margin-bottom: 2px;
+    }
+    .timeline-items li::before {
+      content: '\2022';
+      position: absolute; left: 0; color: var(--brand);
+    }
 
     /* ── Pros/Cons ── */
     .pathway-proscons {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 12px;
-      margin: 14px 0;
+      margin-top: 14px;
     }
     @media (max-width: 540px) { .pathway-proscons { grid-template-columns: 1fr; } }
     .proscons-col h5 {
@@ -376,10 +433,6 @@
       content: '\2717'; position: absolute; left: 0; color: #dc2626; font-weight: 700;
     }
 
-    .action-steps { background: var(--wash); border-radius: 10px; padding: 16px; margin-top: 14px; }
-    .action-steps h4 { font-size: 13px; font-weight: 700; margin-bottom: 8px; }
-    .action-steps ol { padding-left: 20px; font-size: 12px; line-height: 1.8; }
-
     /* ── BCI Promo ── */
     .bci-promo {
       margin-top: 16px;
@@ -399,6 +452,33 @@
       text-decoration: none;
     }
     .bci-promo a:hover { text-decoration: underline; }
+
+    /* ── Action Steps ── */
+    .action-steps {
+      margin-top: 14px;
+      background: var(--wash);
+      border-radius: 10px;
+      padding: 16px;
+    }
+    .action-steps h4 { font-size: 13px; font-weight: 700; margin-bottom: 8px; }
+    .action-steps ol { padding-left: 20px; font-size: 12px; line-height: 1.8; }
+
+    /* ── CTA Section ── */
+    .cta-section {
+      text-align: center; padding: 40px 20px;
+      background: var(--wash); border-radius: 12px; margin-top: 24px;
+    }
+    .cta-section h3 { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
+    .cta-section p { font-size: 13px; color: var(--muted); margin-bottom: 16px; }
+    .cta-buttons { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
+    .cta-buttons a {
+      padding: 10px 24px; border-radius: 8px; font-weight: 600; font-size: 14px;
+      text-decoration: none;
+    }
+    .cta-btn-primary { background: var(--brand); color: #fff; }
+    .cta-btn-primary:hover { background: #a71d1d; text-decoration: none; }
+    .cta-btn-secondary { background: #fff; color: var(--brand); border: 1px solid var(--brand); }
+    .cta-btn-secondary:hover { background: #fef2f2; text-decoration: none; }
 
     /* ── Lead Gate Modal ── */
     .lead-overlay {
@@ -486,9 +566,7 @@
       .planner-tabs { font-size: 11px; padding: 0 12px; }
       .planner-tab { padding: 12px 10px; }
       .pathway-head { flex-direction: column; }
-      .pathway-meta-grid { grid-template-columns: 1fr; }
       .result-panel { padding: 20px; }
-      .china-advice-card { flex-direction: column; gap: 12px; }
     }
 
     /* ── Mobile Hamburger Nav ── */
@@ -628,7 +706,6 @@
   </style>
 </head>
 <body>
-
   <header class="present-header">
   <div class="present-header-inner">
     <div class="present-brand">
@@ -641,7 +718,7 @@
 
   <nav class="breadcrumb" aria-label="面包屑导航">
     <a href="/">首页</a> <span>›</span>
-    <a href="/hk-university/">香港八大</a> <span>›</span>
+    <a href="/au-university/">澳洲大学</a> <span>›</span>
     <span>AI 升学规划</span>
   </nav>
 
@@ -649,10 +726,10 @@
     <!-- ── Hero ── -->
     <div class="planner-hero">
       <div class="eyebrow">AI 智能规划引擎</div>
-      <h1>量身定制<br>你的<em>香港大学申请方案</em></h1>
-      <p class="lead">输入你的背景和目标，AI 为你分析最佳升学路径，包含详细时间线、备考计划和行动步骤。</p>
+      <h1>量身定制<br>你的<em>澳洲大学申请方案</em></h1>
+      <p class="lead">输入你的背景和目标，AI 为你分析最佳澳洲留学路径，涵盖 Go8 八大及 UTS、RMIT 等名校。</p>
       <div class="hero-stats">
-        <div><div class="stat-num">8</div><div class="stat-label">香港大学</div></div>
+        <div><div class="stat-num">10</div><div class="stat-label">澳洲名校</div></div>
         <div><div class="stat-num">7</div><div class="stat-label">升学路径</div></div>
         <div><div class="stat-num">免费</div><div class="stat-label">咨询服务</div></div>
       </div>
@@ -668,7 +745,7 @@
 
         <!-- Step 1: Input Form -->
         <div class="planner-body" id="pStep1">
-          <div class="planner-q">填写你的<em>目标与背景信息</em></div>
+          <div class="planner-q">填写你的<em>背景与目标</em></div>
 
           <div class="input-row">
             <div class="input-group">
@@ -697,9 +774,9 @@
             <div class="input-group">
               <label for="target">目标大学层次</label>
               <select class="planner-select" id="target">
-                <option value="top3">港三（港大/中大/科大）</option>
-                <option value="top5">港五（含城大/理大）</option>
-                <option value="all" selected>港八都可以</option>
+                <option value="go8">Go8（澳洲八大）</option>
+                <option value="go8plus">Go8 + UTS/RMIT</option>
+                <option value="all" selected>都可以</option>
                 <option value="unsure">不确定</option>
               </select>
             </div>
@@ -717,6 +794,7 @@
                 <option value="教育">教育</option>
                 <option value="传媒">传媒</option>
                 <option value="艺术设计">艺术/设计</option>
+                <option value="设计建筑">设计/建筑</option>
               </select>
             </div>
           </div>
@@ -734,9 +812,9 @@
             <div class="input-group">
               <label for="budget">家庭年预算（人民币）</label>
               <select class="planner-select" id="budget">
-                <option value="high">充裕（30万+）</option>
-                <option value="mid" selected>适中（20-30万）</option>
-                <option value="low">有限（20万以下）</option>
+                <option value="high">充裕（35万+）</option>
+                <option value="mid" selected>适中（25-35万）</option>
+                <option value="low">有限（25万以下）</option>
                 <option value="unsure">不确定</option>
               </select>
             </div>
@@ -746,22 +824,22 @@
             <div class="input-group">
               <label for="examSys">当前/计划的考试体系</label>
               <select class="planner-select" id="examSys" onchange="updateScoreField()">
-                <option value="gaokao" selected>中国高考</option>
+                <option value="wace" selected>WACE</option>
+                <option value="gaokao">中国高考</option>
                 <option value="alevel">A-Level</option>
                 <option value="ib">IB</option>
-                <option value="hkdse">HKDSE</option>
-                <option value="wace">WACE</option>
                 <option value="other">其他/未定</option>
               </select>
             </div>
             <div class="input-group" id="scoreField">
-              <label>预估高考分数段</label>
+              <label>预估 ATAR 分数</label>
               <select class="planner-select" id="scoreLevel">
-                <option value="680">680+ 分（超一本线 100+）</option>
-                <option value="640" selected>640-680 分（超一本线 60-100）</option>
-                <option value="600">600-640 分（超一本线 20-60）</option>
-                <option value="560">560-600 分（一本线左右）</option>
-                <option value="520">560 以下</option>
+                <option value="95">95+</option>
+                <option value="90" selected>90-94</option>
+                <option value="85">85-89</option>
+                <option value="80">80-84</option>
+                <option value="75">75-79</option>
+                <option value="70">75以下</option>
               </select>
             </div>
           </div>
@@ -774,7 +852,7 @@
         <!-- Thinking -->
         <div class="ai-thinking" id="thinking">
           <div class="thinking-dots"><span></span><span></span><span></span></div>
-          <div class="thinking-text">AI 正在分析你的背景，综合评估 7 条升学路径...</div>
+          <div class="thinking-text" id="thinkingText">AI 正在分析你的背景...</div>
         </div>
 
         <!-- Result -->
@@ -807,14 +885,14 @@
 
     <!-- ── FAQ ── -->
     <div class="tool-faq">
-      <h2>香港升学规划<em>常见问题</em></h2>
+      <h2>澳洲升学规划<em>常见问题</em></h2>
       <div id="faqList">
-        <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">什么时候开始准备香港大学申请最好？<span class="faq-q-toggle">+</span></div><div class="faq-a">最理想是在高一或高二开始准备。如果走高考路径，高三上学期10月-1月申请；如果走国际课程路径（A-Level/IB/WACE），建议高一开始转入国际课程体系。越早规划，选择越多。</div></div>
-        <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">高考成绩不理想还能申请香港大学吗？<span class="faq-q-toggle">+</span></div><div class="faq-a">可以。方案包括：1）副学士 2+2 途径（二本线即可）；2）在新加坡读 WACE/A-Level 国际课程后再申请；3）Gap Year 提升成绩后再申请。具体方案请参考上方 AI 规划结果。</div></div>
-        <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">香港大学对英语有什么要求？<span class="faq-q-toggle">+</span></div><div class="faq-a">港三（HKU/CUHK/HKUST）一般要求雅思 6.5+ 或托福 90+，部分专业（法学、传媒等）要求 7.0+。其他港校一般要求雅思 6.0+。用高考成绩申请时，英语单科通常需 120 分以上。</div></div>
-        <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">WACE 成绩可以申请香港大学吗？<span class="faq-q-toggle">+</span></div><div class="faq-a">完全可以。WACE ATAR 成绩被香港八大广泛认可。ATAR 85+ 可申请大部分港校，92+ 可冲刺港三。推荐在新加坡 BCI 国际学院就读 WACE 课程，一份成绩可同时申请香港、新加坡、澳洲三地大学。</div></div>
-        <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">副学士是什么？值得读吗？<span class="faq-q-toggle">+</span></div><div class="faq-a">副学士（Associate Degree）是香港特有的 2 年制课程，成绩优秀可升入八大本科三年级，最终获得与直入学生完全相同的学位。适合高考未达一本线但仍想入读港校的学生。约 30-50% 的副学士学生可成功升入八大。</div></div>
-        <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">香港和新加坡大学哪个更容易申请？<span class="faq-q-toggle">+</span></div><div class="faq-a">两地各有特点。香港优势：高考可直接申请、距离近、文化相近；新加坡优势：NUS/NTU 全球排名更高（前 15）、全英教学、毕业可留新工作。建议通过 SEDA 平台同时评估和申请两地大学，增加选择面。</div></div>
+        <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">什么时候开始准备澳洲大学申请最好？<span class="faq-q-toggle">+</span></div><div class="faq-a">最理想是在高一或高二开始准备。如果走 WACE 路径，建议高一转入 WACE 课程体系；如果走高考直录，高三结束后即可申请；如果走预科，高二即可申请。越早规划，选择越多。</div></div>
+        <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">高考成绩可以直接申请澳洲大学吗？<span class="faq-q-toggle">+</span></div><div class="faq-a">可以。除墨尔本大学外，其余 Go8 均接受高考成绩直录。一般一本线以上即可申请 Go8，一本线附近可申请 UTS/RMIT 等名校。但仍需雅思 6.5+ 的英语成绩。</div></div>
+        <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">墨尔本大学不接受高考怎么办？<span class="faq-q-toggle">+</span></div><div class="faq-a">墨尔本大学可通过以下途径申请：1）Trinity College 预科（高二即可申请）；2）WACE/A-Level/IB 国际课程成绩直接申请；3）本科转学。推荐在新加坡 BCI 学院读 WACE 课程，用 ATAR 成绩直接申请墨大。</div></div>
+        <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">WACE/ATAR 成绩申请澳洲大学有什么优势？<span class="faq-q-toggle">+</span></div><div class="faq-a">ATAR 是澳洲本土排名分数，无需换算直接录取，是最被澳洲大学认可的成绩。ATAR 95+ 可申请墨大/悉大，85+ 可申请大部分 Go8。在新加坡 BCI 就读 WACE 课程，一份成绩还可同时申请新加坡和香港大学。</div></div>
+        <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">预科和 Diploma 快捷课程有什么区别？<span class="faq-q-toggle">+</span></div><div class="faq-a">预科（Foundation）完成后进入本科大一，适合高二/高三学生，所有 Go8 都有对应预科；Diploma 快捷课程完成后直接进入本科大二，省一年时间，但仅部分大学提供（莫纳什/UNSW/UWA/阿德/UTS）。墨大和悉大只能走预科。</div></div>
+        <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">澳洲留学一年大概需要多少钱？<span class="faq-q-toggle">+</span></div><div class="faq-a">在澳洲就读 Go8 大学，学费加生活费约 25-40 万人民币/年。如果选择新加坡 BCI 就读 WACE 课程，费用约 15-20 万/年。海外分校（莫纳什马来西亚/RMIT 越南）费用约 8-15 万/年。预科和 Diploma 费用约 20-30 万/年。</div></div>
       </div>
     </div>
 
@@ -828,8 +906,16 @@
         <p>把你的升学规划结果告诉我们，顾问团队会在 24 小时内提供一对一选校策略、申请时间表与材料指导。</p>
       </div>
       <form class="lead-form">
-        <label><span>学生当前年级</span><input type="text" name="grade" placeholder="例如：国内高二 / IB Year 12 / WACE Year 12" /></label>
-        <label><span>目标大学/专业</span><input type="text" name="target" placeholder="例如：港大商科 / 中大计算机" /></label>
+        <label><span>学生当前年级</span><input type="text" name="grade" placeholder="例如：国内高二 / Year 12 / IB Year 12" /></label>
+        <label><span>考试体系</span>
+          <select name="track">
+            <option>WACE 国际高中</option>
+            <option>中国高考</option>
+            <option>A-Level (GCE / CIE)</option>
+            <option>IB Diploma</option>
+            <option>还不确定，需要规划</option>
+          </select>
+        </label>
         <label><span>联系方式</span><input type="text" name="contact" placeholder="微信 / WhatsApp / 手机" /></label>
         <button class="primary-button" type="submit">提交咨询</button>
       </form>
@@ -842,34 +928,27 @@
   <script>
   'use strict';
 
-  /* ── Tab & Step Management ── */
-  const tab1El = document.getElementById('tab1');
-  const tab2El = document.getElementById('tab2');
-  const pStep1 = document.getElementById('pStep1');
-  const thinkingEl = document.getElementById('thinking');
-  const resultEl = document.getElementById('result');
-
-  function setTab(n) {
-    tab1El.classList.toggle('active', n === 1);
-    tab2El.classList.toggle('active', n === 2);
+  /* ── Tab management ── */
+  const tabs = document.querySelectorAll('.planner-tab');
+  function setActiveTab(idx) {
+    tabs.forEach((t, i) => t.classList.toggle('active', i === idx));
   }
 
-  /* ── Score Field Update ── */
+  /* ── Score field update ── */
   function updateScoreField() {
     const sys = document.getElementById('examSys').value;
     const wrap = document.getElementById('scoreField');
     const map = {
-      gaokao: '<label>预估高考分数段</label><select class="planner-select" id="scoreLevel"><option value="680">680+ 分（超一本线 100+）</option><option value="640" selected>640-680 分（超一本线 60-100）</option><option value="600">600-640 分（超一本线 20-60）</option><option value="560">560-600 分（一本线左右）</option><option value="520">560 以下</option></select>',
-      alevel: '<label>预估 A-Level 等级</label><select class="planner-select" id="scoreLevel"><option value="astar">A*A*A 或更高</option><option value="aaa" selected>AAA</option><option value="aab">AAB</option><option value="abb">ABB</option><option value="bbb">BBB 或以下</option></select>',
-      ib: '<label>预估 IB 分数</label><select class="planner-select" id="scoreLevel"><option value="40">40+ 分</option><option value="36" selected>36-39 分</option><option value="33">33-35 分</option><option value="30">30-32 分</option><option value="27">30 以下</option></select>',
-      hkdse: '<label>预估 DSE 最佳5科</label><select class="planner-select" id="scoreLevel"><option value="25">25+ 分</option><option value="22" selected>22-24 分</option><option value="19">19-21 分</option><option value="16">16-18 分</option><option value="13">15 以下</option></select>',
-      wace: '<label>预估 ATAR 分数</label><select class="planner-select" id="scoreLevel"><option value="95">95+</option><option value="90" selected>90-94</option><option value="85">85-89</option><option value="80">80-84</option><option value="70">80 以下</option></select>',
+      wace: '<label>预估 ATAR 分数</label><select class="planner-select" id="scoreLevel"><option value="95">95+</option><option value="90" selected>90-94</option><option value="85">85-89</option><option value="80">80-84</option><option value="75">75-79</option><option value="70">75以下</option></select>',
+      gaokao: '<label>预估高考分数段</label><select class="planner-select" id="scoreLevel"><option value="680">一本线以上80+分</option><option value="640" selected>一本线以上40-80分</option><option value="600">一本线附近</option><option value="560">一本线以下</option><option value="520">二本线附近</option></select>',
+      alevel: '<label>预估 A-Level 等级</label><select class="planner-select" id="scoreLevel"><option value="astar">A*A*A+</option><option value="aaa" selected>AAA</option><option value="aab">AAB</option><option value="abb">ABB</option><option value="bbb">BBB以下</option></select>',
+      ib: '<label>预估 IB 分数</label><select class="planner-select" id="scoreLevel"><option value="40">40+</option><option value="36" selected>36-39</option><option value="33">33-35</option><option value="30">30-32</option><option value="27">30以下</option></select>',
       other: '<label>成绩水平自评</label><select class="planner-select" id="scoreLevel"><option value="top">顶尖（年级前 5%）</option><option value="good" selected>优秀（年级前 20%）</option><option value="mid">中等（年级前 50%）</option><option value="low">一般</option></select>',
     };
     wrap.innerHTML = map[sys] || map.other;
   }
 
-  /* ── Get Form State ── */
+  /* ── State ── */
   function getState() {
     return {
       grade: document.getElementById('grade').value,
@@ -883,293 +962,362 @@
     };
   }
 
-  /* ── Generate Button ── */
+  /* ── Generate ── */
   document.getElementById('generateBtn').addEventListener('click', function() {
-    pStep1.classList.add('hidden');
-    thinkingEl.classList.add('show');
-    setTab(2);
+    document.getElementById('pStep1').classList.add('hidden');
+    document.getElementById('thinking').classList.add('show');
+    setActiveTab(1);
 
-    setTimeout(function() {
-      thinkingEl.classList.remove('show');
+    const msgs = [
+      'AI 正在分析你的背景...',
+      '综合评估 7 条升学路径...',
+      '匹配最佳澳洲大学方案...',
+      '生成个性化升学时间表...',
+    ];
+    let mi = 0;
+    const iv = setInterval(() => {
+      mi++;
+      if (mi < msgs.length) document.getElementById('thinkingText').textContent = msgs[mi];
+    }, 600);
+
+    setTimeout(() => {
+      clearInterval(iv);
+      document.getElementById('thinking').classList.remove('show');
       const state = getState();
       renderResults(state);
+      document.getElementById('result').classList.add('show');
+      document.getElementById('planner').scrollIntoView({ behavior: 'smooth', block: 'start' });
     }, 2500);
   });
 
-  /* ── Reset Button ── */
+  /* ── Reset ── */
   document.getElementById('resetBtn').addEventListener('click', function() {
-    resultEl.classList.remove('show');
-    resultEl.style.display = 'none';
-    pStep1.classList.remove('hidden');
-    setTab(1);
-    document.getElementById('planner').scrollIntoView({behavior:'smooth', block:'start'});
+    document.getElementById('result').classList.remove('show');
+    document.getElementById('pStep1').classList.remove('hidden');
+    setActiveTab(0);
+    document.getElementById('planner').scrollIntoView({ behavior: 'smooth', block: 'start' });
   });
 
-  /* ── Lead Gate ── */
-  document.getElementById('leadClose').addEventListener('click', function() {
-    document.getElementById('leadOverlay').classList.remove('show');
-  });
-  document.getElementById('leadSubmit').addEventListener('click', function() {
-    document.getElementById('leadOverlay').classList.remove('show');
-  });
-
-  /* ── Render Results ── */
+  /* ── Render results ── */
   function renderResults(s) {
-    const wrap = document.getElementById('resultContent');
-    resultEl.style.display = 'block';
-    resultEl.classList.add('show');
-
     const gradeLabel = {g9:'初三',g10:'高一',g11:'高二',g12:'高三',uni:'大学在读',grad:'已毕业'}[s.grade];
     const locLabel = {china:'中国大陆',hk:'香港',sg:'新加坡',other:'其他'}[s.location];
-    const targetLabel = {top3:'港三',top5:'港五',all:'港八均可',unsure:'不确定'}[s.target];
+    const targetLabel = {go8:'Go8八大',go8plus:'Go8+UTS/RMIT',all:'均可',unsure:'不确定'}[s.target];
     const engLabel = {excellent:'优秀',good:'良好',average:'一般',none:'未考过'}[s.english];
-    const examLabel = s.examSys.toUpperCase();
 
     let html = '';
 
-    /* Profile Summary */
+    /* Profile summary */
     html += '<div class="result-summary"><h3>📋 你的升学档案</h3>';
     html += '<div class="result-summary-meta">';
-    html += '<span><strong>年级：</strong>' + gradeLabel + '</span>';
-    html += '<span><strong>所在地：</strong>' + locLabel + '</span>';
-    html += '<span><strong>目标：</strong>' + targetLabel + '</span>';
-    html += '<span><strong>英语：</strong>' + engLabel + '</span>';
-    html += '<span><strong>考试：</strong>' + examLabel + '</span>';
+    html += '<span><strong>年级</strong> ' + gradeLabel + '</span>';
+    html += '<span><strong>所在地</strong> ' + locLabel + '</span>';
+    html += '<span><strong>目标</strong> ' + targetLabel + '</span>';
+    html += '<span><strong>英语</strong> ' + engLabel + '</span>';
+    html += '<span><strong>考试</strong> ' + s.examSys.toUpperCase() + '</span>';
     html += '</div></div>';
 
-    /* China Advice Card */
+    /* China advice card */
     if (s.location === 'china') {
       html += '<div class="china-advice-card">';
       html += '<div class="china-advice-icon">💡</div>';
       html += '<div class="china-advice-body">';
-      html += '<h4>专家建议：来新加坡读书，升学选择更多</h4>';
+      html += '<h4>专家建议：来新加坡读 WACE，用 ATAR 直录澳洲八大</h4>';
       html += '<ul>';
-      html += '<li><strong>学籍优势：</strong>新加坡学籍身份，同时申请新加坡、香港、澳洲大学</li>';
-      html += '<li><strong>语言优势：</strong>全英文教学环境，显著提升英语能力</li>';
-      html += '<li><strong>路径灵活：</strong>WACE / A-Level / IB 多种课程可选</li>';
-      html += '<li><strong>陪读签证：</strong>家长可申请新加坡陪读准证</li>';
-      html += '<li><strong>时间成本：</strong>比在国内准备更高效，一举多得</li>';
+      html += '<li><strong>ATAR 直录：</strong>ATAR 是澳洲本土排名分数，无需换算，直接录取</li>';
+      html += '<li><strong>多国申请：</strong>一份 ATAR 成绩可同时申请澳洲、新加坡、香港大学</li>';
+      html += '<li><strong>数理优势：</strong>WACE 数理科目中国学生有显著优势</li>';
+      html += '<li><strong>语言环境：</strong>新加坡全英文教学，快速提升英语能力</li>';
+      html += '<li><strong>时间高效：</strong>1.5-2年完成，比国内高考路径更灵活</li>';
       html += '</ul>';
-      html += '<a href="/pathway/study-planner/">📋 了解新加坡升学方案 →</a>';
+      html += '<a href="/wace/">📋 了解 BCI WACE 课程 →</a>';
       html += '</div></div>';
     }
 
-    /* Build & Render Pathways */
+    /* Build & render pathways */
     var pathways = buildPathways(s);
     html += '<div class="pathway-grid">';
     pathways.forEach(function(p, i) {
       var badgeCls, badgeText;
-      if (p.match >= 80) { badgeCls = 'badge-strong-rec'; badgeText = '强烈推荐'; }
-      else if (p.match >= 65) { badgeCls = 'badge-rec'; badgeText = '推荐'; }
-      else if (p.match >= 45) { badgeCls = 'badge-feasible'; badgeText = '可行'; }
-      else if (p.match >= 25) { badgeCls = 'badge-hard'; badgeText = '有难度'; }
-      else { badgeCls = 'badge-not-rec'; badgeText = '不推荐'; }
+      if (i === 0) { badgeCls = 'badge-strong-rec'; badgeText = '最推荐'; }
+      else if (i <= 2) { badgeCls = 'badge-rec'; badgeText = '适合'; }
+      else { badgeCls = 'badge-feasible'; badgeText = '备选'; }
 
-      var cardCls = (i === 0) ? 'pathway-card recommended' : 'pathway-card';
-
-      html += '<div class="' + cardCls + '">';
+      html += '<div class="pathway-card' + (i === 0 ? ' recommended' : '') + '">';
       html += '<div class="pathway-head">';
-      html += '<div class="pathway-name">' + p.icon + ' ' + p.name + '</div>';
-      html += '<span class="pathway-badge ' + badgeCls + '">' + badgeText + ' · ' + p.match + '%</span>';
+      html += '<div class="pathway-name">' + p.icon + ' ' + p.name + '<small>匹配度 ' + p.match + '%</small></div>';
+      html += '<span class="pathway-badge ' + badgeCls + '">' + badgeText + '</span>';
       html += '</div>';
 
+      html += '<div class="pathway-years">⏱ ' + p.duration + '</div>';
       html += '<div class="pathway-desc">' + p.desc + '</div>';
 
-      html += '<div class="pathway-meta-grid">';
-      html += '<div class="pathway-detail"><strong>准备时间</strong>' + p.duration + '</div>';
+      html += '<div class="pathway-detail-grid">';
       html += '<div class="pathway-detail"><strong>预估费用</strong>' + p.cost + '</div>';
       html += '<div class="pathway-detail"><strong>目标大学</strong>' + p.unis + '</div>';
       html += '<div class="pathway-detail"><strong>难度</strong>' + p.difficulty + '</div>';
+      html += '<div class="pathway-detail"><strong>准备时间</strong>' + p.duration + '</div>';
       html += '</div>';
 
-      /* Timeline Bar */
-      html += '<div class="timeline-bar">';
-      for (var t = 0; t < p.steps; t++) {
-        html += '<div class="timeline-step' + (t < p.activeSteps ? ' active' : '') + '"></div>';
-      }
+      /* Timeline */
+      html += '<div class="timeline-wrap">';
+      p.actions.forEach(function(act, ai) {
+        html += '<div class="timeline-item">';
+        html += '<div class="timeline-year">步骤 ' + (ai + 1) + '</div>';
+        html += '<div class="timeline-title">' + act + '</div>';
+        html += '</div>';
+      });
       html += '</div>';
-      html += '<div class="timeline-label">' + p.timelineLabel + '</div>';
 
       /* Pros/Cons */
       html += '<div class="pathway-proscons">';
-      html += '<div class="proscons-col pros"><h5>优势</h5><ul>' + p.pros.map(function(x){return '<li>'+x+'</li>';}).join('') + '</ul></div>';
-      html += '<div class="proscons-col cons"><h5>注意</h5><ul>' + p.cons.map(function(x){return '<li>'+x+'</li>';}).join('') + '</ul></div>';
+      html += '<div class="proscons-col pros"><h5>优势</h5><ul>';
+      p.pros.forEach(function(x) { html += '<li>' + x + '</li>'; });
+      html += '</ul></div>';
+      html += '<div class="proscons-col cons"><h5>注意</h5><ul>';
+      p.cons.forEach(function(x) { html += '<li>' + x + '</li>'; });
+      html += '</ul></div>';
       html += '</div>';
-
-      /* Action Steps */
-      html += '<div class="action-steps"><h4>行动步骤</h4><ol>' + p.actions.map(function(x){return '<li>'+x+'</li>';}).join('') + '</ol></div>';
 
       /* BCI Promo */
       if (p.bciPromo) {
-        html += '<div class="bci-promo"><strong>💡 推荐：BCI 国际学院 WACE 课程</strong><p>在新加坡 BCI 国际学院就读 WACE 课程，一份 ATAR 成绩可同时申请香港、新加坡、澳洲三地大学。英文要求相对较低，数理科目有优势，特别适合中国学生。</p><a href="/wace/">了解 WACE 课程 →</a></div>';
+        html += '<div class="bci-promo">';
+        html += '<strong>💡 推荐：新加坡 BCI WACE 课程</strong>';
+        html += '<p>ATAR 是澳洲本土排名分数，无需换算直接录取。数理科目中国学生有优势，英文门槛相对较低，一份成绩可同时申请澳洲、新加坡、香港三地大学。</p>';
+        html += '<a href="/wace/">了解 BCI WACE 课程 →</a>';
+        html += '</div>';
       }
 
-      html += '</div>'; /* end pathway-card */
+      html += '</div>';
     });
-    html += '</div>'; /* end pathway-grid */
+    html += '</div>';
 
     /* CTA */
-    html += '<div style="text-align:center;padding:32px 20px;background:var(--wash);border-radius:var(--radius);margin-top:24px">';
-    html += '<h3 style="font-size:18px;font-weight:700;margin-bottom:8px">需要更精准的评估？</h3>';
-    html += '<p style="font-size:13px;color:var(--muted);margin-bottom:16px">使用 AI 大学匹配工具，输入具体成绩查看详细匹配结果</p>';
-    html += '<div style="display:flex;justify-content:center;gap:12px;flex-wrap:wrap">';
-    html += '<a href="/hk-university/matcher/" style="padding:10px 24px;border-radius:8px;font-weight:600;font-size:14px;background:var(--brand);color:#fff;text-decoration:none">🎯 AI 大学匹配 →</a>';
-    html += '<a href="/contact/" style="padding:10px 24px;border-radius:8px;font-weight:600;font-size:14px;background:#fff;color:var(--brand);border:1px solid var(--brand);text-decoration:none">💬 免费咨询</a>';
+    html += '<div class="cta-section">';
+    html += '<h3>需要更精准的评估？</h3>';
+    html += '<p>使用 AI 大学匹配工具，输入具体成绩查看详细匹配结果</p>';
+    html += '<div class="cta-buttons">';
+    html += '<a class="cta-btn-primary" href="/au-university/matcher/">🎯 AI 大学匹配（澳洲） →</a>';
+    html += '<a class="cta-btn-secondary" href="/contact/">💬 免费咨询</a>';
     html += '</div></div>';
 
-    wrap.innerHTML = html;
-    resultEl.scrollIntoView({behavior: 'smooth', block: 'start'});
+    document.getElementById('resultContent').innerHTML = html;
   }
 
-  /* ── Build Pathways Logic ── */
+  /* ── Build pathways logic ── */
   function buildPathways(s) {
     var paths = [];
     var score = parseInt(s.scoreLevel) || 0;
     var isChina = s.location === 'china';
-    var isHighSchool = ['g10','g11','g12'].includes(s.grade);
-    var isEarly = ['g9','g10'].includes(s.grade);
+    var isEarly = ['g9','g10'].indexOf(s.grade) >= 0;
+    var isHighSchool = ['g10','g11','g12'].indexOf(s.grade) >= 0;
 
-    /* 1. Gaokao Direct */
-    if ((s.examSys === 'gaokao' || isChina) && ['g11','g12','grad'].includes(s.grade)) {
-      var match = 50;
-      if (score >= 680) match = 92;
-      else if (score >= 640) match = 78;
-      else if (score >= 600) match = 60;
-      else if (score >= 560) match = 40;
-      else match = 20;
-      if (s.english === 'excellent') match = Math.min(match + 10, 99);
-      if (s.english === 'average' || s.english === 'none') match = Math.max(match - 15, 10);
-
-      paths.push({
-        name: '高考直申', icon: '📝', match: match,
-        desc: '用高考成绩和英语面试直接申请香港大学。港大、科大为自主招生（高三上学期申请），中大、城大走统招提前批。',
-        duration: s.grade === 'g12' ? '6-8个月' : '1-1.5年',
-        cost: '约22-30万人民币/年',
-        unis: score >= 680 ? '港大/中大/科大' : (score >= 640 ? '中大/科大/城大/理大' : (score >= 600 ? '城大/理大/浸大' : '浸大/岭南/教大')),
-        difficulty: score >= 680 ? '★★★★★' : (score >= 640 ? '★★★★' : '★★★'),
-        steps: 5, activeSteps: s.grade === 'g12' ? 4 : 2,
-        timelineLabel: '准备 → 报名 → 高考 → 申请 → 面试',
-        pros: ['最直接的申请途径', '不需要额外考试费用', '统招提前批不影响内地录取'],
-        cons: ['竞争非常激烈', '英语面试要求高', '港大/科大需单独申请'],
-        actions: ['确认目标院校和专业的高考分数要求', '强化英语口语和面试准备', s.grade === 'g12' ? '10月-1月提交港大/科大网申' : '制定高考冲刺计划', '准备个人陈述和推荐信', '参加面试（通常6-7月）'],
-      });
-    }
-
-    /* 2. WACE (always show, with BCI promo) */
-    {
+    /* ── Path 1: WACE 直申（BCI）── ALWAYS shown */
+    (function() {
       var match = 65;
-      if (isEarly) match = 88;
-      else if (s.grade === 'g11') match = 75;
-      else if (s.grade === 'g12') match = 50;
+      if (isEarly) match = 90;
+      else if (s.grade === 'g11') match = 80;
+      else if (s.grade === 'g12') match = 55;
+      else match = 40;
+      if (s.examSys === 'wace') match += 8;
       if (s.english === 'average' || s.english === 'none') match += 5;
-      if (isChina) match += 5;
+      if (isChina) match += 3;
       match = Math.min(match, 99);
 
+      var unis = 'ATAR 95+: 墨大/悉大 | ATAR 85+: Go8 | ATAR 75+: UTS/RMIT';
+      if (s.examSys === 'wace') {
+        if (score >= 95) unis = '墨尔本大学/悉尼大学/ANU/UNSW';
+        else if (score >= 90) unis = '悉大/UNSW/莫纳什/UQ';
+        else if (score >= 85) unis = 'Go8 大部分院校';
+        else if (score >= 80) unis = 'UQ/UWA/阿德莱德';
+        else unis = 'UTS/RMIT 及部分 Go8';
+      }
+
       paths.push({
-        name: 'WACE 国际课程（新加坡）', icon: '🇦🇺', match: match,
-        desc: '在新加坡就读 WACE 西澳课程（推荐 BCI 国际学院），用 ATAR 成绩申请香港大学。英文门槛较低，数理科目有优势，可同时申请新加坡和澳洲大学。',
+        name: 'WACE 直申（新加坡 BCI）', icon: '🇦🇺', match: match,
+        desc: '在新加坡 BCI 国际学院就读 WACE 课程，用 ATAR 成绩直接申请澳洲大学。ATAR 是澳洲本土排名分数，无需换算，直接录取。',
         duration: '1.5-2年',
         cost: '约15-20万人民币/年（新加坡）',
-        unis: 'ATAR 92+: 港三 | ATAR 85+: 港五 | ATAR 75+: 港八',
-        difficulty: '★★★',
-        steps: 5, activeSteps: isEarly ? 1 : 2,
-        timelineLabel: '入学 → Year 11 → Year 12 → WACE考试 → 申请',
-        pros: ['英文要求比高考/A-Level低', '数理科目中国学生有优势', '一份成绩申请港/新/澳三地', '新加坡全英环境提升语言'],
-        cons: ['需到新加坡就读', '需1.5-2年时间', '家长需安排陪读或住宿'],
-        actions: ['联系 SEDA 了解 BCI 国际学院 WACE 课程', '办理新加坡学生准证', '入学后选择适合的 WACE 科目组合', '参加 Year 12 WACE 考试', '用 ATAR 成绩同时申请香港/新加坡/澳洲大学'],
+        unis: unis,
+        difficulty: '★★★☆☆',
+        pros: ['ATAR直录无需换算', '数理科目中国学生优势', '可同时申请新加坡/香港大学', '英文门槛相对较低'],
+        cons: ['需到新加坡就读1.5-2年', '家长需安排住宿', '需适应全英教学'],
+        actions: ['联系SEDA了解BCI WACE课程', '办理新加坡学生准证', '选择WACE科目', '参加WACE考试', '用ATAR成绩申请澳洲大学'],
         bciPromo: true,
+      });
+    })();
+
+    /* ── Path 2: 高考直申 ── */
+    if ((s.examSys === 'gaokao' || isChina) && ['g11','g12','grad'].indexOf(s.grade) >= 0) {
+      var match2 = 50;
+      if (score >= 680) match2 = 85;
+      else if (score >= 640) match2 = 70;
+      else if (score >= 600) match2 = 55;
+      else if (score >= 560) match2 = 40;
+      else match2 = 25;
+      if (s.english === 'excellent') match2 = Math.min(match2 + 10, 99);
+      if (s.english === 'average' || s.english === 'none') match2 = Math.max(match2 - 15, 10);
+
+      var unis2 = '大部分 Go8 院校（墨大除外）';
+      if (s.examSys === 'gaokao') {
+        if (score >= 680) unis2 = '悉大/UNSW/莫纳什（墨大不接受高考）';
+        else if (score >= 640) unis2 = 'UQ/UWA/阿德莱德';
+        else if (score >= 600) unis2 = 'UTS/RMIT 及部分 Go8';
+        else unis2 = 'UTS/RMIT';
+      }
+
+      paths.push({
+        name: '高考直申', icon: '📝', match: match2,
+        desc: '用高考成绩直接申请澳洲大学。除墨尔本大学外，其余Go8均接受高考。一本线以上可申请大部分Go8。注意：墨尔本大学不接受高考，需走预科或国际课程。',
+        duration: '3-6个月',
+        cost: '约25-35万人民币/年（澳洲）',
+        unis: unis2,
+        difficulty: score >= 680 ? '★★★★☆' : '★★★☆☆',
+        pros: ['最快最直接', '不需额外考试', '大部分Go8接受'],
+        cons: ['墨大不接受高考', '雅思仍需6.5+', '英语面试/文书要求'],
+        actions: ['确认目标大学高考分数要求', '准备雅思考试', '提交大学申请', '办理CoE和签证'],
       });
     }
 
-    /* 3. A-Level */
+    /* ── Path 3: A-Level 路径 ── */
     if (s.examSys === 'alevel' || isEarly || s.grade === 'g10') {
-      var match = 60;
-      if (s.examSys === 'alevel') match = 85;
-      else if (isEarly) match = 70;
-      if (s.english === 'excellent') match += 5;
-      match = Math.min(match, 99);
+      var match3 = 58;
+      if (s.examSys === 'alevel') match3 = 82;
+      else if (isEarly) match3 = 68;
+      if (s.english === 'excellent') match3 += 5;
+      match3 = Math.min(match3, 99);
+
+      var unis3 = 'A*AA+: 全部Go8（含墨大） | AAB: Go8+UTS | BBB: UTS/RMIT';
+      if (s.examSys === 'alevel') {
+        if (s.scoreLevel === 'astar') unis3 = '全部Go8（含墨尔本大学）';
+        else if (s.scoreLevel === 'aaa') unis3 = '大部分Go8';
+        else if (s.scoreLevel === 'aab') unis3 = 'Go8 + UTS';
+        else if (s.scoreLevel === 'abb') unis3 = 'UTS/RMIT + 部分Go8';
+        else unis3 = 'UTS/RMIT';
+      }
 
       paths.push({
-        name: 'A-Level 路径', icon: '🇬🇧', match: match,
-        desc: '通过 GCE A-Level 考试申请香港大学。可在国际学校、新加坡 JC 或培训机构学习。全球认可度最高的国际考试之一。',
+        name: 'A-Level 路径', icon: '🇬🇧', match: match3,
+        desc: '全球认可度最高的国际课程之一，A*AA可申请所有Go8包括墨尔本大学。可在国际学校或新加坡JC学习。',
         duration: '2年（AS + A2）',
         cost: '约20-35万人民币/年',
-        unis: 'A*AA+: 港三 | AAB+: 港五 | BBB+: 港八',
-        difficulty: '★★★★',
-        steps: 4, activeSteps: s.examSys === 'alevel' ? 3 : 1,
-        timelineLabel: 'AS Level → A2 Level → 考试 → 申请',
-        pros: ['全球大学广泛认可', '可同时申请英国/香港/新加坡', '选科灵活，可扬长避短'],
+        unis: unis3,
+        difficulty: '★★★★☆',
+        pros: ['全球大学广泛认可', '可申请全部Go8含墨大', '选科灵活可扬长避短'],
         cons: ['考试难度较大', '英语要求高', '需2年全日制学习'],
         actions: ['选择A-Level学校或培训机构', '选择3-4门A-Level科目', '完成AS Level考试', '完成A2 Level考试', '用预估/实际成绩申请'],
       });
     }
 
-    /* 4. IB */
+    /* ── Path 4: IB 路径 ── */
     if (s.examSys === 'ib' || isEarly) {
-      var match = 55;
-      if (s.examSys === 'ib') match = 82;
-      else if (isEarly) match = 65;
-      if (s.english === 'excellent') match += 5;
-      match = Math.min(match, 99);
+      var match4 = 52;
+      if (s.examSys === 'ib') match4 = 80;
+      else if (isEarly) match4 = 62;
+      if (s.english === 'excellent') match4 += 5;
+      match4 = Math.min(match4, 99);
+
+      var unis4 = '40+: 全部Go8 | 36+: 大部分Go8 | 30+: UTS/RMIT';
+      if (s.examSys === 'ib') {
+        if (score >= 40) unis4 = '全部Go8（含墨尔本大学）';
+        else if (score >= 36) unis4 = '大部分Go8';
+        else if (score >= 33) unis4 = 'Go8 + UTS/RMIT';
+        else if (score >= 30) unis4 = 'UTS/RMIT + 部分Go8';
+        else unis4 = 'UTS/RMIT';
+      }
 
       paths.push({
-        name: 'IB 课程路径', icon: '🌍', match: match,
-        desc: 'IB 国际文凭课程，注重全面发展和批判性思维。香港大学对 IB 成绩认可度高，36+ 可申请港三。',
+        name: 'IB 课程路径', icon: '🌍', match: match4,
+        desc: 'IB 国际文凭课程，注重全面发展和批判性思维。澳洲大学对 IB 成绩认可度高，36+ 可申请大部分 Go8。',
         duration: '2年',
         cost: '约25-40万人民币/年（国际学校）',
-        unis: '40+: 港三 | 36+: 港五 | 30+: 港八',
+        unis: unis4,
         difficulty: '★★★★★',
-        steps: 4, activeSteps: s.examSys === 'ib' ? 3 : 1,
-        timelineLabel: 'IB DP1 → IB DP2 → 考试 → 申请',
-        pros: ['培养综合素质', '大学认可度极高', 'CAS活动丰富升学竞争力'],
+        pros: ['培养综合素质', '大学认可度极高', '可同时申请全球大学'],
         cons: ['课程负担最重', '需均衡发展各科', '学费通常较高'],
-        actions: ['进入 IB 学校', '选择 HL 和 SL 科目', '完成 EE、TOK 和 CAS', '参加 IB 大考', '用预估/最终成绩申请'],
+        actions: ['进入IB学校', '选择HL和SL科目', '完成EE、TOK和CAS', '参加IB大考', '用预估/最终成绩申请'],
       });
     }
 
-    /* 5. Associate Degree */
-    {
-      var match = 30;
-      if (score <= 560 || s.scoreLevel === 'bbb' || s.scoreLevel === '27' || s.scoreLevel === '70') match = 85;
-      else if (score <= 600 || s.scoreLevel === 'abb' || s.scoreLevel === '30' || s.scoreLevel === '80') match = 65;
-      else match = 35;
-      if (s.target === 'all' || s.target === 'unsure') match += 5;
-      match = Math.min(match, 99);
+    /* ── Path 5: 预科（Foundation）── ALWAYS shown */
+    (function() {
+      var match5 = 45;
+      if (['g11','g12'].indexOf(s.grade) >= 0) {
+        if (score <= 600 || s.scoreLevel === 'abb' || s.scoreLevel === 'bbb' || s.scoreLevel === '30' || s.scoreLevel === '27' || s.scoreLevel === '80' || s.scoreLevel === '75' || s.scoreLevel === '70') {
+          match5 = 85;
+        } else if (score <= 640 || s.scoreLevel === 'aab' || s.scoreLevel === '33' || s.scoreLevel === '85') {
+          match5 = 70;
+        } else {
+          match5 = 50;
+        }
+      }
+      if (s.grade === 'g10') match5 = 72;
+      if (s.grade === 'g9') match5 = 60;
+      if (s.target === 'go8') match5 += 5;
+      if (s.english === 'average' || s.english === 'none') match5 += 5;
+      match5 = Math.min(match5, 99);
 
       paths.push({
-        name: '副学士 2+2 途径', icon: '🔄', match: match,
-        desc: '先在港校读 2 年副学士课程，GPA 达标后升入八大本科三年级。最终获得与直入学生完全相同的学位。特别适合成绩暂时不够直申的学生。',
-        duration: '4年（2+2）',
-        cost: '约15-20万人民币/年',
-        unis: '升入八大本科三年级（GPA 3.0+ 升港五，GPA 3.5+ 升港三）',
-        difficulty: '★★',
-        steps: 5, activeSteps: 1,
-        timelineLabel: '申请 → 副学士Y1 → 副学士Y2 → 升本科 → 毕业',
-        pros: ['入学门槛低（二本线即可）', '最终学位与直入相同', '在港适应后再升学', '费用相对较低'],
-        cons: ['总时间 4 年', '需保持高 GPA 才能升学', '升学不是100%保证', '需自我驱动'],
-        actions: ['选择副学士课程（HKU SPACE / PolyU CPCE / CityU CCCU 等）', '准备申请材料并提交', '入学后保持 GPA 3.0 以上', '大二开始准备升学申请', '凭副学士 GPA 申请八大本科'],
+        name: '预科（Foundation）', icon: '📚', match: match5,
+        desc: '澳洲大学预科课程（Foundation），1年制，完成后直升本科大一。是进入墨尔本大学（Trinity College预科）的主要途径之一。适合高二/高三在读或高考未达直录要求的学生。',
+        duration: '8-15个月（根据预科类型）',
+        cost: '约20-30万人民币/年',
+        unis: '八大均有对应预科，完成后直升本校本科',
+        difficulty: '★★☆☆☆',
+        pros: ['入学门槛低（高二即可申请）', '直升对应大学本科', '唯一进入墨大的高考替代路径', '适应澳洲教学模式'],
+        cons: ['额外花费1年时间', '需达到预科GPA要求才能升学', '费用不菲'],
+        actions: ['选择目标大学的预科项目', '准备雅思5.5+', '提交申请', '完成预科学习', '凭预科成绩升入本科'],
       });
-    }
+    })();
 
-    /* 6. HKDSE (if relevant) */
-    if (s.location === 'hk' || s.examSys === 'hkdse') {
-      var match = 70;
-      if (s.examSys === 'hkdse') match = 90;
-      if (s.location !== 'hk') match -= 20;
-      match = Math.min(match, 99);
+    /* ── Path 6: Diploma快捷课程（进大二）── */
+    (function() {
+      var match6 = 40;
+      if (score >= 560 && score <= 640) match6 = 72;
+      else if (s.scoreLevel === 'aab' || s.scoreLevel === 'abb') match6 = 70;
+      else if (s.scoreLevel === '33' || s.scoreLevel === '30') match6 = 68;
+      else if (s.scoreLevel === '85' || s.scoreLevel === '80') match6 = 70;
+      else if (s.scoreLevel === '75') match6 = 65;
+      else if (s.scoreLevel === 'good' || s.scoreLevel === 'mid') match6 = 68;
+
+      if (['g11','g12','grad'].indexOf(s.grade) >= 0) match6 += 8;
+      if (s.target === 'go8plus' || s.target === 'all') match6 += 5;
+      if (s.target === 'go8') match6 -= 10;
+      match6 = Math.max(Math.min(match6, 99), 15);
 
       paths.push({
-        name: 'HKDSE 路径', icon: '🇭🇰', match: match,
-        desc: '参加香港中学文凭试（DSE），这是本地升学的主要途径。非港籍学生也可以作为自修生报考。',
-        duration: '1.5-2年',
-        cost: '约10-20万人民币/年',
-        unis: 'DSE 25+: 港三 | DSE 20+: 港五 | DSE 15+: 港八',
-        difficulty: '★★★★',
-        steps: 4, activeSteps: s.examSys === 'hkdse' ? 3 : 1,
-        timelineLabel: '准备 → 模拟考 → DSE 大考 → JUPAS 放榜',
-        pros: ['本地认可度最高', 'JUPAS 直接录取', '考试科目与内地有重叠'],
-        cons: ['非港生需自行报考', '中文科目有难度', '竞争激烈'],
-        actions: ['确认 DSE 报考资格', '选择核心+选修科目', '参加补习或自修备考', '参加 DSE 考试', '通过 JUPAS 或 Non-JUPAS 申请'],
+        name: 'Diploma快捷课程（进大二）', icon: '⚡', match: match6,
+        desc: '大学快捷文凭课程（Diploma），1年完成后直接进入本科大二。比预科节省1年时间。部分Go8（莫纳什、UNSW、UWA、阿德）和UTS提供此途径。',
+        duration: '8-12个月',
+        cost: '约20-30万人民币/年',
+        unis: 'Monash/UNSW/UWA/Adelaide/UTS',
+        difficulty: '★★★☆☆',
+        pros: ['省1年时间（直进大二）', '入学要求比直录低', '小班教学更多支持'],
+        cons: ['不是所有大学/专业都有', '墨大/悉大/ANU无此选项', '专业选择受限'],
+        actions: ['确认目标大学是否有Diploma课程', '准备雅思6.0+', '申请Diploma', '完成后升入本科大二'],
+      });
+    })();
+
+    /* ── Path 7: 海外分校（低成本方案）── */
+    if (s.budget === 'low' || s.budget === 'unsure' ||
+        (s.examSys === 'gaokao' && score <= 560) ||
+        s.scoreLevel === 'bbb' || s.scoreLevel === '27' || s.scoreLevel === '70' || s.scoreLevel === 'low') {
+      var match7 = 35;
+      if (s.budget === 'low') match7 = 78;
+      else if (s.budget === 'unsure') match7 = 55;
+      if (score <= 560 || s.scoreLevel === 'bbb' || s.scoreLevel === '27' || s.scoreLevel === '70' || s.scoreLevel === 'low') match7 += 10;
+      match7 = Math.min(match7, 99);
+
+      paths.push({
+        name: '海外分校（低成本方案）', icon: '🌏', match: match7,
+        desc: '在莫纳什马来西亚/印尼分校或RMIT越南分校就读，学费仅为澳洲本校的1/3-1/2，毕业获同等学位。适合预算有限的学生。',
+        duration: '3-4年',
+        cost: '约8-15万人民币/年',
+        unis: 'Monash马来西亚/印尼, RMIT越南',
+        difficulty: '★★☆☆☆',
+        pros: ['学费仅为澳洲本校1/3-1/2', '毕业获同等学位', '生活成本更低', '入学门槛较低'],
+        cons: ['校园体验与本校不同', '专业选择有限', '就业网络以当地为主', '部分雇主可能区别看待'],
+        actions: ['了解莫纳什马来西亚/RMIT越南的专业设置', '准备雅思5.5-6.0', '提交申请', '办理当地签证'],
       });
     }
 
@@ -1178,6 +1326,5 @@
     return paths;
   }
   </script>
-
 </body>
 </html>

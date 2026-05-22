@@ -253,5 +253,8 @@
   <url><loc>https://seda.org.sg/au-university/monash/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://seda.org.sg/au-university/uwa/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://seda.org.sg/au-university/adelaide/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/au-university/overseas-campuses/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/au-university/monash/malaysia/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/au-university/monash/indonesia/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
 
 </urlset>

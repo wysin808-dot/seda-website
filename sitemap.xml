@@ -257,4 +257,8 @@
   <url><loc>https://seda.org.sg/au-university/monash/malaysia/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://seda.org.sg/au-university/monash/indonesia/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
 
+  <!-- 澳洲其他名校 -->
+  <url><loc>https://seda.org.sg/au-university/uts/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/au-university/rmit/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
 </urlset>

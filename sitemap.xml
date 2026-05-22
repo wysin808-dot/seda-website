@@ -262,5 +262,6 @@
   <url><loc>https://seda.org.sg/au-university/rmit/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <!-- 澳洲大学 AI 工具 -->
   <url><loc>https://seda.org.sg/au-university/matcher/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seda.org.sg/au-university/planner/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
 
 </urlset>

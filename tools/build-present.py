@@ -205,9 +205,9 @@ def process_tool(tool):
     # 15. Remove seda-site.js reference (not needed, nav logic not needed)
     html = re.sub(r'\s*<script src="/seda-site\.js"[^>]*></script>', '', html)
 
-    # 16. Remove seda-site.css reference (self-contained pages have inline styles)
-    # Only remove if the page has its own <style> block (self-contained)
-    if '<style>' in html:
+    # 16. Remove seda-site.css only if the page defines its own :root (fully self-contained)
+    # Pages WITHOUT :root depend on seda-site.css for CSS variables (--brand, --wash, etc.)
+    if ':root' in html:
         html = re.sub(r'\s*<link rel="stylesheet" href="/seda-site\.css"\s*/>', '', html)
 
     with open(dest_path, "w", encoding="utf-8") as f:

@@ -2111,6 +2111,343 @@ details summary:focus-visible {
   color: var(--deep);
 }
 
+/* ══════════════════════════════════════════════════════
+   Mobile Responsiveness — Comprehensive
+   ══════════════════════════════════════════════════════ */
+
+/* ── Data Table Mobile Overflow ── */
+.table-wrap {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin: 24px 0;
+}
+
+.table-wrap .data-table {
+  margin: 0;
+  min-width: 600px;
+}
+
+@media (max-width: 680px) {
+  .data-table {
+    font-size: 13px;
+  }
+
+  .data-table th,
+  .data-table td {
+    padding: 10px 12px;
+  }
+}
+
+/* ── HK University Detail Pages — Sidebar ── */
+.sidebar {
+  display: grid;
+  gap: 20px;
+  align-self: start;
+}
+
+.sidebar .sidebar-card {
+  padding: 20px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: #fff;
+  box-shadow: var(--shadow-sm);
+}
+
+.sidebar .sidebar-card h3 {
+  margin: 0 0 14px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--brand);
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.sidebar .sidebar-card ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sidebar .sidebar-card li {
+  border-bottom: 1px solid var(--line);
+}
+
+.sidebar .sidebar-card li:last-child {
+  border-bottom: 0;
+}
+
+.sidebar .sidebar-card li a {
+  display: block;
+  padding: 10px 0;
+  color: #344054;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.45;
+  transition: color 0.2s var(--ease);
+}
+
+.sidebar .sidebar-card li a:hover {
+  color: var(--brand);
+}
+
+.sidebar .cta-card {
+  background: linear-gradient(135deg, var(--brand) 0%, var(--brand-strong) 100%);
+  color: #fff;
+  text-align: center;
+}
+
+.sidebar .cta-card h3 {
+  color: #fff;
+  border-bottom-color: rgba(255,255,255,0.3);
+}
+
+.sidebar .cta-card p {
+  margin: 0 0 14px;
+  color: rgba(255,255,255,0.8);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.sidebar .cta-card .btn {
+  display: inline-block;
+  padding: 10px 24px;
+  background: #fff;
+  color: var(--brand);
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 14px;
+  transition: all 0.2s var(--ease);
+}
+
+.sidebar .cta-card .btn:hover {
+  background: var(--brand-light);
+  text-decoration: none;
+}
+
+/* ── HK University Detail Pages — Footer Grid ── */
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 0 24px;
+  text-align: left;
+}
+
+.footer-grid h4 {
+  margin: 0 0 12px;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.footer-grid p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.footer-grid ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.footer-grid li {
+  margin-bottom: 6px;
+}
+
+.footer-grid a {
+  color: var(--muted);
+  font-size: 13px;
+  transition: color 0.2s var(--ease);
+}
+
+.footer-grid a:hover {
+  color: var(--brand);
+}
+
+.copyright {
+  margin: 0;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+  text-align: center;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+/* ── FAQ Section inside content (HK detail pages) ── */
+.content-main .faq-section {
+  margin-top: 48px;
+}
+
+.content-main .faq-section h2 {
+  margin-top: 0;
+}
+
+.content-main .faq-section details {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  margin-bottom: 8px;
+  overflow: hidden;
+}
+
+.content-main .faq-section summary {
+  padding: 16px 20px;
+  font-weight: 700;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background 0.2s var(--ease);
+}
+
+.content-main .faq-section summary:hover {
+  background: #fef8f8;
+}
+
+.content-main .faq-section details[open] summary {
+  background: var(--brand-light);
+  color: var(--brand);
+}
+
+.content-main .faq-section details p {
+  padding: 0 20px 16px;
+  margin: 0;
+}
+
+/* ── Mobile Touch Targets ── */
+@media (max-width: 680px) {
+  .main-nav > a,
+  .main-nav > .nav-group {
+    min-height: 48px;
+  }
+
+  .mega-dropdown a {
+    min-height: 44px;
+    padding: 12px 20px;
+  }
+
+  .faq-list summary {
+    min-height: 52px;
+    padding: 16px 20px;
+    font-size: 16px;
+  }
+
+  .breadcrumb {
+    padding: 10px 16px;
+    font-size: 12px;
+  }
+
+  .breadcrumb::before {
+    display: none;
+  }
+
+  .page-hero {
+    padding: 32px 20px 28px;
+  }
+
+  .page-hero h1 {
+    font-size: 26px;
+  }
+
+  .page-hero .hero-subtitle {
+    font-size: 15px;
+  }
+
+  /* Better spacing for content */
+  .content-layout {
+    padding: 24px 16px;
+    gap: 32px;
+  }
+
+  .content-main h2 {
+    margin-top: 36px;
+    font-size: 22px;
+  }
+
+  .content-main h3 {
+    font-size: 18px;
+  }
+
+  .content-main p,
+  .content-main ul,
+  .content-main ol {
+    font-size: 15px;
+  }
+
+  /* Sidebar stacks below content on mobile */
+  .sidebar {
+    position: static;
+  }
+
+  /* Footer grid stacks */
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  .site-footer {
+    padding: 28px 16px;
+  }
+
+  /* Hide trending bar on small screens */
+  .trending-bar {
+    display: none;
+  }
+
+  /* WeChat float - compact */
+  .wechat-float {
+    bottom: 16px;
+    right: 16px;
+    padding: 12px 16px;
+    font-size: 14px;
+  }
+
+  /* Info box mobile */
+  .info-box {
+    padding: 16px;
+    margin: 16px 0;
+  }
+
+  /* Stats bar mobile */
+  .stats-row {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  /* VS grid */
+  .vs-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 400px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .brand-word {
+    font-size: 24px;
+  }
+
+  .header-main {
+    padding: 10px 12px;
+  }
+
+  h1 {
+    font-size: 28px;
+  }
+
+  .hero-subtitle {
+    font-size: 16px;
+  }
+}
+
+/* ── Body Lock When Nav Open ── */
+body.nav-drawer-open {
+  overflow: hidden;
+}
+
 /* ── Print Styles ── */
 @media print {
   .site-header, .wechat-float, .sidebar-cta, .contact-section, .menu-toggle {

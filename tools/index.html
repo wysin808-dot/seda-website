@@ -46,13 +46,11 @@
     .present-brand-sub {
       font-size: 13px; font-weight: 600; color: var(--muted);
     }
-    .present-badge {
-      font-size: 11px; font-weight: 700;
-      padding: 5px 14px; border-radius: 100px;
-      background: #fef3c7; color: #92400e;
-      border: 1px solid #fde68a;
-      letter-spacing: 0.04em;
+    .present-back {
+      font-size: 13px; font-weight: 600;
+      color: var(--muted); text-decoration: none;
     }
+    .present-back:hover { color: var(--brand); }
 
     .hub-hero {
       background: linear-gradient(135deg, #2a1215 0%, #1a0a0c 100%);
@@ -148,7 +146,7 @@
       .tool-card { padding: 16px; gap: 12px; }
       .tool-icon { width: 44px; height: 44px; font-size: 24px; }
       .tool-name { font-size: 15px; }
-      .present-badge { display: none; }
+      .present-back { display: none; }
     }
   </style>
 </head>
@@ -160,13 +158,13 @@
       <span class="present-brand-word">SEDA</span>
       <span class="present-brand-sub">新加坡国际教育中心</span>
     </div>
-    <div class="present-badge">顾问演示模式</div>
+    <a href="/tools/" class="present-back">← 全部工具</a>
   </div>
 </header>
 
 <div class="hub-hero">
   <h1>SEDA <em>AI 升学工具</em></h1>
-  <p>顾问专用工具集 — 面对面为学生家长展示智能升学分析</p>
+  <p>AI 驱动的升学分析工具，助你找到最适合的学校与路径</p>
 </div>
 
 <div class="hub-section">
@@ -230,7 +228,7 @@
 </div>
 
 <footer class="present-footer">
-  <p>SEDA 新加坡国际教育中心 &copy; 2024–2026 &nbsp;|&nbsp; 仅供内部顾问使用</p>
+  <p>SEDA 新加坡国际教育中心 &copy; 2024–2026</p>
 </footer>
 
 </body>

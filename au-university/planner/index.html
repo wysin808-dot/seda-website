@@ -43,184 +43,564 @@
   </script>
 
   <style>
-    :root {
-      --brand: #c62828; --brand-light: #fca5a5; --ink: #1a1a2e; --muted: #6b7280;
-      --wash: #f8f9fa; --line: #e5e7eb; --radius: 16px;
-      --shadow: 0 2px 12px rgba(0,0,0,0.06); --shadow-lg: 0 8px 32px rgba(0,0,0,0.10);
-      --purple: #c62828; --purple-light: #fef2f2;
-    }
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans SC", sans-serif; color: var(--ink); background: #fff; line-height: 1.6; -webkit-font-smoothing: antialiased; }
-    a { color: var(--brand); text-decoration: none; } a:hover { text-decoration: underline; }
-
-    .site-header { border-bottom: 1px solid var(--line); background: #fff; position: sticky; top: 0; z-index: 100; }
-    .header-main { display: flex; align-items: center; gap: 24px; padding: 12px clamp(20px,6vw,80px); max-width: 1400px; margin: 0 auto; }
-    .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--ink); }
-    .brand-word { font-size: 22px; font-weight: 900; color: var(--brand); letter-spacing: -0.5px; }
-    .brand-copy strong { font-size: 13px; display: block; color: var(--ink); }
-    .brand-copy small { font-size: 11px; color: var(--muted); }
-    .main-nav { display: flex; flex-wrap: wrap; gap: 4px; flex: 1; font-size: 13px; font-weight: 500; }
-    .nav-group { position: relative; padding: 6px 10px; border-radius: 6px; cursor: pointer; white-space: nowrap; }
-    .nav-group:hover { background: var(--wash); }
-    .mega-dropdown { display: none; position: absolute; top: 100%; left: 0; background: #fff; border: 1px solid var(--line); border-radius: 10px; padding: 12px; min-width: 200px; box-shadow: var(--shadow-lg); z-index: 200; }
-    .nav-group:hover .mega-dropdown { display: flex; flex-direction: column; gap: 6px; }
-    .mega-dropdown a { padding: 6px 10px; border-radius: 6px; font-size: 13px; color: var(--ink); white-space: nowrap; }
-    .mega-dropdown a:hover { background: var(--wash); text-decoration: none; color: var(--brand); }
-    .nav-cta { margin-left: auto; padding: 8px 18px; background: var(--brand); color: #fff; border-radius: 8px; font-size: 13px; font-weight: 600; white-space: nowrap; text-decoration: none; transition: background 0.2s; }
-    .nav-cta:hover { background: #a71d1d; text-decoration: none; }
-    .trending-bar { display: flex; align-items: center; gap: 12px; padding: 6px clamp(20px,6vw,80px); background: var(--wash); font-size: 12px; color: var(--muted); overflow-x: auto; white-space: nowrap; }
-    .trending-bar a { color: var(--ink); padding: 3px 10px; border-radius: 100px; background: #fff; border: 1px solid var(--line); font-size: 11px; }
-    .trending-bar a:hover { border-color: var(--brand); color: var(--brand); text-decoration: none; }
-    .breadcrumb { padding: 12px clamp(20px,6vw,80px); font-size: 12px; color: var(--muted); }
-    .breadcrumb a { color: var(--muted); } .breadcrumb a:hover { color: var(--brand); }
-
-    .page-hero {
+    /* ── Planner Tool Styles (SEDA theme) ── */
+    .planner-hero {
       background: linear-gradient(135deg, #2a1215 0%, #1a0a0c 100%);
-      color: #fff; padding: 56px clamp(20px,6vw,80px) 48px;
-      border-radius: var(--radius); margin: 0 clamp(20px,6vw,80px) 32px;
-      position: relative; overflow: hidden;
+      color: #fff;
+      padding: 56px clamp(20px, 6vw, 80px) 48px;
+      border-radius: var(--radius);
+      margin: 0 clamp(20px, 6vw, 80px) 32px;
+      position: relative;
+      overflow: hidden;
     }
-    .page-hero::before { content: ""; position: absolute; top: -60px; right: -60px; width: 400px; height: 400px; background: radial-gradient(circle, rgba(198,40,40,0.25), transparent 70%); border-radius: 50%; filter: blur(80px); pointer-events: none; }
-    .eyebrow { display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px; border: 1px solid rgba(255,255,255,0.15); border-radius: 100px; font-size: 12px; font-weight: 600; color: #fca5a5; margin-bottom: 20px; background: rgba(198,40,40,0.15); }
-    .eyebrow::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: #ef4444; box-shadow: 0 0 12px #ef4444; animation: pulse 2s infinite; }
+    .planner-hero::before {
+      content: "";
+      position: absolute; top: 0; right: 0;
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(198,40,40,0.25), transparent 70%);
+      border-radius: 50%;
+      filter: blur(80px);
+      pointer-events: none;
+    }
+    .planner-hero .eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 6px 14px;
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 100px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      color: #fca5a5;
+      margin-bottom: 20px;
+      background: rgba(198,40,40,0.15);
+    }
+    .planner-hero .eyebrow::before {
+      content: ""; width: 6px; height: 6px;
+      border-radius: 50%;
+      background: #ef4444;
+      box-shadow: 0 0 12px #ef4444;
+      animation: pulse 2s infinite;
+    }
     @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
-    .page-hero h1 { font-size: clamp(26px,4vw,40px); font-weight: 800; line-height: 1.15; margin-bottom: 16px; }
-    .page-hero h1 em { font-style: normal; color: #fca5a5; }
-    .page-hero .lead { font-size: 15px; color: rgba(255,255,255,0.7); line-height: 1.6; max-width: 560px; }
-
-    .tool-wrap { max-width: 800px; margin: 0 auto 48px; padding: 0 clamp(20px,6vw,80px); }
-    .tool-card { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow-lg); overflow: hidden; }
-    .tool-header { padding: 20px 24px; background: var(--purple-light); border-bottom: 1px solid var(--line); }
-    .tool-header h2 { font-size: 16px; font-weight: 700; color: var(--purple); }
-    .tool-header p { font-size: 13px; color: var(--muted); }
-    .tool-body { padding: 24px; }
-
-    .step-indicator { display: flex; gap: 8px; margin-bottom: 20px; }
-    .step-dot { width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; background: var(--line); color: var(--muted); }
-    .step-dot.active { background: var(--purple); color: #fff; }
-    .step-dot.done { background: #16a34a; color: #fff; }
-
-    .form-group { margin-bottom: 16px; }
-    .form-group label { display: block; font-size: 13px; font-weight: 600; margin-bottom: 6px; }
-    .form-group select, .form-group input {
-      width: 100%; padding: 10px 14px; border: 1px solid var(--line); border-radius: 8px;
-      font-size: 14px; background: #fff; color: var(--ink);
+    .planner-hero h1 {
+      font-size: clamp(28px, 4vw, 42px);
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 16px;
+      position: relative;
     }
-    .form-group select:focus, .form-group input:focus { outline: none; border-color: var(--purple); box-shadow: 0 0 0 3px rgba(198,40,40,0.1); }
-    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-
-    .btn-primary {
-      width: 100%; padding: 14px; background: var(--purple); color: #fff; border: none;
-      border-radius: 10px; font-size: 15px; font-weight: 700; cursor: pointer; transition: background 0.2s;
+    .planner-hero h1 em { font-style: normal; color: #fca5a5; }
+    .planner-hero .lead {
+      font-size: 16px;
+      color: rgba(255,255,255,0.7);
+      line-height: 1.6;
+      max-width: 560px;
+      margin-bottom: 28px;
     }
-    .btn-primary:hover { background: #a71d1d; }
-    .btn-back { background: none; border: 1px solid var(--line); color: var(--muted); padding: 10px 20px; border-radius: 8px; cursor: pointer; font-size: 13px; margin-bottom: 16px; }
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      max-width: 420px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+    .stat-num {
+      font-size: 32px; font-weight: 800; color: #fff; line-height: 1;
+    }
+    .stat-label {
+      font-size: 11px; color: rgba(255,255,255,0.5); margin-top: 4px; text-transform: uppercase; letter-spacing: 0.06em;
+    }
+
+    /* ── Planner Card ── */
+    .planner-wrap {
+      padding: 0 clamp(20px, 6vw, 80px) 40px;
+    }
+    .planner {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+    .planner-tabs {
+      display: flex;
+      border-bottom: 1px solid var(--line);
+      padding: 0 24px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--muted);
+      background: var(--wash);
+    }
+    .planner-tab {
+      padding: 16px 18px;
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      transition: all 0.2s;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .planner-tab.active { color: var(--brand); border-bottom-color: var(--brand); }
+    .planner-tab:hover:not(.active) { color: var(--ink); }
+    .planner-tab .step-num {
+      width: 20px; height: 20px;
+      border-radius: 50%;
+      border: 1.5px solid currentColor;
+      display: inline-flex; align-items: center; justify-content: center;
+      font-size: 11px; font-weight: 700;
+    }
+    .planner-body { padding: 32px; }
+    @media (max-width: 720px) { .planner-body { padding: 20px; } }
+    .planner-q {
+      font-size: 20px; font-weight: 700; color: var(--ink); margin-bottom: 20px;
+    }
+    .planner-q em { font-style: normal; color: var(--brand); }
     .hidden { display: none !important; }
 
-    .loading-wrap { text-align: center; padding: 60px 20px; }
-    .loading-dots { display: flex; justify-content: center; gap: 8px; margin-bottom: 16px; }
-    .loading-dots span { width: 12px; height: 12px; border-radius: 50%; background: var(--purple); animation: bounce 1.4s ease-in-out infinite; }
-    .loading-dots span:nth-child(2) { animation-delay: 0.2s; }
-    .loading-dots span:nth-child(3) { animation-delay: 0.4s; }
-    @keyframes bounce { 0%,80%,100%{transform:scale(0)} 40%{transform:scale(1)} }
-    .loading-text { font-size: 15px; font-weight: 600; color: var(--purple); }
-    .loading-sub { font-size: 12px; color: var(--muted); margin-top: 4px; }
-
-    /* Results */
-    .results-wrap { max-width: 900px; margin: 0 auto 48px; padding: 0 clamp(20px,6vw,80px); }
-    .profile-card {
-      background: linear-gradient(135deg, #2a1215, #1a0a0c); color: #fff;
-      border-radius: var(--radius); padding: 24px; margin-bottom: 24px;
+    /* ── Selects & Inputs ── */
+    .planner-select {
+      width: 100%;
+      padding: 12px 14px;
+      background: var(--wash);
+      border: 1.5px solid var(--line);
+      border-radius: 8px;
+      color: var(--ink);
+      font-family: inherit;
+      font-size: 15px;
+      font-weight: 500;
+      appearance: none;
+      -webkit-appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23999' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      cursor: pointer;
     }
-    .profile-card h2 { font-size: 18px; font-weight: 700; margin-bottom: 12px; }
-    .profile-tags { display: flex; flex-wrap: wrap; gap: 8px; }
-    .profile-tag { font-size: 12px; padding: 4px 12px; border-radius: 100px; background: rgba(255,255,255,0.15); color: rgba(255,255,255,0.9); }
+    .planner-select:focus {
+      outline: none;
+      border-color: var(--brand);
+      box-shadow: 0 0 0 3px rgba(198,40,40,0.1);
+    }
+    .input-group { margin-bottom: 16px; }
+    .input-group label {
+      font-size: 12px; font-weight: 600;
+      color: var(--muted);
+      display: block;
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .input-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+    @media (max-width: 540px) { .input-row { grid-template-columns: 1fr; } }
 
+    /* ── Actions ── */
+    .planner-actions {
+      display: flex; gap: 10px;
+      margin-top: 24px;
+      padding-top: 20px;
+      border-top: 1px solid var(--line);
+    }
+    .btn-p-primary {
+      padding: 12px 24px;
+      background: var(--brand);
+      color: #fff;
+      border: none;
+      border-radius: 100px;
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.18s;
+      display: inline-flex; align-items: center; gap: 6px;
+    }
+    .btn-p-primary:hover { background: #a71d1d; transform: translateY(-1px); }
+    .btn-p-secondary {
+      padding: 12px 20px;
+      background: transparent;
+      color: var(--muted);
+      border: 1.5px solid var(--line);
+      border-radius: 100px;
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.18s;
+    }
+    .btn-p-secondary:hover { border-color: var(--ink); color: var(--ink); }
+
+    /* ── AI Thinking ── */
+    .ai-thinking {
+      padding: 32px;
+      text-align: center;
+      background: var(--wash);
+      border-top: 1px solid var(--line);
+      display: none;
+    }
+    .ai-thinking.show { display: block; }
+    .thinking-dots {
+      display: inline-flex; gap: 6px;
+      margin-bottom: 12px;
+    }
+    .thinking-dots span {
+      width: 8px; height: 8px;
+      background: var(--brand);
+      border-radius: 50%;
+      animation: dotPulse 1.4s infinite ease-in-out;
+    }
+    .thinking-dots span:nth-child(2) { animation-delay: 0.2s; }
+    .thinking-dots span:nth-child(3) { animation-delay: 0.4s; }
+    @keyframes dotPulse {
+      0%, 60%, 100% { transform: scale(0.5); opacity: 0.4; }
+      30% { transform: scale(1); opacity: 1; }
+    }
+    .thinking-text { font-size: 13px; color: var(--muted); }
+
+    /* ── Result Panel ── */
+    .result-panel {
+      padding: 28px 32px;
+      border-top: 1px solid var(--line);
+      display: none;
+    }
+    .result-panel.show { display: block; }
+
+    /* ── Summary Card ── */
+    .result-summary {
+      background: linear-gradient(135deg, #fef2f2 0%, #fff7ed 100%);
+      border: 1.5px solid rgba(198,40,40,0.15);
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin-bottom: 24px;
+    }
+    .result-summary h3 {
+      font-size: 18px; font-weight: 800; color: var(--ink); margin-bottom: 8px;
+    }
+    .result-summary-meta {
+      display: flex; gap: 20px; flex-wrap: wrap;
+      font-size: 13px; color: var(--muted); line-height: 1.6;
+    }
+    .result-summary-meta strong { color: var(--ink); }
+
+    /* ── China Advice Card ── */
+    .china-advice-card {
+      display: flex; gap: 18px; align-items: flex-start;
+      background: linear-gradient(135deg, #eff6ff 0%, #f0fdf4 100%);
+      border: 2px solid #93c5fd;
+      border-radius: 14px; padding: 22px 24px; margin-bottom: 24px;
+      position: relative; overflow: hidden;
+    }
+    .china-advice-card::before {
+      content: ""; position: absolute; top: -20px; right: -20px;
+      width: 120px; height: 120px;
+      background: radial-gradient(circle, rgba(59,130,246,0.1), transparent 70%);
+      border-radius: 50%; pointer-events: none;
+    }
+    .china-advice-icon { font-size: 36px; flex-shrink: 0; margin-top: 2px; }
+    .china-advice-body h4 {
+      font-size: 16px; font-weight: 800; color: #1e40af; margin-bottom: 10px;
+    }
+    .china-advice-body p {
+      font-size: 13px; color: #374151; line-height: 1.7; margin-bottom: 8px;
+    }
+    .china-advice-body p strong { color: #1e40af; }
+    .china-advice-body ul {
+      list-style: none; padding: 0; margin: 0 0 6px;
+    }
+    .china-advice-body ul li {
+      font-size: 13px; color: #374151; line-height: 1.7;
+      padding: 5px 0 5px 20px; position: relative;
+      border-bottom: 1px solid rgba(147,197,253,0.3);
+    }
+    .china-advice-body ul li:last-child { border-bottom: none; }
+    .china-advice-body ul li::before {
+      content: "\2713"; position: absolute; left: 0; color: #059669; font-weight: 700;
+    }
+    .china-advice-body ul li strong { color: #1e3a5f; }
+    .china-advice-body a { color: #2563eb; font-weight: 600; font-size: 13px; }
+    .china-advice-body a:hover { color: #1d4ed8; }
+
+    /* ── Pathway Cards ── */
+    .pathway-grid {
+      display: grid;
+      gap: 16px;
+    }
     .pathway-card {
-      border: 1px solid var(--line); border-radius: var(--radius); padding: 24px; margin-bottom: 16px;
-      position: relative; overflow: hidden; transition: box-shadow 0.2s;
+      background: #fff;
+      border: 1.5px solid var(--line);
+      border-radius: 12px;
+      padding: 24px;
+      transition: border-color 0.2s, box-shadow 0.2s;
     }
-    .pathway-card:hover { box-shadow: var(--shadow); }
-    .pathway-card::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 4px; }
-    .pathway-card.recommended::before { background: var(--purple); }
-    .pathway-card.good::before { background: #16a34a; }
-    .pathway-card.alternative::before { background: #d97706; }
+    .pathway-card:hover { border-color: #fca5a5; box-shadow: 0 4px 16px rgba(198,40,40,0.08); }
+    .pathway-card.recommended {
+      border-color: rgba(198,40,40,0.3);
+      box-shadow: 0 2px 12px rgba(198,40,40,0.1);
+    }
+    .pathway-head {
+      display: flex; justify-content: space-between; align-items: flex-start;
+      margin-bottom: 12px; gap: 12px;
+    }
+    .pathway-name {
+      font-size: 18px; font-weight: 800; color: var(--ink);
+    }
+    .pathway-name small {
+      display: block; font-size: 13px; font-weight: 400; color: var(--muted); margin-top: 2px;
+    }
+    .pathway-badge {
+      font-size: 11px; font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 100px;
+      white-space: nowrap;
+      letter-spacing: 0.03em;
+      flex-shrink: 0;
+    }
+    .badge-strong-rec { background: #dcfce7; color: #166534; border: 1px solid #86efac; }
+    .badge-rec { background: #dbeafe; color: #1e40af; border: 1px solid #93c5fd; }
+    .badge-feasible { background: #fef3c7; color: #92400e; border: 1px solid #fcd34d; }
+    .badge-hard { background: #ffedd5; color: #9a3412; border: 1px solid #fdba74; }
+    .badge-not-rec { background: #f3f4f6; color: #6b7280; border: 1px solid #d1d5db; }
 
-    .pathway-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
-    .pathway-name { font-size: 17px; font-weight: 700; }
-    .pathway-badge { font-size: 12px; font-weight: 600; padding: 4px 12px; border-radius: 100px; }
-    .badge-rec { background: var(--purple-light); color: var(--purple); }
-    .badge-good { background: #dcfce7; color: #16a34a; }
-    .badge-alt { background: #fef3c7; color: #d97706; }
-
-    .pathway-desc { font-size: 13px; color: var(--muted); margin-bottom: 14px; line-height: 1.7; }
-    .pathway-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 14px; }
+    .pathway-years {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 13px; font-weight: 600; color: var(--brand);
+      margin-bottom: 14px;
+      padding: 4px 12px;
+      background: var(--brand-light);
+      border-radius: 100px;
+    }
+    .pathway-desc {
+      font-size: 14px; color: var(--muted); line-height: 1.6; margin-bottom: 16px;
+    }
+    .pathway-detail-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+    @media (max-width: 540px) { .pathway-detail-grid { grid-template-columns: 1fr; } }
     .pathway-detail { font-size: 12px; }
-    .pathway-detail strong { display: block; font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 2px; }
+    .pathway-detail strong {
+      display: block; font-size: 11px; color: var(--muted);
+      text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 2px;
+    }
 
-    .timeline-bar { display: flex; align-items: center; gap: 4px; margin-bottom: 14px; }
-    .timeline-step { flex: 1; height: 6px; border-radius: 3px; background: var(--line); }
-    .timeline-step.active { background: var(--purple); }
-    .timeline-label { font-size: 11px; color: var(--muted); }
+    /* ── Timeline ── */
+    .timeline-wrap {
+      position: relative;
+      padding-left: 24px;
+      margin: 16px 0;
+    }
+    .timeline-wrap::before {
+      content: '';
+      position: absolute;
+      left: 7px; top: 8px; bottom: 8px;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--brand), rgba(198,40,40,0.15));
+      border-radius: 2px;
+    }
+    .timeline-item {
+      position: relative;
+      padding: 10px 0 14px;
+    }
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -21px; top: 14px;
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: #fff;
+      border: 2px solid var(--brand);
+    }
+    .timeline-item:first-child::before {
+      background: var(--brand);
+    }
+    .timeline-year {
+      font-size: 13px; font-weight: 700; color: var(--brand); margin-bottom: 4px;
+    }
+    .timeline-title {
+      font-size: 15px; font-weight: 700; color: var(--ink); margin-bottom: 6px;
+    }
+    .timeline-items {
+      list-style: none; padding: 0; margin: 0;
+    }
+    .timeline-items li {
+      font-size: 13px; color: var(--muted); line-height: 1.6;
+      padding-left: 16px;
+      position: relative;
+      margin-bottom: 2px;
+    }
+    .timeline-items li::before {
+      content: '\2022';
+      position: absolute; left: 0; color: var(--brand);
+    }
 
-    .pros-cons { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 14px; }
-    .pros li, .cons li { font-size: 12px; margin-bottom: 4px; line-height: 1.5; }
-    .pros { list-style: none; } .pros li::before { content: "✅ "; }
-    .cons { list-style: none; } .cons li::before { content: "⚠️ "; }
-    .pros-title, .cons-title { font-size: 12px; font-weight: 700; margin-bottom: 4px; }
+    /* ── Pros/Cons ── */
+    .pathway-proscons {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 14px;
+    }
+    @media (max-width: 540px) { .pathway-proscons { grid-template-columns: 1fr; } }
+    .proscons-col h5 {
+      font-size: 12px; font-weight: 700; color: var(--ink);
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .proscons-col.pros h5 { color: #166534; }
+    .proscons-col.cons h5 { color: #991b1b; }
+    .proscons-col ul {
+      list-style: none; padding: 0; margin: 0;
+    }
+    .proscons-col ul li {
+      font-size: 12px; color: var(--muted); line-height: 1.5;
+      padding: 3px 0 3px 18px;
+      position: relative;
+    }
+    .proscons-col.pros ul li::before {
+      content: '\2713'; position: absolute; left: 0; color: #16a34a; font-weight: 700;
+    }
+    .proscons-col.cons ul li::before {
+      content: '\2717'; position: absolute; left: 0; color: #dc2626; font-weight: 700;
+    }
 
-    .action-steps { background: var(--wash); border-radius: 10px; padding: 16px; }
+    /* ── BCI Promo ── */
+    .bci-promo {
+      margin-top: 16px;
+      padding: 16px 20px;
+      background: linear-gradient(135deg, #fef3c7 0%, #fff7ed 100%);
+      border: 1.5px solid #fcd34d;
+      border-radius: 10px;
+    }
+    .bci-promo strong {
+      font-size: 14px; color: #92400e; display: block; margin-bottom: 6px;
+    }
+    .bci-promo p {
+      font-size: 13px; color: #78350f; line-height: 1.6; margin-bottom: 8px;
+    }
+    .bci-promo a {
+      font-size: 13px; font-weight: 600; color: var(--brand);
+      text-decoration: none;
+    }
+    .bci-promo a:hover { text-decoration: underline; }
+
+    /* ── Action Steps ── */
+    .action-steps {
+      margin-top: 14px;
+      background: var(--wash);
+      border-radius: 10px;
+      padding: 16px;
+    }
     .action-steps h4 { font-size: 13px; font-weight: 700; margin-bottom: 8px; }
     .action-steps ol { padding-left: 20px; font-size: 12px; line-height: 1.8; }
 
-    .bci-promo {
-      background: linear-gradient(135deg, #eff6ff 0%, #faf5ff 100%);
-      border: 2px solid #93c5fd; border-radius: 12px; padding: 16px 20px; margin-top: 14px;
-      font-size: 13px; line-height: 1.7;
+    /* ── CTA Section ── */
+    .cta-section {
+      text-align: center; padding: 40px 20px;
+      background: var(--wash); border-radius: 12px; margin-top: 24px;
     }
-    .bci-promo strong { color: #1d4ed8; }
-
-    .china-advice-card {
-      display: flex; gap: 18px;
-      background: linear-gradient(135deg, #eff6ff 0%, #f0fdf4 100%);
-      border: 2px solid #93c5fd; border-radius: 14px; padding: 22px 24px; margin-bottom: 24px;
-    }
-    .china-advice-icon { font-size: 36px; flex-shrink: 0; }
-    .china-advice-card h3 { font-size: 16px; font-weight: 700; color: #1e40af; margin-bottom: 10px; }
-    .china-advice-list { list-style: none; font-size: 13px; line-height: 1.8; }
-    .china-advice-list li::before { content: "✅ "; }
-    .china-advice-link { display: inline-block; margin-top: 10px; padding: 8px 20px; background: #2563eb; color: #fff; border-radius: 8px; font-size: 13px; font-weight: 600; }
-    .china-advice-link:hover { background: #1d4ed8; text-decoration: none; }
-
-    .cta-section { text-align: center; padding: 40px 20px; background: var(--wash); border-radius: var(--radius); margin-bottom: 32px; }
     .cta-section h3 { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
     .cta-section p { font-size: 13px; color: var(--muted); margin-bottom: 16px; }
     .cta-buttons { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
-    .cta-buttons a { padding: 10px 24px; border-radius: 8px; font-weight: 600; font-size: 14px; }
-    .cta-btn-primary { background: var(--purple); color: #fff; } .cta-btn-primary:hover { background: #a71d1d; text-decoration: none; }
-    .cta-btn-secondary { background: #fff; color: var(--purple); border: 1px solid var(--purple); } .cta-btn-secondary:hover { background: var(--purple-light); text-decoration: none; }
+    .cta-buttons a {
+      padding: 10px 24px; border-radius: 8px; font-weight: 600; font-size: 14px;
+      text-decoration: none;
+    }
+    .cta-btn-primary { background: var(--brand); color: #fff; }
+    .cta-btn-primary:hover { background: #a71d1d; text-decoration: none; }
+    .cta-btn-secondary { background: #fff; color: var(--brand); border: 1px solid var(--brand); }
+    .cta-btn-secondary:hover { background: #fef2f2; text-decoration: none; }
 
-    .faq-list { max-width: 800px; margin: 0 auto 48px; padding: 0 clamp(20px,6vw,80px); }
-    .faq-title { font-size: 20px; font-weight: 800; margin-bottom: 16px; text-align: center; }
-    .faq-item { border: 1px solid var(--line); border-radius: 10px; margin-bottom: 8px; overflow: hidden; }
-    .faq-q { padding: 16px 20px; font-weight: 600; font-size: 14px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: #fff; }
-    .faq-q:hover { background: var(--wash); }
-    .faq-q::after { content: "▾"; font-size: 12px; color: var(--muted); transition: transform 0.2s; }
-    .faq-item.open .faq-q::after { transform: rotate(180deg); }
-    .faq-a { padding: 0 20px; max-height: 0; overflow: hidden; transition: max-height 0.3s, padding 0.3s; font-size: 13px; color: var(--muted); line-height: 1.7; }
-    .faq-item.open .faq-a { max-height: 300px; padding: 0 20px 16px; }
+    /* ── Lead Gate Modal ── */
+    .lead-overlay {
+      display: none; position: fixed; inset: 0; z-index: 9999;
+      background: rgba(0,0,0,0.55); backdrop-filter: blur(4px);
+      align-items: center; justify-content: center;
+    }
+    .lead-overlay.show { display: flex; }
+    .lead-modal {
+      background: #fff; border-radius: 16px; padding: 36px 32px;
+      max-width: 420px; width: 90%; box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+      text-align: center; position: relative;
+    }
+    .lead-close {
+      position: absolute; top: 12px; right: 14px;
+      background: none; border: none; font-size: 24px; color: var(--muted);
+      cursor: pointer; width: 32px; height: 32px; display: flex;
+      align-items: center; justify-content: center; border-radius: 50%;
+      transition: background .15s, color .15s;
+    }
+    .lead-close:hover { background: var(--wash); color: var(--ink); }
+    .lead-modal-icon { font-size: 40px; margin-bottom: 12px; }
+    .lead-modal h3 {
+      font-size: 20px; font-weight: 800; color: var(--ink); margin-bottom: 6px;
+    }
+    .lead-modal .lead-sub {
+      font-size: 13px; color: var(--muted); margin-bottom: 20px; line-height: 1.6;
+    }
+    .lead-submit {
+      width: 100%; padding: 12px; border: none; border-radius: 10px;
+      background: var(--brand); color: #fff; font-size: 16px; font-weight: 800;
+      cursor: pointer; margin-top: 8px; transition: background .2s;
+    }
+    .lead-submit:hover { background: #a31f1f; }
+    .lead-trust {
+      font-size: 11px; color: var(--muted); margin-top: 12px; line-height: 1.5;
+    }
+    .lead-trust span { color: var(--brand); font-weight: 600; }
 
-    .site-footer { border-top: 1px solid var(--line); padding: 32px clamp(20px,6vw,80px); text-align: center; font-size: 12px; color: var(--muted); }
-    .footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; margin-bottom: 12px; }
-    .footer-links a { color: var(--muted); } .footer-links a:hover { color: var(--brand); }
+    /* ── FAQ ── */
+    .tool-faq { padding: 40px clamp(20px, 6vw, 80px) 20px; }
+    .tool-faq h2 { font-size: 24px; font-weight: 800; margin-bottom: 20px; }
+    .tool-faq h2 em { font-style: normal; color: var(--brand); }
+    .faq-item {
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      margin-bottom: 8px;
+      overflow: hidden;
+      transition: border-color 0.2s;
+    }
+    .faq-item:hover { border-color: #fca5a5; }
+    .faq-q {
+      padding: 16px 20px;
+      font-weight: 600;
+      font-size: 15px;
+      color: var(--ink);
+      cursor: pointer;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .faq-q-toggle {
+      font-size: 20px; color: var(--brand); transition: transform 0.2s;
+      flex-shrink: 0; margin-left: 12px;
+    }
+    .faq-item.open .faq-q-toggle { transform: rotate(45deg); }
+    .faq-a {
+      display: none;
+      padding: 0 20px 16px;
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+    .faq-item.open .faq-a { display: block; }
 
-    @media (max-width: 768px) {
-      .page-hero { padding: 36px 20px 32px; margin: 0 12px 24px; }
-      .form-row { grid-template-columns: 1fr; }
-      .pathway-grid { grid-template-columns: 1fr; }
-      .pros-cons { grid-template-columns: 1fr; }
-      .china-advice-card { flex-direction: column; gap: 12px; }
-      .tool-wrap, .results-wrap, .faq-list { padding: 0 16px; }
+    .disclaimer {
+      margin-top: 12px;
+      padding: 0 clamp(20px, 6vw, 80px);
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    @media (max-width: 720px) {
+      .planner-hero { margin: 0 16px 24px; padding: 36px 20px 32px; border-radius: 12px; }
+      .planner-wrap, .tool-faq, .disclaimer { padding-left: 16px; padding-right: 16px; }
+      .hero-stats { grid-template-columns: repeat(3, 1fr); gap: 16px; }
+      .planner-tabs { font-size: 11px; padding: 0 12px; }
+      .planner-tab { padding: 12px 10px; }
+      .pathway-head { flex-direction: column; }
+      .result-panel { padding: 20px; }
     }
 
     /* ── Mobile Hamburger Nav ── */
@@ -273,7 +653,7 @@
         font-size: 14px;
       }
       .nav-group::after {
-        content: "›";
+        content: "\203A";
         margin-left: 6px;
         font-size: 16px;
         color: var(--muted);
@@ -304,103 +684,161 @@
   </style>
 </head>
 <body>
-
-<header class="site-header">
-  <div class="header-main">
-    <a class="brand" href="/"><span class="brand-word">SEDA</span><span class="brand-copy"><strong>新加坡国际教育中心</strong><small>Singapore Education Pathways</small></span></a>
-    <nav class="main-nav" aria-label="主导航">
-      <div class="nav-group">AEIS（政府学校）<div class="mega-dropdown"><a href="/aeis/">AEIS 考试攻略</a><a href="/aeis/preparation/">备考攻略</a><a href="/aeis/age-requirements/">年龄要求</a><a href="/aeis/timeline/">考试时间</a><a href="/government-schools/">政府学校指南</a><a href="/primary-schools/">小学数据库（179所）</a><a href="/aeis/grade-checker/">📋 年级测算工具</a></div></div>
-      <div class="nav-group">O-Level（中学）<div class="mega-dropdown"><a href="/o-level/">O-Level 考试攻略</a><a href="/o-level-schools/">O-Level 学校</a><a href="/secondary-schools/">中学数据库（146所）</a><a href="/o-level-jc/">O-Level → JC</a><a href="/o-level-poly/">O-Level → Poly</a></div></div>
-      <div class="nav-group">JC（高中）<div class="mega-dropdown"><a href="/jc/">JC 初级学院指南</a><a href="/a-level/">A-Level 考试</a><a href="/o-level-jc/">O-Level → JC</a><a href="/wace-vs-a-level/">WACE vs A-Level</a></div></div>
-      <div class="nav-group">POLY（理工学院）<div class="mega-dropdown"><a href="/poly/">理工学院完全指南</a><a href="/poly/admission/">中国学生入学攻略</a><a href="/poly/sp/">SP</a><a href="/poly/np/">NP</a><a href="/poly/tp/">TP</a><a href="/poly/nyp/">NYP</a><a href="/poly/rp/">RP</a><a href="/o-level-poly/">O-Level → Poly</a></div></div>
-      <div class="nav-group">公立大学<div class="mega-dropdown"><a href="/university/">公立大学总览</a><a href="/university/admission/">中国学生申请攻略</a><a href="/university/nus/">NUS</a><a href="/university/ntu/">NTU</a><a href="/university/smu/">SMU</a></div></div>
-      <div class="nav-group">香港八大<div class="mega-dropdown"><a href="/hk-university/">香港八大总览</a><a href="/hk-university/hku/">HKU 香港大学</a><a href="/hk-university/cuhk/">CUHK 中文大学</a><a href="/hk-university/hkust/">HKUST 科技大学</a><a href="/hk-university/cityu/">CityU 城市大学</a><a href="/hk-university/polyu/">PolyU 理工大学</a><a href="/hk-university/hkbu/">HKBU 浸会大学</a><a href="/hk-university/lingnan/">LU 岭南大学</a><a href="/hk-university/eduhk/">EdUHK 教育大学</a><a href="/hk-university/matcher/">🎯 AI 大学匹配</a><a href="/hk-university/planner/">📋 AI 升学规划</a></div></div>
+  <header class="site-header">
+    <div class="header-main">
+      <a class="brand" href="/" aria-label="SEDA 首页">
+        <span class="brand-word">SEDA</span>
+        <span class="brand-copy">
+          <strong>新加坡国际教育中心</strong>
+          <small>Singapore Education Pathways</small>
+        </span>
+      </a>
+        <nav class="main-nav" aria-label="主导航">
+          <div class="nav-group">AEIS（政府学校）<div class="mega-dropdown"><a href="/aeis/">AEIS 考试攻略</a><a href="/aeis/preparation/">备考攻略</a><a href="/aeis/age-requirements/">年龄要求</a><a href="/aeis/timeline/">考试时间</a><a href="/government-schools/">政府学校指南</a><a href="/primary-schools/">小学数据库（179所）</a><a href="/aeis/grade-checker/">📋 年级测算工具</a></div></div>
+          <div class="nav-group">O-Level（中学）<div class="mega-dropdown"><a href="/o-level/">O-Level 考试攻略</a><a href="/o-level-schools/">O-Level 学校</a><a href="/secondary-schools/">中学数据库（146所）</a><a href="/o-level-jc/">O-Level → JC</a><a href="/o-level-poly/">O-Level → Poly</a></div></div>
+          <div class="nav-group">JC（高中）<div class="mega-dropdown"><a href="/jc/">JC 初级学院指南</a><a href="/a-level/">A-Level 考试</a><a href="/o-level-jc/">O-Level → JC</a><a href="/wace-vs-a-level/">WACE vs A-Level</a></div></div>
+          <div class="nav-group">POLY（理工学院）<div class="mega-dropdown"><a href="/poly/">理工学院完全指南</a><a href="/poly/admission/">中国学生入学攻略</a><a href="/poly/sp/">SP 新加坡理工学院</a><a href="/poly/np/">NP 义安理工学院</a><a href="/poly/tp/">TP 淡马锡理工学院</a><a href="/poly/nyp/">NYP 南洋理工学院</a><a href="/poly/rp/">RP 共和理工学院</a><a href="/o-level-poly/">O-Level → Poly</a></div></div>
+          <div class="nav-group">公立大学<div class="mega-dropdown"><a href="/university/">公立大学总览</a><a href="/university/admission/">中国学生申请攻略</a><a href="/university/nus/">NUS 新加坡国立大学</a><a href="/university/ntu/">NTU 南洋理工大学</a><a href="/university/smu/">SMU 新加坡管理大学</a><a href="/university/sutd/">SUTD 新加坡科技设计大学</a><a href="/university/sit/">SIT 新加坡理工大学</a><a href="/university/suss/">SUSS 新跃社科大学</a></div></div>
+          <div class="nav-group">私立大学<div class="mega-dropdown"><a href="/private-university/">私立大学总览与推荐</a><a href="/private-university/sim/">SIM 新加坡管理学院</a><a href="/private-university/kaplan/">Kaplan 新加坡</a><a href="/private-university/psb/">PSB Academy</a><a href="/private-university/jcu/">JCU 詹姆斯库克大学</a><a href="/private-university/curtin/">Curtin 科廷大学</a><a href="/private-university/mdis/">MDIS 管理发展学院</a></div></div>
+          <div class="nav-group">海外名校校区<div class="mega-dropdown"><a href="/foreign-university/">海外名校新加坡校区</a><a href="/foreign-university/insead/">INSEAD 欧洲工商管理学院</a><a href="/foreign-university/essec/">ESSEC 高等商学院</a><a href="/foreign-university/chicago-booth/">芝加哥大学 Booth 商学院</a><a href="/foreign-university/sp-jain/">SP Jain 全球管理学院</a><a href="/foreign-university/tum-asia/">TUM Asia 慕尼黑工大亚洲</a></div></div>
+          <div class="nav-group">国际学校<div class="mega-dropdown"><a href="/international-school/">国际学校指南</a><a href="/international-school/uwcsea/">UWCSEA 世界联合书院</a><a href="/international-school/tanglin-trust/">Tanglin Trust School</a><a href="/international-school/singapore-american/">新加坡美国学校 SAS</a><a href="/international-school/canadian-international/">加拿大国际学校 CIS</a><a href="/international-school/stamford-american/">Stamford 美国国际学校</a><a href="/international-school/dulwich/">Dulwich 德威书院</a><a href="/international-school/australian-international/">澳洲国际学校 AIS</a><a href="/international-school/hwa-chong-international/">华中国际学校</a><a href="/international-school/acs-international/">ACS 英华国际学校</a><a href="/ib/">IB 课程</a><a href="/wace/">WACE 课程</a></div></div>
+          <div class="nav-group">香港八大<div class="mega-dropdown"><a href="/hk-university/">香港八大总览</a><a href="/hk-university/hku/">HKU 香港大学</a><a href="/hk-university/cuhk/">CUHK 中文大学</a><a href="/hk-university/hkust/">HKUST 科技大学</a><a href="/hk-university/cityu/">CityU 城市大学</a><a href="/hk-university/polyu/">PolyU 理工大学</a><a href="/hk-university/hkbu/">HKBU 浸会大学</a><a href="/hk-university/lingnan/">LU 岭南大学</a><a href="/hk-university/eduhk/">EdUHK 教育大学</a><a href="/hk-university/matcher/">🎯 AI 大学匹配</a><a href="/hk-university/planner/">📋 AI 升学规划</a></div></div>
           <div class="nav-group">澳洲大学<div class="mega-dropdown"><a href="/au-university/">澳洲八大总览</a><a href="/au-university/unimelb/">Melbourne 墨尔本大学</a><a href="/au-university/anu/">ANU 澳国立大学</a><a href="/au-university/usyd/">Sydney 悉尼大学</a><a href="/au-university/uq/">UQ 昆士兰大学</a><a href="/au-university/unsw/">UNSW 新南威尔士大学</a><a href="/au-university/monash/">Monash 莫纳什大学</a><a href="/au-university/uwa/">UWA 西澳大学</a><a href="/au-university/adelaide/">Adelaide 阿德莱德大学</a><a href="/au-university/overseas-campuses/">Go8 海外分校</a><a href="/au-university/uts/">UTS 悉尼科技大学</a><a href="/au-university/rmit/">RMIT 皇家墨尔本理工</a></div></div>
-      <div class="nav-group">AI 工具<div class="mega-dropdown"><a href="/pathway/university-matcher/">🎯 AI 大学匹配（新加坡）</a><a href="/pathway/poly-matcher/">📐 AI Poly 匹配</a><a href="/pathway/study-planner/">📋 AI 升学规划（新加坡）</a><a href="/aeis/grade-checker/">📋 AEIS 年级测算</a><a href="/hk-university/matcher/">🎯 AI 大学匹配（香港）</a><a href="/hk-university/planner/">📋 AI 升学规划（香港）</a><a href="/au-university/matcher/">🎯 AI 大学匹配（澳洲）</a><a href="/au-university/planner/">📋 AI 升学规划（澳洲）</a></div></div>
-      <div class="nav-group">留学指南<div class="mega-dropdown"><a href="/guides/student-pass/">学生准证</a><a href="/guides/cost/">留学费用</a><a href="/guides/accommodation/">住宿方案</a><a href="/guides/dependent-pass/">陪读准证</a></div></div>
-    </nav>
-    <a class="nav-cta" href="/contact/">免费咨询</a>
-  </div>
-  <div class="trending-bar"><span>热门搜索：</span><a href="/au-university/">澳洲八大</a><a href="/au-university/matcher/">AI 大学匹配</a><a href="/hk-university/">香港八大</a><a href="/guides/cost/">留学费用</a></div>
-</header>
 
-<nav class="breadcrumb">
-  <a href="/">首页</a> <span>›</span> <a href="/au-university/">澳洲大学</a> <span>›</span> <span>AI 升学规划</span>
-</nav>
+          <div class="nav-group">AI 工具<div class="mega-dropdown"><a href="/pathway/university-matcher/">🎯 AI 大学匹配（新加坡）</a><a href="/pathway/poly-matcher/">📐 AI Poly 匹配</a><a href="/pathway/study-planner/">📋 AI 升学规划（新加坡）</a><a href="/aeis/grade-checker/">📋 AEIS 年级测算</a><a href="/hk-university/matcher/">🎯 AI 大学匹配（香港）</a><a href="/hk-university/planner/">📋 AI 升学规划（香港）</a><a href="/au-university/matcher/">🎯 AI 大学匹配（澳洲）</a><a href="/au-university/planner/">📋 AI 升学规划（澳洲）</a></div></div>
+          <div class="nav-group">留学指南<div class="mega-dropdown"><a href="/guides/student-pass/">学生准证</a><a href="/guides/cost/">留学费用</a><a href="/guides/accommodation/">住宿方案</a><a href="/guides/dependent-pass/">陪读准证</a></div></div>
+        </nav>
 
-<main>
-  <div class="page-hero">
-    <div class="eyebrow">AI 智能规划引擎</div>
-    <h1>量身定制<br>你的<em>澳洲大学申请方案</em></h1>
-    <p class="lead">输入你的背景和目标，AI 为你分析最佳澳洲留学路径，涵盖 Go8 八大及 UTS、RMIT 等名校</p>
-  </div>
+      <a class="nav-cta" href="#contact">免费咨询</a>
+    </div>
+    <div class="trending-bar" aria-label="热门搜索">
+      <span>热门搜索：</span>
+      <a href="/au-university/">澳洲八大</a>
+      <a href="/wace/">WACE</a>
+      <a href="/au-university/matcher/">AI 大学匹配</a>
+      <a href="/hk-university/">香港八大</a>
+      <a href="/guides/cost/">留学费用</a>
+    </div>
+  </header>
 
-  <div class="tool-wrap">
-    <div class="tool-card">
-      <div class="tool-header">
-        <h2>📋 AI 升学规划</h2>
-        <p>两步填写，获取专属升学方案</p>
+  <nav class="breadcrumb" aria-label="面包屑导航">
+    <a href="/">首页</a> <span>›</span>
+    <a href="/au-university/">澳洲大学</a> <span>›</span>
+    <span>AI 升学规划</span>
+  </nav>
+
+  <main>
+    <!-- ── Hero ── -->
+    <div class="planner-hero">
+      <div class="eyebrow">AI 智能规划引擎</div>
+      <h1>量身定制<br>你的<em>澳洲大学申请方案</em></h1>
+      <p class="lead">输入你的背景和目标，AI 为你分析最佳澳洲留学路径，涵盖 Go8 八大及 UTS、RMIT 等名校。</p>
+      <div class="hero-stats">
+        <div><div class="stat-num">10</div><div class="stat-label">澳洲名校</div></div>
+        <div><div class="stat-num">7</div><div class="stat-label">升学路径</div></div>
+        <div><div class="stat-num">免费</div><div class="stat-label">咨询服务</div></div>
       </div>
-      <div class="tool-body">
+    </div>
 
-        <!-- Step 1 -->
-        <div id="step1">
-          <div class="step-indicator"><span class="step-dot active">1</span><span class="step-dot">2</span></div>
-          <h3 style="font-size:15px;font-weight:700;margin-bottom:14px;">第一步：基本信息</h3>
-
-          <div class="form-row">
-            <div class="form-group">
-              <label>当前年级</label>
-              <select id="grade"><option value="g9">初三</option><option value="g10">高一</option><option value="g11" selected>高二</option><option value="g12">高三</option><option value="uni">大学在读</option><option value="grad">已毕业</option></select>
-            </div>
-            <div class="form-group">
-              <label>所在地</label>
-              <select id="location"><option value="china" selected>中国大陆</option><option value="hk">香港</option><option value="sg">新加坡</option><option value="other">其他</option></select>
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="form-group">
-              <label>目标大学层次</label>
-              <select id="target"><option value="go8">Go8（澳洲八大）</option><option value="go8plus">Go8 + UTS/RMIT</option><option value="all" selected>都可以</option><option value="unsure">不确定</option></select>
-            </div>
-            <div class="form-group">
-              <label>意向专业</label>
-              <select id="field"><option value="unsure">不确定</option><option value="商科">商科/金融</option><option value="工程">工程</option><option value="计算机">计算机</option><option value="理学">理学</option><option value="医学">医学</option><option value="法学">法学</option><option value="文学">文学/人文</option><option value="教育">教育</option><option value="传媒">传媒</option><option value="艺术设计">艺术/设计</option><option value="设计建筑">设计/建筑</option></select>
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="form-group">
-              <label>英语水平</label>
-              <select id="english"><option value="excellent">优秀（雅思 7+）</option><option value="good" selected>良好（雅思 6-6.5）</option><option value="average">一般（雅思 5.5 以下）</option><option value="none">未考过</option></select>
-            </div>
-            <div class="form-group">
-              <label>家庭年预算（人民币）</label>
-              <select id="budget"><option value="high">充裕（35万+）</option><option value="mid" selected>适中（25-35万）</option><option value="low">有限（25万以下）</option><option value="unsure">不确定</option></select>
-            </div>
-          </div>
-          <button class="btn-primary" onclick="goStep2()">下一步 →</button>
+    <!-- ── AI Planner Tool ── -->
+    <div class="planner-wrap" id="planner">
+      <div class="planner">
+        <div class="planner-tabs">
+          <div class="planner-tab active" id="tab1"><span class="step-num">1</span> 选择目标与背景</div>
+          <div class="planner-tab" id="tab2"><span class="step-num">2</span> 规划结果</div>
         </div>
 
-        <!-- Step 2 -->
-        <div id="step2" class="hidden">
-          <div class="step-indicator"><span class="step-dot done">✓</span><span class="step-dot active">2</span></div>
-          <button class="btn-back" onclick="goStep1()">← 返回修改</button>
-          <h3 style="font-size:15px;font-weight:700;margin-bottom:14px;">第二步：学业情况</h3>
+        <!-- Step 1: Input Form -->
+        <div class="planner-body" id="pStep1">
+          <div class="planner-q">填写你的<em>背景与目标</em></div>
 
-          <div class="form-group">
-            <label>当前/计划的考试体系</label>
-            <select id="examSys" onchange="updateScoreField()">
-              <option value="wace" selected>WACE</option>
-              <option value="gaokao">中国高考</option>
-              <option value="alevel">A-Level</option>
-              <option value="ib">IB</option>
-              <option value="other">其他/未定</option>
-            </select>
+          <div class="input-row">
+            <div class="input-group">
+              <label for="grade">当前年级</label>
+              <select class="planner-select" id="grade">
+                <option value="g9">初三</option>
+                <option value="g10">高一</option>
+                <option value="g11" selected>高二</option>
+                <option value="g12">高三</option>
+                <option value="uni">大学在读</option>
+                <option value="grad">已毕业</option>
+              </select>
+            </div>
+            <div class="input-group">
+              <label for="location">所在地</label>
+              <select class="planner-select" id="location">
+                <option value="china" selected>中国大陆</option>
+                <option value="hk">香港</option>
+                <option value="sg">新加坡</option>
+                <option value="other">其他</option>
+              </select>
+            </div>
           </div>
-          <div id="scoreField">
-            <div class="form-group">
+
+          <div class="input-row">
+            <div class="input-group">
+              <label for="target">目标大学层次</label>
+              <select class="planner-select" id="target">
+                <option value="go8">Go8（澳洲八大）</option>
+                <option value="go8plus">Go8 + UTS/RMIT</option>
+                <option value="all" selected>都可以</option>
+                <option value="unsure">不确定</option>
+              </select>
+            </div>
+            <div class="input-group">
+              <label for="field">意向专业</label>
+              <select class="planner-select" id="field">
+                <option value="unsure">不确定</option>
+                <option value="商科">商科/金融</option>
+                <option value="工程">工程</option>
+                <option value="计算机">计算机</option>
+                <option value="理学">理学</option>
+                <option value="医学">医学</option>
+                <option value="法学">法学</option>
+                <option value="文学">文学/人文</option>
+                <option value="教育">教育</option>
+                <option value="传媒">传媒</option>
+                <option value="艺术设计">艺术/设计</option>
+                <option value="设计建筑">设计/建筑</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="input-row">
+            <div class="input-group">
+              <label for="english">英语水平</label>
+              <select class="planner-select" id="english">
+                <option value="excellent">优秀（雅思 7+）</option>
+                <option value="good" selected>良好（雅思 6-6.5）</option>
+                <option value="average">一般（雅思 5.5 以下）</option>
+                <option value="none">未考过</option>
+              </select>
+            </div>
+            <div class="input-group">
+              <label for="budget">家庭年预算（人民币）</label>
+              <select class="planner-select" id="budget">
+                <option value="high">充裕（35万+）</option>
+                <option value="mid" selected>适中（25-35万）</option>
+                <option value="low">有限（25万以下）</option>
+                <option value="unsure">不确定</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="input-row">
+            <div class="input-group">
+              <label for="examSys">当前/计划的考试体系</label>
+              <select class="planner-select" id="examSys" onchange="updateScoreField()">
+                <option value="wace" selected>WACE</option>
+                <option value="gaokao">中国高考</option>
+                <option value="alevel">A-Level</option>
+                <option value="ib">IB</option>
+                <option value="other">其他/未定</option>
+              </select>
+            </div>
+            <div class="input-group" id="scoreField">
               <label>预估 ATAR 分数</label>
-              <select id="scoreLevel">
+              <select class="planner-select" id="scoreLevel">
                 <option value="95">95+</option>
                 <option value="90" selected>90-94</option>
                 <option value="85">85-89</option>
@@ -410,379 +848,498 @@
               </select>
             </div>
           </div>
-          <button class="btn-primary" onclick="runPlanner()">📋 生成升学方案</button>
+
+          <div class="planner-actions">
+            <button class="btn-p-primary" id="generateBtn">生成升学方案 →</button>
+          </div>
         </div>
 
-        <!-- Loading -->
-        <div id="loading" class="hidden">
-          <div class="loading-wrap">
-            <div class="loading-dots"><span></span><span></span><span></span></div>
-            <div class="loading-text">AI 正在分析你的背景...</div>
-            <div class="loading-sub">综合评估 7 条升学路径，生成个性化方案</div>
+        <!-- Thinking -->
+        <div class="ai-thinking" id="thinking">
+          <div class="thinking-dots"><span></span><span></span><span></span></div>
+          <div class="thinking-text" id="thinkingText">AI 正在分析你的背景...</div>
+        </div>
+
+        <!-- Result -->
+        <div class="result-panel" id="result">
+          <div id="resultContent"></div>
+          <div class="planner-actions" style="border-top:0;padding-top:16px">
+            <button class="btn-p-primary" id="resetBtn">重新规划</button>
+            <a class="btn-p-secondary" href="#contact">咨询顾问，深度评估 →</a>
           </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <!-- Results -->
-  <div id="results" class="results-wrap hidden"></div>
+    <!-- ── Lead Gate Modal ── -->
+    <div class="lead-overlay" id="leadOverlay">
+      <div class="lead-modal">
+        <button class="lead-close" id="leadClose" type="button" aria-label="关闭">&times;</button>
+        <div class="lead-modal-icon">💬</div>
+        <h3>扫码加微信，查看你的专属升学规划</h3>
+        <p class="lead-sub">添加 SEDA 留学顾问微信，<strong>即刻获取个性化升学时间表</strong><br>顾问还将提供 <strong>免费一对一升学规划</strong></p>
+        <div style="text-align:center;margin:16px 0 20px">
+          <img src="/wechat-qr.png" alt="SEDA 留学顾问微信二维码" style="width:180px;height:180px;margin:0 auto;display:block;border-radius:12px" />
+          <p style="font-size:13px;color:var(--ink);font-weight:700;margin-top:10px">微信号：SEDA_SG</p>
+          <p style="font-size:11px;color:var(--muted);margin-top:2px">长按识别 或 搜索微信号添加</p>
+        </div>
+        <button class="lead-submit" id="leadSubmit" type="button">我已添加微信，查看升学规划 →</button>
+        <div class="lead-trust">🔒 <span>已有 2,800+ 家庭通过 SEDA 获得免费咨询</span><br>添加后发送「升学规划」即可获取完整分析</div>
+      </div>
+    </div>
 
-  <!-- FAQ -->
-  <div class="faq-list">
-    <h2 class="faq-title">常见问题</h2>
-    <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">什么时候开始准备澳洲大学申请最好？</div><div class="faq-a">最理想是在高一或高二开始准备。如果走 WACE 路径，建议高一转入 WACE 课程体系；如果走高考直录，高三结束后即可申请；如果走预科，高二即可申请。越早规划，选择越多。</div></div>
-    <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">高考成绩可以直接申请澳洲大学吗？</div><div class="faq-a">可以。除墨尔本大学外，其余 Go8 均接受高考成绩直录。一般一本线以上即可申请 Go8，一本线附近可申请 UTS/RMIT 等名校。但仍需雅思 6.5+ 的英语成绩。</div></div>
-    <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">墨尔本大学不接受高考怎么办？</div><div class="faq-a">墨尔本大学可通过以下途径申请：1）Trinity College 预科（高二即可申请）；2）WACE/A-Level/IB 国际课程成绩直接申请；3）本科转学。推荐在新加坡 BCI 学院读 WACE 课程，用 ATAR 成绩直接申请墨大。</div></div>
-    <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">WACE/ATAR 成绩申请澳洲大学有什么优势？</div><div class="faq-a">ATAR 是澳洲本土排名分数，无需换算直接录取，是最被澳洲大学认可的成绩。ATAR 95+ 可申请墨大/悉大，85+ 可申请大部分 Go8。在新加坡 BCI 就读 WACE 课程，一份成绩还可同时申请新加坡和香港大学。</div></div>
-    <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">预科和 Diploma 快捷课程有什么区别？</div><div class="faq-a">预科（Foundation）完成后进入本科大一，适合高二/高三学生，所有 Go8 都有对应预科；Diploma 快捷课程完成后直接进入本科大二，省一年时间，但仅部分大学提供（莫纳什/UNSW/UWA/阿德/UTS）。墨大和悉大只能走预科。</div></div>
-    <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">澳洲留学一年大概需要多少钱？</div><div class="faq-a">在澳洲就读 Go8 大学，学费加生活费约 25-40 万人民币/年。如果选择新加坡 BCI 就读 WACE 课程，费用约 15-20 万/年。海外分校（莫纳什马来西亚/RMIT 越南）费用约 8-15 万/年。预科和 Diploma 费用约 20-30 万/年。</div></div>
-  </div>
-</main>
+    <!-- ── FAQ ── -->
+    <div class="tool-faq">
+      <h2>澳洲升学规划<em>常见问题</em></h2>
+      <div id="faqList">
+        <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">什么时候开始准备澳洲大学申请最好？<span class="faq-q-toggle">+</span></div><div class="faq-a">最理想是在高一或高二开始准备。如果走 WACE 路径，建议高一转入 WACE 课程体系；如果走高考直录，高三结束后即可申请；如果走预科，高二即可申请。越早规划，选择越多。</div></div>
+        <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">高考成绩可以直接申请澳洲大学吗？<span class="faq-q-toggle">+</span></div><div class="faq-a">可以。除墨尔本大学外，其余 Go8 均接受高考成绩直录。一般一本线以上即可申请 Go8，一本线附近可申请 UTS/RMIT 等名校。但仍需雅思 6.5+ 的英语成绩。</div></div>
+        <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">墨尔本大学不接受高考怎么办？<span class="faq-q-toggle">+</span></div><div class="faq-a">墨尔本大学可通过以下途径申请：1）Trinity College 预科（高二即可申请）；2）WACE/A-Level/IB 国际课程成绩直接申请；3）本科转学。推荐在新加坡 BCI 学院读 WACE 课程，用 ATAR 成绩直接申请墨大。</div></div>
+        <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">WACE/ATAR 成绩申请澳洲大学有什么优势？<span class="faq-q-toggle">+</span></div><div class="faq-a">ATAR 是澳洲本土排名分数，无需换算直接录取，是最被澳洲大学认可的成绩。ATAR 95+ 可申请墨大/悉大，85+ 可申请大部分 Go8。在新加坡 BCI 就读 WACE 课程，一份成绩还可同时申请新加坡和香港大学。</div></div>
+        <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">预科和 Diploma 快捷课程有什么区别？<span class="faq-q-toggle">+</span></div><div class="faq-a">预科（Foundation）完成后进入本科大一，适合高二/高三学生，所有 Go8 都有对应预科；Diploma 快捷课程完成后直接进入本科大二，省一年时间，但仅部分大学提供（莫纳什/UNSW/UWA/阿德/UTS）。墨大和悉大只能走预科。</div></div>
+        <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">澳洲留学一年大概需要多少钱？<span class="faq-q-toggle">+</span></div><div class="faq-a">在澳洲就读 Go8 大学，学费加生活费约 25-40 万人民币/年。如果选择新加坡 BCI 就读 WACE 课程，费用约 15-20 万/年。海外分校（莫纳什马来西亚/RMIT 越南）费用约 8-15 万/年。预科和 Diploma 费用约 20-30 万/年。</div></div>
+      </div>
+    </div>
 
-<footer class="site-footer">
-  <div class="footer-links">
-    <a href="/">首页</a><a href="/au-university/">澳洲大学</a><a href="/au-university/matcher/">大学匹配</a><a href="/hk-university/">香港八大</a><a href="/about/">关于 SEDA</a><a href="/contact/">联系我们</a>
-  </div>
-  <p>&copy; 2024–2026 SEDA 新加坡国际教育中心. All rights reserved.</p>
-</footer>
+    <p class="disclaimer">以上升学路径分析基于各大学 2025-2026 官方招生页面整理，仅供参考。最终录取标准以各校官网为准。</p>
 
-<script>
-'use strict';
+    <!-- ── Contact ── -->
+    <section class="contact-section" id="contact" aria-labelledby="contact-title">
+      <div>
+        <p class="eyebrow">免费咨询</p>
+        <h2 id="contact-title">AI 给你方向，顾问帮你落地</h2>
+        <p>把你的升学规划结果告诉我们，顾问团队会在 24 小时内提供一对一选校策略、申请时间表与材料指导。</p>
+      </div>
+      <form class="lead-form">
+        <label><span>学生当前年级</span><input type="text" name="grade" placeholder="例如：国内高二 / Year 12 / IB Year 12" /></label>
+        <label><span>考试体系</span>
+          <select name="track">
+            <option>WACE 国际高中</option>
+            <option>中国高考</option>
+            <option>A-Level (GCE / CIE)</option>
+            <option>IB Diploma</option>
+            <option>还不确定，需要规划</option>
+          </select>
+        </label>
+        <label><span>联系方式</span><input type="text" name="contact" placeholder="微信 / WhatsApp / 手机" /></label>
+        <button class="primary-button" type="submit">提交咨询</button>
+      </form>
+    </section>
+  </main>
 
-function goStep1() {
-  document.getElementById('step1').classList.remove('hidden');
-  document.getElementById('step2').classList.add('hidden');
-}
-function goStep2() {
-  document.getElementById('step1').classList.add('hidden');
-  document.getElementById('step2').classList.remove('hidden');
-  updateScoreField();
-}
+  <footer class="site-footer">
+    <div>
+      <strong>SEDA 新加坡留学中心</strong>
+      <p>最全面的中文新加坡留学资讯平台，覆盖考试攻略、学校选择、升学路径与留学指南。</p>
+      <p style="margin-top:.5rem;font-size:.85rem;opacity:.7">Singapore Educational Development Association Ltd.</p>
+    </div>
+    <div><span>考试攻略</span><p><a href="/wace/">WACE</a> · <a href="/o-level/">O-Level</a> · <a href="/a-level/">A-Level</a> · <a href="/aeis/">AEIS</a> · <a href="/ib/">IB</a></p></div>
+    <div><span>学校类型</span><p><a href="/government-schools/">政府学校</a> · <a href="/private-schools/">私立学校</a> · <a href="/international-school/">国际学校</a> · <a href="/school-database/">学校数据库</a></p></div>
+    <div><span>升学路径</span><p><a href="/pathway/">路径总览</a> · <a href="/wace-nus-ntu/">WACE→NUS/NTU</a> · <a href="/o-level-jc/">O-Level→JC</a> · <a href="/o-level-poly/">O-Level→Poly</a></p></div>
+    <div><span>留学指南</span><p><a href="/guides/student-pass/">学生准证</a> · <a href="/guides/cost/">留学费用</a> · <a href="/guides/accommodation/">住宿方案</a> · <a href="/about/">关于我们</a> · <a href="/contact/">联系我们</a></p></div>
+  </footer>
 
-function updateScoreField() {
-  const sys = document.getElementById('examSys').value;
-  const wrap = document.getElementById('scoreField');
-  const map = {
-    wace: `<div class="form-group"><label>预估 ATAR 分数</label><select id="scoreLevel"><option value="95">95+</option><option value="90" selected>90-94</option><option value="85">85-89</option><option value="80">80-84</option><option value="75">75-79</option><option value="70">75以下</option></select></div>`,
-    gaokao: `<div class="form-group"><label>预估高考分数段</label><select id="scoreLevel"><option value="680">一本线以上80+分</option><option value="640" selected>一本线以上40-80分</option><option value="600">一本线附近</option><option value="560">一本线以下</option><option value="520">二本线附近</option></select></div>`,
-    alevel: `<div class="form-group"><label>预估 A-Level 等级</label><select id="scoreLevel"><option value="astar">A*A*A+</option><option value="aaa" selected>AAA</option><option value="aab">AAB</option><option value="abb">ABB</option><option value="bbb">BBB以下</option></select></div>`,
-    ib: `<div class="form-group"><label>预估 IB 分数</label><select id="scoreLevel"><option value="40">40+</option><option value="36" selected>36-39</option><option value="33">33-35</option><option value="30">30-32</option><option value="27">30以下</option></select></div>`,
-    other: `<div class="form-group"><label>成绩水平自评</label><select id="scoreLevel"><option value="top">顶尖（年级前 5%）</option><option value="good" selected>优秀（年级前 20%）</option><option value="mid">中等（年级前 50%）</option><option value="low">一般</option></select></div>`,
-  };
-  wrap.innerHTML = map[sys] || map.other;
-}
+  <script src="/seda-site.js"></script>
+  <script>
+  'use strict';
 
-function getState() {
-  return {
-    grade: document.getElementById('grade').value,
-    location: document.getElementById('location').value,
-    target: document.getElementById('target').value,
-    field: document.getElementById('field').value,
-    english: document.getElementById('english').value,
-    budget: document.getElementById('budget').value,
-    examSys: document.getElementById('examSys').value,
-    scoreLevel: document.getElementById('scoreLevel').value,
-  };
-}
-
-function runPlanner() {
-  document.getElementById('step2').classList.add('hidden');
-  document.getElementById('loading').classList.remove('hidden');
-
-  setTimeout(() => {
-    document.getElementById('loading').classList.add('hidden');
-    const state = getState();
-    renderResults(state);
-  }, 2500);
-}
-
-function renderResults(s) {
-  const wrap = document.getElementById('results');
-  wrap.classList.remove('hidden');
-
-  const gradeLabel = {g9:'初三',g10:'高一',g11:'高二',g12:'高三',uni:'大学在读',grad:'已毕业'}[s.grade];
-  const locLabel = {china:'中国大陆',hk:'香港',sg:'新加坡',other:'其他'}[s.location];
-  const targetLabel = {go8:'Go8八大',go8plus:'Go8+UTS/RMIT',all:'均可',unsure:'不确定'}[s.target];
-  const engLabel = {excellent:'优秀',good:'良好',average:'一般',none:'未考过'}[s.english];
-
-  let html = `<div class="profile-card"><h2>📋 你的升学档案</h2><div class="profile-tags"><span class="profile-tag">${gradeLabel}</span><span class="profile-tag">${locLabel}</span><span class="profile-tag">目标：${targetLabel}</span><span class="profile-tag">英语：${engLabel}</span><span class="profile-tag">考试：${s.examSys.toUpperCase()}</span></div></div>`;
-
-  // China advice card
-  if (s.location === 'china') {
-    html += `<div class="china-advice-card"><div class="china-advice-icon">💡</div><div><h3>专家建议：来新加坡读 WACE，用 ATAR 直录澳洲八大</h3><ul class="china-advice-list"><li><strong>ATAR 直录：</strong>ATAR 是澳洲本土排名分数，无需换算，直接录取</li><li><strong>多国申请：</strong>一份 ATAR 成绩可同时申请澳洲、新加坡、香港大学</li><li><strong>数理优势：</strong>WACE 数理科目中国学生有显著优势</li><li><strong>语言环境：</strong>新加坡全英文教学，快速提升英语能力</li><li><strong>时间高效：</strong>1.5-2年完成，比国内高考路径更灵活</li></ul><a class="china-advice-link" href="/wace/">📋 了解 BCI WACE 课程 →</a></div></div>`;
+  /* ── Tab management ── */
+  const tabs = document.querySelectorAll('.planner-tab');
+  function setActiveTab(idx) {
+    tabs.forEach((t, i) => t.classList.toggle('active', i === idx));
   }
 
-  // Build pathways
-  const pathways = buildPathways(s);
-  pathways.forEach((p, i) => {
-    const cls = i === 0 ? 'recommended' : (i <= 2 ? 'good' : 'alternative');
-    const badgeCls = i === 0 ? 'badge-rec' : (i <= 2 ? 'badge-good' : 'badge-alt');
-    const badgeText = i === 0 ? '⭐ 最推荐' : (i <= 2 ? '✅ 适合' : '🔄 备选');
+  /* ── Score field update ── */
+  function updateScoreField() {
+    const sys = document.getElementById('examSys').value;
+    const wrap = document.getElementById('scoreField');
+    const map = {
+      wace: '<label>预估 ATAR 分数</label><select class="planner-select" id="scoreLevel"><option value="95">95+</option><option value="90" selected>90-94</option><option value="85">85-89</option><option value="80">80-84</option><option value="75">75-79</option><option value="70">75以下</option></select>',
+      gaokao: '<label>预估高考分数段</label><select class="planner-select" id="scoreLevel"><option value="680">一本线以上80+分</option><option value="640" selected>一本线以上40-80分</option><option value="600">一本线附近</option><option value="560">一本线以下</option><option value="520">二本线附近</option></select>',
+      alevel: '<label>预估 A-Level 等级</label><select class="planner-select" id="scoreLevel"><option value="astar">A*A*A+</option><option value="aaa" selected>AAA</option><option value="aab">AAB</option><option value="abb">ABB</option><option value="bbb">BBB以下</option></select>',
+      ib: '<label>预估 IB 分数</label><select class="planner-select" id="scoreLevel"><option value="40">40+</option><option value="36" selected>36-39</option><option value="33">33-35</option><option value="30">30-32</option><option value="27">30以下</option></select>',
+      other: '<label>成绩水平自评</label><select class="planner-select" id="scoreLevel"><option value="top">顶尖（年级前 5%）</option><option value="good" selected>优秀（年级前 20%）</option><option value="mid">中等（年级前 50%）</option><option value="low">一般</option></select>',
+    };
+    wrap.innerHTML = map[sys] || map.other;
+  }
 
-    html += `<div class="pathway-card ${cls}"><div class="pathway-top"><div class="pathway-name">${p.icon} ${p.name}</div><span class="pathway-badge ${badgeCls}">${badgeText} · ${p.match}%</span></div>`;
-    html += `<div class="pathway-desc">${p.desc}</div>`;
-    html += `<div class="pathway-grid"><div class="pathway-detail"><strong>准备时间</strong>${p.duration}</div><div class="pathway-detail"><strong>预估费用</strong>${p.cost}</div><div class="pathway-detail"><strong>目标大学</strong>${p.unis}</div><div class="pathway-detail"><strong>难度</strong>${p.difficulty}</div></div>`;
+  /* ── State ── */
+  function getState() {
+    return {
+      grade: document.getElementById('grade').value,
+      location: document.getElementById('location').value,
+      target: document.getElementById('target').value,
+      field: document.getElementById('field').value,
+      english: document.getElementById('english').value,
+      budget: document.getElementById('budget').value,
+      examSys: document.getElementById('examSys').value,
+      scoreLevel: document.getElementById('scoreLevel').value,
+    };
+  }
 
-    html += `<div class="timeline-bar">`;
-    for (let t = 0; t < p.steps; t++) html += `<div class="timeline-step${t < p.activeSteps ? ' active' : ''}"></div>`;
-    html += `</div><div class="timeline-label">${p.timelineLabel}</div>`;
+  /* ── Generate ── */
+  document.getElementById('generateBtn').addEventListener('click', function() {
+    document.getElementById('pStep1').classList.add('hidden');
+    document.getElementById('thinking').classList.add('show');
+    setActiveTab(1);
 
-    html += `<div class="pros-cons"><div><div class="pros-title">优势</div><ul class="pros">${p.pros.map(x=>`<li>${x}</li>`).join('')}</ul></div><div><div class="cons-title">注意</div><ul class="cons">${p.cons.map(x=>`<li>${x}</li>`).join('')}</ul></div></div>`;
+    const msgs = [
+      'AI 正在分析你的背景...',
+      '综合评估 7 条升学路径...',
+      '匹配最佳澳洲大学方案...',
+      '生成个性化升学时间表...',
+    ];
+    let mi = 0;
+    const iv = setInterval(() => {
+      mi++;
+      if (mi < msgs.length) document.getElementById('thinkingText').textContent = msgs[mi];
+    }, 600);
 
-    html += `<div class="action-steps"><h4>行动步骤</h4><ol>${p.actions.map(x=>`<li>${x}</li>`).join('')}</ol></div>`;
-
-    if (p.bciPromo) {
-      html += `<div class="bci-promo"><strong>💡 推荐：</strong>在新加坡 BCI 国际学院就读 WACE 课程，ATAR 是澳洲本土排名分数，无需换算直接录取。数理科目中国学生有优势，英文门槛相对较低，一份成绩可同时申请澳洲、新加坡、香港三地大学。<br><a href="/wace/" style="color:#1d4ed8;font-weight:600;">了解 BCI WACE 课程 →</a></div>`;
-    }
-    html += `</div>`;
+    setTimeout(() => {
+      clearInterval(iv);
+      document.getElementById('thinking').classList.remove('show');
+      const state = getState();
+      renderResults(state);
+      document.getElementById('result').classList.add('show');
+      document.getElementById('planner').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 2500);
   });
 
-  // CTA
-  html += `<div class="cta-section"><h3>需要更精准的评估？</h3><p>使用 AI 大学匹配工具，输入具体成绩查看详细匹配结果</p><div class="cta-buttons"><a class="cta-btn-primary" href="/au-university/matcher/">🎯 AI 大学匹配（澳洲） →</a><a class="cta-btn-secondary" href="/contact/">💬 免费咨询</a></div></div>`;
+  /* ── Reset ── */
+  document.getElementById('resetBtn').addEventListener('click', function() {
+    document.getElementById('result').classList.remove('show');
+    document.getElementById('pStep1').classList.remove('hidden');
+    setActiveTab(0);
+    document.getElementById('planner').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
 
-  wrap.innerHTML = html;
-  wrap.scrollIntoView({behavior: 'smooth', block: 'start'});
-}
+  /* ── Render results ── */
+  function renderResults(s) {
+    const gradeLabel = {g9:'初三',g10:'高一',g11:'高二',g12:'高三',uni:'大学在读',grad:'已毕业'}[s.grade];
+    const locLabel = {china:'中国大陆',hk:'香港',sg:'新加坡',other:'其他'}[s.location];
+    const targetLabel = {go8:'Go8八大',go8plus:'Go8+UTS/RMIT',all:'均可',unsure:'不确定'}[s.target];
+    const engLabel = {excellent:'优秀',good:'良好',average:'一般',none:'未考过'}[s.english];
 
-function buildPathways(s) {
-  const paths = [];
-  const score = parseInt(s.scoreLevel) || 0;
-  const isChina = s.location === 'china';
-  const isEarly = ['g9','g10'].includes(s.grade);
-  const isHighSchool = ['g10','g11','g12'].includes(s.grade);
+    let html = '';
 
-  // ── Path 1: WACE 直申（BCI）── ALWAYS shown
-  {
-    let match = 65;
-    if (isEarly) match = 90;
-    else if (s.grade === 'g11') match = 80;
-    else if (s.grade === 'g12') match = 55;
-    else match = 40;
-    if (s.examSys === 'wace') match += 8;
-    if (s.english === 'average' || s.english === 'none') match += 5;
-    if (isChina) match += 3;
-    match = Math.min(match, 99);
+    /* Profile summary */
+    html += '<div class="result-summary"><h3>📋 你的升学档案</h3>';
+    html += '<div class="result-summary-meta">';
+    html += '<span><strong>年级</strong> ' + gradeLabel + '</span>';
+    html += '<span><strong>所在地</strong> ' + locLabel + '</span>';
+    html += '<span><strong>目标</strong> ' + targetLabel + '</span>';
+    html += '<span><strong>英语</strong> ' + engLabel + '</span>';
+    html += '<span><strong>考试</strong> ' + s.examSys.toUpperCase() + '</span>';
+    html += '</div></div>';
 
-    let unis = 'ATAR 95+: 墨大/悉大 | ATAR 85+: Go8 | ATAR 75+: UTS/RMIT';
-    if (s.examSys === 'wace') {
-      if (score >= 95) unis = '墨尔本大学/悉尼大学/ANU/UNSW';
-      else if (score >= 90) unis = '悉大/UNSW/莫纳什/UQ';
-      else if (score >= 85) unis = 'Go8 大部分院校';
-      else if (score >= 80) unis = 'UQ/UWA/阿德莱德';
-      else unis = 'UTS/RMIT 及部分 Go8';
+    /* China advice card */
+    if (s.location === 'china') {
+      html += '<div class="china-advice-card">';
+      html += '<div class="china-advice-icon">💡</div>';
+      html += '<div class="china-advice-body">';
+      html += '<h4>专家建议：来新加坡读 WACE，用 ATAR 直录澳洲八大</h4>';
+      html += '<ul>';
+      html += '<li><strong>ATAR 直录：</strong>ATAR 是澳洲本土排名分数，无需换算，直接录取</li>';
+      html += '<li><strong>多国申请：</strong>一份 ATAR 成绩可同时申请澳洲、新加坡、香港大学</li>';
+      html += '<li><strong>数理优势：</strong>WACE 数理科目中国学生有显著优势</li>';
+      html += '<li><strong>语言环境：</strong>新加坡全英文教学，快速提升英语能力</li>';
+      html += '<li><strong>时间高效：</strong>1.5-2年完成，比国内高考路径更灵活</li>';
+      html += '</ul>';
+      html += '<a href="/wace/">📋 了解 BCI WACE 课程 →</a>';
+      html += '</div></div>';
     }
 
-    paths.push({
-      name: 'WACE 直申（新加坡 BCI）', icon: '🇦🇺', match,
-      desc: '在新加坡 BCI 国际学院就读 WACE 课程，用 ATAR 成绩直接申请澳洲大学。ATAR 是澳洲本土排名分数，无需换算，直接录取。',
-      duration: '1.5-2年',
-      cost: '约15-20万人民币/年（新加坡）',
-      unis: unis,
-      difficulty: '★★★',
-      steps: 5, activeSteps: isEarly ? 1 : 2,
-      timelineLabel: '入学BCI → Year 11 → Year 12 → WACE考试 → 申请澳洲大学',
-      pros: ['ATAR直录无需换算', '数理科目中国学生优势', '可同时申请新加坡/香港大学', '英文门槛相对较低'],
-      cons: ['需到新加坡就读1.5-2年', '家长需安排住宿', '需适应全英教学'],
-      actions: ['联系SEDA了解BCI WACE课程', '办理新加坡学生准证', '选择WACE科目', '参加WACE考试', '用ATAR成绩申请澳洲大学'],
-      bciPromo: true,
-    });
-  }
+    /* Build & render pathways */
+    var pathways = buildPathways(s);
+    html += '<div class="pathway-grid">';
+    pathways.forEach(function(p, i) {
+      var badgeCls, badgeText;
+      if (i === 0) { badgeCls = 'badge-strong-rec'; badgeText = '最推荐'; }
+      else if (i <= 2) { badgeCls = 'badge-rec'; badgeText = '适合'; }
+      else { badgeCls = 'badge-feasible'; badgeText = '备选'; }
 
-  // ── Path 2: 高考直申 ──
-  if ((s.examSys === 'gaokao' || isChina) && ['g11','g12','grad'].includes(s.grade)) {
-    let match = 50;
-    if (score >= 680) match = 85;
-    else if (score >= 640) match = 70;
-    else if (score >= 600) match = 55;
-    else if (score >= 560) match = 40;
-    else match = 25;
-    if (s.english === 'excellent') match = Math.min(match + 10, 99);
-    if (s.english === 'average' || s.english === 'none') match = Math.max(match - 15, 10);
+      html += '<div class="pathway-card' + (i === 0 ? ' recommended' : '') + '">';
+      html += '<div class="pathway-head">';
+      html += '<div class="pathway-name">' + p.icon + ' ' + p.name + '<small>匹配度 ' + p.match + '%</small></div>';
+      html += '<span class="pathway-badge ' + badgeCls + '">' + badgeText + '</span>';
+      html += '</div>';
 
-    let unis = '大部分 Go8 院校（墨大除外）';
-    if (s.examSys === 'gaokao') {
-      if (score >= 680) unis = '悉大/UNSW/莫纳什（墨大不接受高考）';
-      else if (score >= 640) unis = 'UQ/UWA/阿德莱德';
-      else if (score >= 600) unis = 'UTS/RMIT 及部分 Go8';
-      else unis = 'UTS/RMIT';
-    }
+      html += '<div class="pathway-years">⏱ ' + p.duration + '</div>';
+      html += '<div class="pathway-desc">' + p.desc + '</div>';
 
-    paths.push({
-      name: '高考直申', icon: '📝', match,
-      desc: '用高考成绩直接申请澳洲大学。除墨尔本大学外，其余Go8均接受高考。一本线以上可申请大部分Go8。注意：墨尔本大学不接受高考，需走预科或国际课程。',
-      duration: '3-6个月',
-      cost: '约25-35万人民币/年（澳洲）',
-      unis: unis,
-      difficulty: score >= 680 ? '★★★★' : '★★★',
-      steps: 4, activeSteps: s.grade === 'g12' ? 3 : 1,
-      timelineLabel: '高考 → 准备雅思 → 提交申请 → 办理签证',
-      pros: ['最快最直接', '不需额外考试', '大部分Go8接受'],
-      cons: ['墨大不接受高考', '雅思仍需6.5+', '英语面试/文书要求'],
-      actions: ['确认目标大学高考分数要求', '准备雅思考试', '提交大学申请', '办理CoE和签证'],
-    });
-  }
+      html += '<div class="pathway-detail-grid">';
+      html += '<div class="pathway-detail"><strong>预估费用</strong>' + p.cost + '</div>';
+      html += '<div class="pathway-detail"><strong>目标大学</strong>' + p.unis + '</div>';
+      html += '<div class="pathway-detail"><strong>难度</strong>' + p.difficulty + '</div>';
+      html += '<div class="pathway-detail"><strong>准备时间</strong>' + p.duration + '</div>';
+      html += '</div>';
 
-  // ── Path 3: A-Level 路径 ──
-  if (s.examSys === 'alevel' || isEarly || s.grade === 'g10') {
-    let match = 58;
-    if (s.examSys === 'alevel') match = 82;
-    else if (isEarly) match = 68;
-    if (s.english === 'excellent') match += 5;
-    match = Math.min(match, 99);
+      /* Timeline */
+      html += '<div class="timeline-wrap">';
+      p.actions.forEach(function(act, ai) {
+        html += '<div class="timeline-item">';
+        html += '<div class="timeline-year">步骤 ' + (ai + 1) + '</div>';
+        html += '<div class="timeline-title">' + act + '</div>';
+        html += '</div>';
+      });
+      html += '</div>';
 
-    let unis = 'A*AA+: 全部Go8（含墨大） | AAB: Go8+UTS | BBB: UTS/RMIT';
-    if (s.examSys === 'alevel') {
-      if (s.scoreLevel === 'astar') unis = '全部Go8（含墨尔本大学）';
-      else if (s.scoreLevel === 'aaa') unis = '大部分Go8';
-      else if (s.scoreLevel === 'aab') unis = 'Go8 + UTS';
-      else if (s.scoreLevel === 'abb') unis = 'UTS/RMIT + 部分Go8';
-      else unis = 'UTS/RMIT';
-    }
+      /* Pros/Cons */
+      html += '<div class="pathway-proscons">';
+      html += '<div class="proscons-col pros"><h5>优势</h5><ul>';
+      p.pros.forEach(function(x) { html += '<li>' + x + '</li>'; });
+      html += '</ul></div>';
+      html += '<div class="proscons-col cons"><h5>注意</h5><ul>';
+      p.cons.forEach(function(x) { html += '<li>' + x + '</li>'; });
+      html += '</ul></div>';
+      html += '</div>';
 
-    paths.push({
-      name: 'A-Level 路径', icon: '🇬🇧', match,
-      desc: '全球认可度最高的国际课程之一，A*AA可申请所有Go8包括墨尔本大学。可在国际学校或新加坡JC学习。',
-      duration: '2年（AS + A2）',
-      cost: '约20-35万人民币/年',
-      unis: unis,
-      difficulty: '★★★★',
-      steps: 4, activeSteps: s.examSys === 'alevel' ? 3 : 1,
-      timelineLabel: 'AS Level → A2 Level → 考试 → 申请',
-      pros: ['全球大学广泛认可', '可申请全部Go8含墨大', '选科灵活可扬长避短'],
-      cons: ['考试难度较大', '英语要求高', '需2年全日制学习'],
-      actions: ['选择A-Level学校或培训机构', '选择3-4门A-Level科目', '完成AS Level考试', '完成A2 Level考试', '用预估/实际成绩申请'],
-    });
-  }
-
-  // ── Path 4: IB 路径 ──
-  if (s.examSys === 'ib' || isEarly) {
-    let match = 52;
-    if (s.examSys === 'ib') match = 80;
-    else if (isEarly) match = 62;
-    if (s.english === 'excellent') match += 5;
-    match = Math.min(match, 99);
-
-    let unis = '40+: 全部Go8 | 36+: 大部分Go8 | 30+: UTS/RMIT';
-    if (s.examSys === 'ib') {
-      if (score >= 40) unis = '全部Go8（含墨尔本大学）';
-      else if (score >= 36) unis = '大部分Go8';
-      else if (score >= 33) unis = 'Go8 + UTS/RMIT';
-      else if (score >= 30) unis = 'UTS/RMIT + 部分Go8';
-      else unis = 'UTS/RMIT';
-    }
-
-    paths.push({
-      name: 'IB 课程路径', icon: '🌍', match,
-      desc: 'IB 国际文凭课程，注重全面发展和批判性思维。澳洲大学对 IB 成绩认可度高，36+ 可申请大部分 Go8。',
-      duration: '2年',
-      cost: '约25-40万人民币/年（国际学校）',
-      unis: unis,
-      difficulty: '★★★★★',
-      steps: 4, activeSteps: s.examSys === 'ib' ? 3 : 1,
-      timelineLabel: 'IB DP1 → IB DP2 → 考试 → 申请',
-      pros: ['培养综合素质', '大学认可度极高', '可同时申请全球大学'],
-      cons: ['课程负担最重', '需均衡发展各科', '学费通常较高'],
-      actions: ['进入IB学校', '选择HL和SL科目', '完成EE、TOK和CAS', '参加IB大考', '用预估/最终成绩申请'],
-    });
-  }
-
-  // ── Path 5: 预科（Foundation）── ALWAYS show
-  {
-    let match = 45;
-    if (['g11','g12'].includes(s.grade)) {
-      if (score <= 600 || s.scoreLevel === 'abb' || s.scoreLevel === 'bbb' || s.scoreLevel === '30' || s.scoreLevel === '27' || s.scoreLevel === '80' || s.scoreLevel === '75' || s.scoreLevel === '70') {
-        match = 85;
-      } else if (score <= 640 || s.scoreLevel === 'aab' || s.scoreLevel === '33' || s.scoreLevel === '85') {
-        match = 70;
-      } else {
-        match = 50;
+      /* BCI Promo */
+      if (p.bciPromo) {
+        html += '<div class="bci-promo">';
+        html += '<strong>💡 推荐：新加坡 BCI WACE 课程</strong>';
+        html += '<p>ATAR 是澳洲本土排名分数，无需换算直接录取。数理科目中国学生有优势，英文门槛相对较低，一份成绩可同时申请澳洲、新加坡、香港三地大学。</p>';
+        html += '<a href="/wace/">了解 BCI WACE 课程 →</a>';
+        html += '</div>';
       }
+
+      html += '</div>';
+    });
+    html += '</div>';
+
+    /* CTA */
+    html += '<div class="cta-section">';
+    html += '<h3>需要更精准的评估？</h3>';
+    html += '<p>使用 AI 大学匹配工具，输入具体成绩查看详细匹配结果</p>';
+    html += '<div class="cta-buttons">';
+    html += '<a class="cta-btn-primary" href="/au-university/matcher/">🎯 AI 大学匹配（澳洲） →</a>';
+    html += '<a class="cta-btn-secondary" href="/contact/">💬 免费咨询</a>';
+    html += '</div></div>';
+
+    document.getElementById('resultContent').innerHTML = html;
+  }
+
+  /* ── Build pathways logic ── */
+  function buildPathways(s) {
+    var paths = [];
+    var score = parseInt(s.scoreLevel) || 0;
+    var isChina = s.location === 'china';
+    var isEarly = ['g9','g10'].indexOf(s.grade) >= 0;
+    var isHighSchool = ['g10','g11','g12'].indexOf(s.grade) >= 0;
+
+    /* ── Path 1: WACE 直申（BCI）── ALWAYS shown */
+    (function() {
+      var match = 65;
+      if (isEarly) match = 90;
+      else if (s.grade === 'g11') match = 80;
+      else if (s.grade === 'g12') match = 55;
+      else match = 40;
+      if (s.examSys === 'wace') match += 8;
+      if (s.english === 'average' || s.english === 'none') match += 5;
+      if (isChina) match += 3;
+      match = Math.min(match, 99);
+
+      var unis = 'ATAR 95+: 墨大/悉大 | ATAR 85+: Go8 | ATAR 75+: UTS/RMIT';
+      if (s.examSys === 'wace') {
+        if (score >= 95) unis = '墨尔本大学/悉尼大学/ANU/UNSW';
+        else if (score >= 90) unis = '悉大/UNSW/莫纳什/UQ';
+        else if (score >= 85) unis = 'Go8 大部分院校';
+        else if (score >= 80) unis = 'UQ/UWA/阿德莱德';
+        else unis = 'UTS/RMIT 及部分 Go8';
+      }
+
+      paths.push({
+        name: 'WACE 直申（新加坡 BCI）', icon: '🇦🇺', match: match,
+        desc: '在新加坡 BCI 国际学院就读 WACE 课程，用 ATAR 成绩直接申请澳洲大学。ATAR 是澳洲本土排名分数，无需换算，直接录取。',
+        duration: '1.5-2年',
+        cost: '约15-20万人民币/年（新加坡）',
+        unis: unis,
+        difficulty: '★★★☆☆',
+        pros: ['ATAR直录无需换算', '数理科目中国学生优势', '可同时申请新加坡/香港大学', '英文门槛相对较低'],
+        cons: ['需到新加坡就读1.5-2年', '家长需安排住宿', '需适应全英教学'],
+        actions: ['联系SEDA了解BCI WACE课程', '办理新加坡学生准证', '选择WACE科目', '参加WACE考试', '用ATAR成绩申请澳洲大学'],
+        bciPromo: true,
+      });
+    })();
+
+    /* ── Path 2: 高考直申 ── */
+    if ((s.examSys === 'gaokao' || isChina) && ['g11','g12','grad'].indexOf(s.grade) >= 0) {
+      var match2 = 50;
+      if (score >= 680) match2 = 85;
+      else if (score >= 640) match2 = 70;
+      else if (score >= 600) match2 = 55;
+      else if (score >= 560) match2 = 40;
+      else match2 = 25;
+      if (s.english === 'excellent') match2 = Math.min(match2 + 10, 99);
+      if (s.english === 'average' || s.english === 'none') match2 = Math.max(match2 - 15, 10);
+
+      var unis2 = '大部分 Go8 院校（墨大除外）';
+      if (s.examSys === 'gaokao') {
+        if (score >= 680) unis2 = '悉大/UNSW/莫纳什（墨大不接受高考）';
+        else if (score >= 640) unis2 = 'UQ/UWA/阿德莱德';
+        else if (score >= 600) unis2 = 'UTS/RMIT 及部分 Go8';
+        else unis2 = 'UTS/RMIT';
+      }
+
+      paths.push({
+        name: '高考直申', icon: '📝', match: match2,
+        desc: '用高考成绩直接申请澳洲大学。除墨尔本大学外，其余Go8均接受高考。一本线以上可申请大部分Go8。注意：墨尔本大学不接受高考，需走预科或国际课程。',
+        duration: '3-6个月',
+        cost: '约25-35万人民币/年（澳洲）',
+        unis: unis2,
+        difficulty: score >= 680 ? '★★★★☆' : '★★★☆☆',
+        pros: ['最快最直接', '不需额外考试', '大部分Go8接受'],
+        cons: ['墨大不接受高考', '雅思仍需6.5+', '英语面试/文书要求'],
+        actions: ['确认目标大学高考分数要求', '准备雅思考试', '提交大学申请', '办理CoE和签证'],
+      });
     }
-    if (s.grade === 'g10') match = 72;
-    if (s.grade === 'g9') match = 60;
-    if (s.target === 'go8') match += 5; // Melbourne only via foundation for gaokao students
-    if (s.english === 'average' || s.english === 'none') match += 5;
-    match = Math.min(match, 99);
 
-    paths.push({
-      name: '预科（Foundation）', icon: '📚', match,
-      desc: '澳洲大学预科课程（Foundation），1年制，完成后直升本科大一。是进入墨尔本大学（Trinity College预科）的主要途径之一。适合高二/高三在读或高考未达直录要求的学生。',
-      duration: '8-15个月（根据预科类型）',
-      cost: '约20-30万人民币/年',
-      unis: '八大均有对应预科，完成后直升本校本科',
-      difficulty: '★★',
-      steps: 5, activeSteps: ['g11','g12'].includes(s.grade) ? 2 : 1,
-      timelineLabel: '申请 → 入读预科 → 完成学习 → 达标升学 → 本科大一',
-      pros: ['入学门槛低（高二即可申请）', '直升对应大学本科', '唯一进入墨大的高考替代路径', '适应澳洲教学模式'],
-      cons: ['额外花费1年时间', '需达到预科GPA要求才能升学', '费用不菲'],
-      actions: ['选择目标大学的预科项目', '准备雅思5.5+', '提交申请', '完成预科学习', '凭预科成绩升入本科'],
-    });
+    /* ── Path 3: A-Level 路径 ── */
+    if (s.examSys === 'alevel' || isEarly || s.grade === 'g10') {
+      var match3 = 58;
+      if (s.examSys === 'alevel') match3 = 82;
+      else if (isEarly) match3 = 68;
+      if (s.english === 'excellent') match3 += 5;
+      match3 = Math.min(match3, 99);
+
+      var unis3 = 'A*AA+: 全部Go8（含墨大） | AAB: Go8+UTS | BBB: UTS/RMIT';
+      if (s.examSys === 'alevel') {
+        if (s.scoreLevel === 'astar') unis3 = '全部Go8（含墨尔本大学）';
+        else if (s.scoreLevel === 'aaa') unis3 = '大部分Go8';
+        else if (s.scoreLevel === 'aab') unis3 = 'Go8 + UTS';
+        else if (s.scoreLevel === 'abb') unis3 = 'UTS/RMIT + 部分Go8';
+        else unis3 = 'UTS/RMIT';
+      }
+
+      paths.push({
+        name: 'A-Level 路径', icon: '🇬🇧', match: match3,
+        desc: '全球认可度最高的国际课程之一，A*AA可申请所有Go8包括墨尔本大学。可在国际学校或新加坡JC学习。',
+        duration: '2年（AS + A2）',
+        cost: '约20-35万人民币/年',
+        unis: unis3,
+        difficulty: '★★★★☆',
+        pros: ['全球大学广泛认可', '可申请全部Go8含墨大', '选科灵活可扬长避短'],
+        cons: ['考试难度较大', '英语要求高', '需2年全日制学习'],
+        actions: ['选择A-Level学校或培训机构', '选择3-4门A-Level科目', '完成AS Level考试', '完成A2 Level考试', '用预估/实际成绩申请'],
+      });
+    }
+
+    /* ── Path 4: IB 路径 ── */
+    if (s.examSys === 'ib' || isEarly) {
+      var match4 = 52;
+      if (s.examSys === 'ib') match4 = 80;
+      else if (isEarly) match4 = 62;
+      if (s.english === 'excellent') match4 += 5;
+      match4 = Math.min(match4, 99);
+
+      var unis4 = '40+: 全部Go8 | 36+: 大部分Go8 | 30+: UTS/RMIT';
+      if (s.examSys === 'ib') {
+        if (score >= 40) unis4 = '全部Go8（含墨尔本大学）';
+        else if (score >= 36) unis4 = '大部分Go8';
+        else if (score >= 33) unis4 = 'Go8 + UTS/RMIT';
+        else if (score >= 30) unis4 = 'UTS/RMIT + 部分Go8';
+        else unis4 = 'UTS/RMIT';
+      }
+
+      paths.push({
+        name: 'IB 课程路径', icon: '🌍', match: match4,
+        desc: 'IB 国际文凭课程，注重全面发展和批判性思维。澳洲大学对 IB 成绩认可度高，36+ 可申请大部分 Go8。',
+        duration: '2年',
+        cost: '约25-40万人民币/年（国际学校）',
+        unis: unis4,
+        difficulty: '★★★★★',
+        pros: ['培养综合素质', '大学认可度极高', '可同时申请全球大学'],
+        cons: ['课程负担最重', '需均衡发展各科', '学费通常较高'],
+        actions: ['进入IB学校', '选择HL和SL科目', '完成EE、TOK和CAS', '参加IB大考', '用预估/最终成绩申请'],
+      });
+    }
+
+    /* ── Path 5: 预科（Foundation）── ALWAYS shown */
+    (function() {
+      var match5 = 45;
+      if (['g11','g12'].indexOf(s.grade) >= 0) {
+        if (score <= 600 || s.scoreLevel === 'abb' || s.scoreLevel === 'bbb' || s.scoreLevel === '30' || s.scoreLevel === '27' || s.scoreLevel === '80' || s.scoreLevel === '75' || s.scoreLevel === '70') {
+          match5 = 85;
+        } else if (score <= 640 || s.scoreLevel === 'aab' || s.scoreLevel === '33' || s.scoreLevel === '85') {
+          match5 = 70;
+        } else {
+          match5 = 50;
+        }
+      }
+      if (s.grade === 'g10') match5 = 72;
+      if (s.grade === 'g9') match5 = 60;
+      if (s.target === 'go8') match5 += 5;
+      if (s.english === 'average' || s.english === 'none') match5 += 5;
+      match5 = Math.min(match5, 99);
+
+      paths.push({
+        name: '预科（Foundation）', icon: '📚', match: match5,
+        desc: '澳洲大学预科课程（Foundation），1年制，完成后直升本科大一。是进入墨尔本大学（Trinity College预科）的主要途径之一。适合高二/高三在读或高考未达直录要求的学生。',
+        duration: '8-15个月（根据预科类型）',
+        cost: '约20-30万人民币/年',
+        unis: '八大均有对应预科，完成后直升本校本科',
+        difficulty: '★★☆☆☆',
+        pros: ['入学门槛低（高二即可申请）', '直升对应大学本科', '唯一进入墨大的高考替代路径', '适应澳洲教学模式'],
+        cons: ['额外花费1年时间', '需达到预科GPA要求才能升学', '费用不菲'],
+        actions: ['选择目标大学的预科项目', '准备雅思5.5+', '提交申请', '完成预科学习', '凭预科成绩升入本科'],
+      });
+    })();
+
+    /* ── Path 6: Diploma快捷课程（进大二）── */
+    (function() {
+      var match6 = 40;
+      if (score >= 560 && score <= 640) match6 = 72;
+      else if (s.scoreLevel === 'aab' || s.scoreLevel === 'abb') match6 = 70;
+      else if (s.scoreLevel === '33' || s.scoreLevel === '30') match6 = 68;
+      else if (s.scoreLevel === '85' || s.scoreLevel === '80') match6 = 70;
+      else if (s.scoreLevel === '75') match6 = 65;
+      else if (s.scoreLevel === 'good' || s.scoreLevel === 'mid') match6 = 68;
+
+      if (['g11','g12','grad'].indexOf(s.grade) >= 0) match6 += 8;
+      if (s.target === 'go8plus' || s.target === 'all') match6 += 5;
+      if (s.target === 'go8') match6 -= 10;
+      match6 = Math.max(Math.min(match6, 99), 15);
+
+      paths.push({
+        name: 'Diploma快捷课程（进大二）', icon: '⚡', match: match6,
+        desc: '大学快捷文凭课程（Diploma），1年完成后直接进入本科大二。比预科节省1年时间。部分Go8（莫纳什、UNSW、UWA、阿德）和UTS提供此途径。',
+        duration: '8-12个月',
+        cost: '约20-30万人民币/年',
+        unis: 'Monash/UNSW/UWA/Adelaide/UTS',
+        difficulty: '★★★☆☆',
+        pros: ['省1年时间（直进大二）', '入学要求比直录低', '小班教学更多支持'],
+        cons: ['不是所有大学/专业都有', '墨大/悉大/ANU无此选项', '专业选择受限'],
+        actions: ['确认目标大学是否有Diploma课程', '准备雅思6.0+', '申请Diploma', '完成后升入本科大二'],
+      });
+    })();
+
+    /* ── Path 7: 海外分校（低成本方案）── */
+    if (s.budget === 'low' || s.budget === 'unsure' ||
+        (s.examSys === 'gaokao' && score <= 560) ||
+        s.scoreLevel === 'bbb' || s.scoreLevel === '27' || s.scoreLevel === '70' || s.scoreLevel === 'low') {
+      var match7 = 35;
+      if (s.budget === 'low') match7 = 78;
+      else if (s.budget === 'unsure') match7 = 55;
+      if (score <= 560 || s.scoreLevel === 'bbb' || s.scoreLevel === '27' || s.scoreLevel === '70' || s.scoreLevel === 'low') match7 += 10;
+      match7 = Math.min(match7, 99);
+
+      paths.push({
+        name: '海外分校（低成本方案）', icon: '🌏', match: match7,
+        desc: '在莫纳什马来西亚/印尼分校或RMIT越南分校就读，学费仅为澳洲本校的1/3-1/2，毕业获同等学位。适合预算有限的学生。',
+        duration: '3-4年',
+        cost: '约8-15万人民币/年',
+        unis: 'Monash马来西亚/印尼, RMIT越南',
+        difficulty: '★★☆☆☆',
+        pros: ['学费仅为澳洲本校1/3-1/2', '毕业获同等学位', '生活成本更低', '入学门槛较低'],
+        cons: ['校园体验与本校不同', '专业选择有限', '就业网络以当地为主', '部分雇主可能区别看待'],
+        actions: ['了解莫纳什马来西亚/RMIT越南的专业设置', '准备雅思5.5-6.0', '提交申请', '办理当地签证'],
+      });
+    }
+
+    /* Sort by match score */
+    paths.sort(function(a, b) { return b.match - a.match; });
+    return paths;
   }
-
-  // ── Path 6: Diploma快捷课程（进大二）──
-  {
-    let match = 40;
-    // Good for mid-range students
-    if (score >= 560 && score <= 640) match = 72;
-    else if (s.scoreLevel === 'aab' || s.scoreLevel === 'abb') match = 70;
-    else if (s.scoreLevel === '33' || s.scoreLevel === '30') match = 68;
-    else if (s.scoreLevel === '85' || s.scoreLevel === '80') match = 70;
-    else if (s.scoreLevel === '75') match = 65;
-    else if (s.scoreLevel === 'good' || s.scoreLevel === 'mid') match = 68;
-
-    if (['g11','g12','grad'].includes(s.grade)) match += 8;
-    if (s.target === 'go8plus' || s.target === 'all') match += 5;
-    // Not ideal if targeting top Go8 only
-    if (s.target === 'go8') match -= 10;
-    match = Math.max(Math.min(match, 99), 15);
-
-    paths.push({
-      name: 'Diploma快捷课程（进大二）', icon: '⚡', match,
-      desc: '大学快捷文凭课程（Diploma），1年完成后直接进入本科大二。比预科节省1年时间。部分Go8（莫纳什、UNSW、UWA、阿德）和UTS提供此途径。',
-      duration: '8-12个月',
-      cost: '约20-30万人民币/年',
-      unis: 'Monash/UNSW/UWA/Adelaide/UTS',
-      difficulty: '★★★',
-      steps: 4, activeSteps: ['g12','grad'].includes(s.grade) ? 2 : 1,
-      timelineLabel: '申请 → Diploma学习 → 达标升学 → 本科大二',
-      pros: ['省1年时间（直进大二）', '入学要求比直录低', '小班教学更多支持'],
-      cons: ['不是所有大学/专业都有', '墨大/悉大/ANU无此选项', '专业选择受限'],
-      actions: ['确认目标大学是否有Diploma课程', '准备雅思6.0+', '申请Diploma', '完成后升入本科大二'],
-    });
-  }
-
-  // ── Path 7: 海外分校（低成本方案）──
-  if (s.budget === 'low' || s.budget === 'unsure' ||
-      (s.examSys === 'gaokao' && score <= 560) ||
-      s.scoreLevel === 'bbb' || s.scoreLevel === '27' || s.scoreLevel === '70' || s.scoreLevel === 'low') {
-    let match = 35;
-    if (s.budget === 'low') match = 78;
-    else if (s.budget === 'unsure') match = 55;
-    if (score <= 560 || s.scoreLevel === 'bbb' || s.scoreLevel === '27' || s.scoreLevel === '70' || s.scoreLevel === 'low') match += 10;
-    match = Math.min(match, 99);
-
-    paths.push({
-      name: '海外分校（低成本方案）', icon: '🌏', match,
-      desc: '在莫纳什马来西亚/印尼分校或RMIT越南分校就读，学费仅为澳洲本校的1/3-1/2，毕业获同等学位。适合预算有限的学生。',
-      duration: '3-4年',
-      cost: '约8-15万人民币/年',
-      unis: 'Monash马来西亚/印尼, RMIT越南',
-      difficulty: '★★',
-      steps: 4, activeSteps: 1,
-      timelineLabel: '申请 → 入学 → 完成学业 → 获同等学位',
-      pros: ['学费仅为澳洲本校1/3-1/2', '毕业获同等学位', '生活成本更低', '入学门槛较低'],
-      cons: ['校园体验与本校不同', '专业选择有限', '就业网络以当地为主', '部分雇主可能区别看待'],
-      actions: ['了解莫纳什马来西亚/RMIT越南的专业设置', '准备雅思5.5-6.0', '提交申请', '办理当地签证'],
-    });
-  }
-
-  // Sort by match score
-  paths.sort((a, b) => b.match - a.match);
-  return paths;
-}
-</script>
-
-<script src="/seda-site.js" defer></script>
+  </script>
 </body>
 </html>

@@ -422,7 +422,8 @@
             <p>自 2021 年起，PSLE 采用新的 <strong>AL（Achievement Level）评分制度</strong>，取代了此前的 T-Score 制度。每个科目成绩被划分为 AL1 至 AL8 共 8 个等级，其中 AL1 最高（≥90 分），AL8 最低（<20 分）。四个科目的 AL 等级相加即为 PSLE 总分，范围从 4 分（最优，即四科全部 AL1）到 32 分（最低）。分数越低代表成绩越好。顶尖中学（如莱佛士书院、华中初级学院附属中学）的录取分数通常在 4-8 分之间。</p>
 
             <h3>1.4 与中国小学教育的主要差异</h3>
-            <table>
+            <div class="table-wrap">
+            <table class="data-table">
               <thead>
                 <tr><th>对比维度</th><th>新加坡小学</th><th>中国小学</th></tr>
               </thead>
@@ -437,6 +438,7 @@
                 <tr><td>数学方法</td><td>新加坡数学（CPA 法、Model Drawing）</td><td>传统数学教学法</td></tr>
               </tbody>
             </table>
+            </div>
             <p>对中国家长来说，最大的挑战是语言环境的转换。新加坡小学从 P1 起就全面使用英文教学，孩子需要在极短时间内适应英文学习环境。这也是为什么通过 AEIS 考试入学的国际学生需要具备相当的英文基础。</p>
           </div>
 
@@ -533,7 +535,8 @@
             <h2>四、小学类型对比</h2>
             <p>新加坡的 179 所小学虽然统称"政府小学"，但实际上分为三种管理类型：</p>
 
-            <table>
+            <div class="table-wrap">
+            <table class="data-table">
               <thead>
                 <tr><th>类型</th><th>数量</th><th>资金来源</th><th>管理方式</th><th>代表学校</th></tr>
               </thead>
@@ -561,6 +564,7 @@
                 </tr>
               </tbody>
             </table>
+            </div>
 
             <p>无论哪种类型，所有学校都遵循 MOE 统一的课程大纲和考试标准。政府辅助学校的特别之处在于，它们的办学团体（如天主教机构、佛教组织、华人宗乡会馆等）可能在学校文化、价值观教育和 Phase 2A 报名优先权方面产生影响。例如，CHIJ 系列学校的天主教背景意味着天主教家庭在 Phase 2A 阶段有优先权。</p>
             <p>自主学校拥有更大的课程设计灵活性，可以开设更多元的课外活动和特色项目，但核心科目和 PSLE 考试与其他学校完全相同。这些学校通常被认为是学术水平最高的一批。</p>
@@ -579,7 +583,8 @@
             <p>被录取的学生从 P4 开始进入 GEP，在指定的 9 所小学就读。如果学生原来不在这 9 所学校之一，需要转学。</p>
 
             <h3>5.2 开设 GEP 的 9 所小学</h3>
-            <table class="program-table">
+            <div class="table-wrap">
+            <table class="data-table">
               <thead>
                 <tr><th>学校名称</th><th>中文名</th><th>所在区域</th><th>其他特色</th></tr>
               </thead>
@@ -595,6 +600,7 @@
                 <tr><td>St. Hilda's Primary School</td><td>圣希尔达小学</td><td>Tampines</td><td>东部名校</td></tr>
               </tbody>
             </table>
+            </div>
 
             <h3>5.3 GEP 课程特色</h3>
             <p>GEP 学生虽然与主流课程学生在同一所学校，但上课是分开的。GEP 课程的特色包括：</p>
@@ -617,7 +623,8 @@
             <p><strong>SAP（Special Assistance Plan，特别辅助计划）</strong>是新加坡政府于 1979 年推出的教育项目，旨在保留和发扬优秀的华文教育传统。SAP 学校同时提供英文和华文作为第一语言的教学，华文教育水平显著高于普通学校。</p>
 
             <h3>6.1 SAP 小学名单</h3>
-            <table class="program-table">
+            <div class="table-wrap">
+            <table class="data-table">
               <thead>
                 <tr><th>学校名称</th><th>中文名</th><th>所在区域</th><th>其他特色</th></tr>
               </thead>
@@ -639,6 +646,7 @@
                 <tr><td>Tao Nan School</td><td>道南学校</td><td>Marine Parade</td><td>GEP + SAP，百年名校</td></tr>
               </tbody>
             </table>
+            </div>
 
             <h3>6.2 SAP 学校的优势</h3>
             <ul>
@@ -672,7 +680,8 @@
             </ul>
 
             <p><strong>年龄要求：</strong></p>
-            <table>
+            <div class="table-wrap">
+            <table class="data-table">
               <thead>
                 <tr><th>报考年级</th><th>入学年龄要求</th><th>出生日期范围（2026 年入学）</th></tr>
               </thead>
@@ -683,6 +692,7 @@
                 <tr><td>P5</td><td>10-11+ 岁</td><td>2014.1.2 - 2016.1.1</td></tr>
               </tbody>
             </table>
+            </div>
 
             <p><strong>考试难度与准备建议：</strong></p>
             <p>AEIS 小学阶段的数学对中国学生来说通常不算太难，因为中国的数学教育在计算和解题方面有优势。然而，<strong>英文是最大的挑战</strong>。考试内容包括：</p>
@@ -1126,7 +1136,8 @@
       /* ── Render table ── */
       function renderTable(list){
         if(!list.length){tableDiv.innerHTML="<div class='ps-no-results'><span>🔍</span>没有找到符合条件的学校。</div>";return;}
-        let html = '<table class="rank-table"><thead><tr><th>#</th><th>学校名称</th><th>中文名</th><th>地区</th><th>P2B</th><th>梯队</th><th>项目</th></tr></thead><tbody>';
+        <div class="table-wrap">
+        let html = '<table class="data-table"><thead><tr><th>#</th><th>学校名称</th><th>中文名</th><th>地区</th><th>P2B</th><th>梯队</th><th>项目</th></tr></thead><tbody>';
         list.forEach((s,i)=>{
           let progHTML = "";
           s.programs.forEach(p=>{progHTML+='<span class="'+(p==="GEP"?"gep":"sap")+'">'+p+'</span>';});
@@ -1140,6 +1151,7 @@
             '<td class="rank-prog">'+progHTML+'</td></tr>';
         });
         html += '</tbody></table>';
+        </div>
         tableDiv.innerHTML = html;
       }
 

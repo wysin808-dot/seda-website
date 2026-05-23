@@ -450,7 +450,8 @@
     <h2>AEIS / S-AEIS <em>年龄年级对照表</em></h2>
     <p class="ref-sub">以入学年份的 1 月 1 日年龄为准。AEIS 可报 P2-P5、S1-S3；S-AEIS 可报 P2-P4、S1-S2。</p>
     <div class="age-table-wrap">
-      <table class="age-table">
+            <div class="table-wrap">
+<table class="data-table">
         <thead>
           <tr>
             <th>新加坡年级</th>
@@ -470,6 +471,7 @@
           <tr><td class="level-secondary">S3 中三</td><td>14 – 16+</td><td><span class="china-grade-tag">初三</span></td><td class="yes">✓ 可报</td><td class="no">✗ 不可</td></tr>
         </tbody>
       </table>
+      </div>
     </div>
   </div>
 
@@ -622,7 +624,8 @@ function runCheck() {
       <div class="grade-chips">
         ${eligible.map(r => `<span class="grade-chip ${r.type}${r === recommended ? ' best' : ''}">${r.level} ${r.label}${r === recommended ? ' ⭐推荐' : ''}</span>`).join('')}
       </div>
-      <table class="detail-table">
+            <div class="table-wrap">
+<table class="data-table">
         <thead><tr><th>年级</th><th>年龄范围</th><th>≈ 中国</th><th>匹配度</th></tr></thead>
         <tbody>
           ${eligible.map(r => `
@@ -634,6 +637,7 @@ function runCheck() {
           </tr>`).join('')}
         </tbody>
       </table>
+      </div>
       <div class="result-info" style="margin-top:16px">
         <strong>📅 考试安排：</strong>${examInfo.examTime}考试 → ${examInfo.admTime}入学<br>
         <strong>📝 考试内容：</strong>${eligible[0].type === 'primary' ? '英语（需先过 CEQ）+ 数学' : '英语 + 数学'}<br>

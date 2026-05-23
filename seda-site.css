@@ -2139,6 +2139,25 @@ details summary:focus-visible {
   }
 }
 
+/* ── Zone Card Tables ── */
+.zone-card .table-wrap {
+  margin: 12px 0;
+}
+
+.zone-card .data-table {
+  margin: 0;
+  font-size: 14px;
+}
+
+.zone-card .data-table thead th {
+  padding: 10px 14px;
+  font-size: 12px;
+}
+
+.zone-card .data-table td {
+  padding: 10px 14px;
+}
+
 /* ── HK University Detail Pages — Sidebar ── */
 .sidebar {
   display: grid;

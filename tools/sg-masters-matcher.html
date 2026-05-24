@@ -1,0 +1,1771 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>新加坡硕士录取评估 — AI 智能匹配 NUS NTU SMU SUTD SIT SUSS | SEDA 顾问工具</title>
+  <meta name="description" content="输入本科院校、GPA、语言成绩，AI 即时评估新加坡公立大学硕士录取概率" />
+  <link rel="stylesheet" href="/seda-site.css" />
+  <style>
+    /* ── Matcher Tool Styles (SEDA theme) ── */
+    .matcher-hero {
+      background: linear-gradient(135deg, #2a1215 0%, #1a0a0c 100%);
+      color: #fff;
+      padding: 56px clamp(20px, 6vw, 80px) 48px;
+      border-radius: var(--radius);
+      margin: 0 clamp(20px, 6vw, 80px) 32px;
+      position: relative;
+      overflow: hidden;
+    }
+    .matcher-hero::before {
+      content: "";
+      position: absolute; top: 0; right: 0;
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(198,40,40,0.25), transparent 70%);
+      border-radius: 50%;
+      filter: blur(80px);
+      pointer-events: none;
+    }
+    .matcher-hero .eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 6px 14px;
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 100px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      color: #fca5a5;
+      margin-bottom: 20px;
+      background: rgba(198,40,40,0.15);
+    }
+    .matcher-hero .eyebrow::before {
+      content: ""; width: 6px; height: 6px;
+      border-radius: 50%;
+      background: #ef4444;
+      box-shadow: 0 0 12px #ef4444;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
+    .matcher-hero h1 {
+      font-size: clamp(28px, 4vw, 42px);
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 16px;
+      position: relative;
+    }
+    .matcher-hero h1 em { font-style: normal; color: #fca5a5; }
+    .matcher-hero .lead {
+      font-size: 16px;
+      color: rgba(255,255,255,0.7);
+      line-height: 1.6;
+      max-width: 560px;
+      margin-bottom: 28px;
+    }
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      max-width: 420px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+    .stat-num {
+      font-size: 32px; font-weight: 800; color: #fff; line-height: 1;
+    }
+    .stat-label {
+      font-size: 11px; color: rgba(255,255,255,0.5); margin-top: 4px; text-transform: uppercase; letter-spacing: 0.06em;
+    }
+
+    /* ── Matcher Card ── */
+    .matcher-wrap {
+      padding: 0 clamp(20px, 6vw, 80px) 40px;
+    }
+    .matcher {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+    .matcher-tabs {
+      display: flex;
+      border-bottom: 1px solid var(--line);
+      padding: 0 24px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--muted);
+      background: var(--wash);
+    }
+    .matcher-tab {
+      padding: 16px 18px;
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      transition: all 0.2s;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .matcher-tab.active { color: var(--brand); border-bottom-color: var(--brand); }
+    .matcher-tab:hover:not(.active) { color: var(--ink); }
+    .matcher-tab .step-num {
+      width: 20px; height: 20px;
+      border-radius: 50%;
+      border: 1.5px solid currentColor;
+      display: inline-flex; align-items: center; justify-content: center;
+      font-size: 11px; font-weight: 700;
+    }
+    .matcher-body { padding: 32px; }
+    @media (max-width: 720px) { .matcher-body { padding: 20px; } }
+    .matcher-q {
+      font-size: 20px; font-weight: 700; color: var(--ink); margin-bottom: 20px;
+    }
+    .matcher-q em { font-style: normal; color: var(--brand); }
+    .hidden { display: none !important; }
+
+    .option-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+    .opt {
+      padding: 14px 16px;
+      background: var(--wash);
+      border: 1.5px solid var(--line);
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.18s;
+      text-align: left;
+      font-family: inherit;
+      color: var(--ink);
+    }
+    .opt:hover { border-color: #fca5a5; background: var(--brand-light); }
+    .opt.selected {
+      border-color: var(--brand);
+      background: var(--brand-light);
+      box-shadow: 0 0 0 3px rgba(198,40,40,0.1);
+    }
+    .opt-label { font-size: 15px; font-weight: 600; margin-bottom: 2px; }
+    .opt-sub { font-size: 11px; color: var(--muted); letter-spacing: 0.03em; }
+
+    .score-input-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-bottom: 20px;
+    }
+    @media (max-width: 540px) { .score-input-row { grid-template-columns: 1fr; } }
+    .input-group label {
+      font-size: 12px; font-weight: 600;
+      color: var(--muted);
+      display: block;
+      margin-bottom: 6px;
+    }
+    .input-group input,
+    .input-group select {
+      width: 100%;
+      padding: 12px 14px;
+      background: var(--wash);
+      border: 1.5px solid var(--line);
+      border-radius: 8px;
+      color: var(--ink);
+      font-family: inherit;
+      font-size: 15px;
+      font-weight: 500;
+      box-sizing: border-box;
+    }
+    .input-group input:focus,
+    .input-group select:focus {
+      outline: none;
+      border-color: var(--brand);
+      box-shadow: 0 0 0 3px rgba(198,40,40,0.1);
+    }
+    .input-hint {
+      font-size: 11px; color: var(--muted); margin-top: 4px;
+    }
+
+    .matcher-actions {
+      display: flex; gap: 10px;
+      margin-top: 24px;
+      padding-top: 20px;
+      border-top: 1px solid var(--line);
+    }
+    .btn-m-primary {
+      padding: 12px 24px;
+      background: var(--brand);
+      color: #fff;
+      border: none;
+      border-radius: 100px;
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.18s;
+      display: inline-flex; align-items: center; gap: 6px;
+    }
+    .btn-m-primary:hover { background: var(--brand-strong); transform: translateY(-1px); }
+    .btn-m-secondary {
+      padding: 12px 20px;
+      background: transparent;
+      color: var(--muted);
+      border: 1.5px solid var(--line);
+      border-radius: 100px;
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.18s;
+    }
+    .btn-m-secondary:hover { border-color: var(--ink); color: var(--ink); }
+
+    /* AI Thinking */
+    .ai-thinking {
+      padding: 32px;
+      text-align: center;
+      background: var(--wash);
+      border-top: 1px solid var(--line);
+      display: none;
+    }
+    .ai-thinking.show { display: block; }
+    .thinking-dots {
+      display: inline-flex; gap: 6px;
+      margin-bottom: 12px;
+    }
+    .thinking-dots span {
+      width: 8px; height: 8px;
+      background: var(--brand);
+      border-radius: 50%;
+      animation: dotPulse 1.4s infinite ease-in-out;
+    }
+    .thinking-dots span:nth-child(2) { animation-delay: 0.2s; }
+    .thinking-dots span:nth-child(3) { animation-delay: 0.4s; }
+    @keyframes dotPulse {
+      0%, 60%, 100% { transform: scale(0.5); opacity: 0.4; }
+      30% { transform: scale(1); opacity: 1; }
+    }
+    .thinking-text { font-size: 13px; color: var(--muted); }
+
+    /* Results */
+    .result-panel {
+      padding: 28px 32px;
+      border-top: 1px solid var(--line);
+      display: none;
+    }
+    .result-panel.show { display: block; }
+    .result-headline {
+      font-size: 22px; font-weight: 800; margin-bottom: 6px; color: var(--ink);
+    }
+    .result-sub {
+      color: var(--muted); font-size: 14px; margin-bottom: 24px; line-height: 1.6;
+    }
+    .result-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 14px;
+    }
+    .result-uni {
+      background: var(--wash);
+      border: 1.5px solid var(--line);
+      border-radius: 12px;
+      padding: 20px;
+      transition: border-color 0.2s;
+    }
+    .result-uni:hover { border-color: #fca5a5; }
+    .result-uni-head {
+      display: flex; justify-content: space-between; align-items: baseline;
+      margin-bottom: 12px;
+    }
+    .result-uni-name {
+      font-size: 20px; font-weight: 800; color: var(--ink);
+    }
+    .result-uni-name small { color: var(--muted); font-size: 12px; margin-left: 6px; font-weight: 400; }
+    .result-likelihood {
+      font-size: 11px; font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 100px;
+      letter-spacing: 0.03em;
+    }
+    .lh-high { background: #dcfce7; color: #166534; border: 1px solid #86efac; }
+    .lh-mid  { background: #fef3c7; color: #92400e; border: 1px solid #fcd34d; }
+    .lh-low  { background: #fee2e2; color: #991b1b; border: 1px solid #fca5a5; }
+    .lh-none { background: #f3f4f6; color: #6b7280; border: 1px solid #d1d5db; }
+    .result-detail-row {
+      font-size: 13px; color: var(--muted); line-height: 1.7; margin-bottom: 4px;
+    }
+    .result-detail-row strong { color: var(--ink); font-weight: 600; }
+    .result-detail-row .warn { color: #dc2626; font-weight: 600; }
+    .result-detail-row .ok { color: #16a34a; font-weight: 600; }
+    .result-note {
+      margin-top: 10px;
+      padding: 10px 12px;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+    .result-note strong { color: var(--ink); }
+    .result-materials {
+      margin-top: 8px;
+      font-size: 11px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+    .result-materials strong { color: var(--ink); font-weight: 600; }
+
+    /* ── Matrix Table ── */
+    .matrix-section {
+      padding: 40px clamp(20px, 6vw, 80px);
+    }
+    .matrix-section h2 {
+      font-size: 24px; font-weight: 800; margin-bottom: 8px;
+    }
+    .matrix-section h2 em { font-style: normal; color: var(--brand); }
+    .matrix-sub { color: var(--muted); font-size: 14px; margin-bottom: 24px; }
+    .matrix-scroll {
+      overflow-x: auto;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+    }
+    .matrix-table {
+      width: 100%;
+      min-width: 800px;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+    .matrix-table thead th {
+      padding: 14px 16px;
+      background: var(--wash);
+      font-weight: 700;
+      text-align: center;
+      border-bottom: 2px solid var(--line);
+      color: var(--ink);
+      position: sticky; top: 0;
+    }
+    .matrix-table thead th:first-child { text-align: left; min-width: 140px; }
+    .matrix-table tbody td {
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--line);
+      vertical-align: top;
+      text-align: center;
+    }
+    .matrix-table tbody td:first-child { text-align: left; font-weight: 600; color: var(--ink); }
+    .matrix-table tbody tr:last-child td { border-bottom: 0; }
+    .matrix-table tbody tr:hover { background: var(--brand-light); }
+    .req-grade { display: block; font-weight: 700; color: var(--ink); font-size: 14px; }
+    .req-note { display: block; font-size: 11px; color: var(--muted); margin-top: 3px; line-height: 1.4; }
+
+    /* ── Checklist Section ── */
+    .checklist-section {
+      padding: 40px clamp(20px, 6vw, 80px);
+    }
+    .checklist-section h2 {
+      font-size: 24px; font-weight: 800; margin-bottom: 8px;
+    }
+    .checklist-section h2 em { font-style: normal; color: var(--brand); }
+    .checklist-sub { color: var(--muted); font-size: 14px; margin-bottom: 24px; }
+    .checklist-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 10px;
+    }
+    .checklist-item {
+      display: flex; align-items: flex-start; gap: 12px;
+      padding: 14px 16px;
+      background: var(--wash);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      font-size: 14px;
+      color: var(--ink);
+      line-height: 1.5;
+    }
+    .checklist-icon {
+      width: 24px; height: 24px; min-width: 24px;
+      border-radius: 50%;
+      background: var(--brand-light);
+      color: var(--brand);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 12px; font-weight: 700;
+      margin-top: 1px;
+    }
+    .checklist-text strong { display: block; margin-bottom: 2px; }
+    .checklist-text small { font-size: 11px; color: var(--muted); }
+
+    /* ── FAQ (tool-specific) ── */
+    .tool-faq { padding: 40px clamp(20px, 6vw, 80px) 20px; }
+    .tool-faq h2 { font-size: 24px; font-weight: 800; margin-bottom: 20px; }
+    .tool-faq h2 em { font-style: normal; color: var(--brand); }
+    .faq-item {
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      margin-bottom: 8px;
+      overflow: hidden;
+      transition: border-color 0.2s;
+    }
+    .faq-item:hover { border-color: #fca5a5; }
+    .faq-q {
+      padding: 16px 20px;
+      font-weight: 600;
+      font-size: 15px;
+      color: var(--ink);
+      cursor: pointer;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .faq-q-toggle {
+      font-size: 20px; color: var(--brand); transition: transform 0.2s;
+      flex-shrink: 0; margin-left: 12px;
+    }
+    .faq-item.open .faq-q-toggle { transform: rotate(45deg); }
+    .faq-a {
+      display: none;
+      padding: 0 20px 16px;
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+    .faq-item.open .faq-a { display: block; }
+
+    .disclaimer {
+      margin-top: 12px;
+      padding: 0 clamp(20px, 6vw, 80px);
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    @media (max-width: 720px) {
+      .matcher-hero { margin: 0 16px 24px; padding: 36px 20px 32px; border-radius: 12px; }
+      .matcher-wrap, .matrix-section, .checklist-section, .tool-faq, .disclaimer { padding-left: 16px; padding-right: 16px; }
+      .hero-stats { grid-template-columns: repeat(3, 1fr); gap: 16px; }
+      .matcher-tabs { font-size: 11px; padding: 0 12px; }
+      .matcher-tab { padding: 12px 10px; }
+      .option-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }
+      .result-grid { grid-template-columns: 1fr; }
+      .checklist-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ── Mobile Hamburger Nav ── */
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      width: 40px;
+      height: 40px;
+      padding: 8px;
+      border: 0;
+      border-radius: 6px;
+      background: transparent;
+      cursor: pointer;
+      margin-left: auto;
+      flex-shrink: 0;
+    }
+    .menu-toggle span {
+      display: block;
+      width: 100%;
+      height: 2.5px;
+      border-radius: 2px;
+      background: var(--ink);
+      transition: transform 0.25s ease, opacity 0.25s ease;
+    }
+    .menu-toggle.active span:nth-child(1) { transform: translateY(7.5px) rotate(45deg); }
+    .menu-toggle.active span:nth-child(2) { opacity: 0; }
+    .menu-toggle.active span:nth-child(3) { transform: translateY(-7.5px) rotate(-45deg); }
+
+    @media (max-width: 980px) {
+      .menu-toggle { display: flex; }
+      .main-nav {
+        display: none;
+        flex-basis: 100%;
+        flex-direction: column;
+        align-items: stretch;
+        padding: 8px 0;
+        border-top: 1px solid var(--line);
+        margin-top: 12px;
+        overflow-y: auto;
+        max-height: 70vh;
+      }
+      .main-nav.nav-open { display: flex; }
+      .nav-group {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 10px 4px;
+        border-bottom: 1px solid var(--line);
+        font-size: 14px;
+      }
+      .nav-group::after {
+        content: ">";
+        margin-left: 6px;
+        font-size: 16px;
+        color: var(--muted);
+        transition: transform 0.2s ease;
+      }
+      .nav-group.mobile-open::after { transform: rotate(90deg); }
+      .nav-group .mega-dropdown {
+        display: none;
+        position: static;
+        border: 0;
+        box-shadow: none;
+        min-width: 0;
+        border-radius: 0;
+        padding: 4px 0 4px 16px;
+        width: 100%;
+      }
+      .nav-group.mobile-open .mega-dropdown {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+      }
+      .mega-dropdown a { min-height: 40px; display: flex; align-items: center; font-size: 13px; }
+      .nav-cta { display: none; }
+      .header-main { flex-wrap: wrap; }
+      .trending-bar { display: none; }
+    }
+
+    /* ── Presentation Mode Overrides ── */
+    .present-header {
+      background: #fff;
+      border-bottom: 2px solid #c62828;
+      position: sticky; top: 0; z-index: 100;
+    }
+    .present-header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px clamp(20px, 6vw, 80px);
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    .present-brand {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+    }
+    .present-brand-word {
+      font-size: 24px;
+      font-weight: 900;
+      color: #c62828;
+      letter-spacing: -0.5px;
+    }
+    .present-brand-sub {
+      font-size: 13px;
+      font-weight: 600;
+      color: #6b7280;
+    }
+    .present-back {
+      font-size: 13px;
+      font-weight: 600;
+      color: #6b7280;
+      text-decoration: none;
+    }
+    .present-back:hover { color: #c62828; }
+    .present-footer {
+      border-top: 1px solid #e5e7eb;
+      padding: 20px clamp(20px, 6vw, 80px);
+      text-align: center;
+      font-size: 12px;
+      color: #6b7280;
+    }
+    .present-footer a { color: #c62828; text-decoration: none; }
+    .present-footer a:hover { text-decoration: underline; }
+    /* Hide breadcrumb in present mode */
+    .breadcrumb { display: none !important; }
+    /* Hide lead overlay in present mode */
+    .lead-overlay, #leadOverlay { display: none !important; }
+    /* Hide CTA sections that regex may have missed */
+    .cta-section { display: none !important; }
+    /* Hide nav-cta if somehow still present */
+    .nav-cta { display: none !important; }
+  </style>
+</head>
+<body>
+  <header class="present-header">
+  <div class="present-header-inner">
+    <div class="present-brand">
+      <span class="present-brand-word">SEDA</span>
+      <span class="present-brand-sub">新加坡国际教育中心</span>
+    </div>
+    <a href="/tools/" class="present-back">&larr; 全部工具</a>
+  </div>
+</header>
+
+  <main>
+    <!-- ── Hero ── -->
+    <div class="matcher-hero">
+      <div class="eyebrow">AI 智能评估</div>
+      <h1>新加坡公立大学硕士<br><em>AI 录取评估工具</em></h1>
+      <p class="lead">输入你的本科院校类型、GPA、语言成绩，AI 即时评估 NUS、NTU、SMU、SUTD、SIT、SUSS 六所公立大学硕士录取概率与申请建议。</p>
+      <div class="hero-stats">
+        <div><div class="stat-num">6</div><div class="stat-label">公立大学</div></div>
+        <div><div class="stat-num">7</div><div class="stat-label">专业方向</div></div>
+        <div><div class="stat-num">8</div><div class="stat-label">院校层次</div></div>
+      </div>
+    </div>
+
+    <!-- ── AI Matcher Tool ── -->
+    <div class="matcher-wrap" id="matcher">
+      <div class="matcher">
+        <div class="matcher-tabs">
+          <div class="matcher-tab active" data-step="1"><span class="step-num">1</span> 选择本科院校类型</div>
+          <div class="matcher-tab" data-step="2"><span class="step-num">2</span> 输入成绩与背景</div>
+          <div class="matcher-tab" data-step="3"><span class="step-num">3</span> AI 匹配结果</div>
+        </div>
+
+        <!-- Step 1 -->
+        <div class="matcher-body" id="step1">
+          <div class="matcher-q">你的本科就读于哪种<em>院校类型</em>？</div>
+          <div class="option-grid">
+            <button class="opt" data-tier="985"><div class="opt-label">985 院校</div><div class="opt-sub">C9联盟 / 985工程大学</div></button>
+            <button class="opt" data-tier="211"><div class="opt-label">211 院校</div><div class="opt-sub">211工程 / 双一流大学</div></button>
+            <button class="opt" data-tier="shuangyiliu"><div class="opt-label">双一流学科建设高校</div><div class="opt-sub">非211的双一流</div></button>
+            <button class="opt" data-tier="yiben"><div class="opt-label">普通一本</div><div class="opt-sub">非双一流的一本院校</div></button>
+            <button class="opt" data-tier="erben"><div class="opt-label">普通二本/三本</div><div class="opt-sub">二本及三本院校</div></button>
+            <button class="opt" data-tier="minban"><div class="opt-label">民办/独立学院</div><div class="opt-sub">民办本科 / 独立学院</div></button>
+            <button class="opt" data-tier="overseas"><div class="opt-label">海外本科</div><div class="opt-sub">境外大学本科</div></button>
+            <button class="opt" data-tier="dazhuan"><div class="opt-label">大专/专升本</div><div class="opt-sub">大专或专升本学历</div></button>
+          </div>
+          <div class="matcher-actions">
+            <button class="btn-m-primary" id="toStep2" disabled>下一步 &rarr;</button>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="matcher-body hidden" id="step2">
+          <div class="matcher-q">输入你的<em>成绩与背景</em></div>
+          <div class="score-input-row">
+            <div class="input-group">
+              <label>GPA（4.0 制）</label>
+              <input type="number" id="gpa4" min="0" max="4.0" step="0.01" placeholder="例如：3.5" />
+              <div class="input-hint">留空可填百分制 GPA</div>
+            </div>
+            <div class="input-group">
+              <label>GPA（百分制）</label>
+              <input type="number" id="gpa100" min="0" max="100" step="0.1" placeholder="例如：85" />
+              <div class="input-hint">与 4.0 制二选一即可</div>
+            </div>
+          </div>
+          <div class="score-input-row">
+            <div class="input-group">
+              <label>雅思 IELTS</label>
+              <input type="number" id="ielts" min="0" max="9" step="0.5" placeholder="例如：6.5" />
+            </div>
+            <div class="input-group">
+              <label>托福 TOEFL</label>
+              <input type="number" id="toefl" min="0" max="120" step="1" placeholder="例如：90" />
+            </div>
+          </div>
+          <div class="score-input-row">
+            <div class="input-group">
+              <label>GRE 总分（如有）</label>
+              <input type="number" id="gre" min="260" max="340" step="1" placeholder="例如：320" />
+            </div>
+            <div class="input-group">
+              <label>GMAT 总分（如有）</label>
+              <input type="number" id="gmat" min="200" max="800" step="10" placeholder="例如：700" />
+            </div>
+          </div>
+          <div class="score-input-row">
+            <div class="input-group">
+              <label>工作经验</label>
+              <select id="workExp">
+                <option value="0">应届 / 1年以内</option>
+                <option value="1">1-2 年</option>
+                <option value="3">3-5 年</option>
+                <option value="5">5-10 年</option>
+                <option value="10">10 年以上</option>
+              </select>
+            </div>
+            <div class="input-group">
+              <label>目标专业方向</label>
+              <select id="targetField">
+                <option value="engineering">工程 / 理科</option>
+                <option value="business">商科 / 管理</option>
+                <option value="computing">计算机 / 数据科学</option>
+                <option value="humanities">人文社科</option>
+                <option value="law">法律</option>
+                <option value="design">建筑 / 设计</option>
+                <option value="medicine">医学 / 公共卫生</option>
+              </select>
+            </div>
+          </div>
+          <div class="matcher-actions">
+            <button class="btn-m-secondary" id="backStep1">&larr; 上一步</button>
+            <button class="btn-m-primary" id="runMatch">开始 AI 评估 &rarr;</button>
+          </div>
+        </div>
+
+        <!-- Step 3 (result placeholder) -->
+        <div class="matcher-body hidden" id="step3"></div>
+
+        <!-- Thinking -->
+        <div class="ai-thinking" id="thinking">
+          <div class="thinking-dots"><span></span><span></span><span></span></div>
+          <div class="thinking-text" id="thinkingText">正在比对 6 所大学硕士录取数据库...</div>
+        </div>
+
+        <!-- Result -->
+        <div class="result-panel" id="result">
+          <div class="result-headline">AI 评估结果</div>
+          <div class="result-sub" id="resultSub"></div>
+          <div class="result-grid" id="resultGrid"></div>
+          <div class="matcher-actions" style="border-top:0;padding-top:16px">
+            <button class="btn-m-primary" id="resetMatch">重新评估</button>
+            <a class="btn-m-secondary" href="#contact">咨询顾问，深度评估 &rarr;</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Admission Matrix ── -->
+    <div class="matrix-section" id="matrixSection">
+      <h2>4 校 &times; 8 层次 <em>硕士录取要求矩阵</em></h2>
+      <p class="matrix-sub">一表纵览所有公立大学对不同院校背景的工科硕士 GPA 要求（4.0 制）与雅思要求。切换专业方向查看不同学院。</p>
+      <div style="margin-bottom:16px">
+        <select id="matrixField" style="padding:10px 14px;border:1.5px solid var(--line);border-radius:8px;font-size:14px;font-weight:600;font-family:inherit;color:var(--ink);background:var(--wash);cursor:pointer">
+          <option value="engineering">工程 / 理科</option>
+          <option value="computing">计算机 / 数据科学</option>
+          <option value="business">商科 / 管理</option>
+          <option value="humanities">人文社科</option>
+          <option value="law">法律</option>
+          <option value="design">建筑 / 设计</option>
+          <option value="medicine">医学 / 公共卫生</option>
+        </select>
+      </div>
+      <div class="matrix-scroll">
+        <table class="matrix-table">
+          <thead>
+            <tr>
+              <th>院校背景</th>
+              <th>NUS<br><small style="font-weight:400;color:var(--muted)">新加坡国立大学</small></th>
+              <th>NTU<br><small style="font-weight:400;color:var(--muted)">南洋理工大学</small></th>
+              <th>SMU<br><small style="font-weight:400;color:var(--muted)">新加坡管理大学</small></th>
+              <th>SUTD<br><small style="font-weight:400;color:var(--muted)">新加坡科技设计大学</small></th>
+              <th>SIT<br><small style="font-weight:400;color:var(--muted)">新加坡理工大学</small></th>
+              <th>SUSS<br><small style="font-weight:400;color:var(--muted)">新跃社科大学</small></th>
+            </tr>
+          </thead>
+          <tbody id="matrixBody"></tbody>
+        </table>
+      </div>
+      <p class="disclaimer">以上为指示性数据，整理自各大学 2025-2026 官方招生页面及历年录取统计。最终录取以各校官网为准。</p>
+    </div>
+
+    <!-- ── Checklist ── -->
+    <div class="checklist-section">
+      <h2>硕士申请<em>材料清单</em></h2>
+      <p class="checklist-sub">新加坡公立大学硕士申请通常需要提交以下材料，请提前准备。</p>
+      <div class="checklist-grid">
+        <div class="checklist-item">
+          <div class="checklist-icon">1</div>
+          <div class="checklist-text"><strong>本科成绩单</strong><small>中英文公证件，需加盖学校公章</small></div>
+        </div>
+        <div class="checklist-item">
+          <div class="checklist-icon">2</div>
+          <div class="checklist-text"><strong>本科毕业证 / 学位证</strong><small>中英文公证件，在读学生提供在读证明</small></div>
+        </div>
+        <div class="checklist-item">
+          <div class="checklist-icon">3</div>
+          <div class="checklist-text"><strong>雅思 / 托福成绩单</strong><small>有效期内的官方成绩报告</small></div>
+        </div>
+        <div class="checklist-item">
+          <div class="checklist-icon">4</div>
+          <div class="checklist-text"><strong>GMAT / GRE 成绩单</strong><small>商科 / 部分项目要求或强烈建议提交</small></div>
+        </div>
+        <div class="checklist-item">
+          <div class="checklist-icon">5</div>
+          <div class="checklist-text"><strong>个人陈述 (Personal Statement)</strong><small>800-1000 字，阐述学术兴趣与职业目标</small></div>
+        </div>
+        <div class="checklist-item">
+          <div class="checklist-icon">6</div>
+          <div class="checklist-text"><strong>简历 (CV)</strong><small>学术背景、实习、项目、发表等</small></div>
+        </div>
+        <div class="checklist-item">
+          <div class="checklist-icon">7</div>
+          <div class="checklist-text"><strong>推荐信 2-3 封</strong><small>学术推荐 + 工作推荐（如有工作经验）</small></div>
+        </div>
+        <div class="checklist-item">
+          <div class="checklist-icon">8</div>
+          <div class="checklist-text"><strong>研究计划 (Research Proposal)</strong><small>研究型硕士需要，授课型通常不需要</small></div>
+        </div>
+        <div class="checklist-item">
+          <div class="checklist-icon">9</div>
+          <div class="checklist-text"><strong>作品集 (Portfolio)</strong><small>建筑 / 设计类专业必须提交</small></div>
+        </div>
+        <div class="checklist-item">
+          <div class="checklist-icon">10</div>
+          <div class="checklist-text"><strong>护照复印件</strong><small>有效期至少覆盖入学后 6 个月</small></div>
+        </div>
+        <div class="checklist-item">
+          <div class="checklist-icon">11</div>
+          <div class="checklist-text"><strong>实习 / 工作证明</strong><small>如有相关实习或工作经历</small></div>
+        </div>
+        <div class="checklist-item">
+          <div class="checklist-icon">12</div>
+          <div class="checklist-text"><strong>其他证书</strong><small>专业证书、竞赛获奖、论文发表等</small></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── FAQ ── -->
+    <div class="tool-faq">
+      <h2>硕士申请<em>常见问题</em></h2>
+      <div id="faqList">
+        <div class="faq-item">
+          <div class="faq-q">中国双非（非985/211）学生能申请 NUS/NTU 硕士吗？<span class="faq-q-toggle">+</span></div>
+          <div class="faq-a">可以申请，但录取难度较大。NUS/NTU 并未明确限制只招收 985/211 学生，但从历年录取统计看，双非学生需要<strong>显著更高的 GPA（通常 3.5/4.0 或 87/100 以上）</strong>，并配合出色的语言成绩、实习经历或科研背景来弥补院校背景。建议同时申请 SMU 和 SUTD 作为保底选择。</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">新加坡硕士一般需要读多久？学费大概多少？<span class="faq-q-toggle">+</span></div>
+          <div class="faq-a">授课型硕士（Taught Master's）通常 <strong>1-1.5 年</strong>，研究型硕士（Research Master's）通常 <strong>1.5-2 年</strong>。学费方面，NUS/NTU 国际生学费约 <strong>SGD 45,000-60,000/年</strong>（约人民币 24-32 万），商学院和医学院更高。SMU 商科约 SGD 50,000-70,000。SUTD 相对较低，约 SGD 35,000-45,000。部分项目提供助学金或 TA/RA 奖学金。</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">GPA 是用 4.0 制还是百分制？怎么换算？<span class="faq-q-toggle">+</span></div>
+          <div class="faq-a">新加坡大学接受两种制度，但通常以 <strong>4.0 制</strong>为主要参考。常见换算参考：90-100 分 = 4.0，85-89 = 3.7，80-84 = 3.3，75-79 = 3.0，70-74 = 2.7。但不同学校有不同的换算标准，建议在申请时提供原始成绩单，让学校自行评估。如果你的学校使用 5.0 制或其他制度，也可以直接提交。</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">雅思和托福哪个更被认可？需要多少分？<span class="faq-q-toggle">+</span></div>
+          <div class="faq-a">两者都被广泛接受。NUS 工程/理科最低要求<strong>雅思 6.0 / 托福 85</strong>，商科和人文社科通常要求<strong>雅思 7.0 / 托福 100</strong>。NTU 大部分项目要求<strong>雅思 6.5 / 托福 90</strong>。实际录取中建议比最低要求高 0.5-1.0 分。如果本科是全英授课（如海外本科），部分学校可豁免语言成绩。</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">申请商科硕士必须要 GMAT/GRE 吗？<span class="faq-q-toggle">+</span></div>
+          <div class="faq-a">NUS 商学院<strong>强烈建议提交</strong>，多数录取者 GMAT 在 680-720 之间。NTU 南洋商学院部分项目不强制要求，但提交会增加竞争力。SMU 商科建议提交 GMAT 650+。对于非 985/211 背景的学生，<strong>GMAT/GRE 高分是弥补院校背景的重要途径</strong>。工程和理科项目通常不需要 GMAT/GRE。</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">新加坡硕士的申请时间线是怎样的？<span class="faq-q-toggle">+</span></div>
+          <div class="faq-a">大部分项目的申请窗口为<strong>每年 10 月至次年 3 月</strong>，入学时间为 8 月。具体时间：NUS 大部分项目 11 月-次年 1 月截止；NTU 11 月-次年 3 月；SMU 10 月-次年 4 月；SUTD 1 月-3 月。部分热门项目（如 NUS Computing）会有多轮申请。建议提前 1 年开始准备，大三下学期就可以开始准备语言考试和材料。</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">工作经验对硕士申请有帮助吗？<span class="faq-q-toggle">+</span></div>
+          <div class="faq-a">对授课型硕士（尤其是商科 MBA/MiM），工作经验非常加分。NUS/NTU MBA 通常要求 <strong>3-5 年工作经验</strong>。对于其他专业，1-2 年相关实习或工作经验可以提升竞争力，但不是必须的。应届生也可以申请大部分授课型硕士项目。<strong>研究型硕士更看重科研经历而非工作经验</strong>。</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">新加坡六所公立大学之间该怎么选？<span class="faq-q-toggle">+</span></div>
+          <div class="faq-a"><strong>NUS</strong>（QS#8，综合实力最强，几乎所有学科都顶尖）适合追求最高学术声誉的学生；<strong>NTU</strong>（QS#15，工科极强，商科也突出）录取标准略低于 NUS，性价比高；<strong>SMU</strong>（商科全球前 50，城市校区）适合商科/法律/社科方向，对非 985/211 更友好；<strong>SUTD</strong>（与 MIT 合作，设计+科技融合）适合工程和设计方向；<strong>SIT</strong>（应用型大学，与海外名校联办学位）适合注重实践和就业的学生，学费较低；<strong>SUSS</strong>（前 UniSIM，社科和商科为主）对工作经验申请者友好，部分项目接受非全日制学习。</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">大专或专升本学历可以申请新加坡硕士吗？<span class="faq-q-toggle">+</span></div>
+          <div class="faq-a">新加坡六所公立大学的硕士项目通常<strong>不接受大专或专升本学历</strong>直接申请。申请者须持有认可大学的本科学士学位。如果你是专升本，取得了全日制本科学位证，可以尝试申请，但竞争力会受到影响。其中 SIT 和 SUSS 对非传统背景相对更包容。建议大专学历的同学考虑先完成海外本科（如英国 Top-up Degree），再申请新加坡硕士。</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">这个 AI 工具的数据可靠吗？<span class="faq-q-toggle">+</span></div>
+          <div class="faq-a">本工具数据整理自 NUS、NTU、SMU、SUTD、SIT、SUSS 各学院 2025-2026 学年官方招生页面，并结合历年中国学生申请录取的统计数据。<strong>匹配概率为基于历史申请池的指示性估算，不代表录取保证。</strong>每年的录取标准可能微调，且面试表现、推荐信质量、个人陈述等软性因素也会影响最终结果。建议在初步评估后与专业顾问做深度分析。</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Contact ── -->
+    <section class="contact-section" id="contact" aria-labelledby="contact-title" style="padding:40px clamp(20px,6vw,80px);background:var(--wash);border-top:1px solid var(--line);display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start">
+      <div>
+        <p class="eyebrow" style="display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border:1px solid var(--line);border-radius:100px;font-size:12px;font-weight:600;letter-spacing:0.06em;color:var(--brand);margin-bottom:16px;background:var(--brand-light)">免费咨询</p>
+        <h2 id="contact-title" style="font-size:24px;font-weight:800;margin-bottom:12px;color:var(--ink)">AI 给你方向，顾问帮你落地</h2>
+        <p style="color:var(--muted);font-size:14px;line-height:1.7">把你的评估结果告诉我们，顾问团队会在 24 小时内提供一对一选校策略、申请时间表与材料指导。</p>
+      </div>
+      <form class="lead-form" style="display:grid;gap:12px" onsubmit="return false">
+        <label style="display:block"><span style="font-size:12px;font-weight:700;color:var(--ink);display:block;margin-bottom:4px">本科院校与专业</span><input type="text" name="school" placeholder="例如：武汉大学 计算机科学" style="width:100%;padding:10px 12px;border:1.5px solid var(--line);border-radius:8px;font-size:14px;box-sizing:border-box" /></label>
+        <label style="display:block"><span style="font-size:12px;font-weight:700;color:var(--ink);display:block;margin-bottom:4px">目标专业方向</span>
+          <select name="target" style="width:100%;padding:10px 12px;border:1.5px solid var(--line);border-radius:8px;font-size:14px;box-sizing:border-box">
+            <option>工程 / 理科</option>
+            <option>商科 / 管理</option>
+            <option>计算机 / 数据科学</option>
+            <option>人文社科</option>
+            <option>法律</option>
+            <option>建筑 / 设计</option>
+            <option>医学 / 公共卫生</option>
+          </select>
+        </label>
+        <label style="display:block"><span style="font-size:12px;font-weight:700;color:var(--ink);display:block;margin-bottom:4px">联系方式</span><input type="text" name="contact" placeholder="微信 / WhatsApp / 手机" style="width:100%;padding:10px 12px;border:1.5px solid var(--line);border-radius:8px;font-size:14px;box-sizing:border-box" /></label>
+        <button style="padding:12px;border:none;border-radius:10px;background:var(--brand);color:#fff;font-size:16px;font-weight:800;cursor:pointer;transition:background 0.2s" type="submit">提交咨询</button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="present-footer">
+  <p>SEDA 新加坡国际教育中心 &copy; 2024-2026 &nbsp;|&nbsp; <a href="/tools/">返回工具列表</a></p>
+</footer>
+
+  <script>
+  /* ============================================================
+     SEDA Masters Matcher — Singapore Public University Master's
+     ============================================================ */
+
+  /* ── MASTER'S ADMISSION DATA ── */
+  const MASTERS_DATA = {
+    nus: {
+      name: 'NUS', cn: '新加坡国立大学', rank: 'QS #8',
+      link: 'https://www.nus.edu.sg/oam/apply-to-nus/graduate-admissions',
+      programs: {
+        'engineering': { name: '工程学院',
+          requirements: {
+            '985': { gpa_min: 3.0, gpa_rec: 3.5, gpa_100_min: 80, gpa_100_rec: 85, ielts: 6.0, toefl: 85, note: '985优先录取，3.5+有竞争力' },
+            '211': { gpa_min: 3.2, gpa_rec: 3.6, gpa_100_min: 83, gpa_100_rec: 87, ielts: 6.0, toefl: 85, note: '211背景需GPA更高补偿' },
+            'shuangyiliu': { gpa_min: 3.3, gpa_rec: 3.7, gpa_100_min: 85, gpa_100_rec: 88, ielts: 6.0, toefl: 85, note: '双一流学科高校视具体学科' },
+            'yiben': { gpa_min: 3.5, gpa_rec: 3.8, gpa_100_min: 87, gpa_100_rec: 90, ielts: 6.5, toefl: 90, note: '普通一本需要突出GPA+科研' },
+            'erben': { gpa_min: 3.7, gpa_rec: 3.9, gpa_100_min: 90, gpa_100_rec: 93, ielts: 6.5, toefl: 92, note: '录取难度大，需顶尖GPA+丰富经历' },
+            'minban': { gpa_min: null, note: '极少录取，建议考虑其他学校' },
+            'overseas': { gpa_min: 3.0, gpa_rec: 3.5, ielts: 6.0, toefl: 85, note: '视本科学校排名及国家' },
+            'dazhuan': { gpa_min: null, note: '不接受大专/专升本学历' }
+          }
+        },
+        'computing': { name: '计算机学院',
+          requirements: {
+            '985': { gpa_min: 3.2, gpa_rec: 3.6, gpa_100_min: 83, gpa_100_rec: 87, ielts: 6.0, toefl: 85, note: '计算机竞争激烈，985也需高GPA' },
+            '211': { gpa_min: 3.5, gpa_rec: 3.7, gpa_100_min: 85, gpa_100_rec: 88, ielts: 6.0, toefl: 85, note: '211背景建议GPA 3.5+' },
+            'shuangyiliu': { gpa_min: 3.5, gpa_rec: 3.8, gpa_100_min: 87, gpa_100_rec: 90, ielts: 6.0, toefl: 85, note: '需要突出编程能力/项目经验' },
+            'yiben': { gpa_min: 3.7, gpa_rec: 3.9, gpa_100_min: 88, gpa_100_rec: 92, ielts: 6.5, toefl: 90, note: '非常困难，需要突出实习+竞赛' },
+            'erben': { gpa_min: null, note: '几乎不录取，建议考虑NTU或SMU' },
+            'minban': { gpa_min: null, note: '不接受' },
+            'overseas': { gpa_min: 3.2, gpa_rec: 3.5, ielts: 6.0, toefl: 85, note: '海外CS本科有优势' },
+            'dazhuan': { gpa_min: null, note: '不接受' }
+          }
+        },
+        'business': { name: '商学院',
+          requirements: {
+            '985': { gpa_min: 3.2, gpa_rec: 3.6, gpa_100_min: 83, gpa_100_rec: 87, ielts: 7.0, toefl: 100, gmat: 680, gre: 320, note: '商学院要求雅思7.0，强烈建议GMAT/GRE' },
+            '211': { gpa_min: 3.5, gpa_rec: 3.7, gpa_100_min: 85, gpa_100_rec: 88, ielts: 7.0, toefl: 100, gmat: 700, gre: 325, note: '211需高GMAT补偿院校背景' },
+            'shuangyiliu': { gpa_min: 3.5, gpa_rec: 3.8, gpa_100_min: 87, gpa_100_rec: 90, ielts: 7.0, toefl: 100, gmat: 710, note: '需要强GMAT+实习经历' },
+            'yiben': { gpa_min: 3.6, gpa_rec: 3.9, gpa_100_min: 88, gpa_100_rec: 92, ielts: 7.0, toefl: 100, gmat: 720, note: '录取概率低，GMAT 720+有机会' },
+            'erben': { gpa_min: null, note: '极少录取' },
+            'minban': { gpa_min: null, note: '不接受' },
+            'overseas': { gpa_min: 3.2, gpa_rec: 3.5, ielts: 7.0, toefl: 100, gmat: 680, note: '海外知名商学院本科有优势' },
+            'dazhuan': { gpa_min: null, note: '不接受' }
+          }
+        },
+        'humanities': { name: '人文社科学院',
+          requirements: {
+            '985': { gpa_min: 3.0, gpa_rec: 3.5, gpa_100_min: 80, gpa_100_rec: 85, ielts: 7.0, toefl: 100, note: '人文社科看重研究计划和写作能力' },
+            '211': { gpa_min: 3.3, gpa_rec: 3.6, gpa_100_min: 83, gpa_100_rec: 87, ielts: 7.0, toefl: 100, note: '需要优秀的研究计划' },
+            'shuangyiliu': { gpa_min: 3.3, gpa_rec: 3.7, gpa_100_min: 85, gpa_100_rec: 88, ielts: 7.0, toefl: 100, note: '相关学科双一流会有帮助' },
+            'yiben': { gpa_min: 3.5, gpa_rec: 3.8, gpa_100_min: 87, gpa_100_rec: 90, ielts: 7.0, toefl: 100, note: '需要突出研究能力和发表' },
+            'erben': { gpa_min: 3.7, gpa_rec: 3.9, gpa_100_min: 90, gpa_100_rec: 93, ielts: 7.0, toefl: 100, note: '极其困难，需顶尖GPA+发表' },
+            'minban': { gpa_min: null, note: '几乎不录取' },
+            'overseas': { gpa_min: 3.0, gpa_rec: 3.5, ielts: 7.0, toefl: 100, note: '海外人文社科背景受欢迎' },
+            'dazhuan': { gpa_min: null, note: '不接受' }
+          }
+        },
+        'law': { name: '法学院',
+          requirements: {
+            '985': { gpa_min: 3.3, gpa_rec: 3.7, gpa_100_min: 85, gpa_100_rec: 88, ielts: 7.0, toefl: 100, note: '法学院竞争极为激烈，优先法学本科' },
+            '211': { gpa_min: 3.5, gpa_rec: 3.8, gpa_100_min: 87, gpa_100_rec: 90, ielts: 7.0, toefl: 100, note: '五院四系法学背景有优势' },
+            'shuangyiliu': { gpa_min: 3.6, gpa_rec: 3.8, gpa_100_min: 87, gpa_100_rec: 90, ielts: 7.0, toefl: 100, note: '法学双一流学科有帮助' },
+            'yiben': { gpa_min: 3.7, gpa_rec: 3.9, gpa_100_min: 90, gpa_100_rec: 93, ielts: 7.5, toefl: 105, note: '极难，需要法考/律所实习' },
+            'erben': { gpa_min: null, note: '不接受' },
+            'minban': { gpa_min: null, note: '不接受' },
+            'overseas': { gpa_min: 3.3, gpa_rec: 3.7, ielts: 7.0, toefl: 100, note: '海外法学本科可申请LLM' },
+            'dazhuan': { gpa_min: null, note: '不接受' }
+          }
+        },
+        'design': { name: '建筑/设计学院',
+          requirements: {
+            '985': { gpa_min: 3.0, gpa_rec: 3.5, gpa_100_min: 80, gpa_100_rec: 85, ielts: 6.5, toefl: 92, note: '设计类看重作品集，学校背景次要' },
+            '211': { gpa_min: 3.2, gpa_rec: 3.5, gpa_100_min: 83, gpa_100_rec: 87, ielts: 6.5, toefl: 92, note: '好的作品集可以弥补院校背景' },
+            'shuangyiliu': { gpa_min: 3.2, gpa_rec: 3.5, gpa_100_min: 83, gpa_100_rec: 87, ielts: 6.5, toefl: 92, note: '建筑/设计双一流学科有优势' },
+            'yiben': { gpa_min: 3.3, gpa_rec: 3.6, gpa_100_min: 85, gpa_100_rec: 88, ielts: 6.5, toefl: 92, note: '作品集是关键' },
+            'erben': { gpa_min: 3.5, gpa_rec: 3.8, gpa_100_min: 87, gpa_100_rec: 90, ielts: 6.5, toefl: 92, note: '有可能，作品集必须出色' },
+            'minban': { gpa_min: 3.7, gpa_rec: 3.9, gpa_100_min: 90, gpa_100_rec: 93, ielts: 6.5, toefl: 92, note: '极少，但作品集出色有机会' },
+            'overseas': { gpa_min: 3.0, gpa_rec: 3.5, ielts: 6.5, toefl: 92, note: '海外设计院校本科受认可' },
+            'dazhuan': { gpa_min: null, note: '不接受' }
+          }
+        },
+        'medicine': { name: '医学/公共卫生',
+          requirements: {
+            '985': { gpa_min: 3.5, gpa_rec: 3.8, gpa_100_min: 87, gpa_100_rec: 90, ielts: 6.5, toefl: 92, note: '临床医学不接受国际生，公共卫生可申' },
+            '211': { gpa_min: 3.5, gpa_rec: 3.8, gpa_100_min: 87, gpa_100_rec: 90, ielts: 6.5, toefl: 92, note: '医学相关211背景有优势' },
+            'shuangyiliu': { gpa_min: 3.5, gpa_rec: 3.8, gpa_100_min: 87, gpa_100_rec: 90, ielts: 6.5, toefl: 92, note: '医学双一流学科有优势' },
+            'yiben': { gpa_min: 3.7, gpa_rec: 3.9, gpa_100_min: 90, gpa_100_rec: 93, ielts: 7.0, toefl: 100, note: '公共卫生硕士有机会' },
+            'erben': { gpa_min: null, note: '几乎不录取' },
+            'minban': { gpa_min: null, note: '不接受' },
+            'overseas': { gpa_min: 3.5, gpa_rec: 3.8, ielts: 6.5, toefl: 92, note: '海外医学/生物医学本科可申' },
+            'dazhuan': { gpa_min: null, note: '不接受' }
+          }
+        }
+      }
+    },
+    ntu: {
+      name: 'NTU', cn: '南洋理工大学', rank: 'QS #15',
+      link: 'https://www.ntu.edu.sg/admissions/graduate',
+      programs: {
+        'engineering': { name: '工程学院',
+          requirements: {
+            '985': { gpa_min: 3.0, gpa_rec: 3.4, gpa_100_min: 78, gpa_100_rec: 83, ielts: 6.5, toefl: 90, note: '工科强校，985学生首选' },
+            '211': { gpa_min: 3.2, gpa_rec: 3.5, gpa_100_min: 80, gpa_100_rec: 85, ielts: 6.5, toefl: 90, note: '211工科背景有竞争力' },
+            'shuangyiliu': { gpa_min: 3.3, gpa_rec: 3.6, gpa_100_min: 83, gpa_100_rec: 87, ielts: 6.5, toefl: 90, note: '工科双一流有优势' },
+            'yiben': { gpa_min: 3.5, gpa_rec: 3.7, gpa_100_min: 85, gpa_100_rec: 88, ielts: 6.5, toefl: 90, note: '有机会，建议GPA 3.5+' },
+            'erben': { gpa_min: 3.6, gpa_rec: 3.8, gpa_100_min: 87, gpa_100_rec: 90, ielts: 6.5, toefl: 92, note: '比NUS略友好，但仍需高GPA' },
+            'minban': { gpa_min: 3.8, gpa_rec: 3.9, gpa_100_min: 90, gpa_100_rec: 93, ielts: 6.5, toefl: 92, note: '极少案例，需要顶尖成绩' },
+            'overseas': { gpa_min: 3.0, gpa_rec: 3.4, ielts: 6.5, toefl: 90, note: '海外工科本科受认可' },
+            'dazhuan': { gpa_min: null, note: '不接受' }
+          }
+        },
+        'computing': { name: '计算机学院',
+          requirements: {
+            '985': { gpa_min: 3.0, gpa_rec: 3.5, gpa_100_min: 80, gpa_100_rec: 85, ielts: 6.5, toefl: 90, note: 'SCSE竞争激烈但略低于NUS Computing' },
+            '211': { gpa_min: 3.3, gpa_rec: 3.6, gpa_100_min: 83, gpa_100_rec: 87, ielts: 6.5, toefl: 90, note: '211计算机背景有竞争力' },
+            'shuangyiliu': { gpa_min: 3.4, gpa_rec: 3.7, gpa_100_min: 85, gpa_100_rec: 88, ielts: 6.5, toefl: 90, note: '需要项目/实习补充' },
+            'yiben': { gpa_min: 3.6, gpa_rec: 3.8, gpa_100_min: 87, gpa_100_rec: 90, ielts: 6.5, toefl: 92, note: '有一定可能，需要突出编程能力' },
+            'erben': { gpa_min: 3.7, gpa_rec: 3.9, gpa_100_min: 88, gpa_100_rec: 92, ielts: 6.5, toefl: 92, note: '困难但有少量案例' },
+            'minban': { gpa_min: null, note: '极少录取' },
+            'overseas': { gpa_min: 3.0, gpa_rec: 3.5, ielts: 6.5, toefl: 90, note: '海外CS本科有竞争力' },
+            'dazhuan': { gpa_min: null, note: '不接受' }
+          }
+        },
+        'business': { name: '南洋商学院',
+          requirements: {
+            '985': { gpa_min: 3.0, gpa_rec: 3.5, gpa_100_min: 80, gpa_100_rec: 85, ielts: 6.5, toefl: 90, gmat: 650, gre: 315, note: 'NBS部分项目不强制GMAT' },
+            '211': { gpa_min: 3.3, gpa_rec: 3.6, gpa_100_min: 83, gpa_100_rec: 87, ielts: 6.5, toefl: 90, gmat: 670, gre: 320, note: '建议提交GMAT增强竞争力' },
+            'shuangyiliu': { gpa_min: 3.4, gpa_rec: 3.7, gpa_100_min: 85, gpa_100_rec: 88, ielts: 6.5, toefl: 90, gmat: 680, note: '需GMAT补偿背景' },
+            'yiben': { gpa_min: 3.5, gpa_rec: 3.8, gpa_100_min: 87, gpa_100_rec: 90, ielts: 7.0, toefl: 100, gmat: 700, note: '有一定录取案例' },
+            'erben': { gpa_min: 3.7, gpa_rec: 3.9, gpa_100_min: 88, gpa_100_rec: 92, ielts: 7.0, toefl: 100, gmat: 720, note: '需要突出GMAT+实习' },
+            'minban': { gpa_min: null, note: '极少录取' },
+            'overseas': { gpa_min: 3.0, gpa_rec: 3.5, ielts: 6.5, toefl: 90, gmat: 650, note: '海外商科背景有优势' },
+            'dazhuan': { gpa_min: null, note: '不接受' }
+          }
+        },
+        'humanities': { name: '人文社科学院',
+          requirements: {
+            '985': { gpa_min: 3.0, gpa_rec: 3.5, gpa_100_min: 80, gpa_100_rec: 85, ielts: 7.0, toefl: 100, note: 'NTU人文社科有特色项目' },
+            '211': { gpa_min: 3.2, gpa_rec: 3.5, gpa_100_min: 83, gpa_100_rec: 87, ielts: 7.0, toefl: 100, note: '需要好的研究计划' },
+            'shuangyiliu': { gpa_min: 3.3, gpa_rec: 3.6, gpa_100_min: 85, gpa_100_rec: 88, ielts: 7.0, toefl: 100, note: '相关学科双一流有帮助' },
+            'yiben': { gpa_min: 3.5, gpa_rec: 3.7, gpa_100_min: 87, gpa_100_rec: 90, ielts: 7.0, toefl: 100, note: '需要突出研究能力' },
+            'erben': { gpa_min: 3.6, gpa_rec: 3.8, gpa_100_min: 88, gpa_100_rec: 92, ielts: 7.0, toefl: 100, note: '比NUS稍友好' },
+            'minban': { gpa_min: null, note: '极少录取' },
+            'overseas': { gpa_min: 3.0, gpa_rec: 3.5, ielts: 7.0, toefl: 100, note: '海外人文社科本科受欢迎' },
+            'dazhuan': { gpa_min: null, note: '不接受' }
+          }
+        },
+        'design': { name: '设计与人工环境学院',
+          requirements: {
+            '985': { gpa_min: 3.0, gpa_rec: 3.5, gpa_100_min: 80, gpa_100_rec: 85, ielts: 6.5, toefl: 92, note: '看重作品集' },
+            '211': { gpa_min: 3.2, gpa_rec: 3.5, gpa_100_min: 83, gpa_100_rec: 87, ielts: 6.5, toefl: 92, note: '作品集质量是关键' },
+            'shuangyiliu': { gpa_min: 3.2, gpa_rec: 3.5, gpa_100_min: 83, gpa_100_rec: 87, ielts: 6.5, toefl: 92, note: '建筑/设计双一流有优势' },
+            'yiben': { gpa_min: 3.3, gpa_rec: 3.6, gpa_100_min: 85, gpa_100_rec: 88, ielts: 6.5, toefl: 92, note: '出色作品集可弥补' },
+            'erben': { gpa_min: 3.5, gpa_rec: 3.7, gpa_100_min: 87, gpa_100_rec: 90, ielts: 6.5, toefl: 92, note: '有可能，作品集决定性' },
+            'minban': { gpa_min: 3.7, gpa_rec: 3.9, gpa_100_min: 90, gpa_100_rec: 93, ielts: 6.5, toefl: 92, note: '罕见，但作品集出色有机会' },
+            'overseas': { gpa_min: 3.0, gpa_rec: 3.5, ielts: 6.5, toefl: 92, note: '海外设计背景受认可' },
+            'dazhuan': { gpa_min: null, note: '不接受' }
+          }
+        },
+        'medicine': { name: '医学/公共卫生',
+          requirements: {
+            '985': { gpa_min: 3.3, gpa_rec: 3.7, gpa_100_min: 85, gpa_100_rec: 88, ielts: 6.5, toefl: 92, note: 'LKC医学院，公共卫生项目可申' },
+            '211': { gpa_min: 3.5, gpa_rec: 3.7, gpa_100_min: 87, gpa_100_rec: 90, ielts: 6.5, toefl: 92, note: '医学211背景优先' },
+            'shuangyiliu': { gpa_min: 3.5, gpa_rec: 3.8, gpa_100_min: 87, gpa_100_rec: 90, ielts: 6.5, toefl: 92, note: '医学双一流有优势' },
+            'yiben': { gpa_min: 3.7, gpa_rec: 3.9, gpa_100_min: 90, gpa_100_rec: 93, ielts: 7.0, toefl: 100, note: '公共卫生有机会' },
+            'erben': { gpa_min: null, note: '几乎不录取' },
+            'minban': { gpa_min: null, note: '不接受' },
+            'overseas': { gpa_min: 3.3, gpa_rec: 3.7, ielts: 6.5, toefl: 92, note: '海外医学/生物相关可申' },
+            'dazhuan': { gpa_min: null, note: '不接受' }
+          }
+        },
+        'law': { name: '法学院 (无独立法学院)',
+          requirements: {
+            '985': { gpa_min: null, note: 'NTU无独立法学院硕士项目，建议申NUS法学院' },
+            '211': { gpa_min: null, note: 'NTU无独立法学院硕士项目' },
+            'shuangyiliu': { gpa_min: null, note: 'NTU无独立法学院硕士项目' },
+            'yiben': { gpa_min: null, note: 'NTU无独立法学院硕士项目' },
+            'erben': { gpa_min: null, note: 'NTU无独立法学院硕士项目' },
+            'minban': { gpa_min: null, note: 'NTU无独立法学院硕士项目' },
+            'overseas': { gpa_min: null, note: 'NTU无独立法学院硕士项目' },
+            'dazhuan': { gpa_min: null, note: 'NTU无独立法学院硕士项目' }
+          }
+        }
+      }
+    },
+    smu: {
+      name: 'SMU', cn: '新加坡管理大学', rank: 'QS #588 (商科全球前50)',
+      link: 'https://admissions.smu.edu.sg/postgraduate',
+      programs: {
+        'business': { name: '商学院/会计学院',
+          requirements: {
+            '985': { gpa_min: 3.0, gpa_rec: 3.3, gpa_100_min: 78, gpa_100_rec: 83, ielts: 6.5, toefl: 90, gmat: 650, note: 'SMU商科性价比高，实践导向' },
+            '211': { gpa_min: 3.0, gpa_rec: 3.5, gpa_100_min: 80, gpa_100_rec: 85, ielts: 6.5, toefl: 90, gmat: 650, note: '211背景有竞争力' },
+            'shuangyiliu': { gpa_min: 3.2, gpa_rec: 3.5, gpa_100_min: 83, gpa_100_rec: 87, ielts: 6.5, toefl: 90, gmat: 660, note: '双一流商科有优势' },
+            'yiben': { gpa_min: 3.3, gpa_rec: 3.6, gpa_100_min: 83, gpa_100_rec: 87, ielts: 6.5, toefl: 90, gmat: 680, note: '比NUS/NTU商科友好' },
+            'erben': { gpa_min: 3.5, gpa_rec: 3.7, gpa_100_min: 85, gpa_100_rec: 88, ielts: 6.5, toefl: 90, gmat: 700, note: '有录取案例，GMAT重要' },
+            'minban': { gpa_min: 3.7, gpa_rec: 3.8, gpa_100_min: 88, gpa_100_rec: 90, ielts: 6.5, toefl: 90, gmat: 720, note: '少量案例，GMAT必须高' },
+            'overseas': { gpa_min: 3.0, gpa_rec: 3.3, ielts: 6.5, toefl: 90, gmat: 640, note: '海外商科背景受欢迎' },
+            'dazhuan': { gpa_min: null, note: '不接受' }
+          }
+        },
+        'computing': { name: '信息系统学院',
+          requirements: {
+            '985': { gpa_min: 3.0, gpa_rec: 3.3, gpa_100_min: 78, gpa_100_rec: 83, ielts: 6.5, toefl: 90, note: 'MITB/MSBA项目热门' },
+            '211': { gpa_min: 3.2, gpa_rec: 3.5, gpa_100_min: 80, gpa_100_rec: 85, ielts: 6.5, toefl: 90, note: '信息系统211有竞争力' },
+            'shuangyiliu': { gpa_min: 3.3, gpa_rec: 3.5, gpa_100_min: 83, gpa_100_rec: 87, ielts: 6.5, toefl: 90, note: '需要技术背景+项目经验' },
+            'yiben': { gpa_min: 3.5, gpa_rec: 3.6, gpa_100_min: 85, gpa_100_rec: 88, ielts: 6.5, toefl: 90, note: '比NUS/NTU CS友好' },
+            'erben': { gpa_min: 3.6, gpa_rec: 3.8, gpa_100_min: 87, gpa_100_rec: 90, ielts: 6.5, toefl: 90, note: '有录取案例' },
+            'minban': { gpa_min: 3.7, gpa_rec: 3.9, gpa_100_min: 90, gpa_100_rec: 93, ielts: 6.5, toefl: 90, note: '少量案例' },
+            'overseas': { gpa_min: 3.0, gpa_rec: 3.3, ielts: 6.5, toefl: 90, note: '海外IT/IS背景有优势' },
+            'dazhuan': { gpa_min: null, note: '不接受' }
+          }
+        },
+        'law': { name: '法学院',
+          requirements: {
+            '985': { gpa_min: 3.3, gpa_rec: 3.6, gpa_100_min: 83, gpa_100_rec: 87, ielts: 7.0, toefl: 100, note: 'SMU法学院有LLM项目' },
+            '211': { gpa_min: 3.5, gpa_rec: 3.7, gpa_100_min: 85, gpa_100_rec: 88, ielts: 7.0, toefl: 100, note: '五院四系背景有优势' },
+            'shuangyiliu': { gpa_min: 3.5, gpa_rec: 3.7, gpa_100_min: 85, gpa_100_rec: 88, ielts: 7.0, toefl: 100, note: '法学双一流有帮助' },
+            'yiben': { gpa_min: 3.6, gpa_rec: 3.8, gpa_100_min: 87, gpa_100_rec: 90, ielts: 7.0, toefl: 100, note: '需要法律相关实习经历' },
+            'erben': { gpa_min: 3.7, gpa_rec: 3.9, gpa_100_min: 90, gpa_100_rec: 93, ielts: 7.0, toefl: 100, note: '困难但有案例' },
+            'minban': { gpa_min: null, note: '极少录取' },
+            'overseas': { gpa_min: 3.3, gpa_rec: 3.6, ielts: 7.0, toefl: 100, note: '海外法学本科可申' },
+            'dazhuan': { gpa_min: null, note: '不接受' }
+          }
+        },
+        'humanities': { name: '社会科学与人文学院',
+          requirements: {
+            '985': { gpa_min: 3.0, gpa_rec: 3.3, gpa_100_min: 78, gpa_100_rec: 83, ielts: 7.0, toefl: 100, note: '社科类项目丰富' },
+            '211': { gpa_min: 3.2, gpa_rec: 3.5, gpa_100_min: 80, gpa_100_rec: 85, ielts: 7.0, toefl: 100, note: '需要研究计划' },
+            'shuangyiliu': { gpa_min: 3.3, gpa_rec: 3.5, gpa_100_min: 83, gpa_100_rec: 87, ielts: 7.0, toefl: 100, note: '相关学科有帮助' },
+            'yiben': { gpa_min: 3.5, gpa_rec: 3.7, gpa_100_min: 85, gpa_100_rec: 88, ielts: 7.0, toefl: 100, note: '比NUS友好' },
+            'erben': { gpa_min: 3.6, gpa_rec: 3.8, gpa_100_min: 87, gpa_100_rec: 90, ielts: 7.0, toefl: 100, note: '有少量录取' },
+            'minban': { gpa_min: 3.8, gpa_rec: 3.9, gpa_100_min: 90, gpa_100_rec: 93, ielts: 7.0, toefl: 100, note: '罕见' },
+            'overseas': { gpa_min: 3.0, gpa_rec: 3.3, ielts: 7.0, toefl: 100, note: '海外社科背景受欢迎' },
+            'dazhuan': { gpa_min: null, note: '不接受' }
+          }
+        },
+        'engineering': { name: '无独立工程学院',
+          requirements: {
+            '985': { gpa_min: null, note: 'SMU无工程学院，建议申NUS/NTU' },
+            '211': { gpa_min: null, note: 'SMU无工程学院' },
+            'shuangyiliu': { gpa_min: null, note: 'SMU无工程学院' },
+            'yiben': { gpa_min: null, note: 'SMU无工程学院' },
+            'erben': { gpa_min: null, note: 'SMU无工程学院' },
+            'minban': { gpa_min: null, note: 'SMU无工程学院' },
+            'overseas': { gpa_min: null, note: 'SMU无工程学院' },
+            'dazhuan': { gpa_min: null, note: 'SMU无工程学院' }
+          }
+        },
+        'design': { name: '无设计学院',
+          requirements: {
+            '985': { gpa_min: null, note: 'SMU无设计学院，建议申NUS/NTU/SUTD' },
+            '211': { gpa_min: null, note: 'SMU无设计学院' },
+            'shuangyiliu': { gpa_min: null, note: 'SMU无设计学院' },
+            'yiben': { gpa_min: null, note: 'SMU无设计学院' },
+            'erben': { gpa_min: null, note: 'SMU无设计学院' },
+            'minban': { gpa_min: null, note: 'SMU无设计学院' },
+            'overseas': { gpa_min: null, note: 'SMU无设计学院' },
+            'dazhuan': { gpa_min: null, note: 'SMU无设计学院' }
+          }
+        },
+        'medicine': { name: '无医学院',
+          requirements: {
+            '985': { gpa_min: null, note: 'SMU无医学院，建议申NUS/NTU' },
+            '211': { gpa_min: null, note: 'SMU无医学院' },
+            'shuangyiliu': { gpa_min: null, note: 'SMU无医学院' },
+            'yiben': { gpa_min: null, note: 'SMU无医学院' },
+            'erben': { gpa_min: null, note: 'SMU无医学院' },
+            'minban': { gpa_min: null, note: 'SMU无医学院' },
+            'overseas': { gpa_min: null, note: 'SMU无医学院' },
+            'dazhuan': { gpa_min: null, note: 'SMU无医学院' }
+          }
+        }
+      }
+    },
+    sutd: {
+      name: 'SUTD', cn: '新加坡科技设计大学', rank: 'QS 世界排名上升中',
+      link: 'https://www.sutd.edu.sg/Admissions/Graduate',
+      programs: {
+        'engineering': { name: '工程/科技',
+          requirements: {
+            '985': { gpa_min: 3.0, gpa_rec: 3.3, gpa_100_min: 78, gpa_100_rec: 83, ielts: 6.5, toefl: 90, note: 'MIT合作设计，创新导向' },
+            '211': { gpa_min: 3.2, gpa_rec: 3.5, gpa_100_min: 80, gpa_100_rec: 85, ielts: 6.5, toefl: 90, note: '工科211有竞争力' },
+            'shuangyiliu': { gpa_min: 3.3, gpa_rec: 3.5, gpa_100_min: 83, gpa_100_rec: 87, ielts: 6.5, toefl: 90, note: '双一流工科有优势' },
+            'yiben': { gpa_min: 3.5, gpa_rec: 3.7, gpa_100_min: 85, gpa_100_rec: 88, ielts: 6.5, toefl: 90, note: '项目经验重要' },
+            'erben': { gpa_min: 3.5, gpa_rec: 3.7, gpa_100_min: 87, gpa_100_rec: 90, ielts: 6.5, toefl: 90, note: '比NUS/NTU友好' },
+            'minban': { gpa_min: 3.7, gpa_rec: 3.9, gpa_100_min: 90, gpa_100_rec: 93, ielts: 6.5, toefl: 90, note: '有少量可能' },
+            'overseas': { gpa_min: 3.0, gpa_rec: 3.3, ielts: 6.5, toefl: 90, note: '海外工科/设计背景受认可' },
+            'dazhuan': { gpa_min: null, note: '不接受' }
+          }
+        },
+        'design': { name: '建筑与可持续设计',
+          requirements: {
+            '985': { gpa_min: 3.0, gpa_rec: 3.3, gpa_100_min: 78, gpa_100_rec: 83, ielts: 6.5, toefl: 90, note: '作品集+设计思维' },
+            '211': { gpa_min: 3.0, gpa_rec: 3.5, gpa_100_min: 80, gpa_100_rec: 85, ielts: 6.5, toefl: 90, note: '作品集是核心' },
+            'shuangyiliu': { gpa_min: 3.2, gpa_rec: 3.5, gpa_100_min: 83, gpa_100_rec: 87, ielts: 6.5, toefl: 90, note: '建筑/设计双一流有优势' },
+            'yiben': { gpa_min: 3.3, gpa_rec: 3.5, gpa_100_min: 83, gpa_100_rec: 87, ielts: 6.5, toefl: 90, note: '作品集质量关键' },
+            'erben': { gpa_min: 3.5, gpa_rec: 3.7, gpa_100_min: 85, gpa_100_rec: 88, ielts: 6.5, toefl: 90, note: '相对友好，看重作品集' },
+            'minban': { gpa_min: 3.6, gpa_rec: 3.8, gpa_100_min: 87, gpa_100_rec: 90, ielts: 6.5, toefl: 90, note: '看重作品集+面试' },
+            'overseas': { gpa_min: 3.0, gpa_rec: 3.3, ielts: 6.5, toefl: 90, note: '海外设计院校本科有优势' },
+            'dazhuan': { gpa_min: null, note: '不接受' }
+          }
+        },
+        'computing': { name: '信息系统与设计',
+          requirements: {
+            '985': { gpa_min: 3.0, gpa_rec: 3.3, gpa_100_min: 78, gpa_100_rec: 83, ielts: 6.5, toefl: 90, note: 'ISTD融合CS与设计' },
+            '211': { gpa_min: 3.2, gpa_rec: 3.5, gpa_100_min: 80, gpa_100_rec: 85, ielts: 6.5, toefl: 90, note: 'CS/IS背景有竞争力' },
+            'shuangyiliu': { gpa_min: 3.3, gpa_rec: 3.5, gpa_100_min: 83, gpa_100_rec: 87, ielts: 6.5, toefl: 90, note: '技术项目经验重要' },
+            'yiben': { gpa_min: 3.5, gpa_rec: 3.6, gpa_100_min: 85, gpa_100_rec: 88, ielts: 6.5, toefl: 90, note: '比NUS CS友好' },
+            'erben': { gpa_min: 3.5, gpa_rec: 3.7, gpa_100_min: 87, gpa_100_rec: 90, ielts: 6.5, toefl: 90, note: '有一定可能' },
+            'minban': { gpa_min: 3.7, gpa_rec: 3.9, gpa_100_min: 90, gpa_100_rec: 93, ielts: 6.5, toefl: 90, note: '少量案例' },
+            'overseas': { gpa_min: 3.0, gpa_rec: 3.3, ielts: 6.5, toefl: 90, note: '海外CS/设计背景受认可' },
+            'dazhuan': { gpa_min: null, note: '不接受' }
+          }
+        },
+        'business': { name: '无独立商学院',
+          requirements: {
+            '985': { gpa_min: null, note: 'SUTD无商学院，建议申NUS/NTU/SMU' },
+            '211': { gpa_min: null, note: 'SUTD无商学院' },
+            'shuangyiliu': { gpa_min: null, note: 'SUTD无商学院' },
+            'yiben': { gpa_min: null, note: 'SUTD无商学院' },
+            'erben': { gpa_min: null, note: 'SUTD无商学院' },
+            'minban': { gpa_min: null, note: 'SUTD无商学院' },
+            'overseas': { gpa_min: null, note: 'SUTD无商学院' },
+            'dazhuan': { gpa_min: null, note: 'SUTD无商学院' }
+          }
+        },
+        'humanities': { name: '无人文社科学院',
+          requirements: {
+            '985': { gpa_min: null, note: 'SUTD无人文社科硕士项目' },
+            '211': { gpa_min: null, note: 'SUTD无人文社科硕士项目' },
+            'shuangyiliu': { gpa_min: null, note: 'SUTD无人文社科硕士项目' },
+            'yiben': { gpa_min: null, note: 'SUTD无人文社科硕士项目' },
+            'erben': { gpa_min: null, note: 'SUTD无人文社科硕士项目' },
+            'minban': { gpa_min: null, note: 'SUTD无人文社科硕士项目' },
+            'overseas': { gpa_min: null, note: 'SUTD无人文社科硕士项目' },
+            'dazhuan': { gpa_min: null, note: 'SUTD无人文社科硕士项目' }
+          }
+        },
+        'law': { name: '无法学院',
+          requirements: {
+            '985': { gpa_min: null, note: 'SUTD无法学院' },
+            '211': { gpa_min: null, note: 'SUTD无法学院' },
+            'shuangyiliu': { gpa_min: null, note: 'SUTD无法学院' },
+            'yiben': { gpa_min: null, note: 'SUTD无法学院' },
+            'erben': { gpa_min: null, note: 'SUTD无法学院' },
+            'minban': { gpa_min: null, note: 'SUTD无法学院' },
+            'overseas': { gpa_min: null, note: 'SUTD无法学院' },
+            'dazhuan': { gpa_min: null, note: 'SUTD无法学院' }
+          }
+        },
+        'medicine': { name: '无医学院',
+          requirements: {
+            '985': { gpa_min: null, note: 'SUTD无医学院' },
+            '211': { gpa_min: null, note: 'SUTD无医学院' },
+            'shuangyiliu': { gpa_min: null, note: 'SUTD无医学院' },
+            'yiben': { gpa_min: null, note: 'SUTD无医学院' },
+            'erben': { gpa_min: null, note: 'SUTD无医学院' },
+            'minban': { gpa_min: null, note: 'SUTD无医学院' },
+            'overseas': { gpa_min: null, note: 'SUTD无医学院' },
+            'dazhuan': { gpa_min: null, note: 'SUTD无医学院' }
+          }
+        }
+      }
+    },
+    sit: {
+      name: 'SIT', cn: '新加坡理工大学', rank: '应用型大学',
+      link: 'https://www.singaporetech.edu.sg/admissions',
+      programs: {
+        'engineering': { name: '工程学院',
+          requirements: {
+            '985': { gpa_min: 2.8, gpa_rec: 3.2, gpa_100_min: 75, gpa_100_rec: 80, ielts: 6.0, toefl: 80, note: '985背景申请SIT工程非常有竞争力' },
+            '211': { gpa_min: 2.8, gpa_rec: 3.2, gpa_100_min: 75, gpa_100_rec: 80, ielts: 6.0, toefl: 80, note: '211背景有优势' },
+            'shuangyiliu': { gpa_min: 3.0, gpa_rec: 3.3, gpa_100_min: 78, gpa_100_rec: 83, ielts: 6.0, toefl: 80, note: '双一流工科背景受欢迎' },
+            'yiben': { gpa_min: 3.0, gpa_rec: 3.5, gpa_100_min: 78, gpa_100_rec: 85, ielts: 6.0, toefl: 80, note: '普通一本有较好机会' },
+            'erben': { gpa_min: 3.2, gpa_rec: 3.5, gpa_100_min: 80, gpa_100_rec: 85, ielts: 6.0, toefl: 80, note: '二本有机会，工作经验加分大' },
+            'minban': { gpa_min: 3.5, gpa_rec: 3.7, gpa_100_min: 85, gpa_100_rec: 88, ielts: 6.0, toefl: 80, note: '民办有少量案例，需高GPA+工作经验' },
+            'overseas': { gpa_min: 2.8, gpa_rec: 3.2, ielts: 6.0, toefl: 80, note: '海外工科背景受认可' },
+            'dazhuan': { gpa_min: null, note: '不接受大专学历，专升本视情况' }
+          }
+        },
+        'computing': { name: '信息与通信技术',
+          requirements: {
+            '985': { gpa_min: 2.8, gpa_rec: 3.2, gpa_100_min: 75, gpa_100_rec: 80, ielts: 6.0, toefl: 80, note: 'SIT ICT项目实践导向' },
+            '211': { gpa_min: 3.0, gpa_rec: 3.3, gpa_100_min: 78, gpa_100_rec: 83, ielts: 6.0, toefl: 80, note: '211 CS/IT背景有竞争力' },
+            'shuangyiliu': { gpa_min: 3.0, gpa_rec: 3.3, gpa_100_min: 78, gpa_100_rec: 83, ielts: 6.0, toefl: 80, note: '需要技术项目经验' },
+            'yiben': { gpa_min: 3.2, gpa_rec: 3.5, gpa_100_min: 80, gpa_100_rec: 85, ielts: 6.0, toefl: 80, note: '有较好机会，项目经验加分' },
+            'erben': { gpa_min: 3.3, gpa_rec: 3.6, gpa_100_min: 83, gpa_100_rec: 87, ielts: 6.0, toefl: 80, note: '有一定机会' },
+            'minban': { gpa_min: 3.5, gpa_rec: 3.7, gpa_100_min: 85, gpa_100_rec: 88, ielts: 6.0, toefl: 80, note: '少量案例' },
+            'overseas': { gpa_min: 2.8, gpa_rec: 3.2, ielts: 6.0, toefl: 80, note: '海外IT背景受认可' },
+            'dazhuan': { gpa_min: null, note: '不接受' }
+          }
+        },
+        'business': { name: '商业/酒店管理',
+          requirements: {
+            '985': { gpa_min: 2.8, gpa_rec: 3.2, gpa_100_min: 75, gpa_100_rec: 80, ielts: 6.0, toefl: 80, note: 'SIT酒店/餐饮管理有特色' },
+            '211': { gpa_min: 3.0, gpa_rec: 3.3, gpa_100_min: 78, gpa_100_rec: 83, ielts: 6.0, toefl: 80, note: '商科211有竞争力' },
+            'shuangyiliu': { gpa_min: 3.0, gpa_rec: 3.3, gpa_100_min: 78, gpa_100_rec: 83, ielts: 6.0, toefl: 80, note: '双一流商科有优势' },
+            'yiben': { gpa_min: 3.2, gpa_rec: 3.5, gpa_100_min: 80, gpa_100_rec: 85, ielts: 6.0, toefl: 80, note: '有较好机会' },
+            'erben': { gpa_min: 3.3, gpa_rec: 3.6, gpa_100_min: 83, gpa_100_rec: 87, ielts: 6.5, toefl: 85, note: '有一定机会' },
+            'minban': { gpa_min: 3.5, gpa_rec: 3.7, gpa_100_min: 85, gpa_100_rec: 88, ielts: 6.5, toefl: 85, note: '少量案例' },
+            'overseas': { gpa_min: 2.8, gpa_rec: 3.2, ielts: 6.0, toefl: 80, note: '海外商科背景受认可' },
+            'dazhuan': { gpa_min: null, note: '不接受' }
+          }
+        },
+        'humanities': { name: '无独立人文社科硕士',
+          requirements: {
+            '985': { gpa_min: null, note: 'SIT暂无独立人文社科硕士项目' },
+            '211': { gpa_min: null, note: 'SIT暂无独立人文社科硕士项目' },
+            'shuangyiliu': { gpa_min: null, note: 'SIT暂无独立人文社科硕士项目' },
+            'yiben': { gpa_min: null, note: 'SIT暂无独立人文社科硕士项目' },
+            'erben': { gpa_min: null, note: 'SIT暂无独立人文社科硕士项目' },
+            'minban': { gpa_min: null, note: 'SIT暂无独立人文社科硕士项目' },
+            'overseas': { gpa_min: null, note: 'SIT暂无独立人文社科硕士项目' },
+            'dazhuan': { gpa_min: null, note: 'SIT暂无独立人文社科硕士项目' }
+          }
+        },
+        'design': { name: '无设计学院',
+          requirements: {
+            '985': { gpa_min: null, note: 'SIT无设计类硕士' },
+            '211': { gpa_min: null, note: 'SIT无设计类硕士' },
+            'shuangyiliu': { gpa_min: null, note: 'SIT无设计类硕士' },
+            'yiben': { gpa_min: null, note: 'SIT无设计类硕士' },
+            'erben': { gpa_min: null, note: 'SIT无设计类硕士' },
+            'minban': { gpa_min: null, note: 'SIT无设计类硕士' },
+            'overseas': { gpa_min: null, note: 'SIT无设计类硕士' },
+            'dazhuan': { gpa_min: null, note: 'SIT无设计类硕士' }
+          }
+        },
+        'law': { name: '无法学院',
+          requirements: {
+            '985': { gpa_min: null, note: 'SIT无法学院' },
+            '211': { gpa_min: null, note: 'SIT无法学院' },
+            'shuangyiliu': { gpa_min: null, note: 'SIT无法学院' },
+            'yiben': { gpa_min: null, note: 'SIT无法学院' },
+            'erben': { gpa_min: null, note: 'SIT无法学院' },
+            'minban': { gpa_min: null, note: 'SIT无法学院' },
+            'overseas': { gpa_min: null, note: 'SIT无法学院' },
+            'dazhuan': { gpa_min: null, note: 'SIT无法学院' }
+          }
+        },
+        'medicine': { name: '健康与社会科学',
+          requirements: {
+            '985': { gpa_min: 3.0, gpa_rec: 3.3, gpa_100_min: 78, gpa_100_rec: 83, ielts: 6.5, toefl: 85, note: 'SIT与海外大学联办健康类硕士' },
+            '211': { gpa_min: 3.0, gpa_rec: 3.3, gpa_100_min: 78, gpa_100_rec: 83, ielts: 6.5, toefl: 85, note: '医学/护理相关211有优势' },
+            'shuangyiliu': { gpa_min: 3.2, gpa_rec: 3.5, gpa_100_min: 80, gpa_100_rec: 85, ielts: 6.5, toefl: 85, note: '健康科学双一流有帮助' },
+            'yiben': { gpa_min: 3.2, gpa_rec: 3.5, gpa_100_min: 80, gpa_100_rec: 85, ielts: 6.5, toefl: 85, note: '有机会，需相关专业背景' },
+            'erben': { gpa_min: 3.5, gpa_rec: 3.7, gpa_100_min: 85, gpa_100_rec: 88, ielts: 6.5, toefl: 85, note: '有一定可能' },
+            'minban': { gpa_min: null, note: '较少录取' },
+            'overseas': { gpa_min: 3.0, gpa_rec: 3.3, ielts: 6.5, toefl: 85, note: '海外健康科学背景受认可' },
+            'dazhuan': { gpa_min: null, note: '不接受' }
+          }
+        }
+      }
+    },
+    suss: {
+      name: 'SUSS', cn: '新跃社科大学', rank: '终身学习型大学',
+      link: 'https://www.suss.edu.sg/programme-finder',
+      programs: {
+        'business': { name: '商学院',
+          requirements: {
+            '985': { gpa_min: 2.5, gpa_rec: 3.0, gpa_100_min: 70, gpa_100_rec: 78, ielts: 6.5, toefl: 85, note: 'SUSS商科对985背景门槛低' },
+            '211': { gpa_min: 2.5, gpa_rec: 3.0, gpa_100_min: 70, gpa_100_rec: 78, ielts: 6.5, toefl: 85, note: '211背景录取概率高' },
+            'shuangyiliu': { gpa_min: 2.8, gpa_rec: 3.2, gpa_100_min: 75, gpa_100_rec: 80, ielts: 6.5, toefl: 85, note: '双一流商科有优势' },
+            'yiben': { gpa_min: 2.8, gpa_rec: 3.2, gpa_100_min: 75, gpa_100_rec: 80, ielts: 6.5, toefl: 85, note: '普通一本有较好机会' },
+            'erben': { gpa_min: 3.0, gpa_rec: 3.3, gpa_100_min: 78, gpa_100_rec: 83, ielts: 6.5, toefl: 85, note: '二本有机会，工作经验加分' },
+            'minban': { gpa_min: 3.2, gpa_rec: 3.5, gpa_100_min: 80, gpa_100_rec: 85, ielts: 6.5, toefl: 85, note: '民办有录取案例，需工作经验' },
+            'overseas': { gpa_min: 2.5, gpa_rec: 3.0, ielts: 6.5, toefl: 85, note: '海外商科背景受认可' },
+            'dazhuan': { gpa_min: 3.5, gpa_rec: 3.8, gpa_100_min: 85, gpa_100_rec: 90, ielts: 6.5, toefl: 85, note: '专升本取得学位证可尝试申请' }
+          }
+        },
+        'humanities': { name: '人文与社会科学学院',
+          requirements: {
+            '985': { gpa_min: 2.5, gpa_rec: 3.0, gpa_100_min: 70, gpa_100_rec: 78, ielts: 6.5, toefl: 85, note: 'SUSS社科硕士项目丰富' },
+            '211': { gpa_min: 2.8, gpa_rec: 3.0, gpa_100_min: 75, gpa_100_rec: 78, ielts: 6.5, toefl: 85, note: '211背景有竞争力' },
+            'shuangyiliu': { gpa_min: 2.8, gpa_rec: 3.2, gpa_100_min: 75, gpa_100_rec: 80, ielts: 6.5, toefl: 85, note: '相关学科双一流有帮助' },
+            'yiben': { gpa_min: 3.0, gpa_rec: 3.3, gpa_100_min: 78, gpa_100_rec: 83, ielts: 6.5, toefl: 85, note: '有较好机会' },
+            'erben': { gpa_min: 3.0, gpa_rec: 3.5, gpa_100_min: 78, gpa_100_rec: 85, ielts: 6.5, toefl: 85, note: '有机会，工作经验加分' },
+            'minban': { gpa_min: 3.3, gpa_rec: 3.5, gpa_100_min: 83, gpa_100_rec: 87, ielts: 6.5, toefl: 85, note: '有录取案例' },
+            'overseas': { gpa_min: 2.5, gpa_rec: 3.0, ielts: 6.5, toefl: 85, note: '海外社科背景受认可' },
+            'dazhuan': { gpa_min: 3.5, gpa_rec: 3.8, gpa_100_min: 85, gpa_100_rec: 90, ielts: 6.5, toefl: 85, note: '专升本取得学位证可尝试' }
+          }
+        },
+        'computing': { name: '科学与技术学院',
+          requirements: {
+            '985': { gpa_min: 2.5, gpa_rec: 3.0, gpa_100_min: 70, gpa_100_rec: 78, ielts: 6.0, toefl: 80, note: 'SUSS数据分析/IT管理项目' },
+            '211': { gpa_min: 2.8, gpa_rec: 3.2, gpa_100_min: 75, gpa_100_rec: 80, ielts: 6.0, toefl: 80, note: '211 IT背景有竞争力' },
+            'shuangyiliu': { gpa_min: 2.8, gpa_rec: 3.2, gpa_100_min: 75, gpa_100_rec: 80, ielts: 6.0, toefl: 80, note: '双一流有优势' },
+            'yiben': { gpa_min: 3.0, gpa_rec: 3.3, gpa_100_min: 78, gpa_100_rec: 83, ielts: 6.0, toefl: 80, note: '有较好机会' },
+            'erben': { gpa_min: 3.2, gpa_rec: 3.5, gpa_100_min: 80, gpa_100_rec: 85, ielts: 6.0, toefl: 80, note: '有机会' },
+            'minban': { gpa_min: 3.3, gpa_rec: 3.6, gpa_100_min: 83, gpa_100_rec: 87, ielts: 6.0, toefl: 80, note: '有少量案例' },
+            'overseas': { gpa_min: 2.5, gpa_rec: 3.0, ielts: 6.0, toefl: 80, note: '海外IT背景受认可' },
+            'dazhuan': { gpa_min: 3.5, gpa_rec: 3.8, gpa_100_min: 85, gpa_100_rec: 90, ielts: 6.0, toefl: 80, note: '专升本取得学位证可尝试' }
+          }
+        },
+        'law': { name: '法学院',
+          requirements: {
+            '985': { gpa_min: 3.0, gpa_rec: 3.3, gpa_100_min: 78, gpa_100_rec: 83, ielts: 7.0, toefl: 100, note: 'SUSS法学LLM项目' },
+            '211': { gpa_min: 3.0, gpa_rec: 3.5, gpa_100_min: 78, gpa_100_rec: 85, ielts: 7.0, toefl: 100, note: '五院四系法学有优势' },
+            'shuangyiliu': { gpa_min: 3.2, gpa_rec: 3.5, gpa_100_min: 80, gpa_100_rec: 85, ielts: 7.0, toefl: 100, note: '法学双一流有帮助' },
+            'yiben': { gpa_min: 3.3, gpa_rec: 3.5, gpa_100_min: 83, gpa_100_rec: 87, ielts: 7.0, toefl: 100, note: '有机会，需法律相关背景' },
+            'erben': { gpa_min: 3.5, gpa_rec: 3.7, gpa_100_min: 85, gpa_100_rec: 88, ielts: 7.0, toefl: 100, note: '有少量案例' },
+            'minban': { gpa_min: 3.7, gpa_rec: 3.9, gpa_100_min: 88, gpa_100_rec: 92, ielts: 7.0, toefl: 100, note: '极少' },
+            'overseas': { gpa_min: 3.0, gpa_rec: 3.3, ielts: 7.0, toefl: 100, note: '海外法学本科可申' },
+            'dazhuan': { gpa_min: null, note: '不接受' }
+          }
+        },
+        'engineering': { name: '无独立工程硕士',
+          requirements: {
+            '985': { gpa_min: null, note: 'SUSS无独立工程硕士项目，建议申NUS/NTU/SIT' },
+            '211': { gpa_min: null, note: 'SUSS无独立工程硕士项目' },
+            'shuangyiliu': { gpa_min: null, note: 'SUSS无独立工程硕士项目' },
+            'yiben': { gpa_min: null, note: 'SUSS无独立工程硕士项目' },
+            'erben': { gpa_min: null, note: 'SUSS无独立工程硕士项目' },
+            'minban': { gpa_min: null, note: 'SUSS无独立工程硕士项目' },
+            'overseas': { gpa_min: null, note: 'SUSS无独立工程硕士项目' },
+            'dazhuan': { gpa_min: null, note: 'SUSS无独立工程硕士项目' }
+          }
+        },
+        'design': { name: '无设计学院',
+          requirements: {
+            '985': { gpa_min: null, note: 'SUSS无设计类硕士' },
+            '211': { gpa_min: null, note: 'SUSS无设计类硕士' },
+            'shuangyiliu': { gpa_min: null, note: 'SUSS无设计类硕士' },
+            'yiben': { gpa_min: null, note: 'SUSS无设计类硕士' },
+            'erben': { gpa_min: null, note: 'SUSS无设计类硕士' },
+            'minban': { gpa_min: null, note: 'SUSS无设计类硕士' },
+            'overseas': { gpa_min: null, note: 'SUSS无设计类硕士' },
+            'dazhuan': { gpa_min: null, note: 'SUSS无设计类硕士' }
+          }
+        },
+        'medicine': { name: '无医学院',
+          requirements: {
+            '985': { gpa_min: null, note: 'SUSS无医学院，有心理咨询硕士项目' },
+            '211': { gpa_min: null, note: 'SUSS无医学院' },
+            'shuangyiliu': { gpa_min: null, note: 'SUSS无医学院' },
+            'yiben': { gpa_min: null, note: 'SUSS无医学院' },
+            'erben': { gpa_min: null, note: 'SUSS无医学院' },
+            'minban': { gpa_min: null, note: 'SUSS无医学院' },
+            'overseas': { gpa_min: null, note: 'SUSS无医学院' },
+            'dazhuan': { gpa_min: null, note: 'SUSS无医学院' }
+          }
+        }
+      }
+    }
+  };
+
+  /* ── CONSTANTS ── */
+  const TIER_LABELS = {
+    '985': '985 院校', '211': '211 院校', 'shuangyiliu': '双一流学科建设高校',
+    'yiben': '普通一本', 'erben': '二本/三本', 'minban': '民办/独立学院',
+    'overseas': '海外本科', 'dazhuan': '大专/专升本'
+  };
+  const FIELD_LABELS = {
+    'engineering': '工程/理科', 'computing': '计算机/数据科学', 'business': '商科/管理',
+    'humanities': '人文社科', 'law': '法律', 'design': '建筑/设计', 'medicine': '医学/公共卫生'
+  };
+  const UNI_KEYS = ['nus', 'ntu', 'smu', 'sutd', 'sit', 'suss'];
+
+  /* ── STATE ── */
+  let selectedTier = null;
+
+  /* ── STEP 1: Tier Selection ── */
+  const step1Opts = document.querySelectorAll('#step1 .opt');
+  const toStep2Btn = document.getElementById('toStep2');
+
+  step1Opts.forEach(btn => {
+    btn.addEventListener('click', () => {
+      step1Opts.forEach(b => b.classList.remove('selected'));
+      btn.classList.add('selected');
+      selectedTier = btn.dataset.tier;
+      toStep2Btn.disabled = false;
+    });
+  });
+
+  /* ── NAVIGATION ── */
+  const tabs = document.querySelectorAll('.matcher-tab');
+  function showStep(num) {
+    document.getElementById('step1').classList.toggle('hidden', num !== 1);
+    document.getElementById('step2').classList.toggle('hidden', num !== 2);
+    document.getElementById('step3').classList.toggle('hidden', num !== 3);
+    tabs.forEach((t, i) => t.classList.toggle('active', i === num - 1));
+  }
+
+  toStep2Btn.addEventListener('click', () => {
+    if (!selectedTier) return;
+    showStep(2);
+  });
+  document.getElementById('backStep1').addEventListener('click', () => showStep(1));
+
+  /* ── MATCHING LOGIC ── */
+  function getGpa4(v100) {
+    // Rough conversion from 100-scale to 4.0-scale
+    if (v100 >= 90) return 4.0;
+    if (v100 >= 85) return 3.7;
+    if (v100 >= 82) return 3.3;
+    if (v100 >= 78) return 3.0;
+    if (v100 >= 75) return 2.7;
+    if (v100 >= 72) return 2.3;
+    if (v100 >= 68) return 2.0;
+    return 1.0;
+  }
+
+  function evaluateMatch(req, userGpa4, userGpa100, userIelts, userToefl, userGre, userGmat, workYears, field) {
+    // No program / not accepting
+    if (req.gpa_min === null) {
+      return { level: 'none', label: '不建议申请', cls: 'lh-none', note: req.note };
+    }
+
+    let level = 'low'; // default
+
+    // GPA check (prefer 4.0 scale if provided)
+    let gpaOK = false, gpaGreat = false;
+    if (userGpa4) {
+      gpaGreat = userGpa4 >= (req.gpa_rec || req.gpa_min + 0.3);
+      gpaOK = userGpa4 >= req.gpa_min;
+    } else if (userGpa100 && req.gpa_100_min) {
+      gpaGreat = userGpa100 >= (req.gpa_100_rec || req.gpa_100_min + 5);
+      gpaOK = userGpa100 >= req.gpa_100_min;
+    } else if (userGpa100) {
+      // Convert and compare
+      const conv = getGpa4(userGpa100);
+      gpaGreat = conv >= (req.gpa_rec || req.gpa_min + 0.3);
+      gpaOK = conv >= req.gpa_min;
+    }
+
+    if (gpaGreat) level = 'high';
+    else if (gpaOK) level = 'mid';
+    else level = 'low';
+
+    // Work experience boost for business
+    if (field === 'business' && workYears >= 3 && level !== 'high') {
+      if (level === 'mid') level = 'high';
+      else if (level === 'low') level = 'mid';
+    }
+
+    // Language warnings
+    let langWarn = [];
+    if (userIelts && req.ielts && userIelts < req.ielts) {
+      langWarn.push('IELTS ' + userIelts + ' < 要求 ' + req.ielts);
+      if (level === 'high') level = 'mid';
+    }
+    if (userToefl && req.toefl && userToefl < req.toefl) {
+      langWarn.push('TOEFL ' + userToefl + ' < 要求 ' + req.toefl);
+      if (level === 'high') level = 'mid';
+    }
+
+    // GMAT/GRE info
+    let testInfo = [];
+    if (req.gmat) {
+      if (userGmat && userGmat >= req.gmat) {
+        testInfo.push({ text: 'GMAT ' + userGmat + ' (建议 ' + req.gmat + '+)', ok: true });
+      } else if (userGmat) {
+        testInfo.push({ text: 'GMAT ' + userGmat + ' < 建议 ' + req.gmat, ok: false });
+      } else {
+        testInfo.push({ text: '建议提交 GMAT ' + req.gmat + '+', ok: false });
+      }
+    }
+    if (req.gre) {
+      if (userGre && userGre >= req.gre) {
+        testInfo.push({ text: 'GRE ' + userGre + ' (建议 ' + req.gre + '+)', ok: true });
+      } else if (userGre) {
+        testInfo.push({ text: 'GRE ' + userGre + ' < 建议 ' + req.gre, ok: false });
+      } else if (!req.gmat) {
+        testInfo.push({ text: '建议提交 GRE ' + req.gre + '+', ok: false });
+      }
+    }
+
+    const labels = { high: '录取概率: 高', mid: '录取概率: 中', low: '录取概率: 低' };
+    const classes = { high: 'lh-high', mid: 'lh-mid', low: 'lh-low' };
+
+    return {
+      level, label: labels[level], cls: classes[level],
+      note: req.note, langWarn, testInfo, req
+    };
+  }
+
+  /* ── RUN MATCH ── */
+  document.getElementById('runMatch').addEventListener('click', () => {
+    const userGpa4 = parseFloat(document.getElementById('gpa4').value) || 0;
+    const userGpa100 = parseFloat(document.getElementById('gpa100').value) || 0;
+    const userIelts = parseFloat(document.getElementById('ielts').value) || 0;
+    const userToefl = parseFloat(document.getElementById('toefl').value) || 0;
+    const userGre = parseInt(document.getElementById('gre').value) || 0;
+    const userGmat = parseInt(document.getElementById('gmat').value) || 0;
+    const workYears = parseInt(document.getElementById('workExp').value) || 0;
+    const field = document.getElementById('targetField').value;
+
+    // Validate
+    if (!userGpa4 && !userGpa100) {
+      alert('请至少填写一个 GPA 成绩（4.0 制或百分制）');
+      return;
+    }
+    if (!userIelts && !userToefl) {
+      alert('请填写雅思或托福成绩');
+      return;
+    }
+
+    // Show thinking
+    document.getElementById('step2').classList.add('hidden');
+    const thinking = document.getElementById('thinking');
+    thinking.classList.add('show');
+    showStep(3);
+
+    const thinkTexts = [
+      '正在比对 6 所大学硕士录取数据库...',
+      '分析 ' + TIER_LABELS[selectedTier] + ' 背景录取统计...',
+      '评估 ' + FIELD_LABELS[field] + ' 方向竞争力...',
+      '生成个性化录取评估报告...'
+    ];
+    let ti = 0;
+    const thinkInterval = setInterval(() => {
+      ti++;
+      if (ti < thinkTexts.length) {
+        document.getElementById('thinkingText').textContent = thinkTexts[ti];
+      }
+    }, 600);
+
+    setTimeout(() => {
+      clearInterval(thinkInterval);
+      thinking.classList.remove('show');
+
+      // Build results
+      const results = [];
+      UNI_KEYS.forEach(uniKey => {
+        const uni = MASTERS_DATA[uniKey];
+        const program = uni.programs[field];
+        if (!program) return;
+        const req = program.requirements[selectedTier];
+        if (!req) return;
+
+        const match = evaluateMatch(req, userGpa4, userGpa100, userIelts, userToefl, userGre, userGmat, workYears, field);
+        results.push({ uniKey, uni, program, match });
+      });
+
+      // Sort: high > mid > low > none
+      const order = { high: 0, mid: 1, low: 2, none: 3 };
+      results.sort((a, b) => order[a.match.level] - order[b.match.level]);
+
+      // Display GPA info
+      const displayGpa = userGpa4 ? userGpa4.toFixed(2) : (userGpa100 ? userGpa100.toFixed(1) + ' (百分制)' : '-');
+
+      document.getElementById('resultSub').innerHTML =
+        '<strong>' + TIER_LABELS[selectedTier] + '</strong> &middot; ' +
+        FIELD_LABELS[field] + ' &middot; GPA ' + displayGpa +
+        (userIelts ? ' &middot; IELTS ' + userIelts : '') +
+        (userToefl ? ' &middot; TOEFL ' + userToefl : '');
+
+      const grid = document.getElementById('resultGrid');
+      grid.innerHTML = results.map(r => {
+        const m = r.match;
+        const req = m.req || {};
+
+        // GPA requirement display
+        let gpaLine = '';
+        if (m.level !== 'none') {
+          if (userGpa4) {
+            const gpaStatus = userGpa4 >= (req.gpa_rec || 4.0) ? 'ok' : (userGpa4 >= (req.gpa_min || 0) ? '' : 'warn');
+            gpaLine = '<div class="result-detail-row">GPA: <strong class="' + gpaStatus + '">' + userGpa4.toFixed(2) + '</strong> | 最低要求: ' + (req.gpa_min || '-') + ' | 建议: ' + (req.gpa_rec || '-') + '+</div>';
+          } else if (userGpa100 && req.gpa_100_min) {
+            const gpaStatus = userGpa100 >= (req.gpa_100_rec || 100) ? 'ok' : (userGpa100 >= (req.gpa_100_min || 0) ? '' : 'warn');
+            gpaLine = '<div class="result-detail-row">GPA: <strong class="' + gpaStatus + '">' + userGpa100.toFixed(1) + '</strong> (百分制) | 最低: ' + req.gpa_100_min + ' | 建议: ' + (req.gpa_100_rec || '-') + '+</div>';
+          }
+        }
+
+        // Language line
+        let langLine = '';
+        if (m.level !== 'none') {
+          const parts = [];
+          if (req.ielts) {
+            const ieltsStatus = userIelts >= req.ielts ? 'ok' : (userIelts ? 'warn' : '');
+            parts.push('IELTS ' + req.ielts + (userIelts ? ' (<span class="' + ieltsStatus + '">你的: ' + userIelts + '</span>)' : ''));
+          }
+          if (req.toefl) {
+            const toeflStatus = userToefl >= req.toefl ? 'ok' : (userToefl ? 'warn' : '');
+            parts.push('TOEFL ' + req.toefl + (userToefl ? ' (<span class="' + toeflStatus + '">你的: ' + userToefl + '</span>)' : ''));
+          }
+          if (parts.length) {
+            langLine = '<div class="result-detail-row">语言: ' + parts.join(' / ') + '</div>';
+          }
+        }
+
+        // Language warnings
+        let langWarnHtml = '';
+        if (m.langWarn && m.langWarn.length) {
+          langWarnHtml = m.langWarn.map(w => '<div class="result-detail-row"><span class="warn">&#9888; ' + w + '</span></div>').join('');
+        }
+
+        // GMAT/GRE
+        let testHtml = '';
+        if (m.testInfo && m.testInfo.length) {
+          testHtml = m.testInfo.map(t => '<div class="result-detail-row">' + (t.ok ? '<span class="ok">&#10003;</span> ' : '<span class="warn">&#9888;</span> ') + t.text + '</div>').join('');
+        }
+
+        // Materials
+        let materials = '推荐信2封, 个人陈述, 简历';
+        if (field === 'design') materials += ', 作品集';
+        if (field === 'business') materials += ', GMAT/GRE';
+        if (field === 'law') materials += ', 法律写作样本';
+        if (field === 'medicine') materials += ', 研究经历说明';
+
+        return '<div class="result-uni">' +
+          '<div class="result-uni-head">' +
+            '<div class="result-uni-name">' + r.uni.name + ' <small>' + r.uni.cn + '</small></div>' +
+            '<span class="result-likelihood ' + m.cls + '">' + m.label + '</span>' +
+          '</div>' +
+          '<div style="font-size:12px;color:var(--brand);font-weight:600;margin-bottom:8px">' + r.uni.rank + ' &middot; ' + r.program.name + '</div>' +
+          gpaLine + langLine + langWarnHtml + testHtml +
+          '<div class="result-note"><strong>评估说明：</strong>' + m.note + '</div>' +
+          (m.level !== 'none' ? '<div class="result-materials"><strong>推荐材料：</strong>' + materials + '</div>' : '') +
+          (r.uni.link ? '<div style="margin-top:8px"><a href="' + r.uni.link + '" target="_blank" rel="noopener" style="font-size:12px;color:var(--brand);font-weight:600;text-decoration:none">' + r.uni.name + ' 研究生招生官网 &rarr;</a></div>' : '') +
+        '</div>';
+      }).join('');
+
+      document.getElementById('result').classList.add('show');
+    }, 2400);
+  });
+
+  /* ── RESET ── */
+  document.getElementById('resetMatch').addEventListener('click', () => {
+    document.getElementById('result').classList.remove('show');
+    document.getElementById('gpa4').value = '';
+    document.getElementById('gpa100').value = '';
+    document.getElementById('ielts').value = '';
+    document.getElementById('toefl').value = '';
+    document.getElementById('gre').value = '';
+    document.getElementById('gmat').value = '';
+    document.getElementById('workExp').value = '0';
+    selectedTier = null;
+    step1Opts.forEach(b => b.classList.remove('selected'));
+    toStep2Btn.disabled = true;
+    showStep(1);
+  });
+
+  /* ── MATRIX TABLE ── */
+  function renderMatrix(field) {
+    const tiers = ['985', '211', 'shuangyiliu', 'yiben', 'erben', 'minban', 'overseas', 'dazhuan'];
+    const tbody = document.getElementById('matrixBody');
+    tbody.innerHTML = tiers.map(tier => {
+      const cells = UNI_KEYS.map(uniKey => {
+        const uni = MASTERS_DATA[uniKey];
+        const prog = uni.programs[field];
+        if (!prog) return '<td class="req-cell"><span class="req-note">-</span></td>';
+        const req = prog.requirements[tier];
+        if (!req) return '<td class="req-cell"><span class="req-note">-</span></td>';
+        if (req.gpa_min === null) {
+          return '<td class="req-cell"><span class="req-note" style="color:#991b1b">' + req.note + '</span></td>';
+        }
+        return '<td class="req-cell">' +
+          '<span class="req-grade">GPA ' + req.gpa_min + (req.gpa_rec ? '-' + req.gpa_rec : '') + '</span>' +
+          '<span class="req-note">IELTS ' + (req.ielts || '-') + ' / TOEFL ' + (req.toefl || '-') + '</span>' +
+          (req.gmat ? '<span class="req-note">GMAT ' + req.gmat + '+</span>' : '') +
+        '</td>';
+      }).join('');
+      return '<tr><td>' + TIER_LABELS[tier] + '</td>' + cells + '</tr>';
+    }).join('');
+  }
+
+  renderMatrix('engineering');
+  document.getElementById('matrixField').addEventListener('change', function() {
+    renderMatrix(this.value);
+  });
+
+  /* ── FAQ TOGGLE ── */
+  document.querySelectorAll('.faq-item').forEach(item => {
+    item.querySelector('.faq-q').addEventListener('click', () => item.classList.toggle('open'));
+  });
+
+  /* ── CONTACT SECTION RESPONSIVE ── */
+  (function() {
+    const cs = document.querySelector('.contact-section');
+    if (!cs) return;
+    function checkLayout() {
+      if (window.innerWidth <= 720) {
+        cs.style.gridTemplateColumns = '1fr';
+      } else {
+        cs.style.gridTemplateColumns = '1fr 1fr';
+      }
+    }
+    checkLayout();
+    window.addEventListener('resize', checkLayout);
+  })();
+  </script>
+</body>
+</html>

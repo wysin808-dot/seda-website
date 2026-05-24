@@ -1,0 +1,2447 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>新加坡六所公立大学硕士录取要求详解 — NUS NTU SMU SUTD SIT SUSS | SEDA 顾问工具</title>
+  <meta name="description" content="中国各层次本科院校申请新加坡六所公立大学 NUS NTU SMU SUTD SIT SUSS 硕士的完整要求数据库" />
+  <link rel="stylesheet" href="/seda-site.css" />
+  <style>
+    /* ── Hero ── */
+    .matcher-hero {
+      background: linear-gradient(135deg, #2a1215 0%, #1a0a0c 100%);
+      color: #fff;
+      padding: 56px clamp(20px, 6vw, 80px) 48px;
+      border-radius: var(--radius);
+      margin: 0 clamp(20px, 6vw, 80px) 32px;
+      position: relative;
+      overflow: hidden;
+    }
+    .matcher-hero::before {
+      content: "";
+      position: absolute; top: 0; right: 0;
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(198,40,40,0.25), transparent 70%);
+      border-radius: 50%;
+      filter: blur(80px);
+      pointer-events: none;
+    }
+    .matcher-hero .eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 6px 14px;
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 100px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      color: #fca5a5;
+      margin-bottom: 20px;
+      background: rgba(198,40,40,0.15);
+    }
+    .matcher-hero .eyebrow::before {
+      content: ""; width: 6px; height: 6px;
+      border-radius: 50%;
+      background: #ef4444;
+      box-shadow: 0 0 12px #ef4444;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
+    .matcher-hero h1 {
+      font-size: clamp(28px, 4vw, 42px);
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 16px;
+      position: relative;
+    }
+    .matcher-hero h1 em { font-style: normal; color: #fca5a5; }
+    .matcher-hero .lead {
+      font-size: 16px;
+      color: rgba(255,255,255,0.7);
+      line-height: 1.6;
+      max-width: 620px;
+      margin-bottom: 28px;
+    }
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      max-width: 420px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+    .stat-num {
+      font-size: 32px; font-weight: 800; color: #fff; line-height: 1;
+    }
+    .stat-label {
+      font-size: 11px; color: rgba(255,255,255,0.5); margin-top: 4px; text-transform: uppercase; letter-spacing: 0.06em;
+    }
+
+    /* ── Presentation Mode ── */
+    .present-header {
+      background: #fff;
+      border-bottom: 2px solid #c62828;
+      position: sticky; top: 0; z-index: 100;
+    }
+    .present-header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px clamp(20px, 6vw, 80px);
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    .present-brand {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+    }
+    .present-brand-word {
+      font-size: 24px;
+      font-weight: 900;
+      color: #c62828;
+      letter-spacing: -0.5px;
+    }
+    .present-brand-sub {
+      font-size: 13px;
+      font-weight: 600;
+      color: #6b7280;
+    }
+    .present-back {
+      font-size: 13px;
+      font-weight: 600;
+      color: #6b7280;
+      text-decoration: none;
+    }
+    .present-back:hover { color: #c62828; }
+    .present-footer {
+      border-top: 1px solid #e5e7eb;
+      padding: 20px clamp(20px, 6vw, 80px);
+      text-align: center;
+      font-size: 12px;
+      color: #6b7280;
+    }
+    .present-footer a { color: #c62828; text-decoration: none; }
+    .present-footer a:hover { text-decoration: underline; }
+    .breadcrumb { display: none !important; }
+    .lead-overlay, #leadOverlay { display: none !important; }
+    .cta-section { display: none !important; }
+    .nav-cta { display: none !important; }
+
+    /* ── Sections ── */
+    .db-section {
+      padding: 40px clamp(20px, 6vw, 80px);
+    }
+    .db-section h2 {
+      font-size: 24px; font-weight: 800; margin-bottom: 8px;
+    }
+    .db-section h2 em { font-style: normal; color: var(--brand); }
+    .db-section-sub {
+      color: var(--muted); font-size: 14px; margin-bottom: 24px; line-height: 1.6;
+    }
+
+    /* ── Nav Anchor Bar ── */
+    .section-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      padding: 16px clamp(20px, 6vw, 80px);
+      border-bottom: 1px solid var(--line);
+      background: var(--wash);
+      position: sticky;
+      top: 54px;
+      z-index: 90;
+    }
+    .section-nav a {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--muted);
+      text-decoration: none;
+      padding: 6px 14px;
+      border: 1px solid var(--line);
+      border-radius: 100px;
+      transition: all 0.18s;
+      white-space: nowrap;
+    }
+    .section-nav a:hover {
+      border-color: var(--brand);
+      color: var(--brand);
+      background: var(--brand-light);
+    }
+
+    /* ── Tier Cards ── */
+    .tier-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 12px;
+    }
+    .tier-card {
+      background: #fff;
+      border: 1.5px solid var(--line);
+      border-radius: 12px;
+      padding: 20px;
+      transition: border-color 0.2s;
+      cursor: pointer;
+    }
+    .tier-card:hover { border-color: #fca5a5; }
+    .tier-card-head {
+      display: flex; justify-content: space-between; align-items: start; margin-bottom: 8px;
+    }
+    .tier-num {
+      font-size: 11px; font-weight: 700;
+      padding: 3px 10px; border-radius: 100px;
+      background: var(--brand-light); color: var(--brand);
+      white-space: nowrap;
+    }
+    .tier-card-title {
+      font-size: 17px; font-weight: 800; color: var(--ink);
+    }
+    .tier-card-desc {
+      font-size: 13px; color: var(--muted); line-height: 1.6; margin-bottom: 10px;
+    }
+    .tier-expand {
+      display: none;
+      padding-top: 10px;
+      border-top: 1px solid var(--line);
+      margin-top: 10px;
+    }
+    .tier-card.open .tier-expand { display: block; }
+    .tier-toggle {
+      font-size: 12px; font-weight: 600; color: var(--brand);
+      display: flex; align-items: center; gap: 4px;
+    }
+    .tier-toggle::after { content: "+"; font-size: 16px; transition: transform 0.2s; }
+    .tier-card.open .tier-toggle::after { content: "-"; }
+    .tier-examples {
+      font-size: 12px; color: var(--muted); line-height: 1.6;
+    }
+    .tier-examples strong { color: var(--ink); }
+    .tier-prospect {
+      margin-top: 8px;
+      padding: 8px 12px;
+      background: var(--wash);
+      border-radius: 8px;
+      font-size: 12px;
+      line-height: 1.6;
+    }
+    .tier-prospect strong { color: var(--brand); }
+
+    /* ── University Mega Cards ── */
+    .uni-mega-card {
+      background: #fff;
+      border: 1.5px solid var(--line);
+      border-radius: 16px;
+      overflow: hidden;
+      margin-bottom: 16px;
+      transition: border-color 0.2s;
+    }
+    .uni-mega-card:hover { border-color: #fca5a5; }
+    .uni-mega-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 24px;
+      cursor: pointer;
+      background: var(--wash);
+      border-bottom: 1px solid var(--line);
+      user-select: none;
+      transition: background 0.15s;
+    }
+    .uni-mega-header:hover { background: #f3f3f3; }
+    .uni-mega-info {
+      display: flex; align-items: center; gap: 16px;
+    }
+    .uni-mega-name {
+      font-size: 22px; font-weight: 800; color: var(--ink);
+    }
+    .uni-mega-cn {
+      font-size: 13px; color: var(--muted); margin-top: 2px;
+    }
+    .uni-mega-tag {
+      font-size: 11px; font-weight: 700;
+      padding: 4px 12px; border-radius: 100px;
+      background: var(--brand-light); color: var(--brand);
+      white-space: nowrap;
+    }
+    .uni-mega-toggle {
+      font-size: 14px; color: var(--muted); transition: transform 0.25s;
+      flex-shrink: 0;
+    }
+    .uni-mega-card.open .uni-mega-toggle { transform: rotate(180deg); }
+    .uni-mega-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+    }
+    .uni-mega-card.open .uni-mega-body {
+      max-height: 20000px;
+    }
+    .uni-mega-content {
+      padding: 24px;
+    }
+    .uni-type-row {
+      display: flex; gap: 12px; margin-bottom: 20px; flex-wrap: wrap;
+    }
+    .uni-type-badge {
+      font-size: 12px; font-weight: 600;
+      padding: 6px 14px;
+      border: 1.5px solid var(--line);
+      border-radius: 100px;
+      background: #fff;
+      color: var(--ink);
+    }
+
+    /* ── Faculty Sub-sections ── */
+    .faculty-block {
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      margin-bottom: 12px;
+      overflow: hidden;
+    }
+    .faculty-header {
+      padding: 14px 18px;
+      background: var(--wash);
+      cursor: pointer;
+      display: flex; justify-content: space-between; align-items: center;
+      user-select: none;
+      transition: background 0.15s;
+    }
+    .faculty-header:hover { background: #f0f0f0; }
+    .faculty-name {
+      font-size: 15px; font-weight: 700; color: var(--ink);
+    }
+    .faculty-name small {
+      font-weight: 400; font-size: 12px; color: var(--muted); margin-left: 6px;
+    }
+    .faculty-toggle {
+      font-size: 12px; color: var(--muted); transition: transform 0.2s;
+    }
+    .faculty-block.open .faculty-toggle { transform: rotate(180deg); }
+    .faculty-body {
+      max-height: 0; overflow: hidden; transition: max-height 0.35s ease;
+    }
+    .faculty-block.open .faculty-body { max-height: 8000px; }
+    .faculty-content {
+      padding: 16px 18px;
+    }
+    .programs-label {
+      font-size: 12px; font-weight: 700; color: var(--brand); margin-bottom: 8px;
+      text-transform: uppercase; letter-spacing: 0.04em;
+    }
+    .program-tags {
+      display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px;
+    }
+    .program-tag {
+      font-size: 12px; font-weight: 500;
+      padding: 4px 10px;
+      background: var(--brand-light);
+      border: 1px solid rgba(198,40,40,0.15);
+      border-radius: 100px;
+      color: var(--ink);
+    }
+    .special-reqs {
+      margin-top: 12px;
+      padding: 10px 14px;
+      background: var(--wash);
+      border-radius: 8px;
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+    .special-reqs strong { color: var(--ink); }
+
+    /* ── Data Tables ── */
+    .table-wrap {
+      overflow-x: auto;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      margin-bottom: 12px;
+    }
+    .data-table {
+      width: 100%;
+      min-width: 700px;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+    .data-table thead th {
+      padding: 12px 14px;
+      background: var(--wash);
+      font-weight: 700;
+      text-align: center;
+      border-bottom: 2px solid var(--line);
+      color: var(--ink);
+      position: sticky; top: 0;
+      white-space: nowrap;
+    }
+    .data-table thead th:first-child { text-align: left; min-width: 120px; }
+    .data-table tbody td {
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--line);
+      vertical-align: top;
+      text-align: center;
+      font-size: 12px;
+      line-height: 1.5;
+    }
+    .data-table tbody td:first-child { text-align: left; font-weight: 600; color: var(--ink); }
+    .data-table tbody tr:last-child td { border-bottom: 0; }
+    .data-table tbody tr:hover { background: var(--brand-light); }
+    .cell-main { display: block; font-weight: 700; color: var(--ink); font-size: 13px; }
+    .cell-sub { display: block; font-size: 11px; color: var(--muted); margin-top: 2px; }
+    .cell-na { color: #ccc; font-style: italic; }
+
+    /* ── Filter Bar ── */
+    .filter-bar {
+      display: flex; gap: 10px; margin-bottom: 16px; flex-wrap: wrap; align-items: center;
+    }
+    .filter-bar label {
+      font-size: 12px; font-weight: 600; color: var(--muted);
+    }
+    .filter-bar select {
+      padding: 8px 12px;
+      background: #fff;
+      border: 1.5px solid var(--line);
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--ink);
+      cursor: pointer;
+    }
+    .filter-bar select:focus {
+      outline: none;
+      border-color: var(--brand);
+      box-shadow: 0 0 0 3px rgba(198,40,40,0.1);
+    }
+
+    /* ── Timeline ── */
+    .timeline {
+      position: relative;
+      padding-left: 32px;
+    }
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 11px; top: 0; bottom: 0;
+      width: 2px;
+      background: var(--line);
+    }
+    .timeline-item {
+      position: relative;
+      padding-bottom: 28px;
+    }
+    .timeline-item:last-child { padding-bottom: 0; }
+    .timeline-dot {
+      position: absolute;
+      left: -32px; top: 2px;
+      width: 24px; height: 24px;
+      border-radius: 50%;
+      background: var(--brand);
+      display: flex; align-items: center; justify-content: center;
+      color: #fff; font-size: 11px; font-weight: 700;
+      box-shadow: 0 0 0 4px #fff, 0 0 0 6px var(--line);
+    }
+    .timeline-time {
+      font-size: 12px; font-weight: 700; color: var(--brand); margin-bottom: 4px;
+    }
+    .timeline-title {
+      font-size: 15px; font-weight: 700; color: var(--ink); margin-bottom: 4px;
+    }
+    .timeline-desc {
+      font-size: 13px; color: var(--muted); line-height: 1.6;
+    }
+    .deadline-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 10px;
+      margin-top: 20px;
+    }
+    .deadline-card {
+      padding: 14px 16px;
+      background: var(--wash);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+    }
+    .deadline-uni {
+      font-size: 15px; font-weight: 800; color: var(--ink); margin-bottom: 4px;
+    }
+    .deadline-info {
+      font-size: 12px; color: var(--muted); line-height: 1.5;
+    }
+
+    /* ── Material Cards ── */
+    .material-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 12px;
+    }
+    .material-card {
+      background: #fff;
+      border: 1.5px solid var(--line);
+      border-radius: 12px;
+      padding: 18px;
+      transition: border-color 0.2s;
+    }
+    .material-card:hover { border-color: #fca5a5; }
+    .material-num {
+      font-size: 11px; font-weight: 700;
+      width: 24px; height: 24px;
+      border-radius: 50%;
+      background: var(--brand);
+      color: #fff;
+      display: inline-flex; align-items: center; justify-content: center;
+      margin-bottom: 8px;
+    }
+    .material-title {
+      font-size: 15px; font-weight: 700; color: var(--ink); margin-bottom: 6px;
+    }
+    .material-desc {
+      font-size: 13px; color: var(--muted); line-height: 1.6;
+    }
+
+    /* ── Recommendation Guide ── */
+    .rec-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 12px;
+    }
+    .rec-card {
+      background: #fff;
+      border: 1.5px solid var(--line);
+      border-radius: 12px;
+      padding: 18px;
+    }
+    .rec-card:hover { border-color: #fca5a5; }
+    .rec-card-title {
+      font-size: 15px; font-weight: 700; color: var(--ink); margin-bottom: 8px;
+    }
+    .rec-card-body {
+      font-size: 13px; color: var(--muted); line-height: 1.7;
+    }
+    .rec-card-body ul {
+      padding-left: 16px; margin: 6px 0;
+    }
+    .rec-card-body li { margin-bottom: 4px; }
+    .rec-do { border-left: 3px solid #22c55e; }
+    .rec-dont { border-left: 3px solid #ef4444; }
+    .rec-tip { border-left: 3px solid #f59e0b; }
+
+    /* ── Fee Table ── */
+    .fee-table-wrap {
+      overflow-x: auto;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+    }
+
+    /* ── FAQ ── */
+    .tool-faq { padding: 40px clamp(20px, 6vw, 80px) 20px; }
+    .tool-faq h2 { font-size: 24px; font-weight: 800; margin-bottom: 20px; }
+    .tool-faq h2 em { font-style: normal; color: var(--brand); }
+    .faq-item {
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      margin-bottom: 8px;
+      overflow: hidden;
+      transition: border-color 0.2s;
+    }
+    .faq-item:hover { border-color: #fca5a5; }
+    .faq-q {
+      padding: 16px 20px;
+      font-weight: 600;
+      font-size: 15px;
+      color: var(--ink);
+      cursor: pointer;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .faq-q-toggle {
+      font-size: 20px; color: var(--brand); transition: transform 0.2s;
+      flex-shrink: 0; margin-left: 12px;
+    }
+    .faq-item.open .faq-q-toggle { transform: rotate(45deg); }
+    .faq-a {
+      display: none;
+      padding: 0 20px 16px;
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+    .faq-item.open .faq-a { display: block; }
+
+    .disclaimer {
+      margin-top: 12px;
+      padding: 0 clamp(20px, 6vw, 80px);
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    /* ── Contact ── */
+    .contact-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      padding: 48px clamp(20px, 6vw, 80px);
+      align-items: start;
+    }
+    .contact-section .eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 6px 14px;
+      border: 1px solid var(--line);
+      border-radius: 100px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      color: var(--brand);
+      margin-bottom: 12px;
+      background: var(--brand-light);
+    }
+    .contact-section h2 {
+      font-size: 24px; font-weight: 800; color: var(--ink); margin-bottom: 12px;
+    }
+    .contact-section > div > p {
+      font-size: 14px; color: var(--muted); line-height: 1.6;
+    }
+    .contact-section .lead-form {
+      display: grid; gap: 12px;
+    }
+    .contact-section .lead-form label {
+      display: grid; gap: 4px;
+    }
+    .contact-section .lead-form label span {
+      font-size: 12px; font-weight: 700; color: var(--ink);
+    }
+    .contact-section .lead-form input,
+    .contact-section .lead-form select {
+      padding: 10px 12px;
+      border: 2px solid var(--line);
+      border-radius: 8px;
+      font-size: 14px;
+      font-family: inherit;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .contact-section .lead-form input:focus,
+    .contact-section .lead-form select:focus {
+      border-color: var(--brand);
+    }
+    .primary-button {
+      padding: 12px 24px;
+      background: var(--brand);
+      color: #fff;
+      border: none;
+      border-radius: 100px;
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.18s;
+    }
+    .primary-button:hover { background: var(--brand-strong); transform: translateY(-1px); }
+
+    /* ── Responsive ── */
+    @media (max-width: 720px) {
+      .matcher-hero { margin: 0 16px 24px; padding: 36px 20px 32px; border-radius: 12px; }
+      .db-section, .tool-faq, .disclaimer { padding-left: 16px; padding-right: 16px; }
+      .hero-stats { grid-template-columns: repeat(3, 1fr); gap: 16px; }
+      .tier-grid { grid-template-columns: 1fr; }
+      .material-grid { grid-template-columns: 1fr; }
+      .rec-grid { grid-template-columns: 1fr; }
+      .contact-section { grid-template-columns: 1fr; gap: 24px; padding-left: 16px; padding-right: 16px; }
+      .section-nav { top: 50px; padding-left: 16px; padding-right: 16px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="present-header">
+    <div class="present-header-inner">
+      <div class="present-brand">
+        <span class="present-brand-word">SEDA</span>
+        <span class="present-brand-sub">新加坡国际教育中心</span>
+      </div>
+      <a href="/tools/" class="present-back">&larr; 全部工具</a>
+    </div>
+  </header>
+
+  <!-- Section Navigation -->
+  <nav class="section-nav">
+    <a href="#tiers">院校层次</a>
+    <a href="#universities">录取要求</a>
+    <a href="#timeline">申请时间线</a>
+    <a href="#materials">申请材料</a>
+    <a href="#recommendations">推荐信指南</a>
+    <a href="#fees">学费与奖学金</a>
+    <a href="#faq">常见问题</a>
+    <a href="#contact">免费咨询</a>
+  </nav>
+
+  <main>
+    <!-- ── Hero ── -->
+    <div class="matcher-hero">
+      <div class="eyebrow">硕士申请数据库</div>
+      <h1>新加坡公立大学硕士<br><em>录取要求详解</em></h1>
+      <p class="lead">中国各层次本科院校（985/211/双一流/普通本科/民办）申请新加坡 NUS、NTU、SMU、SUTD、SIT、SUSS 硕士的完整要求，包含 GPA、雅思、推荐信、申请材料与时间线。</p>
+      <div class="hero-stats">
+        <div><div class="stat-num">6</div><div class="stat-label">公立大学</div></div>
+        <div><div class="stat-num">80+</div><div class="stat-label">硕士项目</div></div>
+        <div><div class="stat-num">8</div><div class="stat-label">院校层次</div></div>
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════════ -->
+    <!-- Section 1: 中国院校层次说明 -->
+    <!-- ══════════════════════════════════════════════ -->
+    <div class="db-section" id="tiers">
+      <h2>中国院校层次<em>说明</em></h2>
+      <p class="db-section-sub">新加坡大学对中国不同层次本科院校的申请者有不同的录取门槛。了解你的院校背景所处层次，是规划硕士申请的第一步。</p>
+      <div class="tier-grid">
+        <!-- Tier 1 -->
+        <div class="tier-card" onclick="this.classList.toggle('open')">
+          <div class="tier-card-head">
+            <div>
+              <div class="tier-card-title">985 院校 / C9 联盟</div>
+            </div>
+            <span class="tier-num">Tier 1</span>
+          </div>
+          <div class="tier-card-desc">全国顶尖 39 所大学，新加坡大学最优先考虑的背景，GPA 要求相对宽松。</div>
+          <div class="tier-toggle">展开详情</div>
+          <div class="tier-expand">
+            <div class="tier-examples"><strong>C9 联盟：</strong>清华大学、北京大学、复旦大学、上海交通大学、浙江大学、南京大学、中国科学技术大学、哈尔滨工业大学、西安交通大学。<br><strong>其他 985：</strong>中国人民大学、同济大学、武汉大学、中山大学、华中科技大学、四川大学、天津大学、东南大学等。</div>
+            <div class="tier-prospect"><strong>录取前景：</strong>NUS/NTU/SMU/SUTD/SIT/SUSS 均可申请，GPA 3.0+（80 分+）即可达到基本门槛，GPA 3.5+（85+）具有较强竞争力。C9 联盟背景对顶尖项目（如 NUS 计算机、NTU 工程）有明显优势。</div>
+          </div>
+        </div>
+        <!-- Tier 2 -->
+        <div class="tier-card" onclick="this.classList.toggle('open')">
+          <div class="tier-card-head">
+            <div>
+              <div class="tier-card-title">211 院校</div>
+            </div>
+            <span class="tier-num">Tier 2</span>
+          </div>
+          <div class="tier-card-desc">全国约 112 所重点大学。录取门槛比 985 略高，需要更高 GPA 补偿。</div>
+          <div class="tier-toggle">展开详情</div>
+          <div class="tier-expand">
+            <div class="tier-examples"><strong>代表院校：</strong>上海财经大学、中央财经大学、北京邮电大学、南京航空航天大学、华东理工大学、苏州大学、暨南大学、上海大学、武汉理工大学等。</div>
+            <div class="tier-prospect"><strong>录取前景：</strong>NUS/NTU 要求 GPA 3.2+（83+），建议 3.5+（87+）更稳妥。SMU/SUTD 门槛略低，SIT/SUSS 更为友好。211 背景搭配优秀科研/实习经历可显著提升竞争力。</div>
+          </div>
+        </div>
+        <!-- Tier 3 -->
+        <div class="tier-card" onclick="this.classList.toggle('open')">
+          <div class="tier-card-head">
+            <div>
+              <div class="tier-card-title">双一流学科建设高校</div>
+            </div>
+            <span class="tier-num">Tier 3</span>
+          </div>
+          <div class="tier-card-desc">非 211 的双一流高校，视具体学科和学校影响力，部分学校等同 985/211 对待。</div>
+          <div class="tier-toggle">展开详情</div>
+          <div class="tier-expand">
+            <div class="tier-examples"><strong>代表院校：</strong>南方科技大学、上海科技大学、中国科学院大学、宁波大学、南京信息工程大学、成都理工大学、河南大学、湘潭大学等。<br><strong>注意：</strong>南科大、上科大、国科大等实力强校在部分院系中被等同 985/211 对待。</div>
+            <div class="tier-prospect"><strong>录取前景：</strong>NUS/NTU 视具体学科排名评估，GPA 3.3+（85+）有竞争力。如申请院校的双一流学科与目标硕士方向一致，录取概率显著提升。</div>
+          </div>
+        </div>
+        <!-- Tier 4 -->
+        <div class="tier-card" onclick="this.classList.toggle('open')">
+          <div class="tier-card-head">
+            <div>
+              <div class="tier-card-title">普通一本</div>
+            </div>
+            <span class="tier-num">Tier 4</span>
+          </div>
+          <div class="tier-card-desc">非双一流的省属重点/一本院校。NUS/NTU 录取要求较高 GPA（3.5+/87+），SMU/SUTD 相对友好，SIT/SUSS 门槛最低。</div>
+          <div class="tier-toggle">展开详情</div>
+          <div class="tier-expand">
+            <div class="tier-examples"><strong>代表院校：</strong>浙江工业大学、杭州电子科技大学、上海师范大学、广东工业大学、重庆邮电大学、天津财经大学、东北财经大学等。</div>
+            <div class="tier-prospect"><strong>录取前景：</strong>NUS/NTU 需要 GPA 3.5+（87+）且有突出科研/实习/竞赛经历。SMU 商科类项目对普通一本相对友好，SUTD 看重设计和创新能力。SIT 应用型项目和 SUSS 社科/商科项目对普通一本最为开放。强烈建议搭配高分雅思（7.0+）和 GRE/GMAT。</div>
+          </div>
+        </div>
+        <!-- Tier 5 -->
+        <div class="tier-card" onclick="this.classList.toggle('open')">
+          <div class="tier-card-head">
+            <div>
+              <div class="tier-card-title">普通二本/三本</div>
+            </div>
+            <span class="tier-num">Tier 5</span>
+          </div>
+          <div class="tier-card-desc">二本及原三本院校。NUS 极少录取，NTU 个别专业有案例，SMU/SUTD 有一定可能，SIT/SUSS 相对友好。</div>
+          <div class="tier-toggle">展开详情</div>
+          <div class="tier-expand">
+            <div class="tier-examples"><strong>说明：</strong>包括各省二本批次录取的公办/民办本科院校。随着高考改革，部分省份已取消一本/二本批次区分，但新加坡大学仍会参考院校的整体排名和学术声誉。</div>
+            <div class="tier-prospect"><strong>录取前景：</strong>NUS 极少录取二本/三本背景，NTU 偶有个别冷门专业录取案例（需 GPA 3.7+/90+）。SMU 部分授课型硕士项目有录取可能（如 MITB、MSc Applied Finance），SUTD 偶有案例。SIT 和 SUSS 对二本/三本背景相对开放，尤其有工作经验者。建议准备 GRE 320+ 或 GMAT 700+ 作为补偿。</div>
+          </div>
+        </div>
+        <!-- Tier 6 -->
+        <div class="tier-card" onclick="this.classList.toggle('open')">
+          <div class="tier-card-head">
+            <div>
+              <div class="tier-card-title">民办/独立学院</div>
+            </div>
+            <span class="tier-num">Tier 6</span>
+          </div>
+          <div class="tier-card-desc">民办本科和独立学院。顶尖学校（NUS/NTU）几乎不录取，SUTD 偶有案例，SIT/SUSS 有一定录取可能。</div>
+          <div class="tier-toggle">展开详情</div>
+          <div class="tier-expand">
+            <div class="tier-examples"><strong>说明：</strong>包括民办本科高校（如吉林外国语大学、三亚学院等）和独立学院（已转设的原 XX 大学 XX 学院）。学历需获得教育部认可。</div>
+            <div class="tier-prospect"><strong>录取前景：</strong>NUS/NTU 几乎不录取此背景。SUTD 极少数案例存在，但需非常突出的项目经历和作品集。SIT 和 SUSS 部分项目对民办/独立学院背景有一定录取案例，尤其对有丰富工作经验的申请者。也可考虑新加坡私立大学硕士项目（如 Kaplan、PSB、SIM 等合作硕士），或先通过其他途径提升学历背景后再申请公立大学。</div>
+          </div>
+        </div>
+        <!-- Tier 7 -->
+        <div class="tier-card" onclick="this.classList.toggle('open')">
+          <div class="tier-card-head">
+            <div>
+              <div class="tier-card-title">海外本科</div>
+            </div>
+            <span class="tier-num">Tier 7</span>
+          </div>
+          <div class="tier-card-desc">境外大学本科学历。视学校排名和国家，QS Top 200 海外大学等同 985/211 对待。</div>
+          <div class="tier-toggle">展开详情</div>
+          <div class="tier-expand">
+            <div class="tier-examples"><strong>参考标准：</strong>QS Top 50 大学毕业生被视为等同 C9/985 背景；QS Top 100 等同 985；QS Top 200 等同 211；QS 200-500 等同普通一本。英、美、澳、加等英语国家本科通常可免雅思要求。</div>
+            <div class="tier-prospect"><strong>录取前景：</strong>海外本科（尤其英语国家）在语言证明和国际化视角方面有优势。成绩单评估按 GPA 标准换算，需提供官方成绩单和学位证明。部分国家的学位可能需要 WES 认证。</div>
+          </div>
+        </div>
+        <!-- Tier 8 -->
+        <div class="tier-card" onclick="this.classList.toggle('open')">
+          <div class="tier-card-head">
+            <div>
+              <div class="tier-card-title">大专/专升本</div>
+            </div>
+            <span class="tier-num">Tier 8</span>
+          </div>
+          <div class="tier-card-desc">大专学历或专升本。新加坡公立大学硕士一般不接受，建议考虑其他途径。</div>
+          <div class="tier-toggle">展开详情</div>
+          <div class="tier-expand">
+            <div class="tier-examples"><strong>说明：</strong>大专（三年制/两年制）学历和通过专升本获得本科学历的申请者。专升本学历虽然是本科，但含金量在新加坡大学评估体系中通常低于普通本科。</div>
+            <div class="tier-prospect"><strong>录取前景：</strong>新加坡公立大学硕士一般不接受大专学历直接申请。专升本有极个别录取案例但非常罕见。<strong>建议路径：</strong>(1) 先申请新加坡私立大学合作本科（Top-up Degree）再申硕士；(2) 考虑新加坡私立大学硕士项目；(3) 先在国内通过考研提升至全日制硕士学历。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════════ -->
+    <!-- Section 2: 各大学硕士录取要求详解 -->
+    <!-- ══════════════════════════════════════════════ -->
+    <div class="db-section" id="universities">
+      <h2>各大学硕士<em>录取要求详解</em></h2>
+      <p class="db-section-sub">点击大学名称展开查看各学院/方向的硕士录取要求，包含按中国院校层次分类的 GPA 门槛、语言要求和特殊条件。</p>
+
+      <!-- ── NUS ── -->
+      <div class="uni-mega-card" id="nus-card">
+        <div class="uni-mega-header" onclick="this.parentElement.classList.toggle('open')">
+          <div class="uni-mega-info">
+            <div>
+              <div class="uni-mega-name">NUS</div>
+              <div class="uni-mega-cn">新加坡国立大学 National University of Singapore</div>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px">
+            <span class="uni-mega-tag">QS #8</span>
+            <span class="uni-mega-toggle">&#9662;</span>
+          </div>
+        </div>
+        <div class="uni-mega-body">
+          <div class="uni-mega-content">
+            <div class="uni-type-row">
+              <span class="uni-type-badge">授课型 Coursework: 1-1.5 年</span>
+              <span class="uni-type-badge">研究型 Research: 1.5-2 年</span>
+            </div>
+
+            <!-- NUS: Faculty of Engineering -->
+            <div class="faculty-block">
+              <div class="faculty-header" onclick="this.parentElement.classList.toggle('open')">
+                <div class="faculty-name">工程学院 <small>Faculty of Engineering</small></div>
+                <span class="faculty-toggle">&#9662;</span>
+              </div>
+              <div class="faculty-body">
+                <div class="faculty-content">
+                  <div class="programs-label">热门项目</div>
+                  <div class="program-tags">
+                    <span class="program-tag">MEng Electrical Engineering</span>
+                    <span class="program-tag">MEng Mechanical Engineering</span>
+                    <span class="program-tag">MSc Civil Engineering</span>
+                    <span class="program-tag">MSc Environmental Engineering</span>
+                    <span class="program-tag">MSc Chemical Engineering</span>
+                    <span class="program-tag">MSc Industrial & Systems Engineering</span>
+                  </div>
+                  <div class="table-wrap">
+                    <table class="data-table">
+                      <thead>
+                        <tr>
+                          <th>院校背景</th>
+                          <th>GPA (4.0)</th>
+                          <th>GPA (百分制)</th>
+                          <th>雅思</th>
+                          <th>托福</th>
+                          <th>其他要求</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr><td>985 / C9</td><td><span class="cell-main">3.0+</span><span class="cell-sub">建议 3.5+</span></td><td><span class="cell-main">80+</span><span class="cell-sub">建议 85+</span></td><td>6.0</td><td>85</td><td>相关工科专业背景</td></tr>
+                        <tr><td>211</td><td><span class="cell-main">3.2+</span><span class="cell-sub">建议 3.6+</span></td><td><span class="cell-main">83+</span><span class="cell-sub">建议 87+</span></td><td>6.0</td><td>85</td><td>相关专业 + 科研/实习</td></tr>
+                        <tr><td>双一流</td><td><span class="cell-main">3.3+</span><span class="cell-sub">建议 3.6+</span></td><td><span class="cell-main">85+</span><span class="cell-sub">建议 88+</span></td><td>6.0</td><td>85</td><td>相关学科方向 + 项目经历</td></tr>
+                        <tr><td>普通一本</td><td><span class="cell-main">3.5+</span><span class="cell-sub">建议 3.7+</span></td><td><span class="cell-main">87+</span><span class="cell-sub">建议 90+</span></td><td>6.5</td><td>90</td><td>科研论文/竞赛/GRE 建议</td></tr>
+                        <tr><td>二本/三本</td><td colspan="5" class="cell-na">录取案例极少，建议 GPA 3.7+/90+ 且有突出科研经历和 GRE 320+</td></tr>
+                        <tr><td>民办/独立学院</td><td colspan="5" class="cell-na">几乎不录取</td></tr>
+                        <tr><td>海外本科</td><td><span class="cell-main">3.0+</span><span class="cell-sub">参考 QS 排名</span></td><td><span class="cell-main">—</span></td><td><span class="cell-sub">英语国家可免</span></td><td><span class="cell-sub">英语国家可免</span></td><td>视学校 QS 排名评估</td></tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="special-reqs">
+                    <strong>推荐信：</strong>2 封学术推荐信<br>
+                    <strong>特殊要求：</strong>GRE（部分项目建议提交，320+ 有竞争力）；相关实习/科研经历加分；研究型硕士需联系导师并提交研究计划
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- NUS: School of Computing -->
+            <div class="faculty-block">
+              <div class="faculty-header" onclick="this.parentElement.classList.toggle('open')">
+                <div class="faculty-name">计算机学院 <small>School of Computing</small></div>
+                <span class="faculty-toggle">&#9662;</span>
+              </div>
+              <div class="faculty-body">
+                <div class="faculty-content">
+                  <div class="programs-label">热门项目</div>
+                  <div class="program-tags">
+                    <span class="program-tag">MSc Computer Science</span>
+                    <span class="program-tag">MSc Information Systems</span>
+                    <span class="program-tag">MSc Artificial Intelligence</span>
+                    <span class="program-tag">MSc Data Science & Machine Learning</span>
+                  </div>
+                  <div class="table-wrap">
+                    <table class="data-table">
+                      <thead>
+                        <tr><th>院校背景</th><th>GPA (4.0)</th><th>GPA (百分制)</th><th>雅思</th><th>托福</th><th>其他要求</th></tr>
+                      </thead>
+                      <tbody>
+                        <tr><td>985 / C9</td><td><span class="cell-main">3.2+</span><span class="cell-sub">建议 3.6+</span></td><td><span class="cell-main">83+</span><span class="cell-sub">建议 87+</span></td><td>6.0</td><td>85</td><td>CS/EE 相关背景优先</td></tr>
+                        <tr><td>211</td><td><span class="cell-main">3.4+</span><span class="cell-sub">建议 3.7+</span></td><td><span class="cell-main">85+</span><span class="cell-sub">建议 88+</span></td><td>6.0</td><td>85</td><td>编程经验 + 科研/项目</td></tr>
+                        <tr><td>双一流</td><td><span class="cell-main">3.5+</span><span class="cell-sub">建议 3.7+</span></td><td><span class="cell-main">87+</span><span class="cell-sub">建议 90+</span></td><td>6.0</td><td>85</td><td>双一流 CS 学科优先</td></tr>
+                        <tr><td>普通一本</td><td><span class="cell-main">3.6+</span><span class="cell-sub">建议 3.8+</span></td><td><span class="cell-main">88+</span><span class="cell-sub">建议 92+</span></td><td>6.5</td><td>90</td><td>GRE 强烈建议 + 论文/竞赛</td></tr>
+                        <tr><td>二本/三本</td><td colspan="5" class="cell-na">极少录取，需顶尖 GPA + 高质量论文发表 + GRE 325+</td></tr>
+                        <tr><td>海外本科</td><td><span class="cell-main">3.2+</span><span class="cell-sub">QS Top 200 优先</span></td><td>—</td><td><span class="cell-sub">英语国家可免</span></td><td><span class="cell-sub">英语国家可免</span></td><td>CS 相关学位</td></tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="special-reqs">
+                    <strong>推荐信：</strong>2 封（学术推荐信优先）<br>
+                    <strong>特殊要求：</strong>MSc CS 竞争激烈，985/211 背景 GPA 3.5+ 为安全线；MSc AI 为新项目，要求数学/统计基础扎实；编程项目经历（GitHub 等）加分
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- NUS: Business School -->
+            <div class="faculty-block">
+              <div class="faculty-header" onclick="this.parentElement.classList.toggle('open')">
+                <div class="faculty-name">商学院 <small>NUS Business School</small></div>
+                <span class="faculty-toggle">&#9662;</span>
+              </div>
+              <div class="faculty-body">
+                <div class="faculty-content">
+                  <div class="programs-label">热门项目</div>
+                  <div class="program-tags">
+                    <span class="program-tag">MSc Management</span>
+                    <span class="program-tag">MSc Finance</span>
+                    <span class="program-tag">MSc Business Analytics</span>
+                    <span class="program-tag">MSc Marketing Analytics & Insights</span>
+                    <span class="program-tag">MBA</span>
+                  </div>
+                  <div class="table-wrap">
+                    <table class="data-table">
+                      <thead>
+                        <tr><th>院校背景</th><th>GPA (4.0)</th><th>GPA (百分制)</th><th>雅思</th><th>托福</th><th>GMAT / GRE</th></tr>
+                      </thead>
+                      <tbody>
+                        <tr><td>985 / C9</td><td><span class="cell-main">3.2+</span><span class="cell-sub">建议 3.5+</span></td><td><span class="cell-main">83+</span><span class="cell-sub">建议 87+</span></td><td>7.0</td><td>100</td><td>GMAT 650+ / GRE 320+</td></tr>
+                        <tr><td>211</td><td><span class="cell-main">3.4+</span><span class="cell-sub">建议 3.6+</span></td><td><span class="cell-main">85+</span><span class="cell-sub">建议 88+</span></td><td>7.0</td><td>100</td><td>GMAT 680+ / GRE 325+</td></tr>
+                        <tr><td>双一流</td><td><span class="cell-main">3.5+</span><span class="cell-sub">建议 3.7+</span></td><td><span class="cell-main">87+</span><span class="cell-sub">建议 90+</span></td><td>7.0</td><td>100</td><td>GMAT 680+ 建议</td></tr>
+                        <tr><td>普通一本</td><td><span class="cell-main">3.6+</span><span class="cell-sub">建议 3.8+</span></td><td><span class="cell-main">88+</span><span class="cell-sub">建议 92+</span></td><td>7.0</td><td>100</td><td>GMAT 700+ 强烈建议</td></tr>
+                        <tr><td>二本/三本</td><td colspan="5" class="cell-na">几乎不录取，极个别 MSc Management 案例需 GMAT 720+</td></tr>
+                        <tr><td>海外本科</td><td><span class="cell-main">3.2+</span></td><td>—</td><td><span class="cell-sub">英语国家可免</span></td><td><span class="cell-sub">英语国家可免</span></td><td>GMAT 650+ / GRE 320+</td></tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="special-reqs">
+                    <strong>推荐信：</strong>2 封（MBA 建议 1 学术 + 1 工作）<br>
+                    <strong>MBA 特殊要求：</strong>2 年以上全职工作经验（平均录取为 5 年），GMAT 670+（平均 680+），需通过面试环节<br>
+                    <strong>MSc Finance：</strong>量化背景优先，建议有数学/统计/金融工程基础<br>
+                    <strong>MSc Business Analytics：</strong>需要编程/数据分析基础
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- NUS: FASS -->
+            <div class="faculty-block">
+              <div class="faculty-header" onclick="this.parentElement.classList.toggle('open')">
+                <div class="faculty-name">人文社科学院 <small>Faculty of Arts & Social Sciences</small></div>
+                <span class="faculty-toggle">&#9662;</span>
+              </div>
+              <div class="faculty-body">
+                <div class="faculty-content">
+                  <div class="programs-label">热门项目</div>
+                  <div class="program-tags">
+                    <span class="program-tag">MA Chinese Studies</span>
+                    <span class="program-tag">MA Southeast Asian Studies</span>
+                    <span class="program-tag">MSc Economics</span>
+                    <span class="program-tag">MSc Applied Economics</span>
+                    <span class="program-tag">MA Literary Studies</span>
+                  </div>
+                  <div class="table-wrap">
+                    <table class="data-table">
+                      <thead>
+                        <tr><th>院校背景</th><th>GPA (4.0)</th><th>GPA (百分制)</th><th>雅思</th><th>托福</th><th>其他要求</th></tr>
+                      </thead>
+                      <tbody>
+                        <tr><td>985 / C9</td><td><span class="cell-main">3.0+</span><span class="cell-sub">建议 3.4+</span></td><td><span class="cell-main">80+</span><span class="cell-sub">建议 85+</span></td><td>6.5</td><td>85</td><td>相关专业背景</td></tr>
+                        <tr><td>211</td><td><span class="cell-main">3.2+</span><span class="cell-sub">建议 3.5+</span></td><td><span class="cell-main">83+</span><span class="cell-sub">建议 87+</span></td><td>6.5</td><td>85</td><td>相关研究经历优先</td></tr>
+                        <tr><td>普通一本</td><td><span class="cell-main">3.4+</span><span class="cell-sub">建议 3.6+</span></td><td><span class="cell-main">85+</span><span class="cell-sub">建议 88+</span></td><td>7.0</td><td>92</td><td>优质写作样本 + 研究计划</td></tr>
+                        <tr><td>二本及以下</td><td colspan="5" class="cell-na">录取案例较少，MA Chinese Studies 对中国学生相对友好</td></tr>
+                        <tr><td>海外本科</td><td><span class="cell-main">3.0+</span></td><td>—</td><td><span class="cell-sub">英语国家可免</span></td><td><span class="cell-sub">英语国家可免</span></td><td>相关人文社科背景</td></tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="special-reqs">
+                    <strong>推荐信：</strong>2 封学术推荐信<br>
+                    <strong>MSc Economics：</strong>需要扎实的数学/统计基础，建议 GRE Quantitative 165+<br>
+                    <strong>MA Chinese Studies：</strong>对中国大陆学生相对友好，中文授课为主
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- NUS: Law -->
+            <div class="faculty-block">
+              <div class="faculty-header" onclick="this.parentElement.classList.toggle('open')">
+                <div class="faculty-name">法学院 <small>Faculty of Law</small></div>
+                <span class="faculty-toggle">&#9662;</span>
+              </div>
+              <div class="faculty-body">
+                <div class="faculty-content">
+                  <div class="programs-label">热门项目</div>
+                  <div class="program-tags">
+                    <span class="program-tag">LLM (Master of Laws)</span>
+                    <span class="program-tag">LLM (International & Comparative Law)</span>
+                    <span class="program-tag">LLM (Corporate & Financial Services Law)</span>
+                    <span class="program-tag">LLM (Intellectual Property & Technology Law)</span>
+                  </div>
+                  <div class="table-wrap">
+                    <table class="data-table">
+                      <thead>
+                        <tr><th>院校背景</th><th>GPA (4.0)</th><th>GPA (百分制)</th><th>雅思</th><th>托福</th><th>其他要求</th></tr>
+                      </thead>
+                      <tbody>
+                        <tr><td>985 / C9 法学</td><td><span class="cell-main">3.2+</span><span class="cell-sub">建议 3.5+</span></td><td><span class="cell-main">83+</span><span class="cell-sub">建议 87+</span></td><td>7.0</td><td>100</td><td>法学学位 + 工作经验优先</td></tr>
+                        <tr><td>211 法学 / 五院四系</td><td><span class="cell-main">3.3+</span><span class="cell-sub">建议 3.6+</span></td><td><span class="cell-main">85+</span><span class="cell-sub">建议 88+</span></td><td>7.0</td><td>100</td><td>法律实务经历加分</td></tr>
+                        <tr><td>普通本科法学</td><td><span class="cell-main">3.5+</span></td><td><span class="cell-main">87+</span></td><td>7.0</td><td>100</td><td>需突出的法律实务/研究经历</td></tr>
+                        <tr><td>海外法学本科</td><td><span class="cell-main">3.2+</span></td><td>—</td><td><span class="cell-sub">英语国家可免</span></td><td><span class="cell-sub">英语国家可免</span></td><td>Common Law 背景优先</td></tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="special-reqs">
+                    <strong>推荐信：</strong>2 封（建议至少 1 封来自法学教授）<br>
+                    <strong>注意：</strong>中国法学「五院四系」（中国政法、西南政法、华东政法、中南财经政法、西北政法 + 北大、人大、武大、吉大法学院）毕业生在录取中有一定优势。工作经验不是硬性要求但强烈建议。
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- NUS: Design -->
+            <div class="faculty-block">
+              <div class="faculty-header" onclick="this.parentElement.classList.toggle('open')">
+                <div class="faculty-name">设计与环境学院 <small>College of Design & Engineering</small></div>
+                <span class="faculty-toggle">&#9662;</span>
+              </div>
+              <div class="faculty-body">
+                <div class="faculty-content">
+                  <div class="programs-label">热门项目</div>
+                  <div class="program-tags">
+                    <span class="program-tag">MArch (Architecture)</span>
+                    <span class="program-tag">MA Urban Design</span>
+                    <span class="program-tag">MSc Integrated Sustainable Design</span>
+                    <span class="program-tag">MSc Project Management</span>
+                  </div>
+                  <div class="table-wrap">
+                    <table class="data-table">
+                      <thead>
+                        <tr><th>院校背景</th><th>GPA (4.0)</th><th>GPA (百分制)</th><th>雅思</th><th>托福</th><th>其他要求</th></tr>
+                      </thead>
+                      <tbody>
+                        <tr><td>985 / 211</td><td><span class="cell-main">3.0+</span><span class="cell-sub">建议 3.4+</span></td><td><span class="cell-main">80+</span><span class="cell-sub">建议 85+</span></td><td>6.5</td><td>85</td><td>建筑/设计学位 + 作品集</td></tr>
+                        <tr><td>双一流/普通一本</td><td><span class="cell-main">3.3+</span><span class="cell-sub">建议 3.6+</span></td><td><span class="cell-main">85+</span></td><td>6.5</td><td>85</td><td>高质量作品集 15-25 页</td></tr>
+                        <tr><td>海外建筑本科</td><td><span class="cell-main">3.0+</span></td><td>—</td><td><span class="cell-sub">英语国家可免</span></td><td><span class="cell-sub">英语国家可免</span></td><td>RIBA/NAAB 认证优先</td></tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="special-reqs">
+                    <strong>推荐信：</strong>2 封<br>
+                    <strong>作品集：</strong>MArch 和 MA Urban Design 必须提交作品集（15-25 页），展示设计思维、技术能力和创意表达<br>
+                    <strong>MSc Project Management：</strong>不需要作品集，接受工程/建筑/商科等多种背景
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- NUS: Medicine -->
+            <div class="faculty-block">
+              <div class="faculty-header" onclick="this.parentElement.classList.toggle('open')">
+                <div class="faculty-name">公共卫生学院 <small>Saw Swee Hock School of Public Health</small></div>
+                <span class="faculty-toggle">&#9662;</span>
+              </div>
+              <div class="faculty-body">
+                <div class="faculty-content">
+                  <div class="programs-label">热门项目</div>
+                  <div class="program-tags">
+                    <span class="program-tag">MPH (Master of Public Health)</span>
+                    <span class="program-tag">MSc Public Health</span>
+                  </div>
+                  <div class="table-wrap">
+                    <table class="data-table">
+                      <thead>
+                        <tr><th>院校背景</th><th>GPA (4.0)</th><th>GPA (百分制)</th><th>雅思</th><th>托福</th><th>其他要求</th></tr>
+                      </thead>
+                      <tbody>
+                        <tr><td>985 / 211 医学/理科</td><td><span class="cell-main">3.0+</span><span class="cell-sub">建议 3.4+</span></td><td><span class="cell-main">80+</span><span class="cell-sub">建议 85+</span></td><td>6.5</td><td>85</td><td>医学/公卫/生物背景优先</td></tr>
+                        <tr><td>普通本科</td><td><span class="cell-main">3.3+</span></td><td><span class="cell-main">85+</span></td><td>6.5</td><td>85</td><td>医疗/公卫工作经验加分</td></tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="special-reqs">
+                    <strong>推荐信：</strong>2 封<br>
+                    <strong>注意：</strong>MPH 接受非医学背景申请，但建议有公共卫生、流行病学或生物统计相关课程基础。工作经验对 MPH 录取有显著帮助。
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- NUS: Faculty of Science -->
+            <div class="faculty-block">
+              <div class="faculty-header" onclick="this.parentElement.classList.toggle('open')">
+                <div class="faculty-name">科学学院 <small>Faculty of Science</small></div>
+                <span class="faculty-toggle">&#9662;</span>
+              </div>
+              <div class="faculty-body">
+                <div class="faculty-content">
+                  <div class="programs-label">热门项目</div>
+                  <div class="program-tags">
+                    <span class="program-tag">MSc Chemistry</span>
+                    <span class="program-tag">MSc Physics</span>
+                    <span class="program-tag">MSc Statistics</span>
+                    <span class="program-tag">MSc Data Science & Machine Learning</span>
+                    <span class="program-tag">MSc Quantitative Finance</span>
+                    <span class="program-tag">MSc Mathematics</span>
+                  </div>
+                  <div class="table-wrap">
+                    <table class="data-table">
+                      <thead>
+                        <tr><th>院校背景</th><th>GPA (4.0)</th><th>GPA (百分制)</th><th>雅思</th><th>托福</th><th>其他要求</th></tr>
+                      </thead>
+                      <tbody>
+                        <tr><td>985 / C9</td><td><span class="cell-main">3.0+</span><span class="cell-sub">建议 3.5+</span></td><td><span class="cell-main">80+</span><span class="cell-sub">建议 85+</span></td><td>6.0</td><td>85</td><td>相关理科专业背景</td></tr>
+                        <tr><td>211</td><td><span class="cell-main">3.2+</span><span class="cell-sub">建议 3.5+</span></td><td><span class="cell-main">83+</span><span class="cell-sub">建议 87+</span></td><td>6.0</td><td>85</td><td>科研经历优先</td></tr>
+                        <tr><td>双一流/普通一本</td><td><span class="cell-main">3.4+</span><span class="cell-sub">建议 3.7+</span></td><td><span class="cell-main">85+</span><span class="cell-sub">建议 90+</span></td><td>6.0</td><td>85</td><td>GRE 建议 + 论文/竞赛加分</td></tr>
+                        <tr><td>海外本科</td><td><span class="cell-main">3.0+</span></td><td>—</td><td><span class="cell-sub">英语国家可免</span></td><td><span class="cell-sub">英语国家可免</span></td><td>对口理科学位</td></tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="special-reqs">
+                    <strong>推荐信：</strong>2 封学术推荐信<br>
+                    <strong>MSc Statistics / Data Science：</strong>竞争非常激烈，需要扎实的数学/统计基础，编程能力（Python/R）加分<br>
+                    <strong>MSc Quantitative Finance：</strong>需要量化背景（数学/统计/物理/工程/金融工程），GRE 或 GMAT 建议提交
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- ── NTU ── -->
+      <div class="uni-mega-card" id="ntu-card">
+        <div class="uni-mega-header" onclick="this.parentElement.classList.toggle('open')">
+          <div class="uni-mega-info">
+            <div>
+              <div class="uni-mega-name">NTU</div>
+              <div class="uni-mega-cn">南洋理工大学 Nanyang Technological University</div>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px">
+            <span class="uni-mega-tag">QS #15</span>
+            <span class="uni-mega-toggle">&#9662;</span>
+          </div>
+        </div>
+        <div class="uni-mega-body">
+          <div class="uni-mega-content">
+            <div class="uni-type-row">
+              <span class="uni-type-badge">授课型 Coursework: 1-1.5 年</span>
+              <span class="uni-type-badge">研究型 Research: 1.5-2 年</span>
+            </div>
+
+            <!-- NTU: Engineering -->
+            <div class="faculty-block">
+              <div class="faculty-header" onclick="this.parentElement.classList.toggle('open')">
+                <div class="faculty-name">工程学院 <small>College of Engineering (NTU 强项)</small></div>
+                <span class="faculty-toggle">&#9662;</span>
+              </div>
+              <div class="faculty-body">
+                <div class="faculty-content">
+                  <div class="programs-label">热门项目</div>
+                  <div class="program-tags">
+                    <span class="program-tag">MSc Electrical & Electronic Eng</span>
+                    <span class="program-tag">MSc Mechanical Engineering</span>
+                    <span class="program-tag">MSc Civil Engineering</span>
+                    <span class="program-tag">MSc Computer Control & Automation</span>
+                    <span class="program-tag">MSc Communications Engineering</span>
+                    <span class="program-tag">MSc Signal Processing</span>
+                  </div>
+                  <div class="table-wrap">
+                    <table class="data-table">
+                      <thead>
+                        <tr><th>院校背景</th><th>GPA (4.0)</th><th>GPA (百分制)</th><th>雅思</th><th>托福</th><th>其他要求</th></tr>
+                      </thead>
+                      <tbody>
+                        <tr><td>985 / C9</td><td><span class="cell-main">3.0+</span><span class="cell-sub">建议 3.4+</span></td><td><span class="cell-main">80+</span><span class="cell-sub">建议 85+</span></td><td>6.5</td><td>85</td><td>对口工科专业</td></tr>
+                        <tr><td>211</td><td><span class="cell-main">3.2+</span><span class="cell-sub">建议 3.5+</span></td><td><span class="cell-main">83+</span><span class="cell-sub">建议 87+</span></td><td>6.5</td><td>85</td><td>相关工程背景 + 项目经历</td></tr>
+                        <tr><td>双一流</td><td><span class="cell-main">3.3+</span><span class="cell-sub">建议 3.6+</span></td><td><span class="cell-main">85+</span></td><td>6.5</td><td>85</td><td>工科双一流学科优先</td></tr>
+                        <tr><td>普通一本</td><td><span class="cell-main">3.5+</span><span class="cell-sub">建议 3.7+</span></td><td><span class="cell-main">87+</span><span class="cell-sub">建议 90+</span></td><td>6.5</td><td>90</td><td>科研/实习/竞赛经历必须</td></tr>
+                        <tr><td>二本/三本</td><td colspan="5" class="cell-na">个别冷门工程专业有案例，需 GPA 3.7+/90+ 且有突出工程项目经历</td></tr>
+                        <tr><td>海外本科</td><td><span class="cell-main">3.0+</span></td><td>—</td><td><span class="cell-sub">英语国家可免</span></td><td><span class="cell-sub">英语国家可免</span></td><td>ABET 认证学位优先</td></tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="special-reqs">
+                    <strong>推荐信：</strong>2 封<br>
+                    <strong>NTU 工程优势：</strong>NTU 工程学科在亚洲排名顶尖，工程类项目招生体量大于 NUS，录取机会相对较多<br>
+                    <strong>研究型：</strong>需联系导师，提交研究计划，有奖学金机会
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- NTU: Computing -->
+            <div class="faculty-block">
+              <div class="faculty-header" onclick="this.parentElement.classList.toggle('open')">
+                <div class="faculty-name">计算机科学与工程 <small>School of Computer Science & Engineering</small></div>
+                <span class="faculty-toggle">&#9662;</span>
+              </div>
+              <div class="faculty-body">
+                <div class="faculty-content">
+                  <div class="programs-label">热门项目</div>
+                  <div class="program-tags">
+                    <span class="program-tag">MSc Computer Science</span>
+                    <span class="program-tag">MSc Artificial Intelligence</span>
+                    <span class="program-tag">MSc Data Science</span>
+                    <span class="program-tag">MSc Cybersecurity</span>
+                  </div>
+                  <div class="table-wrap">
+                    <table class="data-table">
+                      <thead>
+                        <tr><th>院校背景</th><th>GPA (4.0)</th><th>GPA (百分制)</th><th>雅思</th><th>托福</th><th>其他要求</th></tr>
+                      </thead>
+                      <tbody>
+                        <tr><td>985 / C9</td><td><span class="cell-main">3.2+</span><span class="cell-sub">建议 3.5+</span></td><td><span class="cell-main">83+</span><span class="cell-sub">建议 87+</span></td><td>6.5</td><td>85</td><td>CS/EE 背景优先</td></tr>
+                        <tr><td>211</td><td><span class="cell-main">3.3+</span><span class="cell-sub">建议 3.6+</span></td><td><span class="cell-main">85+</span><span class="cell-sub">建议 88+</span></td><td>6.5</td><td>85</td><td>编程 + 项目经历</td></tr>
+                        <tr><td>普通一本</td><td><span class="cell-main">3.5+</span><span class="cell-sub">建议 3.8+</span></td><td><span class="cell-main">87+</span><span class="cell-sub">建议 92+</span></td><td>6.5</td><td>90</td><td>GRE 建议 + 竞赛/论文</td></tr>
+                        <tr><td>二本及以下</td><td colspan="5" class="cell-na">极少录取</td></tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="special-reqs">
+                    <strong>推荐信：</strong>2 封<br>
+                    <strong>MSc AI：</strong>竞争激烈，需要扎实的数学和编程基础<br>
+                    <strong>MSc Cybersecurity：</strong>接受非 CS 背景但需有 IT 相关经验
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- NTU: NBS -->
+            <div class="faculty-block">
+              <div class="faculty-header" onclick="this.parentElement.classList.toggle('open')">
+                <div class="faculty-name">南洋商学院 <small>Nanyang Business School (NBS)</small></div>
+                <span class="faculty-toggle">&#9662;</span>
+              </div>
+              <div class="faculty-body">
+                <div class="faculty-content">
+                  <div class="programs-label">热门项目</div>
+                  <div class="program-tags">
+                    <span class="program-tag">MSc Financial Engineering</span>
+                    <span class="program-tag">MSc Accountancy</span>
+                    <span class="program-tag">MSc Business Analytics</span>
+                    <span class="program-tag">MSc Marketing Science</span>
+                    <span class="program-tag">Nanyang MBA</span>
+                  </div>
+                  <div class="table-wrap">
+                    <table class="data-table">
+                      <thead>
+                        <tr><th>院校背景</th><th>GPA (4.0)</th><th>GPA (百分制)</th><th>雅思</th><th>托福</th><th>GMAT / GRE</th></tr>
+                      </thead>
+                      <tbody>
+                        <tr><td>985 / C9</td><td><span class="cell-main">3.0+</span><span class="cell-sub">建议 3.5+</span></td><td><span class="cell-main">80+</span><span class="cell-sub">建议 85+</span></td><td>6.5</td><td>85</td><td>GMAT 650+ / GRE 315+</td></tr>
+                        <tr><td>211</td><td><span class="cell-main">3.2+</span><span class="cell-sub">建议 3.5+</span></td><td><span class="cell-main">83+</span><span class="cell-sub">建议 87+</span></td><td>6.5</td><td>85</td><td>GMAT 670+ / GRE 320+</td></tr>
+                        <tr><td>双一流/普通一本</td><td><span class="cell-main">3.4+</span><span class="cell-sub">建议 3.7+</span></td><td><span class="cell-main">85+</span><span class="cell-sub">建议 90+</span></td><td>6.5</td><td>90</td><td>GMAT 680+ 强烈建议</td></tr>
+                        <tr><td>二本及以下</td><td colspan="5" class="cell-na">个别案例存在（如 MSc Accountancy），需极高 GMAT 和工作经验</td></tr>
+                        <tr><td>海外本科</td><td><span class="cell-main">3.0+</span></td><td>—</td><td><span class="cell-sub">英语国家可免</span></td><td><span class="cell-sub">英语国家可免</span></td><td>GMAT 650+</td></tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="special-reqs">
+                    <strong>推荐信：</strong>2 封<br>
+                    <strong>MSc Financial Engineering：</strong>NTU 金融工程全球排名顶尖，需强数学/编程背景，GMAT/GRE 强烈建议<br>
+                    <strong>Nanyang MBA：</strong>2 年以上工作经验，GMAT 650+，面试为重要环节
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- NTU: Humanities -->
+            <div class="faculty-block">
+              <div class="faculty-header" onclick="this.parentElement.classList.toggle('open')">
+                <div class="faculty-name">人文社科与教育 <small>College of Humanities, Arts & Social Sciences</small></div>
+                <span class="faculty-toggle">&#9662;</span>
+              </div>
+              <div class="faculty-body">
+                <div class="faculty-content">
+                  <div class="programs-label">热门项目</div>
+                  <div class="program-tags">
+                    <span class="program-tag">MSc Applied Economics</span>
+                    <span class="program-tag">MA Applied Linguistics</span>
+                    <span class="program-tag">MSc Communication Studies</span>
+                    <span class="program-tag">MA Translation & Interpretation</span>
+                    <span class="program-tag">MA Education</span>
+                  </div>
+                  <div class="table-wrap">
+                    <table class="data-table">
+                      <thead>
+                        <tr><th>院校背景</th><th>GPA (4.0)</th><th>GPA (百分制)</th><th>雅思</th><th>托福</th><th>其他要求</th></tr>
+                      </thead>
+                      <tbody>
+                        <tr><td>985 / 211</td><td><span class="cell-main">3.0+</span><span class="cell-sub">建议 3.4+</span></td><td><span class="cell-main">80+</span><span class="cell-sub">建议 85+</span></td><td>6.5</td><td>85</td><td>相关专业背景</td></tr>
+                        <tr><td>双一流/普通一本</td><td><span class="cell-main">3.3+</span><span class="cell-sub">建议 3.5+</span></td><td><span class="cell-main">85+</span></td><td>7.0</td><td>92</td><td>研究经历 / 工作经验</td></tr>
+                        <tr><td>二本及以下</td><td colspan="5" class="cell-na">MA Translation 对中文背景学生相对友好，其他项目录取较少</td></tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="special-reqs">
+                    <strong>推荐信：</strong>2 封<br>
+                    <strong>MA Translation：</strong>对中国大陆学生相对友好，中英双语能力是关键考量<br>
+                    <strong>MA Education：</strong>教学工作经验加分
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- NTU: LKC Medicine -->
+            <div class="faculty-block">
+              <div class="faculty-header" onclick="this.parentElement.classList.toggle('open')">
+                <div class="faculty-name">李光前医学院 <small>Lee Kong Chian School of Medicine</small></div>
+                <span class="faculty-toggle">&#9662;</span>
+              </div>
+              <div class="faculty-body">
+                <div class="faculty-content">
+                  <div class="programs-label">热门项目</div>
+                  <div class="program-tags">
+                    <span class="program-tag">MSc Biomedical Data Science</span>
+                    <span class="program-tag">MSc Clinical Research</span>
+                  </div>
+                  <div class="table-wrap">
+                    <table class="data-table">
+                      <thead>
+                        <tr><th>院校背景</th><th>GPA (4.0)</th><th>GPA (百分制)</th><th>雅思</th><th>托福</th><th>其他要求</th></tr>
+                      </thead>
+                      <tbody>
+                        <tr><td>985 / 211 医学/理科</td><td><span class="cell-main">3.0+</span><span class="cell-sub">建议 3.4+</span></td><td><span class="cell-main">80+</span></td><td>6.5</td><td>85</td><td>医学/生物/数据科学背景</td></tr>
+                        <tr><td>普通本科</td><td><span class="cell-main">3.4+</span></td><td><span class="cell-main">85+</span></td><td>6.5</td><td>85</td><td>相关临床/研究经验优先</td></tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="special-reqs">
+                    <strong>推荐信：</strong>2 封<br>
+                    <strong>注意：</strong>LKC 医学院与帝国理工合作，MSc Biomedical Data Science 接受非医学背景但需数据科学/编程基础
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- ── SMU ── -->
+      <div class="uni-mega-card" id="smu-card">
+        <div class="uni-mega-header" onclick="this.parentElement.classList.toggle('open')">
+          <div class="uni-mega-info">
+            <div>
+              <div class="uni-mega-name">SMU</div>
+              <div class="uni-mega-cn">新加坡管理大学 Singapore Management University</div>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px">
+            <span class="uni-mega-tag">商科全球 Top 50</span>
+            <span class="uni-mega-toggle">&#9662;</span>
+          </div>
+        </div>
+        <div class="uni-mega-body">
+          <div class="uni-mega-content">
+            <div class="uni-type-row">
+              <span class="uni-type-badge">授课型 Coursework: 1-1.5 年</span>
+              <span class="uni-type-badge">城市校园 · 小班讨论式教学</span>
+            </div>
+
+            <!-- SMU: Business -->
+            <div class="faculty-block">
+              <div class="faculty-header" onclick="this.parentElement.classList.toggle('open')">
+                <div class="faculty-name">商学院 / 会计学院 <small>Lee Kong Chian School of Business / School of Accountancy</small></div>
+                <span class="faculty-toggle">&#9662;</span>
+              </div>
+              <div class="faculty-body">
+                <div class="faculty-content">
+                  <div class="programs-label">热门项目</div>
+                  <div class="program-tags">
+                    <span class="program-tag">MSc Applied Finance</span>
+                    <span class="program-tag">MSc Quantitative Finance</span>
+                    <span class="program-tag">MSc Wealth Management</span>
+                    <span class="program-tag">MSc CFO Leadership</span>
+                    <span class="program-tag">Master of Professional Accounting (MPA)</span>
+                    <span class="program-tag">MBA</span>
+                  </div>
+                  <div class="table-wrap">
+                    <table class="data-table">
+                      <thead>
+                        <tr><th>院校背景</th><th>GPA (4.0)</th><th>GPA (百分制)</th><th>雅思</th><th>托福</th><th>GMAT / GRE</th></tr>
+                      </thead>
+                      <tbody>
+                        <tr><td>985 / C9</td><td><span class="cell-main">3.0+</span><span class="cell-sub">建议 3.3+</span></td><td><span class="cell-main">80+</span><span class="cell-sub">建议 85+</span></td><td>6.5</td><td>85</td><td>GMAT 630+ / GRE 310+</td></tr>
+                        <tr><td>211</td><td><span class="cell-main">3.0+</span><span class="cell-sub">建议 3.4+</span></td><td><span class="cell-main">80+</span><span class="cell-sub">建议 85+</span></td><td>6.5</td><td>85</td><td>GMAT 650+ / GRE 315+</td></tr>
+                        <tr><td>双一流/普通一本</td><td><span class="cell-main">3.2+</span><span class="cell-sub">建议 3.5+</span></td><td><span class="cell-main">83+</span><span class="cell-sub">建议 87+</span></td><td>6.5</td><td>85</td><td>GMAT 660+ 建议</td></tr>
+                        <tr><td>二本/三本</td><td><span class="cell-main">3.5+</span><span class="cell-sub">建议 3.7+</span></td><td><span class="cell-main">87+</span><span class="cell-sub">建议 90+</span></td><td>7.0</td><td>92</td><td>GMAT 700+ 建议 + 工作经验</td></tr>
+                        <tr><td>海外本科</td><td><span class="cell-main">3.0+</span></td><td>—</td><td><span class="cell-sub">英语国家可免</span></td><td><span class="cell-sub">英语国家可免</span></td><td>GMAT 630+</td></tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="special-reqs">
+                    <strong>推荐信：</strong>2 封<br>
+                    <strong>SMU 商科优势：</strong>SMU 对院校背景的要求比 NUS/NTU 相对灵活，更注重综合素质（GMAT、面试表现、工作经验）<br>
+                    <strong>MSc Applied Finance：</strong>SMU 明星项目，金融/量化背景优先<br>
+                    <strong>MPA：</strong>接受非会计背景转专业申请
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- SMU: Information Systems -->
+            <div class="faculty-block">
+              <div class="faculty-header" onclick="this.parentElement.classList.toggle('open')">
+                <div class="faculty-name">信息系统学院 <small>School of Computing & Information Systems</small></div>
+                <span class="faculty-toggle">&#9662;</span>
+              </div>
+              <div class="faculty-body">
+                <div class="faculty-content">
+                  <div class="programs-label">热门项目</div>
+                  <div class="program-tags">
+                    <span class="program-tag">Master of IT in Business (MITB)</span>
+                    <span class="program-tag">MSc Business Analytics</span>
+                    <span class="program-tag">MSc Computing</span>
+                  </div>
+                  <div class="table-wrap">
+                    <table class="data-table">
+                      <thead>
+                        <tr><th>院校背景</th><th>GPA (4.0)</th><th>GPA (百分制)</th><th>雅思</th><th>托福</th><th>其他要求</th></tr>
+                      </thead>
+                      <tbody>
+                        <tr><td>985 / 211</td><td><span class="cell-main">3.0+</span><span class="cell-sub">建议 3.3+</span></td><td><span class="cell-main">80+</span><span class="cell-sub">建议 85+</span></td><td>6.5</td><td>85</td><td>CS/IS/工程/商科背景</td></tr>
+                        <tr><td>双一流/普通一本</td><td><span class="cell-main">3.2+</span><span class="cell-sub">建议 3.5+</span></td><td><span class="cell-main">83+</span><span class="cell-sub">建议 87+</span></td><td>6.5</td><td>85</td><td>编程/数据经验优先</td></tr>
+                        <tr><td>二本/三本</td><td><span class="cell-main">3.5+</span></td><td><span class="cell-main">87+</span></td><td>6.5</td><td>85</td><td>IT 工作经验 + GRE/GMAT</td></tr>
+                        <tr><td>海外本科</td><td><span class="cell-main">3.0+</span></td><td>—</td><td><span class="cell-sub">英语国家可免</span></td><td><span class="cell-sub">英语国家可免</span></td><td>技术背景</td></tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="special-reqs">
+                    <strong>推荐信：</strong>2 封<br>
+                    <strong>MITB：</strong>SMU 热门项目，分 AI、金融科技、分析 3 个方向，对双非学生相对友好<br>
+                    <strong>MSc Business Analytics：</strong>侧重商业应用，接受非 CS 背景但需基本编程能力
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- SMU: Law -->
+            <div class="faculty-block">
+              <div class="faculty-header" onclick="this.parentElement.classList.toggle('open')">
+                <div class="faculty-name">法学院 <small>Yong Pung How School of Law</small></div>
+                <span class="faculty-toggle">&#9662;</span>
+              </div>
+              <div class="faculty-body">
+                <div class="faculty-content">
+                  <div class="programs-label">热门项目</div>
+                  <div class="program-tags">
+                    <span class="program-tag">LLM (Master of Laws)</span>
+                    <span class="program-tag">LLM (Cross-Border Business & Finance Law in Asia)</span>
+                  </div>
+                  <div class="table-wrap">
+                    <table class="data-table">
+                      <thead>
+                        <tr><th>院校背景</th><th>GPA (4.0)</th><th>GPA (百分制)</th><th>雅思</th><th>托福</th><th>其他要求</th></tr>
+                      </thead>
+                      <tbody>
+                        <tr><td>985 / 211 法学</td><td><span class="cell-main">3.0+</span><span class="cell-sub">建议 3.4+</span></td><td><span class="cell-main">80+</span></td><td>7.0</td><td>95</td><td>法学学位 + 法律实务经验</td></tr>
+                        <tr><td>普通本科法学</td><td><span class="cell-main">3.3+</span></td><td><span class="cell-main">85+</span></td><td>7.0</td><td>95</td><td>工作经验加分</td></tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="special-reqs">
+                    <strong>推荐信：</strong>2 封<br>
+                    <strong>特点：</strong>SMU 法学院在亚洲商法领域有良好声誉，LLM 项目接受有工作经验的法律从业者
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- SMU: Social Sciences -->
+            <div class="faculty-block">
+              <div class="faculty-header" onclick="this.parentElement.classList.toggle('open')">
+                <div class="faculty-name">社会科学与人文学院 <small>School of Social Sciences & Humanities</small></div>
+                <span class="faculty-toggle">&#9662;</span>
+              </div>
+              <div class="faculty-body">
+                <div class="faculty-content">
+                  <div class="programs-label">热门项目</div>
+                  <div class="program-tags">
+                    <span class="program-tag">MSc Financial Economics</span>
+                    <span class="program-tag">MSc Applied Psychology</span>
+                    <span class="program-tag">Master of Counselling</span>
+                  </div>
+                  <div class="table-wrap">
+                    <table class="data-table">
+                      <thead>
+                        <tr><th>院校背景</th><th>GPA (4.0)</th><th>GPA (百分制)</th><th>雅思</th><th>托福</th><th>其他要求</th></tr>
+                      </thead>
+                      <tbody>
+                        <tr><td>985 / 211</td><td><span class="cell-main">3.0+</span><span class="cell-sub">建议 3.4+</span></td><td><span class="cell-main">80+</span></td><td>6.5</td><td>85</td><td>经济学/心理学相关背景</td></tr>
+                        <tr><td>双一流/普通一本</td><td><span class="cell-main">3.3+</span></td><td><span class="cell-main">85+</span></td><td>7.0</td><td>92</td><td>相关实践经历优先</td></tr>
+                        <tr><td>二本及以下</td><td colspan="5" class="cell-na">MSc Financial Economics 偶有案例，需 GRE Quant 165+</td></tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="special-reqs">
+                    <strong>推荐信：</strong>2 封<br>
+                    <strong>MSc Financial Economics：</strong>需要强数学/经济学基础，GRE 建议提交
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- ── SUTD ── -->
+      <div class="uni-mega-card" id="sutd-card">
+        <div class="uni-mega-header" onclick="this.parentElement.classList.toggle('open')">
+          <div class="uni-mega-info">
+            <div>
+              <div class="uni-mega-name">SUTD</div>
+              <div class="uni-mega-cn">新加坡科技设计大学 Singapore University of Technology and Design</div>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px">
+            <span class="uni-mega-tag">MIT 合作背景</span>
+            <span class="uni-mega-toggle">&#9662;</span>
+          </div>
+        </div>
+        <div class="uni-mega-body">
+          <div class="uni-mega-content">
+            <div class="uni-type-row">
+              <span class="uni-type-badge">授课型 Coursework: 1-1.5 年</span>
+              <span class="uni-type-badge">研究型 Research: 2 年</span>
+              <span class="uni-type-badge">设计创新导向</span>
+            </div>
+
+            <!-- SUTD: Engineering & Design -->
+            <div class="faculty-block">
+              <div class="faculty-header" onclick="this.parentElement.classList.toggle('open')">
+                <div class="faculty-name">工程与设计 <small>Engineering & Design Pillars</small></div>
+                <span class="faculty-toggle">&#9662;</span>
+              </div>
+              <div class="faculty-body">
+                <div class="faculty-content">
+                  <div class="programs-label">热门项目</div>
+                  <div class="program-tags">
+                    <span class="program-tag">MSc Engineering (Research)</span>
+                    <span class="program-tag">MSc Urban Science, Planning & Policy</span>
+                    <span class="program-tag">MSc Security by Design</span>
+                    <span class="program-tag">Master of Architecture</span>
+                    <span class="program-tag">MSc Nano-Electronic Engineering</span>
+                  </div>
+                  <div class="table-wrap">
+                    <table class="data-table">
+                      <thead>
+                        <tr><th>院校背景</th><th>GPA (4.0)</th><th>GPA (百分制)</th><th>雅思</th><th>托福</th><th>其他要求</th></tr>
+                      </thead>
+                      <tbody>
+                        <tr><td>985 / C9</td><td><span class="cell-main">3.0+</span><span class="cell-sub">建议 3.3+</span></td><td><span class="cell-main">80+</span><span class="cell-sub">建议 85+</span></td><td>6.5</td><td>85</td><td>工程/设计/建筑背景</td></tr>
+                        <tr><td>211</td><td><span class="cell-main">3.0+</span><span class="cell-sub">建议 3.4+</span></td><td><span class="cell-main">80+</span><span class="cell-sub">建议 85+</span></td><td>6.5</td><td>85</td><td>项目/设计经历</td></tr>
+                        <tr><td>双一流/普通一本</td><td><span class="cell-main">3.2+</span><span class="cell-sub">建议 3.5+</span></td><td><span class="cell-main">83+</span><span class="cell-sub">建议 87+</span></td><td>6.5</td><td>85</td><td>设计思维 + 创新项目</td></tr>
+                        <tr><td>二本/三本</td><td><span class="cell-main">3.5+</span></td><td><span class="cell-main">87+</span></td><td>6.5</td><td>85</td><td>突出作品集/项目经历</td></tr>
+                        <tr><td>民办/独立学院</td><td colspan="5" class="cell-na">极少案例，需特别突出的作品集和项目经验</td></tr>
+                        <tr><td>海外本科</td><td><span class="cell-main">3.0+</span></td><td>—</td><td><span class="cell-sub">英语国家可免</span></td><td><span class="cell-sub">英语国家可免</span></td><td>设计/工程学位</td></tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="special-reqs">
+                    <strong>推荐信：</strong>2 封<br>
+                    <strong>SUTD 特色：</strong>与 MIT 合作建校，强调设计思维与技术融合。相比 NUS/NTU，SUTD 对院校背景的硬性要求相对灵活，更看重申请者的创新能力和项目经历<br>
+                    <strong>Master of Architecture：</strong>需提交作品集（15-25 页），展示设计过程和创新思维<br>
+                    <strong>研究型：</strong>有全额奖学金机会（SUTD Fellowship），需联系导师
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- SUTD: Information Systems -->
+            <div class="faculty-block">
+              <div class="faculty-header" onclick="this.parentElement.classList.toggle('open')">
+                <div class="faculty-name">信息系统技术与设计 <small>Information Systems Technology & Design</small></div>
+                <span class="faculty-toggle">&#9662;</span>
+              </div>
+              <div class="faculty-body">
+                <div class="faculty-content">
+                  <div class="programs-label">热门项目</div>
+                  <div class="program-tags">
+                    <span class="program-tag">MSc Cybersecurity</span>
+                    <span class="program-tag">MSc Digital Supply Chain</span>
+                  </div>
+                  <div class="table-wrap">
+                    <table class="data-table">
+                      <thead>
+                        <tr><th>院校背景</th><th>GPA (4.0)</th><th>GPA (百分制)</th><th>雅思</th><th>托福</th><th>其他要求</th></tr>
+                      </thead>
+                      <tbody>
+                        <tr><td>985 / 211</td><td><span class="cell-main">3.0+</span><span class="cell-sub">建议 3.3+</span></td><td><span class="cell-main">80+</span></td><td>6.5</td><td>85</td><td>CS/IS/工程背景</td></tr>
+                        <tr><td>双一流/普通一本</td><td><span class="cell-main">3.2+</span></td><td><span class="cell-main">83+</span></td><td>6.5</td><td>85</td><td>IT 相关经验</td></tr>
+                        <tr><td>二本/三本</td><td><span class="cell-main">3.4+</span></td><td><span class="cell-main">85+</span></td><td>6.5</td><td>85</td><td>IT 工作经验 2 年+</td></tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="special-reqs">
+                    <strong>推荐信：</strong>2 封<br>
+                    <strong>特点：</strong>SUTD 信息系统方向对双非学生相对开放，工作经验可弥补院校背景不足
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- ── SIT ── -->
+      <div class="uni-mega-card" id="sit-card">
+        <div class="uni-mega-header" onclick="this.parentElement.classList.toggle('open')">
+          <div class="uni-mega-info">
+            <div>
+              <div class="uni-mega-name">SIT</div>
+              <div class="uni-mega-cn">新加坡理工大学 Singapore Institute of Technology</div>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px">
+            <span class="uni-mega-tag">应用型大学</span>
+            <span class="uni-mega-toggle">&#9662;</span>
+          </div>
+        </div>
+        <div class="uni-mega-body">
+          <div class="uni-mega-content">
+            <div class="uni-type-row">
+              <span class="uni-type-badge">授课型 Coursework: 1-2 年</span>
+              <span class="uni-type-badge">应用导向</span>
+              <span class="uni-type-badge">海外名校联办学位</span>
+            </div>
+
+            <!-- SIT: Engineering -->
+            <div class="faculty-block">
+              <div class="faculty-header" onclick="this.parentElement.classList.toggle('open')">
+                <div class="faculty-name">工程学院 <small>Engineering</small></div>
+                <span class="faculty-toggle">&#9662;</span>
+              </div>
+              <div class="faculty-body">
+                <div class="faculty-content">
+                  <div class="programs-label">热门项目</div>
+                  <div class="program-tags">
+                    <span class="program-tag">MSc Sustainable Infrastructure Engineering (Land)</span>
+                    <span class="program-tag">MSc Electrical Power Engineering</span>
+                    <span class="program-tag">MEng (with Newcastle University)</span>
+                  </div>
+                  <div class="table-wrap">
+                    <table class="data-table">
+                      <thead>
+                        <tr><th>院校背景</th><th>GPA (4.0)</th><th>GPA (百分制)</th><th>雅思</th><th>托福</th><th>其他要求</th></tr>
+                      </thead>
+                      <tbody>
+                        <tr><td>985 / C9</td><td><span class="cell-main">2.8+</span><span class="cell-sub">建议 3.2+</span></td><td><span class="cell-main">75+</span><span class="cell-sub">建议 80+</span></td><td>6.0</td><td>80</td><td>工程相关背景</td></tr>
+                        <tr><td>211</td><td><span class="cell-main">2.8+</span><span class="cell-sub">建议 3.2+</span></td><td><span class="cell-main">75+</span><span class="cell-sub">建议 80+</span></td><td>6.0</td><td>80</td><td>工程相关背景</td></tr>
+                        <tr><td>双一流/普通一本</td><td><span class="cell-main">3.0+</span><span class="cell-sub">建议 3.3+</span></td><td><span class="cell-main">78+</span><span class="cell-sub">建议 83+</span></td><td>6.0</td><td>80</td><td>工程背景 + 实践经历</td></tr>
+                        <tr><td>二本/三本</td><td><span class="cell-main">3.2+</span><span class="cell-sub">建议 3.5+</span></td><td><span class="cell-main">80+</span><span class="cell-sub">建议 85+</span></td><td>6.0</td><td>80</td><td>工程背景 + 工作经验优先</td></tr>
+                        <tr><td>民办/独立学院</td><td><span class="cell-main">3.3+</span></td><td><span class="cell-main">83+</span></td><td>6.0</td><td>80</td><td>相关工作经验强烈推荐</td></tr>
+                        <tr><td>海外本科</td><td><span class="cell-main">2.8+</span></td><td>—</td><td><span class="cell-sub">英语国家可免</span></td><td><span class="cell-sub">英语国家可免</span></td><td>工程相关学位</td></tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="special-reqs">
+                    <strong>推荐信：</strong>2 封<br>
+                    <strong>SIT 特色：</strong>与海外名校（如纽卡斯尔大学、利物浦大学、格拉斯哥大学等）联办学位，毕业可获双校认证。注重应用型研究和行业合作，部分项目包含行业实习<br>
+                    <strong>工作经验：</strong>有工程行业工作经验者优先录取
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- SIT: Computing -->
+            <div class="faculty-block">
+              <div class="faculty-header" onclick="this.parentElement.classList.toggle('open')">
+                <div class="faculty-name">信息与通信技术 <small>Infocomm Technology</small></div>
+                <span class="faculty-toggle">&#9662;</span>
+              </div>
+              <div class="faculty-body">
+                <div class="faculty-content">
+                  <div class="programs-label">热门项目</div>
+                  <div class="program-tags">
+                    <span class="program-tag">MSc Applied AI</span>
+                    <span class="program-tag">MSc Digital Supply Chain</span>
+                    <span class="program-tag">MSc Software Engineering</span>
+                  </div>
+                  <div class="table-wrap">
+                    <table class="data-table">
+                      <thead>
+                        <tr><th>院校背景</th><th>GPA (4.0)</th><th>GPA (百分制)</th><th>雅思</th><th>托福</th><th>其他要求</th></tr>
+                      </thead>
+                      <tbody>
+                        <tr><td>985 / C9</td><td><span class="cell-main">2.8+</span><span class="cell-sub">建议 3.2+</span></td><td><span class="cell-main">75+</span><span class="cell-sub">建议 80+</span></td><td>6.0</td><td>80</td><td>计算机/IT 背景</td></tr>
+                        <tr><td>211</td><td><span class="cell-main">2.8+</span><span class="cell-sub">建议 3.2+</span></td><td><span class="cell-main">75+</span><span class="cell-sub">建议 80+</span></td><td>6.0</td><td>80</td><td>编程基础</td></tr>
+                        <tr><td>双一流/普通一本</td><td><span class="cell-main">3.0+</span><span class="cell-sub">建议 3.3+</span></td><td><span class="cell-main">78+</span><span class="cell-sub">建议 83+</span></td><td>6.0</td><td>80</td><td>IT 背景 + 项目经历</td></tr>
+                        <tr><td>二本/三本</td><td><span class="cell-main">3.2+</span><span class="cell-sub">建议 3.5+</span></td><td><span class="cell-main">80+</span><span class="cell-sub">建议 85+</span></td><td>6.0</td><td>80</td><td>编程能力证明 + IT 工作经验</td></tr>
+                        <tr><td>民办/独立学院</td><td><span class="cell-main">3.3+</span></td><td><span class="cell-main">83+</span></td><td>6.0</td><td>80</td><td>IT 行业工作经验优先</td></tr>
+                        <tr><td>海外本科</td><td><span class="cell-main">2.8+</span></td><td>—</td><td><span class="cell-sub">英语国家可免</span></td><td><span class="cell-sub">英语国家可免</span></td><td>相关学位</td></tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="special-reqs">
+                    <strong>推荐信：</strong>2 封<br>
+                    <strong>特点：</strong>SIT 的 Applied AI 和 Digital Supply Chain 项目具有强行业导向，对有 IT 工作经验的申请者更友好。双非背景通过工作经验可弥补院校不足
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- SIT: Business -->
+            <div class="faculty-block">
+              <div class="faculty-header" onclick="this.parentElement.classList.toggle('open')">
+                <div class="faculty-name">商业与管理 <small>Business</small></div>
+                <span class="faculty-toggle">&#9662;</span>
+              </div>
+              <div class="faculty-body">
+                <div class="faculty-content">
+                  <div class="programs-label">热门项目</div>
+                  <div class="program-tags">
+                    <span class="program-tag">MSc Accounting & Finance</span>
+                    <span class="program-tag">MSc Hospitality Business (with TUM)</span>
+                  </div>
+                  <div class="table-wrap">
+                    <table class="data-table">
+                      <thead>
+                        <tr><th>院校背景</th><th>GPA (4.0)</th><th>GPA (百分制)</th><th>雅思</th><th>托福</th><th>其他要求</th></tr>
+                      </thead>
+                      <tbody>
+                        <tr><td>985 / C9</td><td><span class="cell-main">2.8+</span><span class="cell-sub">建议 3.0+</span></td><td><span class="cell-main">75+</span><span class="cell-sub">建议 80+</span></td><td>6.5</td><td>85</td><td>商科/管理背景</td></tr>
+                        <tr><td>211</td><td><span class="cell-main">2.8+</span><span class="cell-sub">建议 3.2+</span></td><td><span class="cell-main">75+</span><span class="cell-sub">建议 80+</span></td><td>6.5</td><td>85</td><td>商科/管理背景</td></tr>
+                        <tr><td>双一流/普通一本</td><td><span class="cell-main">3.0+</span><span class="cell-sub">建议 3.3+</span></td><td><span class="cell-main">78+</span><span class="cell-sub">建议 83+</span></td><td>6.5</td><td>85</td><td>相关实习/工作经历</td></tr>
+                        <tr><td>二本/三本</td><td><span class="cell-main">3.2+</span><span class="cell-sub">建议 3.5+</span></td><td><span class="cell-main">80+</span><span class="cell-sub">建议 85+</span></td><td>6.5</td><td>85</td><td>工作经验优先</td></tr>
+                        <tr><td>民办/独立学院</td><td><span class="cell-main">3.3+</span></td><td><span class="cell-main">83+</span></td><td>6.5</td><td>85</td><td>2 年以上工作经验</td></tr>
+                        <tr><td>海外本科</td><td><span class="cell-main">2.8+</span></td><td>—</td><td><span class="cell-sub">英语国家可免</span></td><td><span class="cell-sub">英语国家可免</span></td><td>商科相关学位</td></tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="special-reqs">
+                    <strong>推荐信：</strong>2 封<br>
+                    <strong>特点：</strong>部分项目与德国慕尼黑工大（TUM）联办，可获海外大学学位。酒店管理方向包含行业实习
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- SIT: Health Sciences -->
+            <div class="faculty-block">
+              <div class="faculty-header" onclick="this.parentElement.classList.toggle('open')">
+                <div class="faculty-name">健康与社会科学 <small>Health & Social Sciences</small></div>
+                <span class="faculty-toggle">&#9662;</span>
+              </div>
+              <div class="faculty-body">
+                <div class="faculty-content">
+                  <div class="programs-label">热门项目</div>
+                  <div class="program-tags">
+                    <span class="program-tag">MSc Speech and Language Therapy</span>
+                    <span class="program-tag">MSc Dietetics</span>
+                  </div>
+                  <div class="table-wrap">
+                    <table class="data-table">
+                      <thead>
+                        <tr><th>院校背景</th><th>GPA (4.0)</th><th>GPA (百分制)</th><th>雅思</th><th>托福</th><th>其他要求</th></tr>
+                      </thead>
+                      <tbody>
+                        <tr><td>985 / C9</td><td><span class="cell-main">3.0+</span></td><td><span class="cell-main">78+</span></td><td>6.5</td><td>85</td><td>医学/健康科学背景</td></tr>
+                        <tr><td>211</td><td><span class="cell-main">3.0+</span></td><td><span class="cell-main">78+</span></td><td>6.5</td><td>85</td><td>相关专业背景</td></tr>
+                        <tr><td>双一流/普通一本</td><td><span class="cell-main">3.2+</span></td><td><span class="cell-main">80+</span></td><td>6.5</td><td>85</td><td>健康科学/生命科学背景</td></tr>
+                        <tr><td>二本/三本</td><td><span class="cell-main">3.3+</span></td><td><span class="cell-main">83+</span></td><td>6.5</td><td>85</td><td>专业背景 + 临床经验</td></tr>
+                        <tr><td>民办/独立学院</td><td><span class="cell-main">3.5+</span></td><td><span class="cell-main">85+</span></td><td>6.5</td><td>85</td><td>专业背景 + 工作经验</td></tr>
+                        <tr><td>海外本科</td><td><span class="cell-main">3.0+</span></td><td>—</td><td><span class="cell-sub">英语国家可免</span></td><td><span class="cell-sub">英语国家可免</span></td><td>健康科学学位</td></tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="special-reqs">
+                    <strong>推荐信：</strong>2 封<br>
+                    <strong>特点：</strong>健康科学方向对专业背景要求严格，部分项目需注册执业资格。与英国大学合作办学
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- ── SUSS ── -->
+      <div class="uni-mega-card" id="suss-card">
+        <div class="uni-mega-header" onclick="this.parentElement.classList.toggle('open')">
+          <div class="uni-mega-info">
+            <div>
+              <div class="uni-mega-name">SUSS</div>
+              <div class="uni-mega-cn">新跃社科大学 Singapore University of Social Sciences</div>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px">
+            <span class="uni-mega-tag">社科/商科为主</span>
+            <span class="uni-mega-toggle">&#9662;</span>
+          </div>
+        </div>
+        <div class="uni-mega-body">
+          <div class="uni-mega-content">
+            <div class="uni-type-row">
+              <span class="uni-type-badge">授课型 Coursework: 1-2 年</span>
+              <span class="uni-type-badge">全日制/兼读制可选</span>
+              <span class="uni-type-badge">工作经验申请者友好</span>
+            </div>
+
+            <!-- SUSS: Business -->
+            <div class="faculty-block">
+              <div class="faculty-header" onclick="this.parentElement.classList.toggle('open')">
+                <div class="faculty-name">商学院 <small>S R Nathan School of Human Development / Business</small></div>
+                <span class="faculty-toggle">&#9662;</span>
+              </div>
+              <div class="faculty-body">
+                <div class="faculty-content">
+                  <div class="programs-label">热门项目</div>
+                  <div class="program-tags">
+                    <span class="program-tag">MBA</span>
+                    <span class="program-tag">MSc Finance</span>
+                    <span class="program-tag">MSc Marketing</span>
+                    <span class="program-tag">MSc Supply Chain Management</span>
+                    <span class="program-tag">MSc Human Capital Management</span>
+                  </div>
+                  <div class="table-wrap">
+                    <table class="data-table">
+                      <thead>
+                        <tr><th>院校背景</th><th>GPA (4.0)</th><th>GPA (百分制)</th><th>雅思</th><th>托福</th><th>其他要求</th></tr>
+                      </thead>
+                      <tbody>
+                        <tr><td>985 / C9</td><td><span class="cell-main">2.5+</span><span class="cell-sub">建议 3.0+</span></td><td><span class="cell-main">72+</span><span class="cell-sub">建议 78+</span></td><td>6.5</td><td>85</td><td>商科背景或相关工作经验</td></tr>
+                        <tr><td>211</td><td><span class="cell-main">2.5+</span><span class="cell-sub">建议 3.0+</span></td><td><span class="cell-main">72+</span><span class="cell-sub">建议 78+</span></td><td>6.5</td><td>85</td><td>工作经验加分</td></tr>
+                        <tr><td>双一流/普通一本</td><td><span class="cell-main">2.8+</span><span class="cell-sub">建议 3.2+</span></td><td><span class="cell-main">75+</span><span class="cell-sub">建议 80+</span></td><td>6.5</td><td>85</td><td>商科背景 + 实习经历</td></tr>
+                        <tr><td>二本/三本</td><td><span class="cell-main">3.0+</span><span class="cell-sub">建议 3.3+</span></td><td><span class="cell-main">78+</span><span class="cell-sub">建议 83+</span></td><td>6.5</td><td>85</td><td>工作经验可弥补背景</td></tr>
+                        <tr><td>民办/独立学院</td><td><span class="cell-main">3.2+</span><span class="cell-sub">建议 3.5+</span></td><td><span class="cell-main">80+</span><span class="cell-sub">建议 85+</span></td><td>6.5</td><td>85</td><td>2 年以上工作经验推荐</td></tr>
+                        <tr><td>海外本科</td><td><span class="cell-main">2.5+</span></td><td>—</td><td><span class="cell-sub">英语国家可免</span></td><td><span class="cell-sub">英语国家可免</span></td><td>商科/管理学位</td></tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="special-reqs">
+                    <strong>推荐信：</strong>2 封<br>
+                    <strong>SUSS 特色：</strong>前身为新跃大学（UniSIM），2017 年升格为公立大学。对工作经验申请者特别友好，MBA 项目要求 2 年以上工作经验<br>
+                    <strong>GMAT/GRE：</strong>MBA 建议提交 GMAT（600+），其他项目一般不要求<br>
+                    <strong>兼读制：</strong>部分项目提供兼读制（Part-time）选择，适合在职人士
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- SUSS: Social Sciences -->
+            <div class="faculty-block">
+              <div class="faculty-header" onclick="this.parentElement.classList.toggle('open')">
+                <div class="faculty-name">人文与社会科学 <small>Humanities & Social Sciences</small></div>
+                <span class="faculty-toggle">&#9662;</span>
+              </div>
+              <div class="faculty-body">
+                <div class="faculty-content">
+                  <div class="programs-label">热门项目</div>
+                  <div class="program-tags">
+                    <span class="program-tag">MSc Counselling</span>
+                    <span class="program-tag">Master of Social Work</span>
+                    <span class="program-tag">Master of Gerontology</span>
+                    <span class="program-tag">MA Chinese Studies</span>
+                    <span class="program-tag">MA Criminal Justice</span>
+                  </div>
+                  <div class="table-wrap">
+                    <table class="data-table">
+                      <thead>
+                        <tr><th>院校背景</th><th>GPA (4.0)</th><th>GPA (百分制)</th><th>雅思</th><th>托福</th><th>其他要求</th></tr>
+                      </thead>
+                      <tbody>
+                        <tr><td>985 / C9</td><td><span class="cell-main">2.5+</span><span class="cell-sub">建议 3.0+</span></td><td><span class="cell-main">72+</span><span class="cell-sub">建议 78+</span></td><td>6.5</td><td>85</td><td>社科/人文背景</td></tr>
+                        <tr><td>211</td><td><span class="cell-main">2.5+</span><span class="cell-sub">建议 3.0+</span></td><td><span class="cell-main">72+</span><span class="cell-sub">建议 78+</span></td><td>6.5</td><td>85</td><td>相关专业背景</td></tr>
+                        <tr><td>双一流/普通一本</td><td><span class="cell-main">2.8+</span><span class="cell-sub">建议 3.2+</span></td><td><span class="cell-main">75+</span><span class="cell-sub">建议 80+</span></td><td>6.5</td><td>85</td><td>社科背景 + 社会服务经历</td></tr>
+                        <tr><td>二本/三本</td><td><span class="cell-main">3.0+</span><span class="cell-sub">建议 3.3+</span></td><td><span class="cell-main">78+</span><span class="cell-sub">建议 83+</span></td><td>6.5</td><td>85</td><td>相关工作/志愿经历</td></tr>
+                        <tr><td>民办/独立学院</td><td><span class="cell-main">3.2+</span></td><td><span class="cell-main">80+</span></td><td>6.5</td><td>85</td><td>社会服务工作经验</td></tr>
+                        <tr><td>海外本科</td><td><span class="cell-main">2.5+</span></td><td>—</td><td><span class="cell-sub">英语国家可免</span></td><td><span class="cell-sub">英语国家可免</span></td><td>社科/人文学位</td></tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="special-reqs">
+                    <strong>推荐信：</strong>2 封<br>
+                    <strong>Counselling：</strong>需面试，强调实践经历和共情能力<br>
+                    <strong>Social Work：</strong>需相关社会服务/志愿者经验<br>
+                    <strong>特点：</strong>SUSS 社科方向对非传统背景最为包容，工作经验可有效弥补学术背景不足
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- SUSS: Computing & IT -->
+            <div class="faculty-block">
+              <div class="faculty-header" onclick="this.parentElement.classList.toggle('open')">
+                <div class="faculty-name">计算机与信息技术 <small>Science & Technology</small></div>
+                <span class="faculty-toggle">&#9662;</span>
+              </div>
+              <div class="faculty-body">
+                <div class="faculty-content">
+                  <div class="programs-label">热门项目</div>
+                  <div class="program-tags">
+                    <span class="program-tag">MSc Analytics</span>
+                    <span class="program-tag">MSc Data Science</span>
+                    <span class="program-tag">MSc IT in Business (MITB)</span>
+                  </div>
+                  <div class="table-wrap">
+                    <table class="data-table">
+                      <thead>
+                        <tr><th>院校背景</th><th>GPA (4.0)</th><th>GPA (百分制)</th><th>雅思</th><th>托福</th><th>其他要求</th></tr>
+                      </thead>
+                      <tbody>
+                        <tr><td>985 / C9</td><td><span class="cell-main">2.5+</span><span class="cell-sub">建议 3.0+</span></td><td><span class="cell-main">72+</span><span class="cell-sub">建议 78+</span></td><td>6.5</td><td>85</td><td>计算机/数学/统计背景</td></tr>
+                        <tr><td>211</td><td><span class="cell-main">2.5+</span><span class="cell-sub">建议 3.0+</span></td><td><span class="cell-main">72+</span><span class="cell-sub">建议 78+</span></td><td>6.5</td><td>85</td><td>编程和统计基础</td></tr>
+                        <tr><td>双一流/普通一本</td><td><span class="cell-main">2.8+</span><span class="cell-sub">建议 3.2+</span></td><td><span class="cell-main">75+</span><span class="cell-sub">建议 80+</span></td><td>6.5</td><td>85</td><td>技术背景 + 项目经历</td></tr>
+                        <tr><td>二本/三本</td><td><span class="cell-main">3.0+</span><span class="cell-sub">建议 3.3+</span></td><td><span class="cell-main">78+</span><span class="cell-sub">建议 83+</span></td><td>6.5</td><td>85</td><td>IT 工作经验可加分</td></tr>
+                        <tr><td>民办/独立学院</td><td><span class="cell-main">3.2+</span></td><td><span class="cell-main">80+</span></td><td>6.5</td><td>85</td><td>IT 工作经验优先</td></tr>
+                        <tr><td>海外本科</td><td><span class="cell-main">2.5+</span></td><td>—</td><td><span class="cell-sub">英语国家可免</span></td><td><span class="cell-sub">英语国家可免</span></td><td>相关学位</td></tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="special-reqs">
+                    <strong>推荐信：</strong>2 封<br>
+                    <strong>特点：</strong>SUSS 的数据科学和分析方向对双非学生相对开放，注重实际应用能力而非纯学术背景
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- SUSS: Law -->
+            <div class="faculty-block">
+              <div class="faculty-header" onclick="this.parentElement.classList.toggle('open')">
+                <div class="faculty-name">法学院 <small>School of Law</small></div>
+                <span class="faculty-toggle">&#9662;</span>
+              </div>
+              <div class="faculty-body">
+                <div class="faculty-content">
+                  <div class="programs-label">热门项目</div>
+                  <div class="program-tags">
+                    <span class="program-tag">Juris Doctor (JD)</span>
+                    <span class="program-tag">Master of IP & Innovation Management</span>
+                  </div>
+                  <div class="table-wrap">
+                    <table class="data-table">
+                      <thead>
+                        <tr><th>院校背景</th><th>GPA (4.0)</th><th>GPA (百分制)</th><th>雅思</th><th>托福</th><th>其他要求</th></tr>
+                      </thead>
+                      <tbody>
+                        <tr><td>985 / C9</td><td><span class="cell-main">3.0+</span><span class="cell-sub">建议 3.3+</span></td><td><span class="cell-main">78+</span><span class="cell-sub">建议 83+</span></td><td>7.0</td><td>93</td><td>法律/知识产权背景</td></tr>
+                        <tr><td>211</td><td><span class="cell-main">3.0+</span><span class="cell-sub">建议 3.3+</span></td><td><span class="cell-main">78+</span><span class="cell-sub">建议 83+</span></td><td>7.0</td><td>93</td><td>法律相关背景</td></tr>
+                        <tr><td>双一流/普通一本</td><td><span class="cell-main">3.2+</span><span class="cell-sub">建议 3.5+</span></td><td><span class="cell-main">80+</span><span class="cell-sub">建议 85+</span></td><td>7.0</td><td>93</td><td>法律或 IP 背景</td></tr>
+                        <tr><td>二本/三本</td><td><span class="cell-main">3.3+</span></td><td><span class="cell-main">83+</span></td><td>7.0</td><td>93</td><td>法律背景 + 工作经验</td></tr>
+                        <tr><td>民办/独立学院</td><td colspan="5" class="cell-na">一般不接受，需特别突出的法律实务经验</td></tr>
+                        <tr><td>海外本科</td><td><span class="cell-main">3.0+</span></td><td>—</td><td><span class="cell-sub">英语国家可免</span></td><td><span class="cell-sub">英语国家可免</span></td><td>法律/人文学位</td></tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="special-reqs">
+                    <strong>推荐信：</strong>2 封<br>
+                    <strong>Juris Doctor：</strong>非法律本科也可申请，3 年制，毕业后可参加新加坡律师资格考试<br>
+                    <strong>特点：</strong>SUSS 法学院是新加坡第三所法学院，相比 NUS/SMU 法学院录取门槛较低
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- SUSS: Education -->
+            <div class="faculty-block">
+              <div class="faculty-header" onclick="this.parentElement.classList.toggle('open')">
+                <div class="faculty-name">教育 <small>Education</small></div>
+                <span class="faculty-toggle">&#9662;</span>
+              </div>
+              <div class="faculty-body">
+                <div class="faculty-content">
+                  <div class="programs-label">热门项目</div>
+                  <div class="program-tags">
+                    <span class="program-tag">Master of Teaching</span>
+                    <span class="program-tag">MSc Early Childhood Education</span>
+                    <span class="program-tag">MEd Learning Design & Technology</span>
+                  </div>
+                  <div class="table-wrap">
+                    <table class="data-table">
+                      <thead>
+                        <tr><th>院校背景</th><th>GPA (4.0)</th><th>GPA (百分制)</th><th>雅思</th><th>托福</th><th>其他要求</th></tr>
+                      </thead>
+                      <tbody>
+                        <tr><td>985 / C9</td><td><span class="cell-main">2.5+</span><span class="cell-sub">建议 3.0+</span></td><td><span class="cell-main">72+</span><span class="cell-sub">建议 78+</span></td><td>6.5</td><td>85</td><td>教育或相关背景</td></tr>
+                        <tr><td>211</td><td><span class="cell-main">2.5+</span><span class="cell-sub">建议 3.0+</span></td><td><span class="cell-main">72+</span><span class="cell-sub">建议 78+</span></td><td>6.5</td><td>85</td><td>教育背景或教学经验</td></tr>
+                        <tr><td>双一流/普通一本</td><td><span class="cell-main">2.8+</span><span class="cell-sub">建议 3.2+</span></td><td><span class="cell-main">75+</span><span class="cell-sub">建议 80+</span></td><td>6.5</td><td>85</td><td>教育/心理学背景</td></tr>
+                        <tr><td>二本/三本</td><td><span class="cell-main">3.0+</span><span class="cell-sub">建议 3.3+</span></td><td><span class="cell-main">78+</span><span class="cell-sub">建议 83+</span></td><td>6.5</td><td>85</td><td>教学工作经验推荐</td></tr>
+                        <tr><td>民办/独立学院</td><td><span class="cell-main">3.2+</span></td><td><span class="cell-main">80+</span></td><td>6.5</td><td>85</td><td>教学经验 2 年以上</td></tr>
+                        <tr><td>海外本科</td><td><span class="cell-main">2.5+</span></td><td>—</td><td><span class="cell-sub">英语国家可免</span></td><td><span class="cell-sub">英语国家可免</span></td><td>教育相关学位</td></tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="special-reqs">
+                    <strong>推荐信：</strong>2 封<br>
+                    <strong>特点：</strong>SUSS 教育方向对有教学经验的申请者非常友好，即使院校背景一般，丰富的教学经历也可获得录取
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <p class="disclaimer">以上录取要求为基于各校 2025-2026 学年官方招生页面和历届录取数据整理的参考标准，不代表录取保证。最终录取以各校官网公布的最新要求为准。</p>
+    </div>
+
+    <!-- ══════════════════════════════════════════════ -->
+    <!-- Section 3: 申请时间线 -->
+    <!-- ══════════════════════════════════════════════ -->
+    <div class="db-section" id="timeline">
+      <h2>硕士申请<em>时间线</em></h2>
+      <p class="db-section-sub">从准备到入学，合理规划每个阶段的关键任务和截止日期。</p>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-dot">1</div>
+          <div class="timeline-time">12-18 个月前</div>
+          <div class="timeline-title">标化考试准备</div>
+          <div class="timeline-desc">开始备考雅思/托福（建议至少考 2 次留出提分空间）。商科申请者同时准备 GMAT/GRE。确定目标分数：雅思 6.5-7.0，GMAT 650+。</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot">2</div>
+          <div class="timeline-time">9-12 个月前</div>
+          <div class="timeline-title">确定目标院校和专业</div>
+          <div class="timeline-desc">研究各校各专业的录取要求和申请截止日期。根据自身院校背景、GPA、语言成绩确定冲刺/稳妥/保底院校。建议选择 4-6 个项目组合申请。</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot">3</div>
+          <div class="timeline-time">6-9 个月前</div>
+          <div class="timeline-title">准备申请材料</div>
+          <div class="timeline-desc">撰写个人陈述（PS/SOP）、更新简历（CV）。联系推荐人并说明推荐信要求。办理本科成绩单和学位证的公证/认证。准备作品集（建筑/设计类）或研究计划（研究型硕士）。</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot">4</div>
+          <div class="timeline-time">4-6 个月前</div>
+          <div class="timeline-title">提交网上申请</div>
+          <div class="timeline-desc">注意各校截止日期有所不同（详见下方）。建议提前 2-4 周完成提交，避免系统拥堵。缴纳申请费（通常 S$20-100/项目）。</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot">5</div>
+          <div class="timeline-time">2-4 个月前</div>
+          <div class="timeline-title">面试准备</div>
+          <div class="timeline-desc">部分项目（尤其商科 MBA、法律 LLM）会安排面试。面试形式包括线上视频面试、电话面试或现场面试。准备常见问题：自我介绍、职业目标、为什么选择该项目等。</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot">6</div>
+          <div class="timeline-time">录取后</div>
+          <div class="timeline-title">Student Pass 申请与入学准备</div>
+          <div class="timeline-desc">接受录取后，学校会发出 Letter of Offer。通过 ICA (SOLAR) 系统申请 Student Pass（学生准证）。准备入境和住宿安排，参加学校 Orientation。</div>
+        </div>
+      </div>
+
+      <h3 style="font-size:18px;font-weight:700;margin-top:32px;margin-bottom:16px;color:var(--ink)">各校主要申请截止日期</h3>
+      <div class="deadline-grid">
+        <div class="deadline-card">
+          <div class="deadline-uni">NUS 新加坡国立大学</div>
+          <div class="deadline-info">大部分项目：<strong>11 月 - 次年 1 月</strong>截止<br>商学院部分项目有多轮截止（Round 1/2/3）<br>研究型硕士全年可申请</div>
+        </div>
+        <div class="deadline-card">
+          <div class="deadline-uni">NTU 南洋理工大学</div>
+          <div class="deadline-info">大部分项目：<strong>11 月 - 次年 1 月</strong>截止<br>工程类部分项目至 3 月<br>南洋商学院有分轮录取</div>
+        </div>
+        <div class="deadline-card">
+          <div class="deadline-uni">SMU 新加坡管理大学</div>
+          <div class="deadline-info">大部分项目：<strong>1 月 - 3 月</strong>截止<br>MSc Applied Finance 有早期轮次（10 月）<br>MITB 接受至 4 月</div>
+        </div>
+        <div class="deadline-card">
+          <div class="deadline-uni">SUTD 新加坡科技设计大学</div>
+          <div class="deadline-info">大部分项目：<strong>1 月 - 3 月</strong>截止<br>研究型硕士全年滚动录取<br>建议尽早提交</div>
+        </div>
+        <div class="deadline-card">
+          <div class="deadline-uni">SIT 新加坡理工大学</div>
+          <div class="deadline-info">大部分项目：<strong>1 月 - 4 月</strong>截止<br>与海外合作大学联办项目截止日期可能不同<br>建议查看具体项目官网</div>
+        </div>
+        <div class="deadline-card">
+          <div class="deadline-uni">SUSS 新跃社科大学</div>
+          <div class="deadline-info">全日制项目：<strong>1 月 - 4 月</strong>截止<br>兼读制项目有多个入学时段（1 月/7 月）<br>MBA 项目有早期申请轮次（11 月）</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════════ -->
+    <!-- Section 4: 申请材料完整清单 -->
+    <!-- ══════════════════════════════════════════════ -->
+    <div class="db-section" id="materials">
+      <h2>申请材料<em>完整清单</em></h2>
+      <p class="db-section-sub">申请新加坡公立大学硕士需要准备以下材料，提前 6 个月开始准备可避免最后时刻手忙脚乱。</p>
+      <div class="material-grid">
+        <div class="material-card">
+          <div class="material-num">1</div>
+          <div class="material-title">本科成绩单</div>
+          <div class="material-desc">中英文版本，需学校教务处盖章。部分大学要求通过 WES（World Education Services）或 CDGDC（中国学位与研究生教育信息中心）进行成绩认证。建议提前 2 个月办理。</div>
+        </div>
+        <div class="material-card">
+          <div class="material-num">2</div>
+          <div class="material-title">学位证 + 毕业证</div>
+          <div class="material-desc">中英文公证件，需到公证处办理公证。在读学生提供学校出具的在读证明（中英文）。应届生可先提交在读证明，录取后补交学位证毕业证。</div>
+        </div>
+        <div class="material-card">
+          <div class="material-num">3</div>
+          <div class="material-title">语言成绩</div>
+          <div class="material-desc"><strong>雅思 IELTS：</strong>各专业要求不同，商科/法律/人文通常 7.0+，工科/理科 6.0-6.5。<br><strong>托福 TOEFL：</strong>对应雅思要求，一般 85-100+。<br><strong>有效期：</strong>考试日起 2 年内。需通过官方渠道送分。</div>
+        </div>
+        <div class="material-card">
+          <div class="material-num">4</div>
+          <div class="material-title">GMAT / GRE</div>
+          <div class="material-desc">商科/MBA 强烈建议 GMAT（目标 650+，顶尖项目 700+）。部分工科/理科项目建议 GRE（目标 320+）。有效期 5 年。非所有项目硬性要求，但可显著提升竞争力。</div>
+        </div>
+        <div class="material-card">
+          <div class="material-num">5</div>
+          <div class="material-title">个人陈述 (PS / SOP)</div>
+          <div class="material-desc">500-1000 字（各校字数要求不同），说明申请动机、学术背景、职业目标。需要展示你对目标项目的了解和匹配度。避免套用模板，针对每所学校进行个性化修改。</div>
+        </div>
+        <div class="material-card">
+          <div class="material-num">6</div>
+          <div class="material-title">简历 (CV)</div>
+          <div class="material-desc">学术版简历，1-2 页。包含教育背景、科研经历、实习/工作经验、论文发表、竞赛获奖、技能证书等。突出与申请方向相关的经历，按时间倒序排列。</div>
+        </div>
+        <div class="material-card">
+          <div class="material-num">7</div>
+          <div class="material-title">推荐信</div>
+          <div class="material-desc">通常 2 封（各校要求一致）。学术推荐信优先，有工作经验的可以 1 封学术 + 1 封工作推荐信。内容应包含：推荐人与申请人关系、学术能力评估、研究潜力、个人品质。详见下方推荐信指南。</div>
+        </div>
+        <div class="material-card">
+          <div class="material-num">8</div>
+          <div class="material-title">研究计划</div>
+          <div class="material-desc">仅研究型硕士需要，2000-3000 字。需包含研究背景、研究问题、研究方法、预期成果和时间规划。建议提前联系目标导师确认研究方向的可行性。</div>
+        </div>
+        <div class="material-card">
+          <div class="material-num">9</div>
+          <div class="material-title">作品集</div>
+          <div class="material-desc">建筑/设计类专业必须提交，15-25 页。应展示设计思维过程、技术表达能力和创意。包含 4-6 个完整项目，从概念到成品的完整呈现。建议 PDF 格式，文件大小控制在 20MB 以内。</div>
+        </div>
+        <div class="material-card">
+          <div class="material-num">10</div>
+          <div class="material-title">护照</div>
+          <div class="material-desc">有效期 6 个月以上。申请时需上传护照信息页扫描件。如护照即将到期，建议提前更换。录取后申请 Student Pass 也需要护照。</div>
+        </div>
+        <div class="material-card">
+          <div class="material-num">11</div>
+          <div class="material-title">实习/工作证明</div>
+          <div class="material-desc">MBA 必须提供工作证明（通常要求 2 年以上全职经验）。其他项目不硬性要求但属于加分材料。证明需注明职位、工作内容、任职时间，加盖公司公章。</div>
+        </div>
+        <div class="material-card">
+          <div class="material-num">12</div>
+          <div class="material-title">获奖证书 / 论文发表</div>
+          <div class="material-desc">加分材料，不硬性要求。国家级/国际级竞赛获奖、学术论文发表（尤其 SCI/SSCI 期刊）、发明专利等均可提交。对研究型硕士申请帮助尤为显著。</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════════ -->
+    <!-- Section 5: 推荐信详细指南 -->
+    <!-- ══════════════════════════════════════════════ -->
+    <div class="db-section" id="recommendations">
+      <h2>推荐信<em>详细指南</em></h2>
+      <p class="db-section-sub">推荐信是硕士申请中的重要环节，好的推荐信可以弥补其他方面的不足。以下是各校要求和准备策略。</p>
+
+      <!-- Counts -->
+      <div class="deadline-grid" style="margin-bottom:24px">
+        <div class="deadline-card">
+          <div class="deadline-uni">NUS</div>
+          <div class="deadline-info">要求 <strong>2 封</strong>推荐信<br>通过网申系统在线提交</div>
+        </div>
+        <div class="deadline-card">
+          <div class="deadline-uni">NTU</div>
+          <div class="deadline-info">要求 <strong>2 封</strong>推荐信<br>推荐人邮箱需为机构邮箱</div>
+        </div>
+        <div class="deadline-card">
+          <div class="deadline-uni">SMU</div>
+          <div class="deadline-info">要求 <strong>2 封</strong>推荐信<br>部分项目接受 1 封</div>
+        </div>
+        <div class="deadline-card">
+          <div class="deadline-uni">SUTD</div>
+          <div class="deadline-info">要求 <strong>2 封</strong>推荐信<br>研究型需导师推荐</div>
+        </div>
+      </div>
+
+      <div class="rec-grid">
+        <div class="rec-card rec-do">
+          <div class="rec-card-title">推荐人选择策略</div>
+          <div class="rec-card-body">
+            <ul>
+              <li><strong>最佳：</strong>直接教过你的教授/副教授，尤其是核心课程或毕业设计导师</li>
+              <li><strong>其次：</strong>实验室导师、实习/工作上司（需了解你的学术或专业能力）</li>
+              <li><strong>组合建议：</strong>应届生 2 封学术推荐信；工作党 1 封学术 + 1 封工作推荐信</li>
+            </ul>
+          </div>
+        </div>
+        <div class="rec-card rec-dont">
+          <div class="rec-card-title">避免的推荐人</div>
+          <div class="rec-card-body">
+            <ul>
+              <li>不熟悉你的名教授（即使头衔很高）</li>
+              <li>家人、朋友、同学</li>
+              <li>没有教过你课程的院系领导</li>
+              <li>不愿意写或态度敷衍的推荐人</li>
+            </ul>
+          </div>
+        </div>
+        <div class="rec-card rec-tip">
+          <div class="rec-card-title">推荐信内容要点</div>
+          <div class="rec-card-body">
+            <ul>
+              <li>推荐人与申请人的关系和认识时间</li>
+              <li>学术能力和课堂表现（具体案例）</li>
+              <li>研究能力和创新思维</li>
+              <li>团队合作和领导力</li>
+              <li>职业潜力和发展前景</li>
+              <li>与目标项目的匹配度</li>
+            </ul>
+          </div>
+        </div>
+        <div class="rec-card rec-tip">
+          <div class="rec-card-title">时间安排</div>
+          <div class="rec-card-body">
+            <ul>
+              <li>提前 <strong>2-3 个月</strong>联系推荐人，预留充足时间</li>
+              <li>提供你的 CV、PS 草稿和目标项目信息给推荐人参考</li>
+              <li>大部分学校通过邮件邀请推荐人在线填写，提交前确认推荐人已收到邀请邮件</li>
+              <li>在截止日期前 1 周礼貌提醒推荐人</li>
+            </ul>
+          </div>
+        </div>
+        <div class="rec-card rec-dont">
+          <div class="rec-card-title">常见错误</div>
+          <div class="rec-card-body">
+            <ul>
+              <li>推荐信过于笼统（如"该生学习认真"），缺乏具体例证</li>
+              <li>推荐人明显不了解你的具体表现</li>
+              <li>推荐信内容与 PS 互相矛盾</li>
+              <li>所有推荐信内容高度雷同</li>
+              <li>推荐人使用个人邮箱（如 Gmail）而非机构邮箱</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════════ -->
+    <!-- Section 6: 学费与奖学金 -->
+    <!-- ══════════════════════════════════════════════ -->
+    <div class="db-section" id="fees">
+      <h2>学费与<em>奖学金</em></h2>
+      <p class="db-section-sub">新加坡公立大学硕士学费及主要奖学金概览（2025-2026 学年参考，实际以各校官网为准）。</p>
+      <div class="fee-table-wrap">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>大学</th>
+              <th>授课型硕士学费 (1 年)</th>
+              <th>研究型硕士学费</th>
+              <th>主要奖学金</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>NUS</strong><br><span class="cell-sub">新加坡国立大学</span></td>
+              <td><span class="cell-main">S$45,000 - 60,000</span><span class="cell-sub">商科/法律偏高端</span></td>
+              <td><span class="cell-main">S$20,150</span><span class="cell-sub">有 Research Scholarship 资助</span></td>
+              <td><span class="cell-sub">NUS Research Scholarship（研究型，含生活津贴 S$2,200/月）<br>ASEAN Scholarship<br>各学院专项奖学金</span></td>
+            </tr>
+            <tr>
+              <td><strong>NTU</strong><br><span class="cell-sub">南洋理工大学</span></td>
+              <td><span class="cell-main">S$40,000 - 55,000</span><span class="cell-sub">工程类相对实惠</span></td>
+              <td><span class="cell-main">S$20,150</span><span class="cell-sub">有 Research Scholarship 资助</span></td>
+              <td><span class="cell-sub">NTU Research Scholarship（研究型，含生活津贴 S$2,200/月）<br>Nanyang Scholarship<br>工程学院奖学金</span></td>
+            </tr>
+            <tr>
+              <td><strong>SMU</strong><br><span class="cell-sub">新加坡管理大学</span></td>
+              <td><span class="cell-main">S$48,000 - 65,000</span><span class="cell-sub">商科/金融类偏高</span></td>
+              <td><span class="cell-sub">—</span><span class="cell-sub">以授课型为主</span></td>
+              <td><span class="cell-sub">SMU Merit Scholarship<br>SMU Global Impact Scholarship<br>部分项目学费减免</span></td>
+            </tr>
+            <tr>
+              <td><strong>SUTD</strong><br><span class="cell-sub">新加坡科技设计大学</span></td>
+              <td><span class="cell-main">S$40,000 - 50,000</span></td>
+              <td><span class="cell-main">S$20,150</span><span class="cell-sub">有 Fellowship 资助</span></td>
+              <td><span class="cell-sub">SUTD Fellowship（研究型，含生活津贴）<br>SUTD President's Graduate Fellowship<br>行业赞助奖学金</span></td>
+            </tr>
+            <tr>
+              <td><strong>SIT</strong><br><span class="cell-sub">新加坡理工大学</span></td>
+              <td><span class="cell-main">S$30,000 - 45,000</span><span class="cell-sub">联办项目学费较低</span></td>
+              <td><span class="cell-sub">—</span><span class="cell-sub">以授课型为主</span></td>
+              <td><span class="cell-sub">SIT Scholarship<br>SkillsFuture Study Award<br>海外合作大学联合奖学金</span></td>
+            </tr>
+            <tr>
+              <td><strong>SUSS</strong><br><span class="cell-sub">新跃社科大学</span></td>
+              <td><span class="cell-main">S$25,000 - 40,000</span><span class="cell-sub">六校中学费最低</span></td>
+              <td><span class="cell-sub">—</span><span class="cell-sub">以授课型为主</span></td>
+              <td><span class="cell-sub">SUSS Scholarship<br>SkillsFuture Study Award<br>部分项目学费减免</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="special-reqs" style="margin-top:16px">
+        <strong>注意：</strong>以上学费为国际学生（非新加坡公民/PR）标准。研究型硕士学费较低且通常有奖学金覆盖学费 + 生活津贴。授课型硕士一般没有全额奖学金但部分项目有 Merit-based 学费减免。新加坡生活费约 S$1,200-2,000/月（含住房、餐饮、交通）。
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════════ -->
+    <!-- Section 7: FAQ -->
+    <!-- ══════════════════════════════════════════════ -->
+    <div class="tool-faq" id="faq">
+      <h2>硕士申请<em>常见问题</em></h2>
+      <div id="faqList">
+        <div class="faq-item">
+          <div class="faq-q">985/211 GPA 多少才有竞争力？<span class="faq-q-toggle">+</span></div>
+          <div class="faq-a">985 背景 GPA 3.0+（80 分+）可以达到基本门槛，但建议 GPA 3.5+（85+）才具有较强竞争力。211 背景建议 GPA 3.2+（83+），热门项目（如 NUS CS、NTU 工程）建议 3.5+。C9 联盟的学生在同等 GPA 下有一定优势。注意 GPA 只是门槛之一，科研经历、语言成绩、推荐信等综合评估同样重要。</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">双非（非 985 非 211）能申请 NUS/NTU 吗？<span class="faq-q-toggle">+</span></div>
+          <div class="faq-a">可以申请，但难度明显高于 985/211 背景。双非学生申请 NUS/NTU 通常需要：GPA 3.5+（87+），雅思 6.5-7.0+，GMAT/GRE 高分（如有），以及突出的科研/实习/竞赛经历来弥补院校背景。部分冷门专业（如 MA Chinese Studies）对双非相对友好。另外 SMU 和 SUTD 对院校背景的要求比 NUS/NTU 灵活，SIT 和 SUSS 对双非更为友好，双非学生可以重点考虑这四所学校。</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">雅思 6.0 可以申请哪些专业？<span class="faq-q-toggle">+</span></div>
+          <div class="faq-a">雅思 6.0 可以满足 NUS 部分工科和理科项目的最低要求（如 MEng、MSc Engineering 方向），但大多数项目要求 6.5+，商科/法律/人文类通常要求 7.0+。建议将雅思提高到 6.5 以上以增加申请面。如果目标是 6.0 直接申请，主要选择在 NUS 工程学院、NUS 理学院的部分项目，以及 NTU 工程类授课型项目。</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">没有 GMAT/GRE 能申商科吗？<span class="faq-q-toggle">+</span></div>
+          <div class="faq-a">部分商科项目不硬性要求 GMAT/GRE，如 NTU MSc Accountancy、SMU 部分授课型硕士。但 NUS 商学院的大部分项目和 MBA 项目都强烈建议提交 GMAT/GRE。即使不是硬性要求，高分 GMAT/GRE 可以显著提升竞争力，尤其对于非 985/211 背景的申请者。建议商科申请者尽量准备 GMAT 650+ 或 GRE 320+ 的成绩。</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">推荐信找谁写最好？<span class="faq-q-toggle">+</span></div>
+          <div class="faq-a">最佳推荐人是直接教过你的教授，尤其是核心课程或毕业设计导师，他们能提供具体的学术能力评价和案例。其次是实验室导师或实习/工作上司。不建议找不熟悉你的名教授——一封言之有物的推荐信远比一封来自知名教授但内容空泛的推荐信有价值。工作过的申请者建议 1 封学术 + 1 封工作推荐信的组合。</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">本科跨专业申请硕士可以吗？<span class="faq-q-toggle">+</span></div>
+          <div class="faq-a">可以，但要看具体专业。部分项目明确接受跨专业申请，如 SMU MPA（接受非会计背景）、NTU MA Translation（接受非翻译专业但需双语能力）、各校 MBA（接受任何本科背景）。理工科项目通常要求相关专业背景或至少修过相关先修课程（如申请 MSc CS 需有编程基础和数学课程）。跨专业申请者建议通过在线课程、实习经历、项目经验等方式弥补专业背景不足。</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">授课型 vs 研究型硕士有什么区别？<span class="faq-q-toggle">+</span></div>
+          <div class="faq-a"><strong>授课型（Coursework）：</strong>以上课为主，1-1.5 年，学费较高（S$40,000-65,000），适合就业导向。无需提前联系导师。<br><strong>研究型（Research）：</strong>以科研为主，1.5-2 年，通常有奖学金覆盖学费和生活费（S$2,200/月津贴），需提前联系导师，提交研究计划，适合有学术追求或计划读博的学生。研究型竞争激烈但经济负担轻。</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">硕士毕业后可以留在新加坡工作吗？<span class="faq-q-toggle">+</span></div>
+          <div class="faq-a">可以。新加坡对公立大学毕业生留新就业政策友好。硕士毕业后可申请 Long Term Visit Pass (LTVP) 延期 1 年找工作，找到工作后由雇主申请 Employment Pass (EP) 或 S Pass。NUS/NTU/SMU/SUTD/SIT/SUSS 毕业生在 EP 申请中有一定优势。工作 2-3 年后可申请新加坡永久居民（PR）。STEM 和商科/金融方向就业前景较好。</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">申请费用是多少？<span class="faq-q-toggle">+</span></div>
+          <div class="faq-a">各校申请费不同：NUS 约 S$50-100/项目，NTU 约 S$50-80/项目，SMU 约 S$50-100/项目，SUTD 约 S$20-50/项目。建议同时申请 4-6 个项目，总申请费约 S$200-500。此外还需考虑成绩认证费（WES/CDGDC 约 $200-300）、成绩单公证费、雅思考试费（约 RMB 2,170/次）、GMAT 考试费（约 $275/次）等费用。</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">可以同时申请多所大学吗？<span class="faq-q-toggle">+</span></div>
+          <div class="faq-a">可以，没有限制。强烈建议同时申请多所大学以提高录取概率。建议组合策略：1-2 所冲刺校（如 NUS/NTU 热门项目）+ 1-2 所匹配校（SMU/SUTD）+ 1-2 所保底校（SIT/SUSS 的部分项目）。同一所大学也可以同时申请多个项目（各校政策不同，NUS 一般最多同时申请 2 个项目）。注意不同项目的截止日期可能不同，需要做好时间管理。</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">面试通常问什么？<span class="faq-q-toggle">+</span></div>
+          <div class="faq-a">面试常见问题包括：自我介绍（2-3 分钟）、为什么选择这个项目/学校、职业目标和规划、本科期间的研究或项目经历、对行业/领域的理解和看法、为什么选择新加坡、你能为项目带来什么独特价值。MBA 面试还可能包含 Case Study 和团队讨论环节。建议提前准备英文回答并进行模拟面试练习。面试形式包括 Zoom 视频面试、电话面试或线下面试。</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">工作经验对申请有多大帮助？<span class="faq-q-toggle">+</span></div>
+          <div class="faq-a">因项目而异。MBA 硬性要求 2 年以上全职工作经验（平均录取为 4-5 年）。其他授课型硕士不硬性要求但工作经验是加分项，尤其对于非 985/211 背景的申请者。1-3 年相关行业工作经验可以弥补院校背景和 GPA 的不足。研究型硕士更看重学术经历（科研、论文）而非工作经验。实习经历（3 个月以上）对应届生申请也有帮助。</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">大专/专升本有什么途径读硕士？<span class="faq-q-toggle">+</span></div>
+          <div class="faq-a">新加坡公立大学硕士一般不接受大专学历直接申请，专升本学历也极少被录取。建议路径：(1) 申请新加坡私立大学合作硕士项目（如 Kaplan 合作的爱尔兰/英国大学硕士、PSB 合作的澳洲大学硕士）；(2) 先在新加坡或海外完成 Top-up Degree 升读本科，再申请硕士；(3) 在国内通过考研提升学历后再申请；(4) 积累 5 年以上丰富工作经验后尝试申请 MBA 项目。</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">申请被拒后可以再申请吗？<span class="faq-q-toggle">+</span></div>
+          <div class="faq-a">可以。大多数项目没有限制重新申请的次数或等待期，你可以在下一个申请周期再次提交申请。再申请时建议：提升 GPA（如还在读）、提高语言成绩、增加科研/实习经历、完善个人陈述、考取 GMAT/GRE 高分等。如果被拒原因不明确，可以尝试联系招生办获取反馈。部分学校也接受同一周期申请不同专业。</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">新加坡硕士含金量如何？<span class="faq-q-toggle">+</span></div>
+          <div class="faq-a">新加坡六所公立大学硕士含金量高，均受中国教育部认可。NUS（QS #8）和 NTU（QS #15）排名亚洲顶尖，全球 Top 20，硕士学位在全球范围内认可度极高。SMU 商科在亚洲排名前列，SUTD 有 MIT 合作背景受业界认可。SIT 与海外名校联办学位，毕业可获双校认证；SUSS 社科和商科为主，对工作经验申请者友好。相比英国/澳洲 1 年制硕士，新加坡硕士的性价比较高，且毕业后留新就业政策友好。回国后可通过教育部留学服务中心进行学历认证。</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Contact ── -->
+    <section class="contact-section" id="contact" aria-labelledby="contact-title">
+      <div>
+        <p class="eyebrow">免费咨询</p>
+        <h2 id="contact-title">不确定自己的录取概率？让顾问帮你评估</h2>
+        <p>告诉我们你的院校背景、GPA 和目标项目，SEDA 顾问团队将在 24 小时内提供一对一硕士申请评估和选校策略建议。</p>
+      </div>
+      <form class="lead-form">
+        <label><span>本科院校与专业</span><input type="text" name="university" placeholder="例如：武汉大学 计算机科学" /></label>
+        <label><span>GPA / 百分制均分</span><input type="text" name="gpa" placeholder="例如：3.5/4.0 或 87/100" /></label>
+        <label><span>目标大学与专业</span>
+          <select name="target">
+            <option>NUS 新加坡国立大学</option>
+            <option>NTU 南洋理工大学</option>
+            <option>SMU 新加坡管理大学</option>
+            <option>SUTD 新加坡科技设计大学</option>
+            <option>还不确定，需要规划</option>
+          </select>
+        </label>
+        <label><span>联系方式</span><input type="text" name="contact" placeholder="微信 / WhatsApp / 手机" /></label>
+        <button class="primary-button" type="submit">提交咨询</button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="present-footer">
+    <p>SEDA 新加坡国际教育中心 &copy; 2024-2026 &nbsp;|&nbsp; <a href="/tools/">返回工具列表</a> &nbsp;|&nbsp; <a href="/tools/sg-masters-matcher.html">硕士匹配工具</a></p>
+  </footer>
+
+  <script>
+  /* ── FAQ Toggle ── */
+  document.querySelectorAll('.faq-item').forEach(item => {
+    item.querySelector('.faq-q').addEventListener('click', () => item.classList.toggle('open'));
+  });
+
+  /* ── Tier Card Toggle (handled via inline onclick) ── */
+
+  /* ── Smooth Scroll for Section Nav ── */
+  document.querySelectorAll('.section-nav a[href^="#"]').forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      const target = document.querySelector(link.getAttribute('href'));
+      if (target) {
+        const offset = 120; // account for sticky nav
+        const top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+        window.scrollTo({ top, behavior: 'smooth' });
+      }
+    });
+  });
+  </script>
+</body>
+</html>

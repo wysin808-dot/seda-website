@@ -1136,8 +1136,7 @@
       /* ── Render table ── */
       function renderTable(list){
         if(!list.length){tableDiv.innerHTML="<div class='ps-no-results'><span>🔍</span>没有找到符合条件的学校。</div>";return;}
-        <div class="table-wrap">
-        let html = '<table class="data-table"><thead><tr><th>#</th><th>学校名称</th><th>中文名</th><th>地区</th><th>P2B</th><th>梯队</th><th>项目</th></tr></thead><tbody>';
+        let html = '<div class="table-wrap"><table class="data-table"><thead><tr><th>#</th><th>学校名称</th><th>中文名</th><th>地区</th><th>P2B</th><th>梯队</th><th>项目</th></tr></thead><tbody>';
         list.forEach((s,i)=>{
           let progHTML = "";
           s.programs.forEach(p=>{progHTML+='<span class="'+(p==="GEP"?"gep":"sap")+'">'+p+'</span>';});
@@ -1150,8 +1149,7 @@
             '<td class="rank-tier"><span class="tier-badge '+tierClass[s.tier]+'" style="font-size:.7rem;padding:.1rem .4rem">'+tierLabels[s.tier]+'</span></td>'+
             '<td class="rank-prog">'+progHTML+'</td></tr>';
         });
-        html += '</tbody></table>';
-        </div>
+        html += '</tbody></table></div>';
         tableDiv.innerHTML = html;
       }
 

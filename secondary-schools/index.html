@@ -101,7 +101,7 @@
       .stat-item .label{font-size:.82rem;color:var(--text-muted,#6c757d);margin-top:.2rem}
 
       .filter-bar{display:flex;gap:.8rem;flex-wrap:wrap;margin-bottom:1.5rem;align-items:stretch}
-      .filter-bar input[type="text"]{flex:2;min-width:200px;padding:.7rem 1rem;border:1px solid var(--border,#ddd);border-radius:8px;font-size:.95rem}
+      .filter-bar input[type="text"]{flex:1;padding:.7rem 1rem;border:1px solid var(--border,#ddd);border-radius:8px;font-size:.95rem}
       .filter-bar select{flex:1;min-width:140px;padding:.7rem .8rem;border:1px solid var(--border,#ddd);border-radius:8px;font-size:.9rem;background:#fff;cursor:pointer}
       .filter-bar input:focus,.filter-bar select:focus{outline:none;border-color:var(--brand,#e85d04);box-shadow:0 0 0 3px rgba(232,93,4,.12)}
 
@@ -305,7 +305,10 @@
 
           <!-- Filters -->
           <div class="filter-bar">
-            <input type="text" id="searchInput" placeholder="搜索学校名称（中文/英文）..." aria-label="搜索学校" oninput="window._applyFilters&&window._applyFilters()" />
+            <div style="display:flex;gap:0;flex:2;min-width:200px">
+              <input type="text" id="searchInput" placeholder="搜索学校名称（中文/英文）..." aria-label="搜索学校" style="flex:1;border-radius:8px 0 0 8px;border-right:none" />
+              <button type="button" id="ssSearchBtn" style="padding:.6rem 1rem;background:#c62828;color:#fff;border:1px solid #c62828;border-radius:0 8px 8px 0;font-size:.9rem;cursor:pointer;white-space:nowrap;font-weight:600">搜索</button>
+            </div>
             <select id="areaFilter" aria-label="按地区筛选" onchange="window._applyFilters&&window._applyFilters()">
               <option value="">全部地区</option>
             </select>
@@ -1074,6 +1077,8 @@
 
       window._applyFilters = applyFilters;
       search.addEventListener('input',applyFilters);
+      search.addEventListener('keydown',function(e){if(e.key==='Enter')applyFilters()});
+      document.getElementById('ssSearchBtn').addEventListener('click',applyFilters);
       areaF.addEventListener('change',applyFilters);
       progF.addEventListener('change',applyFilters);
       copF.addEventListener('change',applyFilters);

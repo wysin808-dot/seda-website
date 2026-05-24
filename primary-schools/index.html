@@ -350,7 +350,10 @@
 
           <!-- Filter Bar -->
           <div class="ps-filter-bar">
-            <input type="text" id="psSearch" placeholder="搜索学校名称（中文/英文）..." />
+            <div style="flex:2;min-width:200px;display:flex;gap:0">
+              <input type="text" id="psSearch" placeholder="搜索学校名称（中文/英文）..." style="flex:1;border-radius:8px 0 0 8px;border-right:none" />
+              <button type="button" id="psSearchBtn" style="padding:.6rem 1rem;background:#c62828;color:#fff;border:1px solid #c62828;border-radius:0 8px 8px 0;font-size:.9rem;cursor:pointer;white-space:nowrap;font-weight:600">搜索</button>
+            </div>
             <select id="psArea" onchange="window._applyFilters&&window._applyFilters()">
               <option value="">全部区域</option>
             </select>
@@ -1198,6 +1201,8 @@
       window._applyFilters = applyFilters;
 
       document.getElementById("psSearch").addEventListener("input",applyFilters);
+      document.getElementById("psSearch").addEventListener("keydown",function(e){if(e.key==="Enter")applyFilters()});
+      document.getElementById("psSearchBtn").addEventListener("click",applyFilters);
       areaSel.addEventListener("change",applyFilters);
       document.getElementById("psTier").addEventListener("change",applyFilters);
       document.getElementById("psProgram").addEventListener("change",applyFilters);

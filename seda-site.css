@@ -75,27 +75,11 @@ select {
   min-width: 320px;
 }
 
-.brand-word {
-  position: relative;
-  color: var(--brand);
-  font-family: "Inter", "PingFang SC", sans-serif;
-  font-size: 30px;
-  font-weight: 900;
-  line-height: 1;
-  letter-spacing: -0.02em;
-}
-
-/* Golden triangle accent on the "A" in SEDA */
-.brand-word::after {
-  content: '';
-  position: absolute;
-  right: 4px;
-  top: 1px;
-  width: 11px;
-  height: 9px;
-  background: var(--gold);
-  clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
-  pointer-events: none;
+.brand-logo {
+  display: block;
+  height: 34px;
+  width: auto;
+  flex-shrink: 0;
 }
 
 .brand-copy {
@@ -2621,11 +2605,8 @@ details summary:focus-visible {
     font-size: 24px;
   }
 
-  .brand-word::after {
-    right: 3px;
-    top: 1px;
-    width: 9px;
-    height: 7px;
+  .brand-logo {
+    height: 26px;
   }
 
   .header-main {

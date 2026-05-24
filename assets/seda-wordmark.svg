@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 190 56">
+  <g fill="none" stroke="#c62828" stroke-width="10">
+    <!-- S -->
+    <path d="M 35,10 H 18 C 9,10 5,15 5,21 C 5,27 9,29 18,29 H 23 C 32,29 36,34 36,40 C 36,46 32,47 23,47 H 6" stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- E -->
+    <path d="M 84,10 H 54 V 47 H 84" stroke-linejoin="miter"/>
+    <line x1="54" y1="28" x2="78" y2="28"/>
+    <!-- D -->
+    <path d="M 100,47 V 10 H 116 C 130,10 136,18 136,28 C 136,38 130,47 116,47 Z" stroke-linejoin="miter"/>
+    <!-- A (no crossbar) -->
+    <path d="M 150,47 L 167,10 L 184,47" stroke-linecap="butt"/>
+  </g>
+  <!-- Gold triangle accent -->
+  <polygon fill="#c8a84e" points="167,13 174,24 160,24"/>
+</svg>

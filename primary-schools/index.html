@@ -124,9 +124,6 @@
       .ps-card .card-desc{font-size:.85rem;color:#666;line-height:1.5;margin-top:.5rem}
       .ps-card .card-area{font-size:.8rem;color:#888;margin-top:.3rem}
 
-      .ps-card .p2b-badge{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.78rem;color:#fff;line-height:1;flex-shrink:0}
-      .p2b-hot,.p2b-warm,.p2b-mid,.p2b-cool{background:#374151}
-      .ps-card .p2b-label{font-size:.7rem;color:#999;text-align:right;margin-top:.3rem}
 
       .view-btn{padding:.45rem 1rem;border:1px solid #d0d5dd;border-radius:8px;background:#fff;cursor:pointer;font-size:.85rem;transition:all .2s}
       .view-btn.active{background:var(--brand,#c8102e);color:#fff;border-color:var(--brand,#c8102e)}
@@ -365,14 +362,6 @@
               <option value="">全部类型</option>
               <option value="GEP">GEP 高才班</option>
               <option value="SAP">SAP 特选</option>
-            </select>
-            <select id="psRanking" onchange="window._applyFilters&&window._applyFilters()">
-              <option value="">全部排名</option>
-              <option value="20-30">Top 20（Phase 2B ≤30）</option>
-              <option value="31-45">Top 50（Phase 2B 31-45）</option>
-              <option value="46-60">中等偏上（Phase 2B 46-60）</option>
-              <option value="61-80">中等（Phase 2B 61-80）</option>
-              <option value="81-999">社区型（Phase 2B >80）</option>
             </select>
             <span class="filter-count" id="psCount">显示 179 / 179 所</span>
           </div>
@@ -1118,14 +1107,12 @@
             '<div class="card-top">'+
               '<div><h3>'+nameHtml+'</h3><div class="cn-name">'+s.cn+'</div></div>'+
               '<span class="tier-badge '+tierClass[s.tier]+'">'+tierLabels[s.tier]+'</span>'+
-              '<span class="p2b-badge '+p2bClass(s.p2b)+'" title="Phase 2B 剩余学额: '+s.p2b+'">'+s.p2b+'</span>'+
             '</div>'+
             '<div class="card-meta">'+
               '<span class="meta-tag">'+s.area+'</span>'+
               progHTML+
             '</div>'+
-            '<div class="card-desc">'+s.desc+'</div>'+
-            '<div class="p2b-label">Phase 2B 剩余学额: '+s.p2b+'</div>';
+            '<div class="card-desc">'+s.desc+'</div>';
           grid.appendChild(card);
         });
       }
@@ -1133,7 +1120,7 @@
       /* ── Render table ── */
       function renderTable(list){
         if(!list.length){tableDiv.innerHTML="<div class='ps-no-results'><span>🔍</span>没有找到符合条件的学校。</div>";return;}
-        let html = '<div class="table-wrap"><table class="data-table"><thead><tr><th>#</th><th>学校名称</th><th>中文名</th><th>地区</th><th>P2B</th><th>梯队</th><th>项目</th></tr></thead><tbody>';
+        let html = '<div class="table-wrap"><table class="data-table"><thead><tr><th>#</th><th>学校名称</th><th>中文名</th><th>地区</th><th>梯队</th><th>项目</th></tr></thead><tbody>';
         list.forEach((s,i)=>{
           let progHTML = "";
           s.programs.forEach(p=>{progHTML+='<span class="'+(p==="GEP"?"gep":"sap")+'">'+p+'</span>';});
@@ -1142,7 +1129,6 @@
             '<td>'+tNameHtml+'</td>'+
             '<td>'+s.cn+'</td>'+
             '<td>'+s.area+'</td>'+
-            '<td class="rank-p2b" style="color:'+(s.p2b<=30?'#b91c1c':s.p2b<=45?'#c2410c':s.p2b<=60?'#1d4ed8':'#059669')+'">'+s.p2b+'</td>'+
             '<td class="rank-tier"><span class="tier-badge '+tierClass[s.tier]+'" style="font-size:.7rem;padding:.1rem .4rem">'+tierLabels[s.tier]+'</span></td>'+
             '<td class="rank-prog">'+progHTML+'</td></tr>';
         });
@@ -1166,20 +1152,15 @@
         const area = areaSel.value;
         const tier = document.getElementById("psTier").value;
         const prog = document.getElementById("psProgram").value;
-        const rank = document.getElementById("psRanking").value;
         const filtered = schools.filter(s=>{
           if(q && !(s.name.toLowerCase().includes(q) || s.cn.includes(q))) return false;
           if(area && s.area !== area) return false;
           if(tier && s.tier !== +tier) return false;
           if(prog && !s.programs.includes(prog)) return false;
-          if(rank){
-            const [lo,hi] = rank.split("-").map(Number);
-            if(s.p2b < lo || s.p2b > hi) return false;
-          }
           return true;
         });
-        /* Sort: P2B asc (lower = more popular), then tier, then name */
-        filtered.sort((a,b)=> a.p2b - b.p2b || a.tier - b.tier || a.name.localeCompare(b.name));
+        /* Sort: tier asc, then name */
+        filtered.sort((a,b)=> a.tier - b.tier || a.name.localeCompare(b.name));
         countEl.textContent="显示 "+filtered.length+" / "+schools.length+" 所";
         if(!filtered.length){
           grid.style.display="none";tableDiv.style.display="none";noRes.style.display="";return;
@@ -1201,10 +1182,9 @@
       areaSel.addEventListener("change",applyFilters);
       document.getElementById("psTier").addEventListener("change",applyFilters);
       document.getElementById("psProgram").addEventListener("change",applyFilters);
-      document.getElementById("psRanking").addEventListener("change",applyFilters);
 
-      /* Initial render (sorted by P2B) */
-      schools.sort((a,b)=> a.p2b - b.p2b || a.tier - b.tier || a.name.localeCompare(b.name));
+      /* Initial render (sorted by tier) */
+      schools.sort((a,b)=> a.tier - b.tier || a.name.localeCompare(b.name));
       renderCards(schools);
     })();
     </script>

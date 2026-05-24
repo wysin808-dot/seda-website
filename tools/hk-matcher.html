@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="robots" content="noindex, nofollow" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
   <title>AI 大学匹配 — 香港八大 | SEDA 顾问工具</title>
   <meta name="description" content="输入成绩，匹配香港八大名校录取概率" />
   <link rel="stylesheet" href="/seda-site.css" />
@@ -659,10 +660,16 @@
       gap: 10px;
     }
     .present-brand-word {
+      position: relative;
       font-size: 24px;
       font-weight: 900;
       color: #c62828;
       letter-spacing: -0.5px;
+    }
+    .present-brand-word::after {
+      content: ''; position: absolute; right: 3px; top: 2px;
+      width: 7px; height: 6px; background: #c8a84e;
+      clip-path: polygon(50% 0%, 100% 100%, 0% 100%); pointer-events: none;
     }
     .present-brand-sub {
       font-size: 13px;

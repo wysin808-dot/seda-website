@@ -1,4 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 190 56">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 56">
+  <!-- SEDA wordmark -->
   <g fill="none" stroke="#c62828" stroke-width="10">
     <!-- S -->
     <path d="M 35,10 H 18 C 9,10 5,15 5,21 C 5,27 9,29 18,29 H 23 C 32,29 36,34 36,40 C 36,46 32,47 23,47 H 6" stroke-linecap="round" stroke-linejoin="round"/>
@@ -12,4 +13,13 @@
   </g>
   <!-- Gold triangle accent -->
   <polygon fill="#c8a84e" points="167,13 174,24 160,24"/>
+
+  <!-- Vertical divider -->
+  <line x1="200" y1="8" x2="200" y2="48" stroke="#d1d5db" stroke-width="1.2"/>
+
+  <!-- Chinese name -->
+  <text x="214" y="28" font-family="'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', 'Hiragino Sans GB', sans-serif" font-weight="600" font-size="17" fill="#1a2332">新加坡国际教育平台</text>
+
+  <!-- English name -->
+  <text x="214" y="45" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif" font-weight="400" font-size="11" fill="#6b7280" letter-spacing="0.3">SEDA International Education</text>
 </svg>

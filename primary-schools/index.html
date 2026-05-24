@@ -109,7 +109,7 @@
       .ps-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1rem;margin:1.5rem 0}
       .ps-card{background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:1.2rem 1.4rem;transition:box-shadow .2s,transform .15s;position:relative;overflow:hidden}
       .ps-card:hover{box-shadow:0 4px 20px rgba(0,0,0,.08);transform:translateY(-2px)}
-      .ps-card .card-top{display:flex;justify-content:space-between;align-items:flex-start;gap:.5rem;margin-bottom:.6rem;padding-right:56px}
+      .ps-card .card-top{display:flex;justify-content:space-between;align-items:flex-start;gap:.5rem;margin-bottom:.6rem}
       .ps-card h3{font-size:1rem;font-weight:700;margin:0;line-height:1.3;color:#1a1a2e}
       .ps-card .cn-name{font-size:.9rem;color:#555;margin:.15rem 0 .5rem}
       .ps-card .tier-badge{display:inline-block;padding:.2rem .65rem;border-radius:20px;font-size:.75rem;font-weight:700;white-space:nowrap;flex-shrink:0}
@@ -124,7 +124,7 @@
       .ps-card .card-desc{font-size:.85rem;color:#666;line-height:1.5;margin-top:.5rem}
       .ps-card .card-area{font-size:.8rem;color:#888;margin-top:.3rem}
 
-      .ps-card .p2b-badge{position:absolute;top:.8rem;right:.8rem;width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.8rem;color:#fff;line-height:1}
+      .ps-card .p2b-badge{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.78rem;color:#fff;line-height:1;flex-shrink:0}
       .p2b-hot,.p2b-warm,.p2b-mid,.p2b-cool{background:#374151}
       .ps-card .p2b-label{font-size:.7rem;color:#999;text-align:right;margin-top:.3rem}
 
@@ -1115,10 +1115,10 @@
           if(s.link){card.style.cursor="pointer";card.onclick=function(){location.href=s.link};}
           let nameHtml=s.link?'<a href="'+s.link+'" style="color:inherit;text-decoration:none">'+s.name+'</a>':s.name;
           card.innerHTML =
-            '<span class="p2b-badge '+p2bClass(s.p2b)+'" title="Phase 2B 剩余学额: '+s.p2b+'">'+s.p2b+'</span>'+
             '<div class="card-top">'+
               '<div><h3>'+nameHtml+'</h3><div class="cn-name">'+s.cn+'</div></div>'+
               '<span class="tier-badge '+tierClass[s.tier]+'">'+tierLabels[s.tier]+'</span>'+
+              '<span class="p2b-badge '+p2bClass(s.p2b)+'" title="Phase 2B 剩余学额: '+s.p2b+'">'+s.p2b+'</span>'+
             '</div>'+
             '<div class="card-meta">'+
               '<span class="meta-tag">'+s.area+'</span>'+

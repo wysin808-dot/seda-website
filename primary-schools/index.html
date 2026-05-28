@@ -111,21 +111,37 @@
       .ps-filter-bar .filter-count{font-size:.85rem;color:#888;margin-left:auto;white-space:nowrap}
 
       .ps-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1rem;margin:1.5rem 0}
-      .ps-card{background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:1.2rem 1.4rem;transition:box-shadow .2s,transform .15s;position:relative;overflow:hidden}
+      .ps-card{background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:0;transition:box-shadow .2s,transform .15s;position:relative;overflow:hidden;display:flex;flex-direction:column}
       .ps-card:hover{box-shadow:0 4px 20px rgba(0,0,0,.08);transform:translateY(-2px)}
-      .ps-card .card-top{display:flex;justify-content:space-between;align-items:flex-start;gap:.5rem;margin-bottom:.6rem}
-      .ps-card h3{font-size:1rem;font-weight:700;margin:0;line-height:1.3;color:#1a1a2e}
-      .ps-card .cn-name{font-size:.9rem;color:#555;margin:.15rem 0 .5rem}
-      .ps-card .tier-badge{display:inline-block;padding:.2rem .65rem;border-radius:20px;font-size:.75rem;font-weight:700;white-space:nowrap;flex-shrink:0}
+      .ps-card .card-accent{height:4px;width:100%}
+      .ps-card .card-accent.t1{background:linear-gradient(90deg,#b91c1c,#ef4444)}
+      .ps-card .card-accent.t2{background:linear-gradient(90deg,#c2410c,#f97316)}
+      .ps-card .card-accent.t3{background:linear-gradient(90deg,#1d4ed8,#3b82f6)}
+      .ps-card .card-accent.t4{background:linear-gradient(90deg,#15803d,#22c55e)}
+      .ps-card .card-body{padding:1rem 1.2rem;flex:1;display:flex;flex-direction:column}
+      .ps-card .card-header{display:flex;gap:.85rem;align-items:flex-start;margin-bottom:.6rem}
+      .ps-card .card-avatar{width:48px;height:48px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:.85rem;font-weight:800;color:#fff;flex-shrink:0;letter-spacing:-.5px}
+      .ps-card .card-avatar.t1{background:linear-gradient(135deg,#b91c1c,#dc2626)}
+      .ps-card .card-avatar.t2{background:linear-gradient(135deg,#c2410c,#ea580c)}
+      .ps-card .card-avatar.t3{background:linear-gradient(135deg,#1d4ed8,#2563eb)}
+      .ps-card .card-avatar.t4{background:linear-gradient(135deg,#15803d,#16a34a)}
+      .ps-card .card-info{flex:1;min-width:0}
+      .ps-card .card-top{display:flex;justify-content:space-between;align-items:flex-start;gap:.5rem}
+      .ps-card h3{font-size:.95rem;font-weight:700;margin:0;line-height:1.3;color:#1a1a2e;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+      .ps-card .cn-name{font-size:.85rem;color:#555;margin:.1rem 0 0}
+      .ps-card .tier-badge{display:inline-block;padding:.15rem .55rem;border-radius:20px;font-size:.7rem;font-weight:700;white-space:nowrap;flex-shrink:0}
       .tier-1{background:#fef2f2;color:#b91c1c;border:1px solid #fecaca}
       .tier-2{background:#fff7ed;color:#c2410c;border:1px solid #fed7aa}
       .tier-3{background:#eff6ff;color:#1d4ed8;border:1px solid #bfdbfe}
       .tier-4{background:#f0fdf4;color:#15803d;border:1px solid #bbf7d0}
-      .ps-card .card-meta{display:flex;flex-wrap:wrap;gap:.4rem;margin:.5rem 0}
-      .ps-card .meta-tag{font-size:.75rem;padding:.15rem .5rem;border-radius:4px;background:#f1f3f5;color:#495057}
+      .ps-card .card-meta{display:flex;flex-wrap:wrap;gap:.35rem;margin:.5rem 0}
+      .ps-card .meta-tag{font-size:.72rem;padding:.15rem .45rem;border-radius:4px;background:#f1f3f5;color:#495057}
       .ps-card .meta-tag.gep{background:#fef3c7;color:#92400e;font-weight:600}
       .ps-card .meta-tag.sap{background:#ede9fe;color:#6d28d9;font-weight:600}
-      .ps-card .card-desc{font-size:.85rem;color:#666;line-height:1.5;margin-top:.5rem}
+      .ps-card .card-desc{font-size:.82rem;color:#666;line-height:1.5;margin-top:.4rem;flex:1;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+      .ps-card .card-footer{display:flex;justify-content:space-between;align-items:center;padding:.65rem 1.2rem;border-top:1px solid #f1f3f5;background:#fafbfc;font-size:.78rem;color:#888}
+      .ps-card .card-footer .loc{display:flex;align-items:center;gap:.3rem}
+      .ps-card .card-footer .arrow{color:var(--brand,#c62828);font-weight:600;font-size:.8rem}
 
       .view-btn{padding:.45rem 1rem;border:1px solid #d0d5dd;border-radius:8px;background:#fff;cursor:pointer;font-size:.85rem;transition:all .2s}
       .view-btn.active{background:var(--brand,#c8102e);color:#fff;border-color:var(--brand,#c8102e)}
@@ -1075,6 +1091,11 @@
       let currentView = "cards";
 
       /* ── Render cards ── */
+      function getInitials(name){
+        var words=name.replace(/\(.*?\)/g,'').replace(/School|Primary|Secondary/gi,'').trim().split(/\s+/);
+        if(words.length>=2) return (words[0][0]+words[1][0]).toUpperCase();
+        return words[0].substring(0,2).toUpperCase();
+      }
       function renderCards(list){
         grid.innerHTML = "";
         if(!list.length){grid.style.display="none";noRes.style.display="";countEl.textContent="显示 0 / "+schools.length+" 所";return;}
@@ -1089,16 +1110,28 @@
           });
           if(s.link){card.style.cursor="pointer";card.onclick=function(){location.href=s.link};}
           let nameHtml=s.link?'<a href="'+s.link+'" style="color:inherit;text-decoration:none">'+s.name+'</a>':s.name;
+          var tc=tierClass[s.tier]||'tier-3';
+          var initials=getInitials(s.name);
           card.innerHTML =
-            '<div class="card-top">'+
-              '<div><h3>'+nameHtml+'</h3><div class="cn-name">'+s.cn+'</div></div>'+
-              '<span class="tier-badge '+tierClass[s.tier]+'">'+tierLabels[s.tier]+'</span>'+
+            '<div class="card-accent '+tc.replace('tier-','t')+'"></div>'+
+            '<div class="card-body">'+
+              '<div class="card-header">'+
+                '<div class="card-avatar '+tc.replace('tier-','t')+'">'+initials+'</div>'+
+                '<div class="card-info">'+
+                  '<div class="card-top"><h3>'+nameHtml+'</h3><span class="tier-badge '+tc+'">'+tierLabels[s.tier]+'</span></div>'+
+                  '<div class="cn-name">'+s.cn+'</div>'+
+                '</div>'+
+              '</div>'+
+              '<div class="card-meta">'+
+                '<span class="meta-tag">📍 '+s.area+'</span>'+
+                progHTML+
+              '</div>'+
+              '<div class="card-desc">'+s.desc+'</div>'+
             '</div>'+
-            '<div class="card-meta">'+
-              '<span class="meta-tag">'+s.area+'</span>'+
-              progHTML+
-            '</div>'+
-            '<div class="card-desc">'+s.desc+'</div>';
+            '<div class="card-footer">'+
+              '<span class="loc">📍 '+s.area+'</span>'+
+              (s.link?'<span class="arrow">查看详情 →</span>':'')+
+            '</div>';
           grid.appendChild(card);
         });
       }

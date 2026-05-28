@@ -113,25 +113,41 @@
       .results-count{font-size:.9rem;color:var(--text-muted,#6c757d);margin-bottom:1rem}
 
       .school-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:1rem}
-      .school-card{border:1px solid var(--border,#e2e5e9);border-radius:12px;padding:1.2rem 1.4rem;background:#fff;transition:box-shadow .2s,border-color .2s;position:relative}
+      .school-card{border:1px solid var(--border,#e2e5e9);border-radius:12px;padding:0;background:#fff;transition:box-shadow .2s,border-color .2s;position:relative;overflow:hidden;display:flex;flex-direction:column}
       .school-card:hover{box-shadow:0 4px 20px rgba(0,0,0,.08);border-color:var(--brand,#e85d04)}
-      .school-card .card-top{display:flex;justify-content:space-between;align-items:flex-start;gap:.8rem;margin-bottom:.6rem}
-      .school-card h3{font-size:1rem;font-weight:700;margin:0;line-height:1.35;flex:1}
-      .school-card h3 small{display:block;font-size:.85rem;font-weight:400;color:var(--text-muted,#6c757d);margin-top:.15rem}
-      .cop-badge{display:inline-flex;align-items:center;justify-content:center;min-width:40px;height:40px;border-radius:10px;font-size:1.1rem;font-weight:800;color:#fff;flex-shrink:0}
+      .school-card .card-accent{height:4px;width:100%}
+      .school-card .card-accent.cop-g{background:linear-gradient(90deg,#27ae60,#2ecc71)}
+      .school-card .card-accent.cop-y{background:linear-gradient(90deg,#f39c12,#f1c40f)}
+      .school-card .card-accent.cop-r{background:linear-gradient(90deg,#c0392b,#e74c3c)}
+      .school-card .card-accent.cop-n{background:linear-gradient(90deg,#7f8c8d,#95a5a6)}
+      .school-card .card-body{padding:1rem 1.2rem;flex:1;display:flex;flex-direction:column}
+      .school-card .card-header{display:flex;gap:.85rem;align-items:flex-start;margin-bottom:.6rem}
+      .school-card .card-avatar{width:48px;height:48px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:.85rem;font-weight:800;color:#fff;flex-shrink:0;letter-spacing:-.5px}
+      .school-card .card-avatar.cop-g{background:linear-gradient(135deg,#27ae60,#2ecc71)}
+      .school-card .card-avatar.cop-y{background:linear-gradient(135deg,#e67e22,#f39c12)}
+      .school-card .card-avatar.cop-r{background:linear-gradient(135deg,#c0392b,#e74c3c)}
+      .school-card .card-avatar.cop-n{background:linear-gradient(135deg,#7f8c8d,#95a5a6)}
+      .school-card .card-info{flex:1;min-width:0}
+      .school-card .card-top{display:flex;justify-content:space-between;align-items:flex-start;gap:.5rem}
+      .school-card h3{font-size:.95rem;font-weight:700;margin:0;line-height:1.35;flex:1}
+      .school-card h3 small{display:block;font-size:.82rem;font-weight:400;color:var(--text-muted,#6c757d);margin-top:.1rem}
+      .cop-badge{display:inline-flex;align-items:center;justify-content:center;min-width:36px;height:36px;border-radius:8px;font-size:1rem;font-weight:800;color:#fff;flex-shrink:0}
       .cop-green{background:#27ae60}
       .cop-yellow{background:#f39c12}
       .cop-red{background:#e74c3c}
       .cop-na{background:#95a5a6;font-size:.7rem;font-weight:600}
-      .school-meta{display:flex;gap:.5rem;flex-wrap:wrap;margin:.6rem 0}
-      .school-meta .area-tag{font-size:.78rem;padding:.2rem .6rem;border-radius:20px;background:var(--surface,#f0f2f5);color:var(--text-muted,#555)}
-      .school-meta .type-tag{font-size:.78rem;padding:.2rem .6rem;border-radius:20px;background:#e8f4fd;color:#2980b9}
-      .program-badges{display:flex;gap:.35rem;flex-wrap:wrap;margin:.5rem 0}
-      .program-badges span{font-size:.72rem;padding:.2rem .55rem;border-radius:4px;font-weight:700;letter-spacing:.02em}
+      .school-meta{display:flex;gap:.4rem;flex-wrap:wrap;margin:.5rem 0}
+      .school-meta .area-tag{font-size:.75rem;padding:.15rem .5rem;border-radius:20px;background:var(--surface,#f0f2f5);color:var(--text-muted,#555)}
+      .school-meta .type-tag{font-size:.75rem;padding:.15rem .5rem;border-radius:20px;background:#e8f4fd;color:#2980b9}
+      .program-badges{display:flex;gap:.35rem;flex-wrap:wrap;margin:.4rem 0}
+      .program-badges span{font-size:.7rem;padding:.15rem .5rem;border-radius:4px;font-weight:700;letter-spacing:.02em}
       .badge-ip{background:#8e44ad;color:#fff}
       .badge-sap{background:#d35400;color:#fff}
       .badge-girls{background:#e91e8c;color:#fff}
-      .school-card .desc{font-size:.85rem;color:var(--text-muted,#666);line-height:1.55;margin-top:.5rem}
+      .school-card .desc{font-size:.82rem;color:var(--text-muted,#666);line-height:1.5;margin-top:.4rem;flex:1;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+      .school-card .card-footer{display:flex;justify-content:space-between;align-items:center;padding:.65rem 1.2rem;border-top:1px solid #f1f3f5;background:#fafbfc;font-size:.78rem;color:#888}
+      .school-card .card-footer .loc{display:flex;align-items:center;gap:.3rem}
+      .school-card .card-footer .arrow{color:var(--brand,#c62828);font-weight:600;font-size:.8rem}
 
       .no-results{text-align:center;padding:3rem 1rem;color:var(--text-muted,#999)}
       .no-results p{font-size:1.1rem;margin-bottom:.5rem}
@@ -1041,6 +1057,17 @@
       function copClass(c){if(c===null)return 'cop-na';if(c<=9)return 'cop-red';if(c<=17)return 'cop-yellow';return 'cop-green'}
       function copLabel(c){return c===null?'N/A':c}
 
+      function getInitials(name){
+        var words=name.replace(/\(.*?\)/g,'').replace(/School|Secondary|High/gi,'').trim().split(/\s+/);
+        if(words.length>=2) return (words[0][0]+words[1][0]).toUpperCase();
+        return words[0].substring(0,2).toUpperCase();
+      }
+      function copAccent(cop){
+        if(cop===null)return 'cop-n';
+        if(cop<=11)return 'cop-g';
+        if(cop<=20)return 'cop-y';
+        return 'cop-r';
+      }
       function renderCards(list){
         if(!list.length){grid.innerHTML='';noRes.style.display='block';resCnt.textContent='未找到符合条件的学校';if(resCntInline)resCntInline.textContent='0 / '+schools.length;return}
         noRes.style.display='none';
@@ -1051,17 +1078,28 @@
           s.programs.forEach(p=>{badges+='<span class="badge-'+p.toLowerCase()+'">'+p+'</span>'});
           if(s.name.includes("Girls'")||s.name.includes("Girls'")||s.cn.includes('女'))badges+='<span class="badge-girls">Girls\'</span>';
           let nameHtml=s.link?'<a href="'+s.link+'" style="color:inherit;text-decoration:none">'+s.name+'</a>':s.name;
+          var ac=copAccent(s.cop);
+          var initials=getInitials(s.name);
           return '<div class="school-card"'+(s.link?' onclick="location.href=\''+s.link+'\'" style="cursor:pointer"':'')+'>'+
-            '<div class="card-top">'+
-              '<h3>'+nameHtml+'<small>'+s.cn+'</small></h3>'+
-              '<span class="cop-badge '+copClass(s.cop)+'">'+copLabel(s.cop)+'</span>'+
+            '<div class="card-accent '+ac+'"></div>'+
+            '<div class="card-body">'+
+              '<div class="card-header">'+
+                '<div class="card-avatar '+ac+'">'+initials+'</div>'+
+                '<div class="card-info">'+
+                  '<div class="card-top"><h3>'+nameHtml+'<small>'+s.cn+'</small></h3><span class="cop-badge '+copClass(s.cop)+'">'+copLabel(s.cop)+'</span></div>'+
+                '</div>'+
+              '</div>'+
+              '<div class="school-meta">'+
+                '<span class="area-tag">📍 '+s.area+'</span>'+
+                '<span class="type-tag">'+s.type+'</span>'+
+              '</div>'+
+              (badges?'<div class="program-badges">'+badges+'</div>':'')+
+              '<p class="desc">'+s.desc+'</p>'+
             '</div>'+
-            '<div class="school-meta">'+
-              '<span class="area-tag">'+s.area+'</span>'+
-              '<span class="type-tag">'+s.type+'</span>'+
+            '<div class="card-footer">'+
+              '<span class="loc">COP: '+(s.cop!==null?s.cop:'N/A')+'</span>'+
+              (s.link?'<span class="arrow">查看详情 →</span>':'')+
             '</div>'+
-            (badges?'<div class="program-badges">'+badges+'</div>':'')+
-            '<p class="desc">'+s.desc+'</p>'+
           '</div>'
         }).join('');
       }

@@ -28,9 +28,9 @@
   </g>
   <polygon class="brand-gold" points="346,105 356,87 366,105"/>
 
-  <line x1="408" y1="35" x2="408" y2="115" class="brand-gold-stroke" stroke-width="2"/>
+  <line x1="408" y1="44" x2="408" y2="116" class="brand-gold-stroke" stroke-width="2"/>
 
   <text x="422" y="58" class="brand-red latin" font-size="24" textLength="300" lengthAdjust="spacingAndGlyphs">SINGAPORE INTERNATIONAL EDUCATIONAL</text>
   <line x1="422" y1="72" x2="722" y2="72" class="brand-gold-stroke" stroke-width="1.5"/>
-  <text x="422" y="108" class="brand-red chinese" font-size="28" textLength="250" lengthAdjust="spacingAndGlyphs">新加坡国际教育平台</text>
+  <text x="422" y="108" class="brand-red chinese" font-size="28" textLength="300" lengthAdjust="spacingAndGlyphs">新加坡国际教育平台</text>
 </svg>

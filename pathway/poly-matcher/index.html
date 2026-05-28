@@ -49,8 +49,8 @@
   <style>
     /* ── CSS Variables (SEDA theme) ── */
     :root {
-      --brand: #c62828;
-      --brand-light: #fca5a5;
+      --brand: #1a73e8;
+      --brand-light: #a8c7fa;
       --ink: #1a1a2e;
       --muted: #6b7280;
       --wash: #f8f9fa;
@@ -137,7 +137,7 @@
       content: "";
       position: absolute; top: 0; right: 0;
       width: 400px; height: 400px;
-      background: radial-gradient(circle, rgba(198,40,40,0.25), transparent 70%);
+      background: radial-gradient(circle, rgba(26,115,232,0.25), transparent 70%);
       border-radius: 50%;
       filter: blur(80px);
       pointer-events: none;
@@ -150,7 +150,7 @@
       font-size: 12px; font-weight: 600; letter-spacing: 0.06em;
       color: var(--brand-light);
       margin-bottom: 20px;
-      background: rgba(198,40,40,0.15);
+      background: rgba(26,115,232,0.15);
     }
     .matcher-hero .eyebrow::before {
       content: ""; width: 6px; height: 6px;
@@ -234,7 +234,7 @@
       transition: border-color 0.2s;
     }
     .subject-row:hover { border-color: var(--line); }
-    .subject-row.has-grade { border-color: var(--brand); background: #fff5f5; }
+    .subject-row.has-grade { border-color: var(--brand); background: #eef4ff; }
     .subject-name { flex: 1; font-size: 13px; font-weight: 500; }
     .subject-name small { display: block; font-weight: 400; color: var(--muted); font-size: 11px; }
     .grade-select {
@@ -255,7 +255,7 @@
       background: #fff;
     }
     .interest-card:hover { border-color: var(--brand); transform: translateY(-2px); }
-    .interest-card.selected { border-color: var(--brand); background: #fff5f5; box-shadow: 0 0 0 3px rgba(198,40,40,0.1); }
+    .interest-card.selected { border-color: var(--brand); background: #eef4ff; box-shadow: 0 0 0 3px rgba(26,115,232,0.1); }
     .interest-card .ic-icon { font-size: 28px; margin-bottom: 8px; }
     .interest-card .ic-label { font-size: 14px; font-weight: 700; }
     .interest-card .ic-sub { font-size: 11px; color: var(--muted); margin-top: 4px; }
@@ -303,7 +303,7 @@
     .result-sub { font-size: 14px; color: var(--muted); margin-bottom: 24px; }
 
     .score-breakdown {
-      background: linear-gradient(135deg, #fef2f2, #fff7ed);
+      background: linear-gradient(135deg, #e8f0fe, #fff7ed);
       border: 1px solid #fecaca; border-radius: 12px;
       padding: 16px 20px; margin-bottom: 24px;
     }
@@ -340,7 +340,7 @@
     .poly-group-header .pg-name span { font-size: 12px; color: var(--muted); }
     .poly-group-header .pg-count {
       font-size: 13px; font-weight: 700; color: var(--brand);
-      background: #fef2f2; padding: 4px 12px; border-radius: 100px;
+      background: #e8f0fe; padding: 4px 12px; border-radius: 100px;
     }
     .poly-group-header .pg-toggle {
       font-size: 18px; color: var(--muted); transition: transform 0.2s;
@@ -357,7 +357,7 @@
       transition: background 0.15s;
     }
     .course-row:last-child { border-bottom: none; }
-    .course-row:hover { background: #fef2f2; }
+    .course-row:hover { background: #e8f0fe; }
     .course-row .cr-cat {
       font-size: 10px; font-weight: 600; color: var(--muted);
       background: var(--wash); padding: 3px 8px; border-radius: 4px;
@@ -377,7 +377,7 @@
     }
     .badge-safe { background: #dcfce7; color: #166534; }
     .badge-reach { background: #fef9c3; color: #854d0e; }
-    .badge-risk { background: #fee2e2; color: #991b1b; }
+    .badge-risk { background: #d2e3fc; color: #0d47a1; }
 
     .no-results {
       text-align: center; padding: 40px 20px; color: var(--muted);
@@ -405,7 +405,7 @@
       padding: 10px 14px; border-bottom: 1px solid var(--line);
     }
     .cop-table tr:last-child td { border-bottom: none; }
-    .cop-table tr:hover td { background: #fef2f2; }
+    .cop-table tr:hover td { background: #e8f0fe; }
     .cop-range { font-weight: 700; color: var(--brand); }
 
     /* ── FAQ ── */
@@ -536,7 +536,7 @@
     }
     .cop-level-hard .cop-level-range { color: #dc2626; }
     .cop-level-hard .cop-level-bar { background: linear-gradient(90deg, #dc2626, #f87171); }
-    .cop-level-hard { border-color: #fecaca; background: #fef2f2; }
+    .cop-level-hard { border-color: #fecaca; background: #e8f0fe; }
     .cop-level-mid .cop-level-range { color: #d97706; }
     .cop-level-mid .cop-level-bar { background: linear-gradient(90deg, #d97706, #fbbf24); }
     .cop-level-mid { border-color: #fde68a; background: #fffbeb; }
@@ -633,11 +633,11 @@
     }
     .rs-card.rs-safe { background: #dcfce7; }
     .rs-card.rs-reach { background: #fef9c3; }
-    .rs-card.rs-risk { background: #fee2e2; }
+    .rs-card.rs-risk { background: #d2e3fc; }
     .rs-card .rs-num { font-size: 24px; font-weight: 900; }
     .rs-card.rs-safe .rs-num { color: #166534; }
     .rs-card.rs-reach .rs-num { color: #854d0e; }
-    .rs-card.rs-risk .rs-num { color: #991b1b; }
+    .rs-card.rs-risk .rs-num { color: #0d47a1; }
     .rs-card .rs-label { font-size: 11px; color: var(--muted); margin-top: 2px; }
 
     /* ── Disclaimer Banner ── */

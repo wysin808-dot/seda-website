@@ -1,22 +1,38 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 578 72">
-  <!-- SEDA letters from Avenir Medium -->
-  <g>
-    <path d="M112 148Q138 109 178.5 90.5Q219 72 262 72Q286 72 311.0 79.5Q336 87 356.5 102.0Q377 117 390.0 139.0Q403 161 403 190Q403 231 377.0 252.5Q351 274 312.5 288.5Q274 303 228.5 316.5Q183 330 144.5 354.0Q106 378 80.0 418.5Q54 459 54 528Q54 559 67.5 594.0Q81 629 110.0 658.0Q139 687 184.5 706.5Q230 726 294 726Q352 726 405.0 710.0Q458 694 498 645L420 574Q402 602 369.0 619.0Q336 636 294 636Q254 636 227.5 625.5Q201 615 185.0 598.5Q169 582 162.5 563.0Q156 544 156 528Q156 483 182.0 459.0Q208 435 246.5 420.0Q285 405 330.5 393.0Q376 381 414.5 359.5Q453 338 479.0 301.5Q505 265 505 201Q505 150 485.5 109.0Q466 68 433.0 40.0Q400 12 355.0 -3.0Q310 -18 259 -18Q191 -18 130.0 6.0Q69 30 33 80Z" transform="translate(0, 50) scale(0.05, -0.05)" fill="#8b1a1a"/>
-    <path d="M91 708H548V618H187V407H523V317H187V90H566V0H91Z" transform="translate(31.8, 50) scale(0.05, -0.05)" fill="#8b1a1a"/>
-    <path d="M75 708H322Q397 708 453.5 691.0Q510 674 551.5 645.5Q593 617 620.5 580.0Q648 543 664.0 504.0Q680 465 687.0 426.0Q694 387 694 354Q694 286 669.0 222.5Q644 159 595.0 109.5Q546 60 473.5 30.0Q401 0 306 0H75ZM171 90H292Q353 90 407.5 106.5Q462 123 503.0 156.0Q544 189 568.0 238.5Q592 288 592 354Q592 388 581.0 433.5Q570 479 539.5 520.0Q509 561 455.0 589.5Q401 618 315 618H171Z" transform="translate(66.3, 50) scale(0.05, -0.05)" fill="#8b1a1a"/>
-    <path d="M313 708 H400 L703 0 H591 L383 580 L349 580 L113 0 H1 Z" transform="translate(107.4, 50) scale(0.05, -0.05)" fill="#8b1a1a"/>
-    <polygon fill="#c8a84e" points="125.2,13.6 134.2,26.6 116.2,26.6"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 730 154" role="img" aria-labelledby="seda-title">
+  <title id="seda-title">SEDA International Education</title>
+  <defs>
+    <style>
+      .brand-red { fill: #c90016; }
+      .brand-red-stroke { stroke: #c90016; }
+      .brand-gold { fill: #c6923a; }
+      .brand-gold-stroke { stroke: #c6923a; }
+      .gray { fill: #62676d; }
+      .latin {
+        font-family: "Montserrat", "Avenir Next", "Helvetica Neue", Arial, sans-serif;
+        font-weight: 700;
+        letter-spacing: 0;
+      }
+      .chinese {
+        font-family: "PingFang SC", "Noto Sans CJK SC", "Microsoft YaHei", sans-serif;
+        font-weight: 700;
+        letter-spacing: 0;
+      }
+    </style>
+  </defs>
+
+  <g aria-label="SEDA" class="brand-red-stroke" fill="none" stroke-width="10" stroke-linecap="square" stroke-linejoin="miter">
+    <path d="M108 44H55C45 44 39 50 39 60C39 70 45 76 55 76H99C111 76 119 84 119 96C119 108 111 116 99 116H39"/>
+    <path d="M137 44H202M137 80H193M137 116H202"/>
+    <path d="M222 44H267C289 44 306 60 306 80C306 100 289 116 267 116H222V44Z"/>
+    <path d="M318 116L356 44L394 116"/>
   </g>
+  <polygon class="brand-gold" points="346,105 356,87 366,105"/>
 
-  <!-- Vertical divider -->
-  <line x1="157.6" y1="4" x2="157.6" y2="66" stroke="#c0c0c0" stroke-width="1"/>
+  <line x1="422" y1="29" x2="422" y2="128" class="brand-gold-stroke" stroke-width="2"/>
 
-  <!-- INTERNATIONAL -->
-  <text x="173.6" y="22" font-family="'Times New Roman', 'Georgia', serif" font-weight="400" font-size="18" fill="#8b1a1a" letter-spacing="4.5">INTERNATIONAL</text>
-  <!-- EDUCATION -->
-  <text x="173.6" y="42" font-family="'Times New Roman', 'Georgia', serif" font-weight="400" font-size="18" fill="#8b1a1a" letter-spacing="4.5">EDUCATION</text>
-  <!-- Chinese -->
-  <text x="173.6" y="55" font-family="'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif" font-weight="400" font-size="10" fill="#777" letter-spacing="1.2">新加坡国际教育平台</text>
-  <!-- English tagline -->
-  <text x="173.6" y="66" font-family="'Helvetica Neue', 'Arial', sans-serif" font-weight="300" font-size="7.5" fill="#aaa" letter-spacing="1.8">SINGAPORE EDUCATION PATHWAYS</text>
+  <text x="440" y="55" class="brand-red latin" font-size="19.5" textLength="225" lengthAdjust="spacingAndGlyphs">INTERNATIONAL</text>
+  <text x="440" y="88" class="brand-red latin" font-size="19.5" textLength="160" lengthAdjust="spacingAndGlyphs">EDUCATION</text>
+  <line x1="440" y1="102" x2="708" y2="102" class="brand-gold-stroke" stroke-width="2"/>
+  <text x="440" y="128" class="brand-red chinese" font-size="17.5" textLength="230" lengthAdjust="spacingAndGlyphs">新加坡国际教育平台</text>
+  <text x="440" y="144" class="gray latin" font-size="9.5" textLength="220" lengthAdjust="spacingAndGlyphs">SINGAPORE EDUCATION PATHWAYS</text>
 </svg>

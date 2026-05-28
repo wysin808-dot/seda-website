@@ -8,13 +8,13 @@
       .brand-gold-stroke { stroke: #c6923a; }
       .gray { fill: #62676d; }
       .latin {
-        font-family: "Montserrat", "Avenir Next", "Helvetica Neue", Arial, sans-serif;
-        font-weight: 700;
+        font-family: "Times New Roman", "Georgia", serif;
+        font-weight: 400;
         letter-spacing: 0;
       }
       .chinese {
-        font-family: "PingFang SC", "Noto Sans CJK SC", "Microsoft YaHei", sans-serif;
-        font-weight: 700;
+        font-family: "PingFang SC", "Noto Sans SC", "Microsoft YaHei", sans-serif;
+        font-weight: 500;
         letter-spacing: 0;
       }
     </style>

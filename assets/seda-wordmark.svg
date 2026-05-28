@@ -1,29 +1,28 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 72">
-  <!-- SEDA letters -->
-  <g fill="none" stroke="#8b1a1a" stroke-width="8.5">
+  <!-- SEDA letters — solid fill paths -->
+  <g fill="#8b1a1a">
     <!-- S -->
-    <path d="M 30,10 H 16 C 7,10 3,15 3,20 C 3,26 7,28 16,28 H 22 C 31,28 35,33 35,39 C 35,45 31,47 22,47 H 6" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M4,18 C4,9.5 11,4 22,4 L38,4 L38,11 L22,11 C15,11 11,14 11,18 C11,22 14.5,25 22,25 L28,25 C38,25 44,30 44,39 C44,48 37,53 26,53 L6,53 L6,46 L26,46 C33,46 37,43 37,39 C37,35 33.5,32 28,32 L22,32 C11,32 4,27 4,18 Z"/>
     <!-- E -->
-    <path d="M 78,10 H 50 V 47 H 78" stroke-linejoin="miter"/>
-    <line x1="50" y1="28" x2="73" y2="28"/>
+    <path d="M54,4 L92,4 L92,11 L61,11 L61,25 L87,25 L87,32 L61,32 L61,46 L92,46 L92,53 L54,53 Z"/>
     <!-- D -->
-    <path d="M 94,47 V 10 H 110 C 124,10 130,18 130,28 C 130,38 124,47 110,47 Z" stroke-linejoin="miter"/>
+    <path d="M102,4 L124,4 C140,4 150,15 150,28.5 C150,42 140,53 124,53 L102,53 Z M109,11 L109,46 L124,46 C136,46 143,38 143,28.5 C143,19 136,11 124,11 Z"/>
     <!-- A (open top, no crossbar) -->
-    <path d="M 145,47 L 161,10 L 177,47" stroke-linecap="butt"/>
+    <path d="M155,53 L175,4 L182,4 L202,53 L194.5,53 L178.5,14 L162.5,53 Z"/>
   </g>
   <!-- Gold triangle accent on A -->
-  <polygon fill="#c8a84e" points="161,13 168,24 154,24"/>
+  <polygon fill="#c8a84e" points="178.5,10 186,24 171,24"/>
 
   <!-- Vertical divider -->
-  <line x1="200" y1="6" x2="200" y2="66" stroke="#c8c8c8" stroke-width="1"/>
+  <line x1="220" y1="6" x2="220" y2="66" stroke="#c8c8c8" stroke-width="1"/>
 
   <!-- Right side text block -->
   <!-- INTERNATIONAL -->
-  <text x="218" y="23" font-family="'Times New Roman', 'Georgia', 'Noto Serif', serif" font-weight="400" font-size="19" fill="#8b1a1a" letter-spacing="5.5">INTERNATIONAL</text>
+  <text x="238" y="23" font-family="'Times New Roman', 'Georgia', 'Noto Serif', serif" font-weight="400" font-size="19" fill="#8b1a1a" letter-spacing="5.5">INTERNATIONAL</text>
   <!-- EDUCATION -->
-  <text x="218" y="44" font-family="'Times New Roman', 'Georgia', 'Noto Serif', serif" font-weight="400" font-size="19" fill="#8b1a1a" letter-spacing="5.5">EDUCATION</text>
+  <text x="238" y="44" font-family="'Times New Roman', 'Georgia', 'Noto Serif', serif" font-weight="400" font-size="19" fill="#8b1a1a" letter-spacing="5.5">EDUCATION</text>
   <!-- 新加坡国际教育平台 -->
-  <text x="218" y="57" font-family="'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', 'Hiragino Sans GB', sans-serif" font-weight="400" font-size="10" fill="#666" letter-spacing="1.5">新加坡国际教育平台</text>
+  <text x="238" y="57" font-family="'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', 'Hiragino Sans GB', sans-serif" font-weight="400" font-size="10" fill="#666" letter-spacing="1.5">新加坡国际教育平台</text>
   <!-- SINGAPORE EDUCATION PATHWAYS -->
-  <text x="218" y="67" font-family="'Helvetica Neue', 'Arial', sans-serif" font-weight="300" font-size="8" fill="#999" letter-spacing="2">SINGAPORE EDUCATION PATHWAYS</text>
+  <text x="238" y="67" font-family="'Helvetica Neue', 'Arial', sans-serif" font-weight="300" font-size="8" fill="#999" letter-spacing="2">SINGAPORE EDUCATION PATHWAYS</text>
 </svg>

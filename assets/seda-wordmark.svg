@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 710 130" role="img" aria-labelledby="seda-title">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 740 130" role="img" aria-labelledby="seda-title">
   <title id="seda-title">SEDA International Education</title>
   <defs>
     <style>
@@ -30,6 +30,7 @@
 
   <line x1="422" y1="38" x2="422" y2="110" class="brand-gold-stroke" stroke-width="2"/>
 
-  <text x="440" y="65" class="brand-red latin" font-size="16" textLength="268" lengthAdjust="spacingAndGlyphs">SINGAPORE INTERNATIONAL EDUCATIONAL</text>
-  <text x="440" y="100" class="brand-red chinese" font-size="18" textLength="180" lengthAdjust="spacingAndGlyphs">新加坡国际教育平台</text>
+  <text x="440" y="60" class="brand-red latin" font-size="20" textLength="290" lengthAdjust="spacingAndGlyphs">SINGAPORE INTERNATIONAL EDUCATIONAL</text>
+  <line x1="440" y1="74" x2="730" y2="74" class="brand-gold-stroke" stroke-width="1.5"/>
+  <text x="440" y="105" class="brand-red chinese" font-size="22" textLength="230" lengthAdjust="spacingAndGlyphs">新加坡国际教育平台</text>
 </svg>

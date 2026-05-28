@@ -100,11 +100,15 @@
       .ps-stat .num{display:block;font-size:2rem;font-weight:800;color:var(--brand,#1a56db);line-height:1.1}
       .ps-stat .label{font-size:.85rem;color:#555;margin-top:.25rem}
 
-      .ps-filter-bar{display:flex;flex-wrap:wrap;gap:.75rem;margin:1.5rem 0;padding:1rem 1.2rem;background:#f8f9fb;border-radius:10px;border:1px solid #e2e6ee;align-items:center}
-      .ps-filter-bar input[type="text"]{flex:2;min-width:200px;padding:.6rem 1rem;border:1px solid #d0d5dd;border-radius:8px;font-size:.95rem;outline:none;transition:border-color .2s}
-      .ps-filter-bar input[type="text"]:focus{border-color:var(--brand,#1a56db);box-shadow:0 0 0 3px rgba(26,86,219,.12)}
-      .ps-filter-bar select{flex:1;min-width:140px;padding:.6rem .8rem;border:1px solid #d0d5dd;border-radius:8px;font-size:.9rem;background:#fff;cursor:pointer}
-      .ps-filter-bar .filter-count{font-size:.85rem;color:#666;margin-left:auto;white-space:nowrap}
+      .ps-filter-bar{display:flex;flex-direction:column;gap:.75rem;margin:1.5rem 0;padding:1.2rem 1.4rem;background:#f8f9fb;border-radius:12px;border:1px solid #e2e6ee}
+      .ps-search-row{display:flex;gap:0;width:100%}
+      .ps-search-row input[type="text"]{flex:1;padding:.85rem 1.2rem .85rem 3rem;border:1.5px solid #d0d5dd;border-radius:10px;font-size:1.05rem;outline:none;transition:border-color .2s,box-shadow .2s;background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%23999' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cline x1='21' y1='21' x2='16.65' y2='16.65'/%3E%3C/svg%3E") 1rem center no-repeat}
+      .ps-search-row input[type="text"]:focus{border-color:#c90016;box-shadow:0 0 0 3px rgba(201,0,22,.1)}
+      .ps-search-row input[type="text"]::placeholder{color:#aaa}
+      .ps-filters-row{display:flex;flex-wrap:wrap;gap:.6rem;align-items:center}
+      .ps-filters-row select{flex:1;min-width:140px;padding:.65rem .9rem;border:1.5px solid #d0d5dd;border-radius:8px;font-size:.9rem;background:#fff;cursor:pointer;color:#344054;transition:border-color .2s}
+      .ps-filters-row select:focus{border-color:#c90016;outline:none}
+      .ps-filter-bar .filter-count{font-size:.85rem;color:#888;margin-left:auto;white-space:nowrap}
 
       .ps-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1rem;margin:1.5rem 0}
       .ps-card{background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:1.2rem 1.4rem;transition:box-shadow .2s,transform .15s;position:relative;overflow:hidden}
@@ -172,8 +176,8 @@
 
       @media(max-width:768px){
         .ps-grid{grid-template-columns:1fr}
-        .ps-filter-bar{flex-direction:column}
-        .ps-filter-bar input[type="text"],.ps-filter-bar select{width:100%}
+        .ps-filters-row{flex-direction:column}
+        .ps-filters-row select{width:100%;min-width:0}
         .ps-stats-bar{flex-direction:column}
         .ps-stat{min-width:auto}
       }
@@ -329,26 +333,27 @@
 
           <!-- Filter Bar -->
           <div class="ps-filter-bar">
-            <div style="flex:2;min-width:200px;display:flex;gap:0">
-              <input type="text" id="psSearch" placeholder="搜索学校名称（中文/英文）..." style="flex:1;border-radius:8px 0 0 8px;border-right:none" />
-              <button type="button" id="psSearchBtn" style="padding:.6rem 1rem;background:#c62828;color:#fff;border:1px solid #c62828;border-radius:0 8px 8px 0;font-size:.9rem;cursor:pointer;white-space:nowrap;font-weight:600">搜索</button>
+            <div class="ps-search-row">
+              <input type="text" id="psSearch" placeholder="输入学校名称搜索（支持中文/英文）..." />
             </div>
-            <select id="psArea">
-              <option value="">全部区域</option>
-            </select>
-            <select id="psTier">
-              <option value="">全部梯队</option>
-              <option value="1">Tier 1 顶尖名校</option>
-              <option value="2">Tier 2 优质学校</option>
-              <option value="3">Tier 3 良好社区校</option>
-              <option value="4">Tier 4 发展中学校</option>
-            </select>
-            <select id="psProgram">
-              <option value="">全部类型</option>
-              <option value="GEP">GEP 高才班</option>
-              <option value="SAP">SAP 特选</option>
-            </select>
-            <span class="filter-count" id="psCount">显示 179 / 179 所</span>
+            <div class="ps-filters-row">
+              <select id="psArea">
+                <option value="">📍 全部区域</option>
+              </select>
+              <select id="psTier">
+                <option value="">🏅 全部梯队</option>
+                <option value="1">Tier 1 顶尖名校</option>
+                <option value="2">Tier 2 优质学校</option>
+                <option value="3">Tier 3 良好社区校</option>
+                <option value="4">Tier 4 发展中学校</option>
+              </select>
+              <select id="psProgram">
+                <option value="">🏷️ 全部类型</option>
+                <option value="GEP">GEP 高才班</option>
+                <option value="SAP">SAP 特选</option>
+              </select>
+              <span class="filter-count" id="psCount">显示 179 / 179 所</span>
+            </div>
           </div>
 
           <!-- View toggle -->
@@ -1159,7 +1164,7 @@
 
       document.getElementById("psSearch").addEventListener("input",applyFilters);
       document.getElementById("psSearch").addEventListener("keydown",function(e){if(e.key==="Enter")applyFilters()});
-      document.getElementById("psSearchBtn").addEventListener("click",applyFilters);
+      // psSearchBtn removed — search triggers on input/enter
       areaSel.addEventListener("change",applyFilters);
       document.getElementById("psTier").addEventListener("change",applyFilters);
       document.getElementById("psProgram").addEventListener("change",applyFilters);

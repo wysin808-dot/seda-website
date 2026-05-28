@@ -100,10 +100,15 @@
       .stat-item .num{font-size:2rem;font-weight:800;color:var(--brand,#e85d04);line-height:1.1}
       .stat-item .label{font-size:.82rem;color:var(--text-muted,#6c757d);margin-top:.2rem}
 
-      .filter-bar{display:flex;gap:.8rem;flex-wrap:wrap;margin-bottom:1.5rem;align-items:stretch}
-      .filter-bar input[type="text"]{flex:1;padding:.7rem 1rem;border:1px solid var(--border,#ddd);border-radius:8px;font-size:.95rem}
-      .filter-bar select{flex:1;min-width:140px;padding:.7rem .8rem;border:1px solid var(--border,#ddd);border-radius:8px;font-size:.9rem;background:#fff;cursor:pointer}
-      .filter-bar input:focus,.filter-bar select:focus{outline:none;border-color:var(--brand,#e85d04);box-shadow:0 0 0 3px rgba(232,93,4,.12)}
+      .filter-bar{display:flex;flex-direction:column;gap:.75rem;margin-bottom:1.5rem;padding:1.2rem 1.4rem;background:#f8f9fb;border-radius:12px;border:1px solid #e2e6ee}
+      .ss-search-row{display:flex;gap:0;width:100%}
+      .ss-search-row input[type="text"]{flex:1;padding:.85rem 1.2rem .85rem 3rem;border:1.5px solid #d0d5dd;border-radius:10px;font-size:1.05rem;outline:none;transition:border-color .2s,box-shadow .2s;background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%23999' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cline x1='21' y1='21' x2='16.65' y2='16.65'/%3E%3C/svg%3E") 1rem center no-repeat}
+      .ss-search-row input[type="text"]:focus{border-color:#c90016;box-shadow:0 0 0 3px rgba(201,0,22,.1)}
+      .ss-search-row input[type="text"]::placeholder{color:#aaa}
+      .ss-filters-row{display:flex;flex-wrap:wrap;gap:.6rem;align-items:center}
+      .ss-filters-row select{flex:1;min-width:140px;padding:.65rem .9rem;border:1.5px solid #d0d5dd;border-radius:8px;font-size:.9rem;background:#fff;cursor:pointer;color:#344054;transition:border-color .2s}
+      .ss-filters-row select:focus{outline:none;border-color:#c90016}
+      .filter-bar .results-count-inline{font-size:.85rem;color:#888;margin-left:auto;white-space:nowrap}
 
       .results-count{font-size:.9rem;color:var(--text-muted,#6c757d);margin-bottom:1rem}
 
@@ -151,8 +156,8 @@
 
       @media(max-width:768px){
         .school-grid{grid-template-columns:1fr}
-        .filter-bar{flex-direction:column}
-        .filter-bar input[type="text"],.filter-bar select{min-width:100%}
+        .ss-filters-row{flex-direction:column}
+        .ss-filters-row select{min-width:100%}
         .stats-bar{gap:.8rem;padding:1rem}
         .stat-item .num{font-size:1.5rem}
         .zone-grid{grid-template-columns:1fr}
@@ -304,34 +309,36 @@
 
           <!-- Filters -->
           <div class="filter-bar">
-            <div style="display:flex;gap:0;flex:2;min-width:200px">
-              <input type="text" id="searchInput" placeholder="搜索学校名称（中文/英文）..." aria-label="搜索学校" style="flex:1;border-radius:8px 0 0 8px;border-right:none" />
-              <button type="button" id="ssSearchBtn" style="padding:.6rem 1rem;background:#c62828;color:#fff;border:1px solid #c62828;border-radius:0 8px 8px 0;font-size:.9rem;cursor:pointer;white-space:nowrap;font-weight:600">搜索</button>
+            <div class="ss-search-row">
+              <input type="text" id="searchInput" placeholder="🔍 输入学校名称搜索（中文 / 英文均可）..." aria-label="搜索学校" />
             </div>
-            <select id="areaFilter" aria-label="按地区筛选">
-              <option value="">全部地区</option>
-            </select>
-            <select id="programFilter" aria-label="按特色项目筛选">
-              <option value="">全部项目</option>
-              <option value="IP">IP 直通车</option>
-              <option value="SAP">SAP 特选</option>
-            </select>
-            <select id="copFilter" aria-label="按 COP 范围筛选">
-              <option value="">全部 COP</option>
-              <option value="4-9">精英校 (COP 4-9)</option>
-              <option value="10-14">优质校 (COP 10-14)</option>
-              <option value="15-18">中等校 (COP 15-18)</option>
-              <option value="19-22">社区校 (COP 19-22)</option>
-              <option value="null">特殊招生 (无COP)</option>
-            </select>
-            <select id="typeFilter" aria-label="按学校类型筛选">
-              <option value="">全部类型</option>
-              <option value="Independent">独立学校</option>
-              <option value="Autonomous">自主学校</option>
-              <option value="Government-Aided">政府资助</option>
-              <option value="Government">政府学校</option>
-              <option value="Specialised">专科学校</option>
-            </select>
+            <div class="ss-filters-row">
+              <select id="areaFilter" aria-label="按地区筛选">
+                <option value="">📍 全部地区</option>
+              </select>
+              <select id="programFilter" aria-label="按特色项目筛选">
+                <option value="">🎯 全部项目</option>
+                <option value="IP">IP 直通车</option>
+                <option value="SAP">SAP 特选</option>
+              </select>
+              <select id="copFilter" aria-label="按 COP 范围筛选">
+                <option value="">📊 全部 COP</option>
+                <option value="4-9">精英校 (COP 4-9)</option>
+                <option value="10-14">优质校 (COP 10-14)</option>
+                <option value="15-18">中等校 (COP 15-18)</option>
+                <option value="19-22">社区校 (COP 19-22)</option>
+                <option value="null">特殊招生 (无COP)</option>
+              </select>
+              <select id="typeFilter" aria-label="按学校类型筛选">
+                <option value="">🏫 全部类型</option>
+                <option value="Independent">独立学校</option>
+                <option value="Autonomous">自主学校</option>
+                <option value="Government-Aided">政府资助</option>
+                <option value="Government">政府学校</option>
+                <option value="Specialised">专科学校</option>
+              </select>
+              <span class="results-count-inline" id="resultsCountInline"></span>
+            </div>
           </div>
           <p class="results-count" id="resultsCount"></p>
 
@@ -1015,6 +1022,7 @@
       const grid     = document.getElementById('schoolGrid');
       const noRes    = document.getElementById('noResults');
       const resCnt   = document.getElementById('resultsCount');
+      const resCntInline = document.getElementById('resultsCountInline');
       const search   = document.getElementById('searchInput');
       const areaF    = document.getElementById('areaFilter');
       const progF    = document.getElementById('programFilter');
@@ -1034,9 +1042,10 @@
       function copLabel(c){return c===null?'N/A':c}
 
       function renderCards(list){
-        if(!list.length){grid.innerHTML='';noRes.style.display='block';resCnt.textContent='未找到符合条件的学校';return}
+        if(!list.length){grid.innerHTML='';noRes.style.display='block';resCnt.textContent='未找到符合条件的学校';if(resCntInline)resCntInline.textContent='0 / '+schools.length;return}
         noRes.style.display='none';
         resCnt.textContent='显示 '+list.length+' 所学校（共 '+schools.length+' 所）';
+        if(resCntInline)resCntInline.textContent=list.length+' / '+schools.length+' 所';
         grid.innerHTML=list.map(s=>{
           let badges='';
           s.programs.forEach(p=>{badges+='<span class="badge-'+p.toLowerCase()+'">'+p+'</span>'});
@@ -1076,7 +1085,6 @@
       window._applyFilters = applyFilters;
       search.addEventListener('input',applyFilters);
       search.addEventListener('keydown',function(e){if(e.key==='Enter')applyFilters()});
-      document.getElementById('ssSearchBtn').addEventListener('click',applyFilters);
       areaF.addEventListener('change',applyFilters);
       progF.addEventListener('change',applyFilters);
       copF.addEventListener('change',applyFilters);

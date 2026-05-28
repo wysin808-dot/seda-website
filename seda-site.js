@@ -69,3 +69,17 @@ if (!document.querySelector(".wechat-float")) {
     });
   });
 })();
+
+/* ── Scroll CTA Popup ── */
+(function(){
+  var shown = false;
+  window.addEventListener('scroll', function(){
+    if (shown) return;
+    var scrollPct = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight);
+    if (scrollPct > 0.4) {
+      shown = true;
+      var el = document.getElementById('scrollCta');
+      if (el) el.style.display = 'flex';
+    }
+  });
+})();

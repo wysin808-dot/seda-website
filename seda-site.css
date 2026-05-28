@@ -201,14 +201,20 @@ select {
   padding: clamp(54px, 8vw, 92px) clamp(20px, 6vw, 80px) 50px;
   overflow: hidden;
   border-bottom: 1px solid var(--line);
-  background: linear-gradient(160deg, #fff5f5 0%, #ffffff 40%, #fef2f2 100%);
+  background: linear-gradient(135deg, rgba(26,10,12,0.7), rgba(139,0,0,0.55)), url('https://images.unsplash.com/photo-1496939376851-89342e90adcd?w=1920&q=80') center/cover no-repeat;
 }
 
 .hero-content {
   position: relative;
   max-width: 920px;
-  color: var(--ink);
+  color: #fff;
 }
+.hero .eyebrow { color: rgba(255,255,255,0.85); }
+.hero h1 { color: #fff; text-shadow: 0 2px 12px rgba(0,0,0,0.3); }
+.hero .hero-subtitle { color: rgba(255,255,255,0.9); }
+.hero .hero-proof span { background: rgba(255,255,255,0.15); color: #fff; border-color: rgba(255,255,255,0.25); }
+.hero .secondary-button { background: transparent; color: #fff; border-color: rgba(255,255,255,0.5); }
+.hero .secondary-button:hover { background: rgba(255,255,255,0.1); border-color: #fff; }
 
 .hero-brief {
   display: grid;
@@ -447,6 +453,83 @@ select {
   text-decoration: none;
 }
 
+/* ── Platform Grid ── */
+.platform-grid {
+  padding: 60px clamp(20px, 6vw, 80px) 50px;
+  background: #fff;
+}
+.platform-grid .section-head {
+  text-align: center;
+  margin-bottom: 36px;
+}
+.platform-grid h2 {
+  font-size: clamp(22px, 3vw, 30px);
+  font-weight: 800;
+  color: var(--ink);
+}
+.pgrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+.pgrid-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 28px 20px 24px;
+  border: 1px solid var(--line, #e2e5e9);
+  border-radius: 16px;
+  background: #fff;
+  text-decoration: none;
+  color: var(--ink);
+  transition: all 0.25s;
+}
+.pgrid-card:hover {
+  border-color: var(--brand, #c62828);
+  box-shadow: 0 8px 32px rgba(198,40,40,0.1);
+  transform: translateY(-4px);
+  text-decoration: none;
+}
+.pgrid-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  margin-bottom: 14px;
+}
+.pgrid-card h3 {
+  font-size: 16px;
+  font-weight: 800;
+  margin: 0 0 6px;
+  color: var(--ink);
+}
+.pgrid-card p {
+  font-size: 13px;
+  color: var(--muted, #6c757d);
+  margin: 0;
+  line-height: 1.5;
+}
+@media (max-width: 768px) {
+  .pgrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+  .pgrid-card {
+    padding: 20px 14px 18px;
+  }
+  .pgrid-icon {
+    width: 48px;
+    height: 48px;
+    font-size: 24px;
+  }
+}
+
 .eyebrow {
   margin: 0 0 10px;
   color: var(--brand);
@@ -454,10 +537,6 @@ select {
   font-weight: 800;
   letter-spacing: 0;
   text-transform: uppercase;
-}
-
-.hero .eyebrow {
-  color: var(--brand);
 }
 
 h1,
@@ -2690,6 +2769,80 @@ details summary:focus-visible {
 /* ── Body Lock When Nav Open ── */
 body.nav-drawer-open {
   overflow: hidden;
+}
+
+/* ── Scroll CTA Popup ── */
+.scroll-cta-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.3s ease;
+}
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+.scroll-cta-box {
+  position: relative;
+  background: #fff;
+  border-radius: 20px;
+  padding: 40px 36px 32px;
+  max-width: 380px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+}
+.scroll-cta-close {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: #999;
+  cursor: pointer;
+  line-height: 1;
+}
+.scroll-cta-close:hover { color: #333; }
+.scroll-cta-icon {
+  font-size: 48px;
+  margin-bottom: 12px;
+}
+.scroll-cta-box h3 {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--ink, #1a1a2e);
+  margin: 0 0 8px;
+}
+.scroll-cta-box p {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.7;
+  margin: 0 0 20px;
+}
+.scroll-cta-btn {
+  display: inline-block;
+  padding: 12px 32px;
+  background: #c62828;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 700;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+.scroll-cta-btn:hover { background: #b91c1c; text-decoration: none; color: #fff; }
+.scroll-cta-channels {
+  margin-top: 16px;
+  font-size: 13px;
+  color: #999;
+}
+.scroll-cta-channels a {
+  color: #c62828;
+  font-weight: 600;
+  text-decoration: none;
+  margin: 0 6px;
 }
 
 /* ── Print Styles ── */

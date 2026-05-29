@@ -1390,6 +1390,13 @@ main > section:not(.hero) {
 .content-hero .breadcrumb a { color: rgba(255,255,255,0.8); }
 .content-hero .breadcrumb span { color: rgba(255,255,255,0.6); }
 
+/* Standalone content-hero (content-body pages, no page-hero): the body is a
+   narrower 880px centered column, so align the hero text to that instead of 1240px */
+.content-hero:not(.page-hero) {
+  padding-left: max(clamp(20px, 6vw, 40px), calc((100% - 880px) / 2 + 40px));
+  padding-right: max(clamp(20px, 6vw, 40px), calc((100% - 880px) / 2 + 40px));
+}
+
 /* Category variants — compound selector for specificity over .page-hero */
 .content-hero.hero-exam {
   background: linear-gradient(135deg, rgba(42,18,21,0.82), rgba(26,35,50,0.7)),
@@ -1416,18 +1423,30 @@ main > section:not(.hero) {
     url('/assets/hero-students.jpg') center/cover no-repeat;
 }
 
-/* Backward compat */
+/* School profile hero — compound selectors (0-2-0) so bg image and padding
+   beat the later .page-hero light-gradient + padding-shorthand rules */
+.page-hero.school-hero,
 .school-hero {
-  background: linear-gradient(135deg, rgba(42,18,21,0.82), rgba(26,35,50,0.75)),
-    url('/assets/school-hero-bg.jpg') center/cover no-repeat;
   color: #fff;
-  padding: clamp(40px, 6vw, 72px) clamp(20px, 4vw, 56px);
+  padding-top: clamp(40px, 6vw, 72px);
+  padding-bottom: clamp(40px, 6vw, 72px);
+  padding-left: max(clamp(20px, 6vw, 56px), calc((100% - 1240px) / 2 + 80px));
+  padding-right: max(clamp(20px, 6vw, 56px), calc((100% - 1240px) / 2 + 80px));
   min-height: 220px;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+  align-items: flex-start;
+  border-bottom: 0;
 }
-.school-hero .eyebrow { color: rgba(255,255,255,0.7); margin-bottom: 10px; }
+.page-hero.school-hero,
+.school-hero {
+  background: linear-gradient(135deg, rgba(42,18,21,0.82), rgba(26,35,50,0.75)),
+    url('/assets/school-hero-bg.jpg') center/cover no-repeat;
+}
+.school-hero::after { display: none; }
+.page-hero.school-hero .eyebrow,
+.school-hero .eyebrow { color: rgba(255,255,255,0.9); margin-bottom: 10px; background: rgba(255,255,255,0.18); backdrop-filter: blur(4px); }
 .school-hero h1 { color: #fff; text-shadow: 0 2px 12px rgba(0,0,0,0.25); }
 .school-hero .hero-subtitle { color: rgba(255,255,255,0.85); }
 

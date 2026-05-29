@@ -1367,6 +1367,7 @@ main > section:not(.hero) {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+  align-items: flex-start; /* left-align text (some heroes inherit align-items:center) */
   border-bottom: 0;
   /* Fallback background so standalone .content-hero (no variant class) is never white-on-white */
   background: linear-gradient(135deg, var(--deep) 0%, var(--brand-strong) 100%);

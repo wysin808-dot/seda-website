@@ -1349,8 +1349,48 @@ main > section:not(.hero) {
   color: var(--muted);
 }
 
-/* ── School Profile Hero Banner ── */
+/* ── Content Hero Banners ── */
 
+.content-hero {
+  color: #fff;
+  padding: clamp(48px, 7vw, 80px) clamp(20px, 4vw, 56px);
+  min-height: 240px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.content-hero .eyebrow { color: rgba(255,255,255,0.75); margin-bottom: 10px; }
+.content-hero h1 { color: #fff; text-shadow: 0 2px 16px rgba(0,0,0,0.3); }
+.content-hero .hero-subtitle { color: rgba(255,255,255,0.88); }
+
+/* Category variants */
+.hero-exam {
+  background: linear-gradient(135deg, rgba(42,18,21,0.82), rgba(26,35,50,0.7)),
+    url('/assets/hero-study.jpg') center/cover no-repeat;
+}
+
+.hero-school {
+  background: linear-gradient(135deg, rgba(42,18,21,0.82), rgba(26,35,50,0.75)),
+    url('/assets/school-hero-bg.jpg') center/cover no-repeat;
+}
+
+.hero-pathway {
+  background: linear-gradient(135deg, rgba(15,26,46,0.8), rgba(42,18,21,0.65)),
+    url('/assets/hero-graduation.jpg') center/cover no-repeat;
+}
+
+.hero-guide {
+  background: linear-gradient(135deg, rgba(42,18,21,0.78), rgba(15,26,46,0.72)),
+    url('/assets/hero-campus.jpg') center/cover no-repeat;
+}
+
+.hero-student {
+  background: linear-gradient(135deg, rgba(26,35,50,0.8), rgba(42,18,21,0.65)),
+    url('/assets/hero-students.jpg') center/cover no-repeat;
+}
+
+/* Backward compat */
 .school-hero {
   background: linear-gradient(135deg, rgba(42,18,21,0.82), rgba(26,35,50,0.75)),
     url('/assets/school-hero-bg.jpg') center/cover no-repeat;
@@ -1361,19 +1401,122 @@ main > section:not(.hero) {
   flex-direction: column;
   justify-content: flex-end;
 }
+.school-hero .eyebrow { color: rgba(255,255,255,0.7); margin-bottom: 10px; }
+.school-hero h1 { color: #fff; text-shadow: 0 2px 12px rgba(0,0,0,0.25); }
+.school-hero .hero-subtitle { color: rgba(255,255,255,0.85); }
 
-.school-hero .eyebrow {
-  color: rgba(255,255,255,0.7);
-  margin-bottom: 10px;
+/* ── Article Visual Enhancements ── */
+
+.content-main h2 {
+  position: relative;
+  padding-left: 18px;
 }
 
-.school-hero h1 {
-  color: #fff;
-  text-shadow: 0 2px 12px rgba(0,0,0,0.25);
+.content-main h2::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 4px;
+  bottom: 4px;
+  width: 4px;
+  border-radius: 2px;
+  background: linear-gradient(180deg, var(--brand), var(--accent));
 }
 
-.school-hero .hero-subtitle {
-  color: rgba(255,255,255,0.85);
+.content-main .visual-break {
+  margin: 40px 0;
+  border-radius: var(--radius);
+  overflow: hidden;
+  height: 200px;
+  background: linear-gradient(135deg, rgba(42,18,21,0.15), rgba(15,26,46,0.1));
+  background-size: cover;
+  background-position: center;
+}
+
+.content-main .info-card {
+  display: flex;
+  gap: 16px;
+  padding: 20px 24px;
+  margin: 24px 0;
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+  background: var(--wash);
+}
+
+.content-main .info-card .ic-icon {
+  font-size: 32px;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.content-main .info-card .ic-body h3 {
+  margin: 0 0 6px;
+  font-size: 16px;
+}
+
+.content-main .info-card .ic-body p {
+  margin: 0;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.content-main .highlight-box {
+  padding: 24px 28px;
+  margin: 28px 0;
+  border-radius: var(--radius);
+  border-left: 4px solid var(--brand);
+  background: linear-gradient(135deg, #fef7f7, #fff);
+}
+
+.content-main .highlight-box.blue {
+  border-left-color: #2563eb;
+  background: linear-gradient(135deg, #eff6ff, #fff);
+}
+
+.content-main .highlight-box.green {
+  border-left-color: #16a34a;
+  background: linear-gradient(135deg, #f0fdf4, #fff);
+}
+
+.content-main .highlight-box.amber {
+  border-left-color: #d97706;
+  background: linear-gradient(135deg, #fffbeb, #fff);
+}
+
+.content-main .highlight-box strong {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 17px;
+}
+
+.content-main .stat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 16px;
+  margin: 28px 0;
+}
+
+.content-main .stat-grid .sg-item {
+  text-align: center;
+  padding: 20px 12px;
+  border-radius: var(--radius);
+  background: var(--wash);
+  border: 1px solid var(--line);
+}
+
+.content-main .stat-grid .sg-num {
+  display: block;
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--brand);
+  line-height: 1.1;
+}
+
+.content-main .stat-grid .sg-label {
+  display: block;
+  margin-top: 6px;
+  font-size: 13px;
+  color: var(--muted);
 }
 
 /* ── Article / Content Page Layout ── */

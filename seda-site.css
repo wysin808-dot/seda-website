@@ -1540,7 +1540,8 @@ main > section:not(.hero) {
   font-size: clamp(16px, 2.2vw, 22px);
 }
 
-.content-layout {
+.content-layout,
+.content-grid {
   display: grid;
   grid-template-columns: minmax(0, 1fr) 300px;
   gap: clamp(28px, 4vw, 56px);
@@ -1549,8 +1550,17 @@ main > section:not(.hero) {
   margin: 0 auto;
 }
 
-.content-main {
+.content-main,
+.content-layout > .main-content,
+.content-grid > .main-content {
   min-width: 0;
+}
+
+/* Single-column article (no sidebar) — constrain reading width */
+.content-body {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: clamp(36px, 5vw, 62px) clamp(20px, 6vw, 40px);
 }
 
 .content-main h2 {
@@ -1838,7 +1848,8 @@ main > section:not(.hero) {
 }
 
 @media (max-width: 980px) {
-  .content-layout {
+  .content-layout,
+  .content-grid {
     grid-template-columns: 1fr;
   }
 

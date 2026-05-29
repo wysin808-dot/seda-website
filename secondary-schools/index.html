@@ -1064,9 +1064,9 @@
       }
       function copAccent(cop){
         if(cop===null)return 'cop-n';
-        if(cop<=11)return 'cop-g';
-        if(cop<=20)return 'cop-y';
-        return 'cop-r';
+        if(cop<=9)return 'cop-r';
+        if(cop<=17)return 'cop-y';
+        return 'cop-g';
       }
       function renderCards(list){
         if(!list.length){grid.innerHTML='';noRes.style.display='block';resCnt.textContent='未找到符合条件的学校';if(resCntInline)resCntInline.textContent='0 / '+schools.length;return}

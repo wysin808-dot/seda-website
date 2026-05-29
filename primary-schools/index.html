@@ -1097,43 +1097,35 @@
         return words[0].substring(0,2).toUpperCase();
       }
       function renderCards(list){
-        grid.innerHTML = "";
-        if(!list.length){grid.style.display="none";noRes.style.display="";countEl.textContent="显示 0 / "+schools.length+" 所";return;}
+        if(!list.length){grid.innerHTML="";grid.style.display="none";noRes.style.display="";countEl.textContent="显示 0 / "+schools.length+" 所";return;}
         grid.style.display="";noRes.style.display="none";
         countEl.textContent="显示 "+list.length+" / "+schools.length+" 所";
-        list.forEach((s,i)=>{
-          const card = document.createElement("div");
-          card.className = "ps-card filter-active";
-          let progHTML = "";
-          s.programs.forEach(p=>{
-            progHTML += '<span class="meta-tag '+(p==="GEP"?"gep":"sap")+'">'+p+'</span>';
-          });
-          if(s.link){card.style.cursor="pointer";card.onclick=function(){location.href=s.link};}
-          let nameHtml=s.link?'<a href="'+s.link+'" style="color:inherit;text-decoration:none">'+s.name+'</a>':s.name;
+        grid.innerHTML=list.map(function(s){
+          var progHTML="";
+          s.programs.forEach(function(p){progHTML+='<span class="meta-tag '+(p==="GEP"?"gep":"sap")+'">'+p+'</span>'});
+          var nameHtml=s.link?'<a href="'+s.link+'" style="color:inherit;text-decoration:none">'+s.name+'</a>':s.name;
           var tc=tierClass[s.tier]||'tier-3';
+          var ac=tc.replace('tier-','t');
           var initials=getInitials(s.name);
-          card.innerHTML =
-            '<div class="card-accent '+tc.replace('tier-','t')+'"></div>'+
+          return '<div class="ps-card filter-active"'+(s.link?' onclick="location.href=\''+s.link+'\'" style="cursor:pointer"':'')+'>'+
+            '<div class="card-accent '+ac+'"></div>'+
             '<div class="card-body">'+
               '<div class="card-header">'+
-                '<div class="card-avatar '+tc.replace('tier-','t')+'">'+initials+'</div>'+
+                '<div class="card-avatar '+ac+'">'+initials+'</div>'+
                 '<div class="card-info">'+
                   '<div class="card-top"><h3>'+nameHtml+'</h3><span class="tier-badge '+tc+'">'+tierLabels[s.tier]+'</span></div>'+
                   '<div class="cn-name">'+s.cn+'</div>'+
                 '</div>'+
               '</div>'+
-              '<div class="card-meta">'+
-                '<span class="meta-tag">📍 '+s.area+'</span>'+
-                progHTML+
-              '</div>'+
+              '<div class="card-meta">'+progHTML+'</div>'+
               '<div class="card-desc">'+s.desc+'</div>'+
             '</div>'+
             '<div class="card-footer">'+
               '<span class="loc">📍 '+s.area+'</span>'+
               (s.link?'<span class="arrow">查看详情 →</span>':'')+
-            '</div>';
-          grid.appendChild(card);
-        });
+            '</div>'+
+          '</div>'
+        }).join('');
       }
 
       /* ── Render table ── */

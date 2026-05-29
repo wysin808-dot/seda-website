@@ -1353,7 +1353,13 @@ main > section:not(.hero) {
 
 .content-hero {
   color: #fff;
-  padding: clamp(48px, 7vw, 80px) clamp(20px, 4vw, 56px);
+  /* Horizontal padding aligns the hero text with the centered content
+     below (max-width 1240px + 80px inner padding); falls back to 56px on
+     narrow screens. Background stays full-width. */
+  padding-top: clamp(48px, 7vw, 80px);
+  padding-bottom: clamp(48px, 7vw, 80px);
+  padding-left: max(56px, calc((100% - 1240px) / 2 + 80px));
+  padding-right: max(56px, calc((100% - 1240px) / 2 + 80px));
   min-height: 200px;
   display: flex;
   flex-direction: column;
@@ -1364,7 +1370,14 @@ main > section:not(.hero) {
 
 /* Override .page-hero defaults (compound selector beats single-class .page-hero) */
 .content-hero::after { display: none; }
-.content-hero .eyebrow { color: rgba(255,255,255,0.85); margin-bottom: 10px; background: rgba(255,255,255,0.15); }
+/* Higher specificity (0-3-0) to beat .page-hero .eyebrow's light-pink pill */
+.page-hero.content-hero .eyebrow,
+.content-hero .eyebrow {
+  color: #fff;
+  margin-bottom: 10px;
+  background: rgba(255,255,255,0.18);
+  backdrop-filter: blur(4px);
+}
 .content-hero h1 { color: #fff; text-shadow: 0 2px 16px rgba(0,0,0,0.35); }
 .content-hero .hero-subtitle { color: rgba(255,255,255,0.9); }
 /* Breadcrumb nested inside a content-hero band (singapore-education pages) */

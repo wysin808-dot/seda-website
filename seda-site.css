@@ -1664,11 +1664,12 @@ main > section:not(.hero) {
 
 /* ── Content Sidebar ── */
 .content-sidebar {
-  position: sticky;
-  top: 120px;
   display: grid;
   gap: 20px;
   align-self: start;
+  /* Not sticky: these sidebars (nav + related + CTA) are often taller than
+     the viewport, and a sticky element taller than the screen freezes in
+     place with its bottom cards unreachable. Scroll with the page instead. */
 }
 
 .sidebar-nav {

@@ -1550,7 +1550,7 @@ main > section:not(.hero) {
 .content-grid {
   display: grid;
   grid-template-columns: minmax(0, 1fr) 300px;
-  gap: clamp(28px, 4vw, 56px);
+  gap: clamp(24px, 2.5vw, 40px);
   padding: clamp(36px, 5vw, 62px) clamp(20px, 6vw, 80px);
   max-width: 1240px;
   margin: 0 auto;

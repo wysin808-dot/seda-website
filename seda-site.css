@@ -1351,19 +1351,23 @@ main > section:not(.hero) {
 
 /* ── Content Hero Banners ── */
 
+/* Compound + plain selector so it beats .page-hero's later padding shorthand
+   (page pages have both classes; standalone content-body pages have only .content-hero) */
+.page-hero.content-hero,
 .content-hero {
   color: #fff;
   /* Horizontal padding aligns the hero text with the centered content
      below (max-width 1240px + 80px inner padding); falls back to 56px on
      narrow screens. Background stays full-width. */
-  padding-top: clamp(48px, 7vw, 80px);
-  padding-bottom: clamp(48px, 7vw, 80px);
-  padding-left: max(56px, calc((100% - 1240px) / 2 + 80px));
-  padding-right: max(56px, calc((100% - 1240px) / 2 + 80px));
+  padding-top: clamp(40px, 6vw, 72px);
+  padding-bottom: clamp(40px, 6vw, 72px);
+  padding-left: max(clamp(20px, 6vw, 56px), calc((100% - 1240px) / 2 + 80px));
+  padding-right: max(clamp(20px, 6vw, 56px), calc((100% - 1240px) / 2 + 80px));
   min-height: 200px;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+  border-bottom: 0;
   /* Fallback background so standalone .content-hero (no variant class) is never white-on-white */
   background: linear-gradient(135deg, var(--deep) 0%, var(--brand-strong) 100%);
 }

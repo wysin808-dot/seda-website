@@ -1354,10 +1354,12 @@ main > section:not(.hero) {
 .content-hero {
   color: #fff;
   padding: clamp(48px, 7vw, 80px) clamp(20px, 4vw, 56px);
-  min-height: 240px;
+  min-height: 200px;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+  /* Fallback background so standalone .content-hero (no variant class) is never white-on-white */
+  background: linear-gradient(135deg, var(--deep) 0%, var(--brand-strong) 100%);
 }
 
 /* Override .page-hero defaults (compound selector beats single-class .page-hero) */
@@ -1365,6 +1367,10 @@ main > section:not(.hero) {
 .content-hero .eyebrow { color: rgba(255,255,255,0.85); margin-bottom: 10px; background: rgba(255,255,255,0.15); }
 .content-hero h1 { color: #fff; text-shadow: 0 2px 16px rgba(0,0,0,0.35); }
 .content-hero .hero-subtitle { color: rgba(255,255,255,0.9); }
+/* Breadcrumb nested inside a content-hero band (singapore-education pages) */
+.content-hero .breadcrumb { background: transparent; padding: 0; margin-bottom: 14px; }
+.content-hero .breadcrumb a { color: rgba(255,255,255,0.8); }
+.content-hero .breadcrumb span { color: rgba(255,255,255,0.6); }
 
 /* Category variants — compound selector for specificity over .page-hero */
 .content-hero.hero-exam {

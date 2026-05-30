@@ -85,9 +85,9 @@ if (!document.querySelector(".wechat-float")) {
 /* ── AI Chat Widget ── */
 (function(){
   // ── Config ──
-  // TODO: 部署后端后把 API_BASE 改为实际地址，例如 'https://ai.seda.org.sg'
-  // 本地开发时用 'http://localhost:3005'，生产环境用部署后的 URL
-  var API_BASE = 'http://localhost:3005';
+  // 生产：Vercel 部署后 API 和前端同域，留空即可
+  // 本地开发：改为 'http://localhost:3005'
+  var API_BASE = '';
 
   var QUICK = [
     'AEIS怎么备考', 'WACE是什么', 'O-Level和WACE怎么选',

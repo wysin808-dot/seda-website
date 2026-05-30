@@ -222,6 +222,30 @@ select {
   backdrop-filter: blur(4px);
   margin-bottom: 16px;
 }
+
+/* Homepage hero slogan — larger, bolder, more prominent than eyebrow pill */
+.hero-slogan {
+  display: block;
+  color: #fff;
+  font-size: clamp(18px, 2.2vw, 26px);
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  margin: 0 0 20px;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.3);
+  position: relative;
+  padding-bottom: 16px;
+}
+
+.hero-slogan::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 48px;
+  height: 3px;
+  border-radius: 2px;
+  background: rgba(255,255,255,0.7);
+}
 .hero h1 { color: #fff; text-shadow: 0 2px 12px rgba(0,0,0,0.3); }
 .hero .hero-subtitle { color: rgba(255,255,255,0.9); }
 .hero .hero-proof span { background: rgba(255,255,255,0.15); color: #fff; border-color: rgba(255,255,255,0.25); }

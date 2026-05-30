@@ -1413,7 +1413,7 @@ main > section:not(.hero) {
 /* 图1: 金沙鸟瞰 — 考试/课程类 */
 .content-hero.hero-exam {
   background: linear-gradient(135deg, rgba(10,30,60,0.42), rgba(0,40,80,0.28)),
-    url('/assets/hero-mbs-day1.jpg') center/cover no-repeat;
+    url('/assets/hero-mbs-day1.jpg') center top/cover no-repeat;
 }
 
 /* 图2: MBS三塔蓝天 — 学校/留学指南类 */
@@ -1425,7 +1425,7 @@ main > section:not(.hero) {
 /* 图1: 金沙鸟瞰 — 升学路径类 */
 .content-hero.hero-pathway {
   background: linear-gradient(135deg, rgba(10,30,60,0.42), rgba(0,40,80,0.28)),
-    url('/assets/hero-mbs-day1.jpg') center/cover no-repeat;
+    url('/assets/hero-mbs-day1.jpg') center top/cover no-repeat;
 }
 
 /* 图2: MBS三塔蓝天 — 实用指南类 */
@@ -1437,7 +1437,7 @@ main > section:not(.hero) {
 /* 图1: 金沙鸟瞰 — 关于/学生类 */
 .content-hero.hero-student {
   background: linear-gradient(135deg, rgba(10,30,60,0.42), rgba(0,40,80,0.28)),
-    url('/assets/hero-mbs-day1.jpg') center/cover no-repeat;
+    url('/assets/hero-mbs-day1.jpg') center top/cover no-repeat;
 }
 
 /* School profile hero — compound selectors (0-2-0) so bg image and padding

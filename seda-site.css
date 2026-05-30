@@ -1399,27 +1399,27 @@ main > section:not(.hero) {
 
 /* Category variants — compound selector for specificity over .page-hero */
 .content-hero.hero-exam {
-  background: linear-gradient(135deg, rgba(42,18,21,0.82), rgba(26,35,50,0.7)),
+  background: linear-gradient(135deg, rgba(42,18,21,0.55), rgba(26,35,50,0.42)),
     url('/assets/hero-study.jpg') center/cover no-repeat;
 }
 
 .content-hero.hero-school {
-  background: linear-gradient(135deg, rgba(42,18,21,0.82), rgba(26,35,50,0.75)),
+  background: linear-gradient(135deg, rgba(42,18,21,0.52), rgba(26,35,50,0.45)),
     url('/assets/school-hero-bg.jpg') center/cover no-repeat;
 }
 
 .content-hero.hero-pathway {
-  background: linear-gradient(135deg, rgba(15,26,46,0.8), rgba(42,18,21,0.65)),
+  background: linear-gradient(135deg, rgba(15,26,46,0.55), rgba(42,18,21,0.42)),
     url('/assets/hero-graduation.jpg') center/cover no-repeat;
 }
 
 .content-hero.hero-guide {
-  background: linear-gradient(135deg, rgba(42,18,21,0.78), rgba(15,26,46,0.72)),
+  background: linear-gradient(135deg, rgba(42,18,21,0.50), rgba(15,26,46,0.45)),
     url('/assets/hero-campus.jpg') center/cover no-repeat;
 }
 
 .content-hero.hero-student {
-  background: linear-gradient(135deg, rgba(26,35,50,0.8), rgba(42,18,21,0.65)),
+  background: linear-gradient(135deg, rgba(26,35,50,0.52), rgba(42,18,21,0.42)),
     url('/assets/hero-students.jpg') center/cover no-repeat;
 }
 
@@ -1441,7 +1441,7 @@ main > section:not(.hero) {
 }
 .page-hero.school-hero,
 .school-hero {
-  background: linear-gradient(135deg, rgba(42,18,21,0.82), rgba(26,35,50,0.75)),
+  background: linear-gradient(135deg, rgba(42,18,21,0.52), rgba(26,35,50,0.45)),
     url('/assets/school-hero-bg.jpg') center/cover no-repeat;
 }
 .school-hero::after { display: none; }

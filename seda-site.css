@@ -1434,33 +1434,33 @@ main > section:not(.hero) {
 }
 
 /* Category variants — compound selector for specificity over .page-hero */
-/* MBS全景+蓝天+艺术中心 — 考试/课程类 */
+/* Boat Quay+CBD+河+蓝天 — 考试/课程类 */
 .content-hero.hero-exam {
-  background: linear-gradient(135deg, rgba(10,30,60,0.40), rgba(0,40,80,0.26)),
-    url('/assets/sg-px-31787709.jpg') center 30%/cover no-repeat;
+  background: linear-gradient(135deg, rgba(10,30,60,0.42), rgba(0,40,80,0.28)),
+    url('/assets/sg-px-20779788.jpg') center 40%/cover no-repeat;
 }
 
-/* MBS全景+蓝天+艺术中心 — 学校/留学指南类 */
+/* MBS船顶仰拍+蓝天 — 学校页 */
 .content-hero.hero-school {
-  background: linear-gradient(135deg, rgba(10,30,60,0.40), rgba(0,40,80,0.26)),
-    url('/assets/sg-px-31787709.jpg') center 30%/cover no-repeat;
+  background: linear-gradient(135deg, rgba(10,30,60,0.42), rgba(0,40,80,0.28)),
+    url('/assets/sg-px-36882343.jpg') center/cover no-repeat;
 }
 
-/* MBS三塔+鱼尾狮 — 升学路径类 */
+/* 摩天轮+Gardens+CBD+蓝天 — 升学路径类 */
 .content-hero.hero-pathway {
-  background: linear-gradient(135deg, rgba(10,30,60,0.40), rgba(0,40,80,0.26)),
-    url('/assets/sg-px-37182575.jpg') center 20%/cover no-repeat;
+  background: linear-gradient(135deg, rgba(10,30,60,0.42), rgba(0,40,80,0.28)),
+    url('/assets/sg-px-6305534.jpg') center/cover no-repeat;
 }
 
-/* MBS全景 — 实用指南类 */
+/* CBD天际线全景 — 实用指南类 */
 .content-hero.hero-guide {
-  background: linear-gradient(135deg, rgba(10,30,60,0.40), rgba(0,40,80,0.26)),
-    url('/assets/sg-px-31787709.jpg') center 30%/cover no-repeat;
+  background: linear-gradient(135deg, rgba(10,30,60,0.42), rgba(0,40,80,0.28)),
+    url('/assets/sg-px-32818048.jpg') center/cover no-repeat;
 }
 
 /* MBS三塔+鱼尾狮 — 关于/学生类 */
 .content-hero.hero-student {
-  background: linear-gradient(135deg, rgba(10,30,60,0.40), rgba(0,40,80,0.26)),
+  background: linear-gradient(135deg, rgba(10,30,60,0.42), rgba(0,40,80,0.28)),
     url('/assets/sg-px-37182575.jpg') center 20%/cover no-repeat;
 }
 
@@ -1482,8 +1482,8 @@ main > section:not(.hero) {
 }
 .page-hero.school-hero,
 .school-hero {
-  background: linear-gradient(135deg, rgba(10,30,60,0.40), rgba(0,40,80,0.26)),
-    url('/assets/sg-px-31787709.jpg') center 30%/cover no-repeat;
+  background: linear-gradient(135deg, rgba(10,30,60,0.42), rgba(0,40,80,0.28)),
+    url('/assets/sg-px-14694917.jpg') center 30%/cover no-repeat;
 }
 .school-hero::after { display: none; }
 .page-hero.school-hero .eyebrow,

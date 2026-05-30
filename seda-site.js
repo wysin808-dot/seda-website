@@ -82,6 +82,148 @@ if (!document.querySelector(".wechat-float")) {
   });
 })();
 
+/* ── AI Chat Widget ── */
+(function(){
+  // ── Config ──
+  // TODO: 部署后端后把 API_BASE 改为实际地址，例如 'https://ai.seda.org.sg'
+  // 本地开发时用 'http://localhost:3005'，生产环境用部署后的 URL
+  var API_BASE = 'http://localhost:3005';
+
+  var QUICK = [
+    'AEIS怎么备考', 'WACE是什么', 'O-Level和WACE怎么选',
+    '新加坡留学费用', 'A-Level难度', '国际学校怎么选'
+  ];
+  var WELCOME = '您好！我是 SEDA AI 升学助手 👋\n\n可以帮您解答 WACE、AEIS、O-Level、国际学校、新加坡大学申请等问题。\n\n请直接输入您的问题。';
+
+  var cfg = { wechatId: '', wechatQrUrl: '' };
+  var isOpen = false, isLoading = false, panel = null, messagesEl = null, inputEl = null, sendBtn = null;
+
+  // Build trigger button
+  var trigger = document.createElement('button');
+  trigger.className = 'ai-chat-trigger';
+  trigger.setAttribute('aria-label', 'AI升学助手');
+  trigger.innerHTML = '🤖<span class="ai-trigger-badge">AI</span>';
+  trigger.addEventListener('click', toggle);
+  document.body.appendChild(trigger);
+
+  // Fetch config
+  fetch(API_BASE + '/api/config').then(function(r){ return r.json(); }).then(function(d){ cfg = d; }).catch(function(){});
+
+  function toggle() {
+    if (isOpen) close(); else open();
+  }
+
+  function open() {
+    if (panel) { panel.style.display = 'flex'; panel.classList.remove('closing'); isOpen = true; return; }
+    isOpen = true;
+    panel = document.createElement('div');
+    panel.className = 'ai-chat-panel';
+    panel.innerHTML =
+      '<div class="ai-panel-header">' +
+        '<div class="ai-avatar">🤖</div>' +
+        '<div class="ai-info"><div class="ai-name">AI 升学助手</div><div class="ai-status"><span class="ai-dot"></span>在线解答</div></div>' +
+        '<button class="ai-panel-close" aria-label="关闭">×</button>' +
+      '</div>' +
+      '<div class="ai-quick-btns">' +
+        QUICK.map(function(q){ return '<button class="ai-quick-btn" data-q="'+q+'">'+q+'</button>'; }).join('') +
+      '</div>' +
+      '<div class="ai-messages"></div>' +
+      '<div class="ai-composer">' +
+        '<input type="text" placeholder="请输入升学问题..." maxlength="500" />' +
+        '<button type="button" disabled>发送</button>' +
+      '</div>';
+
+    messagesEl = panel.querySelector('.ai-messages');
+    inputEl = panel.querySelector('.ai-composer input');
+    sendBtn = panel.querySelector('.ai-composer button');
+
+    panel.querySelector('.ai-panel-close').addEventListener('click', close);
+    panel.querySelector('.ai-quick-btns').addEventListener('click', function(e){
+      var btn = e.target.closest('.ai-quick-btn');
+      if (btn) { btn.classList.add('selected'); setTimeout(function(){ btn.classList.remove('selected'); }, 350); ask(btn.dataset.q); }
+    });
+    inputEl.addEventListener('input', updateState);
+    panel.querySelector('.ai-composer').addEventListener('submit', function(e){ e.preventDefault(); ask(inputEl.value); });
+    sendBtn.addEventListener('click', function(){ ask(inputEl.value); });
+    inputEl.addEventListener('keydown', function(e){ if(e.key==='Enter' && !e.shiftKey){ e.preventDefault(); ask(inputEl.value); } });
+
+    document.body.appendChild(panel);
+    addMsg('assistant', WELCOME);
+    inputEl.focus();
+  }
+
+  function close() {
+    if (!panel) return;
+    isOpen = false;
+    panel.classList.add('closing');
+    setTimeout(function(){ if(panel){ panel.style.display = 'none'; panel.classList.remove('closing'); } }, 200);
+  }
+
+  function addMsg(role, text, typing) {
+    var row = document.createElement('div');
+    row.className = 'ai-msg ' + role;
+    var bubble = document.createElement('div');
+    bubble.className = 'ai-bubble';
+    if (typing) {
+      bubble.innerHTML = '<div class="ai-typing"><span></span><span></span><span></span></div>';
+    } else {
+      bubble.textContent = text;
+    }
+    row.appendChild(bubble);
+    messagesEl.appendChild(row);
+    messagesEl.scrollTop = messagesEl.scrollHeight;
+    return row;
+  }
+
+  function showWechatCard() {
+    var card = document.createElement('div');
+    card.className = 'ai-wechat-card';
+    var qrHtml = cfg.wechatQrUrl
+      ? '<img class="ai-qr" src="'+cfg.wechatQrUrl+'" alt="微信二维码">'
+      : '<div class="ai-qr-placeholder">微信二维码</div>';
+    card.innerHTML = '<strong>🎓 免费获取升学方案</strong>添加顾问微信，定制专属规划' + qrHtml +
+      (cfg.wechatId ? '<div style="font-size:12px;color:#666;margin:4px 0">微信号：'+cfg.wechatId+'</div>' : '') +
+      '<button class="ai-wechat-btn">立即添加顾问</button>';
+    card.querySelector('.ai-wechat-btn').addEventListener('click', function(){
+      fetch(API_BASE + '/api/wechat-click', { method: 'POST' }).catch(function(){});
+      if (cfg.wechatId) { try { navigator.clipboard.writeText(cfg.wechatId); } catch(e){} }
+      window.open('/contact/', '_blank');
+    });
+    messagesEl.appendChild(card);
+    messagesEl.scrollTop = messagesEl.scrollHeight;
+  }
+
+  function updateState() {
+    sendBtn.disabled = isLoading || !inputEl.value.trim();
+  }
+
+  async function ask(q) {
+    var trimmed = (q || '').trim();
+    if (!trimmed || isLoading) return;
+    isLoading = true;
+    inputEl.value = '';
+    updateState();
+    addMsg('user', trimmed);
+    var pending = addMsg('assistant', '', true);
+    try {
+      var res = await fetch(API_BASE + '/api/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ question: trimmed })
+      });
+      var data = await res.json();
+      pending.querySelector('.ai-bubble').textContent = res.ok ? (data.answer || '抱歉，暂时没有获得有效回答。') : (data.error || 'AI 服务暂时无法连接，请稍后重试。');
+    } catch(e) {
+      pending.querySelector('.ai-bubble').textContent = '网络连接异常，请稍后重试。您也可以直接联系顾问。';
+    }
+    showWechatCard();
+    isLoading = false;
+    updateState();
+    messagesEl.scrollTop = messagesEl.scrollHeight;
+    inputEl.focus();
+  }
+})();
+
 /* ── Exit Intent Popup ── */
 (function(){
   // Only show once per session

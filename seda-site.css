@@ -1714,9 +1714,15 @@ main > section:not(.hero) {
   display: grid;
   gap: 20px;
   align-self: start;
-  /* Not sticky: these sidebars (nav + related + CTA) are often taller than
-     the viewport, and a sticky element taller than the screen freezes in
-     place with its bottom cards unreachable. Scroll with the page instead. */
+  position: sticky;
+  top: 100px;
+  /* max-height prevents the sidebar from exceeding the viewport.
+     overflow-y:auto adds a scrollbar if content is taller than the visible area,
+     avoiding the "frozen" problem while keeping the float-with-content behavior. */
+  max-height: calc(100vh - 120px);
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--line) transparent;
 }
 
 .sidebar-nav {

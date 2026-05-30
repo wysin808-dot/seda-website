@@ -70,17 +70,15 @@ if (!document.querySelector(".wechat-float")) {
   });
 })();
 
-/* ── Scroll CTA Popup ── */
+/* ── Scroll CTA Popup — only attach on pages that have the element ── */
 (function(){
+  var el = document.getElementById('scrollCta');
+  if (!el) return;
   var shown = false;
   window.addEventListener('scroll', function(){
     if (shown) return;
     var scrollPct = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight);
-    if (scrollPct > 0.4) {
-      shown = true;
-      var el = document.getElementById('scrollCta');
-      if (el) el.style.display = 'flex';
-    }
+    if (scrollPct > 0.4) { shown = true; el.style.display = 'flex'; }
   });
 })();
 

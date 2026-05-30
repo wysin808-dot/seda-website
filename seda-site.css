@@ -20,6 +20,8 @@
   --shadow-md: 0 4px 16px rgba(15, 23, 42, 0.08);
   --radius: 12px;
   --ease: cubic-bezier(0.4, 0, 0.2, 1);
+  /* Singapore hero overlay — used across all content-hero variants */
+  --hero-overlay: linear-gradient(135deg, rgba(10,30,60,0.42), rgba(0,40,80,0.28));
 }
 
 * {
@@ -201,7 +203,7 @@ select {
   padding: clamp(54px, 8vw, 92px) clamp(20px, 6vw, 80px) 50px;
   overflow: hidden;
   border-bottom: 1px solid var(--line);
-  background: linear-gradient(135deg, rgba(10,30,60,0.42), rgba(0,40,80,0.28)), url('/assets/hero-mbs-day3.jpg') center/cover no-repeat;
+  background: var(--hero-overlay), url('/assets/hero-mbs-day3.jpg') center/cover no-repeat;
 }
 
 .hero-content {
@@ -209,20 +211,6 @@ select {
   max-width: 920px;
   color: #fff;
 }
-.hero .eyebrow {
-  display: inline-block;
-  color: #fff;
-  background: rgba(255,255,255,0.18);
-  border: 1px solid rgba(255,255,255,0.35);
-  padding: 5px 14px;
-  border-radius: 999px;
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  backdrop-filter: blur(4px);
-  margin-bottom: 16px;
-}
-
 /* Homepage hero slogan — larger, bolder, more prominent than eyebrow pill */
 .hero-slogan {
   display: block;
@@ -248,7 +236,6 @@ select {
 }
 .hero h1 { color: #fff; text-shadow: 0 2px 12px rgba(0,0,0,0.3); }
 .hero .hero-subtitle { color: rgba(255,255,255,0.9); }
-.hero .hero-proof span { background: rgba(255,255,255,0.15); color: #fff; border-color: rgba(255,255,255,0.25); }
 .hero .secondary-button { background: transparent; color: #fff; border-color: rgba(255,255,255,0.5); }
 .hero .secondary-button:hover { background: rgba(255,255,255,0.1); border-color: #fff; }
 
@@ -597,24 +584,10 @@ h1 {
   line-height: 1.42;
 }
 
-.hero-actions,
-.hero-proof {
+.hero-actions {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
-}
-
-.hero-proof {
-  margin-top: 26px;
-  color: #475467;
-  font-size: 14px;
-}
-
-.hero-proof span {
-  padding: 8px 12px;
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  background: #fafafa;
 }
 
 main > section:not(.hero) {
@@ -1436,31 +1409,31 @@ main > section:not(.hero) {
 /* Category variants — compound selector for specificity over .page-hero */
 /* Boat Quay+CBD+河+蓝天 — 考试/课程类 */
 .content-hero.hero-exam {
-  background: linear-gradient(135deg, rgba(10,30,60,0.42), rgba(0,40,80,0.28)),
+  background: var(--hero-overlay),
     url('/assets/sg-px-20779788.jpg') center 40%/cover no-repeat;
 }
 
 /* MBS船顶仰拍+蓝天 — 学校页 */
 .content-hero.hero-school {
-  background: linear-gradient(135deg, rgba(10,30,60,0.42), rgba(0,40,80,0.28)),
+  background: var(--hero-overlay),
     url('/assets/sg-px-36882343.jpg') center/cover no-repeat;
 }
 
 /* 摩天轮+Gardens+CBD+蓝天 — 升学路径类 */
 .content-hero.hero-pathway {
-  background: linear-gradient(135deg, rgba(10,30,60,0.42), rgba(0,40,80,0.28)),
+  background: var(--hero-overlay),
     url('/assets/sg-px-6305534.jpg') center/cover no-repeat;
 }
 
 /* CBD天际线全景 — 实用指南类 */
 .content-hero.hero-guide {
-  background: linear-gradient(135deg, rgba(10,30,60,0.42), rgba(0,40,80,0.28)),
+  background: var(--hero-overlay),
     url('/assets/sg-px-32818048.jpg') center/cover no-repeat;
 }
 
 /* MBS三塔+鱼尾狮 — 关于/学生类 */
 .content-hero.hero-student {
-  background: linear-gradient(135deg, rgba(10,30,60,0.42), rgba(0,40,80,0.28)),
+  background: var(--hero-overlay),
     url('/assets/sg-px-37182575.jpg') center 20%/cover no-repeat;
 }
 
@@ -1482,7 +1455,7 @@ main > section:not(.hero) {
 }
 .page-hero.school-hero,
 .school-hero {
-  background: linear-gradient(135deg, rgba(10,30,60,0.42), rgba(0,40,80,0.28)),
+  background: var(--hero-overlay),
     url('/assets/sg-px-14694917.jpg') center 30%/cover no-repeat;
 }
 .school-hero::after { display: none; }
@@ -1606,10 +1579,6 @@ main > section:not(.hero) {
 }
 
 /* ── Article / Content Page Layout ── */
-
-.page-hero .eyebrow {
-  margin-bottom: 14px;
-}
 
 .page-hero h1 {
   max-width: 920px;

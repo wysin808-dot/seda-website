@@ -175,6 +175,8 @@ select {
   border-radius: 8px;
   border: 1px solid transparent;
   font-weight: 700;
+  white-space: nowrap; /* prevent text wrapping (was causing 免费咨询 to stack 4 lines) */
+  flex-shrink: 0;
 }
 
 .nav-cta,
@@ -2284,6 +2286,11 @@ main > section:not(.hero) {
     min-height: 0;
     grid-template-columns: 1fr;
     padding-bottom: 52px;
+  }
+
+  /* Hide pathway diagram on mobile — takes too much space, confusing on small screen */
+  .hero-pathway {
+    display: none;
   }
 
   main > section:not(.hero) {

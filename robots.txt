@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.seda.org.sg/sitemap.xml
+Sitemap: https://sgeda.org.cn/sitemap.xml

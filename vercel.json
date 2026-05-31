@@ -5,7 +5,13 @@
     {
       "source": "/(.*)",
       "has": [{ "type": "host", "value": "seda.org.sg" }],
-      "destination": "https://www.seda.org.sg/$1",
+      "destination": "https://sgeda.org.cn/$1",
+      "permanent": true
+    },
+    {
+      "source": "/(.*)",
+      "has": [{ "type": "host", "value": "www.seda.org.sg" }],
+      "destination": "https://sgeda.org.cn/$1",
       "permanent": true
     }
   ],

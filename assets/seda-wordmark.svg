@@ -14,7 +14,7 @@
       }
       .chinese {
         font-family: "PingFang SC", "Noto Sans SC", "Microsoft YaHei", sans-serif;
-        font-weight: 500;
+        font-weight: 700;
         letter-spacing: 0;
       }
     </style>
@@ -32,5 +32,5 @@
 
   <text x="422" y="58" class="brand-red latin" font-size="24" textLength="300" lengthAdjust="spacingAndGlyphs">SINGAPORE INTERNATIONAL EDUCATIONAL</text>
   <line x1="422" y1="72" x2="722" y2="72" class="brand-gold-stroke" stroke-width="1.5"/>
-  <text x="422" y="108" class="brand-red chinese" font-size="28" textLength="300" lengthAdjust="spacingAndGlyphs">新加坡国际教育平台</text>
+  <text x="422" y="116" class="brand-red chinese" font-size="32" textLength="300" lengthAdjust="spacingAndGlyphs">新加坡国际教育平台</text>
 </svg>

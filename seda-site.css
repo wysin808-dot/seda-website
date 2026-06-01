@@ -65,21 +65,23 @@ select {
 .header-main {
   display: flex;
   align-items: center;
-  gap: 22px;
+  gap: clamp(28px, 3vw, 52px);
   min-height: 72px;
-  padding: 0 clamp(18px, 4vw, 54px);
+  padding: 0 clamp(24px, 3.5vw, 64px);
 }
 
 .brand {
   display: flex;
   align-items: center;
   gap: 14px;
-  min-width: 320px;
+  flex: 0 1 clamp(330px, 25vw, 460px);
+  min-width: 290px;
 }
 
 .brand-logo {
   display: block;
-  height: 56px;
+  height: clamp(48px, 3vw, 56px);
+  max-width: 100%;
   width: auto;
   flex-shrink: 0;
 }
@@ -87,8 +89,10 @@ select {
 .main-nav {
   display: flex;
   align-items: stretch;
-  gap: 0;
-  flex: 1;
+  gap: clamp(2px, 0.35vw, 8px);
+  flex: 1 1 auto;
+  min-width: 0;
+  justify-content: space-between;
   color: #344054;
   font-size: 13px;
   align-self: stretch;
@@ -102,7 +106,8 @@ select {
   justify-content: center;
   gap: 3px;
   min-height: 72px;
-  padding: 0 clamp(12px, 1.6vw, 22px);
+  min-width: 88px;
+  padding: 0 clamp(10px, 1vw, 18px);
   font-weight: 700;
   white-space: nowrap;
   color: #344054;
@@ -116,7 +121,7 @@ select {
   background: var(--brand);
   color: #fff;
   border-radius: 10px;
-  margin: 8px 2px;
+  margin: 8px 0;
   min-height: 56px;
 }
 .nav-link.active .nav-icon { color: #fff; }
@@ -1252,7 +1257,7 @@ main > section:not(.hero) {
 .menu-toggle.active span:nth-child(2) { opacity: 0; }
 .menu-toggle.active span:nth-child(3) { transform: translateY(-7.5px) rotate(-45deg); }
 
-@media (max-width: 980px) {
+@media (max-width: 1200px) {
   .header-main {
     flex-direction: row;
     flex-wrap: wrap;
@@ -1391,7 +1396,8 @@ main > section:not(.hero) {
   justify-content: center;
   gap: 3px;
   min-height: 72px;
-  padding: 0 clamp(12px, 1.6vw, 22px);
+  min-width: 88px;
+  padding: 0 clamp(10px, 1vw, 18px);
   font-weight: 700;
   cursor: default;
   white-space: nowrap;
@@ -2051,7 +2057,7 @@ main > section:not(.hero) {
   font-size: 14px;
 }
 
-@media (max-width: 980px) {
+@media (max-width: 1200px) {
   .content-layout,
   .content-grid {
     grid-template-columns: 1fr;

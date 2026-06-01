@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>站内搜索 | SEDA 新加坡国际教育平台</title>
+    <meta name="description" content="搜索 SEDA 新加坡国际教育平台的 WACE、O-Level、AEIS、国际学校与升学路径内容。">
+    <link rel="canonical" href="https://sgeda.org.cn/search/">
+    <link rel="stylesheet" href="/seda-site.css">
+    <style>
+      .search-page {
+        max-width: 980px;
+        margin: 0 auto;
+        padding: clamp(42px, 7vw, 82px) 20px;
+      }
+      .search-page h1 {
+        margin: 0 0 12px;
+        color: #121826;
+        font-size: clamp(32px, 5vw, 52px);
+      }
+      .search-page p {
+        margin: 0 0 24px;
+        color: #667085;
+        font-size: 16px;
+      }
+      .site-search-form {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 28px;
+      }
+      .site-search-form input {
+        flex: 1;
+        min-width: 0;
+        border: 1px solid #d8dde6;
+        border-radius: 8px;
+        padding: 14px 16px;
+        color: #243047;
+        font-size: 16px;
+        outline: none;
+      }
+      .site-search-form input:focus {
+        border-color: rgba(198, 40, 40, 0.55);
+        box-shadow: 0 0 0 3px rgba(198, 40, 40, 0.08);
+      }
+      .site-search-form button {
+        border: 0;
+        border-radius: 8px;
+        padding: 0 22px;
+        background: var(--brand);
+        color: #fff;
+        font-weight: 800;
+        cursor: pointer;
+      }
+      .search-meta {
+        margin-bottom: 16px;
+        color: #667085;
+        font-size: 14px;
+      }
+      .search-results {
+        display: grid;
+        gap: 12px;
+      }
+      .search-result {
+        display: block;
+        border: 1px solid #edf0f4;
+        border-radius: 8px;
+        padding: 16px 18px;
+        background: #fff;
+        color: inherit;
+      }
+      .search-result:hover {
+        border-color: rgba(198, 40, 40, 0.35);
+        box-shadow: 0 8px 22px rgba(15, 23, 42, 0.08);
+      }
+      .search-result strong {
+        display: block;
+        margin-bottom: 6px;
+        color: #121826;
+        font-size: 17px;
+      }
+      .search-result span {
+        color: #667085;
+        font-size: 13px;
+      }
+      .empty-state {
+        border: 1px dashed #d8dde6;
+        border-radius: 8px;
+        padding: 24px;
+        color: #667085;
+        background: #fafbfc;
+      }
+      @media (max-width: 680px) {
+        .site-search-form {
+          flex-direction: column;
+        }
+        .site-search-form button {
+          min-height: 46px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="search-page">
+      <h1>站内搜索</h1>
+      <p>搜索 WACE、O-Level、AEIS、国际学校、学校数据库与升学攻略。</p>
+      <form class="site-search-form" action="/search/" method="get" role="search">
+        <input id="searchInput" type="search" name="q" placeholder="输入关键词，如 WACE、O-Level、NUS" autocomplete="off">
+        <button type="submit">搜索</button>
+      </form>
+      <div id="searchMeta" class="search-meta">请输入关键词开始搜索。</div>
+      <div id="searchResults" class="search-results"></div>
+    </main>
+
+    <script>
+      const input = document.getElementById('searchInput');
+      const meta = document.getElementById('searchMeta');
+      const results = document.getElementById('searchResults');
+      const params = new URLSearchParams(location.search);
+      const query = (params.get('q') || '').trim();
+      input.value = query;
+
+      const searchOverrides = [
+        { path: '/university/', title: '新加坡公立大学总览', keywords: '新加坡公立大学 新加坡国立大学 国力大学 国立大学 本地大学 NUS NTU SMU SUTD SIT SUSS 大学申请' },
+        { path: '/university/nus/', title: 'NUS 新加坡国立大学', keywords: 'NUS 新加坡国立大学 国力大学 国立大学 National University of Singapore 公立大学 大学申请' },
+        { path: '/university/ntu/', title: 'NTU 南洋理工大学', keywords: 'NTU 南洋理工大学 南大 公立大学 大学申请' },
+        { path: '/university/smu/', title: 'SMU 新加坡管理大学', keywords: 'SMU 新加坡管理大学 公立大学 商科 大学申请' },
+        { path: '/university/sutd/', title: 'SUTD 新加坡科技设计大学', keywords: 'SUTD 新加坡科技设计大学 公立大学 工程 设计 大学申请' },
+        { path: '/university/sit/', title: 'SIT 新加坡理工大学', keywords: 'SIT 新加坡理工大学 公立大学 应用型大学 大学申请' },
+        { path: '/university/suss/', title: 'SUSS 新跃社科大学', keywords: 'SUSS 新跃社科大学 新加坡社科大学 公立大学 大学申请' },
+        { path: '/wace/', title: 'WACE 西澳课程', keywords: 'WACE 西澳课程 ATAR 澳洲课程 国际高中 中国学生' },
+        { path: '/o-level/', title: 'O-Level 新加坡 O 水准', keywords: 'O-Level O水准 O Level 新加坡中学 JC Poly 政府学校' },
+        { path: '/aeis/', title: 'AEIS 新加坡政府学校入学考试', keywords: 'AEIS S-AEIS 政府学校 小学 中学 国际学生 入学考试' },
+        { path: '/international-school/', title: '新加坡国际学校指南', keywords: '国际学校 IB WACE A-Level 私立学校 国际高中' },
+        { path: '/school-database/', title: '新加坡学校数据库', keywords: '学校数据库 小学 中学 国际学校 私立学校 学校推荐' },
+        { path: '/guides/cost/', title: '新加坡留学费用', keywords: '留学费用 学费 生活费 住宿 预算 新加坡留学' }
+      ];
+
+      const overrideByPath = new Map(searchOverrides.map(item => [item.path, item]));
+
+      const normalize = (value) => value
+        .toLowerCase()
+        .replace(/\s+/g, '')
+        .replace(/-/g, '')
+        .replace(/国力大学/g, '国立大学')
+        .replace(/新加坡国力/g, '新加坡国立')
+        .replace(/o水准/g, 'olevel')
+        .replace(/o-level/g, 'olevel')
+        .replace(/o level/g, 'olevel')
+        .replace(/a-level/g, 'alevel')
+        .replace(/a level/g, 'alevel');
+
+      const titleFromUrl = (url) => {
+        const pathname = new URL(url, location.origin).pathname;
+        const override = overrideByPath.get(pathname);
+        if (override) return override.title;
+        const path = pathname.replace(/^\/|\/$/g, '');
+        if (!path) return 'SEDA 新加坡国际教育平台';
+        return path
+          .split('/')
+          .filter(Boolean)
+          .map(part => part.replace(/-/g, ' '))
+          .join(' / ')
+          .replace(/\b\w/g, letter => letter.toUpperCase());
+      };
+
+      const renderEmpty = (message) => {
+        results.innerHTML = `<div class="empty-state">${message}</div>`;
+      };
+
+      const runSearch = async () => {
+        if (!query) return;
+        meta.textContent = '正在搜索...';
+        try {
+          const response = await fetch('/sitemap.xml', { cache: 'no-store' });
+          const xml = await response.text();
+          const doc = new DOMParser().parseFromString(xml, 'application/xml');
+          const urls = Array.from(doc.querySelectorAll('loc')).map(node => node.textContent.trim());
+          const terms = normalize(query).split(/\s+/).filter(Boolean);
+          const matched = urls
+            .map(url => {
+              const path = new URL(url, location.origin).pathname;
+              const override = overrideByPath.get(path);
+              const title = titleFromUrl(url);
+              const keywords = override ? override.keywords : '';
+              const titleText = normalize(title);
+              const keywordText = normalize(keywords);
+              const pathText = normalize(path);
+              const score = terms.reduce((total, term) => {
+                if (titleText.includes(term)) total += 10;
+                if (keywordText.includes(term)) total += 5;
+                if (pathText.includes(term)) total += 2;
+                return total;
+              }, 0);
+              return {
+                url,
+                path,
+                title,
+                keywords,
+                score
+              };
+            })
+            .filter(item => {
+              const haystack = normalize(`${item.title} ${item.path} ${item.keywords}`);
+              return terms.every(term => haystack.includes(term));
+            })
+            .sort((a, b) => b.score - a.score || a.path.localeCompare(b.path))
+            .slice(0, 30);
+
+          meta.textContent = matched.length ? `找到 ${matched.length} 条相关结果` : `没有找到与「${query}」相关的结果`;
+          results.innerHTML = '';
+          if (!matched.length) {
+            renderEmpty('可以尝试搜索 WACE、O-Level、AEIS、国际学校、留学费用、NUS 等关键词。');
+            return;
+          }
+          results.innerHTML = matched.map(item => `
+            <a class="search-result" href="${item.path}">
+              <strong>${item.title}</strong>
+              <span>${item.path}</span>
+            </a>
+          `).join('');
+        } catch (error) {
+          meta.textContent = '搜索暂时不可用';
+          renderEmpty('请稍后再试，或通过顶部栏目浏览相关内容。');
+        }
+      };
+
+      runSearch();
+    </script>
+  </body>
+</html>

@@ -101,10 +101,10 @@ select {
 /* Icon-based nav link (direct link items) */
 .nav-link {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
-  gap: 3px;
+  gap: 8px;
   min-height: 84px;
   min-width: 88px;
   padding: 0 clamp(10px, 1vw, 18px);
@@ -121,15 +121,15 @@ select {
   background: var(--brand);
   color: #fff;
   border-radius: 10px;
-  margin: 10px 0;
-  min-height: 64px;
+  margin: 16px 0;
+  min-height: 52px;
 }
 .nav-link.active .nav-icon { color: #fff; }
 
 /* Nav icons */
 .nav-icon {
-  width: 22px;
-  height: 22px;
+  width: 18px;
+  height: 18px;
   color: var(--brand);
   flex-shrink: 0;
 }
@@ -1391,10 +1391,10 @@ main > section:not(.hero) {
 .nav-group {
   position: relative;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
-  gap: 3px;
+  gap: 8px;
   min-height: 84px;
   min-width: 88px;
   padding: 0 clamp(10px, 1vw, 18px);

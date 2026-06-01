@@ -1,0 +1,6 @@
+{
+  "scripts": {
+    "content:new": "node scripts/new-article.mjs",
+    "content:build": "node scripts/build-content.mjs"
+  }
+}

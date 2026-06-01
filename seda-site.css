@@ -65,17 +65,17 @@ select {
 .header-main {
   display: flex;
   align-items: center;
-  gap: clamp(28px, 3vw, 52px);
+  gap: clamp(26px, 2.6vw, 46px);
   min-height: 72px;
-  padding: 0 clamp(24px, 3.5vw, 64px);
+  padding: 0 clamp(24px, 3vw, 56px);
 }
 
 .brand {
   display: flex;
   align-items: center;
   gap: 14px;
-  flex: 0 1 clamp(330px, 25vw, 460px);
-  min-width: 290px;
+  flex: 0 1 clamp(300px, 22vw, 420px);
+  min-width: 270px;
 }
 
 .brand-logo {

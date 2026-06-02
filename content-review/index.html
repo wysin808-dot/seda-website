@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="robots" content="noindex,nofollow"/>
+<title>SEDA 内容审核后台</title>
+<link rel="stylesheet" href="/seda-site.css?v=15"/>
+<style>
+  body{background:#f6f7f9;color:#172033}
+  .review-main{max-width:1180px;margin:0 auto;padding:32px 20px 72px}
+  .review-hero{background:#fff;border:1px solid #e5e8ee;border-radius:8px;padding:28px;margin-bottom:20px}
+  .review-hero h1{font-size:32px;margin:8px 0 10px}
+  .review-summary{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px}
+  .review-summary span,.status-pill{display:inline-flex;align-items:center;border-radius:999px;background:#fff1f1;color:#c51624;border:1px solid #f1c9cd;padding:7px 12px;font-weight:700}
+  .review-summary span:nth-child(2){background:#eef5ff;color:#1d4ed8;border-color:#c9ddff}
+  .review-card{background:#fff;border:1px solid #e1e5ec;border-radius:8px;margin:18px 0;padding:28px}
+  .review-card-head{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:22px;align-items:start;border-bottom:1px solid #eef0f4;padding-bottom:20px}
+  .review-card h2{font-size:26px;line-height:1.28;margin:8px 0 10px}
+  .review-actions{display:flex;gap:10px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
+  .review-actions button{border:0;cursor:pointer}
+  .review-actions button:disabled{opacity:.62;cursor:not-allowed}
+  .secondary-button{display:inline-flex;align-items:center;justify-content:center;border-radius:8px;background:#eef2f7;color:#263142;padding:10px 16px;font-weight:800;text-decoration:none}
+  .danger-button{display:inline-flex;align-items:center;justify-content:center;border-radius:8px;background:#fff1f1;color:#b91c1c;padding:10px 16px;font-weight:800;text-decoration:none}
+  .review-toast{position:fixed;right:18px;bottom:18px;z-index:50;max-width:360px;border-radius:8px;background:#172033;color:#fff;padding:13px 16px;box-shadow:0 16px 40px rgba(23,32,51,.2);font-weight:700}
+  .review-meta{display:grid;gap:10px;margin:18px 0 22px}
+  .review-meta div{display:grid;grid-template-columns:96px minmax(0,1fr);gap:12px}
+  .review-meta dt{font-weight:800;color:#5b6472}
+  .review-meta dd{margin:0;color:#1f2937;overflow-wrap:anywhere}
+  .review-body{max-width:820px}
+  .review-body h2{font-size:24px;margin-top:30px}
+  .review-body h3{font-size:19px;margin-top:24px}
+  .review-body p,.review-body li{font-size:17px;line-height:1.85}
+  .review-body table{width:100%;border-collapse:collapse;margin:18px 0}
+  .review-body th,.review-body td{border:1px solid #e5e8ee;padding:10px;text-align:left}
+  .review-empty{background:#fff;border:1px solid #e5e8ee;border-radius:8px;padding:28px}
+  @media (max-width:760px){.review-card-head{grid-template-columns:1fr}.review-actions{justify-content:flex-start}.review-meta div{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header class="site-header">
+      <div class="header-main">
+        <a class="brand" href="/" aria-label="SEDA 首页">
+          <img class="brand-logo" src="/assets/seda-wordmark.svg" alt="SEDA International Education 新加坡国际教育平台" height="38">
+        </a>
+        <nav class="main-nav" aria-label="主导航">
+          <a href="/" class="nav-link active"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg><span>首页</span></a>
+          <div class="nav-group"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg><span class="nav-label">课程体系 <svg class="nav-arrow" viewBox="0 0 10 6"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none"/></svg></span>
+            <div class="mega-dropdown mega-two-col">
+              <div class="mega-col"><div class="mega-col-title">课程体系</div><a href="/wace/">WACE 西澳课程</a><a href="/o-level/">O-Level 课程</a><a href="/a-level/">A-Level 课程</a><a href="/ib/">IB 课程</a><a href="/aeis/">AEIS 预备课程</a><a href="/ap/">AP 课程</a><a href="/foundation/">Foundation 预科</a></div>
+              <div class="mega-col"><div class="mega-col-title">入学考试</div><a href="/aeis/">AEIS 考试攻略</a><a href="/o-level/exam-format/">O-Level 考试</a><a href="/a-level/">A-Level 考试</a><a href="/entrance-exams/">入学测评总览</a><a href="/entrance-exams/map-growth/">MAP Growth</a><a href="/entrance-exams/cat4/">CAT4</a></div>
+            </div>
+          </div>
+          <div class="nav-group"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 16 16 12 12 8"/><line x1="8" y1="12" x2="16" y2="12"/></svg><span class="nav-label">升学路径 <svg class="nav-arrow" viewBox="0 0 10 6"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none"/></svg></span>
+            <div class="mega-dropdown"><a href="/jc/">JC 初级学院</a><a href="/poly/">Poly 理工学院</a><a href="/university/">新加坡公立大学</a><a href="/private-university/">新加坡私立大学</a><a href="/international-school/">国际学校</a><a href="/hk-university/">香港升学</a><a href="/au-university/">澳洲升学</a><a href="/uk-university/">英国升学</a></div>
+          </div>
+          <div class="nav-group"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg><span class="nav-label">学校库 <svg class="nav-arrow" viewBox="0 0 10 6"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none"/></svg></span>
+            <div class="mega-dropdown"><a href="/primary-schools/">小学数据库（179 所）</a><a href="/secondary-schools/">中学数据库（146 所）</a><a href="/jc/">初级学院（16 所）</a><a href="/international-school/">国际学校</a><a href="/private-schools/">私立学校</a><a href="/school-database/">全部学校总览</a></div>
+          </div>
+          <div class="nav-group"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg><span class="nav-label">留学指南 <svg class="nav-arrow" viewBox="0 0 10 6"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none"/></svg></span>
+            <div class="mega-dropdown"><a href="/guides/student-pass/">学生准证申请</a><a href="/guides/cost/">留学费用</a><a href="/guides/accommodation/">住宿方案</a><a href="/guides/dependent-pass/">陪读准证</a><a href="/guides/timeline/">留学时间线</a><a href="/guides/parents-faq/">家长 FAQ</a><a href="/guides/scholarship/">奖学金</a></div>
+          </div>
+          <a href="/news/" class="nav-link"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg><span>教育资讯</span></a>
+          <a href="/tools/" class="nav-link"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><span>AI升学工具</span></a>
+        </nav>
+        <a class="nav-cta" href="/contact/">免费咨询</a>
+      </div>
+      <div class="trending-bar" aria-label="站内搜索与热门搜索">
+        <form class="header-search" action="/search/" method="get" role="search">
+          <input type="search" name="q" placeholder="搜索 WACE / O-Level / 学校" aria-label="搜索 SEDA 内容">
+          <button type="submit">搜索</button>
+        </form>
+        <span>热门：</span>
+        <a href="/wace/">WACE 课程</a>
+        <a href="/aeis/">AEIS 考试</a>
+        <a href="/o-level/">O-Level</a>
+      </div>
+    </header>
+<main class="review-main">
+  <section class="review-hero">
+    <p class="eyebrow">内部审核</p>
+    <h1>SEDA 内容审核后台</h1>
+    <p>这里显示 <code>content/articles</code> 里标记为 <code>draft: true</code> 的 SEO 草稿。点击“通过发布”后，系统会自动发布文章并更新 sitemap；点击“退回修改”可留下修改备注。</p>
+    <div class="review-summary">
+      <span>待审核 0 篇</span>
+      <span>已发布 6 篇</span>
+    </div>
+  </section>
+  <section class="review-empty"><h2>暂无待审核文章</h2><p>新的 SEO 草稿会显示在这里。</p></section>
+</main>
+<footer class="site-footer">
+      <div>
+        <strong>SEDA 新加坡国际教育平台</strong>
+        <p>中文新加坡升学资讯与选校内容平台。</p>
+        <p style="margin-top:.5rem;font-size:.85rem;opacity:.7">由 Singapore Educational Development Association Ltd. 监管</p>
+        <p class="icp-record" style="margin-top:.5rem;font-size:.85rem;opacity:.7"><a href="https://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">沪ICP备2022009720号-9</a></p>
+      </div>
+      <div>
+        <span>课程体系</span>
+        <p><a href="/wace/">WACE</a> · <a href="/o-level/">O-Level</a> · <a href="/a-level/">A-Level</a> · <a href="/ib/">IB</a> · <a href="/aeis/">AEIS</a> · <a href="/ap/">AP</a> · <a href="/foundation/">Foundation</a></p>
+      </div>
+      <div>
+        <span>升学路径</span>
+        <p><a href="/jc/">JC 初级学院</a> · <a href="/poly/">理工学院</a> · <a href="/university/">公立大学</a> · <a href="/private-university/">私立大学</a> · <a href="/hk-university/">香港升学</a> · <a href="/au-university/">澳洲升学</a> · <a href="/uk-university/">英国升学</a></p>
+      </div>
+      <div>
+        <span>留学指南</span>
+        <p><a href="/guides/student-pass/">学生准证</a> · <a href="/guides/cost/">留学费用</a> · <a href="/guides/accommodation/">住宿方案</a> · <a href="/guides/dependent-pass/">陪读准证</a> · <a href="/guides/timeline/">留学时间线</a> · <a href="/guides/scholarship/">奖学金</a></p>
+      </div>
+      <div>
+        <span>关于 SEDA</span>
+        <p><a href="/about/">关于我们</a> · <a href="/contact/">联系我们</a> · <a href="/news/">教育资讯</a> · <a href="/tools/">AI 升学工具</a> · <a href="/school-database/">学校数据库</a></p>
+      </div>
+    </footer>
+<script>
+(() => {
+  const toast = (message) => {
+    const old = document.querySelector('.review-toast');
+    if (old) old.remove();
+    const el = document.createElement('div');
+    el.className = 'review-toast';
+    el.textContent = message;
+    document.body.appendChild(el);
+    setTimeout(() => el.remove(), 4500);
+  };
+  const tokenKey = 'sedaReviewToken';
+  async function submitAction(button) {
+    let token = localStorage.getItem(tokenKey) || '';
+    if (!token) {
+      token = prompt('请输入内容审核口令');
+      if (!token) return;
+      localStorage.setItem(tokenKey, token);
+    }
+    const action = button.dataset.action;
+    const file = button.dataset.file;
+    let note = '';
+    if (action === 'revise') note = prompt('请输入退回修改备注（可留空）') || '';
+    if (action === 'archive' && !confirm('确认归档删除这篇草稿？文章会从审核列表移走。')) return;
+    button.disabled = true;
+    button.textContent = '处理中...';
+    try {
+      const res = await fetch('/api/content-review', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ token, action, file, note }),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) {
+        if (res.status === 401) localStorage.removeItem(tokenKey);
+        throw new Error(data.error || '操作失败');
+      }
+      toast(action === 'approve' ? '已发布，页面即将刷新' : action === 'archive' ? '已归档删除，页面即将刷新' : '已标记为需修改，页面即将刷新');
+      setTimeout(() => location.reload(), 1200);
+    } catch (error) {
+      toast(error.message || '操作失败');
+      button.disabled = false;
+      button.textContent = action === 'approve' ? '通过发布' : action === 'archive' ? '归档删除' : '退回修改';
+    }
+  }
+  document.querySelectorAll('.review-action').forEach((button) => {
+    button.addEventListener('click', () => submitAction(button));
+  });
+})();
+</script>
+</body>
+</html>

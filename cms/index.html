@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <meta name="robots" content="noindex,nofollow" />
+  <title>SEDA CMS 内容后台</title>
+  <link rel="stylesheet" href="/seda-site.css?v=15" />
+  <style>
+    body{margin:0;background:#f5f6f8;color:#172033}
+    .cms-shell{max-width:1280px;margin:0 auto;padding:28px 20px 72px}
+    .cms-top{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-bottom:20px}
+    .cms-top h1{margin:0;font-size:30px}
+    .cms-top p{margin:8px 0 0;color:#667085}
+    .cms-grid{display:grid;grid-template-columns:380px minmax(0,1fr);gap:18px;align-items:start}
+    .cms-panel{background:#fff;border:1px solid #e2e6ee;border-radius:8px;box-shadow:0 10px 28px rgba(23,32,51,.05)}
+    .cms-login{max-width:480px;margin:88px auto;padding:30px}
+    .cms-login h1{margin:0 0 10px;font-size:30px}
+    .cms-login p{color:#667085}
+    .cms-input,.cms-textarea{box-sizing:border-box;width:100%;border:1px solid #d8dde7;border-radius:8px;background:#fff;color:#172033;font:inherit}
+    .cms-input{height:46px;padding:0 14px}
+    .cms-textarea{min-height:650px;padding:18px;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono",monospace;font-size:14px;line-height:1.7;resize:vertical}
+    .cms-button{display:inline-flex;align-items:center;justify-content:center;border:0;border-radius:8px;background:#cf2029;color:#fff;font-weight:800;height:44px;padding:0 18px;cursor:pointer;text-decoration:none}
+    .cms-button.secondary{background:#eef2f7;color:#263142}
+    .cms-button.danger{background:#fff1f1;color:#b91c1c}
+    .cms-button:disabled{opacity:.6;cursor:not-allowed}
+    .cms-toolbar{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+    .cms-sidebar{padding:16px}
+    .cms-filters{display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap}
+    .cms-filter{border:1px solid #d8dde7;border-radius:999px;background:#fff;color:#344054;font-weight:800;padding:8px 12px;cursor:pointer}
+    .cms-filter.active{background:#fff1f1;color:#c51624;border-color:#f1c9cd}
+    .cms-list{display:grid;gap:10px;max-height:720px;overflow:auto;padding-right:4px}
+    .cms-item{border:1px solid #e5e8ee;border-radius:8px;background:#fff;padding:14px;text-align:left;cursor:pointer}
+    .cms-item.active{border-color:#cf2029;box-shadow:0 0 0 3px rgba(207,32,41,.1)}
+    .cms-item strong{display:block;font-size:16px;line-height:1.35;margin-bottom:8px}
+    .cms-meta{display:flex;gap:8px;align-items:center;flex-wrap:wrap;color:#667085;font-size:13px}
+    .cms-pill{border-radius:999px;background:#f2f4f7;color:#344054;padding:4px 8px;font-weight:800}
+    .cms-pill.draft{background:#fff1f1;color:#c51624}
+    .cms-editor-head{display:flex;justify-content:space-between;gap:18px;align-items:start;border-bottom:1px solid #eef0f4;padding:18px}
+    .cms-editor-head h2{margin:0 0 8px;font-size:22px;line-height:1.35}
+    .cms-editor-head p{margin:0;color:#667085}
+    .cms-editor-body{padding:18px}
+    .cms-empty{padding:54px 24px;text-align:center;color:#667085}
+    .cms-toast{position:fixed;right:18px;bottom:18px;z-index:50;max-width:380px;border-radius:8px;background:#172033;color:#fff;padding:13px 16px;box-shadow:0 16px 40px rgba(23,32,51,.22);font-weight:700}
+    [hidden]{display:none!important}
+    @media (max-width:900px){.cms-grid{grid-template-columns:1fr}.cms-list{max-height:none}.cms-editor-head{display:grid}}
+  </style>
+</head>
+<body>
+  <main class="cms-shell">
+    <section id="loginPanel" class="cms-panel cms-login" hidden>
+      <h1>SEDA CMS 内容后台</h1>
+      <p>请输入后台密码。登录后可以审核、编辑并发布 SEO 草稿。</p>
+      <form id="loginForm">
+        <input id="passwordInput" class="cms-input" type="password" autocomplete="current-password" placeholder="后台密码" />
+        <div style="height:14px"></div>
+        <button class="cms-button" type="submit">登录</button>
+      </form>
+    </section>
+
+    <section id="appPanel" hidden>
+      <div class="cms-top">
+        <div>
+          <p class="eyebrow">内部内容系统</p>
+          <h1>SEDA CMS 内容后台</h1>
+          <p>审核 SEO 草稿、在线修改 Markdown，确认后发布并更新 sitemap。</p>
+        </div>
+        <div class="cms-toolbar">
+          <a class="cms-button secondary" href="/" target="_blank" rel="noopener">打开网站</a>
+          <button id="refreshButton" class="cms-button secondary" type="button">刷新</button>
+          <button id="logoutButton" class="cms-button danger" type="button">退出</button>
+        </div>
+      </div>
+
+      <div class="cms-grid">
+        <aside class="cms-panel cms-sidebar">
+          <div class="cms-filters">
+            <button class="cms-filter active" type="button" data-filter="all">全部</button>
+            <button class="cms-filter" type="button" data-filter="draft">待审核</button>
+            <button class="cms-filter" type="button" data-filter="revision">需修改</button>
+            <button class="cms-filter" type="button" data-filter="published">已发布</button>
+          </div>
+          <div id="articleList" class="cms-list"></div>
+        </aside>
+
+        <section class="cms-panel">
+          <div id="emptyState" class="cms-empty">
+            <h2>请选择一篇文章</h2>
+            <p>左侧列表会显示所有 SEO 文章和草稿。</p>
+          </div>
+          <div id="editorPanel" hidden>
+            <div class="cms-editor-head">
+              <div>
+                <h2 id="editorTitle"></h2>
+                <p id="editorMeta"></p>
+              </div>
+              <div class="cms-toolbar">
+                <button id="saveButton" class="cms-button secondary" type="button">保存修改</button>
+                <button id="approveButton" class="cms-button" type="button">通过发布</button>
+                <button id="reviseButton" class="cms-button secondary" type="button">退回修改</button>
+                <button id="archiveButton" class="cms-button danger" type="button">归档删除</button>
+              </div>
+            </div>
+            <div class="cms-editor-body">
+              <textarea id="editorContent" class="cms-textarea" spellcheck="false"></textarea>
+            </div>
+          </div>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const state = { articles: [], filter: 'all', selected: null };
+    const els = {
+      loginPanel: document.getElementById('loginPanel'),
+      appPanel: document.getElementById('appPanel'),
+      loginForm: document.getElementById('loginForm'),
+      passwordInput: document.getElementById('passwordInput'),
+      articleList: document.getElementById('articleList'),
+      emptyState: document.getElementById('emptyState'),
+      editorPanel: document.getElementById('editorPanel'),
+      editorTitle: document.getElementById('editorTitle'),
+      editorMeta: document.getElementById('editorMeta'),
+      editorContent: document.getElementById('editorContent'),
+      saveButton: document.getElementById('saveButton'),
+      approveButton: document.getElementById('approveButton'),
+      reviseButton: document.getElementById('reviseButton'),
+      archiveButton: document.getElementById('archiveButton'),
+      refreshButton: document.getElementById('refreshButton'),
+      logoutButton: document.getElementById('logoutButton'),
+    };
+
+    function toast(message) {
+      const old = document.querySelector('.cms-toast');
+      if (old) old.remove();
+      const el = document.createElement('div');
+      el.className = 'cms-toast';
+      el.textContent = message;
+      document.body.appendChild(el);
+      setTimeout(() => el.remove(), 4200);
+    }
+
+    async function api(path, options = {}) {
+      const res = await fetch(path, {
+        ...options,
+        headers: { 'Content-Type': 'application/json', ...(options.headers || {}) },
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) throw new Error(data.error || '请求失败');
+      return data;
+    }
+
+    function showLogin() {
+      els.loginPanel.hidden = false;
+      els.appPanel.hidden = true;
+      setTimeout(() => els.passwordInput.focus(), 50);
+    }
+
+    function showApp() {
+      els.loginPanel.hidden = true;
+      els.appPanel.hidden = false;
+    }
+
+    function passesFilter(article) {
+      if (state.filter === 'draft') return article.draft && article.reviewStatus !== 'needs_revision';
+      if (state.filter === 'revision') return article.reviewStatus === 'needs_revision';
+      if (state.filter === 'published') return !article.draft;
+      return true;
+    }
+
+    function renderList() {
+      const articles = state.articles.filter(passesFilter);
+      els.articleList.innerHTML = articles.length ? articles.map((article) => {
+        const status = article.draft ? (article.reviewStatus === 'needs_revision' ? '需修改' : '待审核') : '已发布';
+        return `<button class="cms-item ${state.selected?.file === article.file ? 'active' : ''}" type="button" data-file="${article.file}">
+          <strong>${article.title}</strong>
+          <span class="cms-meta">
+            <span class="cms-pill ${article.draft ? 'draft' : ''}">${status}</span>
+            <span>${article.category}</span>
+            <span>${article.date || ''}</span>
+          </span>
+        </button>`;
+      }).join('') : '<div class="cms-empty">这个分类暂无文章。</div>';
+    }
+
+    async function loadArticles() {
+      const data = await api('/api/cms/articles');
+      state.articles = data.articles || [];
+      renderList();
+    }
+
+    async function openArticle(file) {
+      const data = await api(`/api/cms/article?file=${encodeURIComponent(file)}`);
+      state.selected = { file: data.file, meta: data.meta };
+      els.emptyState.hidden = true;
+      els.editorPanel.hidden = false;
+      els.editorTitle.textContent = data.meta.title || data.file;
+      els.editorMeta.textContent = `${data.file} · ${data.meta.categoryLabel || data.meta.category || 'SEO文章'} · ${data.meta.date || ''}`;
+      els.editorContent.value = data.content || '';
+      renderList();
+    }
+
+    async function saveArticle() {
+      if (!state.selected) return;
+      els.saveButton.disabled = true;
+      try {
+        await api('/api/cms/article', {
+          method: 'POST',
+          body: JSON.stringify({ file: state.selected.file, content: els.editorContent.value }),
+        });
+        toast('已保存并重新构建内容');
+        await loadArticles();
+      } finally {
+        els.saveButton.disabled = false;
+      }
+    }
+
+    async function review(action) {
+      if (!state.selected) return;
+      let note = '';
+      if (action === 'revise') note = prompt('请输入退回修改备注（可留空）') || '';
+      if (action === 'archive' && !confirm('确认归档删除这篇文章？')) return;
+      await api('/api/content-review', {
+        method: 'POST',
+        body: JSON.stringify({ action, file: state.selected.file, note }),
+      });
+      toast(action === 'approve' ? '已通过发布' : action === 'archive' ? '已归档删除' : '已退回修改');
+      state.selected = null;
+      els.editorPanel.hidden = true;
+      els.emptyState.hidden = false;
+      await loadArticles();
+    }
+
+    els.loginForm.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      try {
+        await api('/api/cms/login', { method: 'POST', body: JSON.stringify({ password: els.passwordInput.value }) });
+        showApp();
+        await loadArticles();
+      } catch (error) {
+        toast(error.message);
+      }
+    });
+
+    els.articleList.addEventListener('click', (event) => {
+      const item = event.target.closest('.cms-item');
+      if (item) openArticle(item.dataset.file).catch((error) => toast(error.message));
+    });
+
+    document.querySelectorAll('.cms-filter').forEach((button) => {
+      button.addEventListener('click', () => {
+        document.querySelectorAll('.cms-filter').forEach((item) => item.classList.remove('active'));
+        button.classList.add('active');
+        state.filter = button.dataset.filter;
+        renderList();
+      });
+    });
+
+    els.saveButton.addEventListener('click', () => saveArticle().catch((error) => toast(error.message)));
+    els.approveButton.addEventListener('click', () => review('approve').catch((error) => toast(error.message)));
+    els.reviseButton.addEventListener('click', () => review('revise').catch((error) => toast(error.message)));
+    els.archiveButton.addEventListener('click', () => review('archive').catch((error) => toast(error.message)));
+    els.refreshButton.addEventListener('click', () => loadArticles().catch((error) => toast(error.message)));
+    els.logoutButton.addEventListener('click', async () => {
+      await api('/api/cms/logout', { method: 'POST', body: '{}' });
+      showLogin();
+    });
+
+    api('/api/cms/me').then((data) => {
+      if (data.authenticated) {
+        showApp();
+        return loadArticles();
+      }
+      showLogin();
+    }).catch(showLogin);
+  </script>
+</body>
+</html>

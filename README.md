@@ -21,6 +21,29 @@ SEDA 新加坡国际教育中心官网 (seda.org.sg)，最全面的中文新加�
 python3 -m http.server 8080
 ```
 
+## SEO 内容生产
+
+新建一篇长尾词草稿：
+
+```bash
+npm run content:new -- "WACE适合中国学生吗" -- --category=wace --categoryLabel="WACE 课程" --slug=wace-suitable-for-chinese-students
+```
+
+编辑 `content/articles/*.md`，把 `draft: true` 改成 `draft: false` 后生成静态页面：
+
+```bash
+npm run content:build
+```
+
+生成脚本会自动：
+
+- 输出文章页面到 `/<category>/<slug>/index.html`
+- 把文章卡片插入 `/news/`
+- 重新生成 `sitemap.xml`
+- 加入 Article 与 Breadcrumb JSON-LD
+
+每日选题可先放在 `content/keyword-queue.csv`。
+
 ## 部署
 
 ```bash

@@ -42,39 +42,89 @@
     }
     .present-brand-logo {
       display: block;
-      height: 28px;
+      height: 44px;
       width: auto;
     }
-    .present-brand-sub {
-      font-size: 13px; font-weight: 600; color: var(--muted);
-    }
+    .present-nav { display: flex; align-items: center; gap: 14px; }
     .present-back {
-      font-size: 13px; font-weight: 600;
-      color: var(--muted); text-decoration: none;
+      font-size: 14px; font-weight: 800;
+      color: var(--ink); text-decoration: none;
     }
     .present-back:hover { color: var(--brand); }
+    .present-contact {
+      display: inline-flex; align-items: center; justify-content: center;
+      min-height: 38px; padding: 0 16px; border-radius: 8px;
+      background: var(--brand); color: #fff; font-size: 14px; font-weight: 800;
+      text-decoration: none; box-shadow: 0 6px 18px rgba(198,40,40,.18);
+    }
+    .present-contact:hover { background: #a71d1d; text-decoration: none; }
 
     .hub-hero {
-      background: linear-gradient(135deg, #2a1215 0%, #1a0a0c 100%);
+      background: linear-gradient(135deg, #c62828 0%, #a71d1d 55%, #781313 100%);
       color: #fff;
-      padding: 60px clamp(20px, 6vw, 80px) 52px;
-      text-align: center;
+      padding: 56px clamp(20px, 6vw, 80px);
+    }
+    .hub-hero-inner {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(280px, 360px);
+      gap: clamp(28px, 5vw, 64px);
+      align-items: center;
+      max-width: 1120px;
+      margin: 0 auto;
     }
     .hub-hero h1 {
       font-size: clamp(28px, 5vw, 44px);
       font-weight: 800;
       margin-bottom: 16px;
     }
-    .hub-hero h1 em { font-style: normal; color: var(--brand-light); }
+    .hub-hero h1 em { font-style: normal; color: #fff; }
     .hub-hero p {
       font-size: 16px;
-      color: rgba(255,255,255,0.65);
-      max-width: 520px;
-      margin: 0 auto;
+      color: rgba(255,255,255,0.82);
+      max-width: 560px;
+      margin-bottom: 24px;
+    }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+    .hero-button {
+      display: inline-flex; align-items: center; justify-content: center;
+      min-height: 44px; padding: 0 18px; border-radius: 8px;
+      background: #fff; color: var(--brand); font-weight: 800;
+      text-decoration: none;
+    }
+    .hero-button.secondary {
+      background: rgba(255,255,255,.12); color: #fff; border: 1px solid rgba(255,255,255,.35);
+    }
+    .hero-button:hover { text-decoration: none; transform: translateY(-1px); }
+    .ai-side-card {
+      border: 1px solid rgba(255,255,255,.28);
+      border-radius: 14px;
+      padding: 22px;
+      background: rgba(255,255,255,.12);
+      box-shadow: 0 18px 40px rgba(0,0,0,.18);
+      backdrop-filter: blur(12px);
+    }
+    .ai-side-card strong {
+      display: block;
+      margin-bottom: 10px;
+      font-size: 18px;
+    }
+    .ai-side-card p {
+      margin: 0 0 14px;
+      color: rgba(255,255,255,.82);
+      font-size: 14px;
+    }
+    .ai-chat-lines { display: grid; gap: 8px; }
+    .ai-chat-lines span {
+      display: block;
+      border-radius: 10px;
+      padding: 10px 12px;
+      background: rgba(255,255,255,.14);
+      color: #fff;
+      font-size: 13px;
     }
 
     .hub-section {
-      max-width: 900px;
+      max-width: 1120px;
       margin: 0 auto;
       padding: 40px clamp(20px, 6vw, 80px) 20px;
     }
@@ -143,12 +193,112 @@
       font-size: 12px;
       color: var(--muted);
     }
+    .lead-strip {
+      max-width: 1120px;
+      margin: 28px auto 0;
+      padding: 0 clamp(20px, 6vw, 80px);
+    }
+    .lead-card {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 16px;
+      align-items: center;
+      border: 1px solid rgba(198,40,40,.18);
+      border-radius: 12px;
+      padding: 20px 22px;
+      background: #fff7f7;
+    }
+    .lead-card strong { display: block; margin-bottom: 4px; font-size: 18px; }
+    .lead-card p { color: var(--muted); font-size: 14px; }
+    .lead-card button,
+    .float-ai button,
+    .lead-modal button {
+      border: 0; cursor: pointer; font-family: inherit;
+    }
+    .lead-primary {
+      min-height: 42px; padding: 0 18px; border-radius: 8px;
+      background: var(--brand); color: #fff; font-weight: 800;
+    }
+    .float-ai {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      z-index: 120;
+      width: 260px;
+      border: 1px solid #f1d2d2;
+      border-radius: 14px;
+      padding: 14px;
+      background: #fff;
+      box-shadow: 0 16px 40px rgba(15,23,42,.18);
+    }
+    .float-ai strong { display: block; font-size: 14px; margin-bottom: 4px; }
+    .float-ai p { color: var(--muted); font-size: 12px; margin-bottom: 10px; }
+    .float-ai button {
+      width: 100%; min-height: 38px; border-radius: 8px;
+      background: var(--brand); color: #fff; font-weight: 800;
+    }
+    .lead-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 150;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      background: rgba(15,23,42,.45);
+    }
+    .lead-modal.show { display: flex; }
+    .lead-dialog {
+      position: relative;
+      width: min(100%, 460px);
+      border-radius: 14px;
+      padding: 26px;
+      background: #fff;
+      box-shadow: 0 24px 70px rgba(0,0,0,.22);
+    }
+    .lead-close {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      width: 32px;
+      height: 32px;
+      border-radius: 999px;
+      background: #f2f4f7;
+      color: #475467;
+      font-size: 18px;
+    }
+    .lead-dialog h3 { margin-bottom: 8px; font-size: 24px; }
+    .lead-dialog > p { margin-bottom: 18px; color: var(--muted); font-size: 14px; }
+    .lead-form { display: grid; gap: 10px; }
+    .lead-form input,
+    .lead-form select,
+    .lead-form textarea {
+      width: 100%;
+      border: 1px solid #d8dde6;
+      border-radius: 8px;
+      padding: 12px;
+      font: inherit;
+      outline: none;
+    }
+    .lead-form textarea { min-height: 82px; resize: vertical; }
+    .lead-submit {
+      min-height: 44px;
+      border-radius: 8px;
+      background: var(--brand);
+      color: #fff;
+      font-weight: 800;
+    }
+    .lead-note { margin-top: 10px; color: var(--muted); font-size: 12px; }
 
     @media (max-width: 640px) {
       .tool-card { padding: 16px; gap: 12px; }
       .tool-icon { width: 44px; height: 44px; font-size: 24px; }
       .tool-name { font-size: 15px; }
       .present-back { display: none; }
+      .present-contact { display: none; }
+      .hub-hero-inner { grid-template-columns: 1fr; }
+      .lead-card { grid-template-columns: 1fr; }
+      .float-ai { right: 14px; left: 14px; bottom: 14px; width: auto; }
     }
   </style>
     <link rel="canonical" href="https://sgeda.org.cn/tools/" />
@@ -159,18 +309,47 @@
   <div class="present-header-inner">
     <div class="present-brand">
       <img class="present-brand-logo" src="/assets/seda-wordmark.svg" alt="SEDA" height="28">
-      <span class="present-brand-sub">新加坡国际教育平台</span>
     </div>
-    <a href="/tools/" class="present-back">← 全部工具</a>
+    <div class="present-nav">
+      <a href="/" class="present-back">返回首页</a>
+      <a href="/contact/" class="present-contact">免费咨询</a>
+    </div>
   </div>
 </header>
 
 <div class="hub-hero">
-  <h1>SEDA <em>AI 升学工具</em></h1>
-  <p>AI 驱动的升学分析工具，助你找到最适合的学校与路径</p>
+  <div class="hub-hero-inner">
+    <div>
+      <h1>SEDA <em>AI 升学工具</em></h1>
+      <p>用工具先做一次方向判断，再让顾问帮你确认课程、学校与申请路径。</p>
+      <div class="hero-actions">
+        <a href="/" class="hero-button secondary">返回首页</a>
+        <a href="#sg-tools" class="hero-button">查看工具</a>
+      </div>
+    </div>
+    <aside class="ai-side-card" aria-label="AI 咨询助手">
+      <strong>AI 升学助手</strong>
+      <p>不知道从哪个工具开始？先告诉我们年级、成绩和目标地区。</p>
+      <div class="ai-chat-lines">
+        <span>我适合 WACE 还是 O-Level？</span>
+        <span>NUS / NTU 录取概率怎么判断？</span>
+        <span>想要一份个性化时间表</span>
+      </div>
+    </aside>
+  </div>
 </div>
 
-<div class="hub-section">
+<div class="lead-strip">
+  <div class="lead-card">
+    <div>
+      <strong>想让顾问帮你看一次路径？</strong>
+      <p>留下年级、目标和联系方式，我们会根据你的情况推荐合适工具与下一步方案。</p>
+    </div>
+    <button class="lead-primary" type="button" data-open-lead onclick="openLeadModal()">留下联系方式</button>
+  </div>
+</div>
+
+<div class="hub-section" id="sg-tools">
   <h2>🇸🇬 新加坡 <em>升学工具</em></h2>
   <div class="tool-list">
       <a href="/tools/university-matcher.html" class="tool-card">
@@ -269,8 +448,68 @@
 </div>
 
 <footer class="present-footer">
-  <p>SEDA 新加坡国际教育平台 &copy; 2024–2026</p>
+  <p><strong>SEDA 新加坡国际教育平台</strong></p>
+  <p>中文新加坡升学资讯与选校内容平台。</p>
+  <p>由 Singapore Educational Development Association Ltd. 监管</p>
+  <p class="icp-record"><a href="https://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">沪ICP备2022009720号-9</a></p>
 </footer>
+
+<div class="float-ai" aria-label="AI 咨询入口">
+  <strong>需要 AI 顾问帮你选工具？</strong>
+  <p>告诉我们学生年级和目标学校，先做一次方向判断。</p>
+  <button type="button" data-open-lead onclick="openLeadModal()">开始免费评估</button>
+</div>
+
+<div class="lead-modal" id="leadModal" aria-hidden="true">
+  <div class="lead-dialog" role="dialog" aria-modal="true" aria-labelledby="leadTitle">
+    <button class="lead-close" type="button" data-close-lead onclick="closeLeadModal()" aria-label="关闭">×</button>
+    <h3 id="leadTitle">留下联系方式</h3>
+    <p>我们会根据学生年级、成绩和目标地区，帮你判断适合先用哪个工具。</p>
+    <form class="lead-form" action="/contact/" method="get">
+      <input name="name" placeholder="家长姓名" aria-label="家长姓名">
+      <input name="contact" placeholder="微信 / WhatsApp / 手机" aria-label="联系方式" required>
+      <select name="stage" aria-label="学生阶段">
+        <option value="">学生目前阶段</option>
+        <option>小学 / AEIS</option>
+        <option>初中 / O-Level</option>
+        <option>国际高中 / WACE / IB / A-Level</option>
+        <option>本科 / 硕士申请</option>
+      </select>
+      <textarea name="message" placeholder="目标学校或目前困惑，例如：想申请 NUS，不确定 WACE 是否适合"></textarea>
+      <button class="lead-submit" type="submit">提交咨询</button>
+    </form>
+    <div class="lead-note">提交后会跳转到咨询页；正式接入表单系统后可直接入库。</div>
+  </div>
+</div>
+
+<script>
+  const leadModal = document.getElementById('leadModal');
+  function openLeadModal() {
+    leadModal.classList.add('show');
+    leadModal.setAttribute('aria-hidden', 'false');
+  }
+  function closeLeadModal() {
+    leadModal.classList.remove('show');
+    leadModal.setAttribute('aria-hidden', 'true');
+  }
+  document.querySelectorAll('[data-open-lead]').forEach(button => {
+    button.addEventListener('click', openLeadModal);
+  });
+  document.querySelectorAll('[data-close-lead]').forEach(button => {
+    button.addEventListener('click', closeLeadModal);
+  });
+  leadModal.addEventListener('click', event => {
+    if (event.target === leadModal) {
+      closeLeadModal();
+    }
+  });
+  window.setTimeout(() => {
+    if (!sessionStorage.getItem('sedaToolsLeadShown')) {
+      openLeadModal();
+      sessionStorage.setItem('sedaToolsLeadShown', '1');
+    }
+  }, 9000);
+</script>
 
 </body>
 </html>

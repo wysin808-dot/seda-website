@@ -14,6 +14,23 @@ if [ "$1" == "update" ]; then
   # ── 更新代码 ──
   echo "[1/3] 拉取最新代码..."
   cd $SITE_DIR && git pull origin main
+  if [ ! -f "$SITE_DIR/.env" ]; then
+    touch "$SITE_DIR/.env"
+  fi
+  if ! grep -q '^REVIEW_ADMIN_TOKEN=' "$SITE_DIR/.env"; then
+    REVIEW_TOKEN=$(node -e "console.log(require('crypto').randomBytes(12).toString('hex'))")
+    echo "REVIEW_ADMIN_TOKEN=$REVIEW_TOKEN" >> "$SITE_DIR/.env"
+    echo "内容审核口令: $REVIEW_TOKEN"
+  fi
+  if ! grep -q '^CMS_ADMIN_PASSWORD=' "$SITE_DIR/.env"; then
+    CMS_PASSWORD=$(grep '^REVIEW_ADMIN_TOKEN=' "$SITE_DIR/.env" | tail -1 | cut -d= -f2-)
+    echo "CMS_ADMIN_PASSWORD=$CMS_PASSWORD" >> "$SITE_DIR/.env"
+    echo "CMS 登录密码: $CMS_PASSWORD"
+  fi
+  if ! grep -q '^CMS_SESSION_SECRET=' "$SITE_DIR/.env"; then
+    CMS_SECRET=$(node -e "console.log(require('crypto').randomBytes(24).toString('hex'))")
+    echo "CMS_SESSION_SECRET=$CMS_SECRET" >> "$SITE_DIR/.env"
+  fi
   echo "[2/3] 重启 API 服务..."
   pm2 restart seda-api
   echo "[3/3] 重载 Nginx..."
@@ -49,7 +66,10 @@ DEEPSEEK_API_KEY=请填入你的DeepSeek API Key
 DEEPSEEK_MODEL=deepseek-chat
 WECHAT_ID=请填入微信号
 WECHAT_QR_URL=请填入微信二维码图片URL
-PORT=3001
+REVIEW_ADMIN_TOKEN=请改成内容审核口令
+CMS_ADMIN_PASSWORD=请改成CMS登录密码
+CMS_SESSION_SECRET=请改成随机会话密钥
+PORT=3011
 EOF
   echo "⚠️  请编辑 $SITE_DIR/.env 填入真实配置"
 fi

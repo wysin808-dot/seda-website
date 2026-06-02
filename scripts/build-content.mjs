@@ -280,6 +280,9 @@ function renderReviewPage(articles) {
   const published = articles.filter((article) => !article.meta.draft).length;
   const draftCards = drafts.map((article, index) => {
     const meta = article.meta;
+    const relFile = path.relative(root, article.file).replaceAll(path.sep, '/');
+    const reviewStatus = meta.reviewStatus === 'needs_revision' ? '需修改' : '待审核';
+    const note = meta.reviewNote ? `\n        <div><dt>审核备注</dt><dd>${escapeHtml(meta.reviewNote)}</dd></div>` : '';
     return `<article class="review-card" id="draft-${index + 1}">
       <div class="review-card-head">
         <div>
@@ -288,14 +291,17 @@ function renderReviewPage(articles) {
           <p>${escapeHtml(meta.description || '')}</p>
         </div>
         <div class="review-actions">
-          <span class="status-pill">待审核</span>
+          <span class="status-pill">${reviewStatus}</span>
+          <button class="primary-button review-action" type="button" data-action="approve" data-file="${escapeHtml(relFile)}">通过发布</button>
+          <button class="secondary-button review-action" type="button" data-action="revise" data-file="${escapeHtml(relFile)}">退回修改</button>
+          <button class="danger-button review-action" type="button" data-action="archive" data-file="${escapeHtml(relFile)}">归档删除</button>
           <a class="primary-button" href="${githubEditUrl(article)}" target="_blank" rel="noopener">在 GitHub 编辑</a>
         </div>
       </div>
       <dl class="review-meta">
         <div><dt>关键词</dt><dd>${escapeHtml(meta.keywords || '')}</dd></div>
         <div><dt>计划 URL</dt><dd><code>${escapeHtml(article.url)}</code></dd></div>
-        <div><dt>文件</dt><dd><code>${escapeHtml(path.relative(root, article.file).replaceAll(path.sep, '/'))}</code></dd></div>
+        <div><dt>文件</dt><dd><code>${escapeHtml(relFile)}</code></dd></div>${note}
       </dl>
       <div class="review-body">${article.html}</div>
     </article>`;
@@ -320,6 +326,11 @@ function renderReviewPage(articles) {
   .review-card-head{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:22px;align-items:start;border-bottom:1px solid #eef0f4;padding-bottom:20px}
   .review-card h2{font-size:26px;line-height:1.28;margin:8px 0 10px}
   .review-actions{display:flex;gap:10px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
+  .review-actions button{border:0;cursor:pointer}
+  .review-actions button:disabled{opacity:.62;cursor:not-allowed}
+  .secondary-button{display:inline-flex;align-items:center;justify-content:center;border-radius:8px;background:#eef2f7;color:#263142;padding:10px 16px;font-weight:800;text-decoration:none}
+  .danger-button{display:inline-flex;align-items:center;justify-content:center;border-radius:8px;background:#fff1f1;color:#b91c1c;padding:10px 16px;font-weight:800;text-decoration:none}
+  .review-toast{position:fixed;right:18px;bottom:18px;z-index:50;max-width:360px;border-radius:8px;background:#172033;color:#fff;padding:13px 16px;box-shadow:0 16px 40px rgba(23,32,51,.2);font-weight:700}
   .review-meta{display:grid;gap:10px;margin:18px 0 22px}
   .review-meta div{display:grid;grid-template-columns:96px minmax(0,1fr);gap:12px}
   .review-meta dt{font-weight:800;color:#5b6472}
@@ -340,7 +351,7 @@ ${header}
   <section class="review-hero">
     <p class="eyebrow">内部审核</p>
     <h1>SEDA 内容审核后台</h1>
-    <p>这里显示 <code>content/articles</code> 里标记为 <code>draft: true</code> 的 SEO 草稿。审核通过后，把对应文章改为 <code>draft: false</code>，再运行内容构建即可发布。</p>
+    <p>这里显示 <code>content/articles</code> 里标记为 <code>draft: true</code> 的 SEO 草稿。点击“通过发布”后，系统会自动发布文章并更新 sitemap；点击“退回修改”可留下修改备注。</p>
     <div class="review-summary">
       <span>待审核 ${drafts.length} 篇</span>
       <span>已发布 ${published} 篇</span>
@@ -349,6 +360,56 @@ ${header}
   ${drafts.length ? draftCards : '<section class="review-empty"><h2>暂无待审核文章</h2><p>新的 SEO 草稿会显示在这里。</p></section>'}
 </main>
 ${footer}
+<script>
+(() => {
+  const toast = (message) => {
+    const old = document.querySelector('.review-toast');
+    if (old) old.remove();
+    const el = document.createElement('div');
+    el.className = 'review-toast';
+    el.textContent = message;
+    document.body.appendChild(el);
+    setTimeout(() => el.remove(), 4500);
+  };
+  const tokenKey = 'sedaReviewToken';
+  async function submitAction(button) {
+    let token = localStorage.getItem(tokenKey) || '';
+    if (!token) {
+      token = prompt('请输入内容审核口令');
+      if (!token) return;
+      localStorage.setItem(tokenKey, token);
+    }
+    const action = button.dataset.action;
+    const file = button.dataset.file;
+    let note = '';
+    if (action === 'revise') note = prompt('请输入退回修改备注（可留空）') || '';
+    if (action === 'archive' && !confirm('确认归档删除这篇草稿？文章会从审核列表移走。')) return;
+    button.disabled = true;
+    button.textContent = '处理中...';
+    try {
+      const res = await fetch('/api/content-review', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ token, action, file, note }),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) {
+        if (res.status === 401) localStorage.removeItem(tokenKey);
+        throw new Error(data.error || '操作失败');
+      }
+      toast(action === 'approve' ? '已发布，页面即将刷新' : action === 'archive' ? '已归档删除，页面即将刷新' : '已标记为需修改，页面即将刷新');
+      setTimeout(() => location.reload(), 1200);
+    } catch (error) {
+      toast(error.message || '操作失败');
+      button.disabled = false;
+      button.textContent = action === 'approve' ? '通过发布' : action === 'archive' ? '归档删除' : '退回修改';
+    }
+  }
+  document.querySelectorAll('.review-action').forEach((button) => {
+    button.addEventListener('click', () => submitAction(button));
+  });
+})();
+</script>
 </body>
 </html>`;
 }

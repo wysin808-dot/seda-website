@@ -5,7 +5,9 @@
  */
 
 import { createServer } from 'node:http';
-import { readFileSync, existsSync } from 'node:fs';
+import { execFile } from 'node:child_process';
+import { existsSync, mkdirSync, readFileSync, renameSync, writeFileSync } from 'node:fs';
+import { basename, join } from 'node:path';
 
 const PORT = Number(process.env.PORT || 3001);
 const DEEPSEEK_API_URL = 'https://api.deepseek.com/chat/completions';
@@ -69,6 +71,80 @@ function json(res, status, data) {
   res.end(JSON.stringify(data));
 }
 
+function replaceFrontmatterValue(raw, key, value) {
+  const match = raw.match(/^---\n([\s\S]*?)\n---\n?([\s\S]*)$/);
+  if (!match) throw new Error('Missing frontmatter');
+  const lines = match[1].split('\n');
+  const nextValue = String(value).replace(/\r?\n/g, ' ').replace(/"/g, '\\"');
+  let found = false;
+  const nextLines = lines.map((line) => {
+    if (!line.startsWith(`${key}:`)) return line;
+    found = true;
+    return typeof value === 'boolean' ? `${key}: ${value}` : `${key}: "${nextValue}"`;
+  });
+  if (!found) nextLines.push(typeof value === 'boolean' ? `${key}: ${value}` : `${key}: "${nextValue}"`);
+  return `---\n${nextLines.join('\n')}\n---\n${match[2]}`;
+}
+
+function rebuildContent() {
+  return new Promise((resolve, reject) => {
+    execFile('npm', ['run', 'content:build'], { cwd: process.cwd(), timeout: 60000 }, (error, stdout, stderr) => {
+      if (error) {
+        error.output = `${stdout || ''}${stderr || ''}`;
+        reject(error);
+        return;
+      }
+      resolve(`${stdout || ''}${stderr || ''}`);
+    });
+  });
+}
+
+function requireReviewToken(body, res) {
+  const expected = process.env.REVIEW_ADMIN_TOKEN || '';
+  if (!expected) {
+    json(res, 503, { error: '审核口令未配置，请先在服务器 .env 设置 REVIEW_ADMIN_TOKEN' });
+    return false;
+  }
+  const token = String(body.token || '').trim();
+  if (token !== expected) {
+    json(res, 401, { error: '审核口令错误' });
+    return false;
+  }
+  return true;
+}
+
+async function handleContentReview(req, res) {
+  let body;
+  try { body = await readBody(req); } catch { return json(res, 400, { error: '请求格式错误' }); }
+  if (!requireReviewToken(body, res)) return;
+
+  const action = String(body.action || '').trim();
+  const fileName = basename(String(body.file || '').trim());
+  if (!['approve', 'revise', 'archive'].includes(action)) return json(res, 400, { error: '未知审核操作' });
+  if (!fileName.endsWith('.md') || fileName.startsWith('_')) return json(res, 400, { error: '文章文件无效' });
+
+  const articlePath = join(process.cwd(), 'content', 'articles', fileName);
+  if (!existsSync(articlePath)) return json(res, 404, { error: '文章不存在' });
+
+  try {
+    if (action === 'archive') {
+      const archiveDir = join(process.cwd(), 'content', 'archived-articles');
+      mkdirSync(archiveDir, { recursive: true });
+      renameSync(articlePath, join(archiveDir, `${Date.now()}-${fileName}`));
+    } else {
+      let raw = readFileSync(articlePath, 'utf8');
+      raw = replaceFrontmatterValue(raw, 'draft', action !== 'approve');
+      raw = replaceFrontmatterValue(raw, 'reviewStatus', action === 'approve' ? 'approved' : 'needs_revision');
+      if (body.note) raw = replaceFrontmatterValue(raw, 'reviewNote', String(body.note).slice(0, 300));
+      writeFileSync(articlePath, raw, 'utf8');
+    }
+    const output = await rebuildContent();
+    json(res, 200, { ok: true, action, output });
+  } catch (error) {
+    json(res, 500, { error: '审核操作失败', detail: error.output || error.message });
+  }
+}
+
 async function handleChat(req, res) {
   let body;
   try { body = await readBody(req); } catch { return json(res, 400, { error: '请求格式错误' }); }
@@ -117,6 +193,7 @@ const server = createServer(async (req, res) => {
   if (req.method === 'OPTIONS') { res.writeHead(204, { 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Content-Type', 'Access-Control-Allow-Methods': 'POST, GET, OPTIONS' }); return res.end(); }
 
   if (req.method === 'POST' && url.pathname === '/api/chat') return handleChat(req, res);
+  if (req.method === 'POST' && url.pathname === '/api/content-review') return handleContentReview(req, res);
   if (req.method === 'GET'  && url.pathname === '/api/config') return handleConfig(req, res);
   if (req.method === 'POST' && url.pathname === '/api/wechat-click') return json(res, 200, { ok: true });
 

@@ -14,6 +14,14 @@ if [ "$1" == "update" ]; then
   # ── 更新代码 ──
   echo "[1/3] 拉取最新代码..."
   cd $SITE_DIR && git pull origin main
+  if [ ! -f "$SITE_DIR/.env" ]; then
+    touch "$SITE_DIR/.env"
+  fi
+  if ! grep -q '^REVIEW_ADMIN_TOKEN=' "$SITE_DIR/.env"; then
+    REVIEW_TOKEN=$(node -e "console.log(require('crypto').randomBytes(12).toString('hex'))")
+    echo "REVIEW_ADMIN_TOKEN=$REVIEW_TOKEN" >> "$SITE_DIR/.env"
+    echo "内容审核口令: $REVIEW_TOKEN"
+  fi
   echo "[2/3] 重启 API 服务..."
   pm2 restart seda-api
   echo "[3/3] 重载 Nginx..."
@@ -49,6 +57,7 @@ DEEPSEEK_API_KEY=请填入你的DeepSeek API Key
 DEEPSEEK_MODEL=deepseek-chat
 WECHAT_ID=请填入微信号
 WECHAT_QR_URL=请填入微信二维码图片URL
+REVIEW_ADMIN_TOKEN=请改成内容审核口令
 PORT=3001
 EOF
   echo "⚠️  请编辑 $SITE_DIR/.env 填入真实配置"

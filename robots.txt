@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /cms/
+Disallow: /content-review/
 
 Sitemap: https://sgeda.org.cn/sitemap.xml

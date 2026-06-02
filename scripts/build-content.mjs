@@ -450,6 +450,7 @@ function isSitemapPage(file) {
   const rel = path.relative(root, file);
   if (rel.includes('/api/') || rel.startsWith('content/') || rel.startsWith('scripts/')) return false;
   if (rel.startsWith('content-review/')) return false;
+  if (rel.startsWith('cms/')) return false;
   if (['googlec871b41fdb15d90a.html'].includes(rel)) return false;
   return rel.endsWith('.html');
 }

@@ -7,7 +7,7 @@ categoryLabel: AEIS 考试
 slug: aeis-math-preparation
 date: 2026-06-02
 tags: AEIS,数学备考,政府学校,国际学生
-draft: true
+draft: false
 ---
 
 很多中国家长听到 AEIS 数学，第一反应是：数学我们不怕。

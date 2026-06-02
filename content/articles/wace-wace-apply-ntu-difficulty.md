@@ -7,7 +7,7 @@ categoryLabel: WACE 课程
 slug: wace-apply-ntu-difficulty
 date: 2026-06-02
 tags: WACE,NTU,南洋理工大学,ATAR
-draft: true
+draft: false
 ---
 
 很多家长问 WACE 能不能申请 NTU，其实背后真正想问的是：孩子读 WACE 之后，有没有机会进新加坡南洋理工大学。

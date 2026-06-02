@@ -8,7 +8,7 @@ BAIDU_TOKEN="${BAIDU_TOKEN:-6YcFv5eADdpdSOmv}"
 SITEMAP_FILE="/var/www/sgeda/sitemap.xml"
 STATE_FILE="/var/www/sgeda/.baidu-submit-offset"
 LOG_FILE="/var/log/baidu-submit.log"
-BATCH_SIZE=20
+BATCH_SIZE=5   # 安全批次：每次5条，避免超出剩余配额导致整批失败
 
 log() { echo "[$(date '+%Y-%m-%d %H:%M')] $*" | tee -a "$LOG_FILE"; }
 

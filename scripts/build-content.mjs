@@ -420,14 +420,10 @@ function writeReviewPage(articles) {
   fs.writeFileSync(path.join(dir, 'index.html'), renderReviewPage(articles), 'utf8');
 }
 
-function updateNewsIndex(articles) {
-  const file = path.join(root, 'news', 'index.html');
-  let html = read(file);
-  const start = '<!-- GENERATED_ARTICLES_START -->';
-  const end = '<!-- GENERATED_ARTICLES_END -->';
-  const cards = articles
+function renderArticleCards(articles, limit) {
+  return articles
     .sort((a, b) => String(b.meta.date || '').localeCompare(String(a.meta.date || '')))
-    .slice(0, 24)
+    .slice(0, limit)
     .map((article) => `          <article class="article-card">
             <a href="${article.url}">
               <span class="tag">${escapeHtml(article.meta.categoryLabel || article.meta.category || 'SEO文章')}</span>
@@ -437,12 +433,38 @@ function updateNewsIndex(articles) {
             </a>
           </article>`)
     .join('\n');
+}
+
+function updateNewsIndex(articles) {
+  const file = path.join(root, 'news', 'index.html');
+  let html = read(file);
+  const start = '<!-- GENERATED_ARTICLES_START -->';
+  const end = '<!-- GENERATED_ARTICLES_END -->';
+  const cards = renderArticleCards(articles, 24);
   const block = `${start}\n${cards}\n          ${end}`;
   if (html.includes(start) && html.includes(end)) {
     html = html.replace(new RegExp(`${start}[\\s\\S]*?${end}`), block);
   } else {
     html = html.replace('<div class="article-grid">', `<div class="article-grid">\n          ${block}`);
   }
+  fs.writeFileSync(file, html, 'utf8');
+}
+
+function updateHomeLatestArticles(articles) {
+  const file = path.join(root, 'index.html');
+  let html = read(file);
+  const start = '<!-- HOME_LATEST_ARTICLES_START -->';
+  const end = '<!-- HOME_LATEST_ARTICLES_END -->';
+  if (!html.includes(start) || !html.includes(end)) return;
+  const cards = renderArticleCards(articles, 6);
+  const block = `${start}\n${cards || `          <article class="article-card">
+            <a href="/news/">
+              <span class="tag">SEO文章</span>
+              <h3>最新文章正在更新</h3>
+              <p>每天发布的新加坡升学攻略会显示在这里。</p>
+            </a>
+          </article>`}\n          ${end}`;
+  html = html.replace(new RegExp(`${start}[\\s\\S]*?${end}`), block);
   fs.writeFileSync(file, html, 'utf8');
 }
 
@@ -493,6 +515,7 @@ articles.forEach(writeArticle);
 drafts.forEach(removeDraftArticlePage);
 writeReviewPage(allArticles);
 updateNewsIndex(articles);
+updateHomeLatestArticles(articles);
 const urlCount = updateSitemap();
 console.log(`Built ${articles.length} content articles.`);
 console.log(`Prepared ${drafts.length} draft articles for review.`);

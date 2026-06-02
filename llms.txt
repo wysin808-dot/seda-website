@@ -1,10 +1,10 @@
-# SEDA 新加坡国际教育平台
+# SGEDA 新加坡国际教育平台
 
 > 面向中国学生和家长的新加坡国际教育、政府学校、升学路径与选校资讯平台。
 
 ## Summary
 
-SEDA 新加坡国际教育平台提供中文的新加坡教育信息，重点覆盖 WACE、O-Level、A-Level、AEIS、IB、政府小学、政府中学、初级学院、理工学院、国际学校、私立学校、公立大学申请与留学指南。网站目标是帮助中国家庭理解不同课程体系、入学考试、学校类型和升学路径，并提供可咨询的选校与申请入口。
+SGEDA 新加坡国际教育平台提供中文的新加坡教育信息，重点覆盖 WACE、O-Level、A-Level、AEIS、IB、政府小学、政府中学、初级学院、理工学院、国际学校、私立学校、公立大学申请与留学指南。网站目标是帮助中国家庭理解不同课程体系、入学考试、学校类型和升学路径，并提供可咨询的选校与申请入口。
 
 ## Core Topics
 
@@ -57,7 +57,7 @@ SEDA 新加坡国际教育平台提供中文的新加坡教育信息，重点覆
 
 ## Brand and Contact
 
-- Brand: SEDA 新加坡国际教育平台
+- Brand: SGEDA 新加坡国际教育平台
 - Legal entity: Singapore Educational Development Association Ltd.
 - Website: https://sgeda.org.cn/
 - Language: Simplified Chinese (zh-CN)

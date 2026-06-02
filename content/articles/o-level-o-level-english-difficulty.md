@@ -7,7 +7,7 @@ categoryLabel: O-Level 升学
 slug: o-level-english-difficulty
 date: 2026-06-02
 tags: O-Level,英文备考,新加坡中学,国际学生
-draft: false
+draft: true
 ---
 
 很多中国家长第一次了解 O-Level，最担心的不是数学，也不是理科，而是英文。

@@ -250,14 +250,113 @@ function loadArticles() {
         url,
         summary: firstH2(parsed.body) || parsed.meta.description || '',
       };
-    })
-    .filter((article) => !article.meta.draft);
+    });
 }
 
 function writeArticle(article) {
   const dir = path.join(root, article.url);
   fs.mkdirSync(dir, { recursive: true });
   fs.writeFileSync(path.join(dir, 'index.html'), renderArticle(article), 'utf8');
+}
+
+function removeDraftArticlePage(article) {
+  const dir = path.join(root, article.url);
+  const rel = path.relative(root, dir);
+  if (!rel || rel.startsWith('..') || rel === '.' || !article.meta.slug) return;
+  if (fs.existsSync(path.join(dir, 'index.html'))) {
+    fs.rmSync(dir, { recursive: true, force: true });
+  }
+}
+
+function githubEditUrl(article) {
+  const rel = path.relative(root, article.file).replaceAll(path.sep, '/');
+  return `https://github.com/wysin808-dot/seda-website/edit/main/${encodeURIComponent(rel).replaceAll('%2F', '/')}`;
+}
+
+function renderReviewPage(articles) {
+  const drafts = articles
+    .filter((article) => article.meta.draft)
+    .sort((a, b) => String(b.meta.date || '').localeCompare(String(a.meta.date || '')));
+  const published = articles.filter((article) => !article.meta.draft).length;
+  const draftCards = drafts.map((article, index) => {
+    const meta = article.meta;
+    return `<article class="review-card" id="draft-${index + 1}">
+      <div class="review-card-head">
+        <div>
+          <p class="eyebrow">${escapeHtml(meta.categoryLabel || meta.category || 'SEO文章')} · ${escapeHtml(meta.date || '')}</p>
+          <h2>${escapeHtml(meta.title)}</h2>
+          <p>${escapeHtml(meta.description || '')}</p>
+        </div>
+        <div class="review-actions">
+          <span class="status-pill">待审核</span>
+          <a class="primary-button" href="${githubEditUrl(article)}" target="_blank" rel="noopener">在 GitHub 编辑</a>
+        </div>
+      </div>
+      <dl class="review-meta">
+        <div><dt>关键词</dt><dd>${escapeHtml(meta.keywords || '')}</dd></div>
+        <div><dt>计划 URL</dt><dd><code>${escapeHtml(article.url)}</code></dd></div>
+        <div><dt>文件</dt><dd><code>${escapeHtml(path.relative(root, article.file).replaceAll(path.sep, '/'))}</code></dd></div>
+      </dl>
+      <div class="review-body">${article.html}</div>
+    </article>`;
+  }).join('\n');
+  return `<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="robots" content="noindex,nofollow"/>
+<title>SEDA 内容审核后台</title>
+<link rel="stylesheet" href="/seda-site.css?v=15"/>
+<style>
+  body{background:#f6f7f9;color:#172033}
+  .review-main{max-width:1180px;margin:0 auto;padding:32px 20px 72px}
+  .review-hero{background:#fff;border:1px solid #e5e8ee;border-radius:8px;padding:28px;margin-bottom:20px}
+  .review-hero h1{font-size:32px;margin:8px 0 10px}
+  .review-summary{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px}
+  .review-summary span,.status-pill{display:inline-flex;align-items:center;border-radius:999px;background:#fff1f1;color:#c51624;border:1px solid #f1c9cd;padding:7px 12px;font-weight:700}
+  .review-summary span:nth-child(2){background:#eef5ff;color:#1d4ed8;border-color:#c9ddff}
+  .review-card{background:#fff;border:1px solid #e1e5ec;border-radius:8px;margin:18px 0;padding:28px}
+  .review-card-head{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:22px;align-items:start;border-bottom:1px solid #eef0f4;padding-bottom:20px}
+  .review-card h2{font-size:26px;line-height:1.28;margin:8px 0 10px}
+  .review-actions{display:flex;gap:10px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
+  .review-meta{display:grid;gap:10px;margin:18px 0 22px}
+  .review-meta div{display:grid;grid-template-columns:96px minmax(0,1fr);gap:12px}
+  .review-meta dt{font-weight:800;color:#5b6472}
+  .review-meta dd{margin:0;color:#1f2937;overflow-wrap:anywhere}
+  .review-body{max-width:820px}
+  .review-body h2{font-size:24px;margin-top:30px}
+  .review-body h3{font-size:19px;margin-top:24px}
+  .review-body p,.review-body li{font-size:17px;line-height:1.85}
+  .review-body table{width:100%;border-collapse:collapse;margin:18px 0}
+  .review-body th,.review-body td{border:1px solid #e5e8ee;padding:10px;text-align:left}
+  .review-empty{background:#fff;border:1px solid #e5e8ee;border-radius:8px;padding:28px}
+  @media (max-width:760px){.review-card-head{grid-template-columns:1fr}.review-actions{justify-content:flex-start}.review-meta div{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+${header}
+<main class="review-main">
+  <section class="review-hero">
+    <p class="eyebrow">内部审核</p>
+    <h1>SEDA 内容审核后台</h1>
+    <p>这里显示 <code>content/articles</code> 里标记为 <code>draft: true</code> 的 SEO 草稿。审核通过后，把对应文章改为 <code>draft: false</code>，再运行内容构建即可发布。</p>
+    <div class="review-summary">
+      <span>待审核 ${drafts.length} 篇</span>
+      <span>已发布 ${published} 篇</span>
+    </div>
+  </section>
+  ${drafts.length ? draftCards : '<section class="review-empty"><h2>暂无待审核文章</h2><p>新的 SEO 草稿会显示在这里。</p></section>'}
+</main>
+${footer}
+</body>
+</html>`;
+}
+
+function writeReviewPage(articles) {
+  const dir = path.join(root, 'content-review');
+  fs.mkdirSync(dir, { recursive: true });
+  fs.writeFileSync(path.join(dir, 'index.html'), renderReviewPage(articles), 'utf8');
 }
 
 function updateNewsIndex(articles) {
@@ -289,6 +388,7 @@ function updateNewsIndex(articles) {
 function isSitemapPage(file) {
   const rel = path.relative(root, file);
   if (rel.includes('/api/') || rel.startsWith('content/') || rel.startsWith('scripts/')) return false;
+  if (rel.startsWith('content-review/')) return false;
   if (['googlec871b41fdb15d90a.html'].includes(rel)) return false;
   return rel.endsWith('.html');
 }
@@ -324,9 +424,14 @@ function updateSitemap() {
   return urls.length;
 }
 
-const articles = loadArticles();
+const allArticles = loadArticles();
+const articles = allArticles.filter((article) => !article.meta.draft);
+const drafts = allArticles.filter((article) => article.meta.draft);
 articles.forEach(writeArticle);
+drafts.forEach(removeDraftArticlePage);
+writeReviewPage(allArticles);
 updateNewsIndex(articles);
 const urlCount = updateSitemap();
 console.log(`Built ${articles.length} content articles.`);
+console.log(`Prepared ${drafts.length} draft articles for review.`);
 console.log(`Updated sitemap.xml with ${urlCount} URLs.`);

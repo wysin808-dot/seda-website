@@ -7,7 +7,7 @@ categoryLabel: WACE 课程
 slug: wace-suitable-for-chinese-students
 date: 2026-06-02
 tags: WACE,国际高中,中国学生,ATAR
-draft: false
+draft: true
 ---
 
 很多家长第一次了解 WACE，都会误以为它只是“澳洲课程”。

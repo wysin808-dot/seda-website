@@ -7,7 +7,7 @@ categoryLabel: 国际学校
 slug: singapore-international-school-fees
 date: 2026-06-02
 tags: 国际学校,新加坡留学费用,国际高中,家长指南
-draft: false
+draft: true
 ---
 
 很多家长问新加坡国际学校学费，最开始只想知道一个数字。

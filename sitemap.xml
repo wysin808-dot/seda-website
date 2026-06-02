@@ -25,6 +25,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://sgeda.org.cn/aeis/aeis-math-preparation/</loc>
+    <lastmod>2026-06-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://sgeda.org.cn/aeis/age-requirements/</loc>
     <lastmod>2026-06-01</lastmod>
     <changefreq>weekly</changefreq>
@@ -451,6 +457,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://sgeda.org.cn/international-school/singapore-international-school-fees/</loc>
+    <lastmod>2026-06-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://sgeda.org.cn/international-school/stamford-american/</loc>
     <lastmod>2026-06-01</lastmod>
     <changefreq>weekly</changefreq>
@@ -572,7 +584,7 @@
   </url>
   <url>
     <loc>https://sgeda.org.cn/news/</loc>
-    <lastmod>2026-06-01</lastmod>
+    <lastmod>2026-06-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
@@ -609,6 +621,12 @@
   <url>
     <loc>https://sgeda.org.cn/o-level/exam-format/</loc>
     <lastmod>2026-06-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://sgeda.org.cn/o-level/o-level-english-difficulty/</loc>
+    <lastmod>2026-06-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -2247,6 +2265,18 @@
   <url>
     <loc>https://sgeda.org.cn/wace/vs-ib/</loc>
     <lastmod>2026-06-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://sgeda.org.cn/wace/wace-apply-ntu-difficulty/</loc>
+    <lastmod>2026-06-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://sgeda.org.cn/wace/wace-suitable-for-chinese-students/</loc>
+    <lastmod>2026-06-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>

@@ -85,7 +85,7 @@ if (!document.querySelector(".wechat-float")) {
 /* ── AI Chat Widget ── */
 (function(){
   // ── Config ──
-  // 生产：Vercel 部署后 API 和前端同域，留空即可
+  // 生产：自托管 API 和前端同域，留空即可
   // 本地开发：改为 'http://localhost:3005'
   var API_BASE = '';
 

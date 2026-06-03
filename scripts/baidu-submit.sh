@@ -1,12 +1,21 @@
 #!/bin/bash
 # 百度收录自动提交脚本
-# 每天提交 20 条 URL，轮换覆盖全站 382 页
+# 每天提交一小批 URL，轮换覆盖全站 sitemap
 # 每次运行会记录提交进度，下次从上次停止的位置继续
 
 SITE="https://sgeda.org.cn"
 BAIDU_TOKEN="${BAIDU_TOKEN:-6YcFv5eADdpdSOmv}"
-SITEMAP_FILE="/var/www/sgeda/sitemap.xml"
-STATE_FILE="/var/www/sgeda/.baidu-submit-offset"
+SITE_DIR="${SITE_DIR:-}"
+if [ -z "$SITE_DIR" ]; then
+  for dir in /var/www/seda-website /var/www/sgeda; do
+    if [ -f "$dir/sitemap.xml" ]; then
+      SITE_DIR="$dir"
+      break
+    fi
+  done
+fi
+SITEMAP_FILE="${SITEMAP_FILE:-$SITE_DIR/sitemap.xml}"
+STATE_FILE="${STATE_FILE:-$SITE_DIR/.baidu-submit-offset}"
 LOG_FILE="/var/log/baidu-submit.log"
 BATCH_SIZE=5   # 安全批次：每次5条，避免超出剩余配额导致整批失败
 
@@ -16,8 +25,8 @@ log() { echo "[$(date '+%Y-%m-%d %H:%M')] $*" | tee -a "$LOG_FILE"; }
 ALL_URLS=$(grep -oP '(?<=<loc>)[^<]+' "$SITEMAP_FILE" 2>/dev/null)
 TOTAL=$(echo "$ALL_URLS" | wc -l)
 
-if [ -z "$ALL_URLS" ] || [ "$TOTAL" -lt 1 ]; then
-  log "ERROR: 无法读取 sitemap，URL 数量: $TOTAL"
+if [ -z "$SITE_DIR" ] || [ -z "$ALL_URLS" ] || [ "$TOTAL" -lt 1 ]; then
+  log "ERROR: 无法读取 sitemap，SITE_DIR=${SITE_DIR:-none}，URL 数量: $TOTAL"
   exit 1
 fi
 

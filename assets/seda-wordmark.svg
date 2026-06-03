@@ -13,8 +13,8 @@
         letter-spacing: 0;
       }
       .chinese {
-        font-family: "PingFang SC", "Noto Sans SC", "Microsoft YaHei", sans-serif;
-        font-weight: 700;
+        font-family: "Kaiti SC", "STKaiti", "KaiTi", "KaiTi_GB2312", "FangSong", "STFangsong", "PingFang SC", "Microsoft YaHei", serif;
+        font-weight: 400;
         letter-spacing: 0;
       }
     </style>

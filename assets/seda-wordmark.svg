@@ -30,7 +30,7 @@
 
   <line x1="408" y1="44" x2="408" y2="116" class="brand-gold-stroke" stroke-width="2"/>
 
-  <text x="422" y="60" class="brand-red latin" font-size="22" letter-spacing="3">SINGAPORE EDUCATION</text>
+  <text x="422" y="60" class="brand-red latin" font-size="22" textLength="300" lengthAdjust="spacing">SINGAPORE EDUCATION</text>
   <line x1="422" y1="74" x2="722" y2="74" class="brand-gold-stroke" stroke-width="1.5"/>
-  <text x="422" y="116" class="brand-red chinese" font-size="34" font-weight="900" letter-spacing="2">新加坡择校网</text>
+  <text x="422" y="116" class="brand-red chinese" font-size="36" font-weight="900" textLength="300" lengthAdjust="spacing">新加坡择校网</text>
 </svg>

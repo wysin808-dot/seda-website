@@ -27,6 +27,10 @@
     .cms-toolbar{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
     .cms-sidebar{padding:16px}
     .cms-filters{display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap}
+    .cms-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:12px}
+    .cms-stat{border:1px solid #e5e8ee;border-radius:8px;background:#fafbfc;padding:10px}
+    .cms-stat strong{display:block;font-size:20px}
+    .cms-stat span{color:#667085;font-size:12px;font-weight:800}
     .cms-filter{border:1px solid #d8dde7;border-radius:999px;background:#fff;color:#344054;font-weight:800;padding:8px 12px;cursor:pointer}
     .cms-filter.active{background:#fff1f1;color:#c51624;border-color:#f1c9cd}
     .cms-list{display:grid;gap:10px;max-height:720px;overflow:auto;padding-right:4px}
@@ -41,9 +45,10 @@
     .cms-editor-head p{margin:0;color:#667085}
     .cms-editor-body{padding:18px}
     .cms-empty{padding:54px 24px;text-align:center;color:#667085}
+    .cms-search{margin-bottom:12px}
     .cms-toast{position:fixed;right:18px;bottom:18px;z-index:50;max-width:380px;border-radius:8px;background:#172033;color:#fff;padding:13px 16px;box-shadow:0 16px 40px rgba(23,32,51,.22);font-weight:700}
     [hidden]{display:none!important}
-    @media (max-width:900px){.cms-grid{grid-template-columns:1fr}.cms-list{max-height:none}.cms-editor-head{display:grid}}
+    @media (max-width:900px){.cms-grid{grid-template-columns:1fr}.cms-list{max-height:none}.cms-editor-head{display:grid}.cms-stats{grid-template-columns:1fr 1fr 1fr}}
   </style>
 </head>
 <body>
@@ -63,7 +68,7 @@
         <div>
           <p class="eyebrow">内部内容系统</p>
           <h1>SEDA CMS 内容后台</h1>
-          <p>审核 SEO 草稿、在线修改 Markdown，确认后发布并更新 sitemap。</p>
+          <p id="cmsStatusText">审核 SEO 草稿、在线修改 Markdown，确认后发布并更新 sitemap。</p>
         </div>
         <div class="cms-toolbar">
           <a class="cms-button secondary" href="/" target="_blank" rel="noopener">打开网站</a>
@@ -74,6 +79,14 @@
 
       <div class="cms-grid">
         <aside class="cms-panel cms-sidebar">
+          <div id="cmsStats" class="cms-stats" aria-label="内容统计">
+            <div class="cms-stat"><strong>0</strong><span>全部</span></div>
+            <div class="cms-stat"><strong>0</strong><span>待审核</span></div>
+            <div class="cms-stat"><strong>0</strong><span>已发布</span></div>
+          </div>
+          <div class="cms-search">
+            <input id="searchInput" class="cms-input" type="search" placeholder="搜索标题、分类、slug" />
+          </div>
           <div class="cms-filters">
             <button class="cms-filter active" type="button" data-filter="all">全部</button>
             <button class="cms-filter" type="button" data-filter="draft">待审核</button>
@@ -111,13 +124,16 @@
   </main>
 
   <script>
-    const state = { articles: [], filter: 'all', selected: null };
+    const state = { articles: [], filter: 'all', selected: null, query: '', status: null };
     const els = {
       loginPanel: document.getElementById('loginPanel'),
       appPanel: document.getElementById('appPanel'),
       loginForm: document.getElementById('loginForm'),
       passwordInput: document.getElementById('passwordInput'),
       articleList: document.getElementById('articleList'),
+      cmsStats: document.getElementById('cmsStats'),
+      cmsStatusText: document.getElementById('cmsStatusText'),
+      searchInput: document.getElementById('searchInput'),
       emptyState: document.getElementById('emptyState'),
       editorPanel: document.getElementById('editorPanel'),
       editorTitle: document.getElementById('editorTitle'),
@@ -169,8 +185,30 @@
       return true;
     }
 
+    function passesSearch(article) {
+      if (!state.query) return true;
+      const haystack = [article.title, article.description, article.category, article.slug, article.file].join(' ').toLowerCase();
+      return haystack.includes(state.query.toLowerCase());
+    }
+
+    function renderStats() {
+      const stats = state.status?.stats || {
+        total: state.articles.length,
+        draft: state.articles.filter((item) => item.draft).length,
+        published: state.articles.filter((item) => !item.draft).length,
+      };
+      els.cmsStats.innerHTML = `
+        <div class="cms-stat"><strong>${stats.total || 0}</strong><span>全部</span></div>
+        <div class="cms-stat"><strong>${stats.draft || 0}</strong><span>待审核</span></div>
+        <div class="cms-stat"><strong>${stats.published || 0}</strong><span>已发布</span></div>
+      `;
+      if (state.status) {
+        els.cmsStatusText.textContent = `轻量 CMS ${state.status.version || ''}：审核 SEO 草稿、在线修改 Markdown，确认后发布并更新 sitemap。后续可升级账号权限、媒体库、版本记录与 CRM 同步。`;
+      }
+    }
+
     function renderList() {
-      const articles = state.articles.filter(passesFilter);
+      const articles = state.articles.filter(passesFilter).filter(passesSearch);
       els.articleList.innerHTML = articles.length ? articles.map((article) => {
         const status = article.draft ? (article.reviewStatus === 'needs_revision' ? '需修改' : '待审核') : '已发布';
         return `<button class="cms-item ${state.selected?.file === article.file ? 'active' : ''}" type="button" data-file="${article.file}">
@@ -180,11 +218,14 @@
             <span>${article.category}</span>
             <span>${article.date || ''}</span>
           </span>
+          ${article.reviewNote ? `<span class="cms-meta" style="margin-top:8px">备注：${article.reviewNote}</span>` : ''}
         </button>`;
       }).join('') : '<div class="cms-empty">这个分类暂无文章。</div>';
+      renderStats();
     }
 
     async function loadArticles() {
+      state.status = await api('/api/cms/status').catch(() => null);
       const data = await api('/api/cms/articles');
       state.articles = data.articles || [];
       renderList();
@@ -255,6 +296,11 @@
         state.filter = button.dataset.filter;
         renderList();
       });
+    });
+
+    els.searchInput.addEventListener('input', () => {
+      state.query = els.searchInput.value.trim();
+      renderList();
     });
 
     els.saveButton.addEventListener('click', () => saveArticle().catch((error) => toast(error.message)));

@@ -7,12 +7,19 @@
 import { createServer } from 'node:http';
 import { createHmac, timingSafeEqual } from 'node:crypto';
 import { execFile } from 'node:child_process';
-import { existsSync, mkdirSync, readFileSync, readdirSync, renameSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdirSync, readFileSync, readdirSync, renameSync, rmSync, writeFileSync } from 'node:fs';
 import { basename, join, relative, sep } from 'node:path';
 
-const PORT = Number(process.env.PORT || 3001);
+const PORT = Number(process.env.PORT || 3002);
 const DEEPSEEK_API_URL = 'https://api.deepseek.com/chat/completions';
 const CONSULTATION_SUFFIX = '如需获得个性化升学规划，请联系顾问老师。';
+const CMS_VERSION = 'lite-1';
+const CMS_CAPABILITIES = {
+  auth: 'password-cookie',
+  contentStore: 'markdown-frontmatter',
+  workflow: ['draft', 'needs_revision', 'approved', 'archived'],
+  futureReady: ['roles', 'media', 'scheduledPublish', 'revisionHistory', 'crmSync'],
+};
 
 // Load .env file
 function loadEnv(path) {
@@ -170,6 +177,23 @@ function replaceFrontmatterValue(raw, key, value) {
   return `---\n${nextLines.join('\n')}\n---\n${match[2]}`;
 }
 
+function makeArticleUrl(meta) {
+  const slug = meta.slug || meta.title;
+  return `/${meta.category || 'guides'}/${slug}/`.replace(/\/+/g, '/');
+}
+
+function removeGeneratedArticlePage(meta) {
+  if (!meta?.slug) return;
+  const relUrl = makeArticleUrl(meta).replace(/^\/+/, '');
+  const dir = join(process.cwd(), relUrl);
+  const rel = relative(process.cwd(), dir);
+  if (!rel || rel.startsWith('..') || rel === '.' || rel.split(sep).length < 2) return;
+  if (existsSync(join(dir, 'index.html'))) {
+    // Remove only generated article directories managed from content/articles.
+    rmSync(dir, { recursive: true, force: true });
+  }
+}
+
 function rebuildContent() {
   return new Promise((resolve, reject) => {
     execFile('npm', ['run', 'content:build'], { cwd: process.cwd(), timeout: 60000 }, (error, stdout, stderr) => {
@@ -243,11 +267,29 @@ function listCmsArticles(req, res) {
         draft: Boolean(meta.draft),
         reviewStatus: meta.reviewStatus || (meta.draft ? 'pending' : 'approved'),
         reviewNote: meta.reviewNote || '',
+        updated: meta.updated || '',
+        publishedAt: meta.publishedAt || '',
         slug: meta.slug || '',
       };
     })
     .sort((a, b) => Number(b.draft) - Number(a.draft) || String(b.date).localeCompare(String(a.date)));
   json(res, 200, { ok: true, articles });
+}
+
+function cmsStats(req, res) {
+  if (!requireCmsAuth(req, res)) return;
+  const articleDir = join(process.cwd(), 'content', 'articles');
+  const stats = { total: 0, draft: 0, needsRevision: 0, published: 0 };
+  if (existsSync(articleDir)) {
+    for (const file of readdirSync(articleDir).filter((item) => item.endsWith('.md') && !item.startsWith('_'))) {
+      const { meta } = parseFrontmatter(readFileSync(join(articleDir, file), 'utf8'));
+      stats.total += 1;
+      if (meta.draft) stats.draft += 1;
+      else stats.published += 1;
+      if (meta.reviewStatus === 'needs_revision') stats.needsRevision += 1;
+    }
+  }
+  json(res, 200, { ok: true, version: CMS_VERSION, capabilities: CMS_CAPABILITIES, stats });
 }
 
 function getCmsArticle(req, res, url) {
@@ -267,7 +309,13 @@ async function saveCmsArticle(req, res) {
   const content = String(body.content || '').trim();
   if (!fullPath || !existsSync(fullPath)) return json(res, 404, { error: '文章不存在' });
   if (!content.startsWith('---')) return json(res, 400, { error: '请保留文章 frontmatter（开头的 --- 配置区）' });
-  writeFileSync(fullPath, `${content}\n`, 'utf8');
+  let stamped;
+  try {
+    stamped = replaceFrontmatterValue(`${content}\n`, 'updated', new Date().toISOString().slice(0, 10));
+  } catch {
+    return json(res, 400, { error: '文章 frontmatter 格式不完整，请检查开头和结尾的 ---' });
+  }
+  writeFileSync(fullPath, stamped, 'utf8');
   try {
     const output = await rebuildContent();
     json(res, 200, { ok: true, output });
@@ -291,6 +339,9 @@ async function handleContentReview(req, res) {
 
   try {
     if (action === 'archive') {
+      const raw = readFileSync(articlePath, 'utf8');
+      const { meta } = parseFrontmatter(raw);
+      removeGeneratedArticlePage(meta);
       const archiveDir = join(process.cwd(), 'content', 'archived-articles');
       mkdirSync(archiveDir, { recursive: true });
       renameSync(articlePath, join(archiveDir, `${Date.now()}-${fileName}`));
@@ -298,6 +349,9 @@ async function handleContentReview(req, res) {
       let raw = readFileSync(articlePath, 'utf8');
       raw = replaceFrontmatterValue(raw, 'draft', action !== 'approve');
       raw = replaceFrontmatterValue(raw, 'reviewStatus', action === 'approve' ? 'approved' : 'needs_revision');
+      raw = replaceFrontmatterValue(raw, 'reviewedAt', new Date().toISOString());
+      raw = replaceFrontmatterValue(raw, 'updated', new Date().toISOString().slice(0, 10));
+      if (action === 'approve') raw = replaceFrontmatterValue(raw, 'publishedAt', new Date().toISOString());
       if (body.note) raw = replaceFrontmatterValue(raw, 'reviewNote', String(body.note).slice(0, 300));
       writeFileSync(articlePath, raw, 'utf8');
     }
@@ -358,6 +412,7 @@ const server = createServer(async (req, res) => {
   if (req.method === 'POST' && url.pathname === '/api/cms/login') return handleCmsLogin(req, res);
   if (req.method === 'POST' && url.pathname === '/api/cms/logout') return handleCmsLogout(req, res);
   if (req.method === 'GET' && url.pathname === '/api/cms/me') return json(res, 200, { authenticated: isAuthenticated(req) });
+  if (req.method === 'GET' && url.pathname === '/api/cms/status') return cmsStats(req, res);
   if (req.method === 'GET' && url.pathname === '/api/cms/articles') return listCmsArticles(req, res);
   if (req.method === 'GET' && url.pathname === '/api/cms/article') return getCmsArticle(req, res, url);
   if (req.method === 'POST' && url.pathname === '/api/cms/article') return saveCmsArticle(req, res);

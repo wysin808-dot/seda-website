@@ -25,7 +25,7 @@ python3 -m http.server 8080
 如需测试 AI 聊天、CMS 或内容审核 API，需要同时启动自托管 API：
 
 ```bash
-PORT=3011 node server-selfhost.js
+PORT=3002 node server-selfhost.js
 ```
 
 ## SEO 内容生产

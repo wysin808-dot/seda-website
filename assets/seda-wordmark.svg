@@ -14,7 +14,7 @@
       }
       .chinese {
         font-family: "Kaiti SC", "STKaiti", "KaiTi", "KaiTi_GB2312", "FangSong", "STFangsong", "PingFang SC", "Microsoft YaHei", serif;
-        font-weight: 400;
+        font-weight: 700;
         letter-spacing: 0;
       }
     </style>

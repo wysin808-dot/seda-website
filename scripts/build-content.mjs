@@ -170,8 +170,8 @@ function renderArticle(article) {
     description: meta.description || '',
     datePublished: meta.date,
     dateModified: meta.updated || meta.date,
-    author: { '@type': 'Organization', name: 'SEDA 新加坡国际教育平台' },
-    publisher: { '@type': 'Organization', name: 'SEDA 新加坡国际教育平台', url: `${domain}/` },
+    author: { '@type': 'Organization', name: 'SEDA 新加坡择校网' },
+    publisher: { '@type': 'Organization', name: 'SEDA 新加坡择校网', url: `${domain}/` },
     mainEntityOfPage: `${domain}${url}`,
     inLanguage: 'zh-CN',
   });
@@ -190,7 +190,7 @@ function renderArticle(article) {
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml"/>
-<title>${title} | SEDA</title>
+<title>${title} | SEDA 新加坡择校网</title>
 <meta name="description" content="${description}"/>
 <meta name="keywords" content="${keywords}"/>
 <link rel="canonical" href="${domain}${url}"/>
@@ -473,6 +473,7 @@ function isSitemapPage(file) {
   if (rel.includes('/api/') || rel.startsWith('content/') || rel.startsWith('scripts/')) return false;
   if (rel.startsWith('content-review/')) return false;
   if (rel.startsWith('cms/')) return false;
+  if (rel.startsWith('news/') && rel !== 'news/index.html') return false;
   if (['googlec871b41fdb15d90a.html'].includes(rel)) return false;
   return rel.endsWith('.html');
 }

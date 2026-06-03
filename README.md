@@ -1,10 +1,10 @@
-# SEDA - Singapore Educational Development Association
+# SEDA 新加坡国际教育平台
 
-SEDA 新加坡国际教育中心官网 (seda.org.sg)，最全面的中文新加坡留学资讯门户。
+SEDA 新加坡国际教育平台（sgeda.org.cn），面向中国家长的新加坡升学资讯、选校数据库与 SEO 内容平台。
 
 ## 站点规模
 
-- **170 个页面**，覆盖新加坡全部教育阶段
+- **300+ 个页面**，覆盖新加坡主要教育阶段与学校数据库
 - 50 所小学、11 所中学、17 所 JC、7 所 Poly、8 所大学、7 所私立大学、6 所海外校区、16 所国际学校
 - AEIS / O-Level / A-Level / IB / WACE 考试攻略
 - 升学路径规划 + AI 工具
@@ -13,12 +13,19 @@ SEDA 新加坡国际教育中心官网 (seda.org.sg)，最全面的中文新加�
 
 - 纯静态 HTML + CSS + JS
 - SEO: JSON-LD / sitemap.xml / canonical URL / meta description
-- 部署: nginx (34.75.185.228)
+- 自托管 API: `server-selfhost.js`
+- 部署: 阿里云国际版 ECS + nginx + PM2
 
 ## 本地预览
 
 ```bash
 python3 -m http.server 8080
+```
+
+如需测试 AI 聊天、CMS 或内容审核 API，需要同时启动自托管 API：
+
+```bash
+PORT=3011 node server-selfhost.js
 ```
 
 ## SEO 内容生产
@@ -39,15 +46,28 @@ npm run content:build
 
 - 输出文章页面到 `/<category>/<slug>/index.html`
 - 把文章卡片插入 `/news/`
+- 把最新文章卡片插入首页
 - 重新生成 `sitemap.xml`
 - 加入 Article 与 Breadcrumb JSON-LD
 
 每日选题可先放在 `content/keyword-queue.csv`。
 
+## CMS 内容后台
+
+线上入口：
+
+```text
+https://sgeda.org.cn/cms/
+```
+
+CMS 登录密码来自服务器 `.env`：
+
+```text
+CMS_ADMIN_PASSWORD=...
+```
+
 ## 部署
 
 ```bash
-ssh user@34.75.185.228
-cd /path/to/site
-git pull origin main
+bash deploy.sh update
 ```

@@ -146,6 +146,50 @@ function firstH2(body) {
   return (body.match(/^##\s+(.+)$/m)?.[1] || '').trim();
 }
 
+function stripInlineMarkdown(value = '') {
+  return String(value)
+    .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
+    .replace(/[*_`>#-]/g, '')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+function extractFaqItems(markdown = '') {
+  const lines = String(markdown || '').split(/\r?\n/);
+  const items = [];
+  let inFaq = false;
+  let current = null;
+
+  function flushCurrent() {
+    if (!current) return;
+    const answer = stripInlineMarkdown(current.answer.join(' '));
+    if (current.question && answer) {
+      items.push({ question: current.question, answer });
+    }
+    current = null;
+  }
+
+  for (const rawLine of lines) {
+    const line = rawLine.trim();
+    const h2 = line.match(/^##\s+(.+)$/);
+    if (h2) {
+      flushCurrent();
+      inFaq = /FAQ|常见问题|常见问答|家长常问/i.test(h2[1]);
+      continue;
+    }
+    if (!inFaq) continue;
+    const h3 = line.match(/^###\s+(.+)$/);
+    if (h3) {
+      flushCurrent();
+      current = { question: stripInlineMarkdown(h3[1]), answer: [] };
+      continue;
+    }
+    if (current && line && !line.startsWith('|')) current.answer.push(line);
+  }
+  flushCurrent();
+  return items.slice(0, 8);
+}
+
 function makeUrl(meta) {
   const slug = meta.slug || meta.title;
   return `/${meta.category || 'guides'}/${slug}/`.replace(/\/+/g, '/');
@@ -163,6 +207,7 @@ function renderArticle(article) {
     ['学校数据库', '/school-database/'],
   ];
   const relatedHtml = related.map(([label, href]) => `<a href="${href}">${escapeHtml(label)}</a>`).join('');
+  const faqItems = extractFaqItems(article.body);
   const articleSchema = JSON.stringify({
     '@context': 'https://schema.org',
     '@type': 'Article',
@@ -184,6 +229,18 @@ function renderArticle(article) {
       { '@type': 'ListItem', position: 3, name: meta.title },
     ],
   });
+  const faqSchema = faqItems.length ? JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqItems.map((item) => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: item.answer,
+      },
+    })),
+  }) : '';
   return `<!doctype html>
 <html lang="zh-CN">
 <head>
@@ -197,6 +254,7 @@ function renderArticle(article) {
 <link rel="stylesheet" href="/seda-site.css?v=15"/>
 <script type="application/ld+json">${articleSchema}</script>
 <script type="application/ld+json">${breadcrumbSchema}</script>
+${faqSchema ? `<script type="application/ld+json">${faqSchema}</script>` : ''}
 </head>
 <body>
 ${header}

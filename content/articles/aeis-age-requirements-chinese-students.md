@@ -1,6 +1,6 @@
 ---
 title: AEIS年龄要求怎么看？中国学生申请新加坡政府学校别踩这个坑
-description: 面向中国家长解释 AEIS 年龄要求、年级匹配、申请窗口、降级入学和政府学校路径规划重点。
+description: 面向中国家长解释 AEIS 年龄要求、年级匹配、申请窗口、降级入学和政府学校路径规划，帮助家庭提前避开年级选择误区。
 keywords: AEIS年龄要求,AEIS几岁可以考,新加坡政府学校年龄要求,AEIS中国学生,AEIS申请年级
 category: aeis
 categoryLabel: AEIS 考试

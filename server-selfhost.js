@@ -549,6 +549,14 @@ function markdownInternalLinks(markdown = '') {
     .filter((href) => href.startsWith('/') && !href.startsWith('//'));
 }
 
+function htmlInternalLinks(html = '') {
+  const text = String(html || '');
+  const content = text.match(/<article\b[^>]*class=["'][^"']*\bcontent-body\b[^"']*["'][^>]*>([\s\S]*?)<\/article>/i)?.[1] || text;
+  return [...content.matchAll(/<a\b[^>]*\bhref=["']([^"']+)["']/gi)]
+    .map((match) => match[1].trim())
+    .filter((href) => href.startsWith('/') && !href.startsWith('//') && !href.startsWith('/#'));
+}
+
 function hasFaqSection(markdown = '') {
   const text = String(markdown || '');
   return /(^|\n)#{2,4}\s*(FAQ|常见问题|家长常问|常见问答)/i.test(text) || /[？?]\s*(\n|$)/.test(text);
@@ -579,6 +587,8 @@ function auditArticle(fullPath, sitemapSet) {
   const keywords = cleanLeadText(meta.keywords || meta.tags, 300);
   const length = contentLength(body);
   const internalLinks = markdownInternalLinks(body);
+  const pageInternalLinks = htmlInternalLinks(html);
+  const internalLinkCount = Math.max(internalLinks.length, pageInternalLinks.length);
   const h2Count = (body.match(/^##\s+/gm) || []).length;
   const hasFaq = hasFaqSection(body);
   const hasArticleSchema = /"@type"\s*:\s*"Article"/.test(html);
@@ -602,7 +612,7 @@ function auditArticle(fullPath, sitemapSet) {
   if (length > 4200) addIssue(issues, 'warning', `正文偏长（约 ${length} 字），建议拆成子话题或加强目录`);
   if (h2Count < 4) addIssue(issues, 'warning', 'H2 小标题偏少，长文结构不够清晰');
   if (!hasFaq) addIssue(issues, 'warning', '缺少 FAQ/常见问题段落，GEO 摘要机会偏弱');
-  if (internalLinks.length < 2) addIssue(issues, 'warning', '站内内链偏少，建议至少 2-4 个相关页面');
+  if (internalLinkCount < 2) addIssue(issues, 'warning', '站内内链偏少，建议至少 2-4 个相关页面');
 
   if (!meta.draft && !htmlExists) addIssue(issues, 'error', '已发布但生成页面不存在，请重新构建内容');
   if (!meta.draft && !sitemapSet.has(absoluteUrl)) addIssue(issues, 'error', '已发布但未进入 sitemap');
@@ -619,7 +629,9 @@ function auditArticle(fullPath, sitemapSet) {
     score: Math.max(0, 100 - issues.reduce((sum, issue) => sum + (issue.severity === 'error' ? 22 : 8), 0)),
     length,
     h2Count,
-    internalLinkCount: internalLinks.length,
+    internalLinkCount,
+    contentInternalLinkCount: internalLinks.length,
+    pageInternalLinkCount: pageInternalLinks.length,
     hasFaq,
     hasArticleSchema,
     hasFaqSchema,

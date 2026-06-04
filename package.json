@@ -2,6 +2,7 @@
   "type": "module",
   "scripts": {
     "content:new": "node scripts/new-article.mjs",
+    "content:drafts": "node scripts/generate-daily-drafts.mjs",
     "content:build": "node scripts/build-content.mjs"
   },
   "dependencies": {

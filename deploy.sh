@@ -39,6 +39,13 @@ if [ "$1" == "update" ]; then
   exit 0
 fi
 
+if [ "$1" == "install-content-cron" ]; then
+  echo "安装每日 SEO 草稿生产任务..."
+  bash "$SITE_DIR/scripts/install-daily-drafts-cron.sh"
+  echo "✅ 每日 09:00 自动生成待审核草稿已启用"
+  exit 0
+fi
+
 # ── 首次安装 ──
 
 echo "[1/9] 更新系统包..."

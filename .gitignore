@@ -10,3 +10,4 @@ node_modules/
 data/analytics/*.jsonl
 data/leads/*.jsonl
 data/seo/*.jsonl
+data/content-production-log.jsonl

@@ -8,7 +8,7 @@ import { createServer } from 'node:http';
 import { createHmac, timingSafeEqual } from 'node:crypto';
 import { execFile } from 'node:child_process';
 import { appendFileSync, existsSync, mkdirSync, readFileSync, readdirSync, renameSync, rmSync, writeFileSync } from 'node:fs';
-import { basename, join, relative, sep } from 'node:path';
+import { basename, dirname, join, relative, sep } from 'node:path';
 
 const PORT = Number(process.env.PORT || 3002);
 const DEEPSEEK_API_URL = 'https://api.deepseek.com/chat/completions';
@@ -283,6 +283,13 @@ function readJsonl(path, limit = 1000) {
     .filter(Boolean);
 }
 
+function writeJsonl(path, rows) {
+  mkdirSync(dirname(path), { recursive: true });
+  const tmp = `${path}.tmp`;
+  writeFileSync(tmp, rows.map((row) => JSON.stringify(row)).join('\n') + (rows.length ? '\n' : ''), 'utf8');
+  renameSync(tmp, path);
+}
+
 function cleanLeadText(value = '', max = 160) {
   return String(value || '').replace(/\s+/g, ' ').trim().slice(0, max);
 }
@@ -395,6 +402,53 @@ function handleCmsLeads(req, res, url) {
     leads,
     fields: ['id', 'createdAt', 'name', 'contact', 'grade', 'target', 'message', 'sourcePage', 'source', 'location', 'status', 'crmStatus'],
   });
+}
+
+async function handleCmsLeadUpdate(req, res) {
+  if (!requireCmsAuth(req, res)) return;
+  let body;
+  try { body = await readBody(req); } catch { return json(res, 400, { error: '请求格式错误' }); }
+  const id = cleanLeadText(body.id, 80);
+  if (!id) return json(res, 400, { error: '缺少线索 ID' });
+  const allowedStatus = new Set(['new', 'contacted', 'invalid', 'archived']);
+  const allowedCrmStatus = new Set(['pending', 'synced', 'failed', 'skipped']);
+  const rows = readJsonl(LEADS_FILE, 100000);
+  const index = rows.findIndex((lead) => lead.id === id);
+  if (index === -1) return json(res, 404, { error: '线索不存在' });
+  const next = { ...rows[index], updatedAt: new Date().toISOString() };
+  if (body.status !== undefined) {
+    const status = cleanLeadText(body.status, 40);
+    if (!allowedStatus.has(status)) return json(res, 400, { error: '线索状态不合法' });
+    next.status = status;
+  }
+  if (body.crmStatus !== undefined) {
+    const crmStatus = cleanLeadText(body.crmStatus, 40);
+    if (!allowedCrmStatus.has(crmStatus)) return json(res, 400, { error: 'CRM 状态不合法' });
+    next.crmStatus = crmStatus;
+  }
+  if (body.crmExternalId !== undefined) next.crmExternalId = cleanLeadText(body.crmExternalId, 120);
+  if (body.note !== undefined) next.note = cleanLeadText(body.note, 500);
+  rows[index] = next;
+  writeJsonl(LEADS_FILE, rows);
+  json(res, 200, { ok: true, lead: next });
+}
+
+function csvCell(value = '') {
+  const text = String(value ?? '');
+  return /[",\n\r]/.test(text) ? `"${text.replaceAll('"', '""')}"` : text;
+}
+
+function handleCmsLeadsExport(req, res) {
+  if (!requireCmsAuth(req, res)) return;
+  const leads = readJsonl(LEADS_FILE, 100000).reverse();
+  const headers = ['createdAt', 'name', 'contact', 'grade', 'target', 'message', 'sourcePage', 'source', 'location', 'status', 'crmStatus', 'note'];
+  const rows = [headers.join(',')].concat(leads.map((lead) => headers.map((key) => csvCell(lead[key] || '')).join(',')));
+  res.writeHead(200, {
+    'Content-Type': 'text/csv; charset=utf-8',
+    'Content-Disposition': 'attachment; filename="seda-leads.csv"',
+    'Cache-Control': 'no-store',
+  });
+  res.end(`\uFEFF${rows.join('\n')}\n`);
 }
 
 function handleCmsAnalytics(req, res, url) {
@@ -715,6 +769,8 @@ const server = createServer(async (req, res) => {
   if (req.method === 'GET' && url.pathname === '/api/cms/status') return cmsStats(req, res);
   if (req.method === 'GET' && url.pathname === '/api/cms/analytics') return handleCmsAnalytics(req, res, url);
   if (req.method === 'GET' && url.pathname === '/api/cms/leads') return handleCmsLeads(req, res, url);
+  if (req.method === 'GET' && url.pathname === '/api/cms/leads/export') return handleCmsLeadsExport(req, res);
+  if (req.method === 'POST' && url.pathname === '/api/cms/lead') return handleCmsLeadUpdate(req, res);
   if (req.method === 'GET' && url.pathname === '/api/cms/articles') return listCmsArticles(req, res);
   if (req.method === 'GET' && url.pathname === '/api/cms/article') return getCmsArticle(req, res, url);
   if (req.method === 'POST' && url.pathname === '/api/cms/article') return saveCmsArticle(req, res);

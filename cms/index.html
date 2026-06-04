@@ -68,6 +68,9 @@
     .lead-contact{font-weight:900;color:#172033}
     .lead-muted{color:#667085;font-size:12px}
     .lead-message{max-width:320px;color:#344054}
+    .lead-actions{display:flex;gap:6px;flex-wrap:wrap;min-width:190px}
+    .lead-action{border:1px solid #d8dde7;border-radius:999px;background:#fff;color:#344054;font-weight:800;font-size:12px;padding:6px 9px;cursor:pointer}
+    .lead-action:hover{border-color:#cf2029;color:#cf2029}
     [hidden]{display:none!important}
     @media (max-width:900px){.cms-grid,.analytics-panels{grid-template-columns:1fr}.cms-list{max-height:none}.cms-editor-head{display:grid}.cms-stats{grid-template-columns:1fr 1fr 1fr}.analytics-grid{grid-template-columns:1fr 1fr}.bar-row{grid-template-columns:96px minmax(0,1fr) 42px}}
   </style>
@@ -191,7 +194,10 @@
           <div class="analytics-card"><strong>0</strong><span>今日线索</span></div>
         </div>
         <section class="analytics-panel">
-          <h2>最近客户留资</h2>
+          <div style="display:flex;justify-content:space-between;gap:12px;align-items:center;margin-bottom:14px">
+            <h2 style="margin:0">最近客户留资</h2>
+            <a id="exportLeadsButton" class="cms-button secondary" href="/api/cms/leads/export">导出 CSV</a>
+          </div>
           <div id="leadList"></div>
         </section>
       </section>
@@ -232,6 +238,7 @@
       recentVisits: document.getElementById('recentVisits'),
       leadStats: document.getElementById('leadStats'),
       leadList: document.getElementById('leadList'),
+      exportLeadsButton: document.getElementById('exportLeadsButton'),
     };
 
     function toast(message) {
@@ -372,7 +379,7 @@
         <div class="analytics-card"><strong>${todayCount}</strong><span>今日线索</span></div>
       `;
       els.leadList.innerHTML = leads.length ? `<table class="recent-table lead-table">
-        <thead><tr><th>时间</th><th>客户</th><th>需求</th><th>来源</th><th>地区</th><th>状态</th></tr></thead>
+        <thead><tr><th>时间</th><th>客户</th><th>需求</th><th>来源</th><th>地区</th><th>状态</th><th>操作</th></tr></thead>
         <tbody>${leads.map((lead) => `<tr>
           <td>${new Date(lead.createdAt).toLocaleString('zh-CN', { hour12: false })}</td>
           <td>
@@ -392,6 +399,15 @@
           <td>
             <div>${esc(lead.status || 'new')}</div>
             <div class="lead-muted">CRM：${esc(lead.crmStatus || 'pending')}</div>
+            ${lead.note ? `<div class="lead-muted">备注：${esc(lead.note)}</div>` : ''}
+          </td>
+          <td>
+            <div class="lead-actions" data-id="${esc(lead.id)}">
+              <button class="lead-action" type="button" data-status="contacted">已跟进</button>
+              <button class="lead-action" type="button" data-status="invalid">无效</button>
+              <button class="lead-action" type="button" data-crm-status="synced">CRM已同步</button>
+              <button class="lead-action" type="button" data-note="1">备注</button>
+            </div>
           </td>
         </tr>`).join('')}</tbody>
       </table>` : '<div class="cms-empty" style="padding:24px">暂无客户留资。</div>';
@@ -400,6 +416,15 @@
     async function loadLeads() {
       state.leads = await api('/api/cms/leads?limit=200');
       renderLeads();
+    }
+
+    async function updateLead(id, patch) {
+      await api('/api/cms/lead', {
+        method: 'POST',
+        body: JSON.stringify({ id, ...patch }),
+      });
+      toast('线索已更新');
+      await loadLeads();
     }
 
     function switchView(view) {
@@ -495,6 +520,22 @@
     els.approveButton.addEventListener('click', () => review('approve').catch((error) => toast(error.message)));
     els.reviseButton.addEventListener('click', () => review('revise').catch((error) => toast(error.message)));
     els.archiveButton.addEventListener('click', () => review('archive').catch((error) => toast(error.message)));
+    els.leadList.addEventListener('click', (event) => {
+      const button = event.target.closest('.lead-action');
+      if (!button) return;
+      const box = button.closest('.lead-actions');
+      const id = box?.dataset.id;
+      if (!id) return;
+      if (button.dataset.note) {
+        const note = prompt('请输入线索备注（可留空）') || '';
+        updateLead(id, { note }).catch((error) => toast(error.message));
+        return;
+      }
+      const patch = {};
+      if (button.dataset.status) patch.status = button.dataset.status;
+      if (button.dataset.crmStatus) patch.crmStatus = button.dataset.crmStatus;
+      updateLead(id, patch).catch((error) => toast(error.message));
+    });
     els.refreshButton.addEventListener('click', () => {
       const action = state.view === 'analytics' ? loadAnalytics : state.view === 'leads' ? loadLeads : loadArticles;
       action().catch((error) => toast(error.message));

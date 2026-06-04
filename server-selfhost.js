@@ -368,6 +368,49 @@ function seoSnapshot(date = todayDate()) {
   };
 }
 
+function articleSummaries() {
+  const articleDir = join(process.cwd(), 'content', 'articles');
+  if (!existsSync(articleDir)) return [];
+  return readdirSync(articleDir)
+    .filter((file) => file.endsWith('.md') && !file.startsWith('_'))
+    .map((file) => {
+      const fullPath = join(articleDir, file);
+      const raw = readFileSync(fullPath, 'utf8');
+      const { meta } = parseFrontmatter(raw);
+      return {
+        file: relativeArticlePath(fullPath),
+        title: meta.title || file,
+        description: meta.description || '',
+        category: meta.categoryLabel || meta.category || 'SEO文章',
+        date: meta.date || '',
+        draft: Boolean(meta.draft),
+        reviewStatus: meta.reviewStatus || (meta.draft ? 'pending' : 'approved'),
+        reviewNote: meta.reviewNote || '',
+        updated: meta.updated || '',
+        publishedAt: meta.publishedAt || '',
+        slug: meta.slug || '',
+      };
+    })
+    .sort((a, b) => Number(b.draft) - Number(a.draft) || String(b.date).localeCompare(String(a.date)));
+}
+
+function contentIdeasFromArticles(articles) {
+  const text = articles.map((item) => `${item.title} ${item.slug}`).join('\n').toLowerCase();
+  const ideas = [
+    { keyword: 'WACE EALD', title: 'WACE EALD 对中国学生重要吗？' },
+    { keyword: 'WACE Specialist', title: 'WACE Specialist Mathematics 怎么选？' },
+    { keyword: 'WACE Methods', title: 'WACE Methods 适合什么学生？' },
+    { keyword: 'O-Level JC', title: 'O-Level 申请 JC 需要什么成绩？' },
+    { keyword: 'O-Level Poly', title: 'O-Level 申请 Poly 完整路径' },
+    { keyword: 'AEIS 年龄', title: 'AEIS 年龄要求与插班年级怎么判断？' },
+    { keyword: '新加坡国际学校费用', title: '新加坡国际学校一年多少钱？' },
+    { keyword: 'NUS 申请', title: '中国学生申请 NUS 本科需要准备什么？' },
+  ];
+  return ideas
+    .filter((idea) => !text.includes(idea.keyword.toLowerCase()) && !text.includes(idea.title.toLowerCase()))
+    .slice(0, 6);
+}
+
 function referrerSource(referrer = '') {
   if (!referrer) return '直接访问';
   try {
@@ -591,6 +634,54 @@ function handleCmsAnalytics(req, res, url) {
   });
 }
 
+function handleCmsOverview(req, res) {
+  if (!requireCmsAuth(req, res)) return;
+  const today = todayDate();
+  const articles = articleSummaries();
+  const leads = readJsonl(LEADS_FILE, 100000);
+  const events = readAnalyticsEvents(30);
+  const todayEvents = events.filter((event) => String(event.ts || '').startsWith(today));
+  const seo = seoSnapshot(today);
+  const draftArticles = articles.filter((item) => item.draft && item.reviewStatus !== 'needs_revision');
+  const revisionArticles = articles.filter((item) => item.reviewStatus === 'needs_revision');
+  const publishedArticles = articles.filter((item) => !item.draft);
+  const todayPublished = publishedArticles.filter((item) => String(item.date || item.publishedAt || '').startsWith(today));
+  const newLeads = leads.filter((lead) => (lead.status || 'new') === 'new');
+  const pendingCrm = leads.filter((lead) => (lead.crmStatus || 'pending') === 'pending');
+  const todayLeads = leads.filter((lead) => String(lead.createdAt || '').startsWith(today));
+  const tasks = [];
+  if (draftArticles.length) tasks.push({ type: 'content', title: `审核 ${draftArticles.length} 篇 SEO 草稿`, target: 'content', priority: 'high' });
+  if (revisionArticles.length) tasks.push({ type: 'content', title: `${revisionArticles.length} 篇文章需要修改`, target: 'content', priority: 'medium' });
+  if (newLeads.length) tasks.push({ type: 'leads', title: `跟进 ${newLeads.length} 条新客户线索`, target: 'leads', priority: 'high' });
+  if (pendingCrm.length) tasks.push({ type: 'leads', title: `${pendingCrm.length} 条线索待同步 CRM`, target: 'leads', priority: 'medium' });
+  if (todayPublished.length < 5) tasks.push({ type: 'content', title: `今日已发布 ${todayPublished.length} 篇，建议补到 5 篇以上`, target: 'content', priority: 'medium' });
+  if (!seo.saved) tasks.push({ type: 'seo', title: '记录今日百度 / IndexNow 提交情况', target: 'seo', priority: 'medium' });
+  json(res, 200, {
+    ok: true,
+    date: today,
+    metrics: {
+      totalArticles: articles.length,
+      draftArticles: draftArticles.length,
+      publishedArticles: publishedArticles.length,
+      todayPublished: todayPublished.length,
+      totalLeads: leads.length,
+      newLeads: newLeads.length,
+      todayLeads: todayLeads.length,
+      pageviews30d: events.length,
+      visitors30d: new Set(events.map((event) => event.visitor)).size,
+      todayPageviews: todayEvents.length,
+      sitemapUrlCount: seo.sitemapUrlCount,
+      baiduNextStart: seo.baiduNextStart,
+    },
+    tasks,
+    contentIdeas: contentIdeasFromArticles(articles),
+    recentArticles: articles.slice(0, 8),
+    recentLeads: leads.slice(-6).reverse(),
+    topPages: topCounts(events, 'path', 8),
+    topSources: topCounts(events, 'source', 6),
+  });
+}
+
 function parseFrontmatter(raw) {
   const match = raw.match(/^---\n([\s\S]*?)\n---\n?([\s\S]*)$/);
   if (!match) return { meta: {}, body: raw };
@@ -707,29 +798,7 @@ function handleCmsLogout(req, res) {
 
 function listCmsArticles(req, res) {
   if (!requireCmsAuth(req, res)) return;
-  const articleDir = join(process.cwd(), 'content', 'articles');
-  const articles = readdirSync(articleDir)
-    .filter((file) => file.endsWith('.md') && !file.startsWith('_'))
-    .map((file) => {
-      const fullPath = join(articleDir, file);
-      const raw = readFileSync(fullPath, 'utf8');
-      const { meta } = parseFrontmatter(raw);
-      return {
-        file: relativeArticlePath(fullPath),
-        title: meta.title || file,
-        description: meta.description || '',
-        category: meta.categoryLabel || meta.category || 'SEO文章',
-        date: meta.date || '',
-        draft: Boolean(meta.draft),
-        reviewStatus: meta.reviewStatus || (meta.draft ? 'pending' : 'approved'),
-        reviewNote: meta.reviewNote || '',
-        updated: meta.updated || '',
-        publishedAt: meta.publishedAt || '',
-        slug: meta.slug || '',
-      };
-    })
-    .sort((a, b) => Number(b.draft) - Number(a.draft) || String(b.date).localeCompare(String(a.date)));
-  json(res, 200, { ok: true, articles });
+  json(res, 200, { ok: true, articles: articleSummaries() });
 }
 
 function cmsStats(req, res) {
@@ -868,6 +937,7 @@ const server = createServer(async (req, res) => {
   if (req.method === 'POST' && url.pathname === '/api/cms/login') return handleCmsLogin(req, res);
   if (req.method === 'POST' && url.pathname === '/api/cms/logout') return handleCmsLogout(req, res);
   if (req.method === 'GET' && url.pathname === '/api/cms/me') return json(res, 200, { authenticated: isAuthenticated(req) });
+  if (req.method === 'GET' && url.pathname === '/api/cms/overview') return handleCmsOverview(req, res);
   if (req.method === 'GET' && url.pathname === '/api/cms/status') return cmsStats(req, res);
   if (req.method === 'GET' && url.pathname === '/api/cms/analytics') return handleCmsAnalytics(req, res, url);
   if (req.method === 'GET' && url.pathname === '/api/cms/seo') return handleCmsSeo(req, res, url);

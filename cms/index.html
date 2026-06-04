@@ -50,6 +50,25 @@
     .cms-tabs{display:flex;gap:8px;margin:0 0 18px}
     .cms-tab{border:1px solid #d8dde7;border-radius:8px;background:#fff;color:#344054;font-weight:900;height:42px;padding:0 16px;cursor:pointer}
     .cms-tab.active{background:#cf2029;color:#fff;border-color:#cf2029}
+    .overview-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:18px;align-items:start}
+    .overview-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:18px}
+    .overview-card{background:#fff;border:1px solid #e2e6ee;border-radius:8px;padding:18px}
+    .overview-card strong{display:block;font-size:30px;line-height:1.05}
+    .overview-card span{display:block;margin-top:7px;color:#667085;font-weight:800}
+    .todo-list{display:grid;gap:10px}
+    .todo-item{display:flex;justify-content:space-between;gap:12px;align-items:center;border:1px solid #eef0f4;border-radius:8px;padding:12px;background:#fafbfc}
+    .todo-item strong{display:block;font-size:15px}
+    .todo-item span{display:block;color:#667085;font-size:12px;margin-top:4px}
+    .todo-priority{border-radius:999px;background:#eef2f7;color:#344054;font-size:12px;font-weight:900;padding:5px 8px;white-space:nowrap}
+    .todo-priority.high{background:#fff1f1;color:#b91c1c}
+    .quick-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+    .quick-card{border:1px solid #e2e6ee;border-radius:8px;background:#fff;padding:14px;text-align:left;cursor:pointer;color:#172033}
+    .quick-card strong{display:block;margin-bottom:6px}
+    .quick-card span{color:#667085;font-size:12px;font-weight:700}
+    .idea-list{display:grid;gap:10px}
+    .idea-item{border:1px solid #eef0f4;border-radius:8px;padding:12px;background:#fff}
+    .idea-item strong{display:block}
+    .idea-item span{display:block;color:#667085;font-size:12px;margin-top:5px}
     .analytics-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:18px}
     .analytics-card{background:#fff;border:1px solid #e2e6ee;border-radius:8px;padding:18px}
     .analytics-card strong{display:block;font-size:28px;line-height:1.1}
@@ -76,7 +95,7 @@
     .seo-field.wide{grid-column:span 2}
     .seo-log{background:#111827;color:#d1d5db;border-radius:8px;padding:14px;font:12px/1.6 ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;white-space:pre-wrap}
     [hidden]{display:none!important}
-    @media (max-width:900px){.cms-grid,.analytics-panels,.seo-form{grid-template-columns:1fr}.seo-field.wide{grid-column:auto}.cms-list{max-height:none}.cms-editor-head{display:grid}.cms-stats{grid-template-columns:1fr 1fr 1fr}.analytics-grid{grid-template-columns:1fr 1fr}.bar-row{grid-template-columns:96px minmax(0,1fr) 42px}}
+    @media (max-width:900px){.cms-grid,.analytics-panels,.seo-form,.overview-grid,.quick-grid{grid-template-columns:1fr}.seo-field.wide{grid-column:auto}.cms-list{max-height:none}.cms-editor-head{display:grid}.cms-stats{grid-template-columns:1fr 1fr 1fr}.analytics-grid,.overview-cards{grid-template-columns:1fr 1fr}.bar-row{grid-template-columns:96px minmax(0,1fr) 42px}}
   </style>
 </head>
 <body>
@@ -106,13 +125,54 @@
       </div>
 
       <div class="cms-tabs" role="tablist" aria-label="CMS 模块">
-        <button class="cms-tab active" type="button" data-view="content">内容管理</button>
+        <button class="cms-tab active" type="button" data-view="overview">运营首页</button>
+        <button class="cms-tab" type="button" data-view="content">内容管理</button>
         <button class="cms-tab" type="button" data-view="analytics">流量分析</button>
         <button class="cms-tab" type="button" data-view="leads">客户线索</button>
         <button class="cms-tab" type="button" data-view="seo">SEO/GEO收录</button>
       </div>
 
-      <div id="contentView" class="cms-grid">
+      <section id="overviewView">
+        <div id="overviewCards" class="overview-cards">
+          <div class="overview-card"><strong>0</strong><span>今日发布</span></div>
+          <div class="overview-card"><strong>0</strong><span>待审核文章</span></div>
+          <div class="overview-card"><strong>0</strong><span>新线索</span></div>
+          <div class="overview-card"><strong>0</strong><span>今日浏览</span></div>
+        </div>
+        <div class="overview-grid">
+          <section class="analytics-panel">
+            <h2>今日待办</h2>
+            <div id="todoList" class="todo-list"></div>
+          </section>
+          <section class="analytics-panel">
+            <h2>快捷操作</h2>
+            <div class="quick-grid">
+              <button class="quick-card" type="button" data-go-view="content" data-filter="draft"><strong>审核 SEO 草稿</strong><span>进入待审核文章列表</span></button>
+              <button class="quick-card" type="button" data-go-view="leads"><strong>处理客户线索</strong><span>跟进新留资与 CRM 状态</span></button>
+              <button class="quick-card" type="button" data-go-view="analytics"><strong>查看流量</strong><span>页面、来源、地区趋势</span></button>
+              <button class="quick-card" type="button" data-go-view="seo"><strong>记录提交</strong><span>保存百度 / IndexNow 今日记录</span></button>
+            </div>
+          </section>
+          <section class="analytics-panel">
+            <h2>内容生产建议</h2>
+            <div id="ideaList" class="idea-list"></div>
+          </section>
+          <section class="analytics-panel">
+            <h2>站点热度</h2>
+            <div id="overviewHotPages"></div>
+          </section>
+          <section class="analytics-panel">
+            <h2>最近文章</h2>
+            <div id="overviewArticles"></div>
+          </section>
+          <section class="analytics-panel">
+            <h2>最近线索</h2>
+            <div id="overviewLeads"></div>
+          </section>
+        </div>
+      </section>
+
+      <div id="contentView" class="cms-grid" hidden>
         <aside class="cms-panel cms-sidebar">
           <div id="cmsStats" class="cms-stats" aria-label="内容统计">
             <div class="cms-stat"><strong>0</strong><span>全部</span></div>
@@ -269,7 +329,7 @@
   </main>
 
   <script>
-    const state = { articles: [], filter: 'all', selected: null, query: '', status: null, analytics: null, leads: null, seo: null, view: 'content' };
+    const state = { articles: [], filter: 'all', selected: null, query: '', status: null, analytics: null, leads: null, seo: null, overview: null, view: 'overview' };
     const els = {
       loginPanel: document.getElementById('loginPanel'),
       appPanel: document.getElementById('appPanel'),
@@ -290,6 +350,13 @@
       archiveButton: document.getElementById('archiveButton'),
       refreshButton: document.getElementById('refreshButton'),
       logoutButton: document.getElementById('logoutButton'),
+      overviewView: document.getElementById('overviewView'),
+      overviewCards: document.getElementById('overviewCards'),
+      todoList: document.getElementById('todoList'),
+      ideaList: document.getElementById('ideaList'),
+      overviewHotPages: document.getElementById('overviewHotPages'),
+      overviewArticles: document.getElementById('overviewArticles'),
+      overviewLeads: document.getElementById('overviewLeads'),
       contentView: document.getElementById('contentView'),
       analyticsView: document.getElementById('analyticsView'),
       leadsView: document.getElementById('leadsView'),
@@ -409,6 +476,50 @@
           <div>${row.count}</div>
         </div>`;
       }).join('') : '<div class="cms-empty" style="padding:24px">暂无访问数据。</div>';
+    }
+
+    function renderOverview() {
+      const data = state.overview || {};
+      const metrics = data.metrics || {};
+      els.overviewCards.innerHTML = `
+        <div class="overview-card"><strong>${metrics.todayPublished || 0}</strong><span>今日发布</span></div>
+        <div class="overview-card"><strong>${metrics.draftArticles || 0}</strong><span>待审核文章</span></div>
+        <div class="overview-card"><strong>${metrics.newLeads || 0}</strong><span>新线索</span></div>
+        <div class="overview-card"><strong>${metrics.todayPageviews || 0}</strong><span>今日浏览</span></div>
+      `;
+      els.todoList.innerHTML = data.tasks?.length ? data.tasks.map((task) => `<div class="todo-item">
+        <div>
+          <strong>${esc(task.title)}</strong>
+          <span>${task.type === 'content' ? '内容运营' : task.type === 'leads' ? '客户转化' : 'SEO/GEO'}</span>
+        </div>
+        <button class="todo-priority ${task.priority === 'high' ? 'high' : ''}" type="button" data-go-view="${esc(task.target)}">${task.priority === 'high' ? '优先' : '处理'}</button>
+      </div>`).join('') : '<div class="cms-empty" style="padding:24px">今天没有紧急待办。</div>';
+      els.ideaList.innerHTML = data.contentIdeas?.length ? data.contentIdeas.map((idea) => `<div class="idea-item">
+        <strong>${esc(idea.title)}</strong>
+        <span>长尾词：${esc(idea.keyword)}</span>
+      </div>`).join('') : '<div class="cms-empty" style="padding:24px">核心选题池暂时覆盖得不错。</div>';
+      renderBarChart(els.overviewHotPages, data.topPages || []);
+      els.overviewArticles.innerHTML = data.recentArticles?.length ? `<table class="recent-table">
+        <thead><tr><th>标题</th><th>状态</th><th>日期</th></tr></thead>
+        <tbody>${data.recentArticles.slice(0, 6).map((article) => `<tr>
+          <td>${esc(article.title)}</td>
+          <td>${article.draft ? (article.reviewStatus === 'needs_revision' ? '需修改' : '待审核') : '已发布'}</td>
+          <td>${esc(article.date || '')}</td>
+        </tr>`).join('')}</tbody>
+      </table>` : '<div class="cms-empty" style="padding:24px">暂无文章。</div>';
+      els.overviewLeads.innerHTML = data.recentLeads?.length ? `<table class="recent-table">
+        <thead><tr><th>客户</th><th>需求</th><th>来源</th></tr></thead>
+        <tbody>${data.recentLeads.map((lead) => `<tr>
+          <td><strong>${esc(lead.contact || '未填写')}</strong><div class="lead-muted">${esc(lead.name || '')}</div></td>
+          <td>${esc([lead.grade, lead.target].filter(Boolean).join(' / ') || lead.message || '未填写')}</td>
+          <td>${esc(lead.sourcePage || '/')}</td>
+        </tr>`).join('')}</tbody>
+      </table>` : '<div class="cms-empty" style="padding:24px">暂无客户线索。</div>';
+    }
+
+    async function loadOverview() {
+      state.overview = await api('/api/cms/overview');
+      renderOverview();
     }
 
     function renderAnalytics() {
@@ -573,10 +684,16 @@
     function switchView(view) {
       state.view = view;
       document.querySelectorAll('.cms-tab').forEach((tab) => tab.classList.toggle('active', tab.dataset.view === view));
+      els.overviewView.hidden = view !== 'overview';
       els.contentView.hidden = view !== 'content';
       els.analyticsView.hidden = view !== 'analytics';
       els.leadsView.hidden = view !== 'leads';
       els.seoView.hidden = view !== 'seo';
+      if (view === 'overview') loadOverview().catch((error) => toast(error.message));
+      if (view === 'content') {
+        if (!state.articles.length) loadArticles().catch((error) => toast(error.message));
+        else renderList();
+      }
       if (view === 'analytics') loadAnalytics().catch((error) => toast(error.message));
       if (view === 'leads') loadLeads().catch((error) => toast(error.message));
       if (view === 'seo') loadSeo().catch((error) => toast(error.message));
@@ -660,6 +777,16 @@
       state.query = els.searchInput.value.trim();
       renderList();
     });
+    document.addEventListener('click', (event) => {
+      const button = event.target.closest('[data-go-view]');
+      if (!button) return;
+      const view = button.dataset.goView;
+      if (button.dataset.filter) {
+        state.filter = button.dataset.filter;
+        document.querySelectorAll('.cms-filter').forEach((item) => item.classList.toggle('active', item.dataset.filter === state.filter));
+      }
+      switchView(view);
+    });
 
     els.saveButton.addEventListener('click', () => saveArticle().catch((error) => toast(error.message)));
     els.approveButton.addEventListener('click', () => review('approve').catch((error) => toast(error.message)));
@@ -684,6 +811,10 @@
     els.seoDate.addEventListener('change', () => loadSeo(els.seoDate.value).catch((error) => toast(error.message)));
     els.saveSeoButton.addEventListener('click', () => saveSeo().catch((error) => toast(error.message)));
     els.refreshButton.addEventListener('click', () => {
+      if (state.view === 'overview') {
+        loadOverview().catch((error) => toast(error.message));
+        return;
+      }
       if (state.view === 'seo') {
         loadSeo().catch((error) => toast(error.message));
         return;
@@ -702,7 +833,7 @@
     api('/api/cms/me').then((data) => {
       if (data.authenticated) {
         showApp();
-        return loadArticles();
+        return loadOverview();
       }
       showLogin();
     }).catch(showLogin);

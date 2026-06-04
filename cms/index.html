@@ -71,8 +71,12 @@
     .lead-actions{display:flex;gap:6px;flex-wrap:wrap;min-width:190px}
     .lead-action{border:1px solid #d8dde7;border-radius:999px;background:#fff;color:#344054;font-weight:800;font-size:12px;padding:6px 9px;cursor:pointer}
     .lead-action:hover{border-color:#cf2029;color:#cf2029}
+    .seo-form{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:18px}
+    .seo-field label{display:block;color:#667085;font-size:12px;font-weight:900;margin-bottom:6px}
+    .seo-field.wide{grid-column:span 2}
+    .seo-log{background:#111827;color:#d1d5db;border-radius:8px;padding:14px;font:12px/1.6 ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;white-space:pre-wrap}
     [hidden]{display:none!important}
-    @media (max-width:900px){.cms-grid,.analytics-panels{grid-template-columns:1fr}.cms-list{max-height:none}.cms-editor-head{display:grid}.cms-stats{grid-template-columns:1fr 1fr 1fr}.analytics-grid{grid-template-columns:1fr 1fr}.bar-row{grid-template-columns:96px minmax(0,1fr) 42px}}
+    @media (max-width:900px){.cms-grid,.analytics-panels,.seo-form{grid-template-columns:1fr}.seo-field.wide{grid-column:auto}.cms-list{max-height:none}.cms-editor-head{display:grid}.cms-stats{grid-template-columns:1fr 1fr 1fr}.analytics-grid{grid-template-columns:1fr 1fr}.bar-row{grid-template-columns:96px minmax(0,1fr) 42px}}
   </style>
 </head>
 <body>
@@ -105,6 +109,7 @@
         <button class="cms-tab active" type="button" data-view="content">内容管理</button>
         <button class="cms-tab" type="button" data-view="analytics">流量分析</button>
         <button class="cms-tab" type="button" data-view="leads">客户线索</button>
+        <button class="cms-tab" type="button" data-view="seo">SEO/GEO收录</button>
       </div>
 
       <div id="contentView" class="cms-grid">
@@ -201,11 +206,70 @@
           <div id="leadList"></div>
         </section>
       </section>
+
+      <section id="seoView" hidden>
+        <div id="seoStats" class="analytics-grid">
+          <div class="analytics-card"><strong>0</strong><span>sitemap URL</span></div>
+          <div class="analytics-card"><strong>0</strong><span>今日发布文章</span></div>
+          <div class="analytics-card"><strong>0</strong><span>百度下次起点</span></div>
+          <div class="analytics-card"><strong>0</strong><span>异常 URL</span></div>
+        </div>
+        <section class="analytics-panel">
+          <div style="display:flex;justify-content:space-between;gap:12px;align-items:center;margin-bottom:14px">
+            <h2 style="margin:0">每日收录记录</h2>
+            <button id="saveSeoButton" class="cms-button" type="button">保存今日记录</button>
+          </div>
+          <div class="seo-form">
+            <div class="seo-field">
+              <label for="seoDate">日期</label>
+              <input id="seoDate" class="cms-input" type="date">
+            </div>
+            <div class="seo-field">
+              <label for="baiduSubmittedInput">百度提交 URL</label>
+              <input id="baiduSubmittedInput" class="cms-input" type="number" min="0" value="0">
+            </div>
+            <div class="seo-field">
+              <label for="indexNowSubmittedInput">IndexNow 提交 URL</label>
+              <input id="indexNowSubmittedInput" class="cms-input" type="number" min="0" value="0">
+            </div>
+            <div class="seo-field">
+              <label for="baiduRemainingInput">百度剩余额度</label>
+              <input id="baiduRemainingInput" class="cms-input" type="number" min="0" value="0">
+            </div>
+            <div class="seo-field">
+              <label for="indexedCountInput">抽查已收录 URL</label>
+              <input id="indexedCountInput" class="cms-input" type="number" min="0" value="0">
+            </div>
+            <div class="seo-field">
+              <label for="abnormalUrlCountInput">异常 URL</label>
+              <input id="abnormalUrlCountInput" class="cms-input" type="number" min="0" value="0">
+            </div>
+            <div class="seo-field wide">
+              <label for="priorityUrlsInput">重点 URL / 关键词</label>
+              <textarea id="priorityUrlsInput" class="cms-input" style="height:92px;padding:12px;resize:vertical"></textarea>
+            </div>
+            <div class="seo-field wide">
+              <label for="seoNotesInput">收录备注</label>
+              <textarea id="seoNotesInput" class="cms-input" style="height:92px;padding:12px;resize:vertical"></textarea>
+            </div>
+          </div>
+        </section>
+        <div class="analytics-panels" style="margin-top:18px">
+          <section class="analytics-panel">
+            <h2>最近记录</h2>
+            <div id="seoRecent"></div>
+          </section>
+          <section class="analytics-panel">
+            <h2>百度 / IndexNow 日志</h2>
+            <div id="seoLog" class="seo-log">暂无日志</div>
+          </section>
+        </div>
+      </section>
     </section>
   </main>
 
   <script>
-    const state = { articles: [], filter: 'all', selected: null, query: '', status: null, analytics: null, leads: null, view: 'content' };
+    const state = { articles: [], filter: 'all', selected: null, query: '', status: null, analytics: null, leads: null, seo: null, view: 'content' };
     const els = {
       loginPanel: document.getElementById('loginPanel'),
       appPanel: document.getElementById('appPanel'),
@@ -229,6 +293,7 @@
       contentView: document.getElementById('contentView'),
       analyticsView: document.getElementById('analyticsView'),
       leadsView: document.getElementById('leadsView'),
+      seoView: document.getElementById('seoView'),
       analyticsStats: document.getElementById('analyticsStats'),
       regionChart: document.getElementById('regionChart'),
       locationChart: document.getElementById('locationChart'),
@@ -239,6 +304,18 @@
       leadStats: document.getElementById('leadStats'),
       leadList: document.getElementById('leadList'),
       exportLeadsButton: document.getElementById('exportLeadsButton'),
+      seoStats: document.getElementById('seoStats'),
+      seoDate: document.getElementById('seoDate'),
+      baiduSubmittedInput: document.getElementById('baiduSubmittedInput'),
+      indexNowSubmittedInput: document.getElementById('indexNowSubmittedInput'),
+      baiduRemainingInput: document.getElementById('baiduRemainingInput'),
+      indexedCountInput: document.getElementById('indexedCountInput'),
+      abnormalUrlCountInput: document.getElementById('abnormalUrlCountInput'),
+      priorityUrlsInput: document.getElementById('priorityUrlsInput'),
+      seoNotesInput: document.getElementById('seoNotesInput'),
+      saveSeoButton: document.getElementById('saveSeoButton'),
+      seoRecent: document.getElementById('seoRecent'),
+      seoLog: document.getElementById('seoLog'),
     };
 
     function toast(message) {
@@ -427,14 +504,82 @@
       await loadLeads();
     }
 
+    function fillSeoForm(record = {}) {
+      els.baiduSubmittedInput.value = record.baiduSubmitted || 0;
+      els.indexNowSubmittedInput.value = record.indexNowSubmitted || 0;
+      els.baiduRemainingInput.value = record.baiduRemaining || 0;
+      els.indexedCountInput.value = record.indexedCount || 0;
+      els.abnormalUrlCountInput.value = record.abnormalUrlCount || 0;
+      els.priorityUrlsInput.value = record.priorityUrls || '';
+      els.seoNotesInput.value = record.notes || '';
+    }
+
+    function renderSeo() {
+      const data = state.seo || {};
+      const saved = data.saved || {};
+      els.seoStats.innerHTML = `
+        <div class="analytics-card"><strong>${data.sitemapUrlCount || 0}</strong><span>sitemap URL</span></div>
+        <div class="analytics-card"><strong>${data.todayPublishedArticles || 0}</strong><span>当天发布文章</span></div>
+        <div class="analytics-card"><strong>${data.baiduNextStart || 0}</strong><span>百度下次起点</span></div>
+        <div class="analytics-card"><strong>${saved.abnormalUrlCount || 0}</strong><span>异常 URL</span></div>
+      `;
+      fillSeoForm(saved);
+      els.seoRecent.innerHTML = data.recent?.length ? `<table class="recent-table">
+        <thead><tr><th>日期</th><th>sitemap</th><th>文章</th><th>百度</th><th>IndexNow</th><th>已收录</th><th>异常</th><th>备注</th></tr></thead>
+        <tbody>${data.recent.map((row) => `<tr>
+          <td>${esc(row.date)}</td>
+          <td>${row.sitemapUrlCount || 0}</td>
+          <td>${row.todayPublishedArticles || 0}</td>
+          <td>${row.baiduSubmitted || 0}</td>
+          <td>${row.indexNowSubmitted || 0}</td>
+          <td>${row.indexedCount || 0}</td>
+          <td>${row.abnormalUrlCount || 0}</td>
+          <td>${esc(row.notes || '')}</td>
+        </tr>`).join('')}</tbody>
+      </table>` : '<div class="cms-empty" style="padding:24px">暂无 SEO/GEO 记录。</div>';
+      els.seoLog.textContent = data.baiduLogTail?.length ? data.baiduLogTail.join('\n') : '暂无日志';
+    }
+
+    async function loadSeo(date) {
+      const day = date || els.seoDate.value || new Date().toISOString().slice(0, 10);
+      els.seoDate.value = day;
+      state.seo = await api(`/api/cms/seo?date=${encodeURIComponent(day)}`);
+      renderSeo();
+    }
+
+    async function saveSeo() {
+      els.saveSeoButton.disabled = true;
+      try {
+        state.seo = await api('/api/cms/seo', {
+          method: 'POST',
+          body: JSON.stringify({
+            date: els.seoDate.value,
+            baiduSubmitted: els.baiduSubmittedInput.value,
+            indexNowSubmitted: els.indexNowSubmittedInput.value,
+            baiduRemaining: els.baiduRemainingInput.value,
+            indexedCount: els.indexedCountInput.value,
+            abnormalUrlCount: els.abnormalUrlCountInput.value,
+            priorityUrls: els.priorityUrlsInput.value,
+            notes: els.seoNotesInput.value,
+          }),
+        });
+        toast('SEO/GEO 记录已保存');
+        renderSeo();
+      } finally {
+        els.saveSeoButton.disabled = false;
+      }
+    }
+
     function switchView(view) {
       state.view = view;
       document.querySelectorAll('.cms-tab').forEach((tab) => tab.classList.toggle('active', tab.dataset.view === view));
       els.contentView.hidden = view !== 'content';
       els.analyticsView.hidden = view !== 'analytics';
       els.leadsView.hidden = view !== 'leads';
+      els.seoView.hidden = view !== 'seo';
       if (view === 'analytics') loadAnalytics().catch((error) => toast(error.message));
       if (view === 'leads') loadLeads().catch((error) => toast(error.message));
+      if (view === 'seo') loadSeo().catch((error) => toast(error.message));
     }
 
     async function loadArticles() {
@@ -536,8 +681,10 @@
       if (button.dataset.crmStatus) patch.crmStatus = button.dataset.crmStatus;
       updateLead(id, patch).catch((error) => toast(error.message));
     });
+    els.seoDate.addEventListener('change', () => loadSeo(els.seoDate.value).catch((error) => toast(error.message)));
+    els.saveSeoButton.addEventListener('click', () => saveSeo().catch((error) => toast(error.message)));
     els.refreshButton.addEventListener('click', () => {
-      const action = state.view === 'analytics' ? loadAnalytics : state.view === 'leads' ? loadLeads : loadArticles;
+      const action = state.view === 'analytics' ? loadAnalytics : state.view === 'leads' ? loadLeads : state.view === 'seo' ? loadSeo : loadArticles;
       action().catch((error) => toast(error.message));
     });
     els.logoutButton.addEventListener('click', async () => {

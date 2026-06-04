@@ -25,6 +25,8 @@ const ANALYTICS_DIR = join(process.cwd(), 'data', 'analytics');
 const ANALYTICS_FILE = join(ANALYTICS_DIR, 'events.jsonl');
 const LEADS_DIR = join(process.cwd(), 'data', 'leads');
 const LEADS_FILE = join(LEADS_DIR, 'leads.jsonl');
+const SEO_DIR = join(process.cwd(), 'data', 'seo');
+const SEO_DAILY_FILE = join(SEO_DIR, 'daily.jsonl');
 
 // Load .env file
 function loadEnv(path) {
@@ -294,8 +296,76 @@ function cleanLeadText(value = '', max = 160) {
   return String(value || '').replace(/\s+/g, ' ').trim().slice(0, max);
 }
 
+function cleanMultilineText(value = '', max = 1200) {
+  return String(value || '')
+    .replace(/\r\n/g, '\n')
+    .replace(/[ \t]+/g, ' ')
+    .replace(/\n{3,}/g, '\n\n')
+    .trim()
+    .slice(0, max);
+}
+
 function leadId() {
   return `lead_${Date.now().toString(36)}_${Math.random().toString(36).slice(2, 8)}`;
+}
+
+function todayDate() {
+  return new Date().toISOString().slice(0, 10);
+}
+
+function readSitemapUrls() {
+  const file = join(process.cwd(), 'sitemap.xml');
+  if (!existsSync(file)) return [];
+  const raw = readFileSync(file, 'utf8');
+  return [...raw.matchAll(/<loc>(.*?)<\/loc>/g)].map((match) => match[1]).filter(Boolean);
+}
+
+function countArticlesByDate(date) {
+  const articleDir = join(process.cwd(), 'content', 'articles');
+  if (!existsSync(articleDir)) return 0;
+  let count = 0;
+  for (const file of readdirSync(articleDir).filter((item) => item.endsWith('.md') && !item.startsWith('_'))) {
+    const raw = readFileSync(join(articleDir, file), 'utf8');
+    const { meta } = parseFrontmatter(raw);
+    if (String(meta.date || meta.publishedAt || '').startsWith(date) && !meta.draft) count += 1;
+  }
+  return count;
+}
+
+function readBaiduSubmitState(totalUrls) {
+  const offsetFile = join(process.cwd(), '.baidu-submit-offset');
+  const offset = existsSync(offsetFile) ? Number(readFileSync(offsetFile, 'utf8').trim()) || 0 : 0;
+  let logTail = [];
+  for (const file of ['/var/log/baidu-submit.log', join(process.cwd(), 'baidu-submit.log')]) {
+    if (!existsSync(file)) continue;
+    logTail = readFileSync(file, 'utf8').split(/\r?\n/).filter(Boolean).slice(-10);
+    break;
+  }
+  return {
+    offset,
+    nextStart: totalUrls ? Math.min(offset + 1, totalUrls) : 0,
+    logTail,
+  };
+}
+
+function latestSeoRecord(date) {
+  return readJsonl(SEO_DAILY_FILE, 100000).reverse().find((row) => row.date === date) || null;
+}
+
+function seoSnapshot(date = todayDate()) {
+  const sitemapUrls = readSitemapUrls();
+  const baidu = readBaiduSubmitState(sitemapUrls.length);
+  const saved = latestSeoRecord(date);
+  return {
+    date,
+    sitemapUrlCount: sitemapUrls.length,
+    todayPublishedArticles: countArticlesByDate(date),
+    baiduOffset: baidu.offset,
+    baiduNextStart: baidu.nextStart,
+    baiduLogTail: baidu.logTail,
+    saved,
+    recent: readJsonl(SEO_DAILY_FILE, 60).reverse(),
+  };
 }
 
 function referrerSource(referrer = '') {
@@ -449,6 +519,38 @@ function handleCmsLeadsExport(req, res) {
     'Cache-Control': 'no-store',
   });
   res.end(`\uFEFF${rows.join('\n')}\n`);
+}
+
+function handleCmsSeo(req, res, url) {
+  if (!requireCmsAuth(req, res)) return;
+  const date = cleanLeadText(url.searchParams.get('date') || todayDate(), 20) || todayDate();
+  json(res, 200, { ok: true, ...seoSnapshot(date) });
+}
+
+async function handleCmsSeoSave(req, res) {
+  if (!requireCmsAuth(req, res)) return;
+  let body;
+  try { body = await readBody(req); } catch { return json(res, 400, { error: '请求格式错误' }); }
+  const date = cleanLeadText(body.date || todayDate(), 20) || todayDate();
+  const snapshot = seoSnapshot(date);
+  const record = {
+    date,
+    updatedAt: new Date().toISOString(),
+    sitemapUrlCount: snapshot.sitemapUrlCount,
+    todayPublishedArticles: snapshot.todayPublishedArticles,
+    baiduSubmitted: Math.max(0, Number(body.baiduSubmitted || 0) || 0),
+    indexNowSubmitted: Math.max(0, Number(body.indexNowSubmitted || 0) || 0),
+    baiduRemaining: Math.max(0, Number(body.baiduRemaining || 0) || 0),
+    indexedCount: Math.max(0, Number(body.indexedCount || 0) || 0),
+    abnormalUrlCount: Math.max(0, Number(body.abnormalUrlCount || 0) || 0),
+    priorityUrls: cleanMultilineText(body.priorityUrls, 1200),
+    notes: cleanMultilineText(body.notes, 1200),
+  };
+  const rows = readJsonl(SEO_DAILY_FILE, 100000).filter((row) => row.date !== date);
+  rows.push(record);
+  rows.sort((a, b) => String(a.date).localeCompare(String(b.date)));
+  writeJsonl(SEO_DAILY_FILE, rows);
+  json(res, 200, { ok: true, record, ...seoSnapshot(date) });
 }
 
 function handleCmsAnalytics(req, res, url) {
@@ -768,6 +870,8 @@ const server = createServer(async (req, res) => {
   if (req.method === 'GET' && url.pathname === '/api/cms/me') return json(res, 200, { authenticated: isAuthenticated(req) });
   if (req.method === 'GET' && url.pathname === '/api/cms/status') return cmsStats(req, res);
   if (req.method === 'GET' && url.pathname === '/api/cms/analytics') return handleCmsAnalytics(req, res, url);
+  if (req.method === 'GET' && url.pathname === '/api/cms/seo') return handleCmsSeo(req, res, url);
+  if (req.method === 'POST' && url.pathname === '/api/cms/seo') return handleCmsSeoSave(req, res);
   if (req.method === 'GET' && url.pathname === '/api/cms/leads') return handleCmsLeads(req, res, url);
   if (req.method === 'GET' && url.pathname === '/api/cms/leads/export') return handleCmsLeadsExport(req, res);
   if (req.method === 'POST' && url.pathname === '/api/cms/lead') return handleCmsLeadUpdate(req, res);

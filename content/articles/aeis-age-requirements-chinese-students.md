@@ -7,11 +7,12 @@ categoryLabel: AEIS 考试
 slug: aeis-age-requirements-chinese-students
 date: 2026-06-04
 tags: AEIS,年龄要求,政府学校,中国学生
-draft: true
-reviewStatus: pending
+draft: false
+reviewStatus: "approved"
 reviewNote:
-updated:
-publishedAt:
+updated: "2026-06-04"
+publishedAt: "2026-06-04T02:05:32.469Z"
+reviewedAt: "2026-06-04T02:05:32.469Z"
 ---
 
 很多家长准备 AEIS 时，第一反应是问考试难不难、数学怎么补、英文要学多久。

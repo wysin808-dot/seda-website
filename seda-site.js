@@ -5,6 +5,31 @@ document.querySelector(".lead-form")?.addEventListener("submit", (event) => {
   button.disabled = true;
 });
 
+/* ── Lightweight Analytics ── */
+(function(){
+  if (location.pathname.startsWith('/cms/') || location.pathname.startsWith('/content-review/')) return;
+  var key = 'sedaVisitorId';
+  var visitorId = localStorage.getItem(key);
+  if (!visitorId) {
+    visitorId = Date.now().toString(36) + Math.random().toString(36).slice(2, 12);
+    localStorage.setItem(key, visitorId);
+  }
+  var payload = {
+    visitorId: visitorId,
+    path: location.pathname,
+    title: document.title,
+    referrer: document.referrer,
+    timezone: Intl.DateTimeFormat().resolvedOptions().timeZone || '',
+    language: navigator.language || '',
+  };
+  var body = JSON.stringify(payload);
+  if (navigator.sendBeacon) {
+    navigator.sendBeacon('/api/analytics/collect', new Blob([body], { type: 'application/json' }));
+  } else {
+    fetch('/api/analytics/collect', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: body, keepalive: true }).catch(function(){});
+  }
+})();
+
 document.querySelectorAll(".filter").forEach((button) => {
   button.addEventListener("click", () => {
     document.querySelectorAll(".filter").forEach((item) => item.classList.remove("active"));

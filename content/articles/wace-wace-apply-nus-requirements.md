@@ -7,11 +7,12 @@ categoryLabel: WACE 课程
 slug: wace-apply-nus-requirements
 date: 2026-06-04
 tags: WACE,NUS,新加坡国立大学,ATAR,大学申请
-draft: true
-reviewStatus: pending
+draft: false
+reviewStatus: "approved"
 reviewNote:
-updated:
-publishedAt:
+updated: "2026-06-04"
+publishedAt: "2026-06-04T02:05:32.469Z"
+reviewedAt: "2026-06-04T02:05:32.469Z"
 ---
 
 很多家长听到 WACE 可以申请新加坡大学，第一反应就是问：那能不能申请 NUS？

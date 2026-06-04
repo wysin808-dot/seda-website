@@ -25,6 +25,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://sgeda.org.cn/aeis/aeis-age-requirements-chinese-students/</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://sgeda.org.cn/aeis/aeis-math-preparation/</loc>
     <lastmod>2026-06-04</lastmod>
     <changefreq>weekly</changefreq>
@@ -637,6 +643,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://sgeda.org.cn/o-level/o-level-poly-application-guide/</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://sgeda.org.cn/o-level/preparation/</loc>
     <lastmod>2026-06-03</lastmod>
     <changefreq>weekly</changefreq>
@@ -711,6 +723,12 @@
   <url>
     <loc>https://sgeda.org.cn/pathway/by-age/</loc>
     <lastmod>2026-06-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://sgeda.org.cn/pathway/chinese-students-singapore-pathway/</loc>
+    <lastmod>2026-06-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -2191,6 +2209,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://sgeda.org.cn/university/nus-undergraduate-application-chinese-students/</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://sgeda.org.cn/university/nus/</loc>
     <lastmod>2026-06-03</lastmod>
     <changefreq>weekly</changefreq>
@@ -2276,6 +2300,12 @@
   </url>
   <url>
     <loc>https://sgeda.org.cn/wace/wace-apply-ntu-difficulty/</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://sgeda.org.cn/wace/wace-apply-nus-requirements/</loc>
     <lastmod>2026-06-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>

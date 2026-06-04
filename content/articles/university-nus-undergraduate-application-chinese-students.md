@@ -7,11 +7,12 @@ categoryLabel: 公立大学
 slug: nus-undergraduate-application-chinese-students
 date: 2026-06-04
 tags: NUS,新加坡国立大学,本科申请,中国学生
-draft: true
-reviewStatus: pending
+draft: false
+reviewStatus: "approved"
 reviewNote:
-updated:
-publishedAt:
+updated: "2026-06-04"
+publishedAt: "2026-06-04T02:05:32.469Z"
+reviewedAt: "2026-06-04T02:05:32.469Z"
 ---
 
 很多中国家长一提到新加坡大学，第一反应就是 NUS。

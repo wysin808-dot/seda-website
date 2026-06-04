@@ -7,11 +7,12 @@ categoryLabel: 升学路径
 slug: chinese-students-singapore-pathway
 date: 2026-06-04
 tags: 新加坡升学路径,中国学生,家长指南,择校规划
-draft: true
-reviewStatus: pending
+draft: false
+reviewStatus: "approved"
 reviewNote:
-updated:
-publishedAt:
+updated: "2026-06-04"
+publishedAt: "2026-06-04T02:05:32.469Z"
+reviewedAt: "2026-06-04T02:05:32.469Z"
 ---
 
 很多家长第一次规划孩子去新加坡读书时，最容易卡住的不是“要不要去”，而是“不知道应该走哪条路”。

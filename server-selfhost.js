@@ -7,7 +7,7 @@
 import { createServer } from 'node:http';
 import { createHmac, timingSafeEqual } from 'node:crypto';
 import { execFile } from 'node:child_process';
-import { existsSync, mkdirSync, readFileSync, readdirSync, renameSync, rmSync, writeFileSync } from 'node:fs';
+import { appendFileSync, existsSync, mkdirSync, readFileSync, readdirSync, renameSync, rmSync, writeFileSync } from 'node:fs';
 import { basename, join, relative, sep } from 'node:path';
 
 const PORT = Number(process.env.PORT || 3002);
@@ -17,9 +17,12 @@ const CMS_VERSION = 'lite-1';
 const CMS_CAPABILITIES = {
   auth: 'password-cookie',
   contentStore: 'markdown-frontmatter',
+  analytics: 'jsonl-pageviews',
   workflow: ['draft', 'needs_revision', 'approved', 'archived'],
   futureReady: ['roles', 'media', 'scheduledPublish', 'revisionHistory', 'crmSync'],
 };
+const ANALYTICS_DIR = join(process.cwd(), 'data', 'analytics');
+const ANALYTICS_FILE = join(ANALYTICS_DIR, 'events.jsonl');
 
 // Load .env file
 function loadEnv(path) {
@@ -79,6 +82,16 @@ function json(res, status, data) {
   res.end(JSON.stringify(data));
 }
 
+function noContent(res) {
+  res.writeHead(204, {
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Methods': 'POST, GET, OPTIONS',
+    'Access-Control-Allow-Headers': 'Content-Type',
+    'Cache-Control': 'no-store',
+  });
+  res.end();
+}
+
 function escapeHtml(value) {
   return String(value || '')
     .replaceAll('&', '&amp;')
@@ -133,6 +146,149 @@ function requireCmsAuth(req, res) {
   if (isAuthenticated(req)) return true;
   json(res, 401, { error: '请先登录 CMS 后台' });
   return false;
+}
+
+function clientIp(req) {
+  const forwarded = String(req.headers['x-forwarded-for'] || '').split(',')[0].trim();
+  return forwarded || req.socket.remoteAddress || '';
+}
+
+function hashVisitor(input) {
+  return createHmac('sha256', authSecret() || 'seda-analytics').update(String(input || '')).digest('hex').slice(0, 16);
+}
+
+function inferRegion(timezone = '', language = '') {
+  const tz = String(timezone).toLowerCase();
+  const lang = String(language).toLowerCase();
+  if (tz.includes('singapore')) return '新加坡';
+  if (tz.includes('shanghai') || tz.includes('chongqing') || tz.includes('urumqi')) return '中国大陆';
+  if (tz.includes('hong_kong')) return '中国香港';
+  if (tz.includes('taipei')) return '中国台湾';
+  if (tz.includes('macau')) return '中国澳门';
+  if (tz.includes('kuala_lumpur')) return '马来西亚';
+  if (tz.includes('jakarta')) return '印尼';
+  if (tz.includes('bangkok')) return '泰国';
+  if (tz.includes('tokyo')) return '日本';
+  if (tz.includes('seoul')) return '韩国';
+  if (tz.includes('sydney') || tz.includes('melbourne') || tz.includes('perth') || tz.includes('brisbane')) return '澳洲';
+  if (tz.includes('london')) return '英国';
+  if (tz.includes('new_york') || tz.includes('los_angeles') || tz.includes('chicago')) return '美国';
+  if (lang.startsWith('zh-cn')) return '中国大陆';
+  if (lang.startsWith('zh-sg') || lang.includes('en-sg')) return '新加坡';
+  if (lang.startsWith('zh-hk')) return '中国香港';
+  return '其他地区';
+}
+
+function deviceType(ua = '') {
+  const value = String(ua).toLowerCase();
+  if (/bot|spider|crawl|slurp|baiduspider|bingbot|googlebot/.test(value)) return '爬虫';
+  if (/ipad|tablet/.test(value)) return '平板';
+  if (/mobile|iphone|android/.test(value)) return '手机';
+  return '电脑';
+}
+
+function normalizePath(pathname = '') {
+  const clean = String(pathname || '/').split('#')[0].split('?')[0] || '/';
+  if (clean.startsWith('/api/') || clean.startsWith('/cms/') || clean.startsWith('/content-review/')) return '';
+  return clean.length > 180 ? clean.slice(0, 180) : clean;
+}
+
+function readAnalyticsEvents(days = 30) {
+  if (!existsSync(ANALYTICS_FILE)) return [];
+  const since = Date.now() - days * 24 * 60 * 60 * 1000;
+  return readFileSync(ANALYTICS_FILE, 'utf8')
+    .split(/\r?\n/)
+    .filter(Boolean)
+    .map((line) => {
+      try { return JSON.parse(line); } catch { return null; }
+    })
+    .filter((event) => event && Date.parse(event.ts) >= since);
+}
+
+function topCounts(events, key, limit = 10) {
+  const counts = new Map();
+  for (const event of events) {
+    const value = event[key] || '未知';
+    counts.set(value, (counts.get(value) || 0) + 1);
+  }
+  return [...counts.entries()]
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, limit)
+    .map(([name, count]) => ({ name, count }));
+}
+
+function referrerSource(referrer = '') {
+  if (!referrer) return '直接访问';
+  try {
+    const host = new URL(referrer).hostname.replace(/^www\./, '');
+    if (host.includes('baidu')) return '百度';
+    if (host.includes('bing')) return 'Bing';
+    if (host.includes('google')) return 'Google';
+    if (host.includes('sogou')) return '搜狗';
+    if (host.includes('wechat') || host.includes('weixin')) return '微信';
+    if (host.includes('sgeda.org.cn')) return '站内';
+    return host;
+  } catch {
+    return '其他来源';
+  }
+}
+
+async function handleAnalyticsCollect(req, res) {
+  let body;
+  try { body = await readBody(req); } catch { return noContent(res); }
+  const path = normalizePath(body.path || body.pathname || '');
+  if (!path) return noContent(res);
+  const timezone = String(body.timezone || '').slice(0, 80);
+  const language = String(body.language || req.headers['accept-language'] || '').slice(0, 120);
+  const visitorRaw = body.visitorId || `${clientIp(req)}:${req.headers['user-agent'] || ''}`;
+  const event = {
+    ts: new Date().toISOString(),
+    path,
+    title: String(body.title || '').slice(0, 140),
+    referrer: String(body.referrer || '').slice(0, 240),
+    source: referrerSource(body.referrer || ''),
+    region: inferRegion(timezone, language),
+    timezone,
+    language,
+    device: deviceType(req.headers['user-agent'] || body.userAgent || ''),
+    visitor: hashVisitor(visitorRaw),
+  };
+  mkdirSync(ANALYTICS_DIR, { recursive: true });
+  appendFileSync(ANALYTICS_FILE, `${JSON.stringify(event)}\n`, 'utf8');
+  noContent(res);
+}
+
+function handleCmsAnalytics(req, res, url) {
+  if (!requireCmsAuth(req, res)) return;
+  const days = Math.min(Math.max(Number(url.searchParams.get('days') || 30), 1), 90);
+  const events = readAnalyticsEvents(days);
+  const todayKey = new Date().toISOString().slice(0, 10);
+  const todayEvents = events.filter((event) => String(event.ts).startsWith(todayKey));
+  const visitors = new Set(events.map((event) => event.visitor)).size;
+  const todayVisitors = new Set(todayEvents.map((event) => event.visitor)).size;
+  const recent = events.slice(-20).reverse().map((event) => ({
+    ts: event.ts,
+    path: event.path,
+    title: event.title,
+    source: event.source,
+    region: event.region,
+    device: event.device,
+  }));
+  json(res, 200, {
+    ok: true,
+    days,
+    totals: {
+      pageviews: events.length,
+      visitors,
+      todayPageviews: todayEvents.length,
+      todayVisitors,
+    },
+    regions: topCounts(events, 'region', 12),
+    pages: topCounts(events, 'path', 12),
+    sources: topCounts(events, 'source', 10),
+    devices: topCounts(events, 'device', 6),
+    recent,
+  });
 }
 
 function parseFrontmatter(raw) {
@@ -413,11 +569,13 @@ const server = createServer(async (req, res) => {
   if (req.method === 'POST' && url.pathname === '/api/cms/logout') return handleCmsLogout(req, res);
   if (req.method === 'GET' && url.pathname === '/api/cms/me') return json(res, 200, { authenticated: isAuthenticated(req) });
   if (req.method === 'GET' && url.pathname === '/api/cms/status') return cmsStats(req, res);
+  if (req.method === 'GET' && url.pathname === '/api/cms/analytics') return handleCmsAnalytics(req, res, url);
   if (req.method === 'GET' && url.pathname === '/api/cms/articles') return listCmsArticles(req, res);
   if (req.method === 'GET' && url.pathname === '/api/cms/article') return getCmsArticle(req, res, url);
   if (req.method === 'POST' && url.pathname === '/api/cms/article') return saveCmsArticle(req, res);
   if (req.method === 'POST' && url.pathname === '/api/chat') return handleChat(req, res);
   if (req.method === 'POST' && url.pathname === '/api/content-review') return handleContentReview(req, res);
+  if (req.method === 'POST' && url.pathname === '/api/analytics/collect') return handleAnalyticsCollect(req, res);
   if (req.method === 'GET'  && url.pathname === '/api/config') return handleConfig(req, res);
   if (req.method === 'POST' && url.pathname === '/api/wechat-click') return json(res, 200, { ok: true });
 

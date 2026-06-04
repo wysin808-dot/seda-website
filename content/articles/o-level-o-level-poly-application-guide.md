@@ -7,11 +7,12 @@ categoryLabel: O-Level 升学
 slug: o-level-poly-application-guide
 date: 2026-06-04
 tags: O-Level,Poly,新加坡理工学院,升学路径
-draft: true
-reviewStatus: pending
+draft: false
+reviewStatus: "approved"
 reviewNote:
-updated:
-publishedAt:
+updated: "2026-06-04"
+publishedAt: "2026-06-04T02:05:32.469Z"
+reviewedAt: "2026-06-04T02:05:32.469Z"
 ---
 
 很多中国家长第一次了解新加坡升学体系时，会把注意力放在 JC 和大学上，却忽略了 Poly。

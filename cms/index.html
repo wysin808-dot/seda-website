@@ -152,8 +152,12 @@
         </div>
         <div class="analytics-panels">
           <section class="analytics-panel">
-            <h2>地区分布</h2>
+            <h2>国家/地区</h2>
             <div id="regionChart"></div>
+          </section>
+          <section class="analytics-panel">
+            <h2>省市分布</h2>
+            <div id="locationChart"></div>
           </section>
           <section class="analytics-panel">
             <h2>热门页面</h2>
@@ -202,6 +206,7 @@
       analyticsView: document.getElementById('analyticsView'),
       analyticsStats: document.getElementById('analyticsStats'),
       regionChart: document.getElementById('regionChart'),
+      locationChart: document.getElementById('locationChart'),
       pageChart: document.getElementById('pageChart'),
       sourceChart: document.getElementById('sourceChart'),
       deviceChart: document.getElementById('deviceChart'),
@@ -311,15 +316,17 @@
         <div class="analytics-card"><strong>${totals.todayVisitors || 0}</strong><span>今日访客</span></div>
       `;
       renderBarChart(els.regionChart, data?.regions || []);
+      renderBarChart(els.locationChart, data?.locations || []);
       renderBarChart(els.pageChart, data?.pages || []);
       renderBarChart(els.sourceChart, data?.sources || []);
       renderBarChart(els.deviceChart, data?.devices || []);
       els.recentVisits.innerHTML = data?.recent?.length ? `<table class="recent-table">
-        <thead><tr><th>时间</th><th>页面</th><th>地区</th><th>来源</th><th>设备</th></tr></thead>
+        <thead><tr><th>时间</th><th>页面</th><th>国家/地区</th><th>省市</th><th>来源</th><th>设备</th></tr></thead>
         <tbody>${data.recent.map((row) => `<tr>
           <td>${new Date(row.ts).toLocaleString('zh-CN', { hour12: false })}</td>
           <td>${esc(row.path)}</td>
           <td>${esc(row.region)}</td>
+          <td>${esc(row.location || [row.province, row.city].filter(Boolean).join(' ') || '未识别')}</td>
           <td>${esc(row.source)}</td>
           <td>${esc(row.device)}</td>
         </tr>`).join('')}</tbody>

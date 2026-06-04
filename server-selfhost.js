@@ -179,6 +179,58 @@ function inferRegion(timezone = '', language = '') {
   return '其他地区';
 }
 
+function cleanLocationPart(value = '') {
+  return String(value || '')
+    .replace(/^\s+|\s+$/g, '')
+    .replace(/^(unknown|null|undefined)$/i, '')
+    .slice(0, 48);
+}
+
+function decodeHeaderValue(value = '') {
+  const raw = String(value || '').split(',')[0].trim();
+  if (!raw) return '';
+  try { return decodeURIComponent(raw); } catch { return raw; }
+}
+
+function firstHeader(req, names) {
+  for (const name of names) {
+    const value = req.headers[name];
+    if (value) return decodeHeaderValue(Array.isArray(value) ? value[0] : value);
+  }
+  return '';
+}
+
+function inferLocation(req, body = {}, timezone = '', language = '') {
+  const region = inferRegion(timezone, language);
+  const province = cleanLocationPart(
+    body.province ||
+    firstHeader(req, ['x-geoip-province', 'x-region-name', 'x-vercel-ip-country-region', 'cf-ipregion'])
+  );
+  const city = cleanLocationPart(
+    body.city ||
+    firstHeader(req, ['x-geoip-city', 'x-city-name', 'x-vercel-ip-city', 'cf-ipcity'])
+  );
+
+  if (province || city) {
+    return {
+      region,
+      province,
+      city,
+      location: [province, city].filter(Boolean).join(' ') || region,
+    };
+  }
+
+  const tz = String(timezone).toLowerCase();
+  if (tz.includes('hong_kong')) return { region: '中国香港', province: '香港', city: '香港', location: '香港' };
+  if (tz.includes('taipei')) return { region: '中国台湾', province: '台湾', city: '台北', location: '台湾 台北' };
+  if (tz.includes('macau')) return { region: '中国澳门', province: '澳门', city: '澳门', location: '澳门' };
+  if (tz.includes('singapore')) return { region: '新加坡', province: '新加坡', city: '新加坡', location: '新加坡' };
+  if (tz.includes('chongqing')) return { region: '中国大陆', province: '重庆', city: '重庆', location: '重庆' };
+  if (tz.includes('urumqi')) return { region: '中国大陆', province: '新疆', city: '乌鲁木齐', location: '新疆 乌鲁木齐' };
+
+  return { region, province: '', city: '', location: region === '中国大陆' ? '中国大陆 未识别' : region };
+}
+
 function deviceType(ua = '') {
   const value = String(ua).toLowerCase();
   if (/bot|spider|crawl|slurp|baiduspider|bingbot|googlebot/.test(value)) return '爬虫';
@@ -241,13 +293,17 @@ async function handleAnalyticsCollect(req, res) {
   const timezone = String(body.timezone || '').slice(0, 80);
   const language = String(body.language || req.headers['accept-language'] || '').slice(0, 120);
   const visitorRaw = body.visitorId || `${clientIp(req)}:${req.headers['user-agent'] || ''}`;
+  const location = inferLocation(req, body, timezone, language);
   const event = {
     ts: new Date().toISOString(),
     path,
     title: String(body.title || '').slice(0, 140),
     referrer: String(body.referrer || '').slice(0, 240),
     source: referrerSource(body.referrer || ''),
-    region: inferRegion(timezone, language),
+    region: location.region,
+    province: location.province,
+    city: location.city,
+    location: location.location,
     timezone,
     language,
     device: deviceType(req.headers['user-agent'] || body.userAgent || ''),
@@ -272,6 +328,9 @@ function handleCmsAnalytics(req, res, url) {
     title: event.title,
     source: event.source,
     region: event.region,
+    province: event.province || '',
+    city: event.city || '',
+    location: event.location || event.region || '未知',
     device: event.device,
   }));
   json(res, 200, {
@@ -284,6 +343,8 @@ function handleCmsAnalytics(req, res, url) {
       todayVisitors,
     },
     regions: topCounts(events, 'region', 12),
+    locations: topCounts(events, 'location', 12),
+    provinces: topCounts(events, 'province', 12),
     pages: topCounts(events, 'path', 12),
     sources: topCounts(events, 'source', 10),
     devices: topCounts(events, 'device', 6),

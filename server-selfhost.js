@@ -208,11 +208,29 @@ function inferLocation(req, body = {}, timezone = '', language = '') {
   const region = inferRegion(timezone, language);
   const province = cleanLocationPart(
     body.province ||
-    firstHeader(req, ['x-geoip-province', 'x-region-name', 'x-vercel-ip-country-region', 'cf-ipregion'])
+    firstHeader(req, [
+      'x-geoip-province',
+      'x-geo-province',
+      'x-ip-province',
+      'x-client-province',
+      'x-alicdn-province',
+      'x-region-name',
+      'x-vercel-ip-country-region',
+      'cf-ipregion',
+    ])
   );
   const city = cleanLocationPart(
     body.city ||
-    firstHeader(req, ['x-geoip-city', 'x-city-name', 'x-vercel-ip-city', 'cf-ipcity'])
+    firstHeader(req, [
+      'x-geoip-city',
+      'x-geo-city',
+      'x-ip-city',
+      'x-client-city',
+      'x-alicdn-city',
+      'x-city-name',
+      'x-vercel-ip-city',
+      'cf-ipcity',
+    ])
   );
 
   if (province || city) {
@@ -232,7 +250,7 @@ function inferLocation(req, body = {}, timezone = '', language = '') {
   if (tz.includes('chongqing')) return { region: '中国大陆', province: '重庆', city: '重庆', location: '重庆' };
   if (tz.includes('urumqi')) return { region: '中国大陆', province: '新疆', city: '乌鲁木齐', location: '新疆 乌鲁木齐' };
 
-  return { region, province: '', city: '', location: region === '中国大陆' ? '中国大陆 未识别' : region };
+  return { region, province: '', city: '', location: region === '中国大陆' ? '中国大陆（省份待识别）' : region };
 }
 
 function deviceType(ua = '') {
@@ -265,6 +283,26 @@ function topCounts(events, key, limit = 10) {
   const counts = new Map();
   for (const event of events) {
     const value = event[key] || '未知';
+    counts.set(value, (counts.get(value) || 0) + 1);
+  }
+  return [...counts.entries()]
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, limit)
+    .map(([name, count]) => ({ name, count }));
+}
+
+function displayLocation(event = {}) {
+  const location = cleanLocationPart(event.location || '');
+  if (location && location !== '中国大陆 未识别') return location;
+  const joined = [event.province, event.city].map(cleanLocationPart).filter(Boolean).join(' ');
+  if (joined) return joined;
+  return event.region === '中国大陆' ? '省份待识别' : (event.region || '未知');
+}
+
+function topLocationCounts(events, limit = 12) {
+  const counts = new Map();
+  for (const event of events) {
+    const value = displayLocation(event);
     counts.set(value, (counts.get(value) || 0) + 1);
   }
   return [...counts.entries()]
@@ -625,12 +663,12 @@ function handleCmsAnalytics(req, res, url) {
       todayVisitors,
     },
     regions: topCounts(events, 'region', 12),
-    locations: topCounts(events, 'location', 12),
+    locations: topLocationCounts(events, 12),
     provinces: topCounts(events, 'province', 12),
     pages: topCounts(events, 'path', 12),
     sources: topCounts(events, 'source', 10),
     devices: topCounts(events, 'device', 6),
-    recent,
+    recent: recent.map((event) => ({ ...event, location: displayLocation(event) })),
   });
 }
 

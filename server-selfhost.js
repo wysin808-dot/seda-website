@@ -966,6 +966,40 @@ function handleConfig(req, res) {
   });
 }
 
+function handleCmsGeoDebug(req, res) {
+  if (!requireCmsAuth(req, res)) return;
+  const headerNames = [
+    'x-forwarded-for',
+    'x-real-ip',
+    'x-geoip-province',
+    'x-geo-province',
+    'x-ip-province',
+    'x-client-province',
+    'x-alicdn-province',
+    'x-region-name',
+    'x-geoip-city',
+    'x-geo-city',
+    'x-ip-city',
+    'x-client-city',
+    'x-alicdn-city',
+    'x-city-name',
+  ];
+  const headers = {};
+  for (const name of headerNames) {
+    if (req.headers[name]) headers[name] = String(req.headers[name]).slice(0, 160);
+  }
+  const timezone = cleanLeadText(req.headers['x-debug-timezone'] || 'Asia/Shanghai', 80);
+  const language = cleanLeadText(req.headers['accept-language'] || 'zh-CN', 120);
+  const location = inferLocation(req, {}, timezone, language);
+  json(res, 200, {
+    ok: true,
+    clientIp: clientIp(req),
+    receivedGeoHeaders: headers,
+    inferredLocation: location,
+    expectedHeaders: ['x-alicdn-province', 'x-alicdn-city'],
+  });
+}
+
 const server = createServer(async (req, res) => {
   const url = new URL(req.url, `http://localhost`);
 
@@ -975,6 +1009,7 @@ const server = createServer(async (req, res) => {
   if (req.method === 'POST' && url.pathname === '/api/cms/login') return handleCmsLogin(req, res);
   if (req.method === 'POST' && url.pathname === '/api/cms/logout') return handleCmsLogout(req, res);
   if (req.method === 'GET' && url.pathname === '/api/cms/me') return json(res, 200, { authenticated: isAuthenticated(req) });
+  if (req.method === 'GET' && url.pathname === '/api/cms/geo-debug') return handleCmsGeoDebug(req, res);
   if (req.method === 'GET' && url.pathname === '/api/cms/overview') return handleCmsOverview(req, res);
   if (req.method === 'GET' && url.pathname === '/api/cms/status') return cmsStats(req, res);
   if (req.method === 'GET' && url.pathname === '/api/cms/analytics') return handleCmsAnalytics(req, res, url);

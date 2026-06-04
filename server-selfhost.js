@@ -8,9 +8,11 @@ import { createServer } from 'node:http';
 import { createHmac, timingSafeEqual } from 'node:crypto';
 import { execFile } from 'node:child_process';
 import { appendFileSync, existsSync, mkdirSync, readFileSync, readdirSync, renameSync, rmSync, writeFileSync } from 'node:fs';
+import { createRequire } from 'node:module';
 import { basename, dirname, join, relative, sep } from 'node:path';
 
 const PORT = Number(process.env.PORT || 3002);
+const require = createRequire(import.meta.url);
 const DEEPSEEK_API_URL = 'https://api.deepseek.com/chat/completions';
 const CONSULTATION_SUFFIX = '如需获得个性化升学规划，请联系顾问老师。';
 const CMS_VERSION = 'lite-1';
@@ -18,6 +20,7 @@ const CMS_CAPABILITIES = {
   auth: 'password-cookie',
   contentStore: 'markdown-frontmatter',
   analytics: 'jsonl-pageviews',
+  geoIp: 'optional-local-ip2region',
   workflow: ['draft', 'needs_revision', 'approved', 'archived'],
   futureReady: ['roles', 'media', 'scheduledPublish', 'revisionHistory', 'crmSync'],
 };
@@ -152,9 +155,33 @@ function requireCmsAuth(req, res) {
   return false;
 }
 
+function normalizeIp(value = '') {
+  let ip = String(value || '').trim();
+  if (!ip) return '';
+  ip = ip.replace(/^::ffff:/i, '');
+  if (ip.startsWith('[') && ip.endsWith(']')) ip = ip.slice(1, -1);
+  return ip;
+}
+
+function isPrivateIp(value = '') {
+  const ip = normalizeIp(value);
+  if (!ip) return true;
+  if (ip === '::1' || ip === '127.0.0.1' || ip.startsWith('fe80:') || ip.startsWith('fc') || ip.startsWith('fd')) return true;
+  const parts = ip.split('.').map((part) => Number(part));
+  if (parts.length !== 4 || parts.some((part) => !Number.isInteger(part))) return false;
+  const [a, b] = parts;
+  return a === 10 || a === 127 || (a === 172 && b >= 16 && b <= 31) || (a === 192 && b === 168) || (a === 169 && b === 254);
+}
+
 function clientIp(req) {
-  const forwarded = String(req.headers['x-forwarded-for'] || '').split(',')[0].trim();
-  return forwarded || req.socket.remoteAddress || '';
+  const candidates = String(req.headers['x-forwarded-for'] || '')
+    .split(',')
+    .map(normalizeIp)
+    .filter(Boolean);
+  const realIp = normalizeIp(req.headers['x-real-ip'] || '');
+  if (realIp) candidates.push(realIp);
+  candidates.push(normalizeIp(req.socket.remoteAddress || ''));
+  return candidates.find((ip) => !isPrivateIp(ip)) || candidates.find(Boolean) || '';
 }
 
 function hashVisitor(input) {
@@ -190,6 +217,90 @@ function cleanLocationPart(value = '') {
     .slice(0, 48);
 }
 
+function normalizeChinaPlaceName(value = '') {
+  const name = cleanLocationPart(value);
+  if (!name) return '';
+  const special = new Map([
+    ['内蒙古自治区', '内蒙古'],
+    ['广西壮族自治区', '广西'],
+    ['西藏自治区', '西藏'],
+    ['宁夏回族自治区', '宁夏'],
+    ['新疆维吾尔自治区', '新疆'],
+    ['香港特别行政区', '香港'],
+    ['澳门特别行政区', '澳门'],
+  ]);
+  if (special.has(name)) return special.get(name);
+  return name.replace(/(省|市|地区|盟)$/u, '');
+}
+
+function isMainlandProvince(value = '') {
+  return new Set([
+    '北京', '天津', '河北', '山西', '内蒙古', '辽宁', '吉林', '黑龙江', '上海', '江苏', '浙江', '安徽',
+    '福建', '江西', '山东', '河南', '湖北', '湖南', '广东', '广西', '海南', '重庆', '四川', '贵州',
+    '云南', '西藏', '陕西', '甘肃', '青海', '宁夏', '新疆',
+  ]).has(normalizeChinaPlaceName(value));
+}
+
+let ip2RegionSearcher;
+let ip2RegionError = '';
+
+function getIp2RegionSearcher() {
+  if (ip2RegionSearcher !== undefined) return ip2RegionSearcher;
+  try {
+    const mod = require('ip2region');
+    const IP2Region = mod.default || mod;
+    ip2RegionSearcher = new IP2Region({
+      ipv4db: process.env.IP2REGION_IPV4_DB || undefined,
+      ipv6db: process.env.IP2REGION_IPV6_DB || undefined,
+    });
+    ip2RegionError = '';
+  } catch (error) {
+    ip2RegionSearcher = null;
+    ip2RegionError = error?.code === 'MODULE_NOT_FOUND' ? 'ip2region dependency is not installed' : String(error?.message || error);
+  }
+  return ip2RegionSearcher;
+}
+
+function lookupLocalIpLocation(ip = '') {
+  const cleanIp = normalizeIp(ip);
+  if (!cleanIp || isPrivateIp(cleanIp)) return null;
+  const searcher = getIp2RegionSearcher();
+  if (!searcher) return null;
+  try {
+    const result = searcher.search(cleanIp);
+    if (!result || !result.country) return null;
+    const country = cleanLocationPart(result.country);
+    const province = normalizeChinaPlaceName(result.province);
+    const city = normalizeChinaPlaceName(result.city);
+    if (country === '中国') {
+      if (province === '香港') return { region: '中国香港', province: '香港', city: city || '香港', location: city && city !== '香港' ? `香港 ${city}` : '香港' };
+      if (province === '澳门') return { region: '中国澳门', province: '澳门', city: city || '澳门', location: city && city !== '澳门' ? `澳门 ${city}` : '澳门' };
+      if (province === '台湾') return { region: '中国台湾', province: '台湾', city, location: [province, city].filter(Boolean).join(' ') || '台湾' };
+      return {
+        region: '中国大陆',
+        province,
+        city,
+        location: [province, city].filter(Boolean).join(' ') || '中国大陆（省份待识别）',
+      };
+    }
+    const overseas = normalizeChinaPlaceName(country);
+    return { region: overseas || '其他地区', province: overseas, city, location: [overseas, city].filter(Boolean).join(' ') || overseas || '其他地区' };
+  } catch (error) {
+    ip2RegionError = String(error?.message || error);
+    return null;
+  }
+}
+
+function geoIpStatus() {
+  const searcher = getIp2RegionSearcher();
+  return {
+    enabled: Boolean(searcher),
+    provider: 'ip2region',
+    mode: 'local-offline',
+    error: ip2RegionError,
+  };
+}
+
 function decodeHeaderValue(value = '') {
   const raw = String(value || '').split(',')[0].trim();
   if (!raw) return '';
@@ -205,7 +316,7 @@ function firstHeader(req, names) {
 }
 
 function inferLocation(req, body = {}, timezone = '', language = '') {
-  const region = inferRegion(timezone, language);
+  let region = inferRegion(timezone, language);
   const province = cleanLocationPart(
     body.province ||
     firstHeader(req, [
@@ -234,13 +345,22 @@ function inferLocation(req, body = {}, timezone = '', language = '') {
   );
 
   if (province || city) {
+    const normalizedProvince = normalizeChinaPlaceName(province);
+    const normalizedCity = normalizeChinaPlaceName(city);
+    if (['香港', '澳门'].includes(normalizedProvince)) region = `中国${normalizedProvince}`;
+    else if (normalizedProvince === '台湾') region = '中国台湾';
+    else if (isMainlandProvince(normalizedProvince)) region = '中国大陆';
+    else if (region === '其他地区' && normalizedProvince) region = '中国大陆';
     return {
       region,
-      province,
-      city,
-      location: [province, city].filter(Boolean).join(' ') || region,
+      province: normalizedProvince,
+      city: normalizedCity,
+      location: [normalizedProvince, normalizedCity].filter(Boolean).join(' ') || region,
     };
   }
+
+  const ipLocation = lookupLocalIpLocation(clientIp(req));
+  if (ipLocation) return ipLocation;
 
   const tz = String(timezone).toLowerCase();
   if (tz.includes('hong_kong')) return { region: '中国香港', province: '香港', city: '香港', location: '香港' };
@@ -991,10 +1111,15 @@ function handleCmsGeoDebug(req, res) {
   const timezone = cleanLeadText(req.headers['x-debug-timezone'] || 'Asia/Shanghai', 80);
   const language = cleanLeadText(req.headers['accept-language'] || 'zh-CN', 120);
   const location = inferLocation(req, {}, timezone, language);
+  const ip = clientIp(req);
   json(res, 200, {
     ok: true,
-    clientIp: clientIp(req),
+    clientIp: ip,
     receivedGeoHeaders: headers,
+    localGeoIp: {
+      ...geoIpStatus(),
+      sample: lookupLocalIpLocation(ip),
+    },
     inferredLocation: location,
     expectedHeaders: ['x-alicdn-province', 'x-alicdn-city'],
   });

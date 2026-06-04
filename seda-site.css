@@ -1663,12 +1663,12 @@ main > section:not(.hero) {
 }
 
 .breadcrumb a {
-  color: var(--blue);
+  color: var(--brand);
   font-weight: 600;
 }
 
 .breadcrumb a:hover {
-  color: var(--brand);
+  color: var(--brand-strong);
 }
 
 .breadcrumb span {

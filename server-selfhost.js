@@ -514,6 +514,7 @@ function seoSnapshot(date = todayDate()) {
   const sitemapUrls = readSitemapUrls();
   const baidu = readBaiduSubmitState(sitemapUrls.length);
   const saved = latestSeoRecord(date);
+  const audit = seoContentAudit(sitemapUrls);
   return {
     date,
     sitemapUrlCount: sitemapUrls.length,
@@ -522,8 +523,130 @@ function seoSnapshot(date = todayDate()) {
     baiduNextStart: baidu.nextStart,
     baiduLogTail: baidu.logTail,
     saved,
+    audit,
     recent: readJsonl(SEO_DAILY_FILE, 60).reverse(),
   };
+}
+
+function stripMarkdown(markdown = '') {
+  return String(markdown || '')
+    .replace(/^---\n[\s\S]*?\n---\n?/, '')
+    .replace(/```[\s\S]*?```/g, '')
+    .replace(/!\[[^\]]*]\([^)]+\)/g, '')
+    .replace(/\[([^\]]+)]\([^)]+\)/g, '$1')
+    .replace(/[#>*_`|~-]/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+function contentLength(markdown = '') {
+  return stripMarkdown(markdown).replace(/\s/g, '').length;
+}
+
+function markdownInternalLinks(markdown = '') {
+  return [...String(markdown || '').matchAll(/\[[^\]]+]\(([^)]+)\)/g)]
+    .map((match) => match[1].trim())
+    .filter((href) => href.startsWith('/') && !href.startsWith('//'));
+}
+
+function hasFaqSection(markdown = '') {
+  const text = String(markdown || '');
+  return /(^|\n)#{2,4}\s*(FAQ|常见问题|家长常问|常见问答)/i.test(text) || /[？?]\s*(\n|$)/.test(text);
+}
+
+function auditLevel(issues) {
+  if (issues.some((item) => item.severity === 'error')) return 'error';
+  if (issues.some((item) => item.severity === 'warning')) return 'warning';
+  return 'pass';
+}
+
+function addIssue(issues, severity, message) {
+  issues.push({ severity, message });
+}
+
+function auditArticle(fullPath, sitemapSet) {
+  const raw = readFileSync(fullPath, 'utf8');
+  const { meta, body } = parseFrontmatter(raw);
+  const file = relativeArticlePath(fullPath);
+  const urlPath = makeArticleUrl(meta);
+  const absoluteUrl = `https://sgeda.org.cn${urlPath}`;
+  const htmlPath = join(process.cwd(), urlPath.replace(/^\/+/, ''), 'index.html');
+  const htmlExists = existsSync(htmlPath);
+  const html = htmlExists ? readFileSync(htmlPath, 'utf8') : '';
+  const issues = [];
+  const title = cleanLeadText(meta.title, 200);
+  const description = cleanLeadText(meta.description, 240);
+  const keywords = cleanLeadText(meta.keywords || meta.tags, 300);
+  const length = contentLength(body);
+  const internalLinks = markdownInternalLinks(body);
+  const h2Count = (body.match(/^##\s+/gm) || []).length;
+  const hasFaq = hasFaqSection(body);
+  const hasArticleSchema = /"@type"\s*:\s*"Article"/.test(html);
+  const hasFaqSchema = /"@type"\s*:\s*"FAQPage"/.test(html);
+
+  if (!title) addIssue(issues, 'error', '缺少 title');
+  else if (title.length < 18) addIssue(issues, 'warning', '标题偏短，长尾词表达可能不够完整');
+  else if (title.length > 42) addIssue(issues, 'warning', '标题偏长，搜索结果可能被截断');
+
+  if (!description) addIssue(issues, 'error', '缺少 description');
+  else if (description.length < 50) addIssue(issues, 'warning', 'description 偏短，建议 50-110 字');
+  else if (description.length > 120) addIssue(issues, 'warning', 'description 偏长，建议控制在 120 字内');
+
+  if (!meta.slug) addIssue(issues, 'error', '缺少 slug，URL 不稳定');
+  if (!meta.category) addIssue(issues, 'error', '缺少 category，栏目归属不清晰');
+  if (!meta.date) addIssue(issues, 'warning', '缺少 date，文章时效信号不足');
+  if (!keywords) addIssue(issues, 'warning', '缺少 keywords/tags，后台选题归档不完整');
+  if (meta.draft) addIssue(issues, 'warning', '文章仍是 draft，不会作为正式页面收录');
+
+  if (length < 1500) addIssue(issues, 'warning', `正文偏短（约 ${length} 字），建议 1500 字以上`);
+  if (length > 4200) addIssue(issues, 'warning', `正文偏长（约 ${length} 字），建议拆成子话题或加强目录`);
+  if (h2Count < 4) addIssue(issues, 'warning', 'H2 小标题偏少，长文结构不够清晰');
+  if (!hasFaq) addIssue(issues, 'warning', '缺少 FAQ/常见问题段落，GEO 摘要机会偏弱');
+  if (internalLinks.length < 2) addIssue(issues, 'warning', '站内内链偏少，建议至少 2-4 个相关页面');
+
+  if (!meta.draft && !htmlExists) addIssue(issues, 'error', '已发布但生成页面不存在，请重新构建内容');
+  if (!meta.draft && !sitemapSet.has(absoluteUrl)) addIssue(issues, 'error', '已发布但未进入 sitemap');
+  if (!meta.draft && htmlExists && !hasArticleSchema) addIssue(issues, 'error', '生成页缺少 Article schema');
+  if (!meta.draft && htmlExists && hasFaq && !hasFaqSchema) addIssue(issues, 'warning', '正文有 FAQ 倾向，但页面未输出 FAQ schema');
+
+  return {
+    file,
+    title: title || basename(fullPath),
+    url: absoluteUrl,
+    category: meta.categoryLabel || meta.category || 'SEO文章',
+    draft: Boolean(meta.draft),
+    level: auditLevel(issues),
+    score: Math.max(0, 100 - issues.reduce((sum, issue) => sum + (issue.severity === 'error' ? 22 : 8), 0)),
+    length,
+    h2Count,
+    internalLinkCount: internalLinks.length,
+    hasFaq,
+    hasArticleSchema,
+    hasFaqSchema,
+    inSitemap: sitemapSet.has(absoluteUrl),
+    issues,
+  };
+}
+
+function seoContentAudit(sitemapUrls = readSitemapUrls()) {
+  const articleDir = join(process.cwd(), 'content', 'articles');
+  const sitemapSet = new Set(sitemapUrls);
+  if (!existsSync(articleDir)) return { totals: { articles: 0, pass: 0, warning: 0, error: 0, averageScore: 0 }, items: [] };
+  const items = readdirSync(articleDir)
+    .filter((file) => file.endsWith('.md') && !file.startsWith('_'))
+    .map((file) => auditArticle(join(articleDir, file), sitemapSet))
+    .sort((a, b) => {
+      const rank = { error: 0, warning: 1, pass: 2 };
+      return rank[a.level] - rank[b.level] || a.score - b.score || a.title.localeCompare(b.title);
+    });
+  const totals = {
+    articles: items.length,
+    pass: items.filter((item) => item.level === 'pass').length,
+    warning: items.filter((item) => item.level === 'warning').length,
+    error: items.filter((item) => item.level === 'error').length,
+    averageScore: items.length ? Math.round(items.reduce((sum, item) => sum + item.score, 0) / items.length) : 0,
+  };
+  return { totals, items: items.slice(0, 80) };
 }
 
 function articleSummaries() {

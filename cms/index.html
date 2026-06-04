@@ -94,6 +94,21 @@
     .seo-field label{display:block;color:#667085;font-size:12px;font-weight:900;margin-bottom:6px}
     .seo-field.wide{grid-column:span 2}
     .seo-log{background:#111827;color:#d1d5db;border-radius:8px;padding:14px;font:12px/1.6 ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;white-space:pre-wrap}
+    .quality-list{display:grid;gap:12px}
+    .quality-item{border:1px solid #e2e6ee;border-radius:8px;background:#fff;padding:14px}
+    .quality-head{display:flex;justify-content:space-between;gap:12px;align-items:start}
+    .quality-head strong{display:block;font-size:16px;line-height:1.35}
+    .quality-head a{color:#172033;text-decoration:none}
+    .quality-score{border-radius:999px;background:#eef2f7;color:#344054;font-weight:900;font-size:12px;padding:6px 9px;white-space:nowrap}
+    .quality-score.pass{background:#ecfdf3;color:#027a48}
+    .quality-score.warning{background:#fff8e6;color:#9a6400}
+    .quality-score.error{background:#fff1f1;color:#b91c1c}
+    .quality-metrics{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0;color:#667085;font-size:12px;font-weight:800}
+    .quality-metrics span{border-radius:999px;background:#f6f7f9;padding:5px 8px}
+    .quality-issues{margin:10px 0 0;padding-left:18px;color:#344054}
+    .quality-issues li{margin:5px 0}
+    .quality-issues .error{color:#b91c1c;font-weight:800}
+    .quality-issues .warning{color:#8a5a00;font-weight:800}
     [hidden]{display:none!important}
     @media (max-width:900px){.cms-grid,.analytics-panels,.seo-form,.overview-grid,.quick-grid{grid-template-columns:1fr}.seo-field.wide{grid-column:auto}.cms-list{max-height:none}.cms-editor-head{display:grid}.cms-stats{grid-template-columns:1fr 1fr 1fr}.analytics-grid,.overview-cards{grid-template-columns:1fr 1fr}.bar-row{grid-template-columns:96px minmax(0,1fr) 42px}}
   </style>
@@ -316,6 +331,14 @@
         </section>
         <div class="analytics-panels" style="margin-top:18px">
           <section class="analytics-panel">
+            <h2>SEO 内容质检</h2>
+            <div id="seoQuality"></div>
+          </section>
+          <section class="analytics-panel">
+            <h2>质检说明</h2>
+            <div id="seoQualitySummary"></div>
+          </section>
+          <section class="analytics-panel">
             <h2>最近记录</h2>
             <div id="seoRecent"></div>
           </section>
@@ -381,6 +404,8 @@
       priorityUrlsInput: document.getElementById('priorityUrlsInput'),
       seoNotesInput: document.getElementById('seoNotesInput'),
       saveSeoButton: document.getElementById('saveSeoButton'),
+      seoQuality: document.getElementById('seoQuality'),
+      seoQualitySummary: document.getElementById('seoQualitySummary'),
       seoRecent: document.getElementById('seoRecent'),
       seoLog: document.getElementById('seoLog'),
     };
@@ -615,6 +640,47 @@
       await loadLeads();
     }
 
+    function qualityLabel(level) {
+      if (level === 'error') return '需修复';
+      if (level === 'warning') return '可优化';
+      return '通过';
+    }
+
+    function renderSeoQuality() {
+      const audit = state.seo?.audit || {};
+      const totals = audit.totals || {};
+      const items = audit.items || [];
+      els.seoQualitySummary.innerHTML = `
+        <div class="analytics-grid" style="grid-template-columns:repeat(2,1fr);margin-bottom:12px">
+          <div class="analytics-card"><strong>${totals.averageScore || 0}</strong><span>平均质量分</span></div>
+          <div class="analytics-card"><strong>${totals.articles || 0}</strong><span>文章总数</span></div>
+          <div class="analytics-card"><strong>${totals.error || 0}</strong><span>需修复</span></div>
+          <div class="analytics-card"><strong>${totals.warning || 0}</strong><span>可优化</span></div>
+        </div>
+        <p style="margin:0;color:#667085;line-height:1.75">优先修红色“需修复”：通常是未生成页面、未进 sitemap、缺标题描述或 schema。黄色“可优化”多为 FAQ、内链、字数、描述长度等，会影响长尾排名和 AI 摘要效果。</p>
+      `;
+      els.seoQuality.innerHTML = items.length ? `<div class="quality-list">${items.map((item) => `
+        <article class="quality-item">
+          <div class="quality-head">
+            <strong><a href="${esc(item.url)}" target="_blank" rel="noopener">${esc(item.title)}</a></strong>
+            <span class="quality-score ${esc(item.level)}">${qualityLabel(item.level)} · ${item.score}</span>
+          </div>
+          <div class="quality-metrics">
+            <span>${esc(item.category)}</span>
+            <span>${item.draft ? '草稿' : '已发布'}</span>
+            <span>约 ${item.length || 0} 字</span>
+            <span>H2：${item.h2Count || 0}</span>
+            <span>内链：${item.internalLinkCount || 0}</span>
+            <span>FAQ：${item.hasFaq ? '有' : '无'}</span>
+            <span>sitemap：${item.inSitemap ? '有' : '无'}</span>
+            <span>Article schema：${item.hasArticleSchema ? '有' : '无'}</span>
+          </div>
+          ${item.issues?.length ? `<ul class="quality-issues">${item.issues.map((issue) => `<li class="${esc(issue.severity)}">${esc(issue.message)}</li>`).join('')}</ul>` : '<div class="lead-muted">暂无明显问题。</div>'}
+          <div class="lead-muted" style="margin-top:10px">${esc(item.file)}</div>
+        </article>
+      `).join('')}</div>` : '<div class="cms-empty" style="padding:24px">暂无文章质检数据。</div>';
+    }
+
     function fillSeoForm(record = {}) {
       els.baiduSubmittedInput.value = record.baiduSubmitted || 0;
       els.indexNowSubmittedInput.value = record.indexNowSubmitted || 0;
@@ -635,6 +701,7 @@
         <div class="analytics-card"><strong>${saved.abnormalUrlCount || 0}</strong><span>异常 URL</span></div>
       `;
       fillSeoForm(saved);
+      renderSeoQuality();
       els.seoRecent.innerHTML = data.recent?.length ? `<table class="recent-table">
         <thead><tr><th>日期</th><th>sitemap</th><th>文章</th><th>百度</th><th>IndexNow</th><th>已收录</th><th>异常</th><th>备注</th></tr></thead>
         <tbody>${data.recent.map((row) => `<tr>

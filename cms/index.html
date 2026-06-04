@@ -64,6 +64,10 @@
     .recent-table{width:100%;border-collapse:collapse;font-size:14px}
     .recent-table th,.recent-table td{border-bottom:1px solid #eef0f4;padding:10px 8px;text-align:left;vertical-align:top}
     .recent-table th{color:#667085;font-size:12px}
+    .lead-table td{line-height:1.55}
+    .lead-contact{font-weight:900;color:#172033}
+    .lead-muted{color:#667085;font-size:12px}
+    .lead-message{max-width:320px;color:#344054}
     [hidden]{display:none!important}
     @media (max-width:900px){.cms-grid,.analytics-panels{grid-template-columns:1fr}.cms-list{max-height:none}.cms-editor-head{display:grid}.cms-stats{grid-template-columns:1fr 1fr 1fr}.analytics-grid{grid-template-columns:1fr 1fr}.bar-row{grid-template-columns:96px minmax(0,1fr) 42px}}
   </style>
@@ -97,6 +101,7 @@
       <div class="cms-tabs" role="tablist" aria-label="CMS 模块">
         <button class="cms-tab active" type="button" data-view="content">内容管理</button>
         <button class="cms-tab" type="button" data-view="analytics">流量分析</button>
+        <button class="cms-tab" type="button" data-view="leads">客户线索</button>
       </div>
 
       <div id="contentView" class="cms-grid">
@@ -177,11 +182,24 @@
           <div id="recentVisits"></div>
         </section>
       </section>
+
+      <section id="leadsView" hidden>
+        <div id="leadStats" class="analytics-grid">
+          <div class="analytics-card"><strong>0</strong><span>总线索</span></div>
+          <div class="analytics-card"><strong>0</strong><span>新线索</span></div>
+          <div class="analytics-card"><strong>0</strong><span>CRM待同步</span></div>
+          <div class="analytics-card"><strong>0</strong><span>今日线索</span></div>
+        </div>
+        <section class="analytics-panel">
+          <h2>最近客户留资</h2>
+          <div id="leadList"></div>
+        </section>
+      </section>
     </section>
   </main>
 
   <script>
-    const state = { articles: [], filter: 'all', selected: null, query: '', status: null, analytics: null };
+    const state = { articles: [], filter: 'all', selected: null, query: '', status: null, analytics: null, leads: null, view: 'content' };
     const els = {
       loginPanel: document.getElementById('loginPanel'),
       appPanel: document.getElementById('appPanel'),
@@ -204,6 +222,7 @@
       logoutButton: document.getElementById('logoutButton'),
       contentView: document.getElementById('contentView'),
       analyticsView: document.getElementById('analyticsView'),
+      leadsView: document.getElementById('leadsView'),
       analyticsStats: document.getElementById('analyticsStats'),
       regionChart: document.getElementById('regionChart'),
       locationChart: document.getElementById('locationChart'),
@@ -211,6 +230,8 @@
       sourceChart: document.getElementById('sourceChart'),
       deviceChart: document.getElementById('deviceChart'),
       recentVisits: document.getElementById('recentVisits'),
+      leadStats: document.getElementById('leadStats'),
+      leadList: document.getElementById('leadList'),
     };
 
     function toast(message) {
@@ -338,11 +359,57 @@
       renderAnalytics();
     }
 
+    function renderLeads() {
+      const leads = state.leads?.leads || [];
+      const todayKey = new Date().toISOString().slice(0, 10);
+      const todayCount = leads.filter((lead) => String(lead.createdAt || '').startsWith(todayKey)).length;
+      const newCount = leads.filter((lead) => (lead.status || 'new') === 'new').length;
+      const pendingCrm = leads.filter((lead) => (lead.crmStatus || 'pending') === 'pending').length;
+      els.leadStats.innerHTML = `
+        <div class="analytics-card"><strong>${state.leads?.count || leads.length}</strong><span>总线索</span></div>
+        <div class="analytics-card"><strong>${newCount}</strong><span>新线索</span></div>
+        <div class="analytics-card"><strong>${pendingCrm}</strong><span>CRM待同步</span></div>
+        <div class="analytics-card"><strong>${todayCount}</strong><span>今日线索</span></div>
+      `;
+      els.leadList.innerHTML = leads.length ? `<table class="recent-table lead-table">
+        <thead><tr><th>时间</th><th>客户</th><th>需求</th><th>来源</th><th>地区</th><th>状态</th></tr></thead>
+        <tbody>${leads.map((lead) => `<tr>
+          <td>${new Date(lead.createdAt).toLocaleString('zh-CN', { hour12: false })}</td>
+          <td>
+            <div class="lead-contact">${esc(lead.contact)}</div>
+            <div>${esc(lead.name || '未填写姓名')}</div>
+            <div class="lead-muted">${esc(lead.phone || lead.wechat || lead.whatsapp || '')}</div>
+          </td>
+          <td>
+            <div>${esc([lead.grade, lead.target].filter(Boolean).join(' / ') || '未填写')}</div>
+            <div class="lead-message">${esc(lead.message || '')}</div>
+          </td>
+          <td>
+            <div>${esc(lead.sourcePage || '/')}</div>
+            <div class="lead-muted">${esc(lead.source || '直接访问')}</div>
+          </td>
+          <td>${esc(lead.location || lead.region || '未知')}</td>
+          <td>
+            <div>${esc(lead.status || 'new')}</div>
+            <div class="lead-muted">CRM：${esc(lead.crmStatus || 'pending')}</div>
+          </td>
+        </tr>`).join('')}</tbody>
+      </table>` : '<div class="cms-empty" style="padding:24px">暂无客户留资。</div>';
+    }
+
+    async function loadLeads() {
+      state.leads = await api('/api/cms/leads?limit=200');
+      renderLeads();
+    }
+
     function switchView(view) {
+      state.view = view;
       document.querySelectorAll('.cms-tab').forEach((tab) => tab.classList.toggle('active', tab.dataset.view === view));
       els.contentView.hidden = view !== 'content';
       els.analyticsView.hidden = view !== 'analytics';
+      els.leadsView.hidden = view !== 'leads';
       if (view === 'analytics') loadAnalytics().catch((error) => toast(error.message));
+      if (view === 'leads') loadLeads().catch((error) => toast(error.message));
     }
 
     async function loadArticles() {
@@ -428,7 +495,10 @@
     els.approveButton.addEventListener('click', () => review('approve').catch((error) => toast(error.message)));
     els.reviseButton.addEventListener('click', () => review('revise').catch((error) => toast(error.message)));
     els.archiveButton.addEventListener('click', () => review('archive').catch((error) => toast(error.message)));
-    els.refreshButton.addEventListener('click', () => loadArticles().catch((error) => toast(error.message)));
+    els.refreshButton.addEventListener('click', () => {
+      const action = state.view === 'analytics' ? loadAnalytics : state.view === 'leads' ? loadLeads : loadArticles;
+      action().catch((error) => toast(error.message));
+    });
     els.logoutButton.addEventListener('click', async () => {
       await api('/api/cms/logout', { method: 'POST', body: '{}' });
       showLogin();

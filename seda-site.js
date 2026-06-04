@@ -1,9 +1,62 @@
-document.querySelector(".lead-form")?.addEventListener("submit", (event) => {
-  event.preventDefault();
-  const button = event.currentTarget.querySelector("button");
-  button.textContent = "已收到，顾问会尽快联系";
-  button.disabled = true;
-});
+/* ── Lead Capture API ── */
+(function(){
+  function visitorId() {
+    var key = 'sedaVisitorId';
+    var id = localStorage.getItem(key);
+    if (!id) {
+      id = Date.now().toString(36) + Math.random().toString(36).slice(2, 12);
+      localStorage.setItem(key, id);
+    }
+    return id;
+  }
+
+  function submitLead(form) {
+    var button = form.querySelector('button[type="submit"], button:not([type])');
+    var originalText = button ? button.textContent : '';
+    var data = {};
+    new FormData(form).forEach(function(value, key){
+      data[key] = String(value || '').trim();
+    });
+    data.sourcePage = location.pathname;
+    data.pageTitle = document.title;
+    data.referrer = document.referrer;
+    data.timezone = Intl.DateTimeFormat().resolvedOptions().timeZone || '';
+    data.language = navigator.language || '';
+    data.visitorId = visitorId();
+
+    if (button) {
+      button.disabled = true;
+      button.textContent = '提交中...';
+    }
+
+    fetch('/api/leads', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data),
+    }).then(function(res){
+      return res.json().then(function(body){ return { ok: res.ok, body: body }; });
+    }).then(function(result){
+      if (!result.ok) throw new Error(result.body.error || '提交失败，请稍后再试');
+      if (button) button.textContent = '已收到，顾问会尽快联系';
+      form.reset();
+      alert('已收到，SEDA顾问会尽快联系您。');
+      if (typeof window.closeLeadModal === 'function') window.closeLeadModal();
+    }).catch(function(error){
+      alert(error.message || '提交失败，请稍后再试');
+      if (button) {
+        button.disabled = false;
+        button.textContent = originalText || '提交';
+      }
+    });
+  }
+
+  document.querySelectorAll('.lead-form').forEach(function(form){
+    form.addEventListener('submit', function(event){
+      event.preventDefault();
+      submitLead(form);
+    });
+  });
+})();
 
 /* ── Lightweight Analytics ── */
 (function(){

@@ -23,6 +23,8 @@ const CMS_CAPABILITIES = {
 };
 const ANALYTICS_DIR = join(process.cwd(), 'data', 'analytics');
 const ANALYTICS_FILE = join(ANALYTICS_DIR, 'events.jsonl');
+const LEADS_DIR = join(process.cwd(), 'data', 'leads');
+const LEADS_FILE = join(LEADS_DIR, 'leads.jsonl');
 
 // Load .env file
 function loadEnv(path) {
@@ -269,6 +271,26 @@ function topCounts(events, key, limit = 10) {
     .map(([name, count]) => ({ name, count }));
 }
 
+function readJsonl(path, limit = 1000) {
+  if (!existsSync(path)) return [];
+  return readFileSync(path, 'utf8')
+    .split(/\r?\n/)
+    .filter(Boolean)
+    .slice(-limit)
+    .map((line) => {
+      try { return JSON.parse(line); } catch { return null; }
+    })
+    .filter(Boolean);
+}
+
+function cleanLeadText(value = '', max = 160) {
+  return String(value || '').replace(/\s+/g, ' ').trim().slice(0, max);
+}
+
+function leadId() {
+  return `lead_${Date.now().toString(36)}_${Math.random().toString(36).slice(2, 8)}`;
+}
+
 function referrerSource(referrer = '') {
   if (!referrer) return '直接访问';
   try {
@@ -312,6 +334,67 @@ async function handleAnalyticsCollect(req, res) {
   mkdirSync(ANALYTICS_DIR, { recursive: true });
   appendFileSync(ANALYTICS_FILE, `${JSON.stringify(event)}\n`, 'utf8');
   noContent(res);
+}
+
+async function handleCreateLead(req, res) {
+  let body;
+  try { body = await readBody(req); } catch { return json(res, 400, { error: '请求格式错误' }); }
+
+  const contact = cleanLeadText(body.contact || body.phone || body.wechat || body.whatsapp, 120);
+  if (!contact) return json(res, 400, { error: '请填写微信 / WhatsApp / 手机等联系方式' });
+
+  const timezone = cleanLeadText(body.timezone, 80);
+  const language = cleanLeadText(body.language || req.headers['accept-language'], 120);
+  const location = inferLocation(req, body, timezone, language);
+  const now = new Date().toISOString();
+  const lead = {
+    id: leadId(),
+    createdAt: now,
+    updatedAt: now,
+    name: cleanLeadText(body.name, 80),
+    contact,
+    phone: cleanLeadText(body.phone, 80),
+    wechat: cleanLeadText(body.wechat, 80),
+    whatsapp: cleanLeadText(body.whatsapp, 80),
+    studentAge: cleanLeadText(body.studentAge || body.age, 40),
+    grade: cleanLeadText(body.grade || body.stage, 60),
+    englishLevel: cleanLeadText(body.englishLevel || body.english_level, 80),
+    target: cleanLeadText(body.target || body.program || body.pathway || body.track || body.uni_target, 120),
+    message: cleanLeadText(body.message || body.note || body.notes, 600),
+    sourcePage: normalizePath(body.sourcePage || body.path || req.headers.referer || '/'),
+    referrer: cleanLeadText(body.referrer || req.headers.referer, 240),
+    source: referrerSource(body.referrer || req.headers.referer || ''),
+    campaign: cleanLeadText(body.campaign || body.utm_campaign, 120),
+    utmSource: cleanLeadText(body.utmSource || body.utm_source, 120),
+    utmMedium: cleanLeadText(body.utmMedium || body.utm_medium, 120),
+    tool: cleanLeadText(body.tool, 80),
+    formType: cleanLeadText(body.formType || body.form_type, 80),
+    region: location.region,
+    province: location.province,
+    city: location.city,
+    location: location.location,
+    device: deviceType(req.headers['user-agent'] || body.userAgent || ''),
+    status: 'new',
+    crmStatus: 'pending',
+    crmExternalId: '',
+    visitor: hashVisitor(body.visitorId || `${clientIp(req)}:${req.headers['user-agent'] || ''}`),
+  };
+
+  mkdirSync(LEADS_DIR, { recursive: true });
+  appendFileSync(LEADS_FILE, `${JSON.stringify(lead)}\n`, 'utf8');
+  json(res, 200, { ok: true, id: lead.id });
+}
+
+function handleCmsLeads(req, res, url) {
+  if (!requireCmsAuth(req, res)) return;
+  const limit = Math.min(Math.max(Number(url.searchParams.get('limit') || 100), 1), 500);
+  const leads = readJsonl(LEADS_FILE, limit).reverse();
+  json(res, 200, {
+    ok: true,
+    count: leads.length,
+    leads,
+    fields: ['id', 'createdAt', 'name', 'contact', 'grade', 'target', 'message', 'sourcePage', 'source', 'location', 'status', 'crmStatus'],
+  });
 }
 
 function handleCmsAnalytics(req, res, url) {
@@ -631,12 +714,14 @@ const server = createServer(async (req, res) => {
   if (req.method === 'GET' && url.pathname === '/api/cms/me') return json(res, 200, { authenticated: isAuthenticated(req) });
   if (req.method === 'GET' && url.pathname === '/api/cms/status') return cmsStats(req, res);
   if (req.method === 'GET' && url.pathname === '/api/cms/analytics') return handleCmsAnalytics(req, res, url);
+  if (req.method === 'GET' && url.pathname === '/api/cms/leads') return handleCmsLeads(req, res, url);
   if (req.method === 'GET' && url.pathname === '/api/cms/articles') return listCmsArticles(req, res);
   if (req.method === 'GET' && url.pathname === '/api/cms/article') return getCmsArticle(req, res, url);
   if (req.method === 'POST' && url.pathname === '/api/cms/article') return saveCmsArticle(req, res);
   if (req.method === 'POST' && url.pathname === '/api/chat') return handleChat(req, res);
   if (req.method === 'POST' && url.pathname === '/api/content-review') return handleContentReview(req, res);
   if (req.method === 'POST' && url.pathname === '/api/analytics/collect') return handleAnalyticsCollect(req, res);
+  if (req.method === 'POST' && url.pathname === '/api/leads') return handleCreateLead(req, res);
   if (req.method === 'GET'  && url.pathname === '/api/config') return handleConfig(req, res);
   if (req.method === 'POST' && url.pathname === '/api/wechat-click') return json(res, 200, { ok: true });
 

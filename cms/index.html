@@ -75,19 +75,8 @@
     .seo-field label{display:block;color:#667085;font-size:12px;font-weight:900;margin-bottom:6px}
     .seo-field.wide{grid-column:span 2}
     .seo-log{background:#111827;color:#d1d5db;border-radius:8px;padding:14px;font:12px/1.6 ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;white-space:pre-wrap}
-    .index-toolbar{display:grid;grid-template-columns:minmax(220px,1fr) 150px 150px auto;gap:10px;margin-bottom:14px}
-    .index-engines{display:grid;gap:8px;min-width:300px}
-    .index-engine{display:grid;grid-template-columns:58px 72px 1fr;gap:8px;align-items:center}
-    .index-link{color:#cf2029;font-weight:900;text-decoration:none}
-    .index-link:hover{text-decoration:underline}
-    .index-status{border-radius:999px;background:#f2f4f7;color:#344054;padding:4px 8px;font-size:12px;font-weight:900;text-align:center}
-    .index-status.indexed{background:#dcfce7;color:#166534}
-    .index-status.not_indexed{background:#fff1f1;color:#b91c1c}
-    .index-status.pending{background:#fef3c7;color:#92400e}
-    .index-status.error{background:#fee2e2;color:#991b1b}
-    .index-actions{display:flex;gap:6px;flex-wrap:wrap}
     [hidden]{display:none!important}
-    @media (max-width:900px){.cms-grid,.analytics-panels,.seo-form,.index-toolbar{grid-template-columns:1fr}.seo-field.wide{grid-column:auto}.cms-list{max-height:none}.cms-editor-head{display:grid}.cms-stats{grid-template-columns:1fr 1fr 1fr}.analytics-grid{grid-template-columns:1fr 1fr}.bar-row{grid-template-columns:96px minmax(0,1fr) 42px}}
+    @media (max-width:900px){.cms-grid,.analytics-panels,.seo-form{grid-template-columns:1fr}.seo-field.wide{grid-column:auto}.cms-list{max-height:none}.cms-editor-head{display:grid}.cms-stats{grid-template-columns:1fr 1fr 1fr}.analytics-grid{grid-template-columns:1fr 1fr}.bar-row{grid-template-columns:96px minmax(0,1fr) 42px}}
   </style>
 </head>
 <body>
@@ -275,37 +264,12 @@
             <div id="seoLog" class="seo-log">暂无日志</div>
           </section>
         </div>
-        <section class="analytics-panel" style="margin-top:18px">
-          <div style="display:flex;justify-content:space-between;gap:12px;align-items:center;margin-bottom:14px">
-            <h2 style="margin:0">URL 收录查询</h2>
-            <span id="indexSummary" class="lead-muted">读取中...</span>
-          </div>
-          <div class="index-toolbar">
-            <input id="indexSearchInput" class="cms-input" type="search" placeholder="搜索 URL / 路径">
-            <select id="indexEngineSelect" class="cms-input">
-              <option value="all">全部引擎</option>
-              <option value="baidu">百度</option>
-              <option value="bing">Bing</option>
-              <option value="google">Google</option>
-            </select>
-            <select id="indexStatusSelect" class="cms-input">
-              <option value="all">全部状态</option>
-              <option value="unknown">未查询</option>
-              <option value="indexed">已收录</option>
-              <option value="not_indexed">未收录</option>
-              <option value="pending">待复查</option>
-              <option value="error">异常</option>
-            </select>
-            <button id="loadIndexButton" class="cms-button secondary" type="button">查询列表</button>
-          </div>
-          <div id="indexUrlList"></div>
-        </section>
       </section>
     </section>
   </main>
 
   <script>
-    const state = { articles: [], filter: 'all', selected: null, query: '', status: null, analytics: null, leads: null, seo: null, indexUrls: null, view: 'content' };
+    const state = { articles: [], filter: 'all', selected: null, query: '', status: null, analytics: null, leads: null, seo: null, view: 'content' };
     const els = {
       loginPanel: document.getElementById('loginPanel'),
       appPanel: document.getElementById('appPanel'),
@@ -352,12 +316,6 @@
       saveSeoButton: document.getElementById('saveSeoButton'),
       seoRecent: document.getElementById('seoRecent'),
       seoLog: document.getElementById('seoLog'),
-      indexSummary: document.getElementById('indexSummary'),
-      indexSearchInput: document.getElementById('indexSearchInput'),
-      indexEngineSelect: document.getElementById('indexEngineSelect'),
-      indexStatusSelect: document.getElementById('indexStatusSelect'),
-      loadIndexButton: document.getElementById('loadIndexButton'),
-      indexUrlList: document.getElementById('indexUrlList'),
     };
 
     function toast(message) {
@@ -383,9 +341,6 @@
     function esc(value) {
       return String(value ?? '').replace(/[&<>"']/g, (char) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[char]));
     }
-
-    const engineLabels = { baidu: '百度', bing: 'Bing', google: 'Google' };
-    const statusLabels = { indexed: '已收录', not_indexed: '未收录', pending: '待复查', error: '异常', unknown: '未查询' };
 
     function showLogin() {
       els.loginPanel.hidden = false;
@@ -615,60 +570,6 @@
       }
     }
 
-    function renderIndexUrls() {
-      const data = state.indexUrls || {};
-      const rows = data.rows || [];
-      const summary = data.summary || {};
-      els.indexSummary.textContent = `匹配 ${data.totalMatched || 0} 个 URL；百度已收录 ${summary.baiduIndexed || 0}，Bing 已收录 ${summary.bingIndexed || 0}，Google 已收录 ${summary.googleIndexed || 0}`;
-      els.indexUrlList.innerHTML = rows.length ? `<table class="recent-table">
-        <thead><tr><th>URL</th><th>搜索引擎查询</th><th>状态操作</th></tr></thead>
-        <tbody>${rows.map((row) => `<tr>
-          <td>
-            <div><strong>${esc(row.path)}</strong></div>
-            <div class="lead-muted">${esc(row.url)}</div>
-          </td>
-          <td>
-            <div class="index-engines">${['baidu', 'bing', 'google'].map((engine) => {
-              const item = row[engine] || {};
-              const status = item.status || 'unknown';
-              return `<div class="index-engine">
-                <a class="index-link" href="${esc(row.links[engine])}" target="_blank" rel="noopener">${engineLabels[engine]}</a>
-                <span class="index-status ${esc(status)}">${statusLabels[status] || status}</span>
-                <span class="lead-muted">${item.checkedAt ? new Date(item.checkedAt).toLocaleString('zh-CN', { hour12: false }) : ''}</span>
-              </div>`;
-            }).join('')}</div>
-          </td>
-          <td>
-            <div class="index-actions" data-url="${esc(row.url)}">
-              ${['baidu', 'bing', 'google'].map((engine) => `<button class="lead-action" type="button" data-engine="${engine}" data-status="indexed">${engineLabels[engine]}已收录</button>`).join('')}
-              ${['baidu', 'bing', 'google'].map((engine) => `<button class="lead-action" type="button" data-engine="${engine}" data-status="not_indexed">${engineLabels[engine]}未收录</button>`).join('')}
-              <button class="lead-action" type="button" data-note="1">备注/待复查</button>
-            </div>
-          </td>
-        </tr>`).join('')}</tbody>
-      </table>` : '<div class="cms-empty" style="padding:24px">暂无匹配 URL。</div>';
-    }
-
-    async function loadIndexUrls() {
-      const params = new URLSearchParams({
-        q: els.indexSearchInput.value.trim(),
-        engine: els.indexEngineSelect.value,
-        status: els.indexStatusSelect.value,
-        limit: '120',
-      });
-      state.indexUrls = await api(`/api/cms/seo/urls?${params.toString()}`);
-      renderIndexUrls();
-    }
-
-    async function saveIndexStatus(url, engine, status, note = '') {
-      await api('/api/cms/seo/index', {
-        method: 'POST',
-        body: JSON.stringify({ url, engine, status, note }),
-      });
-      toast('收录状态已保存');
-      await loadIndexUrls();
-    }
-
     function switchView(view) {
       state.view = view;
       document.querySelectorAll('.cms-tab').forEach((tab) => tab.classList.toggle('active', tab.dataset.view === view));
@@ -678,10 +579,7 @@
       els.seoView.hidden = view !== 'seo';
       if (view === 'analytics') loadAnalytics().catch((error) => toast(error.message));
       if (view === 'leads') loadLeads().catch((error) => toast(error.message));
-      if (view === 'seo') {
-        loadSeo().catch((error) => toast(error.message));
-        loadIndexUrls().catch((error) => toast(error.message));
-      }
+      if (view === 'seo') loadSeo().catch((error) => toast(error.message));
     }
 
     async function loadArticles() {
@@ -785,30 +683,9 @@
     });
     els.seoDate.addEventListener('change', () => loadSeo(els.seoDate.value).catch((error) => toast(error.message)));
     els.saveSeoButton.addEventListener('click', () => saveSeo().catch((error) => toast(error.message)));
-    els.loadIndexButton.addEventListener('click', () => loadIndexUrls().catch((error) => toast(error.message)));
-    els.indexSearchInput.addEventListener('keydown', (event) => {
-      if (event.key === 'Enter') loadIndexUrls().catch((error) => toast(error.message));
-    });
-    els.indexEngineSelect.addEventListener('change', () => loadIndexUrls().catch((error) => toast(error.message)));
-    els.indexStatusSelect.addEventListener('change', () => loadIndexUrls().catch((error) => toast(error.message)));
-    els.indexUrlList.addEventListener('click', (event) => {
-      const button = event.target.closest('.lead-action');
-      if (!button) return;
-      const box = button.closest('.index-actions');
-      const url = box?.dataset.url;
-      if (!url) return;
-      if (button.dataset.note) {
-        const engine = prompt('备注属于哪个搜索引擎？请输入 baidu / bing / google', 'baidu') || '';
-        const note = prompt('请输入备注或复查原因（可留空）') || '';
-        saveIndexStatus(url, engine.trim(), 'pending', note).catch((error) => toast(error.message));
-        return;
-      }
-      saveIndexStatus(url, button.dataset.engine, button.dataset.status).catch((error) => toast(error.message));
-    });
     els.refreshButton.addEventListener('click', () => {
       if (state.view === 'seo') {
         loadSeo().catch((error) => toast(error.message));
-        loadIndexUrls().catch((error) => toast(error.message));
         return;
       }
       const action = state.view === 'analytics' ? loadAnalytics : state.view === 'leads' ? loadLeads : loadArticles;

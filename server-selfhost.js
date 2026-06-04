@@ -27,7 +27,6 @@ const LEADS_DIR = join(process.cwd(), 'data', 'leads');
 const LEADS_FILE = join(LEADS_DIR, 'leads.jsonl');
 const SEO_DIR = join(process.cwd(), 'data', 'seo');
 const SEO_DAILY_FILE = join(SEO_DIR, 'daily.jsonl');
-const SEO_INDEX_FILE = join(SEO_DIR, 'index-status.jsonl');
 
 // Load .env file
 function loadEnv(path) {
@@ -369,59 +368,6 @@ function seoSnapshot(date = todayDate()) {
   };
 }
 
-function normalizeSeoUrl(value = '') {
-  const raw = cleanLeadText(value, 260);
-  if (!raw) return '';
-  try {
-    const url = raw.startsWith('http') ? new URL(raw) : new URL(raw, 'https://sgeda.org.cn');
-    if (!['sgeda.org.cn', 'www.sgeda.org.cn'].includes(url.hostname)) return '';
-    url.hash = '';
-    url.search = '';
-    return url.toString();
-  } catch {
-    return '';
-  }
-}
-
-function seoPathFromUrl(url = '') {
-  try { return new URL(url).pathname || '/'; } catch { return '/'; }
-}
-
-function seoQueryLinks(targetUrl) {
-  const path = seoPathFromUrl(targetUrl);
-  return {
-    baidu: `https://www.baidu.com/s?wd=${encodeURIComponent(`site:sgeda.org.cn ${path}`)}`,
-    bing: `https://www.bing.com/search?q=${encodeURIComponent(`url:${targetUrl}`)}`,
-    google: `https://www.google.com/search?q=${encodeURIComponent(`site:sgeda.org.cn ${path}`)}`,
-  };
-}
-
-function latestIndexMap() {
-  const map = new Map();
-  for (const row of readJsonl(SEO_INDEX_FILE, 100000)) {
-    if (!row.url || !row.engine) continue;
-    map.set(`${row.engine}:${row.url}`, row);
-  }
-  return map;
-}
-
-function seoIndexSummary(rows) {
-  const summary = {
-    total: rows.length,
-    baiduIndexed: 0,
-    bingIndexed: 0,
-    googleIndexed: 0,
-    needsCheck: 0,
-  };
-  for (const row of rows) {
-    if (row.baidu?.status === 'indexed') summary.baiduIndexed += 1;
-    if (row.bing?.status === 'indexed') summary.bingIndexed += 1;
-    if (row.google?.status === 'indexed') summary.googleIndexed += 1;
-    if (!row.baidu || !row.bing || !row.google || [row.baidu, row.bing, row.google].some((item) => item?.status === 'pending')) summary.needsCheck += 1;
-  }
-  return summary;
-}
-
 function referrerSource(referrer = '') {
   if (!referrer) return '直接访问';
   try {
@@ -605,70 +551,6 @@ async function handleCmsSeoSave(req, res) {
   rows.sort((a, b) => String(a.date).localeCompare(String(b.date)));
   writeJsonl(SEO_DAILY_FILE, rows);
   json(res, 200, { ok: true, record, ...seoSnapshot(date) });
-}
-
-function handleCmsSeoUrls(req, res, url) {
-  if (!requireCmsAuth(req, res)) return;
-  const q = cleanLeadText(url.searchParams.get('q') || '', 100).toLowerCase();
-  const limit = Math.min(Math.max(Number(url.searchParams.get('limit') || 80), 1), 300);
-  const engineFilter = cleanLeadText(url.searchParams.get('engine') || 'all', 20);
-  const statusFilter = cleanLeadText(url.searchParams.get('status') || 'all', 30);
-  const indexMap = latestIndexMap();
-  let rows = readSitemapUrls().map((targetUrl) => {
-    const row = {
-      url: targetUrl,
-      path: seoPathFromUrl(targetUrl),
-      links: seoQueryLinks(targetUrl),
-      baidu: indexMap.get(`baidu:${targetUrl}`) || null,
-      bing: indexMap.get(`bing:${targetUrl}`) || null,
-      google: indexMap.get(`google:${targetUrl}`) || null,
-    };
-    return row;
-  });
-  if (q) rows = rows.filter((row) => row.url.toLowerCase().includes(q) || row.path.toLowerCase().includes(q));
-  if (engineFilter !== 'all' && statusFilter !== 'all') {
-    rows = rows.filter((row) => (row[engineFilter]?.status || 'unknown') === statusFilter);
-  } else if (statusFilter !== 'all') {
-    rows = rows.filter((row) => ['baidu', 'bing', 'google'].some((engine) => (row[engine]?.status || 'unknown') === statusFilter));
-  }
-  rows.sort((a, b) => {
-    const aTime = Math.max(Date.parse(a.baidu?.checkedAt || 0) || 0, Date.parse(a.bing?.checkedAt || 0) || 0, Date.parse(a.google?.checkedAt || 0) || 0);
-    const bTime = Math.max(Date.parse(b.baidu?.checkedAt || 0) || 0, Date.parse(b.bing?.checkedAt || 0) || 0, Date.parse(b.google?.checkedAt || 0) || 0);
-    return aTime - bTime || a.path.localeCompare(b.path);
-  });
-  json(res, 200, {
-    ok: true,
-    summary: seoIndexSummary(rows),
-    rows: rows.slice(0, limit),
-    totalMatched: rows.length,
-  });
-}
-
-async function handleCmsSeoIndexSave(req, res) {
-  if (!requireCmsAuth(req, res)) return;
-  let body;
-  try { body = await readBody(req); } catch { return json(res, 400, { error: '请求格式错误' }); }
-  const targetUrl = normalizeSeoUrl(body.url);
-  const engine = cleanLeadText(body.engine, 20);
-  const status = cleanLeadText(body.status, 30);
-  const allowedEngines = new Set(['baidu', 'bing', 'google']);
-  const allowedStatuses = new Set(['indexed', 'not_indexed', 'pending', 'error', 'unknown']);
-  if (!targetUrl) return json(res, 400, { error: 'URL 不合法' });
-  if (!allowedEngines.has(engine)) return json(res, 400, { error: '搜索引擎不合法' });
-  if (!allowedStatuses.has(status)) return json(res, 400, { error: '收录状态不合法' });
-  const record = {
-    url: targetUrl,
-    path: seoPathFromUrl(targetUrl),
-    engine,
-    status,
-    checkedAt: new Date().toISOString(),
-    note: cleanMultilineText(body.note, 500),
-  };
-  const rows = readJsonl(SEO_INDEX_FILE, 100000).filter((row) => !(row.url === targetUrl && row.engine === engine));
-  rows.push(record);
-  rows.sort((a, b) => String(a.url).localeCompare(String(b.url)) || String(a.engine).localeCompare(String(b.engine)));
-  writeJsonl(SEO_INDEX_FILE, rows);
-  json(res, 200, { ok: true, record });
 }
 
 function handleCmsAnalytics(req, res, url) {
@@ -990,8 +872,6 @@ const server = createServer(async (req, res) => {
   if (req.method === 'GET' && url.pathname === '/api/cms/analytics') return handleCmsAnalytics(req, res, url);
   if (req.method === 'GET' && url.pathname === '/api/cms/seo') return handleCmsSeo(req, res, url);
   if (req.method === 'POST' && url.pathname === '/api/cms/seo') return handleCmsSeoSave(req, res);
-  if (req.method === 'GET' && url.pathname === '/api/cms/seo/urls') return handleCmsSeoUrls(req, res, url);
-  if (req.method === 'POST' && url.pathname === '/api/cms/seo/index') return handleCmsSeoIndexSave(req, res);
   if (req.method === 'GET' && url.pathname === '/api/cms/leads') return handleCmsLeads(req, res, url);
   if (req.method === 'GET' && url.pathname === '/api/cms/leads/export') return handleCmsLeadsExport(req, res);
   if (req.method === 'POST' && url.pathname === '/api/cms/lead') return handleCmsLeadUpdate(req, res);

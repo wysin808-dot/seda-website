@@ -38,6 +38,8 @@ function typeIntro(school) {
     secondary: '中学阶段是新加坡教育体系里非常关键的分水岭，关系到 O-Level、IP、JC、Poly 以及未来大学路径。',
     jc: 'JC 是新加坡 A-Level 路径的核心阶段，适合学术基础强、目标大学较明确、能承受高强度学习节奏的学生。',
     poly: 'Poly 更强调专业能力和应用学习，适合不想只走传统 A-Level 路径、希望尽早进入专业方向的学生。',
+    university: '公立大学阶段决定的是专业方向、就业城市、研究机会和长期身份规划。对中国学生来说，新加坡大学不是只看排名，而是要看申请路径、专业匹配和毕业后的发展空间。',
+    artsUniversity: '艺术大学路径更看重作品集、创作能力、面试表达和长期行业积累。它不适合只用传统分数逻辑判断，更适合有清晰艺术、设计、表演或创意产业方向的学生。',
     international: '国际学校的重点不只是学费和校园，而是课程体系、英文环境、大学申请方向和孩子是否适应国际化学习方式。',
   };
   return map[school.type] || '选校不是只看名气，而是看孩子的年龄、英文、目标路径和家庭预算是否匹配。';
@@ -56,6 +58,12 @@ function admissionCopy(school) {
   if (school.type === 'poly') {
     return 'Poly 申请通常看 O-Level、相关科目成绩和专业要求。选专业时不能只看学校名气，要看课程内容、就业方向、大学衔接和孩子真实兴趣。';
   }
+  if (school.type === 'university') {
+    return '新加坡公立大学申请通常可以通过新加坡 A-Level、IB、Poly Diploma、国际课程或中国高考等路径进行。不同大学和专业要求差异很大，尤其是医学、法律、计算机、商科、建筑、设计等方向，需要提前核对官方入学要求。';
+  }
+  if (school.type === 'artsUniversity') {
+    return '新加坡艺术大学路径通常需要看学历背景、作品集、面试、英文能力和具体专业要求。艺术、设计、音乐、表演、电影、艺术管理等方向，申请逻辑和普通综合大学不同，家长要提前准备作品集时间线。';
+  }
   return '国际学校通常需要提交成绩单、英文水平、面试或入学测评。不同学校和年级名额差异很大，申请时间线、课程体系和家庭预算都要提前确认。';
 }
 
@@ -65,6 +73,9 @@ function feesCopy(school) {
   }
   if (school.type === 'poly') {
     return 'Poly 学费按学生身份和专业类别不同而变化，国际学生费用通常高于本地学生。家长应同时计算生活费、住宿、保险和后续大学衔接成本。';
+  }
+  if (school.type === 'university' || school.type === 'artsUniversity') {
+    return '大学阶段费用要分开看学费、生活费、住宿、保险、材料或项目支出。国际学生费用通常高于本地学生，部分专业费用差异明显，最终应以学校当年官方收费表为准。';
   }
   return '政府学校费用会根据学生身份不同而变化，例如新加坡公民、永久居民、东盟国际学生和非东盟国际学生收费不同。具体金额每年可能调整，应以 MOE 当年公布为准。';
 }
@@ -111,6 +122,18 @@ function relatedLinks(school) {
       ['Poly 专业匹配工具', '/tools/poly-matcher.html'],
       ['新加坡公立大学', '/university/'],
     ],
+    university: [
+      ['新加坡公立大学总览', '/university/'],
+      ['中国学生升学路径', '/pathway/'],
+      ['Poly 升大学路径', '/poly/'],
+      ['A-Level 课程', '/a-level/'],
+    ],
+    artsUniversity: [
+      ['新加坡公立大学总览', '/university/'],
+      ['国际学校总览', '/international-school/'],
+      ['学生准证申请', '/guides/student-pass/'],
+      ['留学费用', '/guides/cost/'],
+    ],
     international: [
       ['国际学校总览', '/international-school/'],
       ['IB 课程', '/ib/'],
@@ -119,6 +142,53 @@ function relatedLinks(school) {
     ],
   };
   return links[school.type] || [['学校数据库', '/school-database/'], ['留学指南', '/guides/']];
+}
+
+function isHigherEducation(school) {
+  return school.type === 'university' || school.type === 'artsUniversity' || school.type === 'poly';
+}
+
+function schemaType(school) {
+  if (school.type === 'university' || school.type === 'artsUniversity') return 'CollegeOrUniversity';
+  if (school.type === 'international') return 'School';
+  return 'EducationalOrganization';
+}
+
+function renderList(title, items = []) {
+  if (!items.length) return '';
+  return `<h2>${escapeHtml(title)}</h2>
+      <ul>
+        ${items.map((item) => `<li>${escapeHtml(item)}</li>`).join('\n        ')}
+      </ul>`;
+}
+
+function renderHigherEducationBlocks(school) {
+  if (!isHigherEducation(school)) return '';
+  const majorAreas = school.majorAreas || school.features || [];
+  const admissionPaths = school.admissionPaths || [];
+  const source = school.officialSource ? `<p class="source-note">信息参考：${escapeHtml(school.officialSource)}。课程、费用和申请要求可能更新，正式申请前请以学校官网和 MOE 官方页面为准。</p>` : '';
+  return `
+      <section class="geo-summary" aria-labelledby="seo-answer-${escapeHtml(school.slug)}">
+        <p class="eyebrow">GEO 可读答案</p>
+        <h2 id="seo-answer-${escapeHtml(school.slug)}">${escapeHtml(school.nameZh)}适合什么学生？</h2>
+        <p>${escapeHtml(school.geoAnswer || school.angle)}</p>
+      </section>
+
+      <h2>${escapeHtml(school.nameZh)}在新加坡教育体系里的定位</h2>
+      <p>${escapeHtml(school.positioning || school.angle)}</p>
+      <p>家长在比较 ${escapeHtml(school.nameZh)} 时，不建议只看“排名”或“名气”。更重要的是专业方向、录取路径、课程强度、毕业出口，以及孩子是否适合这种学习方式。</p>
+
+      ${renderList('主要专业与课程方向', majorAreas)}
+
+      ${renderList('中国学生常见申请路径', admissionPaths)}
+
+      <h2>和中国学生相关的判断重点</h2>
+      <p>${escapeHtml(school.chinaStudentNotes || `中国学生选择 ${school.nameZh}，要先判断自己的学历体系是否匹配，包括高考、A-Level、IB、O-Level 后 Poly 路径、WACE 或其他国际课程成绩。`)}</p>
+      <p>如果学生目标是新加坡长期发展，还要同时考虑实习机会、行业网络、毕业后就业方向，以及是否适合继续申请研究生。</p>
+
+      <h2>SEDA 给家长的选择建议</h2>
+      <p>${escapeHtml(school.sedaAdvice || '建议家长至少准备一所冲刺选择、一所匹配选择和一所稳妥选择。大学和专业选择应放在一起看，不要只用学校名称做判断。')}</p>
+      ${source}`;
 }
 
 function renderPage(school, header, footer) {
@@ -131,13 +201,14 @@ function renderPage(school, header, footer) {
   const features = school.features || [];
   const schoolSchema = {
     '@context': 'https://schema.org',
-    '@type': school.type === 'international' ? 'School' : 'EducationalOrganization',
+    '@type': schemaType(school),
     name: school.nameZh,
     alternateName: school.nameEn,
     description,
     url: `${domain}${url}`,
     address: school.location,
     educationalCredentialAwarded: school.curriculum,
+    sameAs: school.sameAs,
     inLanguage: 'zh-CN',
     publisher: {
       '@type': 'Organization',
@@ -173,6 +244,7 @@ function renderPage(school, header, footer) {
 <title>${escapeHtml(title)} | SEDA 新加坡择校网</title>
 <meta name="description" content="${escapeHtml(description)}"/>
 <meta name="keywords" content="${escapeHtml(keywords)}"/>
+<meta name="robots" content="index,follow,max-image-preview:large"/>
 <link rel="canonical" href="${domain}${url}"/>
 <link rel="alternate" type="application/rss+xml" title="SEDA 新加坡择校网最新文章" href="${domain}/feed.xml"/>
 <link rel="stylesheet" href="/seda-site.css?v=15"/>
@@ -213,6 +285,8 @@ ${header}
       <p>很多家长第一次搜索 ${escapeHtml(school.nameZh)}，通常不是只想知道学校在哪里，而是想判断：这所学校到底适不适合自己的孩子。</p>
       <p>${escapeHtml(school.angle)}</p>
       <p>${escapeHtml(typeIntro(school))}</p>
+
+      ${renderHigherEducationBlocks(school)}
 
       <h2>学校特色与适合学生</h2>
       <p>${escapeHtml(school.nameZh)}的关键词可以概括为：${features.map(escapeHtml).join('、')}。这些标签不能直接等同于“适合所有学生”，但能帮助家长先判断学校气质。</p>

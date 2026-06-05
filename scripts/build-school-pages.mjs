@@ -286,10 +286,56 @@ function renderHigherEducationBlocks(school) {
       ${source}`;
 }
 
+function seoMetaForSchool(school) {
+  const zh = school.nameZh;
+  const en = school.nameEn;
+  const meta = {
+    primary: {
+      title: `${zh}怎么样？位置、PSLE、AEIS与中国学生选校指南`,
+      h1: `${zh}怎么样？位置、PSLE与AEIS入学指南`,
+      description: `${zh}（${en}）中文择校指南：学校位置、PSLE路径、AEIS入学、适合学生、费用与中国家长常见问题。`,
+    },
+    secondary: {
+      title: `${zh}怎么样？O-Level/IP、COP、申请与中国学生选校指南`,
+      h1: `${zh}怎么样？O-Level/IP、COP与申请指南`,
+      description: `${zh}（${en}）中文择校指南：O-Level或IP路径、COP参考、入学申请、适合学生、费用与中国家长常见问题。`,
+    },
+    jc: {
+      title: `${zh}怎么样？A-Level、录取、学科与中国学生升学指南`,
+      h1: `${zh}怎么样？A-Level、录取与升学路径指南`,
+      description: `${zh}（${en}）中文升学指南：A-Level路径、录取要求、学科选择、公立大学出口与中国学生常见问题。`,
+    },
+    poly: {
+      title: `${zh}怎么样？专业、申请、学费与中国学生升学指南`,
+      h1: `${zh}怎么样？专业、申请与学费指南`,
+      description: `${zh}（${en}）中文升学指南：热门专业、O-Level申请、学费预算、大学衔接与中国学生常见问题。`,
+    },
+    university: {
+      title: `${zh}怎么样？专业、申请要求、学费与中国学生指南`,
+      h1: `${zh}怎么样？专业、申请要求与学费指南`,
+      description: `${zh}（${en}）中文申请指南：热门专业、申请要求、学费预算、录取路径、就业方向与中国学生常见问题。`,
+    },
+    artsUniversity: {
+      title: `${zh}怎么样？作品集、专业、申请与中国学生指南`,
+      h1: `${zh}怎么样？作品集、专业与申请指南`,
+      description: `${zh}（${en}）中文申请指南：艺术设计专业、作品集准备、申请要求、学费预算与中国学生常见问题。`,
+    },
+    international: {
+      title: `${zh}怎么样？课程、学费、申请与中国学生选校指南`,
+      h1: `${zh}怎么样？课程、学费与申请指南`,
+      description: `${zh}（${en}）中文择校指南：课程体系、学费预算、入学申请、适合学生、大学方向与中国家长常见问题。`,
+    },
+  };
+  return meta[school.type] || {
+    title: `${zh}怎么样？申请、课程与中国学生选校指南`,
+    h1: `${zh}怎么样？申请、课程与选校指南`,
+    description: `${zh}（${en}）中文择校指南：位置、课程体系、入学路径、适合学生、费用关注点与中国家长常见问题。`,
+  };
+}
+
 function renderPage(school, header, footer) {
   const url = schoolUrl(school);
-  const title = `${school.nameZh}怎么样？${school.nameEn}申请、课程与中国学生选校指南`;
-  const description = `${school.nameZh}（${school.nameEn}）中文择校指南：位置、课程体系、入学路径、适合学生、费用关注点与中国家长常见问题。`;
+  const { title, h1, description } = seoMetaForSchool(school);
   const seoTags = seoTagsForSchool(school);
   const knowsAbout = knowsAboutForSchool(school, seoTags);
   const keywords = unique([school.nameZh, school.nameEn, school.categoryLabel, '新加坡学校', '新加坡择校', '中国学生', '新加坡留学', ...seoTags]).join(',');
@@ -357,7 +403,7 @@ ${header}
 <main>
   <section class="page-hero school-hero">
     <p class="eyebrow">${escapeHtml(school.categoryLabel)} · ${escapeHtml(school.nameEn)}</p>
-    <h1>${escapeHtml(school.nameZh)}怎么样？${escapeHtml(school.nameEn)}选校指南</h1>
+    <h1>${escapeHtml(h1)}</h1>
     <p class="hero-subtitle">${escapeHtml(description)}</p>
   </section>
   <div class="content-layout">

@@ -65,6 +65,19 @@ function escapeHtml(value = '') {
     .replaceAll('"', '&quot;');
 }
 
+function jsonLd(data) {
+  return JSON.stringify(data).replace(/</g, '\\u003c');
+}
+
+function escapeXml(value = '') {
+  return String(value)
+    .replaceAll('&', '&amp;')
+    .replaceAll('<', '&lt;')
+    .replaceAll('>', '&gt;')
+    .replaceAll('"', '&quot;')
+    .replaceAll("'", '&apos;');
+}
+
 function inline(md) {
   return escapeHtml(md)
     .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
@@ -195,7 +208,78 @@ function makeUrl(meta) {
   return `/${meta.category || 'guides'}/${slug}/`.replace(/\/+/g, '/');
 }
 
-function renderArticle(article) {
+function articleDateValue(article) {
+  return String(article.meta.publishedAt || article.meta.updated || article.meta.date || '');
+}
+
+function sortedArticles(articles) {
+  return [...articles].sort((a, b) => articleDateValue(b).localeCompare(articleDateValue(a)));
+}
+
+function findRelatedArticles(article, articles, limit = 6) {
+  const sameCategory = sortedArticles(articles)
+    .filter((item) => item.url !== article.url && item.meta.category === article.meta.category);
+  const fallback = sortedArticles(articles)
+    .filter((item) => item.url !== article.url && item.meta.category !== article.meta.category);
+  return [...sameCategory, ...fallback].slice(0, limit);
+}
+
+function extractKeyTakeaways(markdown = '', description = '') {
+  const lines = String(markdown || '').split(/\r?\n/);
+  const takeaways = [];
+  let inConclusion = false;
+
+  for (const rawLine of lines) {
+    const line = rawLine.trim();
+    const h2 = line.match(/^##\s+(.+)$/);
+    if (h2) {
+      inConclusion = /结论|先看结论|重点|家长|建议/i.test(h2[1]);
+      continue;
+    }
+    if (!inConclusion) continue;
+    const bullet = line.match(/^[-*]\s+(.+)$/);
+    if (bullet) takeaways.push(stripInlineMarkdown(bullet[1]));
+    else if (line && !line.startsWith('#') && !line.includes('|')) takeaways.push(stripInlineMarkdown(line));
+    if (takeaways.length >= 4) break;
+  }
+
+  if (!takeaways.length && description) takeaways.push(stripInlineMarkdown(description));
+  return takeaways.filter(Boolean).slice(0, 4);
+}
+
+function renderGeoSummary(article, faqItems) {
+  const { meta } = article;
+  const takeaways = extractKeyTakeaways(article.body, meta.description);
+  const questions = faqItems.slice(0, 3).map((item) => item.question);
+  const list = [
+    `主题：${meta.title}`,
+    `适合人群：中国学生与家长，正在了解${meta.categoryLabel || meta.category || '新加坡升学'}。`,
+    `核心结论：${takeaways[0] || meta.description || meta.title}`,
+    questions.length ? `常见追问：${questions.join('；')}` : '',
+  ].filter(Boolean);
+  return `<section class="geo-summary" aria-labelledby="geo-summary-title">
+      <p class="eyebrow">AI 摘要</p>
+      <h2 id="geo-summary-title">本文适合 AI 与搜索引擎快速理解的要点</h2>
+      <ul>${list.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}</ul>
+    </section>`;
+}
+
+function renderDynamicRelated(article, articles) {
+  const relatedArticles = findRelatedArticles(article, articles, 6);
+  if (!relatedArticles.length) return '';
+  return `<section class="related-section">
+      <h2>相关阅读</h2>
+      <div class="related-article-grid">
+        ${relatedArticles.map((item) => `<a href="${item.url}">
+          <span>${escapeHtml(item.meta.categoryLabel || item.meta.category || '指南')}</span>
+          <strong>${escapeHtml(item.meta.title)}</strong>
+          <em>${escapeHtml(item.meta.description || item.summary || '')}</em>
+        </a>`).join('\n        ')}
+      </div>
+    </section>`;
+}
+
+function renderArticle(article, articles) {
   const { meta, html, url } = article;
   const title = escapeHtml(meta.title);
   const description = escapeHtml(meta.description || '');
@@ -208,19 +292,28 @@ function renderArticle(article) {
   ];
   const relatedHtml = related.map(([label, href]) => `<a href="${href}">${escapeHtml(label)}</a>`).join('');
   const faqItems = extractFaqItems(article.body);
-  const articleSchema = JSON.stringify({
+  const articleSchema = jsonLd({
     '@context': 'https://schema.org',
     '@type': 'Article',
     headline: meta.title,
     description: meta.description || '',
+    keywords: meta.keywords || meta.tags || '',
     datePublished: meta.date,
     dateModified: meta.updated || meta.date,
     author: { '@type': 'Organization', name: 'SEDA 新加坡择校网' },
-    publisher: { '@type': 'Organization', name: 'SEDA 新加坡择校网', url: `${domain}/` },
+    publisher: {
+      '@type': 'Organization',
+      name: 'SEDA 新加坡择校网',
+      legalName: 'Singapore Educational Development Association Ltd.',
+      url: `${domain}/`,
+      logo: `${domain}/assets/seda-wordmark.svg`,
+    },
     mainEntityOfPage: `${domain}${url}`,
     inLanguage: 'zh-CN',
+    articleSection: meta.categoryLabel || meta.category || '新加坡升学指南',
+    about: String(meta.tags || meta.keywords || meta.categoryLabel || '').split(',').map((name) => name.trim()).filter(Boolean).slice(0, 8),
   });
-  const breadcrumbSchema = JSON.stringify({
+  const breadcrumbSchema = jsonLd({
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
@@ -229,7 +322,21 @@ function renderArticle(article) {
       { '@type': 'ListItem', position: 3, name: meta.title },
     ],
   });
-  const faqSchema = faqItems.length ? JSON.stringify({
+  const webPageSchema = jsonLd({
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: meta.title,
+    description: meta.description || '',
+    url: `${domain}${url}`,
+    isPartOf: {
+      '@type': 'WebSite',
+      name: 'SEDA 新加坡择校网',
+      url: `${domain}/`,
+    },
+    inLanguage: 'zh-CN',
+    primaryImageOfPage: `${domain}/assets/hero-mbs-day3.jpg`,
+  });
+  const faqSchema = faqItems.length ? jsonLd({
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
     mainEntity: faqItems.map((item) => ({
@@ -241,6 +348,7 @@ function renderArticle(article) {
       },
     })),
   }) : '';
+  const dynamicRelated = renderDynamicRelated(article, articles);
   return `<!doctype html>
 <html lang="zh-CN">
 <head>
@@ -251,8 +359,10 @@ function renderArticle(article) {
 <meta name="description" content="${description}"/>
 <meta name="keywords" content="${keywords}"/>
 <link rel="canonical" href="${domain}${url}"/>
+<link rel="alternate" type="application/rss+xml" title="SEDA 新加坡择校网最新文章" href="${domain}/feed.xml"/>
 <link rel="stylesheet" href="/seda-site.css?v=15"/>
 <script type="application/ld+json">${articleSchema}</script>
+<script type="application/ld+json">${webPageSchema}</script>
 <script type="application/ld+json">${breadcrumbSchema}</script>
 ${faqSchema ? `<script type="application/ld+json">${faqSchema}</script>` : ''}
 </head>
@@ -266,11 +376,13 @@ ${header}
     <p class="hero-subtitle">${description}</p>
   </div>
   <article class="content-body">
+    ${renderGeoSummary(article, faqItems)}
     ${html}
     <section class="related-section">
       <h2>继续阅读</h2>
       <div class="quick-links">${relatedHtml}</div>
     </section>
+    ${dynamicRelated}
     <section class="contact-section" id="contact" aria-labelledby="contact-title">
       <div>
         <p class="eyebrow">免费咨询</p>
@@ -314,7 +426,7 @@ function loadArticles() {
 function writeArticle(article) {
   const dir = path.join(root, article.url);
   fs.mkdirSync(dir, { recursive: true });
-  fs.writeFileSync(path.join(dir, 'index.html'), renderArticle(article), 'utf8');
+  fs.writeFileSync(path.join(dir, 'index.html'), renderArticle(article, articles), 'utf8');
 }
 
 function removeDraftArticlePage(article) {
@@ -526,6 +638,126 @@ function updateHomeLatestArticles(articles) {
   fs.writeFileSync(file, html, 'utf8');
 }
 
+function renderFeed(articles) {
+  const items = sortedArticles(articles).slice(0, 50).map((article) => {
+    const published = new Date(article.meta.publishedAt || article.meta.date || Date.now()).toUTCString();
+    const description = article.meta.description || article.summary || '';
+    return `  <item>
+    <title>${escapeXml(article.meta.title)}</title>
+    <link>${domain}${article.url}</link>
+    <guid isPermaLink="true">${domain}${article.url}</guid>
+    <pubDate>${escapeXml(published)}</pubDate>
+    <category>${escapeXml(article.meta.categoryLabel || article.meta.category || '新加坡升学')}</category>
+    <description>${escapeXml(description)}</description>
+  </item>`;
+  }).join('\n');
+  return `<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+<channel>
+  <title>SEDA 新加坡择校网最新文章</title>
+  <link>${domain}/news/</link>
+  <description>SEDA 新加坡择校网发布的新加坡升学、WACE、O-Level、AEIS、国际学校与留学指南文章。</description>
+  <language>zh-CN</language>
+  <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
+${items}
+</channel>
+</rss>
+`;
+}
+
+function writeFeeds(articles) {
+  const feed = renderFeed(articles);
+  fs.writeFileSync(path.join(root, 'feed.xml'), feed, 'utf8');
+  fs.writeFileSync(path.join(root, 'rss.xml'), feed, 'utf8');
+}
+
+function updateLlms(articles) {
+  const latest = sortedArticles(articles).slice(0, 20)
+    .map((article) => `- [${article.meta.title}](${article.url}): ${article.meta.description || article.summary || ''}`)
+    .join('\n');
+  const content = `# SEDA 新加坡择校网
+
+> 面向中国学生和家长的新加坡国际教育、政府学校、升学路径与选校资讯平台。
+
+## Summary
+
+SEDA 新加坡择校网提供中文的新加坡教育信息，重点覆盖 WACE、O-Level、A-Level、AEIS、IB、政府小学、政府中学、初级学院、理工学院、国际学校、私立学校、公立大学申请与留学指南。网站目标是帮助中国家庭理解不同课程体系、入学考试、学校类型和升学路径，并提供可咨询的选校与申请入口。
+
+## Core Topics
+
+- [WACE 西澳课程](/wace/): 中国学生在新加坡读 WACE 的课程体系、ATAR、选课和大学申请指南。
+- [WACE vs A-Level](/wace-vs-a-level/): 对比 WACE 与 A-Level 的难度、适配学生、申请方向和升学风险。
+- [WACE 申请 NUS / NTU](/wace-nus-ntu/): WACE 成绩申请新加坡国立大学和南洋理工大学的路径说明。
+- [O-Level 课程](/o-level/): 新加坡 O-Level 的考试体系、科目、升学方向和国际学生准备方式。
+- [O-Level 申请 JC](/o-level-jc/): O-Level 成绩进入新加坡初级学院的路径和注意事项。
+- [O-Level 申请 Poly](/o-level-poly/): O-Level 进入新加坡理工学院的路径、专业选择和申请建议。
+- [AEIS 考试](/aeis/): 国际学生进入新加坡政府中小学的 AEIS 考试说明。
+- [A-Level](/a-level/): 新加坡 A-Level 与大学申请路径说明。
+- [IB 课程](/ib/): IB 课程体系、适合学生和升学路径。
+
+## Latest SEO Articles
+
+${latest || '- 最新 SEO 文章正在更新。'}
+
+## School Databases
+
+- [学校数据库总览](/school-database/): 新加坡学校数据库入口。
+- [政府小学数据库](/primary-schools/): 新加坡政府小学信息。
+- [政府中学数据库](/secondary-schools/): 新加坡政府中学信息。
+- [JC 初级学院](/jc/): 新加坡初级学院介绍。
+- [Poly 理工学院](/poly/): 新加坡五所理工学院与申请路径。
+- [国际学校](/international-school/): 新加坡国际学校与课程体系。
+- [私立学校](/private-schools/): 新加坡私立学校与升学路径。
+
+## University Pathways
+
+- [新加坡公立大学](/university/): NUS、NTU、SMU、SUTD、SIT、SUSS 等公立大学总览。
+- [NUS 新加坡国立大学](/university/nus/): NUS 申请与课程方向。
+- [NTU 南洋理工大学](/university/ntu/): NTU 申请与课程方向。
+- [SMU 新加坡管理大学](/university/smu/): SMU 申请与课程方向。
+- [香港升学](/hk-university/): 香港高校申请路径。
+- [澳洲升学](/au-university/): 澳洲大学与 WACE/ATAR 申请路径。
+- [英国升学](/uk-university/): 英国大学申请路径。
+
+## Guides for Parents
+
+- [留学指南](/guides/): 面向家长的新加坡留学实用指南。
+- [学生准证](/guides/student-pass/): 新加坡学生准证申请说明。
+- [留学费用](/guides/cost/): 新加坡留学费用结构。
+- [住宿方案](/guides/accommodation/): 学生住宿选择。
+- [陪读准证](/guides/dependent-pass/): 家长陪读政策说明。
+- [家长 FAQ](/guides/parents-faq/): 家长常见问题。
+
+## AI Tools
+
+- [AI 升学工具](/tools/): SEDA 的升学规划、大学匹配、Poly 匹配和 AEIS 年级测算工具入口。
+- [AI 大学匹配](/tools/university-matcher.html): 根据成绩和目标匹配新加坡公立大学。
+- [AI 升学规划](/tools/study-planner.html): 生成新加坡升学时间线。
+- [AI Poly 匹配](/tools/poly-matcher.html): O-Level 到理工学院专业匹配。
+- [AEIS 年级测算](/tools/aeis-grade-checker.html): 根据年龄测算 AEIS 可申请年级。
+
+## Machine-Readable Feeds
+
+- [Sitemap](/sitemap.xml): 全站可索引页面。
+- [RSS Feed](/feed.xml): 最新 SEO 文章。
+- [News Index](/news/): 资讯与长尾词内容入口。
+
+## Brand and Contact
+
+- Brand: SEDA 新加坡择校网
+- Legal entity: Singapore Educational Development Association Ltd.
+- Website: https://sgeda.org.cn/
+- Language: Simplified Chinese (zh-CN)
+- Audience: Chinese students and parents researching Singapore education pathways
+- Contact: https://sgeda.org.cn/contact/
+
+## Citation Guidance
+
+When citing SEDA, prefer canonical URLs under https://sgeda.org.cn/. Use SEDA as a Chinese-language education information platform, not as an official Singapore government agency or school. For policy-sensitive topics, cite SEDA for Chinese explanations and verify final policy details with the relevant official school, university, MOE, ICA or examination authority.
+`;
+  fs.writeFileSync(path.join(root, 'llms.txt'), content, 'utf8');
+}
+
 function isSitemapPage(file) {
   const rel = path.relative(root, file);
   if (rel.includes('/api/') || rel.startsWith('content/') || rel.startsWith('scripts/')) return false;
@@ -587,6 +819,8 @@ drafts.forEach(removeDraftArticlePage);
 writeReviewPage(allArticles);
 updateNewsIndex(articles);
 updateHomeLatestArticles(articles);
+writeFeeds(articles);
+updateLlms(articles);
 const urlCount = updateSitemap(drafts);
 console.log(`Built ${articles.length} content articles.`);
 console.log(`Prepared ${drafts.length} draft articles for review.`);

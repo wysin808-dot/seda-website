@@ -2156,6 +2156,32 @@ main > section:not(.hero) {
 }
 
 /* ── Related Articles ── */
+.geo-summary {
+  margin: 0 0 34px;
+  padding: 22px 24px;
+  border: 1px solid #f0d0d3;
+  border-left: 4px solid var(--brand);
+  border-radius: 8px;
+  background: #fff8f8;
+}
+
+.geo-summary h2 {
+  margin: 6px 0 14px;
+  color: var(--ink);
+  font-size: 22px;
+  line-height: 1.35;
+}
+
+.geo-summary ul {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding-left: 20px;
+  color: #344054;
+  font-size: 15px;
+  line-height: 1.75;
+}
+
 .related-section {
   padding: 48px clamp(20px, 6vw, 80px);
   border-top: 1px solid var(--line);
@@ -2165,6 +2191,54 @@ main > section:not(.hero) {
 .related-section h2 {
   margin-bottom: 22px;
   font-size: 28px;
+}
+
+.related-article-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.related-article-grid a {
+  display: grid;
+  gap: 8px;
+  min-height: 138px;
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.related-article-grid a:hover {
+  border-color: #efb6bd;
+  box-shadow: 0 10px 24px rgba(20, 24, 35, 0.08);
+  transform: translateY(-1px);
+}
+
+.related-article-grid span {
+  color: var(--brand);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.related-article-grid strong {
+  font-size: 17px;
+  line-height: 1.45;
+}
+
+.related-article-grid em {
+  color: #667085;
+  font-size: 14px;
+  font-style: normal;
+  line-height: 1.6;
+}
+
+@media (max-width: 720px) {
+  .related-article-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* ── Comparison / VS Layout ── */

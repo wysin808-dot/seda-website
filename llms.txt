@@ -18,6 +18,20 @@ SEDA 新加坡择校网提供中文的新加坡教育信息，重点覆盖 WACE�
 - [A-Level](/a-level/): 新加坡 A-Level 与大学申请路径说明。
 - [IB 课程](/ib/): IB 课程体系、适合学生和升学路径。
 
+## Latest SEO Articles
+
+- [AEIS年龄要求怎么看？中国学生申请新加坡政府学校别踩这个坑](/aeis/aeis-age-requirements-chinese-students/): 面向中国家长解释 AEIS 年龄要求、年级匹配、申请窗口、降级入学和政府学校路径规划，帮助家庭提前避开年级选择误区。
+- [O-Level申请Poly怎么规划？中国学生和家长要看懂这条路](/o-level/o-level-poly-application-guide/): 面向中国家长解释 O-Level 申请新加坡理工学院 Poly 的流程、分数、专业选择、适合学生类型和升学就业方向。
+- [中国学生去新加坡升学路径怎么选？家长先看这5条路线](/pathway/chinese-students-singapore-pathway/): 面向中国家长梳理中国学生去新加坡读书的主要升学路径，包括 AEIS、O-Level、WACE、A-Level、IB、国际学校和大学申请选择。
+- [新加坡国立大学本科怎么申请？中国学生家长需要先看懂规则](/university/nus-undergraduate-application-chinese-students/): 面向中国家长解析新加坡国立大学 NUS 本科申请路径，包括高考、国际课程、英文要求、专业选择、申请时间和备选方案。
+- [WACE申请NUS需要什么条件？中国学生要提前看这几项](/wace/wace-apply-nus-requirements/): 面向中国家长解析 WACE 学生申请新加坡国立大学 NUS 的成绩、ATAR、科目、英文要求和专业选择注意事项。
+- [AEIS数学怎么备考？中国学生不能只靠刷题](/aeis/aeis-math-preparation/): 解析 AEIS 数学备考方法，面向中国家长说明新加坡政府学校入学考试中的英文题干、应用题、时间管理和备考周期。
+- [学生准证怎么申请？中国学生来新加坡读书要准备哪些材料](/guides/student-pass-application-singapore/): 面向中国家长解析新加坡学生准证 Student Pass 申请流程、材料、周期、常见拒签原因，以及 AEIS、O-Level、国际学校学生家庭应该提前注意的问题。
+- [新加坡国际学校学费一年多少？中国家庭要算清这几笔账](/international-school/singapore-international-school-fees/): 面向中国家长解析新加坡国际学校学费、申请费、校车、餐费、EAL 英文支持、住宿和隐性成本，帮助家庭做预算规划。
+- [O-Level英文难吗？中国学生最容易卡在哪些地方](/o-level/o-level-english-difficulty/): 面向中国家长解释新加坡 O-Level 英文难度，分析阅读、写作、听力、口语、备考周期和国际学生常见误区。
+- [WACE申请NTU难吗？中国学生要看哪些成绩和科目](/wace/wace-apply-ntu-difficulty/): 解析 WACE 学生申请新加坡南洋理工大学 NTU 的难度、ATAR 要求、科目组合、英文能力和家长规划重点。
+- [WACE适合中国学生吗？家长最关心的7个判断点](/wace/wace-suitable-for-chinese-students/): 面向中国家长解释 WACE 是否适合中国学生，重点分析英文基础、数学优势、ATAR、大学申请和新加坡国际高中路径。
+
 ## School Databases
 
 - [学校数据库总览](/school-database/): 新加坡学校数据库入口。
@@ -54,6 +68,12 @@ SEDA 新加坡择校网提供中文的新加坡教育信息，重点覆盖 WACE�
 - [AI 升学规划](/tools/study-planner.html): 生成新加坡升学时间线。
 - [AI Poly 匹配](/tools/poly-matcher.html): O-Level 到理工学院专业匹配。
 - [AEIS 年级测算](/tools/aeis-grade-checker.html): 根据年龄测算 AEIS 可申请年级。
+
+## Machine-Readable Feeds
+
+- [Sitemap](/sitemap.xml): 全站可索引页面。
+- [RSS Feed](/feed.xml): 最新 SEO 文章。
+- [News Index](/news/): 资讯与长尾词内容入口。
 
 ## Brand and Contact
 

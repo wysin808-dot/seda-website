@@ -813,6 +813,20 @@ function updateSitemap(drafts = []) {
   return urls.length;
 }
 
+function enhanceGlobalRobotsMeta() {
+  let count = 0;
+  const files = walk(root).filter(isSitemapPage);
+  for (const file of files) {
+    const html = fs.readFileSync(file, 'utf8');
+    if (/name=["']robots["']/i.test(html)) continue;
+    if (!html.includes('</head>')) continue;
+    const next = html.replace('</head>', '<meta name="robots" content="index,follow,max-image-preview:large"/>\n</head>');
+    fs.writeFileSync(file, next, 'utf8');
+    count += 1;
+  }
+  return count;
+}
+
 const allArticles = loadArticles();
 const articles = allArticles.filter((article) => !article.meta.draft);
 const drafts = allArticles.filter((article) => article.meta.draft);
@@ -825,9 +839,11 @@ updateNewsIndex(articles);
 updateHomeLatestArticles(articles);
 writeFeeds(articles);
 updateLlms(articles);
+const enhancedRobotsCount = enhanceGlobalRobotsMeta();
 const urlCount = updateSitemap(drafts);
 console.log(`Built ${articles.length} content articles.`);
 console.log(`Built ${schoolPageCount} school SEO pages.`);
 console.log(`Enhanced ${enhancedKeyPageCount} key SEO pages.`);
+console.log(`Enhanced ${enhancedRobotsCount} pages with robots meta.`);
 console.log(`Prepared ${drafts.length} draft articles for review.`);
 console.log(`Updated sitemap.xml with ${urlCount} URLs.`);

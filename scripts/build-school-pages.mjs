@@ -155,6 +155,100 @@ function schemaType(school) {
   return 'EducationalOrganization';
 }
 
+function unique(values = []) {
+  return [...new Set(values.filter(Boolean).map((item) => String(item).trim()).filter(Boolean))];
+}
+
+function textIncludes(school, keyword) {
+  return [
+    school.nameZh,
+    school.nameEn,
+    school.schoolType,
+    school.curriculum,
+    school.location,
+    school.audience,
+    school.angle,
+    ...(school.features || []),
+    ...(school.majorAreas || []),
+    ...(school.admissionPaths || []),
+  ].join(' ').toLowerCase().includes(String(keyword).toLowerCase());
+}
+
+function seoTagsForSchool(school) {
+  const tags = [
+    school.categoryLabel,
+    school.curriculum,
+    school.schoolType,
+    school.location ? `${school.location}择校` : '',
+    '适合中国学生',
+    '新加坡择校',
+    '英文学习环境',
+  ];
+
+  const typeTags = {
+    primary: ['政府小学', 'PSLE', 'AEIS 备考', '低龄留学', '小学选校'],
+    secondary: ['政府中学', 'O-Level', 'SEC 中学', 'AEIS/S-AEIS', 'JC/Poly 路径'],
+    jc: ['JC 初级学院', 'A-Level', '公立大学路径', 'O-Level 升学'],
+    poly: ['Poly 理工学院', 'Diploma 文凭', 'O-Level 申请 Poly', '应用型专业', 'Poly 升大学'],
+    university: ['新加坡公立大学', '本科申请', '中国学生申请', '大学专业选择', '就业导向'],
+    artsUniversity: ['艺术大学', '作品集申请', '设计艺术专业', '创意产业', '面试准备'],
+    international: ['国际学校', '国际课程', '大学申请方向', '国际学校学费', '入学评估'],
+  };
+  tags.push(...(typeTags[school.type] || []));
+
+  const curriculumRules = [
+    ['IB', ['IB 课程', 'IBDP', '探究式学习']],
+    ['IGCSE', ['IGCSE', 'Cambridge 课程']],
+    ['A-Level', ['A-Level', '英联邦大学申请']],
+    ['AP', ['AP 课程', '美国大学申请']],
+    ['WACE', ['WACE 课程', 'ATAR']],
+    ['O-Level', ['O-Level', 'O水准']],
+    ['Cambridge', ['Cambridge 课程', 'IGCSE 衔接']],
+    ['CBSE', ['CBSE', '印度课程']],
+    ['英国', ['英国课程', '英式教育']],
+    ['美国', ['美国课程', 'AP 方向']],
+    ['澳洲', ['澳洲课程', '澳洲大学方向']],
+  ];
+
+  for (const [needle, matchedTags] of curriculumRules) {
+    if (textIncludes(school, needle)) tags.push(...matchedTags);
+  }
+
+  if (textIncludes(school, '费用相对友好') || textIncludes(school, '性价比')) tags.push('费用相对友好');
+  if (textIncludes(school, '寄宿')) tags.push('寄宿选择');
+  if (textIncludes(school, '女校')) tags.push('女校');
+  if (textIncludes(school, '男校')) tags.push('男校');
+  if (textIncludes(school, 'SAP')) tags.push('SAP 特选学校');
+  if (textIncludes(school, 'IP')) tags.push('IP 直通车');
+  if (textIncludes(school, '学习支持') || textIncludes(school, '特殊教育')) tags.push('学习支持');
+  if (textIncludes(school, '小班') || textIncludes(school, '小规模')) tags.push('小班教学');
+  if (textIncludes(school, '中文') || textIncludes(school, '华文') || textIncludes(school, '双语')) tags.push('中文/双语环境');
+
+  return unique(tags).slice(0, 18);
+}
+
+function knowsAboutForSchool(school, tags) {
+  return unique([
+    ...tags,
+    school.nameZh,
+    school.nameEn,
+    '新加坡教育',
+    '新加坡留学',
+    '中国学生升学',
+    '学校申请',
+    '学生准证',
+  ]).slice(0, 28);
+}
+
+function renderSeoTagBlock(school, tags) {
+  return `<section class="seo-tags" aria-labelledby="seo-tags-title">
+        <p class="eyebrow">选校标签</p>
+        <h2 id="seo-tags-title">${escapeHtml(school.nameZh)}的 SEO/GEO 关键信息</h2>
+        <p>这些标签用于帮助家长快速判断学校定位，也帮助搜索引擎和 AI 搜索理解本页主题。</p>
+        <div class="seo-tag-cloud">${tags.map((tag) => `<span>${escapeHtml(tag)}</span>`).join('')}</div>
+      </section>`;
+}
+
 function renderList(title, items = []) {
   if (!items.length) return '';
   return `<h2>${escapeHtml(title)}</h2>
@@ -196,7 +290,9 @@ function renderPage(school, header, footer) {
   const url = schoolUrl(school);
   const title = `${school.nameZh}怎么样？${school.nameEn}申请、课程与中国学生选校指南`;
   const description = `${school.nameZh}（${school.nameEn}）中文择校指南：位置、课程体系、入学路径、适合学生、费用关注点与中国家长常见问题。`;
-  const keywords = [school.nameZh, school.nameEn, school.categoryLabel, '新加坡学校', '新加坡择校', '中国学生', '新加坡留学'].join(',');
+  const seoTags = seoTagsForSchool(school);
+  const knowsAbout = knowsAboutForSchool(school, seoTags);
+  const keywords = unique([school.nameZh, school.nameEn, school.categoryLabel, '新加坡学校', '新加坡择校', '中国学生', '新加坡留学', ...seoTags]).join(',');
   const faq = renderFaq(school);
   const related = relatedLinks(school);
   const features = school.features || [];
@@ -210,6 +306,8 @@ function renderPage(school, header, footer) {
     address: school.location,
     educationalCredentialAwarded: school.curriculum,
     sameAs: school.sameAs,
+    about: seoTags.map((tag) => ({ '@type': 'Thing', name: tag })),
+    knowsAbout,
     inLanguage: 'zh-CN',
     publisher: {
       '@type': 'Organization',
@@ -282,6 +380,8 @@ ${header}
         </ul>
       </section>
 
+      ${renderSeoTagBlock(school, seoTags)}
+
       <h2>${escapeHtml(school.nameZh)}是什么类型的学校？</h2>
       <p>很多家长第一次搜索 ${escapeHtml(school.nameZh)}，通常不是只想知道学校在哪里，而是想判断：这所学校到底适不适合自己的孩子。</p>
       <p>${escapeHtml(school.angle)}</p>
@@ -353,6 +453,7 @@ function renderInternationalSchoolIndex(schools, header, footer) {
   const sorted = [...schools].sort((a, b) => a.nameEn.localeCompare(b.nameEn));
   const title = '新加坡国际学校名单：IB、英国、美国、澳洲与私立国际课程学校';
   const description = `SEDA 新加坡择校网整理 ${sorted.length} 所新加坡国际学校独立页面，覆盖 IB、英国课程、美国 AP、澳洲课程、Cambridge、IGCSE、A-Level 与小规模国际学校。`;
+  const indexTags = unique(sorted.flatMap((school) => seoTagsForSchool(school))).slice(0, 36);
   const schema = {
     '@context': 'https://schema.org',
     '@type': 'CollectionPage',
@@ -360,12 +461,15 @@ function renderInternationalSchoolIndex(schools, header, footer) {
     description,
     url: `${domain}/international-school/schools/`,
     inLanguage: 'zh-CN',
+    about: indexTags.map((tag) => ({ '@type': 'Thing', name: tag })),
+    knowsAbout: indexTags,
     mainEntity: sorted.map((school) => ({
       '@type': 'School',
       name: school.nameZh,
       alternateName: school.nameEn,
       url: `${domain}${schoolUrl(school)}`,
       address: school.location,
+      knowsAbout: seoTagsForSchool(school).slice(0, 10),
     })),
     publisher: {
       '@type': 'Organization',
@@ -410,6 +514,7 @@ ${header}
       <h2>${sorted.length} 所国际学校独立择校页</h2>
       <p>每所学校页面都包含课程体系、适合学生、费用关注、申请路径、FAQ 与结构化数据，方便中国家长快速比较。</p>
     </div>
+    <div class="seo-tag-cloud seo-tag-cloud-wide">${indexTags.map((tag) => `<span>${escapeHtml(tag)}</span>`).join('')}</div>
     <div class="article-grid">
 ${cards}
     </div>

@@ -9,7 +9,12 @@
     "location": "Bukit Timah / King's Road",
     "schoolType": "政府小学 / SAP 特选学校",
     "curriculum": "新加坡小学课程 / PSLE",
-    "features": ["SAP 特选学校", "华文传统强", "热门小学", "GEP 相关关注度高"],
+    "features": [
+      "SAP 特选学校",
+      "华文传统强",
+      "热门小学",
+      "GEP 相关关注度高"
+    ],
     "audience": "重视华文、英文和长期升学规划的中国家庭",
     "angle": "南洋小学不是普通意义上的热门小学，而是很多家长理解新加坡精英小学体系时绕不开的一所学校。"
   },
@@ -23,7 +28,12 @@
     "location": "Bishan",
     "schoolType": "政府小学 / SAP 特选学校",
     "curriculum": "新加坡小学课程 / PSLE",
-    "features": ["SAP 特选学校", "华文基础强", "社区关注度高", "小学择校热门"],
+    "features": [
+      "SAP 特选学校",
+      "华文基础强",
+      "社区关注度高",
+      "小学择校热门"
+    ],
     "audience": "希望孩子保留中文优势，同时适应新加坡英文体系的家庭",
     "angle": "爱同学校的核心吸引力，不只是成绩，而是它把华文传统和本地小学体系结合得比较成熟。"
   },
@@ -37,7 +47,12 @@
     "location": "Marine Parade",
     "schoolType": "政府小学 / SAP 特选学校",
     "curriculum": "新加坡小学课程 / PSLE",
-    "features": ["SAP 特选学校", "东部热门小学", "华文文化氛围", "家长讨论度高"],
+    "features": [
+      "SAP 特选学校",
+      "东部热门小学",
+      "华文文化氛围",
+      "家长讨论度高"
+    ],
     "audience": "住在新加坡东部、关注华文和小学升学的家庭",
     "angle": "很多家长看道南学校，真正关心的是孩子能不能在强华文环境里，同时把英文和数学跟上。"
   },
@@ -51,7 +66,12 @@
     "location": "Bukit Timah / Holland",
     "schoolType": "政府小学",
     "curriculum": "新加坡小学课程 / PSLE",
-    "features": ["西部热门小学", "学术氛围强", "家长关注度高", "GEP 相关关注度高"],
+    "features": [
+      "西部热门小学",
+      "学术氛围强",
+      "家长关注度高",
+      "GEP 相关关注度高"
+    ],
     "audience": "希望孩子进入竞争型小学环境、未来冲刺好中学的家庭",
     "angle": "恒力小学常被家长拿来和南洋、莱佛士女小一起比较，本质上是在比较孩子适合哪种小学竞争环境。"
   },
@@ -65,7 +85,12 @@
     "location": "Bukit Timah",
     "schoolType": "政府女子小学",
     "curriculum": "新加坡小学课程 / PSLE",
-    "features": ["女校", "热门小学", "升学关注度高", "学术氛围强"],
+    "features": [
+      "女校",
+      "热门小学",
+      "升学关注度高",
+      "学术氛围强"
+    ],
     "audience": "关注女校环境、长期升学路径和学术氛围的家庭",
     "angle": "莱佛士女子小学之所以被频繁搜索，是因为家长往往把它和未来中学、JC甚至大学路径连在一起看。"
   },
@@ -79,7 +104,12 @@
     "location": "Bishan",
     "schoolType": "政府中学 / 男校 / IP",
     "curriculum": "Integrated Programme / A-Level 路径",
-    "features": ["IP 直通车", "顶尖中学", "男校", "A-Level 路径"],
+    "features": [
+      "IP 直通车",
+      "顶尖中学",
+      "男校",
+      "A-Level 路径"
+    ],
     "audience": "目标顶尖中学、JC和新加坡公立大学的家庭",
     "angle": "莱佛士书院不是简单的“好学校推荐”，而是新加坡本地顶尖学生高度集中的学校。"
   },
@@ -93,7 +123,12 @@
     "location": "Bukit Timah",
     "schoolType": "政府中学 / SAP / IP",
     "curriculum": "Integrated Programme / A-Level 路径",
-    "features": ["SAP 传统", "IP 直通车", "华文文化强", "顶尖中学"],
+    "features": [
+      "SAP 传统",
+      "IP 直通车",
+      "华文文化强",
+      "顶尖中学"
+    ],
     "audience": "重视中文背景、学术成绩和顶尖大学路径的家庭",
     "angle": "华侨中学对中国家长有天然吸引力，因为它既代表新加坡精英教育，也保留了明显的华文传统。"
   },
@@ -107,7 +142,12 @@
     "location": "Bukit Timah",
     "schoolType": "政府女子中学 / SAP / IP",
     "curriculum": "Integrated Programme / A-Level 路径",
-    "features": ["女校", "SAP 传统", "IP 课程", "学术氛围强"],
+    "features": [
+      "女校",
+      "SAP 传统",
+      "IP 课程",
+      "学术氛围强"
+    ],
     "audience": "关注女校、中文背景和顶尖升学路径的家庭",
     "angle": "南洋女中最值得家长关注的，不只是名气，而是孩子是否适合强学术、强自驱的女校环境。"
   },
@@ -121,7 +161,12 @@
     "location": "Dover",
     "schoolType": "自主中学 / IB 路径",
     "curriculum": "IB Diploma Programme 路径",
-    "features": ["IB 路径", "男校传统", "国际化程度高", "升学出口强"],
+    "features": [
+      "IB 路径",
+      "男校传统",
+      "国际化程度高",
+      "升学出口强"
+    ],
     "audience": "关注 IB、海外大学和国际化升学路线的家庭",
     "angle": "ACS Independent 常被中国家长拿来和 IP/A-Level 学校比较，核心问题是孩子更适合 IB 还是 A-Level。"
   },
@@ -135,7 +180,12 @@
     "location": "Clementi",
     "schoolType": "专门学校 / 数理方向",
     "curriculum": "六年制数理课程 / 大学预备路径",
-    "features": ["数学科学强", "研究导向", "适合竞赛型学生", "大学衔接关注度高"],
+    "features": [
+      "数学科学强",
+      "研究导向",
+      "适合竞赛型学生",
+      "大学衔接关注度高"
+    ],
     "audience": "数学、科学、科研能力突出的学生家庭",
     "angle": "NUS High 不适合所有成绩好的孩子，它更适合真正喜欢数学科学、愿意长期投入研究型学习的学生。"
   },
@@ -149,7 +199,12 @@
     "location": "Bishan",
     "schoolType": "JC / A-Level",
     "curriculum": "Singapore-Cambridge GCE A-Level",
-    "features": ["顶尖 JC", "A-Level 路径", "NUS/NTU 关注度高", "竞争强"],
+    "features": [
+      "顶尖 JC",
+      "A-Level 路径",
+      "NUS/NTU 关注度高",
+      "竞争强"
+    ],
     "audience": "目标新加坡公立大学或海外名校的高中阶段学生",
     "angle": "家长看莱佛士 JC，真正要判断的是孩子是否能承受高强度 A-Level 竞争。"
   },
@@ -163,7 +218,12 @@
     "location": "Bukit Timah",
     "schoolType": "JC / A-Level",
     "curriculum": "Singapore-Cambridge GCE A-Level",
-    "features": ["顶尖 JC", "华文传统", "A-Level 路径", "大学出口强"],
+    "features": [
+      "顶尖 JC",
+      "华文传统",
+      "A-Level 路径",
+      "大学出口强"
+    ],
     "audience": "目标新加坡公立大学、也重视中文文化背景的家庭",
     "angle": "华中高中部的优势不是单点成绩，而是强同伴环境、强资源和清晰的大学升学路径。"
   },
@@ -177,7 +237,12 @@
     "location": "Bukit Timah",
     "schoolType": "JC / IP / A-Level",
     "curriculum": "Integrated Programme / A-Level 路径",
-    "features": ["老牌 JC", "IP 路径", "A-Level", "学术稳定"],
+    "features": [
+      "老牌 JC",
+      "IP 路径",
+      "A-Level",
+      "学术稳定"
+    ],
     "audience": "关注 JC 路线、希望兼顾学术和综合发展的家庭",
     "angle": "National JC 不是只看排名的学校，它更适合希望走稳健 A-Level 路径的学生。"
   },
@@ -191,9 +256,26 @@
     "location": "Dover",
     "schoolType": "Poly / 理工学院",
     "curriculum": "Diploma 文凭课程",
-    "features": ["历史悠久", "专业选择多", "就业导向", "可衔接大学"],
-    "majorAreas": ["工程与科技", "商业与管理", "信息技术", "媒体与设计", "生命科学与化工", "建筑环境与可持续发展"],
-    "admissionPaths": ["O-Level 通过 JAE 申请 Poly", "中学在读学生通过 EAE 提前申请适合专业", "国际学生按学校要求提交学历、成绩和英文材料", "Poly 毕业后可用 GPA 申请 SIT、NUS、NTU、SMU、SUTD、SUSS 或海外大学"],
+    "features": [
+      "历史悠久",
+      "专业选择多",
+      "就业导向",
+      "可衔接大学"
+    ],
+    "majorAreas": [
+      "工程与科技",
+      "商业与管理",
+      "信息技术",
+      "媒体与设计",
+      "生命科学与化工",
+      "建筑环境与可持续发展"
+    ],
+    "admissionPaths": [
+      "O-Level 通过 JAE 申请 Poly",
+      "中学在读学生通过 EAE 提前申请适合专业",
+      "国际学生按学校要求提交学历、成绩和英文材料",
+      "Poly 毕业后可用 GPA 申请 SIT、NUS、NTU、SMU、SUTD、SUSS 或海外大学"
+    ],
     "audience": "O-Level 后更适合应用型、职业导向路径的学生",
     "angle": "Singapore Polytechnic 适合不想死磕 JC/A-Level、但希望用专业能力进入大学或就业市场的学生。",
     "positioning": "新加坡理工学院是新加坡历史最久、专业覆盖面很广的 Poly 之一。它更强调应用能力、项目学习和行业连接，适合希望先进入专业方向，再决定大学或就业路径的学生。",
@@ -213,9 +295,26 @@
     "location": "Clementi",
     "schoolType": "Poly / 理工学院",
     "curriculum": "Diploma 文凭课程",
-    "features": ["商科传媒关注度高", "应用型课程", "校园资源丰富", "大学衔接"],
-    "majorAreas": ["商业与会计", "传媒与电影", "信息通信科技", "工程", "健康科学", "设计与环境"],
-    "admissionPaths": ["O-Level 通过 JAE 申请", "EAE 适合有作品、项目或明确兴趣方向的学生", "国际学生需按 NP 要求提交成绩和英文材料", "Poly GPA 可用于申请新加坡公立大学或海外大学"],
+    "features": [
+      "商科传媒关注度高",
+      "应用型课程",
+      "校园资源丰富",
+      "大学衔接"
+    ],
+    "majorAreas": [
+      "商业与会计",
+      "传媒与电影",
+      "信息通信科技",
+      "工程",
+      "健康科学",
+      "设计与环境"
+    ],
+    "admissionPaths": [
+      "O-Level 通过 JAE 申请",
+      "EAE 适合有作品、项目或明确兴趣方向的学生",
+      "国际学生需按 NP 要求提交成绩和英文材料",
+      "Poly GPA 可用于申请新加坡公立大学或海外大学"
+    ],
     "audience": "倾向商科、传媒、设计、工程等应用专业的学生",
     "angle": "义安理工学院常被家长关注，是因为它在专业选择和学生体验上有很强的讨论度。",
     "positioning": "义安理工学院在商科、传媒、信息科技和应用专业方向有较高讨论度。它适合希望通过实践课程、项目训练和行业实习进入专业赛道的学生。",
@@ -235,9 +334,26 @@
     "location": "Ang Mo Kio / Yio Chu Kang",
     "schoolType": "Poly / 理工学院",
     "curriculum": "Diploma 文凭课程",
-    "features": ["健康科学关注度高", "信息科技", "工程", "设计与互动媒体"],
-    "majorAreas": ["护理与健康科学", "工程", "信息科技", "商业管理", "设计与媒体", "化学与生命科学"],
-    "admissionPaths": ["O-Level 通过 JAE 申请", "有明确专业兴趣可通过 EAE 申请", "国际学生按 NYP 要求提交学历、成绩和英文材料", "毕业后可用 Diploma 和 GPA 申请公立大学或海外大学"],
+    "features": [
+      "健康科学关注度高",
+      "信息科技",
+      "工程",
+      "设计与互动媒体"
+    ],
+    "majorAreas": [
+      "护理与健康科学",
+      "工程",
+      "信息科技",
+      "商业管理",
+      "设计与媒体",
+      "化学与生命科学"
+    ],
+    "admissionPaths": [
+      "O-Level 通过 JAE 申请",
+      "有明确专业兴趣可通过 EAE 申请",
+      "国际学生按 NYP 要求提交学历、成绩和英文材料",
+      "毕业后可用 Diploma 和 GPA 申请公立大学或海外大学"
+    ],
     "audience": "关注健康科学、工程、IT 或应用型学习的学生",
     "angle": "南洋理工学院适合希望通过专业训练进入健康科学、工程、IT 或商业应用方向的学生。",
     "positioning": "NYP 是新加坡五所 Poly 之一，课程强调实践、行业项目和职业能力。对中国家长来说，它常见于 O-Level 后不走 JC、转向应用专业和大学衔接的规划中。",
@@ -257,9 +373,26 @@
     "location": "Tampines",
     "schoolType": "Poly / 理工学院",
     "curriculum": "Diploma 文凭课程",
-    "features": ["东部校区", "设计与商业", "航空与工程", "信息科技"],
-    "majorAreas": ["商业", "设计", "工程", "信息科技", "应用科学", "人文与社会科学"],
-    "admissionPaths": ["O-Level 通过 JAE 申请", "EAE 适合有作品集、项目或专业兴趣的学生", "国际学生按 TP 要求提交申请材料", "Diploma 后可衔接 SIT、NUS、NTU、SMU、SUTD、SUSS 或海外大学"],
+    "features": [
+      "东部校区",
+      "设计与商业",
+      "航空与工程",
+      "信息科技"
+    ],
+    "majorAreas": [
+      "商业",
+      "设计",
+      "工程",
+      "信息科技",
+      "应用科学",
+      "人文与社会科学"
+    ],
+    "admissionPaths": [
+      "O-Level 通过 JAE 申请",
+      "EAE 适合有作品集、项目或专业兴趣的学生",
+      "国际学生按 TP 要求提交申请材料",
+      "Diploma 后可衔接 SIT、NUS、NTU、SMU、SUTD、SUSS 或海外大学"
+    ],
     "audience": "住在新加坡东部、关注设计、商科、工程或 IT 的学生",
     "angle": "淡马锡理工学院适合希望在东部校区学习，并重点考虑设计、商业、工程、IT 等应用专业的学生。",
     "positioning": "TP 是新加坡五所 Poly 之一，课程强调实践能力、行业项目和就业导向。它常被家长用于比较东部学生的 Poly 选择和 O-Level 后路径。",
@@ -279,9 +412,26 @@
     "location": "Woodlands",
     "schoolType": "Poly / 理工学院",
     "curriculum": "Diploma 文凭课程",
-    "features": ["问题导向学习", "北部校区", "体育与健康", "科技与应用课程"],
-    "majorAreas": ["应用科学", "工程", "信息通信科技", "体育与健康", "酒店与旅游", "商业与传媒"],
-    "admissionPaths": ["O-Level 通过 JAE 申请", "EAE 适合能展示兴趣、项目或特长的学生", "国际学生按 RP 要求提交成绩和英文材料", "毕业后可用 GPA 申请新加坡或海外大学"],
+    "features": [
+      "问题导向学习",
+      "北部校区",
+      "体育与健康",
+      "科技与应用课程"
+    ],
+    "majorAreas": [
+      "应用科学",
+      "工程",
+      "信息通信科技",
+      "体育与健康",
+      "酒店与旅游",
+      "商业与传媒"
+    ],
+    "admissionPaths": [
+      "O-Level 通过 JAE 申请",
+      "EAE 适合能展示兴趣、项目或特长的学生",
+      "国际学生按 RP 要求提交成绩和英文材料",
+      "毕业后可用 GPA 申请新加坡或海外大学"
+    ],
     "audience": "适合喜欢讨论、项目、实践和问题导向学习的学生",
     "angle": "共和理工学院的学习方式和传统课堂不完全一样，家长要重点看孩子是否适合问题导向和项目讨论。",
     "positioning": "RP 是新加坡五所 Poly 之一，以问题导向学习和实践课程为特色。它适合希望在真实问题、团队讨论和项目训练中学习的学生。",
@@ -301,9 +451,30 @@
     "location": "Kent Ridge / Bukit Timah / Outram",
     "schoolType": "Autonomous University / 综合研究型大学",
     "curriculum": "本科 / 硕士 / 博士学位课程",
-    "features": ["综合研究型", "亚洲顶尖", "专业覆盖广", "科研资源强"],
-    "majorAreas": ["计算机与数据科学", "工程", "商科", "医学与生命科学", "法律", "人文社科", "建筑与设计", "理学"],
-    "admissionPaths": ["中国高考成绩申请部分本科专业", "新加坡 A-Level 申请", "IB Diploma 申请", "Poly Diploma 申请", "WACE / A-Level / AP 等国际课程申请", "研究生按专业提交本科成绩、语言、推荐信和相关材料"],
+    "features": [
+      "综合研究型",
+      "亚洲顶尖",
+      "专业覆盖广",
+      "科研资源强"
+    ],
+    "majorAreas": [
+      "计算机与数据科学",
+      "工程",
+      "商科",
+      "医学与生命科学",
+      "法律",
+      "人文社科",
+      "建筑与设计",
+      "理学"
+    ],
+    "admissionPaths": [
+      "中国高考成绩申请部分本科专业",
+      "新加坡 A-Level 申请",
+      "IB Diploma 申请",
+      "Poly Diploma 申请",
+      "WACE / A-Level / AP 等国际课程申请",
+      "研究生按专业提交本科成绩、语言、推荐信和相关材料"
+    ],
     "audience": "目标亚洲顶尖研究型大学、学术基础强、专业目标明确的学生",
     "angle": "NUS 是中国家长搜索新加坡大学时最常见的第一目标，但它并不只是“排名最高”，更代表高强度研究型大学路径。",
     "positioning": "新加坡国立大学是新加坡六所自治大学之一，也是综合研究型大学。它的优势在于专业覆盖广、研究资源强、国际认可度高，适合学术能力和自我管理能力都较强的学生。",
@@ -323,9 +494,30 @@
     "location": "Jurong West / Novena",
     "schoolType": "Autonomous University / 综合研究型大学",
     "curriculum": "本科 / 硕士 / 博士学位课程",
-    "features": ["工程科技强", "综合研究型", "商科与教育学院关注度高", "校园规模大"],
-    "majorAreas": ["工程", "计算机与人工智能", "商科", "理学", "传媒", "教育", "医学", "人文社科"],
-    "admissionPaths": ["中国高考成绩申请", "新加坡 A-Level 申请", "IB Diploma 申请", "Poly Diploma 申请", "国际课程成绩申请", "研究生按学院要求提交学术和语言材料"],
+    "features": [
+      "工程科技强",
+      "综合研究型",
+      "商科与教育学院关注度高",
+      "校园规模大"
+    ],
+    "majorAreas": [
+      "工程",
+      "计算机与人工智能",
+      "商科",
+      "理学",
+      "传媒",
+      "教育",
+      "医学",
+      "人文社科"
+    ],
+    "admissionPaths": [
+      "中国高考成绩申请",
+      "新加坡 A-Level 申请",
+      "IB Diploma 申请",
+      "Poly Diploma 申请",
+      "国际课程成绩申请",
+      "研究生按学院要求提交学术和语言材料"
+    ],
     "audience": "目标工程、科技、商科、传媒或综合研究型大学路径的学生",
     "angle": "NTU 对中国学生吸引力很强，尤其是工程、计算机、科技和研究方向，但申请竞争也非常集中。",
     "positioning": "南洋理工大学是新加坡六所自治大学之一，属于综合研究型大学。它在工程、科技、理学、商科、传媒和教育等方向都有很高关注度。",
@@ -345,9 +537,28 @@
     "location": "City Campus / Bras Basah",
     "schoolType": "Autonomous University / 商科与社会科学研究型大学",
     "curriculum": "本科 / 硕士 / 博士学位课程",
-    "features": ["城市校园", "商科金融强", "小班研讨式", "就业导向明显"],
-    "majorAreas": ["商业管理", "会计", "经济学", "信息系统", "法律", "社会科学", "计算机与法律科技"],
-    "admissionPaths": ["新加坡 A-Level 申请", "IB Diploma 申请", "Poly Diploma 申请", "中国高考或国际课程成绩申请", "部分专业可能要求面试、写作或补充材料"],
+    "features": [
+      "城市校园",
+      "商科金融强",
+      "小班研讨式",
+      "就业导向明显"
+    ],
+    "majorAreas": [
+      "商业管理",
+      "会计",
+      "经济学",
+      "信息系统",
+      "法律",
+      "社会科学",
+      "计算机与法律科技"
+    ],
+    "admissionPaths": [
+      "新加坡 A-Level 申请",
+      "IB Diploma 申请",
+      "Poly Diploma 申请",
+      "中国高考或国际课程成绩申请",
+      "部分专业可能要求面试、写作或补充材料"
+    ],
     "audience": "目标商科、金融、会计、法律、经济或城市就业机会的学生",
     "angle": "SMU 不像传统大校园大学，它更像一所嵌入新加坡商业中心的高互动型大学。",
     "positioning": "新加坡管理大学是新加坡自治大学之一，以商科、会计、经济、法律、信息系统和社会科学见长。课堂更强调讨论、表达和案例学习。",
@@ -367,9 +578,27 @@
     "location": "Changi / Upper Changi",
     "schoolType": "Autonomous University / 科技设计型大学",
     "curriculum": "本科 / 硕士 / 博士学位课程",
-    "features": ["科技与设计融合", "项目制学习", "工程建筑设计", "创新导向"],
-    "majorAreas": ["工程产品开发", "信息系统技术与设计", "建筑与可持续设计", "工程系统与设计", "设计与人工智能", "城市科学"],
-    "admissionPaths": ["新加坡 A-Level 申请", "IB Diploma 申请", "Poly Diploma 申请", "国际课程或中国高考成绩申请", "重视数理基础、作品或项目经历"],
+    "features": [
+      "科技与设计融合",
+      "项目制学习",
+      "工程建筑设计",
+      "创新导向"
+    ],
+    "majorAreas": [
+      "工程产品开发",
+      "信息系统技术与设计",
+      "建筑与可持续设计",
+      "工程系统与设计",
+      "设计与人工智能",
+      "城市科学"
+    ],
+    "admissionPaths": [
+      "新加坡 A-Level 申请",
+      "IB Diploma 申请",
+      "Poly Diploma 申请",
+      "国际课程或中国高考成绩申请",
+      "重视数理基础、作品或项目经历"
+    ],
     "audience": "喜欢工程、设计、建筑、AI、产品创新和项目制学习的学生",
     "angle": "SUTD 适合不满足于传统工程学习、希望把科技、设计和真实项目结合起来的学生。",
     "positioning": "新加坡科技设计大学是新加坡自治大学之一，课程强调跨学科、设计思维、工程实践和项目制学习。它适合目标更偏创新、产品、建筑、AI 和系统设计的学生。",
@@ -389,9 +618,26 @@
     "location": "Punggol / distributed campuses",
     "schoolType": "Autonomous University / 应用型大学",
     "curriculum": "应用型本科 / 硕士课程",
-    "features": ["应用型大学", "产学合作", "适合 Poly 升学", "就业导向"],
-    "majorAreas": ["工程", "信息通信科技", "健康与社会科学", "食品化工与生物科技", "设计与专门行业", "商科与酒店"],
-    "admissionPaths": ["Poly Diploma 申请", "A-Level 或 IB 申请", "相关工作或专业经历可增强匹配度", "部分专业有面试、测评或作品要求"],
+    "features": [
+      "应用型大学",
+      "产学合作",
+      "适合 Poly 升学",
+      "就业导向"
+    ],
+    "majorAreas": [
+      "工程",
+      "信息通信科技",
+      "健康与社会科学",
+      "食品化工与生物科技",
+      "设计与专门行业",
+      "商科与酒店"
+    ],
+    "admissionPaths": [
+      "Poly Diploma 申请",
+      "A-Level 或 IB 申请",
+      "相关工作或专业经历可增强匹配度",
+      "部分专业有面试、测评或作品要求"
+    ],
     "audience": "希望通过应用型课程、行业项目和实习进入就业市场的学生",
     "angle": "SIT 对 Poly 学生尤其重要，因为它是很多应用型专业从 Diploma 继续升本科的关键路径。",
     "positioning": "新加坡理工大学是新加坡自治大学之一，强调应用学习、行业合作和工作结合型课程。它和传统研究型大学不同，更适合专业方向明确、重视就业落地的学生。",
@@ -411,9 +657,28 @@
     "location": "Clementi",
     "schoolType": "Autonomous University / 应用社科大学",
     "curriculum": "本科 / 硕士 / 终身学习课程",
-    "features": ["社会科学", "应用教育", "终身学习", "适合服务与管理方向"],
-    "majorAreas": ["社会科学", "教育", "商业与管理", "法律相关课程", "人力资源", "社会服务", "数据与数字媒体"],
-    "admissionPaths": ["A-Level 申请", "IB Diploma 申请", "Poly Diploma 申请", "国际课程或相关学历申请", "部分课程看面试、工作经历或个人陈述"],
+    "features": [
+      "社会科学",
+      "应用教育",
+      "终身学习",
+      "适合服务与管理方向"
+    ],
+    "majorAreas": [
+      "社会科学",
+      "教育",
+      "商业与管理",
+      "法律相关课程",
+      "人力资源",
+      "社会服务",
+      "数据与数字媒体"
+    ],
+    "admissionPaths": [
+      "A-Level 申请",
+      "IB Diploma 申请",
+      "Poly Diploma 申请",
+      "国际课程或相关学历申请",
+      "部分课程看面试、工作经历或个人陈述"
+    ],
     "audience": "关注社会科学、教育、管理、社会服务或应用型学习的学生",
     "angle": "SUSS 不适合用传统名校排名简单判断，它更强调应用社科、社会影响和终身学习。",
     "positioning": "新跃社科大学是新加坡自治大学之一，重点在社会科学、应用教育、管理和终身学习。它适合职业方向更偏社会服务、教育、管理和应用社科的学生。",
@@ -433,9 +698,31 @@
     "location": "LASALLE / NAFA campuses",
     "schoolType": "Private university of the arts / LASALLE 与 NAFA 联盟",
     "curriculum": "艺术、设计、媒体、表演、音乐等本科与硕士学位课程",
-    "features": ["新加坡第一所艺术大学", "LASALLE 与 NAFA 联盟", "作品集导向", "创意产业路径"],
-    "majorAreas": ["设计", "美术", "媒体艺术", "音乐", "舞蹈与戏剧", "时尚", "艺术管理", "创意写作", "艺术教育", "创意治疗"],
-    "admissionPaths": ["作品集申请", "面试或试镜", "英文能力要求", "Diploma 后升本科", "国际学生按专业提交学历、作品和补充材料"],
+    "features": [
+      "新加坡第一所艺术大学",
+      "LASALLE 与 NAFA 联盟",
+      "作品集导向",
+      "创意产业路径"
+    ],
+    "majorAreas": [
+      "设计",
+      "美术",
+      "媒体艺术",
+      "音乐",
+      "舞蹈与戏剧",
+      "时尚",
+      "艺术管理",
+      "创意写作",
+      "艺术教育",
+      "创意治疗"
+    ],
+    "admissionPaths": [
+      "作品集申请",
+      "面试或试镜",
+      "英文能力要求",
+      "Diploma 后升本科",
+      "国际学生按专业提交学历、作品和补充材料"
+    ],
     "audience": "目标艺术、设计、音乐、表演、电影、时尚或创意产业的学生",
     "angle": "新加坡艺术大学是很多中国艺术生还不熟悉的新加坡路径，它的重点不是传统分数竞争，而是作品集、创作能力和专业匹配。",
     "positioning": "University of the Arts Singapore 由 LASALLE College of the Arts 与 Nanyang Academy of Fine Arts 组成联盟，是新加坡艺术高等教育的重要路径。它面向创意产业，不应按普通综合大学逻辑简单比较。",
@@ -455,7 +742,12 @@
     "location": "Dover / East Campus",
     "schoolType": "国际学校",
     "curriculum": "IB 路径 / 国际课程",
-    "features": ["IB 体系", "国际化强", "活动资源丰富", "申请竞争高"],
+    "features": [
+      "IB 体系",
+      "国际化强",
+      "活动资源丰富",
+      "申请竞争高"
+    ],
     "audience": "目标海外大学、希望孩子进入国际化教育环境的家庭",
     "angle": "UWCSEA 不是单纯的国际学校选择，它更像一条从中小学到全球大学申请的长期路径。"
   },
@@ -469,7 +761,12 @@
     "location": "Bukit Batok",
     "schoolType": "国际学校",
     "curriculum": "英式课程 / IGCSE / IB 路径",
-    "features": ["英式体系", "校园设施强", "国际化", "大学申请路径清晰"],
+    "features": [
+      "英式体系",
+      "校园设施强",
+      "国际化",
+      "大学申请路径清晰"
+    ],
     "audience": "希望走英式课程、未来申请英国或全球大学的家庭",
     "angle": "德威适合看重英式教育体系、校园资源和长期大学申请规划的家庭。"
   },
@@ -483,7 +780,12 @@
     "location": "Woodlands",
     "schoolType": "国际学校",
     "curriculum": "美式课程 / AP 路径",
-    "features": ["美式体系", "AP 路径", "校园规模大", "美国大学关注度高"],
+    "features": [
+      "美式体系",
+      "AP 路径",
+      "校园规模大",
+      "美国大学关注度高"
+    ],
     "audience": "未来更倾向美国大学方向的家庭",
     "angle": "SAS 更适合目标美国大学、习惯项目制和综合素质培养的学生。"
   },
@@ -497,8 +799,5001 @@
     "location": "Lakeside / Tanjong Katong",
     "schoolType": "国际学校",
     "curriculum": "IB 路径 / 国际课程",
-    "features": ["IB 体系", "国际学生多", "校区选择", "入学阶段覆盖广"],
+    "features": [
+      "IB 体系",
+      "国际学生多",
+      "校区选择",
+      "入学阶段覆盖广"
+    ],
     "audience": "希望孩子进入国际课程体系、并保留多国大学选择的家庭",
     "angle": "加拿大国际学校适合希望走 IB 路径、同时看重多元文化环境的家庭。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "admiralty",
+    "nameZh": "海军部小学",
+    "nameEn": "Admiralty Primary School",
+    "location": "Woodlands",
+    "schoolType": "政府小学 / Tier 4 社区小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "社区学校",
+      "适合区域择校比较"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "海军部小学（Admiralty Primary School）位于Woodlands，兀兰北部社区小学。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "ahmad-ibrahim",
+    "nameZh": "阿末依布拉欣小学",
+    "nameEn": "Ahmad Ibrahim Primary School",
+    "location": "Yishun",
+    "schoolType": "政府小学 / Tier 4 社区小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "社区学校",
+      "适合区域择校比较"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "阿末依布拉欣小学（Ahmad Ibrahim Primary School）位于Yishun，义顺区社区小学。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "alexandra-primary",
+    "nameZh": "亚历山大小学",
+    "nameEn": "Alexandra Primary School",
+    "location": "Queenstown",
+    "schoolType": "政府小学 / Tier 3 社区小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "社区学校",
+      "适合区域择校比较"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "亚历山大小学（Alexandra Primary School）位于Queenstown，女皇镇区社区小学。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "anchor-green",
+    "nameZh": "翠苑小学",
+    "nameEn": "Anchor Green Primary School",
+    "location": "Sengkang",
+    "schoolType": "政府小学 / Tier 3 社区小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "社区学校",
+      "适合区域择校比较"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "翠苑小学（Anchor Green Primary School）位于Sengkang，盛港区较新小学。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "anderson-primary",
+    "nameZh": "安德逊小学",
+    "nameEn": "Anderson Primary School",
+    "location": "Ang Mo Kio",
+    "schoolType": "政府小学 / Tier 2 优质小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "区域口碑较好"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "安德逊小学（Anderson Primary School）位于Ang Mo Kio，宏茂桥区口碑良好的小学，学术表现不错。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "ang-mo-kio",
+    "nameZh": "宏茂桥小学",
+    "nameEn": "Ang Mo Kio Primary School",
+    "location": "Ang Mo Kio",
+    "schoolType": "政府小学 / Tier 3 社区小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "社区学校",
+      "适合区域择校比较"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "宏茂桥小学（Ang Mo Kio Primary School）位于Ang Mo Kio，宏茂桥区社区小学。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "anglo-chinese-school-junior",
+    "nameZh": "英华学校（经禧）",
+    "nameEn": "Anglo-Chinese School (Junior)",
+    "location": "Queenstown",
+    "schoolType": "政府小学 / Tier 1 顶尖热门小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "热门小学",
+      "家长关注度高"
+    ],
+    "audience": "关注热门小学、PSLE 和长期政府学校路径的中国家庭",
+    "angle": "英华学校（经禧）（Anglo-Chinese School (Junior)）位于Queenstown，英华大家庭小学部，顶尖名校，学术与品格并重。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "anglo-chinese-primary",
+    "nameZh": "英华小学",
+    "nameEn": "Anglo-Chinese School (Primary)",
+    "location": "Bukit Timah",
+    "schoolType": "政府小学 / Tier 1 顶尖热门小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "GEP",
+      "热门小学",
+      "家长关注度高"
+    ],
+    "audience": "关注热门小学、PSLE 和长期政府学校路径的中国家庭",
+    "angle": "英华小学（Anglo-Chinese School (Primary)）位于Bukit Timah，武吉知马区顶尖名校，高才班，学术与品格教育双强。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "angsana",
+    "nameZh": "安善小学",
+    "nameEn": "Angsana Primary School",
+    "location": "Ang Mo Kio",
+    "schoolType": "政府小学 / Tier 4 社区小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "社区学校",
+      "适合区域择校比较"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "安善小学（Angsana Primary School）位于Ang Mo Kio，宏茂桥区社区小学。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "beacon",
+    "nameZh": "明志小学",
+    "nameEn": "Beacon Primary School",
+    "location": "Bukit Panjang",
+    "schoolType": "政府小学 / Tier 3 社区小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "社区学校",
+      "适合区域择校比较"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "明志小学（Beacon Primary School）位于Bukit Panjang，武吉班让区小学。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "bedok-green",
+    "nameZh": "勿洛绿苑小学",
+    "nameEn": "Bedok Green Primary School",
+    "location": "Bedok",
+    "schoolType": "政府小学 / Tier 3 社区小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "社区学校",
+      "适合区域择校比较"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "勿洛绿苑小学（Bedok Green Primary School）位于Bedok，勿洛区社区小学。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "bendemeer",
+    "nameZh": "明地迷亚小学",
+    "nameEn": "Bendemeer Primary School",
+    "location": "Kallang",
+    "schoolType": "政府小学 / Tier 3 社区小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "社区学校",
+      "适合区域择校比较"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "明地迷亚小学（Bendemeer Primary School）位于Kallang，加冷区社区小学。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "blangah-rise",
+    "nameZh": "布兰雅坡小学",
+    "nameEn": "Blangah Rise Primary School",
+    "location": "Bukit Merah",
+    "schoolType": "政府小学 / Tier 3 社区小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "社区学校",
+      "适合区域择校比较"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "布兰雅坡小学（Blangah Rise Primary School）位于Bukit Merah，红山区小学。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "boon-lay-garden",
+    "nameZh": "文礼花园小学",
+    "nameEn": "Boon Lay Garden Primary School",
+    "location": "Jurong West",
+    "schoolType": "政府小学 / Tier 3 社区小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "社区学校",
+      "适合区域择校比较"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "文礼花园小学（Boon Lay Garden Primary School）位于Jurong West，裕廊西区社区小学。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "bukit-panjang",
+    "nameZh": "武吉班让小学",
+    "nameEn": "Bukit Panjang Primary School",
+    "location": "Bukit Panjang",
+    "schoolType": "政府小学 / Tier 3 社区小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "社区学校",
+      "适合区域择校比较"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "武吉班让小学（Bukit Panjang Primary School）位于Bukit Panjang，武吉班让区社区小学。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "bukit-timah-primary",
+    "nameZh": "武吉知马小学",
+    "nameEn": "Bukit Timah Primary School",
+    "location": "Bukit Timah",
+    "schoolType": "政府小学 / Tier 3 社区小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "社区学校",
+      "适合区域择校比较"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "武吉知马小学（Bukit Timah Primary School）位于Bukit Timah，武吉知马区社区小学。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "bukit-view",
+    "nameZh": "武吉景小学",
+    "nameEn": "Bukit View Primary School",
+    "location": "Bukit Batok",
+    "schoolType": "政府小学 / Tier 3 社区小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "社区学校",
+      "适合区域择校比较"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "武吉景小学（Bukit View Primary School）位于Bukit Batok，武吉巴督区小学。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "canberra",
+    "nameZh": "坎培拉小学",
+    "nameEn": "Canberra Primary School",
+    "location": "Sembawang",
+    "schoolType": "政府小学 / Tier 3 社区小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "社区学校",
+      "适合区域择校比较"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "坎培拉小学（Canberra Primary School）位于Sembawang，三巴旺区较新小学，设施现代。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "canossa-primary",
+    "nameZh": "嘉诺撒天主教小学",
+    "nameEn": "Canossa Catholic Primary School",
+    "location": "Bedok",
+    "schoolType": "政府小学 / Tier 2 优质小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "区域口碑较好"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "嘉诺撒天主教小学（Canossa Catholic Primary School）位于Bedok，勿洛区天主教小学，学术表现不错，注重品格教育。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "cantonment",
+    "nameZh": "贞德小学",
+    "nameEn": "Cantonment Primary School",
+    "location": "Queenstown",
+    "schoolType": "政府小学 / Tier 3 社区小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "社区学校",
+      "适合区域择校比较"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "贞德小学（Cantonment Primary School）位于Queenstown，女皇镇区社区小学。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "casuarina",
+    "nameZh": "木麻黄小学",
+    "nameEn": "Casuarina Primary School",
+    "location": "Tampines",
+    "schoolType": "政府小学 / Tier 3 社区小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "社区学校",
+      "适合区域择校比较"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "木麻黄小学（Casuarina Primary School）位于Tampines，淡滨尼区社区小学。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "cedar",
+    "nameZh": "四德小学",
+    "nameEn": "Cedar Primary School",
+    "location": "Toa Payoh",
+    "schoolType": "政府小学 / Tier 2 优质小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "区域口碑较好"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "四德小学（Cedar Primary School）位于Toa Payoh，大巴窑区小学，与四德女中同系。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "changkat",
+    "nameZh": "昌凯小学",
+    "nameEn": "Changkat Primary School",
+    "location": "Bukit Merah",
+    "schoolType": "政府小学 / Tier 3 社区小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "社区学校",
+      "适合区域择校比较"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "昌凯小学（Changkat Primary School）位于Bukit Merah，红山区社区小学。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "chij",
+    "nameZh": "圣婴女校（加东）小学",
+    "nameEn": "CHIJ (Katong) Primary",
+    "location": "Marine Parade",
+    "schoolType": "政府小学 / Tier 2 优质小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "区域口碑较好"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "圣婴女校（加东）小学（CHIJ (Katong) Primary）位于Marine Parade，东海岸区天主教女校，学术口碑良好。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "chij-kellock",
+    "nameZh": "圣婴女校（基洛）",
+    "nameEn": "CHIJ (Kellock)",
+    "location": "Queenstown",
+    "schoolType": "政府小学 / Tier 2 优质小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "区域口碑较好"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "圣婴女校（基洛）（CHIJ (Kellock)）位于Queenstown，女皇镇区天主教女校。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "chij-our-lady-queen-of-peace",
+    "nameZh": "圣婴女校（和平之后）",
+    "nameEn": "CHIJ Our Lady Queen of Peace",
+    "location": "Bukit Panjang",
+    "schoolType": "政府小学 / Tier 2 优质小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "区域口碑较好"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "圣婴女校（和平之后）（CHIJ Our Lady Queen of Peace）位于Bukit Panjang，武吉班让区天主教女校。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "chij-our-lady-of-good-counsel",
+    "nameZh": "圣婴女校（善导之母）",
+    "nameEn": "CHIJ Our Lady of Good Counsel",
+    "location": "Toa Payoh",
+    "schoolType": "政府小学 / Tier 2 优质小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "区域口碑较好"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "圣婴女校（善导之母）（CHIJ Our Lady of Good Counsel）位于Toa Payoh，大巴窑区天主教女校，排名不错。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "chij-our-lady-of-the-nativity",
+    "nameZh": "圣婴女校（诞生之母）",
+    "nameEn": "CHIJ Our Lady of the Nativity",
+    "location": "Hougang",
+    "schoolType": "政府小学 / Tier 3 社区小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "社区学校",
+      "适合区域择校比较"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "圣婴女校（诞生之母）（CHIJ Our Lady of the Nativity）位于Hougang，后港区天主教女校。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "chij-primary",
+    "nameZh": "圣婴女校（大巴窑）",
+    "nameEn": "CHIJ (Toa Payoh)",
+    "location": "Toa Payoh",
+    "schoolType": "政府小学 / Tier 3 社区小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "社区学校",
+      "适合区域择校比较"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "圣婴女校（大巴窑）（CHIJ (Toa Payoh)）位于Toa Payoh，大巴窑区天主教女校。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "chij-st-nicholas-girls-school",
+    "nameZh": "圣尼各拉女校小学",
+    "nameEn": "CHIJ St. Nicholas Girls' School (Primary)",
+    "location": "Ang Mo Kio",
+    "schoolType": "政府小学 / Tier 1 顶尖热门小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "SAP",
+      "热门小学",
+      "家长关注度高"
+    ],
+    "audience": "关注热门小学、PSLE 和长期政府学校路径的中国家庭",
+    "angle": "圣尼各拉女校小学（CHIJ St. Nicholas Girls' School (Primary)）位于Ang Mo Kio，顶尖女校小学部，特选（SAP）小学，宏茂桥区名校。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "chongfu",
+    "nameZh": "崇福学校",
+    "nameEn": "Chongfu School",
+    "location": "Yishun",
+    "schoolType": "政府小学 / Tier 2 优质小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "区域口碑较好"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "崇福学校（Chongfu School）位于Yishun，义顺区传统华校，学术不错。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "chongzheng",
+    "nameZh": "崇正小学",
+    "nameEn": "Chongzheng Primary School",
+    "location": "Tampines",
+    "schoolType": "政府小学 / Tier 3 社区小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "社区学校",
+      "适合区域择校比较"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "崇正小学（Chongzheng Primary School）位于Tampines，淡滨尼区小学。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "chua-chu-kang",
+    "nameZh": "蔡厝港小学",
+    "nameEn": "Chua Chu Kang Primary School",
+    "location": "Choa Chu Kang",
+    "schoolType": "政府小学 / Tier 3 社区小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "社区学校",
+      "适合区域择校比较"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "蔡厝港小学（Chua Chu Kang Primary School）位于Choa Chu Kang，蔡厝港区社区小学。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "clementi",
+    "nameZh": "金文泰小学",
+    "nameEn": "Clementi Primary School",
+    "location": "Clementi",
+    "schoolType": "政府小学 / Tier 3 社区小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "社区学校",
+      "适合区域择校比较"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "金文泰小学（Clementi Primary School）位于Clementi，金文泰区社区小学。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "compassvale-primary",
+    "nameZh": "康柏小学",
+    "nameEn": "Compassvale Primary School",
+    "location": "Sengkang",
+    "schoolType": "政府小学 / Tier 3 社区小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "社区学校",
+      "适合区域择校比较"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "康柏小学（Compassvale Primary School）位于Sengkang，盛港区社区小学。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "concord",
+    "nameZh": "康科德小学",
+    "nameEn": "Concord Primary School",
+    "location": "Choa Chu Kang",
+    "schoolType": "政府小学 / Tier 3 社区小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "社区学校",
+      "适合区域择校比较"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "康科德小学（Concord Primary School）位于Choa Chu Kang，蔡厝港区社区小学。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "corporation",
+    "nameZh": "公司小学",
+    "nameEn": "Corporation Primary School",
+    "location": "Jurong East",
+    "schoolType": "政府小学 / Tier 3 社区小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "社区学校",
+      "适合区域择校比较"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "公司小学（Corporation Primary School）位于Jurong East，裕廊东区社区小学。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "dazhong",
+    "nameZh": "大众小学",
+    "nameEn": "Dazhong Primary School",
+    "location": "Jurong West",
+    "schoolType": "政府小学 / Tier 3 社区小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "社区学校",
+      "适合区域择校比较"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "大众小学（Dazhong Primary School）位于Jurong West，裕廊西区社区小学。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "de-la-salle",
+    "nameZh": "德拉萨尔学校",
+    "nameEn": "De La Salle School",
+    "location": "Hougang",
+    "schoolType": "政府小学 / Tier 3 社区小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "社区学校",
+      "适合区域择校比较"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "德拉萨尔学校（De La Salle School）位于Hougang，后港区天主教学校。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "east-spring",
+    "nameZh": "东泉小学",
+    "nameEn": "East Spring Primary School",
+    "location": "Tampines",
+    "schoolType": "政府小学 / Tier 3 社区小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "社区学校",
+      "适合区域择校比较"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "东泉小学（East Spring Primary School）位于Tampines，淡滨尼区社区小学。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "edgefield",
+    "nameZh": "毅道小学",
+    "nameEn": "Edgefield Primary School",
+    "location": "Punggol",
+    "schoolType": "政府小学 / Tier 3 社区小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "社区学校",
+      "适合区域择校比较"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "毅道小学（Edgefield Primary School）位于Punggol，榜鹅区较新小学。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "elias-park-primary",
+    "nameZh": "以利雅公园小学",
+    "nameEn": "Elias Park Primary School",
+    "location": "Pasir Ris",
+    "schoolType": "政府小学 / Tier 3 社区小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "社区学校",
+      "适合区域择校比较"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "以利雅公园小学（Elias Park Primary School）位于Pasir Ris，巴西立区社区小学。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "endeavour",
+    "nameZh": "恩得小学",
+    "nameEn": "Endeavour Primary School",
+    "location": "Jurong West",
+    "schoolType": "政府小学 / Tier 3 社区小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "社区学校",
+      "适合区域择校比较"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "恩得小学（Endeavour Primary School）位于Jurong West，裕廊西区社区小学。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "evergreen",
+    "nameZh": "常青小学",
+    "nameEn": "Evergreen Primary School",
+    "location": "Woodlands",
+    "schoolType": "政府小学 / Tier 3 社区小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "社区学校",
+      "适合区域择校比较"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "常青小学（Evergreen Primary School）位于Woodlands，兀兰区社区小学。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "fairfield-methodist-primary",
+    "nameZh": "花菲卫理小学",
+    "nameEn": "Fairfield Methodist School (Primary)",
+    "location": "Queenstown",
+    "schoolType": "政府小学 / Tier 2 优质小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "区域口碑较好"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "花菲卫理小学（Fairfield Methodist School (Primary)）位于Queenstown，女皇镇区卫理公会小学，学术口碑不错。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "farrer-park",
+    "nameZh": "花拉公园小学",
+    "nameEn": "Farrer Park Primary School",
+    "location": "Novena",
+    "schoolType": "政府小学 / Tier 3 社区小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "社区学校",
+      "适合区域择校比较"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "花拉公园小学（Farrer Park Primary School）位于Novena，诺维娜区社区小学。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "fengshan",
+    "nameZh": "凤山小学",
+    "nameEn": "Fengshan Primary School",
+    "location": "Bedok",
+    "schoolType": "政府小学 / Tier 2 优质小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "区域口碑较好"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "凤山小学（Fengshan Primary School）位于Bedok，勿洛区学术表现不错的小学。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "fern-green",
+    "nameZh": "蕨绿小学",
+    "nameEn": "Fern Green Primary School",
+    "location": "Sengkang",
+    "schoolType": "政府小学 / Tier 3 社区小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "社区学校",
+      "适合区域择校比较"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "蕨绿小学（Fern Green Primary School）位于Sengkang，盛港区较新小学。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "fernvale",
+    "nameZh": "锦泉小学",
+    "nameEn": "Fernvale Primary School",
+    "location": "Sengkang",
+    "schoolType": "政府小学 / Tier 3 社区小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "社区学校",
+      "适合区域择校比较"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "锦泉小学（Fernvale Primary School）位于Sengkang，盛港区社区小学。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "first-toa-payoh",
+    "nameZh": "第一大巴窑小学",
+    "nameEn": "First Toa Payoh Primary School",
+    "location": "Toa Payoh",
+    "schoolType": "政府小学 / Tier 3 社区小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "社区学校",
+      "适合区域择校比较"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "第一大巴窑小学（First Toa Payoh Primary School）位于Toa Payoh，大巴窑区社区小学。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "frontier",
+    "nameZh": "先锋小学",
+    "nameEn": "Frontier Primary School",
+    "location": "Jurong West",
+    "schoolType": "政府小学 / Tier 3 社区小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "社区学校",
+      "适合区域择校比较"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "先锋小学（Frontier Primary School）位于Jurong West，裕廊西区社区小学。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "fuchun",
+    "nameZh": "福春小学",
+    "nameEn": "Fuchun Primary School",
+    "location": "Woodlands",
+    "schoolType": "政府小学 / Tier 3 社区小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "社区学校",
+      "适合区域择校比较"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "福春小学（Fuchun Primary School）位于Woodlands，兀兰区社区小学。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "fuhua",
+    "nameZh": "辅华小学",
+    "nameEn": "Fuhua Primary School",
+    "location": "Jurong West",
+    "schoolType": "政府小学 / Tier 3 社区小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "社区学校",
+      "适合区域择校比较"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "辅华小学（Fuhua Primary School）位于Jurong West，裕廊西区社区小学。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "gan-eng-seng",
+    "nameZh": "颜永成小学",
+    "nameEn": "Gan Eng Seng Primary School",
+    "location": "Bukit Merah",
+    "schoolType": "政府小学 / Tier 3 社区小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "社区学校",
+      "适合区域择校比较"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "颜永成小学（Gan Eng Seng Primary School）位于Bukit Merah，红山区社区小学。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "geylang-methodist-school",
+    "nameZh": "芽笼美以美小学",
+    "nameEn": "Geylang Methodist School (Primary)",
+    "location": "Central",
+    "schoolType": "政府小学 / Tier 2 优质小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "区域口碑较好"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "芽笼美以美小学（Geylang Methodist School (Primary)）位于Central，市中心地段，卫理公会小学。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "gongshang-primary",
+    "nameZh": "工商小学",
+    "nameEn": "Gongshang Primary School",
+    "location": "Tampines",
+    "schoolType": "政府小学 / Tier 3 社区小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "社区学校",
+      "适合区域择校比较"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "工商小学（Gongshang Primary School）位于Tampines，淡滨尼区社区小学。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "greendale-primary",
+    "nameZh": "青景小学",
+    "nameEn": "Greendale Primary School",
+    "location": "Punggol",
+    "schoolType": "政府小学 / Tier 3 社区小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "社区学校",
+      "适合区域择校比较"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "青景小学（Greendale Primary School）位于Punggol，榜鹅区社区小学。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "greenridge",
+    "nameZh": "青岭小学",
+    "nameEn": "Greenridge Primary School",
+    "location": "Bukit Panjang",
+    "schoolType": "政府小学 / Tier 3 社区小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "社区学校",
+      "适合区域择校比较"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "青岭小学（Greenridge Primary School）位于Bukit Panjang，武吉班让区社区小学。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "greenwood",
+    "nameZh": "绿林小学",
+    "nameEn": "Greenwood Primary School",
+    "location": "Bukit Panjang",
+    "schoolType": "政府小学 / Tier 2 优质小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "区域口碑较好"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "绿林小学（Greenwood Primary School）位于Bukit Panjang，武吉班让区口碑不错的小学。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "haig-girls",
+    "nameZh": "海格女校",
+    "nameEn": "Haig Girls' School",
+    "location": "Geylang",
+    "schoolType": "政府小学 / Tier 2 优质小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "区域口碑较好"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "海格女校（Haig Girls' School）位于Geylang，芽笼区女校，学术表现不错。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "holy-innocents-primary",
+    "nameZh": "圣婴小学",
+    "nameEn": "Holy Innocents' Primary School",
+    "location": "Serangoon",
+    "schoolType": "政府小学 / Tier 2 优质小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "SAP",
+      "区域口碑较好"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "圣婴小学（Holy Innocents' Primary School）位于Serangoon，实龙岗区天主教特选（SAP）小学，华英双语教育。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "hong-wen",
+    "nameZh": "宏文学校",
+    "nameEn": "Hong Wen School",
+    "location": "Kallang",
+    "schoolType": "政府小学 / Tier 2 优质小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "SAP",
+      "区域口碑较好"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "宏文学校（Hong Wen School）位于Kallang，加冷区特选（SAP）华校，华文教育传统深厚。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "horizon",
+    "nameZh": "地平线小学",
+    "nameEn": "Horizon Primary School",
+    "location": "Punggol",
+    "schoolType": "政府小学 / Tier 3 社区小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "社区学校",
+      "适合区域择校比较"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "地平线小学（Horizon Primary School）位于Punggol，榜鹅区较新小学。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "hougang",
+    "nameZh": "后港小学",
+    "nameEn": "Hougang Primary School",
+    "location": "Hougang",
+    "schoolType": "政府小学 / Tier 3 社区小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "社区学校",
+      "适合区域择校比较"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "后港小学（Hougang Primary School）位于Hougang，后港区社区小学。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "huamin",
+    "nameZh": "华民小学",
+    "nameEn": "Huamin Primary School",
+    "location": "Hougang",
+    "schoolType": "政府小学 / Tier 3 社区小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "社区学校",
+      "适合区域择校比较"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "华民小学（Huamin Primary School）位于Hougang，后港区社区小学。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "innova",
+    "nameZh": "创新小学",
+    "nameEn": "Innova Primary School",
+    "location": "Jurong West",
+    "schoolType": "政府小学 / Tier 3 社区小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "社区学校",
+      "适合区域择校比较"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "创新小学（Innova Primary School）位于Jurong West，裕廊西区社区小学。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "jiemin",
+    "nameZh": "洁明小学",
+    "nameEn": "Jiemin Primary School",
+    "location": "Sengkang",
+    "schoolType": "政府小学 / Tier 3 社区小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "社区学校",
+      "适合区域择校比较"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "洁明小学（Jiemin Primary School）位于Sengkang，盛港区社区小学。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "jing-shan",
+    "nameZh": "景山小学",
+    "nameEn": "Jing Shan Primary School",
+    "location": "Ang Mo Kio",
+    "schoolType": "政府小学 / Tier 3 社区小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "社区学校",
+      "适合区域择校比较"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "景山小学（Jing Shan Primary School）位于Ang Mo Kio，宏茂桥区社区小学。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "junyuan",
+    "nameZh": "俊源小学",
+    "nameEn": "Junyuan Primary School",
+    "location": "Tampines",
+    "schoolType": "政府小学 / Tier 3 社区小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "社区学校",
+      "适合区域择校比较"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "俊源小学（Junyuan Primary School）位于Tampines，淡滨尼区社区小学。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "jurong-primary",
+    "nameZh": "裕廊小学",
+    "nameEn": "Jurong Primary School",
+    "location": "Jurong East",
+    "schoolType": "政府小学 / Tier 3 社区小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "社区学校",
+      "适合区域择校比较"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "裕廊小学（Jurong Primary School）位于Jurong East，裕廊东区社区小学。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "jurong-west",
+    "nameZh": "裕廊西小学",
+    "nameEn": "Jurong West Primary School",
+    "location": "Jurong West",
+    "schoolType": "政府小学 / Tier 3 社区小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "社区学校",
+      "适合区域择校比较"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "裕廊西小学（Jurong West Primary School）位于Jurong West，裕廊西区社区小学。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "keming",
+    "nameZh": "克明小学",
+    "nameEn": "Keming Primary School",
+    "location": "Bukit Batok",
+    "schoolType": "政府小学 / Tier 3 社区小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "社区学校",
+      "适合区域择校比较"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "克明小学（Keming Primary School）位于Bukit Batok，武吉巴督区社区小学。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "kheng-cheng",
+    "nameZh": "庆成学校",
+    "nameEn": "Kheng Cheng School",
+    "location": "Queenstown",
+    "schoolType": "政府小学 / Tier 3 社区小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "社区学校",
+      "适合区域择校比较"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "庆成学校（Kheng Cheng School）位于Queenstown，女皇镇区传统华校。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "kong-hwa",
+    "nameZh": "光华学校",
+    "nameEn": "Kong Hwa School",
+    "location": "Bedok",
+    "schoolType": "政府小学 / Tier 2 优质小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "SAP",
+      "区域口碑较好"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "光华学校（Kong Hwa School）位于Bedok，勿洛区特选（SAP）华校，华文教育传统深厚，学术表现不错。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "kuo-chuan-presbyterian",
+    "nameZh": "国专长老会小学",
+    "nameEn": "Kuo Chuan Presbyterian Primary School",
+    "location": "Bishan",
+    "schoolType": "政府小学 / Tier 2 优质小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "区域口碑较好"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "国专长老会小学（Kuo Chuan Presbyterian Primary School）位于Bishan，碧山区基督教长老会小学，口碑不错。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "lakeside",
+    "nameZh": "湖畔小学",
+    "nameEn": "Lakeside Primary School",
+    "location": "Jurong West",
+    "schoolType": "政府小学 / Tier 3 社区小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "社区学校",
+      "适合区域择校比较"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "湖畔小学（Lakeside Primary School）位于Jurong West，裕廊西区社区小学。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "lianhua-primary",
+    "nameZh": "联华小学",
+    "nameEn": "Lianhua Primary School",
+    "location": "Bukit Batok",
+    "schoolType": "政府小学 / Tier 3 社区小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "社区学校",
+      "适合区域择校比较"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "联华小学（Lianhua Primary School）位于Bukit Batok，武吉巴督区社区小学。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "maha-bodhi",
+    "nameZh": "菩提学校",
+    "nameEn": "Maha Bodhi School",
+    "location": "Tampines",
+    "schoolType": "政府小学 / Tier 2 优质小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "SAP",
+      "区域口碑较好"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "菩提学校（Maha Bodhi School）位于Tampines，淡滨尼区佛教特选（SAP）学校，华文教育出色，学术口碑不错。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "maris-stella-high-primary",
+    "nameZh": "海星中学小学部",
+    "nameEn": "Maris Stella High School (Primary)",
+    "location": "Bedok",
+    "schoolType": "政府小学 / Tier 2 优质小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "SAP",
+      "区域口碑较好"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "海星中学小学部（Maris Stella High School (Primary)）位于Bedok，特选小学，华文教育传统深厚。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "marsiling",
+    "nameZh": "马西岭小学",
+    "nameEn": "Marsiling Primary School",
+    "location": "Woodlands",
+    "schoolType": "政府小学 / Tier 3 社区小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "社区学校",
+      "适合区域择校比较"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "马西岭小学（Marsiling Primary School）位于Woodlands，兀兰区社区小学。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "marymount-convent",
+    "nameZh": "玛丽蒙修道院学校",
+    "nameEn": "Marymount Convent School",
+    "location": "Bishan",
+    "schoolType": "政府小学 / Tier 2 优质小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "区域口碑较好"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "玛丽蒙修道院学校（Marymount Convent School）位于Bishan，碧山区天主教女校，口碑良好。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "mayflower-primary",
+    "nameZh": "美华小学",
+    "nameEn": "Mayflower Primary School",
+    "location": "Ang Mo Kio",
+    "schoolType": "政府小学 / Tier 3 社区小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "社区学校",
+      "适合区域择校比较"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "美华小学（Mayflower Primary School）位于Ang Mo Kio，宏茂桥区社区小学。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "mee-toh",
+    "nameZh": "美桃学校",
+    "nameEn": "Mee Toh School",
+    "location": "Punggol",
+    "schoolType": "政府小学 / Tier 3 社区小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "社区学校",
+      "适合区域择校比较"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "美桃学校（Mee Toh School）位于Punggol，榜鹅区社区小学。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "meridian",
+    "nameZh": "美廉小学",
+    "nameEn": "Meridian Primary School",
+    "location": "Pasir Ris",
+    "schoolType": "政府小学 / Tier 3 社区小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "社区学校",
+      "适合区域择校比较"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "美廉小学（Meridian Primary School）位于Pasir Ris，巴西立区社区小学。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "methodist-girls-school",
+    "nameZh": "美以美女校小学",
+    "nameEn": "Methodist Girls' School (Primary)",
+    "location": "Bukit Timah",
+    "schoolType": "政府小学 / Tier 1 顶尖热门小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "热门小学",
+      "家长关注度高"
+    ],
+    "audience": "关注热门小学、PSLE 和长期政府学校路径的中国家庭",
+    "angle": "美以美女校小学（Methodist Girls' School (Primary)）位于Bukit Timah，武吉知马区顶尖女校小学部，百年名校，学术卓越。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "montfort-junior",
+    "nameZh": "蒙福学校小学部",
+    "nameEn": "Montfort Junior School",
+    "location": "Hougang",
+    "schoolType": "政府小学 / Tier 3 社区小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "社区学校",
+      "适合区域择校比较"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "蒙福学校小学部（Montfort Junior School）位于Hougang，后港区天主教男校。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "nan-chiau",
+    "nameZh": "南侨小学",
+    "nameEn": "Nan Chiau Primary School",
+    "location": "Sengkang",
+    "schoolType": "政府小学 / Tier 2 优质小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "区域口碑较好"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "南侨小学（Nan Chiau Primary School）位于Sengkang，盛港区华文教育传统小学，学术表现不错。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "nan-hua-primary",
+    "nameZh": "南华小学",
+    "nameEn": "Nan Hua Primary School",
+    "location": "Clementi",
+    "schoolType": "政府小学 / Tier 1 顶尖热门小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "SAP",
+      "GEP",
+      "热门小学",
+      "家长关注度高"
+    ],
+    "audience": "关注热门小学、PSLE 和长期政府学校路径的中国家庭",
+    "angle": "南华小学（Nan Hua Primary School）位于Clementi，金文泰区顶尖名校，特选+高才班，华文教育强校。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "naval-base",
+    "nameZh": "海军基地小学",
+    "nameEn": "Naval Base Primary School",
+    "location": "Yishun",
+    "schoolType": "政府小学 / Tier 3 社区小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "社区学校",
+      "适合区域择校比较"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "海军基地小学（Naval Base Primary School）位于Yishun，义顺区社区小学。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "new-town",
+    "nameZh": "新镇小学",
+    "nameEn": "New Town Primary School",
+    "location": "Queenstown",
+    "schoolType": "政府小学 / Tier 3 社区小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "社区学校",
+      "适合区域择校比较"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "新镇小学（New Town Primary School）位于Queenstown，女皇镇区社区小学。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "ngee-ann",
+    "nameZh": "义安小学",
+    "nameEn": "Ngee Ann Primary School",
+    "location": "Clementi",
+    "schoolType": "政府小学 / Tier 3 社区小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "社区学校",
+      "适合区域择校比较"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "义安小学（Ngee Ann Primary School）位于Clementi，金文泰区社区小学。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "north-spring-primary",
+    "nameZh": "北泉小学",
+    "nameEn": "North Spring Primary School",
+    "location": "Yishun",
+    "schoolType": "政府小学 / Tier 3 社区小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "社区学校",
+      "适合区域择校比较"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "北泉小学（North Spring Primary School）位于Yishun，义顺区社区小学。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "north-view",
+    "nameZh": "北景小学",
+    "nameEn": "North View Primary School",
+    "location": "Yishun",
+    "schoolType": "政府小学 / Tier 3 社区小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "社区学校",
+      "适合区域择校比较"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "北景小学（North View Primary School）位于Yishun，义顺区社区小学。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "north-vista",
+    "nameZh": "北景小学",
+    "nameEn": "North Vista Primary School",
+    "location": "Sengkang",
+    "schoolType": "政府小学 / Tier 3 社区小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "社区学校",
+      "适合区域择校比较"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "北景小学（North Vista Primary School）位于Sengkang，盛港区社区小学。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "northland",
+    "nameZh": "北地小学",
+    "nameEn": "Northland Primary School",
+    "location": "Yishun",
+    "schoolType": "政府小学 / Tier 3 社区小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "社区学校",
+      "适合区域择校比较"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "北地小学（Northland Primary School）位于Yishun，义顺区社区小学。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "northoaks",
+    "nameZh": "北橡小学",
+    "nameEn": "Northoaks Primary School",
+    "location": "Woodlands",
+    "schoolType": "政府小学 / Tier 3 社区小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "社区学校",
+      "适合区域择校比较"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "北橡小学（Northoaks Primary School）位于Woodlands，兀兰区较新小学。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "northshore",
+    "nameZh": "北岸小学",
+    "nameEn": "Northshore Primary School",
+    "location": "Punggol",
+    "schoolType": "政府小学 / Tier 3 社区小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "社区学校",
+      "适合区域择校比较"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "北岸小学（Northshore Primary School）位于Punggol，榜鹅区较新小学。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "oasis",
+    "nameZh": "绿洲小学",
+    "nameEn": "Oasis Primary School",
+    "location": "Punggol",
+    "schoolType": "政府小学 / Tier 3 社区小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "社区学校",
+      "适合区域择校比较"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "绿洲小学（Oasis Primary School）位于Punggol，榜鹅区较新小学。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "opera-estate",
+    "nameZh": "歌剧园小学",
+    "nameEn": "Opera Estate Primary School",
+    "location": "Bedok",
+    "schoolType": "政府小学 / Tier 3 社区小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "社区学校",
+      "适合区域择校比较"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "歌剧园小学（Opera Estate Primary School）位于Bedok，勿洛区社区小学。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "palm-view",
+    "nameZh": "棕榈景小学",
+    "nameEn": "Palm View Primary School",
+    "location": "Bukit Panjang",
+    "schoolType": "政府小学 / Tier 3 社区小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "社区学校",
+      "适合区域择校比较"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "棕榈景小学（Palm View Primary School）位于Bukit Panjang，武吉班让区社区小学。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "park-view",
+    "nameZh": "百景小学",
+    "nameEn": "Park View Primary School",
+    "location": "Sengkang",
+    "schoolType": "政府小学 / Tier 3 社区小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "社区学校",
+      "适合区域择校比较"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "百景小学（Park View Primary School）位于Sengkang，盛港区社区小学。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "pasir-ris",
+    "nameZh": "巴西立小学",
+    "nameEn": "Pasir Ris Primary School",
+    "location": "Pasir Ris",
+    "schoolType": "政府小学 / Tier 3 社区小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "社区学校",
+      "适合区域择校比较"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "巴西立小学（Pasir Ris Primary School）位于Pasir Ris，巴西立区社区小学。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "paya-lebar-methodist-girls-school",
+    "nameZh": "巴耶利峇美以美女校小学",
+    "nameEn": "Paya Lebar Methodist Girls' School (Primary)",
+    "location": "Hougang",
+    "schoolType": "政府小学 / Tier 2 优质小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "区域口碑较好"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "巴耶利峇美以美女校小学（Paya Lebar Methodist Girls' School (Primary)）位于Hougang，后港区卫理公会女校。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "pei-chun-public",
+    "nameZh": "培群学校",
+    "nameEn": "Pei Chun Public School",
+    "location": "Toa Payoh",
+    "schoolType": "政府小学 / Tier 2 优质小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "SAP",
+      "区域口碑较好"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "培群学校（Pei Chun Public School）位于Toa Payoh，大巴窑区特选小学，华文教育传统深厚。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "pei-hwa-presbyterian",
+    "nameZh": "培华长老会小学",
+    "nameEn": "Pei Hwa Presbyterian Primary School",
+    "location": "Bukit Panjang",
+    "schoolType": "政府小学 / Tier 2 优质小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "SAP",
+      "区域口碑较好"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "培华长老会小学（Pei Hwa Presbyterian Primary School）位于Bukit Panjang，武吉班让区特选（SAP）基督教小学，华英双语教育，非常热门。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "pei-tong",
+    "nameZh": "培同小学",
+    "nameEn": "Pei Tong Primary School",
+    "location": "Clementi",
+    "schoolType": "政府小学 / Tier 3 社区小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "社区学校",
+      "适合区域择校比较"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "培同小学（Pei Tong Primary School）位于Clementi，金文泰区社区小学。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "peiying",
+    "nameZh": "培英小学",
+    "nameEn": "Peiying Primary School",
+    "location": "Yishun",
+    "schoolType": "政府小学 / Tier 3 社区小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "社区学校",
+      "适合区域择校比较"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "培英小学（Peiying Primary School）位于Yishun，义顺区社区小学。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "pioneer",
+    "nameZh": "先驱小学",
+    "nameEn": "Pioneer Primary School",
+    "location": "Jurong West",
+    "schoolType": "政府小学 / Tier 3 社区小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "社区学校",
+      "适合区域择校比较"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "先驱小学（Pioneer Primary School）位于Jurong West，裕廊西区社区小学。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "poi-ching",
+    "nameZh": "培青学校",
+    "nameEn": "Poi Ching School",
+    "location": "Tampines",
+    "schoolType": "政府小学 / Tier 2 优质小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "SAP",
+      "区域口碑较好"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "培青学校（Poi Ching School）位于Tampines，淡滨尼区特选（SAP）华校，华文教育传统深厚，学术表现不错。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "princess-elizabeth-primary",
+    "nameZh": "伊丽莎白公主小学",
+    "nameEn": "Princess Elizabeth Primary School",
+    "location": "Bukit Batok",
+    "schoolType": "政府小学 / Tier 3 社区小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "社区学校",
+      "适合区域择校比较"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "伊丽莎白公主小学（Princess Elizabeth Primary School）位于Bukit Batok，武吉巴督区社区小学。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "punggol-cove",
+    "nameZh": "榜鹅湾小学",
+    "nameEn": "Punggol Cove Primary School",
+    "location": "Punggol",
+    "schoolType": "政府小学 / Tier 3 社区小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "社区学校",
+      "适合区域择校比较"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "榜鹅湾小学（Punggol Cove Primary School）位于Punggol，榜鹅区较新小学。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "punggol-green",
+    "nameZh": "榜鹅绿苑小学",
+    "nameEn": "Punggol Green Primary School",
+    "location": "Punggol",
+    "schoolType": "政府小学 / Tier 3 社区小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "社区学校",
+      "适合区域择校比较"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "榜鹅绿苑小学（Punggol Green Primary School）位于Punggol，榜鹅区社区小学。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "punggol-primary",
+    "nameZh": "榜鹅小学",
+    "nameEn": "Punggol Primary School",
+    "location": "Punggol",
+    "schoolType": "政府小学 / Tier 3 社区小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "社区学校",
+      "适合区域择校比较"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "榜鹅小学（Punggol Primary School）位于Punggol，榜鹅区社区小学。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "punggol-view",
+    "nameZh": "榜鹅景小学",
+    "nameEn": "Punggol View Primary School",
+    "location": "Punggol",
+    "schoolType": "政府小学 / Tier 3 社区小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "社区学校",
+      "适合区域择校比较"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "榜鹅景小学（Punggol View Primary School）位于Punggol，榜鹅区社区小学。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "qifa",
+    "nameZh": "启发小学",
+    "nameEn": "Qifa Primary School",
+    "location": "Queenstown",
+    "schoolType": "政府小学 / Tier 2 优质小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "区域口碑较好"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "启发小学（Qifa Primary School）位于Queenstown，女皇镇区社区小学，学术口碑不错。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "qihua",
+    "nameZh": "启化小学",
+    "nameEn": "Qihua Primary School",
+    "location": "Woodlands",
+    "schoolType": "政府小学 / Tier 3 社区小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "社区学校",
+      "适合区域择校比较"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "启化小学（Qihua Primary School）位于Woodlands，兀兰区社区小学。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "queenstown",
+    "nameZh": "女皇镇小学",
+    "nameEn": "Queenstown Primary School",
+    "location": "Queenstown",
+    "schoolType": "政府小学 / Tier 3 社区小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "社区学校",
+      "适合区域择校比较"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "女皇镇小学（Queenstown Primary School）位于Queenstown，女皇镇区社区小学。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "radin-mas",
+    "nameZh": "拉丁马士小学",
+    "nameEn": "Radin Mas Primary School",
+    "location": "Queenstown",
+    "schoolType": "政府小学 / Tier 3 社区小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "社区学校",
+      "适合区域择校比较"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "拉丁马士小学（Radin Mas Primary School）位于Queenstown，女皇镇区社区小学。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "red-swastika",
+    "nameZh": "卍慈学校",
+    "nameEn": "Red Swastika School",
+    "location": "Bedok",
+    "schoolType": "政府小学 / Tier 1 顶尖热门小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "SAP",
+      "热门小学",
+      "家长关注度高"
+    ],
+    "audience": "关注热门小学、PSLE 和长期政府学校路径的中国家庭",
+    "angle": "卍慈学校（Red Swastika School）位于Bedok，勿洛区顶尖特选（SAP）小学，道教背景，华文教育与学术竞争力极强。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "river-valley-primary",
+    "nameZh": "立化小学",
+    "nameEn": "River Valley Primary School",
+    "location": "Queenstown",
+    "schoolType": "政府小学 / Tier 2 优质小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "区域口碑较好"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "立化小学（River Valley Primary School）位于Queenstown，女皇镇区小学，学术表现不错。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "riverside",
+    "nameZh": "河畔小学",
+    "nameEn": "Riverside Primary School",
+    "location": "Woodlands",
+    "schoolType": "政府小学 / Tier 3 社区小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "社区学校",
+      "适合区域择校比较"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "河畔小学（Riverside Primary School）位于Woodlands，兀兰区社区小学。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "rivervale",
+    "nameZh": "河谷小学",
+    "nameEn": "Rivervale Primary School",
+    "location": "Sengkang",
+    "schoolType": "政府小学 / Tier 3 社区小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "社区学校",
+      "适合区域择校比较"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "河谷小学（Rivervale Primary School）位于Sengkang，盛港区社区小学。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "rosyth",
+    "nameZh": "乐赛学校",
+    "nameEn": "Rosyth School",
+    "location": "Serangoon",
+    "schoolType": "政府小学 / Tier 1 顶尖热门小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "GEP",
+      "热门小学",
+      "家长关注度高"
+    ],
+    "audience": "关注热门小学、PSLE 和长期政府学校路径的中国家庭",
+    "angle": "乐赛学校（Rosyth School）位于Serangoon，实龙岗区顶尖名校，设有GEP高才班。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "rulang",
+    "nameZh": "如兰小学",
+    "nameEn": "Rulang Primary School",
+    "location": "Jurong West",
+    "schoolType": "政府小学 / Tier 1 顶尖热门小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "GEP",
+      "热门小学",
+      "家长关注度高"
+    ],
+    "audience": "关注热门小学、PSLE 和长期政府学校路径的中国家庭",
+    "angle": "如兰小学（Rulang Primary School）位于Jurong West，裕廊西区顶尖名校，设有GEP高才班，西部最强小学。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "sembawang",
+    "nameZh": "三巴旺小学",
+    "nameEn": "Sembawang Primary School",
+    "location": "Sembawang",
+    "schoolType": "政府小学 / Tier 3 社区小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "社区学校",
+      "适合区域择校比较"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "三巴旺小学（Sembawang Primary School）位于Sembawang，三巴旺区社区小学。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "sengkang-primary",
+    "nameZh": "盛港小学",
+    "nameEn": "Seng Kang Primary School",
+    "location": "Sengkang",
+    "schoolType": "政府小学 / Tier 3 社区小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "社区学校",
+      "适合区域择校比较"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "盛港小学（Seng Kang Primary School）位于Sengkang，盛港区社区小学。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "sengkang-green",
+    "nameZh": "盛港绿苑小学",
+    "nameEn": "Sengkang Green Primary School",
+    "location": "Sengkang",
+    "schoolType": "政府小学 / Tier 3 社区小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "社区学校",
+      "适合区域择校比较"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "盛港绿苑小学（Sengkang Green Primary School）位于Sengkang，盛港区社区小学。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "shuqun",
+    "nameZh": "淑群小学",
+    "nameEn": "Shuqun Primary School",
+    "location": "Jurong West",
+    "schoolType": "政府小学 / Tier 3 社区小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "社区学校",
+      "适合区域择校比较"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "淑群小学（Shuqun Primary School）位于Jurong West，裕廊西区社区小学。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "si-ling",
+    "nameZh": "思励小学",
+    "nameEn": "Si Ling Primary School",
+    "location": "Woodlands",
+    "schoolType": "政府小学 / Tier 3 社区小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "社区学校",
+      "适合区域择校比较"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "思励小学（Si Ling Primary School）位于Woodlands，兀兰区社区小学。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "singapore-chinese-girls-school",
+    "nameZh": "新加坡华族女校小学",
+    "nameEn": "Singapore Chinese Girls' School (Primary)",
+    "location": "Novena",
+    "schoolType": "政府小学 / Tier 1 顶尖热门小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "热门小学",
+      "家长关注度高"
+    ],
+    "audience": "关注热门小学、PSLE 和长期政府学校路径的中国家庭",
+    "angle": "新加坡华族女校小学（Singapore Chinese Girls' School (Primary)）位于Novena，顶尖女校小学部，诺维娜区百年名校，学术卓越。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "south-view-primary",
+    "nameZh": "南景小学",
+    "nameEn": "South View Primary School",
+    "location": "Jurong West",
+    "schoolType": "政府小学 / Tier 3 社区小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "社区学校",
+      "适合区域择校比较"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "南景小学（South View Primary School）位于Jurong West，裕廊西区社区小学。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "springdale",
+    "nameZh": "春田小学",
+    "nameEn": "Springdale Primary School",
+    "location": "Bukit Panjang",
+    "schoolType": "政府小学 / Tier 3 社区小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "社区学校",
+      "适合区域择校比较"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "春田小学（Springdale Primary School）位于Bukit Panjang，武吉班让区社区小学。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "st-andrew-s-junior",
+    "nameZh": "圣安德烈小学",
+    "nameEn": "St. Andrew's Junior School",
+    "location": "Toa Payoh",
+    "schoolType": "政府小学 / Tier 2 优质小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "区域口碑较好"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "圣安德烈小学（St. Andrew's Junior School）位于Toa Payoh，大巴窑区基督教小学，学术口碑良好。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "st-anthony-s-canossian",
+    "nameZh": "圣安东尼天主教小学",
+    "nameEn": "St. Anthony's Canossian Primary School",
+    "location": "Bedok",
+    "schoolType": "政府小学 / Tier 2 优质小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "区域口碑较好"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "圣安东尼天主教小学（St. Anthony's Canossian Primary School）位于Bedok，勿洛区天主教女校小学。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "st-anthony-s",
+    "nameZh": "圣安东尼小学",
+    "nameEn": "St. Anthony's Primary School",
+    "location": "Woodlands",
+    "schoolType": "政府小学 / Tier 3 社区小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "社区学校",
+      "适合区域择校比较"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "圣安东尼小学（St. Anthony's Primary School）位于Woodlands，兀兰区天主教小学。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "st-gabriel-s",
+    "nameZh": "圣嘉百利小学",
+    "nameEn": "St. Gabriel's Primary School",
+    "location": "Serangoon",
+    "schoolType": "政府小学 / Tier 3 社区小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "社区学校",
+      "适合区域择校比较"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "圣嘉百利小学（St. Gabriel's Primary School）位于Serangoon，实龙岗区天主教男校。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "st-hildas-primary",
+    "nameZh": "圣希尔达小学",
+    "nameEn": "St. Hilda's Primary School",
+    "location": "Tampines",
+    "schoolType": "政府小学 / Tier 1 顶尖热门小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "GEP",
+      "热门小学",
+      "家长关注度高"
+    ],
+    "audience": "关注热门小学、PSLE 和长期政府学校路径的中国家庭",
+    "angle": "圣希尔达小学（St. Hilda's Primary School）位于Tampines，淡滨尼区名校，设有GEP高才班，东部学术强校。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "st-joseph-s-institution-junior",
+    "nameZh": "圣约瑟书院小学",
+    "nameEn": "St. Joseph's Institution Junior",
+    "location": "Novena",
+    "schoolType": "政府小学 / Tier 2 优质小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "区域口碑较好"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "圣约瑟书院小学（St. Joseph's Institution Junior）位于Novena，诺维娜区天主教名校小学部。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "st-margarets-primary",
+    "nameZh": "圣玛格烈小学",
+    "nameEn": "St. Margaret's Primary School",
+    "location": "Queenstown",
+    "schoolType": "政府小学 / Tier 2 优质小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "区域口碑较好"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "圣玛格烈小学（St. Margaret's Primary School）位于Queenstown，女皇镇区历史悠久的女校。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "st-stephen-s",
+    "nameZh": "圣斯特芬学校",
+    "nameEn": "St. Stephen's School",
+    "location": "Bedok",
+    "schoolType": "政府小学 / Tier 3 社区小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "社区学校",
+      "适合区域择校比较"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "圣斯特芬学校（St. Stephen's School）位于Bedok，勿洛区基督教小学。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "tampines-north",
+    "nameZh": "淡滨尼北小学",
+    "nameEn": "Tampines North Primary School",
+    "location": "Tampines",
+    "schoolType": "政府小学 / Tier 3 社区小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "社区学校",
+      "适合区域择校比较"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "淡滨尼北小学（Tampines North Primary School）位于Tampines，淡滨尼区社区小学。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "tampines",
+    "nameZh": "淡滨尼小学",
+    "nameEn": "Tampines Primary School",
+    "location": "Tampines",
+    "schoolType": "政府小学 / Tier 3 社区小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "社区学校",
+      "适合区域择校比较"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "淡滨尼小学（Tampines Primary School）位于Tampines，淡滨尼区社区小学。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "tanjong-katong-primary",
+    "nameZh": "丹绒加东小学",
+    "nameEn": "Tanjong Katong Primary School",
+    "location": "Marine Parade",
+    "schoolType": "政府小学 / Tier 2 优质小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "区域口碑较好"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "丹绒加东小学（Tanjong Katong Primary School）位于Marine Parade，东海岸区学术表现不错的小学。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "teck-ghee",
+    "nameZh": "德义小学",
+    "nameEn": "Teck Ghee Primary School",
+    "location": "Ang Mo Kio",
+    "schoolType": "政府小学 / Tier 2 优质小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "区域口碑较好"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "德义小学（Teck Ghee Primary School）位于Ang Mo Kio，宏茂桥区社区小学，口碑不错。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "teck-whye",
+    "nameZh": "德惠小学",
+    "nameEn": "Teck Whye Primary School",
+    "location": "Choa Chu Kang",
+    "schoolType": "政府小学 / Tier 3 社区小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "社区学校",
+      "适合区域择校比较"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "德惠小学（Teck Whye Primary School）位于Choa Chu Kang，蔡厝港区社区小学。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "telok-kurau",
+    "nameZh": "直落古楼小学",
+    "nameEn": "Telok Kurau Primary School",
+    "location": "Bedok",
+    "schoolType": "政府小学 / Tier 3 社区小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "社区学校",
+      "适合区域择校比较"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "直落古楼小学（Telok Kurau Primary School）位于Bedok，勿洛区社区小学。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "temasek-primary",
+    "nameZh": "淡马锡小学",
+    "nameEn": "Temasek Primary School",
+    "location": "Bedok",
+    "schoolType": "政府小学 / Tier 2 优质小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "区域口碑较好"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "淡马锡小学（Temasek Primary School）位于Bedok，勿洛区口碑不错的小学。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "unity",
+    "nameZh": "友诺小学",
+    "nameEn": "Unity Primary School",
+    "location": "Choa Chu Kang",
+    "schoolType": "政府小学 / Tier 3 社区小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "社区学校",
+      "适合区域择校比较"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "友诺小学（Unity Primary School）位于Choa Chu Kang，蔡厝港区社区小学。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "valour",
+    "nameZh": "勇毅小学",
+    "nameEn": "Valour Primary School",
+    "location": "Punggol",
+    "schoolType": "政府小学 / Tier 3 社区小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "社区学校",
+      "适合区域择校比较"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "勇毅小学（Valour Primary School）位于Punggol，榜鹅区较新小学。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "waterway",
+    "nameZh": "水道小学",
+    "nameEn": "Waterway Primary School",
+    "location": "Punggol",
+    "schoolType": "政府小学 / Tier 3 社区小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "社区学校",
+      "适合区域择校比较"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "水道小学（Waterway Primary School）位于Punggol，榜鹅区较新小学。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "wellington",
+    "nameZh": "威灵顿小学",
+    "nameEn": "Wellington Primary School",
+    "location": "Pasir Ris",
+    "schoolType": "政府小学 / Tier 3 社区小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "社区学校",
+      "适合区域择校比较"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "威灵顿小学（Wellington Primary School）位于Pasir Ris，巴西立区社区小学。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "west-grove",
+    "nameZh": "西丛小学",
+    "nameEn": "West Grove Primary School",
+    "location": "Jurong West",
+    "schoolType": "政府小学 / Tier 3 社区小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "社区学校",
+      "适合区域择校比较"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "西丛小学（West Grove Primary School）位于Jurong West，裕廊西区社区小学。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "west-spring-primary",
+    "nameZh": "西泉小学",
+    "nameEn": "West Spring Primary School",
+    "location": "Bukit Panjang",
+    "schoolType": "政府小学 / Tier 3 社区小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "社区学校",
+      "适合区域择校比较"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "西泉小学（West Spring Primary School）位于Bukit Panjang，武吉班让区社区小学。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "west-view",
+    "nameZh": "西景小学",
+    "nameEn": "West View Primary School",
+    "location": "Bukit Batok",
+    "schoolType": "政府小学 / Tier 3 社区小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "社区学校",
+      "适合区域择校比较"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "西景小学（West View Primary School）位于Bukit Batok，武吉巴督区社区小学。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "westwood",
+    "nameZh": "西林小学",
+    "nameEn": "Westwood Primary School",
+    "location": "Jurong West",
+    "schoolType": "政府小学 / Tier 3 社区小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "社区学校",
+      "适合区域择校比较"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "西林小学（Westwood Primary School）位于Jurong West，裕廊西区社区小学。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "white-sands",
+    "nameZh": "白沙小学",
+    "nameEn": "White Sands Primary School",
+    "location": "Pasir Ris",
+    "schoolType": "政府小学 / Tier 3 社区小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "社区学校",
+      "适合区域择校比较"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "白沙小学（White Sands Primary School）位于Pasir Ris，巴西立区社区小学。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "woodgrove",
+    "nameZh": "林景小学",
+    "nameEn": "Woodgrove Primary School",
+    "location": "Woodlands",
+    "schoolType": "政府小学 / Tier 3 社区小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "社区学校",
+      "适合区域择校比较"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "林景小学（Woodgrove Primary School）位于Woodlands，兀兰区社区小学。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "woodlands-primary",
+    "nameZh": "兀兰小学",
+    "nameEn": "Woodlands Primary School",
+    "location": "Woodlands",
+    "schoolType": "政府小学 / Tier 3 社区小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "社区学校",
+      "适合区域择校比较"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "兀兰小学（Woodlands Primary School）位于Woodlands，兀兰区社区小学。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "woodlands-ring",
+    "nameZh": "兀兰环小学",
+    "nameEn": "Woodlands Ring Primary School",
+    "location": "Woodlands",
+    "schoolType": "政府小学 / Tier 3 社区小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "社区学校",
+      "适合区域择校比较"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "兀兰环小学（Woodlands Ring Primary School）位于Woodlands，兀兰区社区小学。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "xinghua-primary",
+    "nameZh": "兴化小学",
+    "nameEn": "Xinghua Primary School",
+    "location": "Punggol",
+    "schoolType": "政府小学 / Tier 3 社区小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "社区学校",
+      "适合区域择校比较"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "兴化小学（Xinghua Primary School）位于Punggol，榜鹅区社区小学。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "xingnan",
+    "nameZh": "兴南小学",
+    "nameEn": "Xingnan Primary School",
+    "location": "Jurong West",
+    "schoolType": "政府小学 / Tier 3 社区小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "社区学校",
+      "适合区域择校比较"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "兴南小学（Xingnan Primary School）位于Jurong West，裕廊西区社区小学。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "xinmin-primary",
+    "nameZh": "新民小学",
+    "nameEn": "Xinmin Primary School",
+    "location": "Hougang",
+    "schoolType": "政府小学 / Tier 3 社区小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "社区学校",
+      "适合区域择校比较"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "新民小学（Xinmin Primary School）位于Hougang，后港区社区小学。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "xishan",
+    "nameZh": "西山小学",
+    "nameEn": "Xishan Primary School",
+    "location": "Choa Chu Kang",
+    "schoolType": "政府小学 / Tier 3 社区小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "社区学校",
+      "适合区域择校比较"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "西山小学（Xishan Primary School）位于Choa Chu Kang，蔡厝港区社区小学。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "yangzheng",
+    "nameZh": "养正小学",
+    "nameEn": "Yangzheng Primary School",
+    "location": "Ang Mo Kio",
+    "schoolType": "政府小学 / Tier 2 优质小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "区域口碑较好"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "养正小学（Yangzheng Primary School）位于Ang Mo Kio，宏茂桥区传统华校，学术口碑不错。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "yew-tee",
+    "nameZh": "油池小学",
+    "nameEn": "Yew Tee Primary School",
+    "location": "Choa Chu Kang",
+    "schoolType": "政府小学 / Tier 3 社区小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "社区学校",
+      "适合区域择校比较"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "油池小学（Yew Tee Primary School）位于Choa Chu Kang，蔡厝港区社区小学。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "yio-chu-kang",
+    "nameZh": "杨厝港小学",
+    "nameEn": "Yio Chu Kang Primary School",
+    "location": "Ang Mo Kio",
+    "schoolType": "政府小学 / Tier 3 社区小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "社区学校",
+      "适合区域择校比较"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "杨厝港小学（Yio Chu Kang Primary School）位于Ang Mo Kio，宏茂桥区社区小学。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "yishun",
+    "nameZh": "义顺小学",
+    "nameEn": "Yishun Primary School",
+    "location": "Yishun",
+    "schoolType": "政府小学 / Tier 3 社区小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "社区学校",
+      "适合区域择校比较"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "义顺小学（Yishun Primary School）位于Yishun，义顺区社区小学。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "yu-neng",
+    "nameZh": "育能小学",
+    "nameEn": "Yu Neng Primary School",
+    "location": "Jurong West",
+    "schoolType": "政府小学 / Tier 3 社区小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "社区学校",
+      "适合区域择校比较"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "育能小学（Yu Neng Primary School）位于Jurong West，裕廊西区社区小学。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "yuhua",
+    "nameZh": "裕华小学",
+    "nameEn": "Yuhua Primary School",
+    "location": "Jurong East",
+    "schoolType": "政府小学 / Tier 3 社区小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "社区学校",
+      "适合区域择校比较"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "裕华小学（Yuhua Primary School）位于Jurong East，裕廊东区社区小学。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "yumin-primary",
+    "nameZh": "裕民小学",
+    "nameEn": "Yumin Primary School",
+    "location": "Ang Mo Kio",
+    "schoolType": "政府小学 / Tier 3 社区小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "社区学校",
+      "适合区域择校比较"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "裕民小学（Yumin Primary School）位于Ang Mo Kio，宏茂桥区社区小学。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "zhangde-primary",
+    "nameZh": "彰德小学",
+    "nameEn": "Zhangde Primary School",
+    "location": "Ang Mo Kio",
+    "schoolType": "政府小学 / Tier 3 社区小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "社区学校",
+      "适合区域择校比较"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "彰德小学（Zhangde Primary School）位于Ang Mo Kio，宏茂桥区社区小学。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "zhenghua",
+    "nameZh": "正华小学",
+    "nameEn": "Zhenghua Primary School",
+    "location": "Bukit Panjang",
+    "schoolType": "政府小学 / Tier 3 社区小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "社区学校",
+      "适合区域择校比较"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "正华小学（Zhenghua Primary School）位于Bukit Panjang，武吉班让区社区小学。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "zhonghua",
+    "nameZh": "中华小学",
+    "nameEn": "Zhonghua Primary School",
+    "location": "Serangoon",
+    "schoolType": "政府小学 / Tier 2 优质小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "区域口碑较好"
+    ],
+    "audience": "希望进入新加坡政府小学体系、重视英文适应和区域择校的中国家庭",
+    "angle": "中华小学（Zhonghua Primary School）位于Serangoon，实龙岗区传统华校。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "primary",
+    "categoryLabel": "政府小学",
+    "basePath": "primary-schools",
+    "slug": "catholic-high-primary",
+    "nameZh": "公教小学",
+    "nameEn": "Catholic High School (Primary)",
+    "location": "Bishan",
+    "schoolType": "政府小学 / Tier 1 顶尖热门小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "features": [
+      "SAP",
+      "GEP",
+      "热门小学",
+      "家长关注度高"
+    ],
+    "audience": "关注热门小学、PSLE 和长期政府学校路径的中国家庭",
+    "angle": "公教小学（Catholic High School (Primary)）位于Bishan，碧山区顶尖男校小学部，特选+高才班，全国排名前五。 家长选择这类小学时，重点不是只看名气，而是看孩子英文适应、通勤区域、PSLE 准备和后续中学路径。"
+  },
+  {
+    "type": "secondary",
+    "categoryLabel": "政府中学",
+    "basePath": "secondary-schools",
+    "slug": "admiralty",
+    "nameZh": "海军部中学",
+    "nameEn": "Admiralty Secondary School",
+    "location": "Woodlands",
+    "schoolType": "政府中学 / Government / 参考 COP 22",
+    "curriculum": "O-Level / SEC 中学课程",
+    "features": [
+      "Government",
+      "社区中学",
+      "适合稳妥择校比较"
+    ],
+    "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
+    "angle": "海军部中学（Admiralty Secondary School）位于Woodlands，位于兀兰北部，注重全面发展，设有优秀的课外活动项目。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
+  },
+  {
+    "type": "secondary",
+    "categoryLabel": "政府中学",
+    "basePath": "secondary-schools",
+    "slug": "ahmad-ibrahim",
+    "nameZh": "阿末依布拉欣中学",
+    "nameEn": "Ahmad Ibrahim Secondary School",
+    "location": "Yishun",
+    "schoolType": "政府中学 / Government / 参考 COP 18",
+    "curriculum": "O-Level / SEC 中学课程",
+    "features": [
+      "Government"
+    ],
+    "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
+    "angle": "阿末依布拉欣中学（Ahmad Ibrahim Secondary School）位于Yishun，以培养领导力见长，是义顺区历史悠久的中学之一。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
+  },
+  {
+    "type": "secondary",
+    "categoryLabel": "政府中学",
+    "basePath": "secondary-schools",
+    "slug": "anderson",
+    "nameZh": "安德逊中学",
+    "nameEn": "Anderson Secondary School",
+    "location": "Ang Mo Kio",
+    "schoolType": "政府中学 / Autonomous / 参考 COP 11",
+    "curriculum": "O-Level / SEC 中学课程",
+    "features": [
+      "Autonomous"
+    ],
+    "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
+    "angle": "安德逊中学（Anderson Secondary School）位于Ang Mo Kio，学术表现优异的自主学校，宏茂桥区名校，理科与数学实力突出。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
+  },
+  {
+    "type": "secondary",
+    "categoryLabel": "政府中学",
+    "basePath": "secondary-schools",
+    "slug": "ang-mo-kio",
+    "nameZh": "宏茂桥中学",
+    "nameEn": "Ang Mo Kio Secondary School",
+    "location": "Ang Mo Kio",
+    "schoolType": "政府中学 / Government / 参考 COP 16",
+    "curriculum": "O-Level / SEC 中学课程",
+    "features": [
+      "Government"
+    ],
+    "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
+    "angle": "宏茂桥中学（Ang Mo Kio Secondary School）位于Ang Mo Kio，社区型中学，提供全面的课程与丰富课外活动。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
+  },
+  {
+    "type": "secondary",
+    "categoryLabel": "政府中学",
+    "basePath": "secondary-schools",
+    "slug": "anglican-high-school",
+    "nameZh": "圣公会中学",
+    "nameEn": "Anglican High School",
+    "location": "Bedok",
+    "schoolType": "政府中学 / Autonomous / 参考 COP 12",
+    "curriculum": "O-Level / SEC 中学课程",
+    "features": [
+      "SAP",
+      "Autonomous"
+    ],
+    "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
+    "angle": "圣公会中学（Anglican High School）位于Bedok，特选中学（SAP），注重华文与中华文化教育，学术竞争力强。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
+  },
+  {
+    "type": "secondary",
+    "categoryLabel": "政府中学",
+    "basePath": "secondary-schools",
+    "slug": "acs-barker-road",
+    "nameZh": "英华学校（巴克路）",
+    "nameEn": "Anglo-Chinese School (Barker Road)",
+    "location": "Novena",
+    "schoolType": "政府中学 / Autonomous / 参考 COP 9",
+    "curriculum": "O-Level / SEC 中学课程",
+    "features": [
+      "Autonomous",
+      "热门中学",
+      "学术竞争强"
+    ],
+    "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
+    "angle": "英华学校（巴克路）（Anglo-Chinese School (Barker Road)）位于Novena，英华大家庭成员，历史悠久的名校，注重品格与学术并重。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
+  },
+  {
+    "type": "secondary",
+    "categoryLabel": "政府中学",
+    "basePath": "secondary-schools",
+    "slug": "assumption-english",
+    "nameZh": "阿桑普申英校",
+    "nameEn": "Assumption English School",
+    "location": "Bukit Panjang",
+    "schoolType": "政府中学 / Government / 参考 COP 22",
+    "curriculum": "O-Level / SEC 中学课程",
+    "features": [
+      "Government",
+      "社区中学",
+      "适合稳妥择校比较"
+    ],
+    "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
+    "angle": "阿桑普申英校（Assumption English School）位于Bukit Panjang，天主教背景学校，强调品德教育与社区服务。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
+  },
+  {
+    "type": "secondary",
+    "categoryLabel": "政府中学",
+    "basePath": "secondary-schools",
+    "slug": "assumption-pathway",
+    "nameZh": "阿桑普申道路学校",
+    "nameEn": "Assumption Pathway School",
+    "location": "Bukit Panjang",
+    "schoolType": "政府中学 / Specialised / 特殊或专门路径",
+    "curriculum": "O-Level / SEC 中学课程",
+    "features": [
+      "Specialised"
+    ],
+    "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
+    "angle": "阿桑普申道路学校（Assumption Pathway School）位于Bukit Panjang，为普通工艺源流学生提供职业导向教育的专科学校。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
+  },
+  {
+    "type": "secondary",
+    "categoryLabel": "政府中学",
+    "basePath": "secondary-schools",
+    "slug": "bartley",
+    "nameZh": "巴特利中学",
+    "nameEn": "Bartley Secondary School",
+    "location": "Toa Payoh",
+    "schoolType": "政府中学 / Government / 参考 COP 21",
+    "curriculum": "O-Level / SEC 中学课程",
+    "features": [
+      "Government",
+      "社区中学",
+      "适合稳妥择校比较"
+    ],
+    "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
+    "angle": "巴特利中学（Bartley Secondary School）位于Toa Payoh，大巴窑区社区中学，注重学生全人发展。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
+  },
+  {
+    "type": "secondary",
+    "categoryLabel": "政府中学",
+    "basePath": "secondary-schools",
+    "slug": "beatty",
+    "nameZh": "碧蒂中学",
+    "nameEn": "Beatty Secondary School",
+    "location": "Toa Payoh",
+    "schoolType": "政府中学 / Government / 参考 COP 18",
+    "curriculum": "O-Level / SEC 中学课程",
+    "features": [
+      "Government"
+    ],
+    "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
+    "angle": "碧蒂中学（Beatty Secondary School）位于Toa Payoh，大巴窑中心地段，交通便利，注重应用型学习。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
+  },
+  {
+    "type": "secondary",
+    "categoryLabel": "政府中学",
+    "basePath": "secondary-schools",
+    "slug": "bedok-green",
+    "nameZh": "勿洛绿苑中学",
+    "nameEn": "Bedok Green Secondary School",
+    "location": "Bedok",
+    "schoolType": "政府中学 / Government / 参考 COP 20",
+    "curriculum": "O-Level / SEC 中学课程",
+    "features": [
+      "Government",
+      "社区中学",
+      "适合稳妥择校比较"
+    ],
+    "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
+    "angle": "勿洛绿苑中学（Bedok Green Secondary School）位于Bedok，勿洛区新兴中学，注重科技与创新教育。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
+  },
+  {
+    "type": "secondary",
+    "categoryLabel": "政府中学",
+    "basePath": "secondary-schools",
+    "slug": "bedok-south",
+    "nameZh": "勿洛南中学",
+    "nameEn": "Bedok South Secondary School",
+    "location": "Bedok",
+    "schoolType": "政府中学 / Government / 参考 COP 18",
+    "curriculum": "O-Level / SEC 中学课程",
+    "features": [
+      "Government"
+    ],
+    "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
+    "angle": "勿洛南中学（Bedok South Secondary School）位于Bedok，注重体育与品格教育，勿洛南部社区学校。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
+  },
+  {
+    "type": "secondary",
+    "categoryLabel": "政府中学",
+    "basePath": "secondary-schools",
+    "slug": "bedok-view",
+    "nameZh": "勿洛景中学",
+    "nameEn": "Bedok View Secondary School",
+    "location": "Bedok",
+    "schoolType": "政府中学 / Government / 参考 COP 16",
+    "curriculum": "O-Level / SEC 中学课程",
+    "features": [
+      "Government"
+    ],
+    "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
+    "angle": "勿洛景中学（Bedok View Secondary School）位于Bedok，提供丰富的应用学习项目，注重学生技能培养。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
+  },
+  {
+    "type": "secondary",
+    "categoryLabel": "政府中学",
+    "basePath": "secondary-schools",
+    "slug": "bendemeer",
+    "nameZh": "明地迷亚中学",
+    "nameEn": "Bendemeer Secondary School",
+    "location": "Kallang",
+    "schoolType": "政府中学 / Government / 参考 COP 22",
+    "curriculum": "O-Level / SEC 中学课程",
+    "features": [
+      "Government",
+      "社区中学",
+      "适合稳妥择校比较"
+    ],
+    "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
+    "angle": "明地迷亚中学（Bendemeer Secondary School）位于Kallang，加冷区社区中学，注重多元文化教育。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
+  },
+  {
+    "type": "secondary",
+    "categoryLabel": "政府中学",
+    "basePath": "secondary-schools",
+    "slug": "boon-lay",
+    "nameZh": "文礼中学",
+    "nameEn": "Boon Lay Secondary School",
+    "location": "Jurong West",
+    "schoolType": "政府中学 / Government / 参考 COP 22",
+    "curriculum": "O-Level / SEC 中学课程",
+    "features": [
+      "Government",
+      "社区中学",
+      "适合稳妥择校比较"
+    ],
+    "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
+    "angle": "文礼中学（Boon Lay Secondary School）位于Jurong West，裕廊西社区学校，提供多样化的课外活动。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
+  },
+  {
+    "type": "secondary",
+    "categoryLabel": "政府中学",
+    "basePath": "secondary-schools",
+    "slug": "bowen",
+    "nameZh": "博文中学",
+    "nameEn": "Bowen Secondary School",
+    "location": "Hougang",
+    "schoolType": "政府中学 / Government / 参考 COP 16",
+    "curriculum": "O-Level / SEC 中学课程",
+    "features": [
+      "Government"
+    ],
+    "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
+    "angle": "博文中学（Bowen Secondary School）位于Hougang，后港区中学，注重科技教育与创新。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
+  },
+  {
+    "type": "secondary",
+    "categoryLabel": "政府中学",
+    "basePath": "secondary-schools",
+    "slug": "broadrick",
+    "nameZh": "博雅中学",
+    "nameEn": "Broadrick Secondary School",
+    "location": "Geylang",
+    "schoolType": "政府中学 / Government / 参考 COP 22",
+    "curriculum": "O-Level / SEC 中学课程",
+    "features": [
+      "Government",
+      "社区中学",
+      "适合稳妥择校比较"
+    ],
+    "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
+    "angle": "博雅中学（Broadrick Secondary School）位于Geylang，芽笼区学校，注重体育与全人教育。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
+  },
+  {
+    "type": "secondary",
+    "categoryLabel": "政府中学",
+    "basePath": "secondary-schools",
+    "slug": "bukit-batok",
+    "nameZh": "武吉巴督中学",
+    "nameEn": "Bukit Batok Secondary School",
+    "location": "Bukit Batok",
+    "schoolType": "政府中学 / Government / 参考 COP 15",
+    "curriculum": "O-Level / SEC 中学课程",
+    "features": [
+      "Government"
+    ],
+    "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
+    "angle": "武吉巴督中学（Bukit Batok Secondary School）位于Bukit Batok，武吉巴督区口碑良好的中学，学术与课外活动均衡。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
+  },
+  {
+    "type": "secondary",
+    "categoryLabel": "政府中学",
+    "basePath": "secondary-schools",
+    "slug": "bukit-merah",
+    "nameZh": "红山中学",
+    "nameEn": "Bukit Merah Secondary School",
+    "location": "Bukit Merah",
+    "schoolType": "政府中学 / Government / 参考 COP 22",
+    "curriculum": "O-Level / SEC 中学课程",
+    "features": [
+      "Government",
+      "社区中学",
+      "适合稳妥择校比较"
+    ],
+    "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
+    "angle": "红山中学（Bukit Merah Secondary School）位于Bukit Merah，红山区社区学校，靠近市中心，交通便利。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
+  },
+  {
+    "type": "secondary",
+    "categoryLabel": "政府中学",
+    "basePath": "secondary-schools",
+    "slug": "bukit-panjang-govt-high",
+    "nameZh": "武吉班让政府中学",
+    "nameEn": "Bukit Panjang Government High School",
+    "location": "Bukit Panjang",
+    "schoolType": "政府中学 / Autonomous / 参考 COP 11",
+    "curriculum": "O-Level / SEC 中学课程",
+    "features": [
+      "Autonomous"
+    ],
+    "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
+    "angle": "武吉班让政府中学（Bukit Panjang Government High School）位于Bukit Panjang，自主中学，武吉班让区顶尖学校，学术表现出色。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
+  },
+  {
+    "type": "secondary",
+    "categoryLabel": "政府中学",
+    "basePath": "secondary-schools",
+    "slug": "bukit-view",
+    "nameZh": "武吉景中学",
+    "nameEn": "Bukit View Secondary School",
+    "location": "Bukit Batok",
+    "schoolType": "政府中学 / Government / 参考 COP 20",
+    "curriculum": "O-Level / SEC 中学课程",
+    "features": [
+      "Government",
+      "社区中学",
+      "适合稳妥择校比较"
+    ],
+    "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
+    "angle": "武吉景中学（Bukit View Secondary School）位于Bukit Batok，武吉巴督区社区中学，注重品格教育。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
+  },
+  {
+    "type": "secondary",
+    "categoryLabel": "政府中学",
+    "basePath": "secondary-schools",
+    "slug": "canberra",
+    "nameZh": "坎培拉中学",
+    "nameEn": "Canberra Secondary School",
+    "location": "Sembawang",
+    "schoolType": "政府中学 / Government / 参考 COP 22",
+    "curriculum": "O-Level / SEC 中学课程",
+    "features": [
+      "Government",
+      "社区中学",
+      "适合稳妥择校比较"
+    ],
+    "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
+    "angle": "坎培拉中学（Canberra Secondary School）位于Sembawang，三巴旺区较新中学，设施现代化。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
+  },
+  {
+    "type": "secondary",
+    "categoryLabel": "政府中学",
+    "basePath": "secondary-schools",
+    "slug": "catholic-high",
+    "nameZh": "公教中学",
+    "nameEn": "Catholic High School",
+    "location": "Bishan",
+    "schoolType": "政府中学 / Autonomous / 参考 COP 7",
+    "curriculum": "Integrated Programme / A-Level 路径",
+    "features": [
+      "IP",
+      "SAP",
+      "Autonomous",
+      "热门中学",
+      "学术竞争强"
+    ],
+    "audience": "目标 IP、JC 和公立大学路径的学生家庭",
+    "angle": "公教中学（Catholic High School）位于Bishan，新加坡顶尖男校之一，特选中学，提供直通车课程，碧山区名校。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
+  },
+  {
+    "type": "secondary",
+    "categoryLabel": "政府中学",
+    "basePath": "secondary-schools",
+    "slug": "cedar-girls",
+    "nameZh": "四德女子中学",
+    "nameEn": "Cedar Girls' Secondary School",
+    "location": "Toa Payoh",
+    "schoolType": "政府中学 / Autonomous / 参考 COP 9",
+    "curriculum": "Integrated Programme / A-Level 路径",
+    "features": [
+      "IP",
+      "Autonomous",
+      "热门中学",
+      "学术竞争强"
+    ],
+    "audience": "目标 IP、JC 和公立大学路径的学生家庭",
+    "angle": "四德女子中学（Cedar Girls' Secondary School）位于Toa Payoh，顶尖女校，提供直通车课程，学术实力雄厚。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
+  },
+  {
+    "type": "secondary",
+    "categoryLabel": "政府中学",
+    "basePath": "secondary-schools",
+    "slug": "changkat-changi",
+    "nameZh": "樟迪中学",
+    "nameEn": "Changkat Changi Secondary School",
+    "location": "Tampines",
+    "schoolType": "政府中学 / Government / 参考 COP 22",
+    "curriculum": "O-Level / SEC 中学课程",
+    "features": [
+      "Government",
+      "社区中学",
+      "适合稳妥择校比较"
+    ],
+    "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
+    "angle": "樟迪中学（Changkat Changi Secondary School）位于Tampines，淡滨尼区社区学校。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
+  },
+  {
+    "type": "secondary",
+    "categoryLabel": "政府中学",
+    "basePath": "secondary-schools",
+    "slug": "chij-katong-convent",
+    "nameZh": "圣婴女校（加东）",
+    "nameEn": "CHIJ Katong Convent",
+    "location": "Marine Parade",
+    "schoolType": "政府中学 / Government-Aided / 参考 COP 14",
+    "curriculum": "O-Level / SEC 中学课程",
+    "features": [
+      "Government-Aided"
+    ],
+    "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
+    "angle": "圣婴女校（加东）（CHIJ Katong Convent）位于Marine Parade，天主教女校，东海岸地区历史悠久的名校。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
+  },
+  {
+    "type": "secondary",
+    "categoryLabel": "政府中学",
+    "basePath": "secondary-schools",
+    "slug": "chij-toa-payoh",
+    "nameZh": "圣婴女校（大巴窑）",
+    "nameEn": "CHIJ Secondary (Toa Payoh)",
+    "location": "Toa Payoh",
+    "schoolType": "政府中学 / Government-Aided / 参考 COP 10",
+    "curriculum": "O-Level / SEC 中学课程",
+    "features": [
+      "Government-Aided",
+      "热门中学",
+      "学术竞争强"
+    ],
+    "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
+    "angle": "圣婴女校（大巴窑）（CHIJ Secondary (Toa Payoh)）位于Toa Payoh，大巴窑区优秀女校，学术竞争力强。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
+  },
+  {
+    "type": "secondary",
+    "categoryLabel": "政府中学",
+    "basePath": "secondary-schools",
+    "slug": "chij-st-josephs-convent",
+    "nameZh": "圣婴女校（圣约瑟）",
+    "nameEn": "CHIJ St. Joseph's Convent",
+    "location": "Sengkang",
+    "schoolType": "政府中学 / Government-Aided / 参考 COP 14",
+    "curriculum": "O-Level / SEC 中学课程",
+    "features": [
+      "Government-Aided"
+    ],
+    "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
+    "angle": "圣婴女校（圣约瑟）（CHIJ St. Joseph's Convent）位于Sengkang，盛港区天主教女校，注重品德与学术发展。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
+  },
+  {
+    "type": "secondary",
+    "categoryLabel": "政府中学",
+    "basePath": "secondary-schools",
+    "slug": "chij-st-nicholas",
+    "nameZh": "圣尼各拉女校",
+    "nameEn": "CHIJ St. Nicholas Girls' School",
+    "location": "Ang Mo Kio",
+    "schoolType": "政府中学 / Autonomous / 参考 COP 7",
+    "curriculum": "Integrated Programme / A-Level 路径",
+    "features": [
+      "IP",
+      "SAP",
+      "Autonomous",
+      "热门中学",
+      "学术竞争强"
+    ],
+    "audience": "目标 IP、JC 和公立大学路径的学生家庭",
+    "angle": "圣尼各拉女校（CHIJ St. Nicholas Girls' School）位于Ang Mo Kio，新加坡顶尖女校之一，特选中学，提供直通车课程，华文教育出色。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
+  },
+  {
+    "type": "secondary",
+    "categoryLabel": "政府中学",
+    "basePath": "secondary-schools",
+    "slug": "chij-st-theresas-convent",
+    "nameZh": "圣婴女校（圣德肋撒）",
+    "nameEn": "CHIJ St. Theresa's Convent",
+    "location": "Bukit Merah",
+    "schoolType": "政府中学 / Government-Aided / 参考 COP 13",
+    "curriculum": "O-Level / SEC 中学课程",
+    "features": [
+      "Government-Aided"
+    ],
+    "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
+    "angle": "圣婴女校（圣德肋撒）（CHIJ St. Theresa's Convent）位于Bukit Merah，红山区优秀天主教女校。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
+  },
+  {
+    "type": "secondary",
+    "categoryLabel": "政府中学",
+    "basePath": "secondary-schools",
+    "slug": "christ-church",
+    "nameZh": "基督堂中学",
+    "nameEn": "Christ Church Secondary School",
+    "location": "Woodlands",
+    "schoolType": "政府中学 / Government / 参考 COP 17",
+    "curriculum": "O-Level / SEC 中学课程",
+    "features": [
+      "Government"
+    ],
+    "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
+    "angle": "基督堂中学（Christ Church Secondary School）位于Woodlands，兀兰区基督教背景中学。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
+  },
+  {
+    "type": "secondary",
+    "categoryLabel": "政府中学",
+    "basePath": "secondary-schools",
+    "slug": "chua-chu-kang",
+    "nameZh": "蔡厝港中学",
+    "nameEn": "Chua Chu Kang Secondary School",
+    "location": "Choa Chu Kang",
+    "schoolType": "政府中学 / Government / 参考 COP 20",
+    "curriculum": "O-Level / SEC 中学课程",
+    "features": [
+      "Government",
+      "社区中学",
+      "适合稳妥择校比较"
+    ],
+    "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
+    "angle": "蔡厝港中学（Chua Chu Kang Secondary School）位于Choa Chu Kang，蔡厝港区社区中学。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
+  },
+  {
+    "type": "secondary",
+    "categoryLabel": "政府中学",
+    "basePath": "secondary-schools",
+    "slug": "chung-cheng-high-main",
+    "nameZh": "中正中学（总校）",
+    "nameEn": "Chung Cheng High School (Main)",
+    "location": "Marine Parade",
+    "schoolType": "政府中学 / Autonomous / 参考 COP 10",
+    "curriculum": "O-Level / SEC 中学课程",
+    "features": [
+      "SAP",
+      "Autonomous",
+      "热门中学",
+      "学术竞争强"
+    ],
+    "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
+    "angle": "中正中学（总校）（Chung Cheng High School (Main)）位于Marine Parade，历史悠久的特选中学，华文教育传统深厚，东海岸名校。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
+  },
+  {
+    "type": "secondary",
+    "categoryLabel": "政府中学",
+    "basePath": "secondary-schools",
+    "slug": "chung-cheng-high-yishun",
+    "nameZh": "中正中学（义顺）",
+    "nameEn": "Chung Cheng High School (Yishun)",
+    "location": "Yishun",
+    "schoolType": "政府中学 / Autonomous / 参考 COP 11",
+    "curriculum": "O-Level / SEC 中学课程",
+    "features": [
+      "Autonomous"
+    ],
+    "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
+    "angle": "中正中学（义顺）（Chung Cheng High School (Yishun)）位于Yishun，中正大家庭分校，自主中学，义顺区学术强校。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
+  },
+  {
+    "type": "secondary",
+    "categoryLabel": "政府中学",
+    "basePath": "secondary-schools",
+    "slug": "clementi-town",
+    "nameZh": "金文泰城中学",
+    "nameEn": "Clementi Town Secondary School",
+    "location": "Clementi",
+    "schoolType": "政府中学 / Government / 参考 COP 13",
+    "curriculum": "O-Level / SEC 中学课程",
+    "features": [
+      "Government"
+    ],
+    "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
+    "angle": "金文泰城中学（Clementi Town Secondary School）位于Clementi，金文泰区中学，靠近 NUS，学术氛围良好。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
+  },
+  {
+    "type": "secondary",
+    "categoryLabel": "政府中学",
+    "basePath": "secondary-schools",
+    "slug": "commonwealth",
+    "nameZh": "联邦中学",
+    "nameEn": "Commonwealth Secondary School",
+    "location": "Jurong East",
+    "schoolType": "政府中学 / Government / 参考 COP 13",
+    "curriculum": "O-Level / SEC 中学课程",
+    "features": [
+      "Government"
+    ],
+    "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
+    "angle": "联邦中学（Commonwealth Secondary School）位于Jurong East，裕廊东区中学，注重应用学习与设计思维。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
+  },
+  {
+    "type": "secondary",
+    "categoryLabel": "政府中学",
+    "basePath": "secondary-schools",
+    "slug": "compassvale",
+    "nameZh": "康柏中学",
+    "nameEn": "Compassvale Secondary School",
+    "location": "Sengkang",
+    "schoolType": "政府中学 / Government / 参考 COP 18",
+    "curriculum": "O-Level / SEC 中学课程",
+    "features": [
+      "Government"
+    ],
+    "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
+    "angle": "康柏中学（Compassvale Secondary School）位于Sengkang，盛港区社区中学。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
+  },
+  {
+    "type": "secondary",
+    "categoryLabel": "政府中学",
+    "basePath": "secondary-schools",
+    "slug": "crescent-girls",
+    "nameZh": "克信女子中学",
+    "nameEn": "Crescent Girls' School",
+    "location": "Bukit Merah",
+    "schoolType": "政府中学 / Autonomous / 参考 COP 10",
+    "curriculum": "O-Level / SEC 中学课程",
+    "features": [
+      "Autonomous",
+      "热门中学",
+      "学术竞争强"
+    ],
+    "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
+    "angle": "克信女子中学（Crescent Girls' School）位于Bukit Merah，自主女校，学术与课外活动均表现出色，红山区名校。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
+  },
+  {
+    "type": "secondary",
+    "categoryLabel": "政府中学",
+    "basePath": "secondary-schools",
+    "slug": "crest",
+    "nameZh": "科源中学",
+    "nameEn": "Crest Secondary School",
+    "location": "Jurong East",
+    "schoolType": "政府中学 / Specialised / 特殊或专门路径",
+    "curriculum": "O-Level / SEC 中学课程",
+    "features": [
+      "Specialised"
+    ],
+    "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
+    "angle": "科源中学（Crest Secondary School）位于Jurong East，为普通工艺源流学生设立的专科学校。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
+  },
+  {
+    "type": "secondary",
+    "categoryLabel": "政府中学",
+    "basePath": "secondary-schools",
+    "slug": "damai",
+    "nameZh": "达迈中学",
+    "nameEn": "Damai Secondary School",
+    "location": "Bedok",
+    "schoolType": "政府中学 / Government / 参考 COP 22",
+    "curriculum": "O-Level / SEC 中学课程",
+    "features": [
+      "Government",
+      "社区中学",
+      "适合稳妥择校比较"
+    ],
+    "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
+    "angle": "达迈中学（Damai Secondary School）位于Bedok，勿洛区社区中学。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
+  },
+  {
+    "type": "secondary",
+    "categoryLabel": "政府中学",
+    "basePath": "secondary-schools",
+    "slug": "deyi",
+    "nameZh": "德义中学",
+    "nameEn": "Deyi Secondary School",
+    "location": "Ang Mo Kio",
+    "schoolType": "政府中学 / Government / 参考 COP 16",
+    "curriculum": "O-Level / SEC 中学课程",
+    "features": [
+      "Government"
+    ],
+    "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
+    "angle": "德义中学（Deyi Secondary School）位于Ang Mo Kio，宏茂桥区中学，注重全人教育。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
+  },
+  {
+    "type": "secondary",
+    "categoryLabel": "政府中学",
+    "basePath": "secondary-schools",
+    "slug": "dunearn",
+    "nameZh": "敦恩中学",
+    "nameEn": "Dunearn Secondary School",
+    "location": "Bukit Batok",
+    "schoolType": "政府中学 / Government / 参考 COP 22",
+    "curriculum": "O-Level / SEC 中学课程",
+    "features": [
+      "Government",
+      "社区中学",
+      "适合稳妥择校比较"
+    ],
+    "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
+    "angle": "敦恩中学（Dunearn Secondary School）位于Bukit Batok，武吉巴督区社区学校。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
+  },
+  {
+    "type": "secondary",
+    "categoryLabel": "政府中学",
+    "basePath": "secondary-schools",
+    "slug": "dunman-high",
+    "nameZh": "德明政府中学",
+    "nameEn": "Dunman High School",
+    "location": "Kallang",
+    "schoolType": "政府中学 / Autonomous / 参考 COP 8",
+    "curriculum": "Integrated Programme / A-Level 路径",
+    "features": [
+      "IP",
+      "SAP",
+      "Autonomous",
+      "热门中学",
+      "学术竞争强"
+    ],
+    "audience": "目标 IP、JC 和公立大学路径的学生家庭",
+    "angle": "德明政府中学（Dunman High School）位于Kallang，顶尖自主学校，特选中学，直通车课程，学术与华文教育双强。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
+  },
+  {
+    "type": "secondary",
+    "categoryLabel": "政府中学",
+    "basePath": "secondary-schools",
+    "slug": "dunman",
+    "nameZh": "德明中学",
+    "nameEn": "Dunman Secondary School",
+    "location": "Tampines",
+    "schoolType": "政府中学 / Government / 参考 COP 14",
+    "curriculum": "O-Level / SEC 中学课程",
+    "features": [
+      "Government"
+    ],
+    "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
+    "angle": "德明中学（Dunman Secondary School）位于Tampines，淡滨尼区中学，与德明政府中学同源但独立运营。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
+  },
+  {
+    "type": "secondary",
+    "categoryLabel": "政府中学",
+    "basePath": "secondary-schools",
+    "slug": "edgefield",
+    "nameZh": "毅道中学",
+    "nameEn": "Edgefield Secondary School",
+    "location": "Punggol",
+    "schoolType": "政府中学 / Government / 参考 COP 14",
+    "curriculum": "O-Level / SEC 中学课程",
+    "features": [
+      "Government"
+    ],
+    "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
+    "angle": "毅道中学（Edgefield Secondary School）位于Punggol，榜鹅区中学，设施较新。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
+  },
+  {
+    "type": "secondary",
+    "categoryLabel": "政府中学",
+    "basePath": "secondary-schools",
+    "slug": "evergreen",
+    "nameZh": "常青中学",
+    "nameEn": "Evergreen Secondary School",
+    "location": "Woodlands",
+    "schoolType": "政府中学 / Government / 参考 COP 15",
+    "curriculum": "O-Level / SEC 中学课程",
+    "features": [
+      "Government"
+    ],
+    "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
+    "angle": "常青中学（Evergreen Secondary School）位于Woodlands，兀兰区中学，注重环保与可持续发展教育。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
+  },
+  {
+    "type": "secondary",
+    "categoryLabel": "政府中学",
+    "basePath": "secondary-schools",
+    "slug": "fairfield-methodist",
+    "nameZh": "花菲卫理中学",
+    "nameEn": "Fairfield Methodist School (Secondary)",
+    "location": "Queenstown",
+    "schoolType": "政府中学 / Government-Aided / 参考 COP 11",
+    "curriculum": "O-Level / SEC 中学课程",
+    "features": [
+      "Government-Aided"
+    ],
+    "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
+    "angle": "花菲卫理中学（Fairfield Methodist School (Secondary)）位于Queenstown，卫理公会学校，女皇镇区学术实力不俗。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
+  },
+  {
+    "type": "secondary",
+    "categoryLabel": "政府中学",
+    "basePath": "secondary-schools",
+    "slug": "fuhua",
+    "nameZh": "辅华中学",
+    "nameEn": "Fuhua Secondary School",
+    "location": "Jurong West",
+    "schoolType": "政府中学 / Government / 参考 COP 13",
+    "curriculum": "O-Level / SEC 中学课程",
+    "features": [
+      "Government"
+    ],
+    "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
+    "angle": "辅华中学（Fuhua Secondary School）位于Jurong West，裕廊西区中学，注重科技与创新教育。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
+  },
+  {
+    "type": "secondary",
+    "categoryLabel": "政府中学",
+    "basePath": "secondary-schools",
+    "slug": "gan-eng-seng",
+    "nameZh": "颜永成中学",
+    "nameEn": "Gan Eng Seng School",
+    "location": "Bukit Merah",
+    "schoolType": "政府中学 / Government / 参考 COP 15",
+    "curriculum": "O-Level / SEC 中学课程",
+    "features": [
+      "Government"
+    ],
+    "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
+    "angle": "颜永成中学（Gan Eng Seng School）位于Bukit Merah，红山区历史悠久的中学，创校于 1844 年。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
+  },
+  {
+    "type": "secondary",
+    "categoryLabel": "政府中学",
+    "basePath": "secondary-schools",
+    "slug": "geylang-methodist",
+    "nameZh": "芽笼美以美中学",
+    "nameEn": "Geylang Methodist School (Secondary)",
+    "location": "Central",
+    "schoolType": "政府中学 / Government-Aided / 参考 COP 14",
+    "curriculum": "O-Level / SEC 中学课程",
+    "features": [
+      "Government-Aided"
+    ],
+    "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
+    "angle": "芽笼美以美中学（Geylang Methodist School (Secondary)）位于Central，市中心地段，卫理公会背景学校。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
+  },
+  {
+    "type": "secondary",
+    "categoryLabel": "政府中学",
+    "basePath": "secondary-schools",
+    "slug": "greendale",
+    "nameZh": "青景中学",
+    "nameEn": "Greendale Secondary School",
+    "location": "Punggol",
+    "schoolType": "政府中学 / Government / 参考 COP 16",
+    "curriculum": "O-Level / SEC 中学课程",
+    "features": [
+      "Government"
+    ],
+    "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
+    "angle": "青景中学（Greendale Secondary School）位于Punggol，榜鹅区社区中学。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
+  },
+  {
+    "type": "secondary",
+    "categoryLabel": "政府中学",
+    "basePath": "secondary-schools",
+    "slug": "greenridge",
+    "nameZh": "青岭中学",
+    "nameEn": "Greenridge Secondary School",
+    "location": "Bukit Panjang",
+    "schoolType": "政府中学 / Government / 参考 COP 22",
+    "curriculum": "O-Level / SEC 中学课程",
+    "features": [
+      "Government",
+      "社区中学",
+      "适合稳妥择校比较"
+    ],
+    "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
+    "angle": "青岭中学（Greenridge Secondary School）位于Bukit Panjang，武吉班让区社区学校。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
+  },
+  {
+    "type": "secondary",
+    "categoryLabel": "政府中学",
+    "basePath": "secondary-schools",
+    "slug": "guangyang",
+    "nameZh": "光洋中学",
+    "nameEn": "Guangyang Secondary School",
+    "location": "Bishan",
+    "schoolType": "政府中学 / Government / 参考 COP 22",
+    "curriculum": "O-Level / SEC 中学课程",
+    "features": [
+      "Government",
+      "社区中学",
+      "适合稳妥择校比较"
+    ],
+    "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
+    "angle": "光洋中学（Guangyang Secondary School）位于Bishan，碧山区社区中学。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
+  },
+  {
+    "type": "secondary",
+    "categoryLabel": "政府中学",
+    "basePath": "secondary-schools",
+    "slug": "hai-sing-catholic",
+    "nameZh": "海星天主教中学",
+    "nameEn": "Hai Sing Catholic School",
+    "location": "Pasir Ris",
+    "schoolType": "政府中学 / Government-Aided / 参考 COP 15",
+    "curriculum": "O-Level / SEC 中学课程",
+    "features": [
+      "Government-Aided"
+    ],
+    "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
+    "angle": "海星天主教中学（Hai Sing Catholic School）位于Pasir Ris，巴西立区天主教学校。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
+  },
+  {
+    "type": "secondary",
+    "categoryLabel": "政府中学",
+    "basePath": "secondary-schools",
+    "slug": "hillgrove",
+    "nameZh": "丘景中学",
+    "nameEn": "Hillgrove Secondary School",
+    "location": "Bukit Batok",
+    "schoolType": "政府中学 / Government / 参考 COP 18",
+    "curriculum": "O-Level / SEC 中学课程",
+    "features": [
+      "Government"
+    ],
+    "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
+    "angle": "丘景中学（Hillgrove Secondary School）位于Bukit Batok，武吉巴督区中学。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
+  },
+  {
+    "type": "secondary",
+    "categoryLabel": "政府中学",
+    "basePath": "secondary-schools",
+    "slug": "holy-innocents-high",
+    "nameZh": "圣婴中学",
+    "nameEn": "Holy Innocents' High School",
+    "location": "Serangoon",
+    "schoolType": "政府中学 / Government-Aided / 参考 COP 14",
+    "curriculum": "O-Level / SEC 中学课程",
+    "features": [
+      "Government-Aided"
+    ],
+    "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
+    "angle": "圣婴中学（Holy Innocents' High School）位于Serangoon，实龙岗区天主教学校。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
+  },
+  {
+    "type": "secondary",
+    "categoryLabel": "政府中学",
+    "basePath": "secondary-schools",
+    "slug": "hougang",
+    "nameZh": "后港中学",
+    "nameEn": "Hougang Secondary School",
+    "location": "Hougang",
+    "schoolType": "政府中学 / Government / 参考 COP 20",
+    "curriculum": "O-Level / SEC 中学课程",
+    "features": [
+      "Government",
+      "社区中学",
+      "适合稳妥择校比较"
+    ],
+    "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
+    "angle": "后港中学（Hougang Secondary School）位于Hougang，后港区社区中学。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
+  },
+  {
+    "type": "secondary",
+    "categoryLabel": "政府中学",
+    "basePath": "secondary-schools",
+    "slug": "hua-yi",
+    "nameZh": "华义中学",
+    "nameEn": "Hua Yi Secondary School",
+    "location": "Jurong West",
+    "schoolType": "政府中学 / Government / 参考 COP 14",
+    "curriculum": "O-Level / SEC 中学课程",
+    "features": [
+      "Government"
+    ],
+    "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
+    "angle": "华义中学（Hua Yi Secondary School）位于Jurong West，裕廊西区中学，注重双语教育。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
+  },
+  {
+    "type": "secondary",
+    "categoryLabel": "政府中学",
+    "basePath": "secondary-schools",
+    "slug": "jurong",
+    "nameZh": "裕廊中学",
+    "nameEn": "Jurong Secondary School",
+    "location": "Jurong West",
+    "schoolType": "政府中学 / Government / 参考 COP 16",
+    "curriculum": "O-Level / SEC 中学课程",
+    "features": [
+      "Government"
+    ],
+    "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
+    "angle": "裕廊中学（Jurong Secondary School）位于Jurong West，裕廊西区历史悠久的中学。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
+  },
+  {
+    "type": "secondary",
+    "categoryLabel": "政府中学",
+    "basePath": "secondary-schools",
+    "slug": "jurong-west",
+    "nameZh": "裕廊西中学",
+    "nameEn": "Jurong West Secondary School",
+    "location": "Jurong West",
+    "schoolType": "政府中学 / Government / 参考 COP 16",
+    "curriculum": "O-Level / SEC 中学课程",
+    "features": [
+      "Government"
+    ],
+    "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
+    "angle": "裕廊西中学（Jurong West Secondary School）位于Jurong West，裕廊西区社区中学。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
+  },
+  {
+    "type": "secondary",
+    "categoryLabel": "政府中学",
+    "basePath": "secondary-schools",
+    "slug": "jurongville",
+    "nameZh": "裕廊谷中学",
+    "nameEn": "Jurongville Secondary School",
+    "location": "Jurong East",
+    "schoolType": "政府中学 / Government / 参考 COP 22",
+    "curriculum": "O-Level / SEC 中学课程",
+    "features": [
+      "Government",
+      "社区中学",
+      "适合稳妥择校比较"
+    ],
+    "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
+    "angle": "裕廊谷中学（Jurongville Secondary School）位于Jurong East，裕廊东区社区中学。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
+  },
+  {
+    "type": "secondary",
+    "categoryLabel": "政府中学",
+    "basePath": "secondary-schools",
+    "slug": "juying",
+    "nameZh": "聚英中学",
+    "nameEn": "Juying Secondary School",
+    "location": "Jurong West",
+    "schoolType": "政府中学 / Government / 参考 COP 22",
+    "curriculum": "O-Level / SEC 中学课程",
+    "features": [
+      "Government",
+      "社区中学",
+      "适合稳妥择校比较"
+    ],
+    "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
+    "angle": "聚英中学（Juying Secondary School）位于Jurong West，裕廊西区社区学校。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
+  },
+  {
+    "type": "secondary",
+    "categoryLabel": "政府中学",
+    "basePath": "secondary-schools",
+    "slug": "kent-ridge",
+    "nameZh": "肯特岗中学",
+    "nameEn": "Kent Ridge Secondary School",
+    "location": "Clementi",
+    "schoolType": "政府中学 / Government / 参考 COP 18",
+    "curriculum": "O-Level / SEC 中学课程",
+    "features": [
+      "Government"
+    ],
+    "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
+    "angle": "肯特岗中学（Kent Ridge Secondary School）位于Clementi，金文泰区中学，靠近新加坡国立大学。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
+  },
+  {
+    "type": "secondary",
+    "categoryLabel": "政府中学",
+    "basePath": "secondary-schools",
+    "slug": "kranji",
+    "nameZh": "克兰芝中学",
+    "nameEn": "Kranji Secondary School",
+    "location": "Choa Chu Kang",
+    "schoolType": "政府中学 / Government / 参考 COP 14",
+    "curriculum": "O-Level / SEC 中学课程",
+    "features": [
+      "Government"
+    ],
+    "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
+    "angle": "克兰芝中学（Kranji Secondary School）位于Choa Chu Kang，蔡厝港区中学，注重领导力培养。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
+  },
+  {
+    "type": "secondary",
+    "categoryLabel": "政府中学",
+    "basePath": "secondary-schools",
+    "slug": "kuo-chuan-presbyterian",
+    "nameZh": "国专长老会中学",
+    "nameEn": "Kuo Chuan Presbyterian Secondary School",
+    "location": "Bishan",
+    "schoolType": "政府中学 / Government-Aided / 参考 COP 20",
+    "curriculum": "O-Level / SEC 中学课程",
+    "features": [
+      "Government-Aided",
+      "社区中学",
+      "适合稳妥择校比较"
+    ],
+    "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
+    "angle": "国专长老会中学（Kuo Chuan Presbyterian Secondary School）位于Bishan，碧山区优秀学校，基督教长老会背景，学术竞争力强。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
+  },
+  {
+    "type": "secondary",
+    "categoryLabel": "政府中学",
+    "basePath": "secondary-schools",
+    "slug": "loyang-view",
+    "nameZh": "洛阳景中学",
+    "nameEn": "Loyang View Secondary School",
+    "location": "Pasir Ris",
+    "schoolType": "政府中学 / Government / 参考 COP 22",
+    "curriculum": "O-Level / SEC 中学课程",
+    "features": [
+      "Government",
+      "社区中学",
+      "适合稳妥择校比较"
+    ],
+    "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
+    "angle": "洛阳景中学（Loyang View Secondary School）位于Pasir Ris，巴西立区社区学校。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
+  },
+  {
+    "type": "secondary",
+    "categoryLabel": "政府中学",
+    "basePath": "secondary-schools",
+    "slug": "manjusri",
+    "nameZh": "文殊中学",
+    "nameEn": "Manjusri Secondary School",
+    "location": "Geylang",
+    "schoolType": "政府中学 / Government-Aided / 参考 COP 21",
+    "curriculum": "O-Level / SEC 中学课程",
+    "features": [
+      "Government-Aided",
+      "社区中学",
+      "适合稳妥择校比较"
+    ],
+    "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
+    "angle": "文殊中学（Manjusri Secondary School）位于Geylang，佛教背景学校，注重品德教育。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
+  },
+  {
+    "type": "secondary",
+    "categoryLabel": "政府中学",
+    "basePath": "secondary-schools",
+    "slug": "maris-stella-high",
+    "nameZh": "海星中学",
+    "nameEn": "Maris Stella High School",
+    "location": "Bedok",
+    "schoolType": "政府中学 / Autonomous / 参考 COP 12",
+    "curriculum": "O-Level / SEC 中学课程",
+    "features": [
+      "SAP",
+      "Autonomous"
+    ],
+    "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
+    "angle": "海星中学（Maris Stella High School）位于Bedok，特选男校，华文教育传统深厚，学术表现优秀。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
+  },
+  {
+    "type": "secondary",
+    "categoryLabel": "政府中学",
+    "basePath": "secondary-schools",
+    "slug": "marsiling",
+    "nameZh": "马西岭中学",
+    "nameEn": "Marsiling Secondary School",
+    "location": "Woodlands",
+    "schoolType": "政府中学 / Government / 参考 COP 22",
+    "curriculum": "O-Level / SEC 中学课程",
+    "features": [
+      "Government",
+      "社区中学",
+      "适合稳妥择校比较"
+    ],
+    "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
+    "angle": "马西岭中学（Marsiling Secondary School）位于Woodlands，兀兰区社区中学。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
+  },
+  {
+    "type": "secondary",
+    "categoryLabel": "政府中学",
+    "basePath": "secondary-schools",
+    "slug": "mayflower",
+    "nameZh": "美华中学",
+    "nameEn": "Mayflower Secondary School",
+    "location": "Ang Mo Kio",
+    "schoolType": "政府中学 / Government / 参考 COP 17",
+    "curriculum": "O-Level / SEC 中学课程",
+    "features": [
+      "Government"
+    ],
+    "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
+    "angle": "美华中学（Mayflower Secondary School）位于Ang Mo Kio，宏茂桥区中学。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
+  },
+  {
+    "type": "secondary",
+    "categoryLabel": "政府中学",
+    "basePath": "secondary-schools",
+    "slug": "methodist-girls",
+    "nameZh": "美以美女校",
+    "nameEn": "Methodist Girls' School",
+    "location": "Bukit Timah",
+    "schoolType": "政府中学 / Independent / 参考 COP 6",
+    "curriculum": "Integrated Programme / A-Level 路径",
+    "features": [
+      "IP",
+      "Independent",
+      "热门中学",
+      "学术竞争强"
+    ],
+    "audience": "目标 IP、JC 和公立大学路径的学生家庭",
+    "angle": "美以美女校（Methodist Girls' School）位于Bukit Timah，新加坡顶尖女校之一，独立学校，直通车课程，武吉知马区百年名校。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
+  },
+  {
+    "type": "secondary",
+    "categoryLabel": "政府中学",
+    "basePath": "secondary-schools",
+    "slug": "montfort",
+    "nameZh": "蒙福中学",
+    "nameEn": "Montfort Secondary School",
+    "location": "Hougang",
+    "schoolType": "政府中学 / Government-Aided / 参考 COP 22",
+    "curriculum": "O-Level / SEC 中学课程",
+    "features": [
+      "Government-Aided",
+      "社区中学",
+      "适合稳妥择校比较"
+    ],
+    "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
+    "angle": "蒙福中学（Montfort Secondary School）位于Hougang，后港区天主教男校。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
+  },
+  {
+    "type": "secondary",
+    "categoryLabel": "政府中学",
+    "basePath": "secondary-schools",
+    "slug": "nan-chiau-high",
+    "nameZh": "南侨中学",
+    "nameEn": "Nan Chiau High School",
+    "location": "Sengkang",
+    "schoolType": "政府中学 / Autonomous / 参考 COP 11",
+    "curriculum": "O-Level / SEC 中学课程",
+    "features": [
+      "SAP",
+      "Autonomous"
+    ],
+    "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
+    "angle": "南侨中学（Nan Chiau High School）位于Sengkang，特选中学，盛港区华文教育强校。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
+  },
+  {
+    "type": "secondary",
+    "categoryLabel": "政府中学",
+    "basePath": "secondary-schools",
+    "slug": "nan-hua-high",
+    "nameZh": "南华中学",
+    "nameEn": "Nan Hua High School",
+    "location": "Clementi",
+    "schoolType": "政府中学 / Autonomous / 参考 COP 10",
+    "curriculum": "O-Level / SEC 中学课程",
+    "features": [
+      "SAP",
+      "Autonomous",
+      "热门中学",
+      "学术竞争强"
+    ],
+    "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
+    "angle": "南华中学（Nan Hua High School）位于Clementi，特选中学，金文泰区华文教育名校，学术优秀。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
+  },
+  {
+    "type": "secondary",
+    "categoryLabel": "政府中学",
+    "basePath": "secondary-schools",
+    "slug": "national-junior-college",
+    "nameZh": "国家初级学院",
+    "nameEn": "National Junior College",
+    "location": "Bukit Timah",
+    "schoolType": "政府中学 / Independent / 参考 COP 8",
+    "curriculum": "Integrated Programme / A-Level 路径",
+    "features": [
+      "IP",
+      "Independent",
+      "热门中学",
+      "学术竞争强"
+    ],
+    "audience": "目标 IP、JC 和公立大学路径的学生家庭",
+    "angle": "国家初级学院（National Junior College）位于Bukit Timah，顶尖初级学院，提供中学部直通车课程。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
+  },
+  {
+    "type": "secondary",
+    "categoryLabel": "政府中学",
+    "basePath": "secondary-schools",
+    "slug": "naval-base",
+    "nameZh": "海军基地中学",
+    "nameEn": "Naval Base Secondary School",
+    "location": "Yishun",
+    "schoolType": "政府中学 / Government / 参考 COP 19",
+    "curriculum": "O-Level / SEC 中学课程",
+    "features": [
+      "Government",
+      "社区中学",
+      "适合稳妥择校比较"
+    ],
+    "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
+    "angle": "海军基地中学（Naval Base Secondary School）位于Yishun，义顺区中学。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
+  },
+  {
+    "type": "secondary",
+    "categoryLabel": "政府中学",
+    "basePath": "secondary-schools",
+    "slug": "new-town",
+    "nameZh": "新镇中学",
+    "nameEn": "New Town Secondary School",
+    "location": "Queenstown",
+    "schoolType": "政府中学 / Government / 参考 COP 20",
+    "curriculum": "O-Level / SEC 中学课程",
+    "features": [
+      "Government",
+      "社区中学",
+      "适合稳妥择校比较"
+    ],
+    "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
+    "angle": "新镇中学（New Town Secondary School）位于Queenstown，女皇镇区社区中学。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
+  },
+  {
+    "type": "secondary",
+    "categoryLabel": "政府中学",
+    "basePath": "secondary-schools",
+    "slug": "ngee-ann",
+    "nameZh": "义安中学",
+    "nameEn": "Ngee Ann Secondary School",
+    "location": "Tampines",
+    "schoolType": "政府中学 / Autonomous / 参考 COP 12",
+    "curriculum": "O-Level / SEC 中学课程",
+    "features": [
+      "Autonomous"
+    ],
+    "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
+    "angle": "义安中学（Ngee Ann Secondary School）位于Tampines，自主中学，淡滨尼区学术强校。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
+  },
+  {
+    "type": "secondary",
+    "categoryLabel": "政府中学",
+    "basePath": "secondary-schools",
+    "slug": "north-vista",
+    "nameZh": "北景中学",
+    "nameEn": "North Vista Secondary School",
+    "location": "Sengkang",
+    "schoolType": "政府中学 / Government / 参考 COP 18",
+    "curriculum": "O-Level / SEC 中学课程",
+    "features": [
+      "Government"
+    ],
+    "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
+    "angle": "北景中学（North Vista Secondary School）位于Sengkang，盛港区中学。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
+  },
+  {
+    "type": "secondary",
+    "categoryLabel": "政府中学",
+    "basePath": "secondary-schools",
+    "slug": "northbrooks",
+    "nameZh": "北溪中学",
+    "nameEn": "Northbrooks Secondary School",
+    "location": "Yishun",
+    "schoolType": "政府中学 / Government / 参考 COP 22",
+    "curriculum": "O-Level / SEC 中学课程",
+    "features": [
+      "Government",
+      "社区中学",
+      "适合稳妥择校比较"
+    ],
+    "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
+    "angle": "北溪中学（Northbrooks Secondary School）位于Yishun，义顺区社区学校。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
+  },
+  {
+    "type": "secondary",
+    "categoryLabel": "政府中学",
+    "basePath": "secondary-schools",
+    "slug": "outram",
+    "nameZh": "欧南中学",
+    "nameEn": "Outram Secondary School",
+    "location": "Sengkang",
+    "schoolType": "政府中学 / Government / 参考 COP 17",
+    "curriculum": "O-Level / SEC 中学课程",
+    "features": [
+      "Government"
+    ],
+    "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
+    "angle": "欧南中学（Outram Secondary School）位于Sengkang，盛港区社区学校（由中心区域搬迁）。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
+  },
+  {
+    "type": "secondary",
+    "categoryLabel": "政府中学",
+    "basePath": "secondary-schools",
+    "slug": "pasir-ris-crest",
+    "nameZh": "巴西立峰中学",
+    "nameEn": "Pasir Ris Crest Secondary School",
+    "location": "Pasir Ris",
+    "schoolType": "政府中学 / Government / 参考 COP 18",
+    "curriculum": "O-Level / SEC 中学课程",
+    "features": [
+      "Government"
+    ],
+    "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
+    "angle": "巴西立峰中学（Pasir Ris Crest Secondary School）位于Pasir Ris，巴西立区中学。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
+  },
+  {
+    "type": "secondary",
+    "categoryLabel": "政府中学",
+    "basePath": "secondary-schools",
+    "slug": "pasir-ris",
+    "nameZh": "巴西立中学",
+    "nameEn": "Pasir Ris Secondary School",
+    "location": "Tampines",
+    "schoolType": "政府中学 / Government / 参考 COP 17",
+    "curriculum": "O-Level / SEC 中学课程",
+    "features": [
+      "Government"
+    ],
+    "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
+    "angle": "巴西立中学（Pasir Ris Secondary School）位于Tampines，淡滨尼/巴西立区中学。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
+  },
+  {
+    "type": "secondary",
+    "categoryLabel": "政府中学",
+    "basePath": "secondary-schools",
+    "slug": "paya-lebar-methodist",
+    "nameZh": "巴耶利峇美以美女校",
+    "nameEn": "Paya Lebar Methodist Girls' School",
+    "location": "Hougang",
+    "schoolType": "政府中学 / Government-Aided / 参考 COP 10",
+    "curriculum": "O-Level / SEC 中学课程",
+    "features": [
+      "Government-Aided",
+      "热门中学",
+      "学术竞争强"
+    ],
+    "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
+    "angle": "巴耶利峇美以美女校（Paya Lebar Methodist Girls' School）位于Hougang，卫理公会女校，学术表现优秀。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
+  },
+  {
+    "type": "secondary",
+    "categoryLabel": "政府中学",
+    "basePath": "secondary-schools",
+    "slug": "peicai",
+    "nameZh": "培才中学",
+    "nameEn": "Peicai Secondary School",
+    "location": "Serangoon",
+    "schoolType": "政府中学 / Government / 参考 COP 20",
+    "curriculum": "O-Level / SEC 中学课程",
+    "features": [
+      "Government",
+      "社区中学",
+      "适合稳妥择校比较"
+    ],
+    "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
+    "angle": "培才中学（Peicai Secondary School）位于Serangoon，实龙岗区社区中学。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
+  },
+  {
+    "type": "secondary",
+    "categoryLabel": "政府中学",
+    "basePath": "secondary-schools",
+    "slug": "peirce",
+    "nameZh": "培尔斯中学",
+    "nameEn": "Peirce Secondary School",
+    "location": "Bishan",
+    "schoolType": "政府中学 / Government / 参考 COP 20",
+    "curriculum": "O-Level / SEC 中学课程",
+    "features": [
+      "Government",
+      "社区中学",
+      "适合稳妥择校比较"
+    ],
+    "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
+    "angle": "培尔斯中学（Peirce Secondary School）位于Bishan，碧山区中学。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
+  },
+  {
+    "type": "secondary",
+    "categoryLabel": "政府中学",
+    "basePath": "secondary-schools",
+    "slug": "presbyterian-high",
+    "nameZh": "长老会中学",
+    "nameEn": "Presbyterian High School",
+    "location": "Ang Mo Kio",
+    "schoolType": "政府中学 / Government-Aided / 参考 COP 13",
+    "curriculum": "O-Level / SEC 中学课程",
+    "features": [
+      "Government-Aided"
+    ],
+    "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
+    "angle": "长老会中学（Presbyterian High School）位于Ang Mo Kio，宏茂桥区基督教长老会中学。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
+  },
+  {
+    "type": "secondary",
+    "categoryLabel": "政府中学",
+    "basePath": "secondary-schools",
+    "slug": "punggol",
+    "nameZh": "榜鹅中学",
+    "nameEn": "Punggol Secondary School",
+    "location": "Punggol",
+    "schoolType": "政府中学 / Government / 参考 COP 19",
+    "curriculum": "O-Level / SEC 中学课程",
+    "features": [
+      "Government",
+      "社区中学",
+      "适合稳妥择校比较"
+    ],
+    "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
+    "angle": "榜鹅中学（Punggol Secondary School）位于Punggol，榜鹅区中学。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
+  },
+  {
+    "type": "secondary",
+    "categoryLabel": "政府中学",
+    "basePath": "secondary-schools",
+    "slug": "queensway",
+    "nameZh": "女皇道中学",
+    "nameEn": "Queensway Secondary School",
+    "location": "Queenstown",
+    "schoolType": "政府中学 / Government / 参考 COP 17",
+    "curriculum": "O-Level / SEC 中学课程",
+    "features": [
+      "Government"
+    ],
+    "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
+    "angle": "女皇道中学（Queensway Secondary School）位于Queenstown，女皇镇区中学。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
+  },
+  {
+    "type": "secondary",
+    "categoryLabel": "政府中学",
+    "basePath": "secondary-schools",
+    "slug": "raffles-girls",
+    "nameZh": "莱佛士女中",
+    "nameEn": "Raffles Girls' School",
+    "location": "Toa Payoh",
+    "schoolType": "政府中学 / Independent / 参考 COP 6",
+    "curriculum": "Integrated Programme / A-Level 路径",
+    "features": [
+      "IP",
+      "Independent",
+      "热门中学",
+      "学术竞争强"
+    ],
+    "audience": "目标 IP、JC 和公立大学路径的学生家庭",
+    "angle": "莱佛士女中（Raffles Girls' School）位于Toa Payoh，新加坡最顶尖女校之一，独立学校，直通车课程，全国 COP 最低。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
+  },
+  {
+    "type": "secondary",
+    "categoryLabel": "政府中学",
+    "basePath": "secondary-schools",
+    "slug": "river-valley-high",
+    "nameZh": "立化中学",
+    "nameEn": "River Valley High School",
+    "location": "Jurong West",
+    "schoolType": "政府中学 / Autonomous / 参考 COP 9",
+    "curriculum": "Integrated Programme / A-Level 路径",
+    "features": [
+      "IP",
+      "SAP",
+      "Autonomous",
+      "热门中学",
+      "学术竞争强"
+    ],
+    "audience": "目标 IP、JC 和公立大学路径的学生家庭",
+    "angle": "立化中学（River Valley High School）位于Jurong West，顶尖自主中学，直通车+特选，裕廊西区名校，学术与华文双强。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
+  },
+  {
+    "type": "secondary",
+    "categoryLabel": "政府中学",
+    "basePath": "secondary-schools",
+    "slug": "riverside",
+    "nameZh": "河畔中学",
+    "nameEn": "Riverside Secondary School",
+    "location": "Woodlands",
+    "schoolType": "政府中学 / Government / 参考 COP 14",
+    "curriculum": "O-Level / SEC 中学课程",
+    "features": [
+      "Government"
+    ],
+    "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
+    "angle": "河畔中学（Riverside Secondary School）位于Woodlands，兀兰区中学。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
+  },
+  {
+    "type": "secondary",
+    "categoryLabel": "政府中学",
+    "basePath": "secondary-schools",
+    "slug": "school-of-science-technology",
+    "nameZh": "科技中学",
+    "nameEn": "School of Science and Technology",
+    "location": "Clementi",
+    "schoolType": "政府中学 / Specialised / 特殊或专门路径",
+    "curriculum": "O-Level / SEC 中学课程",
+    "features": [
+      "Specialised"
+    ],
+    "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
+    "angle": "科技中学（School of Science and Technology）位于Clementi，新加坡唯一科技专科中学，注重 STEM 与设计思维教育。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
+  },
+  {
+    "type": "secondary",
+    "categoryLabel": "政府中学",
+    "basePath": "secondary-schools",
+    "slug": "school-of-the-arts",
+    "nameZh": "艺术中学",
+    "nameEn": "School of the Arts",
+    "location": "Central",
+    "schoolType": "政府中学 / Specialised / 特殊或专门路径",
+    "curriculum": "O-Level / SEC 中学课程",
+    "features": [
+      "Specialised"
+    ],
+    "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
+    "angle": "艺术中学（School of the Arts）位于Central，新加坡唯一艺术专科中学，通过才艺测试入学。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
+  },
+  {
+    "type": "secondary",
+    "categoryLabel": "政府中学",
+    "basePath": "secondary-schools",
+    "slug": "sembawang",
+    "nameZh": "三巴旺中学",
+    "nameEn": "Sembawang Secondary School",
+    "location": "Sembawang",
+    "schoolType": "政府中学 / Government / 参考 COP 22",
+    "curriculum": "O-Level / SEC 中学课程",
+    "features": [
+      "Government",
+      "社区中学",
+      "适合稳妥择校比较"
+    ],
+    "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
+    "angle": "三巴旺中学（Sembawang Secondary School）位于Sembawang，三巴旺区社区中学。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
+  },
+  {
+    "type": "secondary",
+    "categoryLabel": "政府中学",
+    "basePath": "secondary-schools",
+    "slug": "serangoon-garden",
+    "nameZh": "实龙岗花园中学",
+    "nameEn": "Serangoon Garden Secondary School",
+    "location": "Serangoon",
+    "schoolType": "政府中学 / Government / 参考 COP 22",
+    "curriculum": "O-Level / SEC 中学课程",
+    "features": [
+      "Government",
+      "社区中学",
+      "适合稳妥择校比较"
+    ],
+    "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
+    "angle": "实龙岗花园中学（Serangoon Garden Secondary School）位于Serangoon，实龙岗区社区学校。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
+  },
+  {
+    "type": "secondary",
+    "categoryLabel": "政府中学",
+    "basePath": "secondary-schools",
+    "slug": "singapore-chinese-girls",
+    "nameZh": "新加坡华族女校",
+    "nameEn": "Singapore Chinese Girls' School",
+    "location": "Novena",
+    "schoolType": "政府中学 / Autonomous / 参考 COP 7",
+    "curriculum": "Integrated Programme / A-Level 路径",
+    "features": [
+      "IP",
+      "Autonomous",
+      "热门中学",
+      "学术竞争强"
+    ],
+    "audience": "目标 IP、JC 和公立大学路径的学生家庭",
+    "angle": "新加坡华族女校（Singapore Chinese Girls' School）位于Novena，顶尖女校，直通车课程，诺维娜区百年名校。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
+  },
+  {
+    "type": "secondary",
+    "categoryLabel": "政府中学",
+    "basePath": "secondary-schools",
+    "slug": "singapore-sports-school",
+    "nameZh": "新加坡体育中学",
+    "nameEn": "Singapore Sports School",
+    "location": "Woodlands",
+    "schoolType": "政府中学 / Specialised / 特殊或专门路径",
+    "curriculum": "O-Level / SEC 中学课程",
+    "features": [
+      "Specialised"
+    ],
+    "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
+    "angle": "新加坡体育中学（Singapore Sports School）位于Woodlands，体育精英专科学校，通过体育选拔入学。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
+  },
+  {
+    "type": "secondary",
+    "categoryLabel": "政府中学",
+    "basePath": "secondary-schools",
+    "slug": "springfield",
+    "nameZh": "春田中学",
+    "nameEn": "Springfield Secondary School",
+    "location": "Tampines",
+    "schoolType": "政府中学 / Government / 参考 COP 22",
+    "curriculum": "O-Level / SEC 中学课程",
+    "features": [
+      "Government",
+      "社区中学",
+      "适合稳妥择校比较"
+    ],
+    "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
+    "angle": "春田中学（Springfield Secondary School）位于Tampines，淡滨尼区社区中学。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
+  },
+  {
+    "type": "secondary",
+    "categoryLabel": "政府中学",
+    "basePath": "secondary-schools",
+    "slug": "st-andrews",
+    "nameZh": "圣安德烈中学",
+    "nameEn": "St. Andrew's Secondary School",
+    "location": "Toa Payoh",
+    "schoolType": "政府中学 / Government-Aided / 参考 COP 9",
+    "curriculum": "O-Level / SEC 中学课程",
+    "features": [
+      "Government-Aided",
+      "热门中学",
+      "学术竞争强"
+    ],
+    "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
+    "angle": "圣安德烈中学（St. Andrew's Secondary School）位于Toa Payoh，大巴窑区历史悠久的基督教名校，学术竞争力强。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
+  },
+  {
+    "type": "secondary",
+    "categoryLabel": "政府中学",
+    "basePath": "secondary-schools",
+    "slug": "st-anthonys-canossian",
+    "nameZh": "圣安东尼女校",
+    "nameEn": "St. Anthony's Canossian Secondary School",
+    "location": "Bedok",
+    "schoolType": "政府中学 / Government-Aided / 参考 COP 15",
+    "curriculum": "O-Level / SEC 中学课程",
+    "features": [
+      "Government-Aided"
+    ],
+    "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
+    "angle": "圣安东尼女校（St. Anthony's Canossian Secondary School）位于Bedok，勿洛区天主教女校。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
+  },
+  {
+    "type": "secondary",
+    "categoryLabel": "政府中学",
+    "basePath": "secondary-schools",
+    "slug": "st-gabriels",
+    "nameZh": "圣嘉百利中学",
+    "nameEn": "St. Gabriel's Secondary School",
+    "location": "Serangoon",
+    "schoolType": "政府中学 / Government-Aided / 参考 COP 15",
+    "curriculum": "O-Level / SEC 中学课程",
+    "features": [
+      "Government-Aided"
+    ],
+    "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
+    "angle": "圣嘉百利中学（St. Gabriel's Secondary School）位于Serangoon，实龙岗区天主教男校。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
+  },
+  {
+    "type": "secondary",
+    "categoryLabel": "政府中学",
+    "basePath": "secondary-schools",
+    "slug": "st-hildas",
+    "nameZh": "圣希尔达中学",
+    "nameEn": "St. Hilda's Secondary School",
+    "location": "Tampines",
+    "schoolType": "政府中学 / Government-Aided / 参考 COP 14",
+    "curriculum": "O-Level / SEC 中学课程",
+    "features": [
+      "Government-Aided"
+    ],
+    "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
+    "angle": "圣希尔达中学（St. Hilda's Secondary School）位于Tampines，淡滨尼区基督教学校，学术实力不俗。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
+  },
+  {
+    "type": "secondary",
+    "categoryLabel": "政府中学",
+    "basePath": "secondary-schools",
+    "slug": "st-josephs-institution",
+    "nameZh": "圣约瑟书院",
+    "nameEn": "St. Joseph's Institution",
+    "location": "Novena",
+    "schoolType": "政府中学 / Independent / 参考 COP 7",
+    "curriculum": "Integrated Programme / A-Level 路径",
+    "features": [
+      "IP",
+      "Independent",
+      "热门中学",
+      "学术竞争强"
+    ],
+    "audience": "目标 IP、JC 和公立大学路径的学生家庭",
+    "angle": "圣约瑟书院（St. Joseph's Institution）位于Novena，新加坡顶尖男校之一，独立学校，直通车课程，诺维娜区百年名校。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
+  },
+  {
+    "type": "secondary",
+    "categoryLabel": "政府中学",
+    "basePath": "secondary-schools",
+    "slug": "st-margarets",
+    "nameZh": "圣玛格烈中学",
+    "nameEn": "St. Margaret's Secondary School",
+    "location": "Bukit Timah",
+    "schoolType": "政府中学 / Government-Aided / 参考 COP 11",
+    "curriculum": "O-Level / SEC 中学课程",
+    "features": [
+      "Government-Aided"
+    ],
+    "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
+    "angle": "圣玛格烈中学（St. Margaret's Secondary School）位于Bukit Timah，武吉知马区历史悠久的女校。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
+  },
+  {
+    "type": "secondary",
+    "categoryLabel": "政府中学",
+    "basePath": "secondary-schools",
+    "slug": "st-patricks",
+    "nameZh": "圣巴特里中学",
+    "nameEn": "St. Patrick's School",
+    "location": "Bedok",
+    "schoolType": "政府中学 / Government-Aided / 参考 COP 11",
+    "curriculum": "O-Level / SEC 中学课程",
+    "features": [
+      "Government-Aided"
+    ],
+    "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
+    "angle": "圣巴特里中学（St. Patrick's School）位于Bedok，勿洛区天主教男校，历史悠久。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
+  },
+  {
+    "type": "secondary",
+    "categoryLabel": "政府中学",
+    "basePath": "secondary-schools",
+    "slug": "swiss-cottage",
+    "nameZh": "瑞士村中学",
+    "nameEn": "Swiss Cottage Secondary School",
+    "location": "Bukit Batok",
+    "schoolType": "政府中学 / Autonomous / 参考 COP 11",
+    "curriculum": "O-Level / SEC 中学课程",
+    "features": [
+      "Autonomous"
+    ],
+    "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
+    "angle": "瑞士村中学（Swiss Cottage Secondary School）位于Bukit Batok，自主中学，武吉巴督区学术强校。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
+  },
+  {
+    "type": "secondary",
+    "categoryLabel": "政府中学",
+    "basePath": "secondary-schools",
+    "slug": "tanjong-katong-girls",
+    "nameZh": "丹绒加东女校",
+    "nameEn": "Tanjong Katong Girls' School",
+    "location": "Marine Parade",
+    "schoolType": "政府中学 / Government / 参考 COP 13",
+    "curriculum": "O-Level / SEC 中学课程",
+    "features": [
+      "Government"
+    ],
+    "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
+    "angle": "丹绒加东女校（Tanjong Katong Girls' School）位于Marine Parade，东海岸区女校，注重领导力培养。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
+  },
+  {
+    "type": "secondary",
+    "categoryLabel": "政府中学",
+    "basePath": "secondary-schools",
+    "slug": "tanjong-katong",
+    "nameZh": "丹绒加东中学",
+    "nameEn": "Tanjong Katong Secondary School",
+    "location": "Marine Parade",
+    "schoolType": "政府中学 / Government / 参考 COP 13",
+    "curriculum": "O-Level / SEC 中学课程",
+    "features": [
+      "Government"
+    ],
+    "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
+    "angle": "丹绒加东中学（Tanjong Katong Secondary School）位于Marine Parade，东海岸区历史悠久的中学。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
+  },
+  {
+    "type": "secondary",
+    "categoryLabel": "政府中学",
+    "basePath": "secondary-schools",
+    "slug": "temasek",
+    "nameZh": "淡马锡中学",
+    "nameEn": "Temasek Secondary School",
+    "location": "Bedok",
+    "schoolType": "政府中学 / Autonomous / 参考 COP 11",
+    "curriculum": "O-Level / SEC 中学课程",
+    "features": [
+      "Autonomous"
+    ],
+    "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
+    "angle": "淡马锡中学（Temasek Secondary School）位于Bedok，自主中学，勿洛区学术强校。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
+  },
+  {
+    "type": "secondary",
+    "categoryLabel": "政府中学",
+    "basePath": "secondary-schools",
+    "slug": "victoria-school",
+    "nameZh": "维多利亚中学",
+    "nameEn": "Victoria School",
+    "location": "Bedok",
+    "schoolType": "政府中学 / Independent / 参考 COP 8",
+    "curriculum": "Integrated Programme / A-Level 路径",
+    "features": [
+      "IP",
+      "Independent",
+      "热门中学",
+      "学术竞争强"
+    ],
+    "audience": "目标 IP、JC 和公立大学路径的学生家庭",
+    "angle": "维多利亚中学（Victoria School）位于Bedok，顶尖男校，独立学校，直通车课程，勿洛区历史名校。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
+  },
+  {
+    "type": "secondary",
+    "categoryLabel": "政府中学",
+    "basePath": "secondary-schools",
+    "slug": "west-spring",
+    "nameZh": "西泉中学",
+    "nameEn": "West Spring Secondary School",
+    "location": "Bukit Panjang",
+    "schoolType": "政府中学 / Government / 参考 COP 17",
+    "curriculum": "O-Level / SEC 中学课程",
+    "features": [
+      "Government"
+    ],
+    "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
+    "angle": "西泉中学（West Spring Secondary School）位于Bukit Panjang，武吉班让区中学。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
+  },
+  {
+    "type": "secondary",
+    "categoryLabel": "政府中学",
+    "basePath": "secondary-schools",
+    "slug": "woodlands-ring",
+    "nameZh": "兀兰环中学",
+    "nameEn": "Woodlands Ring Secondary School",
+    "location": "Woodlands",
+    "schoolType": "政府中学 / Government / 参考 COP 22",
+    "curriculum": "O-Level / SEC 中学课程",
+    "features": [
+      "Government",
+      "社区中学",
+      "适合稳妥择校比较"
+    ],
+    "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
+    "angle": "兀兰环中学（Woodlands Ring Secondary School）位于Woodlands，兀兰区社区学校。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
+  },
+  {
+    "type": "secondary",
+    "categoryLabel": "政府中学",
+    "basePath": "secondary-schools",
+    "slug": "xinmin",
+    "nameZh": "新民中学",
+    "nameEn": "Xinmin Secondary School",
+    "location": "Hougang",
+    "schoolType": "政府中学 / Autonomous / 参考 COP 13",
+    "curriculum": "O-Level / SEC 中学课程",
+    "features": [
+      "Autonomous"
+    ],
+    "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
+    "angle": "新民中学（Xinmin Secondary School）位于Hougang，自主中学，后港区学术强校。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
+  },
+  {
+    "type": "secondary",
+    "categoryLabel": "政府中学",
+    "basePath": "secondary-schools",
+    "slug": "yio-chu-kang",
+    "nameZh": "杨厝港中学",
+    "nameEn": "Yio Chu Kang Secondary School",
+    "location": "Ang Mo Kio",
+    "schoolType": "政府中学 / Government / 参考 COP 22",
+    "curriculum": "O-Level / SEC 中学课程",
+    "features": [
+      "Government",
+      "社区中学",
+      "适合稳妥择校比较"
+    ],
+    "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
+    "angle": "杨厝港中学（Yio Chu Kang Secondary School）位于Ang Mo Kio，宏茂桥区社区中学。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
+  },
+  {
+    "type": "secondary",
+    "categoryLabel": "政府中学",
+    "basePath": "secondary-schools",
+    "slug": "yishun",
+    "nameZh": "义顺中学",
+    "nameEn": "Yishun Secondary School",
+    "location": "Yishun",
+    "schoolType": "政府中学 / Government / 参考 COP 20",
+    "curriculum": "O-Level / SEC 中学课程",
+    "features": [
+      "Government",
+      "社区中学",
+      "适合稳妥择校比较"
+    ],
+    "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
+    "angle": "义顺中学（Yishun Secondary School）位于Yishun，义顺区社区中学。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
+  },
+  {
+    "type": "secondary",
+    "categoryLabel": "政府中学",
+    "basePath": "secondary-schools",
+    "slug": "yishun-town",
+    "nameZh": "义顺城中学",
+    "nameEn": "Yishun Town Secondary School",
+    "location": "Yishun",
+    "schoolType": "政府中学 / Government / 参考 COP 13",
+    "curriculum": "O-Level / SEC 中学课程",
+    "features": [
+      "Government"
+    ],
+    "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
+    "angle": "义顺城中学（Yishun Town Secondary School）位于Yishun，义顺区学术表现不错的中学。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
+  },
+  {
+    "type": "secondary",
+    "categoryLabel": "政府中学",
+    "basePath": "secondary-schools",
+    "slug": "yuan-ching",
+    "nameZh": "元青中学",
+    "nameEn": "Yuan Ching Secondary School",
+    "location": "Jurong West",
+    "schoolType": "政府中学 / Government / 参考 COP 18",
+    "curriculum": "O-Level / SEC 中学课程",
+    "features": [
+      "Government"
+    ],
+    "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
+    "angle": "元青中学（Yuan Ching Secondary School）位于Jurong West，裕廊西区中学。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
+  },
+  {
+    "type": "secondary",
+    "categoryLabel": "政府中学",
+    "basePath": "secondary-schools",
+    "slug": "yusof-ishak",
+    "nameZh": "尤索夫依萨中学",
+    "nameEn": "Yusof Ishak Secondary School",
+    "location": "Punggol",
+    "schoolType": "政府中学 / Government / 参考 COP 15",
+    "curriculum": "O-Level / SEC 中学课程",
+    "features": [
+      "Government"
+    ],
+    "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
+    "angle": "尤索夫依萨中学（Yusof Ishak Secondary School）位于Punggol，榜鹅区中学，以新加坡首任总统命名。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
+  },
+  {
+    "type": "secondary",
+    "categoryLabel": "政府中学",
+    "basePath": "secondary-schools",
+    "slug": "zhonghua",
+    "nameZh": "中华中学",
+    "nameEn": "Zhonghua Secondary School",
+    "location": "Serangoon",
+    "schoolType": "政府中学 / Autonomous / 参考 COP 12",
+    "curriculum": "O-Level / SEC 中学课程",
+    "features": [
+      "Autonomous"
+    ],
+    "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
+    "angle": "中华中学（Zhonghua Secondary School）位于Serangoon，自主中学，实龙岗区学术不错。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
   }
 ]

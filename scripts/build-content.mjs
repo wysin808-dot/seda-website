@@ -321,7 +321,7 @@ function removeDraftArticlePage(article) {
   const dir = path.join(root, article.url);
   const rel = path.relative(root, dir);
   if (!rel || rel.startsWith('..') || rel === '.' || !article.meta.slug) return;
-  if (fs.existsSync(path.join(dir, 'index.html'))) {
+  if (fs.existsSync(dir)) {
     fs.rmSync(dir, { recursive: true, force: true });
   }
 }
@@ -546,9 +546,21 @@ function walk(dir, out = []) {
   return out;
 }
 
-function updateSitemap() {
+function draftUrlPathSet(drafts) {
+  return new Set(drafts.map((article) => {
+    const clean = String(article.url || '').replace(/^\/+|\/+$/g, '');
+    return clean ? `${clean}/index.html` : '';
+  }).filter(Boolean));
+}
+
+function updateSitemap(drafts = []) {
+  const draftPaths = draftUrlPathSet(drafts);
   const urls = walk(root)
     .filter(isSitemapPage)
+    .filter((file) => {
+      const rel = path.relative(root, file).replaceAll(path.sep, '/');
+      return !draftPaths.has(rel);
+    })
     .map((file) => {
       let rel = path.relative(root, file).replaceAll(path.sep, '/');
       if (rel === 'index.html') rel = '';
@@ -575,7 +587,7 @@ drafts.forEach(removeDraftArticlePage);
 writeReviewPage(allArticles);
 updateNewsIndex(articles);
 updateHomeLatestArticles(articles);
-const urlCount = updateSitemap();
+const urlCount = updateSitemap(drafts);
 console.log(`Built ${articles.length} content articles.`);
 console.log(`Prepared ${drafts.length} draft articles for review.`);
 console.log(`Updated sitemap.xml with ${urlCount} URLs.`);

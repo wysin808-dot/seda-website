@@ -136,6 +136,7 @@ function relatedLinks(school) {
     ],
     international: [
       ['国际学校总览', '/international-school/'],
+      ['国际学校 SEO 学校库', '/international-school/schools/'],
       ['IB 课程', '/ib/'],
       ['WACE 课程', '/wace/'],
       ['新加坡国际学校费用', '/international-school/singapore-international-school-fees/'],
@@ -348,6 +349,91 @@ ${footer}
 </html>`;
 }
 
+function renderInternationalSchoolIndex(schools, header, footer) {
+  const sorted = [...schools].sort((a, b) => a.nameEn.localeCompare(b.nameEn));
+  const title = '新加坡国际学校名单：IB、英国、美国、澳洲与私立国际课程学校';
+  const description = `SEDA 新加坡择校网整理 ${sorted.length} 所新加坡国际学校独立页面，覆盖 IB、英国课程、美国 AP、澳洲课程、Cambridge、IGCSE、A-Level 与小规模国际学校。`;
+  const schema = {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: title,
+    description,
+    url: `${domain}/international-school/schools/`,
+    inLanguage: 'zh-CN',
+    mainEntity: sorted.map((school) => ({
+      '@type': 'School',
+      name: school.nameZh,
+      alternateName: school.nameEn,
+      url: `${domain}${schoolUrl(school)}`,
+      address: school.location,
+    })),
+    publisher: {
+      '@type': 'Organization',
+      name: 'SEDA 新加坡择校网',
+      url: `${domain}/`,
+    },
+  };
+  const cards = sorted.map((school) => `
+        <a class="article-card" href="${schoolUrl(school)}">
+          <span class="tag">${escapeHtml(school.curriculum)}</span>
+          <h3>${escapeHtml(school.nameZh)}</h3>
+          <p>${escapeHtml(school.nameEn)}</p>
+          <p>${escapeHtml(school.location)} · ${escapeHtml(school.features?.slice(0, 3).join(' / ') || '国际课程')}</p>
+        </a>`).join('\n');
+
+  return `<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml"/>
+<title>${escapeHtml(title)} | SEDA 新加坡择校网</title>
+<meta name="description" content="${escapeHtml(description)}"/>
+<meta name="keywords" content="新加坡国际学校名单,新加坡国际学校数据库,新加坡IB学校,新加坡英国国际学校,新加坡美国学校"/>
+<meta name="robots" content="index,follow,max-image-preview:large"/>
+<link rel="canonical" href="${domain}/international-school/schools/"/>
+<link rel="stylesheet" href="/seda-site.css?v=15"/>
+<script type="application/ld+json">${jsonLd(schema)}</script>
+</head>
+<body>
+${header}
+<nav class="breadcrumb" aria-label="面包屑导航"><a href="/">首页</a> <span class="bc-sep">›</span> <a href="/international-school/">国际学校</a> <span class="bc-sep">›</span> <span>国际学校名单</span></nav>
+<main>
+  <section class="page-hero school-hero">
+    <p class="eyebrow">国际学校数据库</p>
+    <h1>新加坡国际学校名单</h1>
+    <p class="hero-subtitle">${escapeHtml(description)}</p>
+  </section>
+  <section class="section">
+    <div class="section-head">
+      <p class="eyebrow">学校 SEO 页面</p>
+      <h2>${sorted.length} 所国际学校独立择校页</h2>
+      <p>每所学校页面都包含课程体系、适合学生、费用关注、申请路径、FAQ 与结构化数据，方便中国家长快速比较。</p>
+    </div>
+    <div class="article-grid">
+${cards}
+    </div>
+  </section>
+  <section class="contact-section" id="contact" aria-labelledby="contact-title">
+    <div>
+      <p class="eyebrow">免费咨询</p>
+      <h2 id="contact-title">不知道哪所国际学校适合孩子？</h2>
+      <p>告诉我们孩子年龄、英文基础、预算和目标大学方向，SEDA 顾问会帮你缩小学校范围。</p>
+    </div>
+    <form class="lead-form">
+      <label><span>学生当前年级</span><input type="text" name="grade" placeholder="例如：国内小五 / 初二 / 高一" /></label>
+      <label><span>目标课程</span><input type="text" name="target" placeholder="IB / A-Level / AP / WACE / 还不确定" /></label>
+      <label><span>联系方式</span><input type="text" name="contact" placeholder="微信 / WhatsApp / 手机" /></label>
+      <button class="primary-button" type="submit">提交咨询</button>
+    </form>
+  </section>
+</main>
+${footer}
+<script src="/seda-site.js?v=16"></script>
+</body>
+</html>`;
+}
+
 export function buildSchoolPages() {
   if (!fs.existsSync(dataFile)) return 0;
   const home = read(path.join(root, 'index.html'));
@@ -359,6 +445,12 @@ export function buildSchoolPages() {
     const dir = path.join(root, url);
     fs.mkdirSync(dir, { recursive: true });
     fs.writeFileSync(path.join(dir, 'index.html'), renderPage(school, header, footer), 'utf8');
+  }
+  const internationalSchools = schools.filter((school) => school.type === 'international');
+  if (internationalSchools.length) {
+    const indexDir = path.join(root, 'international-school', 'schools');
+    fs.mkdirSync(indexDir, { recursive: true });
+    fs.writeFileSync(path.join(indexDir, 'index.html'), renderInternationalSchoolIndex(internationalSchools, header, footer), 'utf8');
   }
   return schools.length;
 }

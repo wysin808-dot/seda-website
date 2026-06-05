@@ -1,5 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import { buildSchoolPages } from './build-school-pages.mjs';
 
 const root = process.cwd();
 const domain = 'https://sgeda.org.cn';
@@ -814,6 +815,7 @@ function updateSitemap(drafts = []) {
 const allArticles = loadArticles();
 const articles = allArticles.filter((article) => !article.meta.draft);
 const drafts = allArticles.filter((article) => article.meta.draft);
+const schoolPageCount = buildSchoolPages();
 articles.forEach(writeArticle);
 drafts.forEach(removeDraftArticlePage);
 writeReviewPage(allArticles);
@@ -823,5 +825,6 @@ writeFeeds(articles);
 updateLlms(articles);
 const urlCount = updateSitemap(drafts);
 console.log(`Built ${articles.length} content articles.`);
+console.log(`Built ${schoolPageCount} school SEO pages.`);
 console.log(`Prepared ${drafts.length} draft articles for review.`);
 console.log(`Updated sitemap.xml with ${urlCount} URLs.`);

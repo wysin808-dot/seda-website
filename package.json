@@ -3,7 +3,8 @@
   "scripts": {
     "content:new": "node scripts/new-article.mjs",
     "content:drafts": "node scripts/generate-daily-drafts.mjs",
-    "content:build": "node scripts/build-content.mjs"
+    "content:build": "node scripts/build-content.mjs",
+    "schools:build": "node scripts/build-school-pages.mjs"
   },
   "dependencies": {
     "ip2region": "^2.3.0"

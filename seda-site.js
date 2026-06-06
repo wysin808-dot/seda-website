@@ -120,7 +120,7 @@
   }).then(function(config){
     var id = String(config.googleAnalyticsId || '').trim();
     if (!/^G-[A-Z0-9]+$/i.test(id)) return;
-    if (window.__sedaGaLoaded) return;
+    if (window.__sedaGaLoaded || typeof window.gtag === 'function') return;
     window.__sedaGaLoaded = true;
     window.dataLayer = window.dataLayer || [];
     window.gtag = function(){ window.dataLayer.push(arguments); };

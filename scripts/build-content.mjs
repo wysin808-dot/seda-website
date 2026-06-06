@@ -7,6 +7,7 @@ import { optimizeArticle } from './seo-optimizer.mjs';
 
 const root = process.cwd();
 const domain = 'https://sgeda.org.cn';
+const defaultGoogleAnalyticsId = 'G-38WFES3WTH';
 const articleDir = path.join(root, 'content', 'articles');
 
 const relatedByCategory = {
@@ -875,6 +876,36 @@ function enhanceGlobalRobotsMeta() {
   return count;
 }
 
+function googleAnalyticsSnippet() {
+  return `<!-- SEDA_GA4_START -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=${defaultGoogleAnalyticsId}"></script>
+<script>
+  window.__sedaGaLoaded = true;
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', '${defaultGoogleAnalyticsId}');
+</script>
+<!-- SEDA_GA4_END -->`;
+}
+
+function enhanceGlobalGoogleAnalytics() {
+  let count = 0;
+  const files = walk(root).filter(isSitemapPage);
+  const snippet = googleAnalyticsSnippet();
+  const existingSnippetPattern = /\n?<!-- SEDA_GA4_START -->[\s\S]*?<!-- SEDA_GA4_END -->\n?/;
+  for (const file of files) {
+    const html = fs.readFileSync(file, 'utf8');
+    if (!html.includes('</head>')) continue;
+    const cleaned = html.replace(existingSnippetPattern, '\n');
+    const next = cleaned.replace('</head>', `${snippet}\n</head>`);
+    if (next === html) continue;
+    fs.writeFileSync(file, next, 'utf8');
+    count += 1;
+  }
+  return count;
+}
+
 const allArticles = loadArticles();
 const articles = allArticles.filter((article) => !article.meta.draft);
 const drafts = allArticles.filter((article) => article.meta.draft);
@@ -888,12 +919,14 @@ updateNewsIndex(articles);
 updateHomeLatestArticles(articles);
 writeFeeds(articles);
 updateLlms(articles);
+const enhancedGoogleAnalyticsCount = enhanceGlobalGoogleAnalytics();
 const enhancedRobotsCount = enhanceGlobalRobotsMeta();
 const urlCount = updateSitemap(drafts);
 console.log(`Built ${articles.length} content articles.`);
 console.log(`Built ${schoolPageCount} school SEO pages.`);
 console.log(`Built ${topicPageCount} topic hub pages.`);
 console.log(`Enhanced ${enhancedKeyPageCount} key SEO pages.`);
+console.log(`Enhanced ${enhancedGoogleAnalyticsCount} pages with GA4 tags.`);
 console.log(`Enhanced ${enhancedRobotsCount} pages with robots meta.`);
 console.log(`Prepared ${drafts.length} draft articles for review.`);
 console.log(`Updated sitemap.xml with ${urlCount} URLs.`);

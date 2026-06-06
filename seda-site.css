@@ -1742,6 +1742,31 @@ main > section:not(.hero) {
   }
 }
 
+@media (min-width: 1024px) and (max-width: 1399px) {
+  .seda-wechat-sidecard {
+    right: 18px;
+    width: 254px;
+    padding: 16px;
+  }
+
+  .seda-wechat-sidecard h2 {
+    font-size: 21px;
+  }
+
+  .seda-wechat-sidecard img {
+    width: 142px;
+    height: 142px;
+  }
+
+  .seda-wechat-sidecard ul {
+    gap: 6px;
+  }
+
+  .seda-wechat-sidecard li {
+    font-size: 12px;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .seda-wechat-sidecard {
     animation: none;
@@ -2781,6 +2806,72 @@ main > section:not(.hero) {
 
 .seo-tag-cloud-wide {
   margin: -12px 0 30px;
+}
+
+/* WACE guide page: keep GEO blocks useful without making the page feel broken. */
+.wace-guide-page .page-hero.content-hero {
+  min-height: clamp(300px, 34vw, 420px);
+  padding-top: clamp(64px, 8vw, 104px);
+  padding-bottom: clamp(58px, 7vw, 92px);
+  background:
+    linear-gradient(90deg, rgba(116, 15, 24, 0.88) 0%, rgba(198, 40, 40, 0.70) 44%, rgba(198, 40, 40, 0.20) 100%),
+    url('/assets/sg-px-20779788.jpg') center 42%/cover no-repeat;
+}
+
+.wace-guide-page .page-hero.content-hero h1 {
+  max-width: 980px;
+}
+
+.wace-guide-page .wace-geo-strip {
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(340px, 0.92fr);
+  gap: 18px;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: clamp(22px, 3vw, 34px) clamp(20px, 6vw, 80px) 0;
+}
+
+.wace-guide-page .core-geo-summary,
+.wace-guide-page .core-seo-tags {
+  height: 100%;
+  margin: 0;
+  padding: 18px 20px;
+}
+
+.wace-guide-page .core-geo-summary h2,
+.wace-guide-page .core-seo-tags h2 {
+  margin-top: 4px;
+  font-size: clamp(20px, 2vw, 24px);
+}
+
+.wace-guide-page .core-geo-summary ul {
+  gap: 6px;
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+.wace-guide-page .core-seo-tags p {
+  margin-bottom: 12px;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.wace-guide-page .seo-tag-cloud {
+  gap: 7px;
+}
+
+.wace-guide-page .seo-tag-cloud span {
+  min-height: 30px;
+  padding: 5px 11px;
+  font-size: 13px;
+}
+
+.wace-guide-page .content-layout {
+  padding-top: clamp(30px, 4vw, 48px);
+}
+
+.wace-guide-page .content-main > h2:first-child {
+  margin-top: 0;
 }
 
 .related-section {
@@ -4439,4 +4530,22 @@ body.nav-drawer-open {
 @media (max-width: 480px) {
   .ai-chat-panel { width: calc(100vw - 24px); right: 12px; bottom: 150px; }
   .ai-chat-trigger { bottom: 88px; right: 14px; }
+}
+
+@media (max-width: 980px) {
+  .wace-guide-page .wace-geo-strip {
+    grid-template-columns: 1fr;
+    padding: 20px 20px 0;
+  }
+
+  .wace-guide-page .page-hero.content-hero {
+    min-height: 280px;
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+
+  .wace-guide-page .core-geo-summary,
+  .wace-guide-page .core-seo-tags {
+    padding: 16px;
+  }
 }

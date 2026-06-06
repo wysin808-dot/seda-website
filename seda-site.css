@@ -3596,6 +3596,33 @@ main > section:not(.hero) {
   background: linear-gradient(135deg, #1a0a0c 0%, var(--deep) 50%, #2d1518 100%);
 }
 
+.wechat-contact-section {
+  align-items: center;
+  border-top: 1px solid #f3d6d8;
+  border-bottom: 1px solid #f3d6d8;
+  background: linear-gradient(135deg, #fff 0%, #fffafa 60%, #fff1f2 100%);
+  color: var(--ink);
+}
+
+.wechat-contact-section .eyebrow {
+  color: var(--brand);
+}
+
+.wechat-contact-section h2 {
+  color: var(--ink);
+}
+
+.wechat-contact-section p {
+  max-width: 760px;
+  color: var(--muted);
+}
+
+.wechat-contact-section .seda-wechat-card {
+  border-color: rgba(220, 38, 38, 0.14);
+  background: #fff;
+  box-shadow: 0 16px 42px rgba(127, 29, 29, 0.08);
+}
+
 .lead-form {
   border-radius: var(--radius);
   backdrop-filter: blur(12px);

@@ -979,7 +979,7 @@ main > section:not(.hero) {
 }
 
 .article-card {
-  min-height: 236px;
+  min-height: 226px;
   border: 1px solid var(--line);
   border-radius: var(--radius);
   background: #fff;
@@ -992,7 +992,7 @@ main > section:not(.hero) {
 
 .article-card a {
   display: flex;
-  min-height: 236px;
+  min-height: 226px;
   flex-direction: column;
   padding: 24px;
 }

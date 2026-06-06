@@ -121,8 +121,7 @@ ${headMarkerEnd}`;
 
 function buildBodyBlock(page) {
   const id = slugId(page.path);
-  return `${bodyMarkerStart}
-      <section class="geo-summary core-geo-summary" aria-labelledby="geo-summary-${id}">
+  const content = `<section class="geo-summary core-geo-summary" aria-labelledby="geo-summary-${id}">
         <p class="eyebrow">GEO 可读答案</p>
         <h2 id="geo-summary-${id}">${escapeHtml(page.geoTitle || `${page.title}核心结论`)}</h2>
         <ul>
@@ -137,7 +136,14 @@ ${page.summary.map((item) => `          <li>${escapeHtml(item)}</li>`).join('\n'
         <div class="seo-tag-cloud">
 ${page.about.map((item) => `          <span>${escapeHtml(item)}</span>`).join('\n')}
         </div>
-      </section>
+      </section>`;
+  const body = page.compactBody
+    ? `      <div class="${escapeHtml(page.compactBody)}" aria-label="${escapeHtml(page.title)}页面核心摘要">
+      ${content}
+      </div>`
+    : `      ${content}`;
+  return `${bodyMarkerStart}
+${body}
 ${bodyMarkerEnd}`;
 }
 
@@ -154,6 +160,7 @@ const pages = [
     title: 'WACE 课程完全攻略',
     description: '面向中国学生和家长的新加坡 WACE 课程攻略，覆盖课程结构、ATAR、选课、申请 NUS/NTU、大学认可度和国际高中路径。',
     about: ['WACE 课程', 'ATAR', '新加坡国际高中', 'WACE 选课', 'WACE 申请 NUS', 'WACE 申请 NTU', 'EALD 英文', '澳洲高中课程'],
+    compactBody: 'wace-geo-strip',
     summary: [
       'WACE 是新加坡国际高中路径中适合中国学生重点关注的课程，核心出口是 ATAR 和全球大学申请。',
       '中国学生选择 WACE 时，要重点看英文过渡、数学科目、ATAR 目标和学校是否具备稳定教学支持。',

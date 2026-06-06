@@ -749,6 +749,58 @@ function contentIdeasFromArticles(articles) {
     .slice(0, 6);
 }
 
+const SEO_TOPICS = [
+  { slug: 'aeis', name: 'AEIS 专题', keywords: ['aeis', 's-aeis', '政府学校', '插班'] },
+  { slug: 'o-level', name: 'O-Level 专题', keywords: ['o-level', 'o水准', 'jc', 'poly'] },
+  { slug: 'wace', name: 'WACE 专题', keywords: ['wace', 'atar', 'eald', 'methods'] },
+  { slug: 'singapore-government-schools', name: '政府学校专题', keywords: ['政府学校', '政府小学', '政府中学', 'aeis'] },
+  { slug: 'international-schools', name: '国际学校专题', keywords: ['国际学校', 'ib', 'igcse', '学费'] },
+  { slug: 'singapore-university', name: '大学申请专题', keywords: ['大学', 'nus', 'ntu', 'smu', '本科申请'] },
+  { slug: 'study-cost', name: '留学费用专题', keywords: ['费用', '学费', '预算', '住宿'] },
+];
+
+function topicMatrix(articles = articleSummaries(), sitemapUrls = readSitemapUrls()) {
+  const sitemapSet = new Set(sitemapUrls);
+  return SEO_TOPICS.map((topic) => {
+    const textMatch = articles.filter((article) => {
+      const text = [article.title, article.description, article.category, article.slug].join(' ').toLowerCase();
+      return topic.keywords.some((keyword) => text.includes(keyword.toLowerCase()));
+    });
+    const url = `/topics/${topic.slug}/`;
+    const absoluteUrl = `https://sgeda.org.cn${url}`;
+    return {
+      ...topic,
+      url,
+      exists: existsSync(join(process.cwd(), 'topics', topic.slug, 'index.html')),
+      inSitemap: sitemapSet.has(absoluteUrl),
+      articleCount: textMatch.length,
+      publishedCount: textMatch.filter((article) => !article.draft).length,
+      draftCount: textMatch.filter((article) => article.draft).length,
+    };
+  });
+}
+
+function contentHealth(articles = articleSummaries()) {
+  const lowScore = articles.filter((article) => (article.seoScore || 0) < 70);
+  const noImagePlan = articles.filter((article) => !article.imagePlan?.heroFilename);
+  const drafts = articles.filter((article) => article.draft);
+  const published = articles.filter((article) => !article.draft);
+  return {
+    total: articles.length,
+    published: published.length,
+    draft: drafts.length,
+    lowScore: lowScore.length,
+    averageScore: articles.length ? Math.round(articles.reduce((sum, article) => sum + (article.seoScore || 0), 0) / articles.length) : 0,
+    missingImagePlan: noImagePlan.length,
+    needsAction: lowScore.slice(0, 8).map((article) => ({
+      title: article.title,
+      score: article.seoScore || 0,
+      file: article.file,
+      draft: article.draft,
+    })),
+  };
+}
+
 function referrerSource(referrer = '') {
   if (!referrer) return '直接访问';
   try {
@@ -980,6 +1032,8 @@ function handleCmsOverview(req, res) {
   const events = readAnalyticsEvents(30);
   const todayEvents = events.filter((event) => String(event.ts || '').startsWith(today));
   const seo = seoSnapshot(today);
+  const topics = topicMatrix(articles, readSitemapUrls());
+  const health = contentHealth(articles);
   const draftArticles = articles.filter((item) => item.draft && item.reviewStatus !== 'needs_revision');
   const revisionArticles = articles.filter((item) => item.reviewStatus === 'needs_revision');
   const publishedArticles = articles.filter((item) => !item.draft);
@@ -994,6 +1048,8 @@ function handleCmsOverview(req, res) {
   if (pendingCrm.length) tasks.push({ type: 'leads', title: `${pendingCrm.length} 条线索待同步 CRM`, target: 'leads', priority: 'medium' });
   if (todayPublished.length < 5) tasks.push({ type: 'content', title: `今日已发布 ${todayPublished.length} 篇，建议补到 5 篇以上`, target: 'content', priority: 'medium' });
   if (!seo.saved) tasks.push({ type: 'seo', title: '记录今日百度 / IndexNow 提交情况', target: 'seo', priority: 'medium' });
+  if (topics.some((topic) => !topic.inSitemap)) tasks.push({ type: 'seo', title: '检查专题页是否全部进入 sitemap', target: 'seo', priority: 'medium' });
+  if (health.lowScore) tasks.push({ type: 'content', title: `${health.lowScore} 篇内容 SEO 分数低于 70`, target: 'seo', priority: 'medium' });
   json(res, 200, {
     ok: true,
     date: today,
@@ -1010,8 +1066,23 @@ function handleCmsOverview(req, res) {
       todayPageviews: todayEvents.length,
       sitemapUrlCount: seo.sitemapUrlCount,
       baiduNextStart: seo.baiduNextStart,
+      indexNowSubmitted: seo.submissions?.providers?.indexnow?.submitted || 0,
+      baiduSubmitted: seo.submissions?.providers?.baidu?.submitted || 0,
+      contentAverageScore: health.averageScore,
     },
     tasks,
+    topicMatrix: topics,
+    contentHealth: health,
+    seoOps: {
+      sitemapUrlCount: seo.sitemapUrlCount,
+      baiduNextStart: seo.baiduNextStart,
+      baiduSubmitted: seo.submissions?.providers?.baidu?.submitted || 0,
+      indexNowSubmitted: seo.submissions?.providers?.indexnow?.submitted || 0,
+      baiduStatus: seo.submissions?.providers?.baidu?.lastStatus || '',
+      indexNowStatus: seo.submissions?.providers?.indexnow?.lastStatus || '',
+      auditTotals: seo.audit?.totals || {},
+      saved: Boolean(seo.saved),
+    },
     contentIdeas: contentIdeasFromArticles(articles),
     recentArticles: articles.slice(0, 8),
     recentLeads: leads.slice(-6).reverse(),

@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { buildSchoolPages } from './build-school-pages.mjs';
+import { buildTopicPages, topics } from './build-topic-pages.mjs';
 import { enhanceKeySeoPages } from './enhance-key-seo-pages.mjs';
 import { optimizeArticle } from './seo-optimizer.mjs';
 
@@ -753,6 +754,11 @@ ${latest || '- 最新 SEO 文章正在更新。'}
 - [国际学校](/international-school/): 新加坡国际学校与课程体系。
 - [私立学校](/private-schools/): 新加坡私立学校与升学路径。
 
+## Topic Hubs
+
+- [SEDA 专题中心](/topics/): 新加坡教育 SEO/GEO 专题入口。
+${topics.map((topic) => `- [${topic.title}](/topics/${topic.slug}/): ${topic.description}`).join('\n')}
+
 ## University Pathways
 
 - [新加坡公立大学](/university/): NUS、NTU、SMU、SUTD、SIT、SUSS 等公立大学总览。
@@ -873,6 +879,7 @@ const allArticles = loadArticles();
 const articles = allArticles.filter((article) => !article.meta.draft);
 const drafts = allArticles.filter((article) => article.meta.draft);
 const schoolPageCount = buildSchoolPages();
+const topicPageCount = buildTopicPages(articles, header, footer);
 const enhancedKeyPageCount = enhanceKeySeoPages();
 articles.forEach(writeArticle);
 drafts.forEach(removeDraftArticlePage);
@@ -885,6 +892,7 @@ const enhancedRobotsCount = enhanceGlobalRobotsMeta();
 const urlCount = updateSitemap(drafts);
 console.log(`Built ${articles.length} content articles.`);
 console.log(`Built ${schoolPageCount} school SEO pages.`);
+console.log(`Built ${topicPageCount} topic hub pages.`);
 console.log(`Enhanced ${enhancedKeyPageCount} key SEO pages.`);
 console.log(`Enhanced ${enhancedRobotsCount} pages with robots meta.`);
 console.log(`Prepared ${drafts.length} draft articles for review.`);

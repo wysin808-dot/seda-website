@@ -69,6 +69,18 @@
     .idea-item{border:1px solid #eef0f4;border-radius:8px;padding:12px;background:#fff}
     .idea-item strong{display:block}
     .idea-item span{display:block;color:#667085;font-size:12px;margin-top:5px}
+    .ops-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+    .ops-card{border:1px solid #eef0f4;border-radius:8px;background:#fafbfc;padding:14px}
+    .ops-card strong{display:block;font-size:22px}
+    .ops-card span{display:block;margin-top:5px;color:#667085;font-size:12px;font-weight:800}
+    .topic-grid{display:grid;gap:10px}
+    .topic-row{display:grid;grid-template-columns:minmax(0,1.2fr) .8fr .8fr .8fr;gap:10px;align-items:center;border:1px solid #eef0f4;border-radius:8px;background:#fff;padding:12px}
+    .topic-row strong{display:block}
+    .topic-row a{color:#172033;text-decoration:none}
+    .topic-row span{color:#667085;font-size:12px;font-weight:800}
+    .status-dot{display:inline-flex;align-items:center;gap:6px;border-radius:999px;background:#eef2f7;color:#344054;padding:5px 8px;font-size:12px;font-weight:900}
+    .status-dot.ok{background:#ecfdf3;color:#027a48}
+    .status-dot.warn{background:#fff8e6;color:#9a6400}
     .analytics-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:18px}
     .analytics-card{background:#fff;border:1px solid #e2e6ee;border-radius:8px;padding:18px}
     .analytics-card strong{display:block;font-size:28px;line-height:1.1}
@@ -123,7 +135,7 @@
     .editor-image-plan p{margin:4px 0}
     .editor-suggestions{margin:12px 0 0;padding-left:18px;color:#344054;line-height:1.7}
     [hidden]{display:none!important}
-    @media (max-width:900px){.cms-grid,.analytics-panels,.seo-form,.overview-grid,.quick-grid{grid-template-columns:1fr}.seo-field.wide{grid-column:auto}.cms-list{max-height:none}.cms-editor-head{display:grid}.cms-stats{grid-template-columns:1fr 1fr 1fr}.analytics-grid,.overview-cards{grid-template-columns:1fr 1fr}.bar-row{grid-template-columns:96px minmax(0,1fr) 42px}.editor-quality-grid{grid-template-columns:1fr 1fr}.editor-quality-top{display:grid}}
+    @media (max-width:900px){.cms-grid,.analytics-panels,.seo-form,.overview-grid,.quick-grid,.ops-grid,.topic-row{grid-template-columns:1fr}.seo-field.wide{grid-column:auto}.cms-list{max-height:none}.cms-editor-head{display:grid}.cms-stats{grid-template-columns:1fr 1fr 1fr}.analytics-grid,.overview-cards{grid-template-columns:1fr 1fr}.bar-row{grid-template-columns:96px minmax(0,1fr) 42px}.editor-quality-grid{grid-template-columns:1fr 1fr}.editor-quality-top{display:grid}}
   </style>
 </head>
 <body>
@@ -188,6 +200,14 @@
           <section class="analytics-panel">
             <h2>站点热度</h2>
             <div id="overviewHotPages"></div>
+          </section>
+          <section class="analytics-panel">
+            <h2>SEO/GEO 工作台</h2>
+            <div id="overviewSeoOps"></div>
+          </section>
+          <section class="analytics-panel">
+            <h2>专题矩阵</h2>
+            <div id="overviewTopics"></div>
           </section>
           <section class="analytics-panel">
             <h2>最近文章</h2>
@@ -398,6 +418,8 @@
       todoList: document.getElementById('todoList'),
       ideaList: document.getElementById('ideaList'),
       overviewHotPages: document.getElementById('overviewHotPages'),
+      overviewSeoOps: document.getElementById('overviewSeoOps'),
+      overviewTopics: document.getElementById('overviewTopics'),
       overviewArticles: document.getElementById('overviewArticles'),
       overviewLeads: document.getElementById('overviewLeads'),
       contentView: document.getElementById('contentView'),
@@ -567,6 +589,8 @@
     function renderOverview() {
       const data = state.overview || {};
       const metrics = data.metrics || {};
+      const seoOps = data.seoOps || {};
+      const health = data.contentHealth || {};
       els.overviewCards.innerHTML = `
         <div class="overview-card"><strong>${metrics.todayPublished || 0}</strong><span>今日发布</span></div>
         <div class="overview-card"><strong>${metrics.draftArticles || 0}</strong><span>待审核文章</span></div>
@@ -585,6 +609,27 @@
         <span>长尾词：${esc(idea.keyword)}</span>
       </div>`).join('') : '<div class="cms-empty" style="padding:24px">核心选题池暂时覆盖得不错。</div>';
       renderBarChart(els.overviewHotPages, data.topPages || []);
+      els.overviewSeoOps.innerHTML = `
+        <div class="ops-grid">
+          <div class="ops-card"><strong>${seoOps.sitemapUrlCount || 0}</strong><span>sitemap URL</span></div>
+          <div class="ops-card"><strong>${seoOps.baiduSubmitted || 0}</strong><span>今日百度实提</span></div>
+          <div class="ops-card"><strong>${seoOps.indexNowSubmitted || 0}</strong><span>今日 IndexNow</span></div>
+          <div class="ops-card"><strong>${health.averageScore || 0}</strong><span>内容均分</span></div>
+        </div>
+        <div class="quality-metrics" style="margin-top:12px">
+          <span>百度起点：${seoOps.baiduNextStart || 0}</span>
+          <span>需修复：${seoOps.auditTotals?.error || 0}</span>
+          <span>可优化：${seoOps.auditTotals?.warning || 0}</span>
+          <span>低分内容：${health.lowScore || 0}</span>
+        </div>
+      `;
+      els.overviewTopics.innerHTML = data.topicMatrix?.length ? `<div class="topic-grid">${data.topicMatrix.map((topic) => `
+        <div class="topic-row">
+          <div><strong><a href="${esc(topic.url)}" target="_blank" rel="noopener">${esc(topic.name)}</a></strong><span>${esc(topic.slug)}</span></div>
+          <div><span>文章</span><strong>${topic.publishedCount || 0}</strong></div>
+          <div><span>草稿</span><strong>${topic.draftCount || 0}</strong></div>
+          <div><span class="status-dot ${topic.exists && topic.inSitemap ? 'ok' : 'warn'}">${topic.exists && topic.inSitemap ? '已进 sitemap' : '需检查'}</span></div>
+        </div>`).join('')}</div>` : '<div class="cms-empty" style="padding:24px">暂无专题矩阵。</div>';
       els.overviewArticles.innerHTML = data.recentArticles?.length ? `<table class="recent-table">
         <thead><tr><th>标题</th><th>状态</th><th>日期</th></tr></thead>
         <tbody>${data.recentArticles.slice(0, 6).map((article) => `<tr>

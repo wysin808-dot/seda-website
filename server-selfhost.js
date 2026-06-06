@@ -16,6 +16,7 @@ const PORT = Number(process.env.PORT || 3002);
 const require = createRequire(import.meta.url);
 const DEEPSEEK_API_URL = 'https://api.deepseek.com/chat/completions';
 const CONSULTATION_SUFFIX = '如需获得个性化升学规划，请联系顾问老师。';
+const DEFAULT_GOOGLE_ANALYTICS_ID = 'G-38WFES3WTH';
 const CMS_VERSION = 'lite-1';
 const CMS_CAPABILITIES = {
   auth: 'password-cookie',
@@ -1346,7 +1347,7 @@ function handleConfig(req, res) {
   json(res, 200, {
     wechatId: process.env.WECHAT_ID || '',
     wechatQrUrl: process.env.WECHAT_QR_URL || '',
-    googleAnalyticsId: process.env.GOOGLE_ANALYTICS_ID || process.env.GA_MEASUREMENT_ID || '',
+    googleAnalyticsId: process.env.GOOGLE_ANALYTICS_ID || process.env.GA_MEASUREMENT_ID || DEFAULT_GOOGLE_ANALYTICS_ID,
   });
 }
 

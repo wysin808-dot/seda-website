@@ -625,6 +625,97 @@ main > section:not(.hero) {
   font-weight: 800;
 }
 
+/* ── About / Partnership Page ── */
+.about-intro-panel {
+  padding: clamp(24px, 4vw, 34px);
+  border: 1px solid #fee2e2;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #fff 0%, #fffafa 58%, #fff1f2 100%);
+  box-shadow: 0 18px 45px rgba(127, 29, 29, 0.08);
+}
+
+.about-intro-panel h2 {
+  margin-top: 4px;
+}
+
+.about-stat-row {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 22px;
+}
+
+.about-stat-row div,
+.about-audience-grid div,
+.partner-value-grid div {
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: #fff;
+}
+
+.about-stat-row strong {
+  display: block;
+  color: var(--brand);
+  font-size: 28px;
+  line-height: 1;
+}
+
+.about-stat-row span,
+.about-audience-grid p,
+.partner-value-grid p {
+  color: var(--muted);
+}
+
+.about-audience-grid,
+.partner-value-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin: 18px 0 28px;
+}
+
+.partner-value-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.about-audience-grid span {
+  color: var(--brand);
+  font-weight: 900;
+  letter-spacing: 0.08em;
+}
+
+.about-audience-grid h3,
+.partner-value-grid strong {
+  display: block;
+  margin: 8px 0;
+  color: var(--ink);
+}
+
+.partner-block {
+  margin: 30px 0;
+  padding: clamp(22px, 4vw, 30px);
+  border: 1px solid #fee2e2;
+  border-radius: 14px;
+  background: #fff;
+}
+
+.partner-feature-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 18px 0 22px;
+}
+
+.partner-feature-list span {
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: #fff1f2;
+  color: var(--brand);
+  font-size: 13px;
+  font-weight: 800;
+}
+
 /* ── School Showcase / Logo Wall ── */
 .school-showcase {
   background: var(--wash);
@@ -3895,6 +3986,12 @@ body.nav-drawer-open {
 .ai-wechat-btn:hover { background: var(--brand-strong); }
 
 @media (max-width: 820px) {
+  .about-stat-row,
+  .about-audience-grid,
+  .partner-value-grid {
+    grid-template-columns: 1fr;
+  }
+
   .seda-wechat-modal {
     right: 16px;
     top: auto;

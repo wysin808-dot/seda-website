@@ -1,5 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import { frontmatterOptimizationFields, suggestedDescription, suggestedSeoTitle } from './seo-optimizer.mjs';
 
 const root = process.cwd();
 const articleDir = path.join(root, 'content', 'articles');
@@ -70,6 +71,35 @@ const seedKeywords = [
   ['中国学生升学新加坡路径怎么选', 'pathway', 'high', 'pending', '自动补充'],
   ['新加坡学生准证被拒怎么办', 'guides', 'medium', 'pending', '自动补充'],
   ['中国学生申请NUS本科难吗', 'university', 'high', 'pending', '自动补充'],
+  ['WACE课程一年学费多少钱', 'wace', 'high', 'pending', '自动补充'],
+  ['WACE选课怎么选比较稳', 'wace', 'high', 'pending', '自动补充'],
+  ['WACE数学Methods和Specialist区别', 'wace', 'high', 'pending', '自动补充'],
+  ['WACE申请澳洲八大需要多少ATAR', 'wace', 'high', 'pending', '自动补充'],
+  ['WACE和IB哪个适合中国学生', 'wace', 'medium', 'pending', '自动补充'],
+  ['WACE Year 11可以插班吗', 'wace', 'medium', 'pending', '自动补充'],
+  ['O-Level英文难度对中国学生高吗', 'o-level', 'high', 'pending', '自动补充'],
+  ['O-Level重考值得吗', 'o-level', 'medium', 'pending', '自动补充'],
+  ['O-Level科目怎么搭配', 'o-level', 'high', 'pending', '自动补充'],
+  ['O-Level成绩不好还能读Poly吗', 'o-level', 'medium', 'pending', '自动补充'],
+  ['O-Level国际学生可以自学报名吗', 'o-level', 'medium', 'pending', '自动补充'],
+  ['AEIS数学难度相当于国内几年级', 'aeis', 'high', 'pending', '自动补充'],
+  ['AEIS英文写作怎么提高', 'aeis', 'high', 'pending', '自动补充'],
+  ['AEIS没有考上怎么办', 'aeis', 'high', 'pending', '自动补充'],
+  ['S-AEIS和AEIS有什么区别', 'aeis', 'medium', 'pending', '自动补充'],
+  ['新加坡政府小学怎么申请', 'aeis', 'medium', 'pending', '自动补充'],
+  ['新加坡国际学校一年多少钱', 'international-school', 'high', 'pending', '自动补充'],
+  ['新加坡国际学校IB怎么选', 'international-school', 'medium', 'pending', '自动补充'],
+  ['新加坡国际学校入学考试考什么', 'international-school', 'medium', 'pending', '自动补充'],
+  ['国际学校转政府学校可行吗', 'international-school', 'medium', 'pending', '自动补充'],
+  ['中国初中生去新加坡读书怎么选路径', 'pathway', 'high', 'pending', '自动补充'],
+  ['国内高一转新加坡还来得及吗', 'pathway', 'high', 'pending', '自动补充'],
+  ['新加坡留学陪读妈妈可以工作吗', 'guides', 'high', 'pending', '自动补充'],
+  ['新加坡留学一年总费用怎么估算', 'guides', 'high', 'pending', '自动补充'],
+  ['新加坡学生住宿怎么选', 'guides', 'medium', 'pending', '自动补充'],
+  ['NUS和NTU申请哪个更难', 'university', 'high', 'pending', '自动补充'],
+  ['中国学生申请NTU本科需要什么成绩', 'university', 'high', 'pending', '自动补充'],
+  ['新加坡公立大学接受WACE成绩吗', 'university', 'high', 'pending', '自动补充'],
+  ['新加坡大学本科申请时间线', 'university', 'medium', 'pending', '自动补充'],
 ];
 
 function option(name, fallback = '') {
@@ -91,6 +121,35 @@ function slugify(input) {
     .replace(/申请poly怎么选专业/g, '-poly-course-choice')
     .replace(/国际学生怎么报名/g, '-international-students-registration')
     .replace(/学校推荐怎么看/g, '-school-recommendation')
+    .replace(/课程一年学费多少钱/g, '-tuition-fees')
+    .replace(/选课怎么选比较稳/g, '-subject-selection')
+    .replace(/数学methods和specialist区别/g, '-methods-vs-specialist')
+    .replace(/申请澳洲八大需要多少atar/g, '-apply-australia-go8-atar')
+    .replace(/和ib哪个适合中国学生/g, '-vs-ib-chinese-students')
+    .replace(/year 11可以插班吗/g, '-year-11-transfer')
+    .replace(/英文难度对中国学生高吗/g, '-english-difficulty-chinese-students')
+    .replace(/重考值得吗/g, '-retake-worth-it')
+    .replace(/科目怎么搭配/g, '-subject-combination')
+    .replace(/成绩不好还能读poly吗/g, '-low-score-poly')
+    .replace(/国际学生可以自学报名吗/g, '-private-candidate-registration')
+    .replace(/数学难度相当于国内几年级/g, '-math-difficulty-china-grade')
+    .replace(/英文写作怎么提高/g, '-english-writing')
+    .replace(/没有考上怎么办/g, '-failed-what-to-do')
+    .replace(/和aeis有什么区别/g, '-vs-aeis')
+    .replace(/政府小学怎么申请/g, '-government-primary-application')
+    .replace(/一年多少钱/g, '-annual-fees')
+    .replace(/ib怎么选/g, '-ib-how-to-choose')
+    .replace(/入学考试考什么/g, '-entrance-test')
+    .replace(/转政府学校可行吗/g, '-transfer-to-government-school')
+    .replace(/初中生去新加坡读书怎么选路径/g, '-secondary-student-pathway')
+    .replace(/高一转新加坡还来得及吗/g, '-grade-10-transfer')
+    .replace(/陪读妈妈可以工作吗/g, '-guardian-work')
+    .replace(/一年总费用怎么估算/g, '-total-cost')
+    .replace(/学生住宿怎么选/g, '-accommodation')
+    .replace(/和ntu申请哪个更难/g, '-vs-ntu-difficulty')
+    .replace(/申请ntu本科需要什么成绩/g, '-ntu-undergraduate-requirements')
+    .replace(/公立大学接受wace成绩吗/g, '-public-university-wace')
+    .replace(/大学本科申请时间线/g, '-undergraduate-application-timeline')
     .replace(/怎么算/g, '-calculation')
     .replace(/是什么/g, '-what-is')
     .replace(/难吗/g, '-difficulty')
@@ -197,6 +256,10 @@ function frontmatterValue(value) {
   return String(value).replaceAll('\n', ' ').replaceAll(':', '：');
 }
 
+function frontmatterBoolean(value) {
+  return value ? 'true' : 'false';
+}
+
 function linksFor(category) {
   return relatedLinks[category] || relatedLinks.guides;
 }
@@ -300,9 +363,20 @@ function createDraft(row) {
   const label = categoryLabels[category] || category;
   const slug = uniqueSlug(category, keyword);
   const file = path.join(articleDir, `${category}-${slug}.md`);
-  const description = `${keyword}完整指南：面向中国家长的新加坡升学规划文章，拆解适合人群、申请节奏、常见误区和下一步建议。`;
+  const title = suggestedSeoTitle(keyword, category);
+  const description = suggestedDescription(keyword, label);
+  const article = articleBody(keyword, category);
+  const optimization = frontmatterOptimizationFields({
+    title,
+    primaryKeyword: keyword,
+    description,
+    category,
+    categoryLabel: label,
+    slug,
+  }, article);
   const body = `---
-title: ${frontmatterValue(keyword)}
+title: ${frontmatterValue(title)}
+primaryKeyword: ${frontmatterValue(keyword)}
 description: ${frontmatterValue(description)}
 keywords: ${frontmatterValue(`${keyword},${label},新加坡留学,中国学生升学`)}
 category: ${frontmatterValue(category)}
@@ -313,9 +387,19 @@ tags: ${frontmatterValue(`${label},新加坡留学,中国家长`)}
 draft: true
 reviewStatus: pending
 generatedBy: daily-draft-system
+seoScore: ${optimization.seoScore}
+seoLevel: ${frontmatterValue(optimization.seoLevel)}
+seoRecommendedPublish: ${frontmatterBoolean(optimization.seoRecommendedPublish)}
+seoSuggestedTitle: ${frontmatterValue(optimization.seoSuggestedTitle)}
+seoSuggestedDescription: ${frontmatterValue(optimization.seoSuggestedDescription)}
+imageRequired: ${frontmatterBoolean(optimization.imageRequired)}
+imageHero: ${frontmatterValue(optimization.imageHero)}
+imageAlt: ${frontmatterValue(optimization.imageAlt)}
+imagePrompt: ${frontmatterValue(optimization.imagePrompt)}
+infographicSuggestion: ${frontmatterValue(optimization.infographicSuggestion)}
 ---
 
-${articleBody(keyword, category)}
+${article}
 `;
   fs.mkdirSync(articleDir, { recursive: true });
   fs.writeFileSync(file, body, 'utf8');

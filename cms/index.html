@@ -109,8 +109,21 @@
     .quality-issues li{margin:5px 0}
     .quality-issues .error{color:#b91c1c;font-weight:800}
     .quality-issues .warning{color:#8a5a00;font-weight:800}
+    .editor-quality{margin:18px 18px 0;padding:16px;border:1px solid #eef0f4;border-radius:8px;background:#fafbfc}
+    .editor-quality-top{display:flex;justify-content:space-between;gap:14px;align-items:flex-start;margin-bottom:12px}
+    .editor-quality-score{border-radius:999px;background:#eef2f7;color:#344054;font-weight:900;padding:7px 10px;white-space:nowrap}
+    .editor-quality-score.pass{background:#ecfdf3;color:#027a48}
+    .editor-quality-score.warning{background:#fff8e6;color:#9a6400}
+    .editor-quality-score.error{background:#fff1f1;color:#b91c1c}
+    .editor-quality-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-bottom:12px}
+    .editor-quality-grid div{border:1px solid #e5e8ee;border-radius:8px;background:#fff;padding:10px}
+    .editor-quality-grid strong{display:block;font-size:19px}
+    .editor-quality-grid span{display:block;margin-top:4px;color:#667085;font-size:12px;font-weight:800}
+    .editor-image-plan{border:1px solid #e5e8ee;border-radius:8px;background:#fff;padding:12px;color:#344054;font-size:13px;line-height:1.6}
+    .editor-image-plan p{margin:4px 0}
+    .editor-suggestions{margin:12px 0 0;padding-left:18px;color:#344054;line-height:1.7}
     [hidden]{display:none!important}
-    @media (max-width:900px){.cms-grid,.analytics-panels,.seo-form,.overview-grid,.quick-grid{grid-template-columns:1fr}.seo-field.wide{grid-column:auto}.cms-list{max-height:none}.cms-editor-head{display:grid}.cms-stats{grid-template-columns:1fr 1fr 1fr}.analytics-grid,.overview-cards{grid-template-columns:1fr 1fr}.bar-row{grid-template-columns:96px minmax(0,1fr) 42px}}
+    @media (max-width:900px){.cms-grid,.analytics-panels,.seo-form,.overview-grid,.quick-grid{grid-template-columns:1fr}.seo-field.wide{grid-column:auto}.cms-list{max-height:none}.cms-editor-head{display:grid}.cms-stats{grid-template-columns:1fr 1fr 1fr}.analytics-grid,.overview-cards{grid-template-columns:1fr 1fr}.bar-row{grid-template-columns:96px minmax(0,1fr) 42px}.editor-quality-grid{grid-template-columns:1fr 1fr}.editor-quality-top{display:grid}}
   </style>
 </head>
 <body>
@@ -225,6 +238,8 @@
               </div>
             </div>
             <div class="cms-editor-body">
+              <div id="editorQuality" class="editor-quality"></div>
+              <div style="height:14px"></div>
               <textarea id="editorContent" class="cms-textarea" spellcheck="false"></textarea>
             </div>
           </div>
@@ -366,6 +381,7 @@
       editorPanel: document.getElementById('editorPanel'),
       editorTitle: document.getElementById('editorTitle'),
       editorMeta: document.getElementById('editorMeta'),
+      editorQuality: document.getElementById('editorQuality'),
       editorContent: document.getElementById('editorContent'),
       saveButton: document.getElementById('saveButton'),
       approveButton: document.getElementById('approveButton'),
@@ -478,17 +494,57 @@
       const articles = state.articles.filter(passesFilter).filter(passesSearch);
       els.articleList.innerHTML = articles.length ? articles.map((article) => {
         const status = article.draft ? (article.reviewStatus === 'needs_revision' ? '需修改' : '待审核') : '已发布';
+        const seoLevel = article.seoLevel || 'warning';
+        const seoText = seoLevel === 'error' ? '需修复' : seoLevel === 'warning' ? '可优化' : '通过';
         return `<button class="cms-item ${state.selected?.file === article.file ? 'active' : ''}" type="button" data-file="${article.file}">
           <strong>${article.title}</strong>
           <span class="cms-meta">
             <span class="cms-pill ${article.draft ? 'draft' : ''}">${status}</span>
+            <span class="quality-score ${esc(seoLevel)}" style="padding:4px 8px">${seoText} · ${article.seoScore || 0}</span>
             <span>${article.category}</span>
             <span>${article.date || ''}</span>
           </span>
+          ${article.imagePlan?.heroFilename ? `<span class="cms-meta" style="margin-top:8px">配图：${esc(article.imagePlan.heroFilename)}</span>` : ''}
           ${article.reviewNote ? `<span class="cms-meta" style="margin-top:8px">备注：${article.reviewNote}</span>` : ''}
         </button>`;
       }).join('') : '<div class="cms-empty">这个分类暂无文章。</div>';
       renderStats();
+    }
+
+    function renderEditorQuality(optimization = null) {
+      if (!optimization) {
+        els.editorQuality.innerHTML = '<div class="lead-muted">暂无 SEO 质检数据。</div>';
+        return;
+      }
+      const level = optimization.level || 'warning';
+      const label = level === 'error' ? '需修复' : level === 'warning' ? '可优化' : '通过';
+      const metrics = optimization.metrics || {};
+      const imagePlan = optimization.imagePlan || {};
+      const suggestions = optimization.suggestions || [];
+      els.editorQuality.innerHTML = `
+        <div class="editor-quality-top">
+          <div>
+            <strong>发布前 SEO / 图片检查</strong>
+            <div class="lead-muted" style="margin-top:5px">${optimization.recommendedPublish ? '基础项达到发布线，仍建议补图后发布。' : '建议先按下方提示优化，再通过发布。'}</div>
+          </div>
+          <span class="editor-quality-score ${esc(level)}">${label} · ${optimization.score || 0}/100</span>
+        </div>
+        <div class="editor-quality-grid">
+          <div><strong>${metrics.length || 0}</strong><span>约字数</span></div>
+          <div><strong>${metrics.h2Count || 0}</strong><span>H2</span></div>
+          <div><strong>${metrics.faqCount || 0}</strong><span>FAQ</span></div>
+          <div><strong>${metrics.internalLinkCount || 0}</strong><span>内链</span></div>
+          <div><strong>${metrics.imageCount || 0}</strong><span>图片</span></div>
+        </div>
+        <div class="editor-image-plan">
+          <strong>配图建议</strong>
+          <p>首图文件：<code>${esc(imagePlan.heroFilename || '')}</code></p>
+          <p>Alt：${esc(imagePlan.heroAlt || '')}</p>
+          <p>首图方向：${esc(imagePlan.heroPrompt || '')}</p>
+          <p>信息图：${esc(imagePlan.infographicAlt || '')}</p>
+        </div>
+        ${suggestions.length ? `<ul class="editor-suggestions">${suggestions.map((item) => `<li>${esc(item)}</li>`).join('')}</ul>` : '<div class="lead-muted" style="margin-top:12px">暂无明显问题。</div>'}
+      `;
     }
 
     function renderBarChart(el, rows) {
@@ -672,10 +728,12 @@
             <span>H2：${item.h2Count || 0}</span>
             <span>内链：${item.internalLinkCount || 0}</span>
             <span>FAQ：${item.hasFaq ? '有' : '无'}</span>
+            <span>图片：${item.imageCount || 0}</span>
             <span>sitemap：${item.inSitemap ? '有' : '无'}</span>
             <span>Article schema：${item.hasArticleSchema ? '有' : '无'}</span>
           </div>
           ${item.issues?.length ? `<ul class="quality-issues">${item.issues.map((issue) => `<li class="${esc(issue.severity)}">${esc(issue.message)}</li>`).join('')}</ul>` : '<div class="lead-muted">暂无明显问题。</div>'}
+          ${item.suggestions?.length ? `<ul class="quality-issues">${item.suggestions.slice(0, 3).map((tip) => `<li>${esc(tip)}</li>`).join('')}</ul>` : ''}
           <div class="lead-muted" style="margin-top:10px">${esc(item.file)}</div>
         </article>
       `).join('')}</div>` : '<div class="cms-empty" style="padding:24px">暂无文章质检数据。</div>';
@@ -780,6 +838,7 @@
       els.editorPanel.hidden = false;
       els.editorTitle.textContent = data.meta.title || data.file;
       els.editorMeta.textContent = `${data.file} · ${data.meta.categoryLabel || data.meta.category || 'SEO文章'} · ${data.meta.date || ''}`;
+      renderEditorQuality(data.optimization);
       els.editorContent.value = data.content || '';
       renderList();
     }

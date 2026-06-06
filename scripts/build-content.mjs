@@ -2,6 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { buildSchoolPages } from './build-school-pages.mjs';
 import { enhanceKeySeoPages } from './enhance-key-seo-pages.mjs';
+import { optimizeArticle } from './seo-optimizer.mjs';
 
 const root = process.cwd();
 const domain = 'https://sgeda.org.cn';
@@ -421,6 +422,7 @@ function loadArticles() {
         html: markdownToHtml(parsed.body),
         url,
         summary: firstH2(parsed.body) || parsed.meta.description || '',
+        optimization: optimizeArticle({ meta: parsed.meta, body: parsed.body }),
       };
     });
 }
@@ -452,9 +454,14 @@ function renderReviewPage(articles) {
   const published = articles.filter((article) => !article.meta.draft).length;
   const draftCards = drafts.map((article, index) => {
     const meta = article.meta;
+    const optimization = article.optimization || optimizeArticle({ meta, body: article.body });
     const relFile = path.relative(root, article.file).replaceAll(path.sep, '/');
     const reviewStatus = meta.reviewStatus === 'needs_revision' ? '需修改' : '待审核';
     const note = meta.reviewNote ? `\n        <div><dt>审核备注</dt><dd>${escapeHtml(meta.reviewNote)}</dd></div>` : '';
+    const scoreClass = optimization.level === 'error' ? 'error' : optimization.level === 'warning' ? 'warning' : 'pass';
+    const scoreLabel = optimization.level === 'error' ? '需修复' : optimization.level === 'warning' ? '可优化' : '通过';
+    const imagePlan = optimization.imagePlan || {};
+    const suggestions = [...(optimization.suggestions || [])].slice(0, 5);
     return `<article class="review-card" id="draft-${index + 1}">
       <div class="review-card-head">
         <div>
@@ -475,6 +482,26 @@ function renderReviewPage(articles) {
         <div><dt>计划 URL</dt><dd><code>${escapeHtml(article.url)}</code></dd></div>
         <div><dt>文件</dt><dd><code>${escapeHtml(relFile)}</code></dd></div>${note}
       </dl>
+      <section class="review-optimization" aria-label="SEO 优化检查">
+        <div class="review-score ${scoreClass}">
+          <strong>${optimization.score}/100</strong>
+          <span>${scoreLabel}${optimization.recommendedPublish ? ' · 可发布' : ' · 建议先优化'}</span>
+        </div>
+        <div class="review-check-grid">
+          <div><strong>${optimization.metrics?.length || 0}</strong><span>正文约字数</span></div>
+          <div><strong>${optimization.metrics?.h2Count || 0}</strong><span>H2</span></div>
+          <div><strong>${optimization.metrics?.faqCount || 0}</strong><span>FAQ</span></div>
+          <div><strong>${optimization.metrics?.internalLinkCount || 0}</strong><span>内链</span></div>
+          <div><strong>${optimization.metrics?.imageCount || 0}</strong><span>图片</span></div>
+        </div>
+        <div class="review-image-plan">
+          <strong>配图建议</strong>
+          <p>首图文件：<code>${escapeHtml(imagePlan.heroFilename || meta.imageHero || '')}</code></p>
+          <p>Alt：${escapeHtml(imagePlan.heroAlt || meta.imageAlt || '')}</p>
+          <p>信息图：${escapeHtml(imagePlan.infographicAlt || meta.infographicSuggestion || '')}</p>
+        </div>
+        ${suggestions.length ? `<ul class="review-suggestions">${suggestions.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}</ul>` : '<p class="review-good">当前 SEO 基础项较完整。</p>'}
+      </section>
       <div class="review-body">${article.html}</div>
     </article>`;
   }).join('\n');
@@ -507,6 +534,21 @@ function renderReviewPage(articles) {
   .review-meta div{display:grid;grid-template-columns:96px minmax(0,1fr);gap:12px}
   .review-meta dt{font-weight:800;color:#5b6472}
   .review-meta dd{margin:0;color:#1f2937;overflow-wrap:anywhere}
+  .review-optimization{display:grid;grid-template-columns:180px minmax(0,1fr);gap:16px;margin:18px 0 24px;padding:16px;border:1px solid #eef0f4;border-radius:8px;background:#fafbfc}
+  .review-score{display:flex;flex-direction:column;justify-content:center;border-radius:8px;padding:14px;background:#eef2f7;color:#344054}
+  .review-score strong{font-size:30px;line-height:1}
+  .review-score span{margin-top:8px;font-weight:900}
+  .review-score.pass{background:#ecfdf3;color:#027a48}
+  .review-score.warning{background:#fff8e6;color:#9a6400}
+  .review-score.error{background:#fff1f1;color:#b91c1c}
+  .review-check-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+  .review-check-grid div{border:1px solid #e5e8ee;border-radius:8px;background:#fff;padding:10px}
+  .review-check-grid strong{display:block;font-size:20px}
+  .review-check-grid span{display:block;margin-top:4px;color:#667085;font-size:12px;font-weight:800}
+  .review-image-plan{grid-column:2;margin-top:-2px;color:#344054;font-size:14px;line-height:1.65}
+  .review-image-plan p{margin:4px 0}
+  .review-suggestions{grid-column:1 / -1;margin:0;padding-left:18px;color:#344054;line-height:1.7}
+  .review-good{grid-column:1 / -1;margin:0;color:#027a48;font-weight:800}
   .review-body{max-width:820px}
   .review-body h2{font-size:24px;margin-top:30px}
   .review-body h3{font-size:19px;margin-top:24px}
@@ -514,7 +556,7 @@ function renderReviewPage(articles) {
   .review-body table{width:100%;border-collapse:collapse;margin:18px 0}
   .review-body th,.review-body td{border:1px solid #e5e8ee;padding:10px;text-align:left}
   .review-empty{background:#fff;border:1px solid #e5e8ee;border-radius:8px;padding:28px}
-  @media (max-width:760px){.review-card-head{grid-template-columns:1fr}.review-actions{justify-content:flex-start}.review-meta div{grid-template-columns:1fr}}
+  @media (max-width:760px){.review-card-head,.review-optimization{grid-template-columns:1fr}.review-actions{justify-content:flex-start}.review-meta div{grid-template-columns:1fr}.review-image-plan{grid-column:auto}.review-check-grid{grid-template-columns:1fr 1fr}}
 </style>
 </head>
 <body>

@@ -10,6 +10,7 @@ import { execFile } from 'node:child_process';
 import { appendFileSync, existsSync, mkdirSync, readFileSync, readdirSync, renameSync, rmSync, writeFileSync } from 'node:fs';
 import { createRequire } from 'node:module';
 import { basename, dirname, join, relative, sep } from 'node:path';
+import { optimizeArticle } from './scripts/seo-optimizer.mjs';
 
 const PORT = Number(process.env.PORT || 3002);
 const require = createRequire(import.meta.url);
@@ -593,6 +594,7 @@ function auditArticle(fullPath, sitemapSet) {
   const hasFaq = hasFaqSection(body);
   const hasArticleSchema = /"@type"\s*:\s*"Article"/.test(html);
   const hasFaqSchema = /"@type"\s*:\s*"FAQPage"/.test(html);
+  const optimization = optimizeArticle({ meta, body, html, htmlExists, inSitemap: sitemapSet.has(absoluteUrl) });
 
   if (!title) addIssue(issues, 'error', '缺少 title');
   else if (title.length < 18) addIssue(issues, 'warning', '标题偏短，长尾词表达可能不够完整');
@@ -618,6 +620,9 @@ function auditArticle(fullPath, sitemapSet) {
   if (!meta.draft && !sitemapSet.has(absoluteUrl)) addIssue(issues, 'error', '已发布但未进入 sitemap');
   if (!meta.draft && htmlExists && !hasArticleSchema) addIssue(issues, 'error', '生成页缺少 Article schema');
   if (!meta.draft && htmlExists && hasFaq && !hasFaqSchema) addIssue(issues, 'warning', '正文有 FAQ 倾向，但页面未输出 FAQ schema');
+  const mergedIssues = [...issues, ...optimization.issues.filter((issue) => !issues.some((item) => item.message === issue.message))];
+  const mergedLevel = auditLevel(mergedIssues);
+  const mergedScore = Math.max(0, 100 - mergedIssues.reduce((sum, issue) => sum + (issue.severity === 'error' ? 22 : 8), 0));
 
   return {
     file,
@@ -625,8 +630,8 @@ function auditArticle(fullPath, sitemapSet) {
     url: absoluteUrl,
     category: meta.categoryLabel || meta.category || 'SEO文章',
     draft: Boolean(meta.draft),
-    level: auditLevel(issues),
-    score: Math.max(0, 100 - issues.reduce((sum, issue) => sum + (issue.severity === 'error' ? 22 : 8), 0)),
+    level: mergedLevel,
+    score: mergedScore,
     length,
     h2Count,
     internalLinkCount,
@@ -636,7 +641,12 @@ function auditArticle(fullPath, sitemapSet) {
     hasArticleSchema,
     hasFaqSchema,
     inSitemap: sitemapSet.has(absoluteUrl),
-    issues,
+    imageCount: optimization.metrics.imageCount,
+    faqCount: optimization.metrics.faqCount,
+    recommendedPublish: optimization.recommendedPublish,
+    imagePlan: optimization.imagePlan,
+    suggestions: optimization.suggestions,
+    issues: mergedIssues,
   };
 }
 
@@ -669,7 +679,8 @@ function articleSummaries() {
     .map((file) => {
       const fullPath = join(articleDir, file);
       const raw = readFileSync(fullPath, 'utf8');
-      const { meta } = parseFrontmatter(raw);
+      const { meta, body } = parseFrontmatter(raw);
+      const optimization = optimizeArticle({ meta, body });
       return {
         file: relativeArticlePath(fullPath),
         title: meta.title || file,
@@ -682,6 +693,11 @@ function articleSummaries() {
         updated: meta.updated || '',
         publishedAt: meta.publishedAt || '',
         slug: meta.slug || '',
+        seoScore: optimization.score,
+        seoLevel: optimization.level,
+        seoRecommendedPublish: optimization.recommendedPublish,
+        seoSuggestions: optimization.suggestions,
+        imagePlan: optimization.imagePlan,
       };
     })
     .sort((a, b) => Number(b.draft) - Number(a.draft) || String(b.date).localeCompare(String(a.date)));
@@ -1115,8 +1131,9 @@ function getCmsArticle(req, res, url) {
   const fullPath = articleFilePath(url.searchParams.get('file'));
   if (!fullPath || !existsSync(fullPath)) return json(res, 404, { error: '文章不存在' });
   const raw = readFileSync(fullPath, 'utf8');
-  const { meta } = parseFrontmatter(raw);
-  json(res, 200, { ok: true, file: relativeArticlePath(fullPath), meta, content: raw });
+  const { meta, body } = parseFrontmatter(raw);
+  const optimization = optimizeArticle({ meta, body });
+  json(res, 200, { ok: true, file: relativeArticlePath(fullPath), meta, content: raw, optimization });
 }
 
 async function saveCmsArticle(req, res) {

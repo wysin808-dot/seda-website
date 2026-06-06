@@ -27,6 +27,21 @@
   .review-meta div{display:grid;grid-template-columns:96px minmax(0,1fr);gap:12px}
   .review-meta dt{font-weight:800;color:#5b6472}
   .review-meta dd{margin:0;color:#1f2937;overflow-wrap:anywhere}
+  .review-optimization{display:grid;grid-template-columns:180px minmax(0,1fr);gap:16px;margin:18px 0 24px;padding:16px;border:1px solid #eef0f4;border-radius:8px;background:#fafbfc}
+  .review-score{display:flex;flex-direction:column;justify-content:center;border-radius:8px;padding:14px;background:#eef2f7;color:#344054}
+  .review-score strong{font-size:30px;line-height:1}
+  .review-score span{margin-top:8px;font-weight:900}
+  .review-score.pass{background:#ecfdf3;color:#027a48}
+  .review-score.warning{background:#fff8e6;color:#9a6400}
+  .review-score.error{background:#fff1f1;color:#b91c1c}
+  .review-check-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+  .review-check-grid div{border:1px solid #e5e8ee;border-radius:8px;background:#fff;padding:10px}
+  .review-check-grid strong{display:block;font-size:20px}
+  .review-check-grid span{display:block;margin-top:4px;color:#667085;font-size:12px;font-weight:800}
+  .review-image-plan{grid-column:2;margin-top:-2px;color:#344054;font-size:14px;line-height:1.65}
+  .review-image-plan p{margin:4px 0}
+  .review-suggestions{grid-column:1 / -1;margin:0;padding-left:18px;color:#344054;line-height:1.7}
+  .review-good{grid-column:1 / -1;margin:0;color:#027a48;font-weight:800}
   .review-body{max-width:820px}
   .review-body h2{font-size:24px;margin-top:30px}
   .review-body h3{font-size:19px;margin-top:24px}
@@ -34,7 +49,7 @@
   .review-body table{width:100%;border-collapse:collapse;margin:18px 0}
   .review-body th,.review-body td{border:1px solid #e5e8ee;padding:10px;text-align:left}
   .review-empty{background:#fff;border:1px solid #e5e8ee;border-radius:8px;padding:28px}
-  @media (max-width:760px){.review-card-head{grid-template-columns:1fr}.review-actions{justify-content:flex-start}.review-meta div{grid-template-columns:1fr}}
+  @media (max-width:760px){.review-card-head,.review-optimization{grid-template-columns:1fr}.review-actions{justify-content:flex-start}.review-meta div{grid-template-columns:1fr}.review-image-plan{grid-column:auto}.review-check-grid{grid-template-columns:1fr 1fr}}
 </style>
 </head>
 <body>
@@ -106,6 +121,26 @@
         <div><dt>计划 URL</dt><dd><code>/aeis/aeis-difficulty/</code></dd></div>
         <div><dt>文件</dt><dd><code>content/articles/aeis-aeis-difficulty.md</code></dd></div>
       </dl>
+      <section class="review-optimization" aria-label="SEO 优化检查">
+        <div class="review-score warning">
+          <strong>79/100</strong>
+          <span>可优化 · 可发布</span>
+        </div>
+        <div class="review-check-grid">
+          <div><strong>2080</strong><span>正文约字数</span></div>
+          <div><strong>9</strong><span>H2</span></div>
+          <div><strong>4</strong><span>FAQ</span></div>
+          <div><strong>6</strong><span>内链</span></div>
+          <div><strong>0</strong><span>图片</span></div>
+        </div>
+        <div class="review-image-plan">
+          <strong>配图建议</strong>
+          <p>首图文件：<code>aeis-aeis-difficulty-cover.webp</code></p>
+          <p>Alt：AEIS插班新加坡政府学校难吗：AEIS 考试与政府学校插班规划</p>
+          <p>信息图：AEIS插班新加坡政府学校难吗路径图、时间线或选校 checklist</p>
+        </div>
+        <ul class="review-suggestions"><li>补首图：aeis-aeis-difficulty-cover.webp，alt=&quot;AEIS插班新加坡政府学校难吗：AEIS 考试与政府学校插班规划&quot;</li><li>信息图建议：AEIS插班新加坡政府学校难吗路径图、时间线或选校 checklist</li><li>优先补内链：/primary-schools/</li><li>发布前把 FAQ 扩展到 5-8 个问题，方便百度和 AI 搜索摘取。</li></ul>
+      </section>
       <div class="review-body"><p>很多家长第一次搜索“AEIS插班新加坡政府学校难吗”，通常不是为了看一个官方定义。</p>
 <p>他们真正想确认的是：这条路对自己的孩子有没有机会、会不会浪费时间、需要提前准备什么，以及现在开始还来不来得及。</p>
 <h2>先说结论</h2>
@@ -167,6 +202,26 @@
         <div><dt>计划 URL</dt><dd><code>/guides/what-to-do/</code></dd></div>
         <div><dt>文件</dt><dd><code>content/articles/guides-what-to-do.md</code></dd></div>
       </dl>
+      <section class="review-optimization" aria-label="SEO 优化检查">
+        <div class="review-score warning">
+          <strong>79/100</strong>
+          <span>可优化 · 可发布</span>
+        </div>
+        <div class="review-check-grid">
+          <div><strong>2061</strong><span>正文约字数</span></div>
+          <div><strong>9</strong><span>H2</span></div>
+          <div><strong>4</strong><span>FAQ</span></div>
+          <div><strong>6</strong><span>内链</span></div>
+          <div><strong>0</strong><span>图片</span></div>
+        </div>
+        <div class="review-image-plan">
+          <strong>配图建议</strong>
+          <p>首图文件：<code>guide-what-to-do-cover.webp</code></p>
+          <p>Alt：新加坡学生准证被拒怎么办：新加坡留学申请与家长指南</p>
+          <p>信息图：新加坡学生准证被拒怎么办路径图、时间线或选校 checklist</p>
+        </div>
+        <ul class="review-suggestions"><li>补首图：guide-what-to-do-cover.webp，alt=&quot;新加坡学生准证被拒怎么办：新加坡留学申请与家长指南&quot;</li><li>信息图建议：新加坡学生准证被拒怎么办路径图、时间线或选校 checklist</li><li>优先补内链：/contact/</li><li>发布前把 FAQ 扩展到 5-8 个问题，方便百度和 AI 搜索摘取。</li></ul>
+      </section>
       <div class="review-body"><p>很多家长第一次搜索“新加坡学生准证被拒怎么办”，通常不是为了看一个官方定义。</p>
 <p>他们真正想确认的是：这条路对自己的孩子有没有机会、会不会浪费时间、需要提前准备什么，以及现在开始还来不来得及。</p>
 <h2>先说结论</h2>
@@ -228,6 +283,26 @@
         <div><dt>计划 URL</dt><dd><code>/o-level/o-level-school-recommendation/</code></dd></div>
         <div><dt>文件</dt><dd><code>content/articles/o-level-o-level-school-recommendation.md</code></dd></div>
       </dl>
+      <section class="review-optimization" aria-label="SEO 优化检查">
+        <div class="review-score warning">
+          <strong>79/100</strong>
+          <span>可优化 · 可发布</span>
+        </div>
+        <div class="review-check-grid">
+          <div><strong>2084</strong><span>正文约字数</span></div>
+          <div><strong>9</strong><span>H2</span></div>
+          <div><strong>4</strong><span>FAQ</span></div>
+          <div><strong>6</strong><span>内链</span></div>
+          <div><strong>0</strong><span>图片</span></div>
+        </div>
+        <div class="review-image-plan">
+          <strong>配图建议</strong>
+          <p>首图文件：<code>o-level-o-level-school-recommendation-cover.webp</code></p>
+          <p>Alt：O-Level学校推荐怎么看：O-Level 考试与新加坡升学路径</p>
+          <p>信息图：O-Level学校推荐怎么看路径图、时间线或选校 checklist</p>
+        </div>
+        <ul class="review-suggestions"><li>补首图：o-level-o-level-school-recommendation-cover.webp，alt=&quot;O-Level学校推荐怎么看：O-Level 考试与新加坡升学路径&quot;</li><li>信息图建议：O-Level学校推荐怎么看路径图、时间线或选校 checklist</li><li>优先补内链：/secondary-schools/</li><li>发布前把 FAQ 扩展到 5-8 个问题，方便百度和 AI 搜索摘取。</li></ul>
+      </section>
       <div class="review-body"><p>很多家长第一次搜索“O-Level学校推荐怎么看”，通常不是为了看一个官方定义。</p>
 <p>他们真正想确认的是：这条路对自己的孩子有没有机会、会不会浪费时间、需要提前准备什么，以及现在开始还来不来得及。</p>
 <h2>先说结论</h2>
@@ -289,6 +364,26 @@
         <div><dt>计划 URL</dt><dd><code>/wace/wace-apply-hku/</code></dd></div>
         <div><dt>文件</dt><dd><code>content/articles/wace-wace-apply-hku.md</code></dd></div>
       </dl>
+      <section class="review-optimization" aria-label="SEO 优化检查">
+        <div class="review-score warning">
+          <strong>79/100</strong>
+          <span>可优化 · 可发布</span>
+        </div>
+        <div class="review-check-grid">
+          <div><strong>2083</strong><span>正文约字数</span></div>
+          <div><strong>9</strong><span>H2</span></div>
+          <div><strong>4</strong><span>FAQ</span></div>
+          <div><strong>6</strong><span>内链</span></div>
+          <div><strong>0</strong><span>图片</span></div>
+        </div>
+        <div class="review-image-plan">
+          <strong>配图建议</strong>
+          <p>首图文件：<code>wace-wace-apply-hku-cover.webp</code></p>
+          <p>Alt：WACE申请香港大学可以吗：WACE 课程与中国学生升学规划</p>
+          <p>信息图：WACE申请香港大学可以吗路径图、时间线或选校 checklist</p>
+        </div>
+        <ul class="review-suggestions"><li>补首图：wace-wace-apply-hku-cover.webp，alt=&quot;WACE申请香港大学可以吗：WACE 课程与中国学生升学规划&quot;</li><li>信息图建议：WACE申请香港大学可以吗路径图、时间线或选校 checklist</li><li>优先补内链：/wace-atar/</li><li>发布前把 FAQ 扩展到 5-8 个问题，方便百度和 AI 搜索摘取。</li></ul>
+      </section>
       <div class="review-body"><p>很多家长第一次搜索“WACE申请香港大学可以吗”，通常不是为了看一个官方定义。</p>
 <p>他们真正想确认的是：这条路对自己的孩子有没有机会、会不会浪费时间、需要提前准备什么，以及现在开始还来不来得及。</p>
 <h2>先说结论</h2>
@@ -350,6 +445,26 @@
         <div><dt>计划 URL</dt><dd><code>/wace/wace-eald-what-is/</code></dd></div>
         <div><dt>文件</dt><dd><code>content/articles/wace-wace-eald-what-is.md</code></dd></div>
       </dl>
+      <section class="review-optimization" aria-label="SEO 优化检查">
+        <div class="review-score warning">
+          <strong>79/100</strong>
+          <span>可优化 · 可发布</span>
+        </div>
+        <div class="review-check-grid">
+          <div><strong>2077</strong><span>正文约字数</span></div>
+          <div><strong>9</strong><span>H2</span></div>
+          <div><strong>4</strong><span>FAQ</span></div>
+          <div><strong>6</strong><span>内链</span></div>
+          <div><strong>0</strong><span>图片</span></div>
+        </div>
+        <div class="review-image-plan">
+          <strong>配图建议</strong>
+          <p>首图文件：<code>wace-wace-eald-what-is-cover.webp</code></p>
+          <p>Alt：WACE EALD是什么：WACE 课程与中国学生升学规划</p>
+          <p>信息图：WACE EALD是什么路径图、时间线或选校 checklist</p>
+        </div>
+        <ul class="review-suggestions"><li>补首图：wace-wace-eald-what-is-cover.webp，alt=&quot;WACE EALD是什么：WACE 课程与中国学生升学规划&quot;</li><li>信息图建议：WACE EALD是什么路径图、时间线或选校 checklist</li><li>优先补内链：/wace-atar/</li><li>发布前把 FAQ 扩展到 5-8 个问题，方便百度和 AI 搜索摘取。</li></ul>
+      </section>
       <div class="review-body"><p>很多家长第一次搜索“WACE EALD是什么”，通常不是为了看一个官方定义。</p>
 <p>他们真正想确认的是：这条路对自己的孩子有没有机会、会不会浪费时间、需要提前准备什么，以及现在开始还来不来得及。</p>
 <h2>先说结论</h2>
@@ -411,6 +526,26 @@
         <div><dt>计划 URL</dt><dd><code>/aeis/aeis-preparation/</code></dd></div>
         <div><dt>文件</dt><dd><code>content/articles/aeis-aeis-preparation.md</code></dd></div>
       </dl>
+      <section class="review-optimization" aria-label="SEO 优化检查">
+        <div class="review-score warning">
+          <strong>79/100</strong>
+          <span>可优化 · 可发布</span>
+        </div>
+        <div class="review-check-grid">
+          <div><strong>2074</strong><span>正文约字数</span></div>
+          <div><strong>9</strong><span>H2</span></div>
+          <div><strong>4</strong><span>FAQ</span></div>
+          <div><strong>6</strong><span>内链</span></div>
+          <div><strong>0</strong><span>图片</span></div>
+        </div>
+        <div class="review-image-plan">
+          <strong>配图建议</strong>
+          <p>首图文件：<code>aeis-aeis-preparation-cover.webp</code></p>
+          <p>Alt：新加坡AEIS英文怎么准备：AEIS 考试与政府学校插班规划</p>
+          <p>信息图：新加坡AEIS英文怎么准备路径图、时间线或选校 checklist</p>
+        </div>
+        <ul class="review-suggestions"><li>补首图：aeis-aeis-preparation-cover.webp，alt=&quot;新加坡AEIS英文怎么准备：AEIS 考试与政府学校插班规划&quot;</li><li>信息图建议：新加坡AEIS英文怎么准备路径图、时间线或选校 checklist</li><li>优先补内链：/primary-schools/</li><li>发布前把 FAQ 扩展到 5-8 个问题，方便百度和 AI 搜索摘取。</li></ul>
+      </section>
       <div class="review-body"><p>很多家长第一次搜索“新加坡AEIS英文怎么准备”，通常不是为了看一个官方定义。</p>
 <p>他们真正想确认的是：这条路对自己的孩子有没有机会、会不会浪费时间、需要提前准备什么，以及现在开始还来不来得及。</p>
 <h2>先说结论</h2>
@@ -472,6 +607,26 @@
         <div><dt>计划 URL</dt><dd><code>/international-school/how-to-choose/</code></dd></div>
         <div><dt>文件</dt><dd><code>content/articles/international-school-how-to-choose.md</code></dd></div>
       </dl>
+      <section class="review-optimization" aria-label="SEO 优化检查">
+        <div class="review-score warning">
+          <strong>79/100</strong>
+          <span>可优化 · 可发布</span>
+        </div>
+        <div class="review-check-grid">
+          <div><strong>2056</strong><span>正文约字数</span></div>
+          <div><strong>9</strong><span>H2</span></div>
+          <div><strong>4</strong><span>FAQ</span></div>
+          <div><strong>6</strong><span>内链</span></div>
+          <div><strong>0</strong><span>图片</span></div>
+        </div>
+        <div class="review-image-plan">
+          <strong>配图建议</strong>
+          <p>首图文件：<code>international-school-how-to-choose-cover.webp</code></p>
+          <p>Alt：新加坡国际学校怎么选：新加坡国际学校选校指南</p>
+          <p>信息图：新加坡国际学校怎么选路径图、时间线或选校 checklist</p>
+        </div>
+        <ul class="review-suggestions"><li>补首图：international-school-how-to-choose-cover.webp，alt=&quot;新加坡国际学校怎么选：新加坡国际学校选校指南&quot;</li><li>信息图建议：新加坡国际学校怎么选路径图、时间线或选校 checklist</li><li>优先补内链：/international-school/schools/</li><li>发布前把 FAQ 扩展到 5-8 个问题，方便百度和 AI 搜索摘取。</li></ul>
+      </section>
       <div class="review-body"><p>很多家长第一次搜索“新加坡国际学校怎么选”，通常不是为了看一个官方定义。</p>
 <p>他们真正想确认的是：这条路对自己的孩子有没有机会、会不会浪费时间、需要提前准备什么，以及现在开始还来不来得及。</p>
 <h2>先说结论</h2>
@@ -533,6 +688,26 @@
         <div><dt>计划 URL</dt><dd><code>/o-level/o-level-international-students-registration/</code></dd></div>
         <div><dt>文件</dt><dd><code>content/articles/o-level-o-level-international-students-registration.md</code></dd></div>
       </dl>
+      <section class="review-optimization" aria-label="SEO 优化检查">
+        <div class="review-score warning">
+          <strong>79/100</strong>
+          <span>可优化 · 可发布</span>
+        </div>
+        <div class="review-check-grid">
+          <div><strong>2087</strong><span>正文约字数</span></div>
+          <div><strong>9</strong><span>H2</span></div>
+          <div><strong>4</strong><span>FAQ</span></div>
+          <div><strong>6</strong><span>内链</span></div>
+          <div><strong>0</strong><span>图片</span></div>
+        </div>
+        <div class="review-image-plan">
+          <strong>配图建议</strong>
+          <p>首图文件：<code>o-level-o-level-international-students-registration-cover.webp</code></p>
+          <p>Alt：O-Level国际学生怎么报名：O-Level 考试与新加坡升学路径</p>
+          <p>信息图：O-Level国际学生怎么报名路径图、时间线或选校 checklist</p>
+        </div>
+        <ul class="review-suggestions"><li>补首图：o-level-o-level-international-students-registration-cover.webp，alt=&quot;O-Level国际学生怎么报名：O-Level 考试与新加坡升学路径&quot;</li><li>信息图建议：O-Level国际学生怎么报名路径图、时间线或选校 checklist</li><li>优先补内链：/secondary-schools/</li><li>发布前把 FAQ 扩展到 5-8 个问题，方便百度和 AI 搜索摘取。</li></ul>
+      </section>
       <div class="review-body"><p>很多家长第一次搜索“O-Level国际学生怎么报名”，通常不是为了看一个官方定义。</p>
 <p>他们真正想确认的是：这条路对自己的孩子有没有机会、会不会浪费时间、需要提前准备什么，以及现在开始还来不来得及。</p>
 <h2>先说结论</h2>
@@ -594,6 +769,26 @@
         <div><dt>计划 URL</dt><dd><code>/pathway/how-to-choose/</code></dd></div>
         <div><dt>文件</dt><dd><code>content/articles/pathway-how-to-choose.md</code></dd></div>
       </dl>
+      <section class="review-optimization" aria-label="SEO 优化检查">
+        <div class="review-score warning">
+          <strong>72/100</strong>
+          <span>可优化 · 建议先优化</span>
+        </div>
+        <div class="review-check-grid">
+          <div><strong>2071</strong><span>正文约字数</span></div>
+          <div><strong>9</strong><span>H2</span></div>
+          <div><strong>4</strong><span>FAQ</span></div>
+          <div><strong>6</strong><span>内链</span></div>
+          <div><strong>0</strong><span>图片</span></div>
+        </div>
+        <div class="review-image-plan">
+          <strong>配图建议</strong>
+          <p>首图文件：<code>pathway-how-to-choose-cover.webp</code></p>
+          <p>Alt：中国学生升学新加坡路径怎么选：中国学生新加坡升学路径规划</p>
+          <p>信息图：中国学生升学新加坡路径怎么选路径图、时间线或选校 checklist</p>
+        </div>
+        <ul class="review-suggestions"><li>补首图：pathway-how-to-choose-cover.webp，alt=&quot;中国学生升学新加坡路径怎么选：中国学生新加坡升学路径规划&quot;</li><li>信息图建议：中国学生升学新加坡路径怎么选路径图、时间线或选校 checklist</li><li>优先补内链：/aeis/、/o-level/、/wace/</li><li>发布前把 FAQ 扩展到 5-8 个问题，方便百度和 AI 搜索摘取。</li></ul>
+      </section>
       <div class="review-body"><p>很多家长第一次搜索“中国学生升学新加坡路径怎么选”，通常不是为了看一个官方定义。</p>
 <p>他们真正想确认的是：这条路对自己的孩子有没有机会、会不会浪费时间、需要提前准备什么，以及现在开始还来不来得及。</p>
 <h2>先说结论</h2>
@@ -655,6 +850,26 @@
         <div><dt>计划 URL</dt><dd><code>/university/nus-difficulty/</code></dd></div>
         <div><dt>文件</dt><dd><code>content/articles/university-nus-difficulty.md</code></dd></div>
       </dl>
+      <section class="review-optimization" aria-label="SEO 优化检查">
+        <div class="review-score warning">
+          <strong>79/100</strong>
+          <span>可优化 · 可发布</span>
+        </div>
+        <div class="review-check-grid">
+          <div><strong>2068</strong><span>正文约字数</span></div>
+          <div><strong>9</strong><span>H2</span></div>
+          <div><strong>4</strong><span>FAQ</span></div>
+          <div><strong>6</strong><span>内链</span></div>
+          <div><strong>0</strong><span>图片</span></div>
+        </div>
+        <div class="review-image-plan">
+          <strong>配图建议</strong>
+          <p>首图文件：<code>university-nus-difficulty-cover.webp</code></p>
+          <p>Alt：中国学生申请NUS本科难吗：新加坡大学申请规划</p>
+          <p>信息图：中国学生申请NUS本科难吗路径图、时间线或选校 checklist</p>
+        </div>
+        <ul class="review-suggestions"><li>补首图：university-nus-difficulty-cover.webp，alt=&quot;中国学生申请NUS本科难吗：新加坡大学申请规划&quot;</li><li>信息图建议：中国学生申请NUS本科难吗路径图、时间线或选校 checklist</li><li>发布前把 FAQ 扩展到 5-8 个问题，方便百度和 AI 搜索摘取。</li></ul>
+      </section>
       <div class="review-body"><p>很多家长第一次搜索“中国学生申请NUS本科难吗”，通常不是为了看一个官方定义。</p>
 <p>他们真正想确认的是：这条路对自己的孩子有没有机会、会不会浪费时间、需要提前准备什么，以及现在开始还来不来得及。</p>
 <h2>先说结论</h2>
@@ -716,6 +931,26 @@
         <div><dt>计划 URL</dt><dd><code>/o-level/o-level-jc-score/</code></dd></div>
         <div><dt>文件</dt><dd><code>content/articles/o-level-o-level-jc-score.md</code></dd></div>
       </dl>
+      <section class="review-optimization" aria-label="SEO 优化检查">
+        <div class="review-score warning">
+          <strong>79/100</strong>
+          <span>可优化 · 可发布</span>
+        </div>
+        <div class="review-check-grid">
+          <div><strong>2090</strong><span>正文约字数</span></div>
+          <div><strong>9</strong><span>H2</span></div>
+          <div><strong>4</strong><span>FAQ</span></div>
+          <div><strong>6</strong><span>内链</span></div>
+          <div><strong>0</strong><span>图片</span></div>
+        </div>
+        <div class="review-image-plan">
+          <strong>配图建议</strong>
+          <p>首图文件：<code>o-level-o-level-jc-score-cover.webp</code></p>
+          <p>Alt：O-Level申请JC需要多少分：O-Level 考试与新加坡升学路径</p>
+          <p>信息图：O-Level申请JC需要多少分路径图、时间线或选校 checklist</p>
+        </div>
+        <ul class="review-suggestions"><li>补首图：o-level-o-level-jc-score-cover.webp，alt=&quot;O-Level申请JC需要多少分：O-Level 考试与新加坡升学路径&quot;</li><li>信息图建议：O-Level申请JC需要多少分路径图、时间线或选校 checklist</li><li>优先补内链：/secondary-schools/</li><li>发布前把 FAQ 扩展到 5-8 个问题，方便百度和 AI 搜索摘取。</li></ul>
+      </section>
       <div class="review-body"><p>很多家长第一次搜索“O-Level申请JC需要多少分”，通常不是为了看一个官方定义。</p>
 <p>他们真正想确认的是：这条路对自己的孩子有没有机会、会不会浪费时间、需要提前准备什么，以及现在开始还来不来得及。</p>
 <h2>先说结论</h2>
@@ -777,6 +1012,26 @@
         <div><dt>计划 URL</dt><dd><code>/o-level/o-level-poly-course-choice/</code></dd></div>
         <div><dt>文件</dt><dd><code>content/articles/o-level-o-level-poly-course-choice.md</code></dd></div>
       </dl>
+      <section class="review-optimization" aria-label="SEO 优化检查">
+        <div class="review-score warning">
+          <strong>86/100</strong>
+          <span>可优化 · 可发布</span>
+        </div>
+        <div class="review-check-grid">
+          <div><strong>2096</strong><span>正文约字数</span></div>
+          <div><strong>9</strong><span>H2</span></div>
+          <div><strong>4</strong><span>FAQ</span></div>
+          <div><strong>6</strong><span>内链</span></div>
+          <div><strong>0</strong><span>图片</span></div>
+        </div>
+        <div class="review-image-plan">
+          <strong>配图建议</strong>
+          <p>首图文件：<code>o-level-o-level-poly-course-choice-cover.webp</code></p>
+          <p>Alt：O-Level申请Poly怎么选专业：O-Level 考试与新加坡升学路径</p>
+          <p>信息图：O-Level申请Poly怎么选专业路径图、时间线或选校 checklist</p>
+        </div>
+        <ul class="review-suggestions"><li>补首图：o-level-o-level-poly-course-choice-cover.webp，alt=&quot;O-Level申请Poly怎么选专业：O-Level 考试与新加坡升学路径&quot;</li><li>信息图建议：O-Level申请Poly怎么选专业路径图、时间线或选校 checklist</li><li>优先补内链：/secondary-schools/</li><li>发布前把 FAQ 扩展到 5-8 个问题，方便百度和 AI 搜索摘取。</li></ul>
+      </section>
       <div class="review-body"><p>很多家长第一次搜索“O-Level申请Poly怎么选专业”，通常不是为了看一个官方定义。</p>
 <p>他们真正想确认的是：这条路对自己的孩子有没有机会、会不会浪费时间、需要提前准备什么，以及现在开始还来不来得及。</p>
 <h2>先说结论</h2>
@@ -838,6 +1093,26 @@
         <div><dt>计划 URL</dt><dd><code>/wace/wace-atar-calculation/</code></dd></div>
         <div><dt>文件</dt><dd><code>content/articles/wace-wace-atar-calculation.md</code></dd></div>
       </dl>
+      <section class="review-optimization" aria-label="SEO 优化检查">
+        <div class="review-score warning">
+          <strong>79/100</strong>
+          <span>可优化 · 可发布</span>
+        </div>
+        <div class="review-check-grid">
+          <div><strong>2077</strong><span>正文约字数</span></div>
+          <div><strong>9</strong><span>H2</span></div>
+          <div><strong>4</strong><span>FAQ</span></div>
+          <div><strong>6</strong><span>内链</span></div>
+          <div><strong>0</strong><span>图片</span></div>
+        </div>
+        <div class="review-image-plan">
+          <strong>配图建议</strong>
+          <p>首图文件：<code>wace-wace-atar-calculation-cover.webp</code></p>
+          <p>Alt：WACE ATAR怎么算：WACE 课程与中国学生升学规划</p>
+          <p>信息图：WACE ATAR怎么算路径图、时间线或选校 checklist</p>
+        </div>
+        <ul class="review-suggestions"><li>补首图：wace-wace-atar-calculation-cover.webp，alt=&quot;WACE ATAR怎么算：WACE 课程与中国学生升学规划&quot;</li><li>信息图建议：WACE ATAR怎么算路径图、时间线或选校 checklist</li><li>优先补内链：/wace-atar/</li><li>发布前把 FAQ 扩展到 5-8 个问题，方便百度和 AI 搜索摘取。</li></ul>
+      </section>
       <div class="review-body"><p>很多家长第一次搜索“WACE ATAR怎么算”，通常不是为了看一个官方定义。</p>
 <p>他们真正想确认的是：这条路对自己的孩子有没有机会、会不会浪费时间、需要提前准备什么，以及现在开始还来不来得及。</p>
 <h2>先说结论</h2>
@@ -899,6 +1174,26 @@
         <div><dt>计划 URL</dt><dd><code>/wace/wace-methods-chinese-students/</code></dd></div>
         <div><dt>文件</dt><dd><code>content/articles/wace-wace-methods-chinese-students.md</code></dd></div>
       </dl>
+      <section class="review-optimization" aria-label="SEO 优化检查">
+        <div class="review-score warning">
+          <strong>86/100</strong>
+          <span>可优化 · 可发布</span>
+        </div>
+        <div class="review-check-grid">
+          <div><strong>2098</strong><span>正文约字数</span></div>
+          <div><strong>9</strong><span>H2</span></div>
+          <div><strong>4</strong><span>FAQ</span></div>
+          <div><strong>6</strong><span>内链</span></div>
+          <div><strong>0</strong><span>图片</span></div>
+        </div>
+        <div class="review-image-plan">
+          <strong>配图建议</strong>
+          <p>首图文件：<code>wace-wace-methods-chinese-students-cover.webp</code></p>
+          <p>Alt：WACE Methods适合中国学生吗：WACE 课程与中国学生升学规划</p>
+          <p>信息图：WACE Methods适合中国学生吗路径图、时间线或选校 checklist</p>
+        </div>
+        <ul class="review-suggestions"><li>补首图：wace-wace-methods-chinese-students-cover.webp，alt=&quot;WACE Methods适合中国学生吗：WACE 课程与中国学生升学规划&quot;</li><li>信息图建议：WACE Methods适合中国学生吗路径图、时间线或选校 checklist</li><li>优先补内链：/wace-atar/</li><li>发布前把 FAQ 扩展到 5-8 个问题，方便百度和 AI 搜索摘取。</li></ul>
+      </section>
       <div class="review-body"><p>很多家长第一次搜索“WACE Methods适合中国学生吗”，通常不是为了看一个官方定义。</p>
 <p>他们真正想确认的是：这条路对自己的孩子有没有机会、会不会浪费时间、需要提前准备什么，以及现在开始还来不来得及。</p>
 <h2>先说结论</h2>
@@ -960,6 +1255,26 @@
         <div><dt>计划 URL</dt><dd><code>/wace/wace-specialist-difficulty/</code></dd></div>
         <div><dt>文件</dt><dd><code>content/articles/wace-wace-specialist-difficulty.md</code></dd></div>
       </dl>
+      <section class="review-optimization" aria-label="SEO 优化检查">
+        <div class="review-score warning">
+          <strong>79/100</strong>
+          <span>可优化 · 可发布</span>
+        </div>
+        <div class="review-check-grid">
+          <div><strong>2092</strong><span>正文约字数</span></div>
+          <div><strong>9</strong><span>H2</span></div>
+          <div><strong>4</strong><span>FAQ</span></div>
+          <div><strong>6</strong><span>内链</span></div>
+          <div><strong>0</strong><span>图片</span></div>
+        </div>
+        <div class="review-image-plan">
+          <strong>配图建议</strong>
+          <p>首图文件：<code>wace-wace-specialist-difficulty-cover.webp</code></p>
+          <p>Alt：WACE Specialist难吗：WACE 课程与中国学生升学规划</p>
+          <p>信息图：WACE Specialist难吗路径图、时间线或选校 checklist</p>
+        </div>
+        <ul class="review-suggestions"><li>补首图：wace-wace-specialist-difficulty-cover.webp，alt=&quot;WACE Specialist难吗：WACE 课程与中国学生升学规划&quot;</li><li>信息图建议：WACE Specialist难吗路径图、时间线或选校 checklist</li><li>优先补内链：/wace-atar/</li><li>发布前把 FAQ 扩展到 5-8 个问题，方便百度和 AI 搜索摘取。</li></ul>
+      </section>
       <div class="review-body"><p>很多家长第一次搜索“WACE Specialist难吗”，通常不是为了看一个官方定义。</p>
 <p>他们真正想确认的是：这条路对自己的孩子有没有机会、会不会浪费时间、需要提前准备什么，以及现在开始还来不来得及。</p>
 <h2>先说结论</h2>

@@ -99,6 +99,32 @@
     document.body.appendChild(button);
   }
 
+  function shouldShowSideCard(path) {
+    if (path === '/' || path === '/index.html') return false;
+    if (/^\/(cms|content-review|contact)\/?/.test(path)) return false;
+    return true;
+  }
+
+  function createSideCard() {
+    if (!shouldShowSideCard(location.pathname)) return;
+    if (document.querySelector('.seda-wechat-sidecard')) return;
+    var wrap = document.createElement('aside');
+    wrap.className = 'seda-wechat-sidecard';
+    wrap.setAttribute('data-wechat-placement', 'right_sidecard');
+    wrap.setAttribute('aria-label', '新加坡择校顾问 Amy 微信咨询');
+    wrap.innerHTML =
+      '<p class="seda-sidecard-kicker">免费择校咨询</p>' +
+      '<h2>扫码添加 Amy</h2>' +
+      '<p class="seda-sidecard-sub">获取新加坡升学与选校建议</p>' +
+      '<img src="'+window.SEDA_CONTACT.wechatQrUrl+'" alt="新加坡择校顾问Amy微信二维码" loading="lazy" decoding="async">' +
+      '<p class="seda-sidecard-id">微信号：<b>'+window.SEDA_CONTACT.wechatId+'</b></p>' +
+      '<ul><li>AEIS / O-Level 规划</li><li>WACE / A-Level 路径</li><li>国际学校与公立大学申请</li><li>Poly 理工路线与预算分析</li></ul>' +
+      '<button type="button" class="seda-copy-wechat" data-wechat="'+window.SEDA_CONTACT.wechatId+'">复制微信号</button>';
+    document.body.appendChild(wrap);
+    document.body.classList.add('has-seda-wechat-sidecard');
+    trackWechat('wechat_exposure', 'right_sidecard');
+  }
+
   function isSchoolDetail(path) {
     return /^\/(international-school|secondary-schools|primary-schools|jc|poly)\/[^/]+\/$/.test(path)
       && !/\/(index|schools)\/$/.test(path);
@@ -168,6 +194,7 @@
 
   document.addEventListener('DOMContentLoaded', function(){
     createFloat();
+    createSideCard();
     injectConversionCta();
     enhanceAiTool();
     document.querySelectorAll('.seda-wechat-card, .seda-conversion-cta').forEach(function(card){

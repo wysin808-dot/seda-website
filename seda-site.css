@@ -1607,6 +1607,115 @@ main > section:not(.hero) {
   box-shadow: none;
 }
 
+.seda-wechat-sidecard {
+  position: fixed;
+  top: 50%;
+  right: clamp(18px, 2.8vw, 46px);
+  z-index: 35;
+  display: none;
+  width: 286px;
+  max-height: calc(100vh - 180px);
+  padding: 20px;
+  overflow: auto;
+  border: 1px solid #fee2e2;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 24px 60px rgba(127, 29, 29, 0.12);
+  transform: translateY(-50%);
+}
+
+.seda-sidecard-kicker {
+  margin: 0 0 8px;
+  color: var(--brand);
+  font-size: 13px;
+  font-weight: 900;
+}
+
+.seda-wechat-sidecard h2 {
+  margin: 0;
+  color: var(--ink);
+  font-size: 24px;
+  line-height: 1.18;
+}
+
+.seda-sidecard-sub {
+  margin: 8px 0 14px;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 800;
+  line-height: 1.55;
+}
+
+.seda-wechat-sidecard img {
+  display: block;
+  width: 168px;
+  height: 168px;
+  margin: 0 auto 14px;
+  border: 1px solid #fecaca;
+  border-radius: 14px;
+  object-fit: cover;
+  background: #fff;
+}
+
+.seda-sidecard-id {
+  margin: 0 0 12px;
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 900;
+  text-align: center;
+}
+
+.seda-sidecard-id b {
+  color: var(--brand);
+  letter-spacing: 0;
+}
+
+.seda-wechat-sidecard ul {
+  display: grid;
+  gap: 8px;
+  margin: 0 0 16px;
+  padding: 0;
+  list-style: none;
+}
+
+.seda-wechat-sidecard li {
+  position: relative;
+  padding-left: 20px;
+  color: #344054;
+  font-size: 13px;
+  font-weight: 800;
+  line-height: 1.45;
+}
+
+.seda-wechat-sidecard li::before {
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--brand);
+  content: "✓";
+  font-weight: 900;
+}
+
+.seda-wechat-sidecard .seda-copy-wechat {
+  width: 100%;
+  justify-content: center;
+  min-height: 42px;
+  border-color: var(--brand);
+  background: var(--brand);
+  color: #fff;
+  font-size: 14px;
+}
+
+@media (min-width: 1280px) and (min-height: 720px) {
+  .seda-wechat-sidecard {
+    display: block;
+  }
+
+  body.has-seda-wechat-sidecard .wechat-float {
+    display: none;
+  }
+}
+
 @keyframes wechatPanelIn {
   from { opacity: 0; transform: translate(10px, -50%) scale(0.98); }
   to { opacity: 1; transform: translate(0, -50%) scale(1); }

@@ -219,7 +219,7 @@ function renderTopic(topic, articles, header, footer) {
 <meta name="keywords" content="${escapeHtml(topic.keywords.join(','))}"/>
 <meta name="robots" content="index,follow,max-image-preview:large"/>
 <link rel="canonical" href="${canonical}"/>
-<link rel="stylesheet" href="/seda-site.css?v=28"/>
+<link rel="stylesheet" href="/seda-site.css?v=29"/>
 <script type="application/ld+json">${jsonLd(page)}</script>
 <script type="application/ld+json">${jsonLd(itemList)}</script>
 <script type="application/ld+json">${jsonLd(faq)}</script>
@@ -283,7 +283,7 @@ ${matched.length ? renderCards(matched) : topic.links.map(([label, href]) => `
   </section>
 </main>
 ${footer}
-<script src="/seda-site.js?v=22"></script>
+<script src="/seda-site.js?v=23"></script>
 </body>
 </html>`;
 }
@@ -312,7 +312,7 @@ function renderIndex(header, footer) {
 <meta name="description" content="SEDA 新加坡择校网专题入口，聚合 AEIS、O-Level、WACE、政府学校、国际学校、大学申请和留学费用。"/>
 <meta name="robots" content="index,follow,max-image-preview:large"/>
 <link rel="canonical" href="${domain}/topics/"/>
-<link rel="stylesheet" href="/seda-site.css?v=28"/>
+<link rel="stylesheet" href="/seda-site.css?v=29"/>
 <script type="application/ld+json">${jsonLd(schema)}</script>
 </head>
 <body>
@@ -330,7 +330,7 @@ ${header}
   </section>
 </main>
 ${footer}
-<script src="/seda-site.js?v=22"></script>
+<script src="/seda-site.js?v=23"></script>
 </body>
 </html>`;
 }

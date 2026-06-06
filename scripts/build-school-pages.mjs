@@ -486,7 +486,7 @@ function renderPage(school, header, footer) {
 <meta name="robots" content="index,follow,max-image-preview:large"/>
 <link rel="canonical" href="${domain}${url}"/>
 <link rel="alternate" type="application/rss+xml" title="SEDA 新加坡择校网最新文章" href="${domain}/feed.xml"/>
-<link rel="stylesheet" href="/seda-site.css?v=21"/>
+<link rel="stylesheet" href="/seda-site.css?v=28"/>
 <script type="application/ld+json">${jsonLd(schoolSchema)}</script>
 <script type="application/ld+json">${jsonLd(webPageSchema)}</script>
 <script type="application/ld+json">${jsonLd(breadcrumbSchema)}</script>
@@ -577,7 +577,7 @@ ${header}
               <button type="button" class="seda-copy-wechat" data-wechat="SEDAGUIDE">复制微信号</button>
             </div>
             <div class="seda-wechat-body">
-              <img class="seda-wechat-qr" src="/assets/wechat-amy-seda-guide.jpg" alt="新加坡择校顾问 Amy 微信二维码" loading="lazy" decoding="async">
+              <img class="seda-wechat-qr" src="/assets/wechat-amy-seda-guide.jpg" alt="新加坡择校顾问Amy微信二维码" loading="lazy" decoding="async">
               <div class="seda-wechat-info">
                 <p class="seda-wechat-id">微信号：<b>SEDAGUIDE</b></p>
                 <ul><li>国际学校推荐</li><li>AEIS 规划</li><li>A-Level 规划</li><li>一对一专业咨询</li></ul>
@@ -603,7 +603,7 @@ ${header}
   </div>
 </main>
 ${footer}
-<script src="/seda-site.js?v=21"></script>
+<script src="/seda-site.js?v=22"></script>
 </body>
 </html>`;
 }
@@ -655,7 +655,7 @@ function renderInternationalSchoolIndex(schools, header, footer) {
 <meta name="keywords" content="新加坡国际学校名单,新加坡国际学校数据库,新加坡IB学校,新加坡英国国际学校,新加坡美国学校"/>
 <meta name="robots" content="index,follow,max-image-preview:large"/>
 <link rel="canonical" href="${domain}/international-school/schools/"/>
-<link rel="stylesheet" href="/seda-site.css?v=21"/>
+<link rel="stylesheet" href="/seda-site.css?v=28"/>
 <script type="application/ld+json">${jsonLd(schema)}</script>
 </head>
 <body>
@@ -691,7 +691,7 @@ ${cards}
           <button type="button" class="seda-copy-wechat" data-wechat="SEDAGUIDE">复制微信号</button>
         </div>
         <div class="seda-wechat-body">
-          <img class="seda-wechat-qr" src="/assets/wechat-amy-seda-guide.jpg" alt="新加坡择校顾问 Amy 微信二维码" loading="lazy" decoding="async">
+          <img class="seda-wechat-qr" src="/assets/wechat-amy-seda-guide.jpg" alt="新加坡择校顾问Amy微信二维码" loading="lazy" decoding="async">
           <div class="seda-wechat-info">
             <p class="seda-wechat-id">微信号：<b>SEDAGUIDE</b></p>
             <ul><li>国际学校推荐</li><li>AEIS 规划</li><li>A-Level 规划</li><li>学费预算分析</li></ul>
@@ -708,7 +708,7 @@ ${cards}
   </section>
 </main>
 ${footer}
-<script src="/seda-site.js?v=21"></script>
+<script src="/seda-site.js?v=22"></script>
 </body>
 </html>`;
 }

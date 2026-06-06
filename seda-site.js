@@ -52,7 +52,7 @@
         '<button type="button" class="seda-copy-wechat" data-wechat="'+cfg.wechatId+'">复制微信号</button>' +
       '</div>' +
       '<div class="seda-wechat-body">' +
-        '<img class="seda-wechat-qr" src="'+cfg.wechatQrUrl+'" alt="新加坡择校顾问 Amy 微信二维码" loading="lazy" decoding="async">' +
+        '<img class="seda-wechat-qr" src="'+cfg.wechatQrUrl+'" alt="新加坡择校顾问Amy微信二维码" loading="lazy" decoding="async">' +
         '<div class="seda-wechat-info">' +
           '<p class="seda-wechat-id">微信号：<b>'+cfg.wechatId+'</b></p>' +
           '<ul>'+benefitList()+'</ul>' +

@@ -373,7 +373,7 @@ function renderArticle(article, articles) {
 <meta name="keywords" content="${keywords}"/>
 <link rel="canonical" href="${domain}${url}"/>
 <link rel="alternate" type="application/rss+xml" title="SEDA 新加坡择校网最新文章" href="${domain}/feed.xml"/>
-<link rel="stylesheet" href="/seda-site.css?v=21"/>
+<link rel="stylesheet" href="/seda-site.css?v=28"/>
 <script type="application/ld+json">${articleSchema}</script>
 <script type="application/ld+json">${webPageSchema}</script>
 <script type="application/ld+json">${breadcrumbSchema}</script>
@@ -409,7 +409,7 @@ ${header}
             <button type="button" class="seda-copy-wechat" data-wechat="SEDAGUIDE">复制微信号</button>
           </div>
           <div class="seda-wechat-body">
-            <img class="seda-wechat-qr" src="/assets/wechat-amy-seda-guide.jpg" alt="新加坡择校顾问 Amy 微信二维码" loading="lazy" decoding="async">
+            <img class="seda-wechat-qr" src="/assets/wechat-amy-seda-guide.jpg" alt="新加坡择校顾问Amy微信二维码" loading="lazy" decoding="async">
             <div class="seda-wechat-info">
               <p class="seda-wechat-id">微信号：<b>SEDAGUIDE</b></p>
               <ul><li>国际学校推荐</li><li>AEIS 规划</li><li>WACE 课程规划</li><li>学费预算分析</li></ul>
@@ -427,7 +427,7 @@ ${header}
   </article>
 </main>
 ${footer}
-<script src="/seda-site.js?v=21"></script>
+<script src="/seda-site.js?v=22"></script>
 </body>
 </html>`;
 }
@@ -537,7 +537,7 @@ function renderReviewPage(articles) {
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <meta name="robots" content="noindex,nofollow"/>
 <title>SEDA 内容审核后台</title>
-<link rel="stylesheet" href="/seda-site.css?v=21"/>
+<link rel="stylesheet" href="/seda-site.css?v=28"/>
 <style>
   body{background:#f6f7f9;color:#172033}
   .review-main{max-width:1180px;margin:0 auto;padding:32px 20px 72px}

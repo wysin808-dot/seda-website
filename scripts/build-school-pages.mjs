@@ -486,7 +486,7 @@ function renderPage(school, header, footer) {
 <meta name="robots" content="index,follow,max-image-preview:large"/>
 <link rel="canonical" href="${domain}${url}"/>
 <link rel="alternate" type="application/rss+xml" title="SEDA 新加坡择校网最新文章" href="${domain}/feed.xml"/>
-<link rel="stylesheet" href="/seda-site.css?v=34"/>
+<link rel="stylesheet" href="/seda-site.css?v=36"/>
 <script type="application/ld+json">${jsonLd(schoolSchema)}</script>
 <script type="application/ld+json">${jsonLd(webPageSchema)}</script>
 <script type="application/ld+json">${jsonLd(breadcrumbSchema)}</script>
@@ -655,7 +655,7 @@ function renderInternationalSchoolIndex(schools, header, footer) {
 <meta name="keywords" content="新加坡国际学校名单,新加坡国际学校数据库,新加坡IB学校,新加坡英国国际学校,新加坡美国学校"/>
 <meta name="robots" content="index,follow,max-image-preview:large"/>
 <link rel="canonical" href="${domain}/international-school/schools/"/>
-<link rel="stylesheet" href="/seda-site.css?v=34"/>
+<link rel="stylesheet" href="/seda-site.css?v=36"/>
 <script type="application/ld+json">${jsonLd(schema)}</script>
 </head>
 <body>

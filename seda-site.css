@@ -2732,6 +2732,14 @@ main > section:not(.hero) {
   font-size: 14px;
 }
 
+/* The site now uses one unified WeChat conversion path. Hide old sidebar
+   hard-sell CTA blocks so content pages feel like an education portal. */
+.sidebar-cta,
+.sidebar .cta-card,
+.content-sidebar .cta-card {
+  display: none !important;
+}
+
 /* ── Related Articles ── */
 .geo-summary {
   margin: 0 0 34px;

@@ -31,6 +31,7 @@ const LEADS_DIR = join(process.cwd(), 'data', 'leads');
 const LEADS_FILE = join(LEADS_DIR, 'leads.jsonl');
 const SEO_DIR = join(process.cwd(), 'data', 'seo');
 const SEO_DAILY_FILE = join(SEO_DIR, 'daily.jsonl');
+const SEO_SUBMISSION_FILE = join(SEO_DIR, 'submissions.jsonl');
 
 // Load .env file
 function loadEnv(path) {
@@ -507,6 +508,32 @@ function readBaiduSubmitState(totalUrls) {
   };
 }
 
+function submissionSummary(date = todayDate()) {
+  const records = readJsonl(SEO_SUBMISSION_FILE, 5000)
+    .filter((row) => row.date === date || String(row.createdAt || '').startsWith(date))
+    .sort((a, b) => String(b.createdAt || '').localeCompare(String(a.createdAt || '')));
+  const providers = {
+    baidu: { submitted: 0, success: 0, error: 0, lastStatus: '', lastHttpStatus: 0 },
+    indexnow: { submitted: 0, success: 0, error: 0, lastStatus: '', lastHttpStatus: 0 },
+  };
+  for (const record of records) {
+    const provider = String(record.provider || '').toLowerCase();
+    if (!providers[provider]) continue;
+    providers[provider].submitted += Math.max(0, Number(record.submitted || 0) || 0);
+    if (record.status === 'success') providers[provider].success += 1;
+    if (record.status && record.status !== 'success') providers[provider].error += 1;
+    if (!providers[provider].lastStatus) {
+      providers[provider].lastStatus = record.status || '';
+      providers[provider].lastHttpStatus = Number(record.httpStatus || 0) || 0;
+    }
+  }
+  return {
+    records: records.slice(0, 20),
+    providers,
+    totalSubmitted: Object.values(providers).reduce((sum, item) => sum + item.submitted, 0),
+  };
+}
+
 function latestSeoRecord(date) {
   return readJsonl(SEO_DAILY_FILE, 100000).reverse().find((row) => row.date === date) || null;
 }
@@ -516,6 +543,7 @@ function seoSnapshot(date = todayDate()) {
   const baidu = readBaiduSubmitState(sitemapUrls.length);
   const saved = latestSeoRecord(date);
   const audit = seoContentAudit(sitemapUrls);
+  const submissions = submissionSummary(date);
   return {
     date,
     sitemapUrlCount: sitemapUrls.length,
@@ -523,6 +551,7 @@ function seoSnapshot(date = todayDate()) {
     baiduOffset: baidu.offset,
     baiduNextStart: baidu.nextStart,
     baiduLogTail: baidu.logTail,
+    submissions,
     saved,
     audit,
     recent: readJsonl(SEO_DAILY_FILE, 60).reverse(),
@@ -890,8 +919,8 @@ async function handleCmsSeoSave(req, res) {
     updatedAt: new Date().toISOString(),
     sitemapUrlCount: snapshot.sitemapUrlCount,
     todayPublishedArticles: snapshot.todayPublishedArticles,
-    baiduSubmitted: Math.max(0, Number(body.baiduSubmitted || 0) || 0),
-    indexNowSubmitted: Math.max(0, Number(body.indexNowSubmitted || 0) || 0),
+    baiduSubmitted: Math.max(0, Number(body.baiduSubmitted || snapshot.submissions?.providers?.baidu?.submitted || 0) || 0),
+    indexNowSubmitted: Math.max(0, Number(body.indexNowSubmitted || snapshot.submissions?.providers?.indexnow?.submitted || 0) || 0),
     baiduRemaining: Math.max(0, Number(body.baiduRemaining || 0) || 0),
     indexedCount: Math.max(0, Number(body.indexedCount || 0) || 0),
     abnormalUrlCount: Math.max(0, Number(body.abnormalUrlCount || 0) || 0),

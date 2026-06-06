@@ -174,6 +174,21 @@ function textIncludes(school, keyword) {
   ].join(' ').toLowerCase().includes(String(keyword).toLowerCase());
 }
 
+function textMatches(school, pattern) {
+  return pattern.test([
+    school.nameZh,
+    school.nameEn,
+    school.schoolType,
+    school.curriculum,
+    school.location,
+    school.audience,
+    school.angle,
+    ...(school.features || []),
+    ...(school.majorAreas || []),
+    ...(school.admissionPaths || []),
+  ].join(' '));
+}
+
 function seoTagsForSchool(school) {
   const tags = [
     school.categoryLabel,
@@ -200,7 +215,7 @@ function seoTagsForSchool(school) {
     ['IB', ['IB 课程', 'IBDP', '探究式学习']],
     ['IGCSE', ['IGCSE', 'Cambridge 课程']],
     ['A-Level', ['A-Level', '英联邦大学申请']],
-    ['AP', ['AP 课程', '美国大学申请']],
+    [/\bAP\b|Advanced Placement/i, ['AP 课程', '美国大学申请']],
     ['WACE', ['WACE 课程', 'ATAR']],
     ['O-Level', ['O-Level', 'O水准']],
     ['Cambridge', ['Cambridge 课程', 'IGCSE 衔接']],
@@ -211,7 +226,8 @@ function seoTagsForSchool(school) {
   ];
 
   for (const [needle, matchedTags] of curriculumRules) {
-    if (textIncludes(school, needle)) tags.push(...matchedTags);
+    const matched = needle instanceof RegExp ? textMatches(school, needle) : textIncludes(school, needle);
+    if (matched) tags.push(...matchedTags);
   }
 
   if (textIncludes(school, '费用相对友好') || textIncludes(school, '性价比')) tags.push('费用相对友好');
@@ -246,6 +262,53 @@ function renderSeoTagBlock(school, tags) {
         <h2 id="seo-tags-title">${escapeHtml(school.nameZh)}的 SEO/GEO 关键信息</h2>
         <p>这些标签用于帮助家长快速判断学校定位，也帮助搜索引擎和 AI 搜索理解本页主题。</p>
         <div class="seo-tag-cloud">${tags.map((tag) => `<span>${escapeHtml(tag)}</span>`).join('')}</div>
+      </section>`;
+}
+
+function quickAnswerForSchool(school) {
+  const pathMap = {
+    primary: 'AEIS / S-AEIS、政府小学入学、PSLE 和后续政府中学路径',
+    secondary: 'AEIS / S-AEIS、O-Level、IP、JC 或 Poly 路径',
+    jc: 'O-Level 后申请 JC、A-Level 选科、公立大学申请路径',
+    poly: 'O-Level 申请 Poly、Diploma 专业选择、Poly 升大学路径',
+    university: 'A-Level、IB、Poly Diploma、中国高考或国际课程申请本科',
+    artsUniversity: '作品集、面试、英文要求和艺术设计类专业申请',
+    international: '国际课程、入学测评、英文过渡和未来大学申请方向',
+  };
+  return `${school.nameZh}（${school.nameEn}）是${school.location ? `位于 ${school.location} 的` : ''}${school.schoolType || school.categoryLabel}，主要关联 ${school.curriculum || school.categoryLabel}。对中国学生来说，判断它是否适合，重点不是只看名气，而是看孩子英文基础、年龄阶段、家庭预算、目标课程和后续升学路径是否匹配。常见规划方向包括${pathMap[school.type] || '新加坡选校、课程衔接和长期升学路径'}。`;
+}
+
+function renderQuickAnswerBlock(school) {
+  return `<section class="geo-summary" aria-labelledby="school-quick-answer">
+        <p class="eyebrow">快速答案</p>
+        <h2 id="school-quick-answer">${escapeHtml(school.nameZh)}适合中国学生吗？</h2>
+        <p>${escapeHtml(quickAnswerForSchool(school))}</p>
+        <ul>
+          <li>学校定位：${escapeHtml(school.schoolType || school.categoryLabel)}</li>
+          <li>课程路径：${escapeHtml(school.curriculum || '以学校官方课程为准')}</li>
+          <li>位置区域：${escapeHtml(school.location || '新加坡')}</li>
+          <li>适合家庭：${escapeHtml(school.audience || '正在比较新加坡学校和升学路径的中国家庭')}</li>
+        </ul>
+      </section>`;
+}
+
+function renderApplicationChecklist(school) {
+  const checklist = {
+    primary: ['确认孩子年龄和对应年级是否符合 AEIS / S-AEIS 要求', '评估英文阅读、写作和数学英文题适应度', '准备政府小学之外的备选学校和国际学校路径'],
+    secondary: ['判断 O-Level、IP 或 AEIS 路径是否匹配', '提前补英文写作、阅读速度和科学/数学英文表达', '同时比较政府中学、国际学校和私立预备课程'],
+    jc: ['确认 O-Level 或 IP 成绩是否支持 JC 路径', '提前规划 A-Level 科目组合和大学专业方向', '评估学生是否适合高强度学术环境'],
+    poly: ['确认 O-Level 科目成绩和目标专业要求', '比较专业课程内容、实习方向和大学衔接', '不要只按学校名气选择 Poly 专业'],
+    university: ['核对目标专业对 A-Level、IB、高考或 Poly 成绩的要求', '准备英文、文书、面试或作品材料', '同时评估专业就业方向和长期发展城市'],
+    artsUniversity: ['提前准备作品集主题、项目说明和面试表达', '核对专业对学历、英文和创作经历的要求', '预留足够时间打磨作品而不是临时拼材料'],
+    international: ['确认年级名额、英文测评和入学面试要求', '比较课程体系是否匹配未来大学国家', '把学费、注册费、校车、餐费和活动费一起预算'],
+  };
+  const items = checklist[school.type] || ['确认入学要求和年级名额', '评估英文能力和课程适应度', '准备同类型备选学校'];
+  return `<section class="geo-summary" aria-labelledby="school-checklist">
+        <p class="eyebrow">申请核对</p>
+        <h2 id="school-checklist">申请${escapeHtml(school.nameZh)}前要确认什么？</h2>
+        <ol>
+          ${items.map((item) => `<li>${escapeHtml(item)}</li>`).join('\n          ')}
+        </ol>
       </section>`;
 }
 
@@ -289,41 +352,43 @@ function renderHigherEducationBlocks(school) {
 function seoMetaForSchool(school) {
   const zh = school.nameZh;
   const en = school.nameEn;
+  const location = school.location ? `${school.location}、` : '';
+  const curriculum = school.curriculum ? `${school.curriculum}、` : '';
   const meta = {
     primary: {
-      title: `${zh}怎么样？位置、PSLE、AEIS与中国学生选校指南`,
-      h1: `${zh}怎么样？位置、PSLE与AEIS入学指南`,
-      description: `${zh}（${en}）中文择校指南：学校位置、PSLE路径、AEIS入学、适合学生、费用与中国家长常见问题。`,
+      title: `${zh}怎么样？${location}PSLE、AEIS与中国学生选校指南`,
+      h1: `${zh}怎么样？${location}PSLE与AEIS入学指南`,
+      description: `${zh}（${en}）中文择校指南：${location}PSLE路径、AEIS入学、适合学生、费用与中国家长常见问题。`,
     },
     secondary: {
-      title: `${zh}怎么样？O-Level/IP、COP、申请与中国学生选校指南`,
-      h1: `${zh}怎么样？O-Level/IP、COP与申请指南`,
-      description: `${zh}（${en}）中文择校指南：O-Level或IP路径、COP参考、入学申请、适合学生、费用与中国家长常见问题。`,
+      title: `${zh}怎么样？${location}O-Level/IP、COP与中国学生选校指南`,
+      h1: `${zh}怎么样？${location}O-Level/IP、COP与申请指南`,
+      description: `${zh}（${en}）中文择校指南：${location}O-Level或IP路径、COP参考、入学申请、适合学生、费用与中国家长常见问题。`,
     },
     jc: {
-      title: `${zh}怎么样？A-Level、录取、学科与中国学生升学指南`,
-      h1: `${zh}怎么样？A-Level、录取与升学路径指南`,
-      description: `${zh}（${en}）中文升学指南：A-Level路径、录取要求、学科选择、公立大学出口与中国学生常见问题。`,
+      title: `${zh}怎么样？${location}A-Level、录取与中国学生升学指南`,
+      h1: `${zh}怎么样？${location}A-Level、录取与升学路径指南`,
+      description: `${zh}（${en}）中文升学指南：${location}A-Level路径、录取要求、学科选择、公立大学出口与中国学生常见问题。`,
     },
     poly: {
-      title: `${zh}怎么样？专业、申请、学费与中国学生升学指南`,
-      h1: `${zh}怎么样？专业、申请与学费指南`,
-      description: `${zh}（${en}）中文升学指南：热门专业、O-Level申请、学费预算、大学衔接与中国学生常见问题。`,
+      title: `${zh}怎么样？${curriculum}专业、申请、学费与中国学生指南`,
+      h1: `${zh}怎么样？${curriculum}专业、申请与学费指南`,
+      description: `${zh}（${en}）中文升学指南：${curriculum}热门专业、O-Level申请、学费预算、大学衔接与中国学生常见问题。`,
     },
     university: {
-      title: `${zh}怎么样？专业、申请要求、学费与中国学生指南`,
-      h1: `${zh}怎么样？专业、申请要求与学费指南`,
-      description: `${zh}（${en}）中文申请指南：热门专业、申请要求、学费预算、录取路径、就业方向与中国学生常见问题。`,
+      title: `${zh}怎么样？${curriculum}申请要求、学费与中国学生指南`,
+      h1: `${zh}怎么样？${curriculum}申请要求与学费指南`,
+      description: `${zh}（${en}）中文申请指南：${curriculum}热门专业、申请要求、学费预算、录取路径、就业方向与中国学生常见问题。`,
     },
     artsUniversity: {
-      title: `${zh}怎么样？作品集、专业、申请与中国学生指南`,
-      h1: `${zh}怎么样？作品集、专业与申请指南`,
-      description: `${zh}（${en}）中文申请指南：艺术设计专业、作品集准备、申请要求、学费预算与中国学生常见问题。`,
+      title: `${zh}怎么样？${curriculum}作品集、专业与中国学生指南`,
+      h1: `${zh}怎么样？${curriculum}作品集、专业与申请指南`,
+      description: `${zh}（${en}）中文申请指南：${curriculum}艺术设计专业、作品集准备、申请要求、学费预算与中国学生常见问题。`,
     },
     international: {
-      title: `${zh}怎么样？课程、学费、申请与中国学生选校指南`,
-      h1: `${zh}怎么样？课程、学费与申请指南`,
-      description: `${zh}（${en}）中文择校指南：课程体系、学费预算、入学申请、适合学生、大学方向与中国家长常见问题。`,
+      title: `${zh}怎么样？${curriculum}学费、申请与中国学生选校指南`,
+      h1: `${zh}怎么样？${curriculum}学费与申请指南`,
+      description: `${zh}（${en}）中文择校指南：${curriculum}学费预算、入学申请、适合学生、大学方向与中国家长常见问题。`,
     },
   };
   return meta[school.type] || {
@@ -379,6 +444,30 @@ function renderPage(school, header, footer) {
       acceptedAnswer: { '@type': 'Answer', text: answer },
     })),
   };
+  const webPageSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: title,
+    headline: h1,
+    description,
+    url: `${domain}${url}`,
+    inLanguage: 'zh-CN',
+    about: [
+      { '@type': schemaType(school), name: school.nameZh, alternateName: school.nameEn },
+      ...seoTags.slice(0, 12).map((tag) => ({ '@type': 'Thing', name: tag })),
+    ],
+    mainEntity: schoolSchema,
+    isPartOf: {
+      '@type': 'WebSite',
+      name: 'SEDA 新加坡择校网',
+      url: `${domain}/`,
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'SEDA 新加坡择校网',
+      url: `${domain}/`,
+    },
+  };
 
   return `<!doctype html>
 <html lang="zh-CN">
@@ -394,6 +483,7 @@ function renderPage(school, header, footer) {
 <link rel="alternate" type="application/rss+xml" title="SEDA 新加坡择校网最新文章" href="${domain}/feed.xml"/>
 <link rel="stylesheet" href="/seda-site.css?v=15"/>
 <script type="application/ld+json">${jsonLd(schoolSchema)}</script>
+<script type="application/ld+json">${jsonLd(webPageSchema)}</script>
 <script type="application/ld+json">${jsonLd(breadcrumbSchema)}</script>
 <script type="application/ld+json">${jsonLd(faqSchema)}</script>
 </head>
@@ -408,6 +498,8 @@ ${header}
   </section>
   <div class="content-layout">
     <article class="content-main">
+      ${renderQuickAnswerBlock(school)}
+
       <div class="stats-bar">
         <div class="stat-item"><div class="num">${escapeHtml(school.schoolType)}</div><div class="label">学校类型</div></div>
         <div class="stat-item"><div class="num">${escapeHtml(school.curriculum)}</div><div class="label">课程路径</div></div>
@@ -427,6 +519,7 @@ ${header}
       </section>
 
       ${renderSeoTagBlock(school, seoTags)}
+      ${renderApplicationChecklist(school)}
 
       <h2>${escapeHtml(school.nameZh)}是什么类型的学校？</h2>
       <p>很多家长第一次搜索 ${escapeHtml(school.nameZh)}，通常不是只想知道学校在哪里，而是想判断：这所学校到底适不适合自己的孩子。</p>

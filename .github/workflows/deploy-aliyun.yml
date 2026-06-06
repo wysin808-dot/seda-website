@@ -35,7 +35,9 @@ jobs:
               -e data \
               -e data/** \
               -e .baidu-submit-offset \
+              -e .indexnow-submit-offset \
               -e baidu-submit.log
             node scripts/build-content.mjs
+            node scripts/indexnow-submit.mjs || true
             pm2 restart seda-api --update-env
             pm2 list

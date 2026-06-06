@@ -358,6 +358,10 @@
             <div id="seoRecent"></div>
           </section>
           <section class="analytics-panel">
+            <h2>自动提交明细</h2>
+            <div id="seoSubmitRecent"></div>
+          </section>
+          <section class="analytics-panel">
             <h2>百度 / IndexNow 日志</h2>
             <div id="seoLog" class="seo-log">暂无日志</div>
           </section>
@@ -423,6 +427,7 @@
       seoQuality: document.getElementById('seoQuality'),
       seoQualitySummary: document.getElementById('seoQualitySummary'),
       seoRecent: document.getElementById('seoRecent'),
+      seoSubmitRecent: document.getElementById('seoSubmitRecent'),
       seoLog: document.getElementById('seoLog'),
     };
 
@@ -740,8 +745,9 @@
     }
 
     function fillSeoForm(record = {}) {
-      els.baiduSubmittedInput.value = record.baiduSubmitted || 0;
-      els.indexNowSubmittedInput.value = record.indexNowSubmitted || 0;
+      const auto = state.seo?.submissions?.providers || {};
+      els.baiduSubmittedInput.value = record.baiduSubmitted || auto.baidu?.submitted || 0;
+      els.indexNowSubmittedInput.value = record.indexNowSubmitted || auto.indexnow?.submitted || 0;
       els.baiduRemainingInput.value = record.baiduRemaining || 0;
       els.indexedCountInput.value = record.indexedCount || 0;
       els.abnormalUrlCountInput.value = record.abnormalUrlCount || 0;
@@ -749,13 +755,23 @@
       els.seoNotesInput.value = record.notes || '';
     }
 
+    function renderSubmissionStatus(provider = {}) {
+      const status = provider.lastStatus || 'none';
+      const label = status === 'success' ? '成功' : status === 'error' ? '异常' : '暂无';
+      return `${label}${provider.lastHttpStatus ? ` · HTTP ${provider.lastHttpStatus}` : ''}`;
+    }
+
     function renderSeo() {
       const data = state.seo || {};
       const saved = data.saved || {};
+      const submissions = data.submissions || {};
+      const providers = submissions.providers || {};
       els.seoStats.innerHTML = `
         <div class="analytics-card"><strong>${data.sitemapUrlCount || 0}</strong><span>sitemap URL</span></div>
         <div class="analytics-card"><strong>${data.todayPublishedArticles || 0}</strong><span>当天发布文章</span></div>
         <div class="analytics-card"><strong>${data.baiduNextStart || 0}</strong><span>百度下次起点</span></div>
+        <div class="analytics-card"><strong>${providers.baidu?.submitted || 0}</strong><span>今日百度实提</span></div>
+        <div class="analytics-card"><strong>${providers.indexnow?.submitted || 0}</strong><span>今日 IndexNow</span></div>
         <div class="analytics-card"><strong>${saved.abnormalUrlCount || 0}</strong><span>异常 URL</span></div>
       `;
       fillSeoForm(saved);
@@ -773,6 +789,22 @@
           <td>${esc(row.notes || '')}</td>
         </tr>`).join('')}</tbody>
       </table>` : '<div class="cms-empty" style="padding:24px">暂无 SEO/GEO 记录。</div>';
+      els.seoSubmitRecent.innerHTML = submissions.records?.length ? `<div class="quality-metrics" style="margin-bottom:12px">
+          <span>百度：${providers.baidu?.submitted || 0} URL</span>
+          <span>${esc(renderSubmissionStatus(providers.baidu))}</span>
+          <span>IndexNow：${providers.indexnow?.submitted || 0} URL</span>
+          <span>${esc(renderSubmissionStatus(providers.indexnow))}</span>
+        </div>
+        <table class="recent-table">
+          <thead><tr><th>时间</th><th>平台</th><th>URL</th><th>状态</th><th>HTTP</th></tr></thead>
+          <tbody>${submissions.records.map((row) => `<tr>
+            <td>${esc(String(row.createdAt || '').replace('T', ' ').slice(0, 16))}</td>
+            <td>${esc(row.provider || '')}</td>
+            <td>${row.submitted || 0}</td>
+            <td>${esc(row.status || '')}</td>
+            <td>${row.httpStatus || 0}</td>
+          </tr>`).join('')}</tbody>
+        </table>` : '<div class="cms-empty" style="padding:24px">暂无自动提交记录。运行百度提交或 IndexNow 脚本后会显示。</div>';
       els.seoLog.textContent = data.baiduLogTail?.length ? data.baiduLogTail.join('\n') : '暂无日志';
     }
 

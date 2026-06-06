@@ -17,9 +17,35 @@ fi
 SITEMAP_FILE="${SITEMAP_FILE:-$SITE_DIR/sitemap.xml}"
 STATE_FILE="${STATE_FILE:-$SITE_DIR/.baidu-submit-offset}"
 LOG_FILE="/var/log/baidu-submit.log"
+SEO_SUBMISSION_FILE="${SEO_SUBMISSION_FILE:-$SITE_DIR/data/seo/submissions.jsonl}"
 BATCH_SIZE=5   # 安全批次：每次5条，避免超出剩余配额导致整批失败
 
 log() { echo "[$(date '+%Y-%m-%d %H:%M')] $*" | tee -a "$LOG_FILE"; }
+
+record_submission() {
+  local provider="$1"
+  local submitted="$2"
+  local status="$3"
+  local http_status="$4"
+  local message="$5"
+  mkdir -p "$(dirname "$SEO_SUBMISSION_FILE")"
+  PROVIDER="$provider" SUBMITTED="$submitted" STATUS="$status" HTTP_STATUS="$http_status" MESSAGE="$message" TOTAL="$TOTAL" OFFSET="$OFFSET" NEXT_OFFSET="$NEXT_OFFSET" \
+    python3 -c 'import json, os, datetime
+now = datetime.datetime.utcnow().replace(microsecond=0).isoformat() + "Z"
+record = {
+  "date": now[:10],
+  "createdAt": now,
+  "provider": os.environ.get("PROVIDER", ""),
+  "submitted": int(os.environ.get("SUBMITTED", "0") or 0),
+  "totalUrls": int(os.environ.get("TOTAL", "0") or 0),
+  "offset": int(os.environ.get("OFFSET", "0") or 0),
+  "nextOffset": int(os.environ.get("NEXT_OFFSET", "0") or 0),
+  "status": os.environ.get("STATUS", ""),
+  "httpStatus": int(os.environ.get("HTTP_STATUS", "0") or 0),
+  "message": os.environ.get("MESSAGE", "")[:500],
+}
+print(json.dumps(record, ensure_ascii=False))' >> "$SEO_SUBMISSION_FILE"
+}
 
 # 从 sitemap 提取所有 URL
 ALL_URLS=$(grep -oP '(?<=<loc>)[^<]+' "$SITEMAP_FILE" 2>/dev/null)
@@ -59,6 +85,9 @@ RESPONSE=$(curl -s -X POST \
   --max-time 30)
 
 log "百度响应: $RESPONSE"
+BAIDU_STATUS="success"
+echo "$RESPONSE" | grep -q '"error"' && BAIDU_STATUS="error"
+record_submission "baidu" "$BATCH_COUNT" "$BAIDU_STATUS" "200" "$RESPONSE"
 
 # 记录新偏移量
 echo "$NEXT_OFFSET" > "$STATE_FILE"
@@ -78,4 +107,8 @@ INDEXNOW_RESP=$(curl -s -X POST "https://api.indexnow.org/indexnow" \
   -w "HTTP:%{http_code}")
 
 log "Bing IndexNow: $INDEXNOW_RESP"
+INDEXNOW_HTTP=$(echo "$INDEXNOW_RESP" | sed -n 's/.*HTTP:\([0-9][0-9][0-9]\)$/\1/p')
+INDEXNOW_STATUS="error"
+[ "$INDEXNOW_HTTP" = "200" ] || [ "$INDEXNOW_HTTP" = "202" ] && INDEXNOW_STATUS="success"
+record_submission "indexnow" "$BATCH_COUNT" "$INDEXNOW_STATUS" "${INDEXNOW_HTTP:-0}" "$INDEXNOW_RESP"
 log "✅ 完成，下次从第 $((NEXT_OFFSET + 1)) 页开始"

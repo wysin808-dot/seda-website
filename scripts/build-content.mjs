@@ -8,6 +8,7 @@ import { optimizeArticle } from './seo-optimizer.mjs';
 const root = process.cwd();
 const domain = 'https://sgeda.org.cn';
 const defaultGoogleAnalyticsId = 'G-38WFES3WTH';
+const buildDate = new Date().toISOString().slice(0, 10);
 const articleDir = path.join(root, 'content', 'articles');
 
 const relatedByCategory = {
@@ -333,6 +334,8 @@ function renderArticle(article, articles) {
     name: meta.title,
     description: meta.description || '',
     url: `${domain}${url}`,
+    datePublished: meta.date,
+    dateModified: meta.updated || meta.publishedAt || meta.date || buildDate,
     isPartOf: {
       '@type': 'WebSite',
       name: 'SEDA 新加坡择校网',
@@ -340,6 +343,11 @@ function renderArticle(article, articles) {
     },
     inLanguage: 'zh-CN',
     primaryImageOfPage: `${domain}/assets/hero-mbs-day3.jpg`,
+    mainEntity: {
+      '@type': 'Article',
+      headline: meta.title,
+      url: `${domain}${url}`,
+    },
   });
   const faqSchema = faqItems.length ? jsonLd({
     '@context': 'https://schema.org',
@@ -906,6 +914,67 @@ function enhanceGlobalGoogleAnalytics() {
   return count;
 }
 
+function enhanceUtilityPageSchema() {
+  const pages = [
+    {
+      file: path.join(root, 'tools', 'index.html'),
+      marker: 'SEDA_TOOLS_SCHEMA',
+      data: {
+        '@context': 'https://schema.org',
+        '@type': 'CollectionPage',
+        name: 'SEDA AI 升学工具',
+        description: 'SEDA 新加坡择校网 AI 升学工具集合，包含大学匹配、升学规划、Poly 匹配、AEIS 年级测算等。',
+        url: `${domain}/tools/`,
+        inLanguage: 'zh-CN',
+        dateModified: buildDate,
+        isPartOf: { '@type': 'WebSite', name: 'SEDA 新加坡择校网', url: `${domain}/` },
+        hasPart: [
+          { '@type': 'SoftwareApplication', name: 'AI 大学匹配', applicationCategory: 'EducationApplication', url: `${domain}/tools/university-matcher.html` },
+          { '@type': 'SoftwareApplication', name: 'AI 升学规划', applicationCategory: 'EducationApplication', url: `${domain}/tools/study-planner.html` },
+          { '@type': 'SoftwareApplication', name: 'AI Poly 匹配', applicationCategory: 'EducationApplication', url: `${domain}/tools/poly-matcher.html` },
+          { '@type': 'SoftwareApplication', name: 'AEIS 年级测算', applicationCategory: 'EducationApplication', url: `${domain}/tools/aeis-grade-checker.html` },
+        ],
+      },
+    },
+    {
+      file: path.join(root, 'search', 'index.html'),
+      marker: 'SEDA_SEARCH_SCHEMA',
+      data: {
+        '@context': 'https://schema.org',
+        '@type': 'SearchResultsPage',
+        name: 'SEDA 站内搜索',
+        description: '搜索 SEDA 新加坡择校网的 WACE、O-Level、AEIS、国际学校与升学路径内容。',
+        url: `${domain}/search/`,
+        inLanguage: 'zh-CN',
+        dateModified: buildDate,
+        isPartOf: {
+          '@type': 'WebSite',
+          name: 'SEDA 新加坡择校网',
+          url: `${domain}/`,
+          potentialAction: {
+            '@type': 'SearchAction',
+            target: `${domain}/search/?q={search_term_string}`,
+            'query-input': 'required name=search_term_string',
+          },
+        },
+      },
+    },
+  ];
+  let count = 0;
+  for (const page of pages) {
+    if (!fs.existsSync(page.file)) continue;
+    const html = fs.readFileSync(page.file, 'utf8');
+    if (!html.includes('</head>')) continue;
+    const pattern = new RegExp(`\\n?<!-- ${page.marker}_START -->[\\s\\S]*?<!-- ${page.marker}_END -->\\n?`);
+    const snippet = `<!-- ${page.marker}_START -->\n<script type="application/ld+json">${jsonLd(page.data)}</script>\n<!-- ${page.marker}_END -->`;
+    const next = html.replace(pattern, '\n').replace('</head>', `${snippet}\n</head>`);
+    if (next === html) continue;
+    fs.writeFileSync(page.file, next, 'utf8');
+    count += 1;
+  }
+  return count;
+}
+
 const allArticles = loadArticles();
 const articles = allArticles.filter((article) => !article.meta.draft);
 const drafts = allArticles.filter((article) => article.meta.draft);
@@ -919,6 +988,7 @@ updateNewsIndex(articles);
 updateHomeLatestArticles(articles);
 writeFeeds(articles);
 updateLlms(articles);
+const enhancedUtilitySchemaCount = enhanceUtilityPageSchema();
 const enhancedGoogleAnalyticsCount = enhanceGlobalGoogleAnalytics();
 const enhancedRobotsCount = enhanceGlobalRobotsMeta();
 const urlCount = updateSitemap(drafts);
@@ -926,6 +996,7 @@ console.log(`Built ${articles.length} content articles.`);
 console.log(`Built ${schoolPageCount} school SEO pages.`);
 console.log(`Built ${topicPageCount} topic hub pages.`);
 console.log(`Enhanced ${enhancedKeyPageCount} key SEO pages.`);
+console.log(`Enhanced ${enhancedUtilitySchemaCount} utility pages with schema.`);
 console.log(`Enhanced ${enhancedGoogleAnalyticsCount} pages with GA4 tags.`);
 console.log(`Enhanced ${enhancedRobotsCount} pages with robots meta.`);
 console.log(`Prepared ${drafts.length} draft articles for review.`);

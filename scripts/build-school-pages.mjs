@@ -3,6 +3,7 @@ import path from 'node:path';
 
 const root = process.cwd();
 const domain = 'https://sgeda.org.cn';
+const buildDate = new Date().toISOString().slice(0, 10);
 const dataFile = path.join(root, 'content', 'schools', 'seo-schools.json');
 
 function read(file) {
@@ -354,6 +355,7 @@ function seoMetaForSchool(school) {
   const en = school.nameEn;
   const location = school.location ? `${school.location}、` : '';
   const curriculum = school.curriculum ? `${school.curriculum}、` : '';
+  const internationalTitle = `${zh}怎么样？学费、申请与课程指南`;
   const meta = {
     primary: {
       title: `${zh}怎么样？${location}PSLE、AEIS与中国学生选校指南`,
@@ -386,7 +388,7 @@ function seoMetaForSchool(school) {
       description: `${zh}（${en}）中文申请指南：${curriculum}艺术设计专业、作品集准备、申请要求、学费预算与中国学生常见问题。`,
     },
     international: {
-      title: `${zh}怎么样？${curriculum}学费、申请与中国学生选校指南`,
+      title: internationalTitle,
       h1: `${zh}怎么样？${curriculum}学费与申请指南`,
       description: `${zh}（${en}）中文择校指南：${curriculum}学费预算、入学申请、适合学生、大学方向与中国家长常见问题。`,
     },
@@ -420,6 +422,7 @@ function renderPage(school, header, footer) {
     about: seoTags.map((tag) => ({ '@type': 'Thing', name: tag })),
     knowsAbout,
     inLanguage: 'zh-CN',
+    dateModified: school.updated || buildDate,
     publisher: {
       '@type': 'Organization',
       name: 'SEDA 新加坡择校网',
@@ -438,6 +441,7 @@ function renderPage(school, header, footer) {
   const faqSchema = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
+    dateModified: school.updated || buildDate,
     mainEntity: faq.items.map(([question, answer]) => ({
       '@type': 'Question',
       name: question,
@@ -452,6 +456,7 @@ function renderPage(school, header, footer) {
     description,
     url: `${domain}${url}`,
     inLanguage: 'zh-CN',
+    dateModified: school.updated || buildDate,
     about: [
       { '@type': schemaType(school), name: school.nameZh, alternateName: school.nameEn },
       ...seoTags.slice(0, 12).map((tag) => ({ '@type': 'Thing', name: tag })),

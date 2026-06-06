@@ -1175,6 +1175,19 @@ function rebuildContent() {
   });
 }
 
+function submitSeoAfterPublish() {
+  return new Promise((resolve) => {
+    execFile('npm', ['run', 'seo:submit'], { cwd: process.cwd(), timeout: 90000 }, (error, stdout, stderr) => {
+      const output = `${stdout || ''}${stderr || ''}`;
+      resolve({
+        ok: !error,
+        output,
+        error: error ? error.message : '',
+      });
+    });
+  });
+}
+
 function requireReviewToken(body, res) {
   const expected = process.env.REVIEW_ADMIN_TOKEN || '';
   if (!expected) {
@@ -1303,7 +1316,11 @@ async function handleContentReview(req, res) {
       writeFileSync(articlePath, raw, 'utf8');
     }
     const output = await rebuildContent();
-    json(res, 200, { ok: true, action, output });
+    let seoSubmission = null;
+    if (action === 'approve') {
+      seoSubmission = await submitSeoAfterPublish();
+    }
+    json(res, 200, { ok: true, action, output, seoSubmission });
   } catch (error) {
     json(res, 500, { error: '审核操作失败', detail: error.output || error.message });
   }

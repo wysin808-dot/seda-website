@@ -24,19 +24,18 @@ jobs:
           script: |
             set -e
             cd /var/www/sgeda
-
-            if git status --porcelain | grep -q '^UU\|^AA\|^DD\|^AU\|^UA\|^DU\|^UD'; then
-              echo "Found unresolved merge state, aborting it before deploy."
-              git merge --abort || true
-              git rebase --abort || true
-              git reset --merge || true
-            fi
-
-            git stash push -u -m "github-actions-predeploy-$(date +%Y%m%d%H%M%S)" || true
             git fetch origin main
-            git checkout main
-            git pull --ff-only origin main
-            git stash apply || true
+            git merge --abort || true
+            git rebase --abort || true
+            git checkout -f main
+            git reset --hard origin/main
+            git clean -fd \
+              -e .env \
+              -e .env.local \
+              -e data \
+              -e data/** \
+              -e .baidu-submit-offset \
+              -e baidu-submit.log
             node scripts/build-content.mjs
             pm2 restart seda-api --update-env
             pm2 list

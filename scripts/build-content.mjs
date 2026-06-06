@@ -373,7 +373,7 @@ function renderArticle(article, articles) {
 <meta name="keywords" content="${keywords}"/>
 <link rel="canonical" href="${domain}${url}"/>
 <link rel="alternate" type="application/rss+xml" title="SEDA 新加坡择校网最新文章" href="${domain}/feed.xml"/>
-<link rel="stylesheet" href="/seda-site.css?v=15"/>
+<link rel="stylesheet" href="/seda-site.css?v=16"/>
 <script type="application/ld+json">${articleSchema}</script>
 <script type="application/ld+json">${webPageSchema}</script>
 <script type="application/ld+json">${breadcrumbSchema}</script>
@@ -402,17 +402,32 @@ ${header}
         <h2 id="contact-title">想判断这条路径是否适合孩子？</h2>
         <p>告诉我们学生年级、英文基础和目标学校，SEDA 顾问会帮你梳理更适合的升学路线。</p>
       </div>
-      <form class="lead-form">
-        <label><span>学生当前年级</span><input type="text" name="grade" placeholder="例如：国内初三 / 高一" /></label>
-        <label><span>目标方向</span><input type="text" name="target" placeholder="${categoryLabel}" /></label>
-        <label><span>联系方式</span><input type="text" name="contact" placeholder="微信 / WhatsApp / 手机" /></label>
-        <button class="primary-button" type="submit">提交咨询</button>
-      </form>
+      <div class="contact-action-stack">
+        <div class="seda-wechat-card">
+          <div class="seda-wechat-head">
+            <div><strong>新加坡择校顾问 Amy</strong><span>扫码添加，获取免费择校方案</span></div>
+            <button type="button" class="seda-copy-wechat" data-wechat="SEDAGUIDE">复制微信号</button>
+          </div>
+          <div class="seda-wechat-body">
+            <img class="seda-wechat-qr" src="/assets/wechat-amy-seda-guide.jpg" alt="新加坡择校顾问 Amy 微信二维码" loading="lazy" decoding="async">
+            <div class="seda-wechat-info">
+              <p class="seda-wechat-id">微信号：<b>SEDAGUIDE</b></p>
+              <ul><li>国际学校推荐</li><li>AEIS 规划</li><li>WACE 课程规划</li><li>学费预算分析</li></ul>
+            </div>
+          </div>
+        </div>
+        <form class="lead-form">
+          <label><span>学生当前年级</span><input type="text" name="grade" placeholder="例如：国内初三 / 高一" /></label>
+          <label><span>目标方向</span><input type="text" name="target" placeholder="${categoryLabel}" /></label>
+          <label><span>联系方式</span><input type="text" name="contact" placeholder="微信 SEDAGUIDE / 手机" /></label>
+          <button class="primary-button" type="submit">提交咨询</button>
+        </form>
+      </div>
     </section>
   </article>
 </main>
 ${footer}
-<script src="/seda-site.js?v=16"></script>
+<script src="/seda-site.js?v=17"></script>
 </body>
 </html>`;
 }
@@ -522,7 +537,7 @@ function renderReviewPage(articles) {
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <meta name="robots" content="noindex,nofollow"/>
 <title>SEDA 内容审核后台</title>
-<link rel="stylesheet" href="/seda-site.css?v=15"/>
+<link rel="stylesheet" href="/seda-site.css?v=16"/>
 <style>
   body{background:#f6f7f9;color:#172033}
   .review-main{max-width:1180px;margin:0 auto;padding:32px 20px 72px}

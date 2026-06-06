@@ -486,7 +486,7 @@ function renderPage(school, header, footer) {
 <meta name="robots" content="index,follow,max-image-preview:large"/>
 <link rel="canonical" href="${domain}${url}"/>
 <link rel="alternate" type="application/rss+xml" title="SEDA 新加坡择校网最新文章" href="${domain}/feed.xml"/>
-<link rel="stylesheet" href="/seda-site.css?v=15"/>
+<link rel="stylesheet" href="/seda-site.css?v=16"/>
 <script type="application/ld+json">${jsonLd(schoolSchema)}</script>
 <script type="application/ld+json">${jsonLd(webPageSchema)}</script>
 <script type="application/ld+json">${jsonLd(breadcrumbSchema)}</script>
@@ -570,12 +570,27 @@ ${header}
           <h2 id="contact-title">想判断 ${escapeHtml(school.nameZh)} 是否适合孩子？</h2>
           <p>告诉我们孩子年龄、英文基础和目标路径，SEDA 顾问会帮你比较更合适的学校和升学方案。</p>
         </div>
-        <form class="lead-form">
-          <label><span>学生当前年级</span><input type="text" name="grade" placeholder="例如：国内初二 / 小五 / 高一" /></label>
-          <label><span>目标学校</span><input type="text" name="target" value="${escapeHtml(school.nameZh)}" /></label>
-          <label><span>联系方式</span><input type="text" name="contact" placeholder="微信 / WhatsApp / 手机" /></label>
-          <button class="primary-button" type="submit">提交咨询</button>
-        </form>
+        <div class="contact-action-stack">
+          <div class="seda-wechat-card">
+            <div class="seda-wechat-head">
+              <div><strong>新加坡择校顾问 Amy</strong><span>扫码添加，获取免费择校方案</span></div>
+              <button type="button" class="seda-copy-wechat" data-wechat="SEDAGUIDE">复制微信号</button>
+            </div>
+            <div class="seda-wechat-body">
+              <img class="seda-wechat-qr" src="/assets/wechat-amy-seda-guide.jpg" alt="新加坡择校顾问 Amy 微信二维码" loading="lazy" decoding="async">
+              <div class="seda-wechat-info">
+                <p class="seda-wechat-id">微信号：<b>SEDAGUIDE</b></p>
+                <ul><li>国际学校推荐</li><li>AEIS 规划</li><li>A-Level 规划</li><li>一对一专业咨询</li></ul>
+              </div>
+            </div>
+          </div>
+          <form class="lead-form">
+            <label><span>学生当前年级</span><input type="text" name="grade" placeholder="例如：国内初二 / 小五 / 高一" /></label>
+            <label><span>目标学校</span><input type="text" name="target" value="${escapeHtml(school.nameZh)}" /></label>
+            <label><span>联系方式</span><input type="text" name="contact" placeholder="微信 SEDAGUIDE / 手机" /></label>
+            <button class="primary-button" type="submit">提交咨询</button>
+          </form>
+        </div>
       </section>
     </article>
     <aside class="sidebar">
@@ -588,7 +603,7 @@ ${header}
   </div>
 </main>
 ${footer}
-<script src="/seda-site.js?v=16"></script>
+<script src="/seda-site.js?v=17"></script>
 </body>
 </html>`;
 }
@@ -640,7 +655,7 @@ function renderInternationalSchoolIndex(schools, header, footer) {
 <meta name="keywords" content="新加坡国际学校名单,新加坡国际学校数据库,新加坡IB学校,新加坡英国国际学校,新加坡美国学校"/>
 <meta name="robots" content="index,follow,max-image-preview:large"/>
 <link rel="canonical" href="${domain}/international-school/schools/"/>
-<link rel="stylesheet" href="/seda-site.css?v=15"/>
+<link rel="stylesheet" href="/seda-site.css?v=16"/>
 <script type="application/ld+json">${jsonLd(schema)}</script>
 </head>
 <body>
@@ -669,16 +684,31 @@ ${cards}
       <h2 id="contact-title">不知道哪所国际学校适合孩子？</h2>
       <p>告诉我们孩子年龄、英文基础、预算和目标大学方向，SEDA 顾问会帮你缩小学校范围。</p>
     </div>
-    <form class="lead-form">
-      <label><span>学生当前年级</span><input type="text" name="grade" placeholder="例如：国内小五 / 初二 / 高一" /></label>
-      <label><span>目标课程</span><input type="text" name="target" placeholder="IB / A-Level / AP / WACE / 还不确定" /></label>
-      <label><span>联系方式</span><input type="text" name="contact" placeholder="微信 / WhatsApp / 手机" /></label>
-      <button class="primary-button" type="submit">提交咨询</button>
-    </form>
+    <div class="contact-action-stack">
+      <div class="seda-wechat-card">
+        <div class="seda-wechat-head">
+          <div><strong>新加坡择校顾问 Amy</strong><span>扫码添加，获取免费择校方案</span></div>
+          <button type="button" class="seda-copy-wechat" data-wechat="SEDAGUIDE">复制微信号</button>
+        </div>
+        <div class="seda-wechat-body">
+          <img class="seda-wechat-qr" src="/assets/wechat-amy-seda-guide.jpg" alt="新加坡择校顾问 Amy 微信二维码" loading="lazy" decoding="async">
+          <div class="seda-wechat-info">
+            <p class="seda-wechat-id">微信号：<b>SEDAGUIDE</b></p>
+            <ul><li>国际学校推荐</li><li>AEIS 规划</li><li>A-Level 规划</li><li>学费预算分析</li></ul>
+          </div>
+        </div>
+      </div>
+      <form class="lead-form">
+        <label><span>学生当前年级</span><input type="text" name="grade" placeholder="例如：国内小五 / 初二 / 高一" /></label>
+        <label><span>目标课程</span><input type="text" name="target" placeholder="IB / A-Level / AP / WACE / 还不确定" /></label>
+        <label><span>联系方式</span><input type="text" name="contact" placeholder="微信 SEDAGUIDE / 手机" /></label>
+        <button class="primary-button" type="submit">提交咨询</button>
+      </form>
+    </div>
   </section>
 </main>
 ${footer}
-<script src="/seda-site.js?v=16"></script>
+<script src="/seda-site.js?v=17"></script>
 </body>
 </html>`;
 }

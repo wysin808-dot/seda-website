@@ -1,3 +1,91 @@
+/* ── Global WeChat Contact ── */
+(function(){
+  var contact = {
+    consultant: 'Amy',
+    wechatId: 'SEDAGUIDE',
+    wechatQrUrl: '/assets/wechat-amy-seda-guide.jpg',
+    title: '新加坡择校顾问 Amy',
+  };
+  window.SEDA_CONTACT = Object.assign({}, contact, window.SEDA_CONTACT || {});
+
+  function benefitList() {
+    return [
+      '国际学校推荐',
+      'AEIS 规划',
+      'A-Level / O-Level 路径',
+      'WACE 课程规划',
+      '学费预算分析',
+      '一对一专业咨询',
+    ].map(function(text){ return '<li>'+text+'</li>'; }).join('');
+  }
+
+  function qrCard(extraClass) {
+    var cfg = window.SEDA_CONTACT;
+    return '<div class="seda-wechat-card '+(extraClass || '')+'">' +
+      '<div class="seda-wechat-head">' +
+        '<div><strong>'+cfg.title+'</strong><span>扫码添加，获取免费择校方案</span></div>' +
+        '<button type="button" class="seda-copy-wechat" data-wechat="'+cfg.wechatId+'">复制微信号</button>' +
+      '</div>' +
+      '<div class="seda-wechat-body">' +
+        '<img class="seda-wechat-qr" src="'+cfg.wechatQrUrl+'" alt="新加坡择校顾问 Amy 微信二维码" loading="lazy" decoding="async">' +
+        '<div class="seda-wechat-info">' +
+          '<p class="seda-wechat-id">微信号：<b>'+cfg.wechatId+'</b></p>' +
+          '<ul>'+benefitList()+'</ul>' +
+        '</div>' +
+      '</div>' +
+    '</div>';
+  }
+
+  function openWechatModal(title) {
+    var existing = document.querySelector('.seda-wechat-modal');
+    if (existing) existing.remove();
+    var overlay = document.createElement('div');
+    overlay.className = 'seda-wechat-modal';
+    overlay.innerHTML =
+      '<div class="seda-wechat-dialog" role="dialog" aria-modal="true" aria-label="微信咨询">' +
+        '<button type="button" class="seda-wechat-close" aria-label="关闭">×</button>' +
+        '<p class="eyebrow">免费咨询</p>' +
+        '<h2>'+(title || '添加顾问微信，获取择校方案')+'</h2>' +
+        qrCard('seda-wechat-card-modal') +
+      '</div>';
+    document.body.appendChild(overlay);
+    overlay.querySelector('.seda-wechat-close').addEventListener('click', function(){ overlay.remove(); });
+    overlay.addEventListener('click', function(event){ if (event.target === overlay) overlay.remove(); });
+  }
+
+  function copyWechat(button) {
+    var id = button.getAttribute('data-wechat') || window.SEDA_CONTACT.wechatId;
+    if (navigator.clipboard) navigator.clipboard.writeText(id).catch(function(){});
+    button.textContent = '已复制';
+    setTimeout(function(){ button.textContent = '复制微信号'; }, 1600);
+  }
+
+  window.SEDA_WECHAT_CARD_HTML = qrCard;
+  window.SEDA_OPEN_WECHAT = openWechatModal;
+
+  document.addEventListener('click', function(event){
+    var copyButton = event.target.closest('.seda-copy-wechat');
+    if (copyButton) {
+      event.preventDefault();
+      copyWechat(copyButton);
+      return;
+    }
+    var trigger = event.target.closest('.wechat-float, .js-wechat-open, a[href="weixin://"]');
+    if (trigger) {
+      event.preventDefault();
+      openWechatModal('扫码添加 Amy，获取免费择校方案');
+    }
+  });
+
+  document.addEventListener('DOMContentLoaded', function(){
+    document.querySelectorAll('.contact-options').forEach(function(options){
+      if (!options.querySelector('.js-wechat-open')) return;
+      var link = options.querySelector('.js-wechat-open');
+      link.textContent = '微信：SEDAGUIDE';
+    });
+  });
+})();
+
 /* ── Lead Capture API ── */
 (function(){
   function visitorId() {
@@ -39,7 +127,11 @@
       if (!result.ok) throw new Error(result.body.error || '提交失败，请稍后再试');
       if (button) button.textContent = '已收到，顾问会尽快联系';
       form.reset();
-      alert('已收到，SEDA顾问会尽快联系您。');
+      if (typeof window.SEDA_OPEN_WECHAT === 'function') {
+        window.SEDA_OPEN_WECHAT('已收到，扫码添加 Amy 加快沟通');
+      } else {
+        alert('已收到，SEDA顾问会尽快联系您。');
+      }
       if (typeof window.closeLeadModal === 'function') window.closeLeadModal();
     }).catch(function(error){
       alert(error.message || '提交失败，请稍后再试');
@@ -156,9 +248,9 @@ document.querySelectorAll(".faq-list details summary").forEach((summary) => {
 });
 
 if (!document.querySelector(".wechat-float")) {
-  const wechat = document.createElement("a");
+  const wechat = document.createElement("button");
   wechat.className = "wechat-float";
-  wechat.href = "/contact/";
+  wechat.type = "button";
   wechat.setAttribute("aria-label", "微信咨询");
   wechat.innerHTML = '<svg viewBox="0 0 24 24"><path d="M8.691 2.188C3.891 2.188 0 5.476 0 9.53c0 2.212 1.17 4.203 3.002 5.55a.59.59 0 0 1 .213.665l-.39 1.48c-.019.07-.048.141-.048.213 0 .163.13.295.29.295a.326.326 0 0 0 .167-.054l1.903-1.114a.864.864 0 0 1 .717-.098 10.16 10.16 0 0 0 2.837.403c.276 0 .543-.027.811-.05-.857-2.578.157-4.972 1.932-6.446 1.703-1.415 3.882-1.98 5.853-1.838-.576-3.583-4.196-6.348-8.596-6.348zM5.785 5.991c.642 0 1.162.529 1.162 1.18a1.17 1.17 0 0 1-1.162 1.178A1.17 1.17 0 0 1 4.623 7.17c0-.651.52-1.18 1.162-1.18zm5.813 0c.642 0 1.162.529 1.162 1.18a1.17 1.17 0 0 1-1.162 1.178 1.17 1.17 0 0 1-1.162-1.178c0-.651.52-1.18 1.162-1.18zm3.825 4.15c-2.19 0-4.166.88-5.481 2.255-1.208 1.262-1.942 2.94-1.942 4.773 0 3.708 3.286 6.643 7.423 6.643.826 0 1.622-.12 2.361-.336a.722.722 0 0 1 .598.082l1.584.926a.272.272 0 0 0 .14.045c.133 0 .241-.11.241-.245 0-.06-.024-.12-.04-.178l-.326-1.233a.49.49 0 0 1 .177-.554C21.886 21.065 23 19.18 23 17.17c0-3.832-3.339-7.028-7.577-7.028zm-2.57 3.198c.535 0 .969.44.969.983a.976.976 0 0 1-.969.983.976.976 0 0 1-.969-.983c0-.543.434-.983.97-.983zm5.14 0c.535 0 .969.44.969.983a.976.976 0 0 1-.97.983.976.976 0 0 1-.968-.983c0-.543.434-.983.969-.983z"/></svg><span>微信咨询</span>';
   document.body.appendChild(wechat);
@@ -226,7 +318,7 @@ if (!document.querySelector(".wechat-float")) {
   ];
   var WELCOME = '您好！我是 SEDA AI 升学助手 👋\n\n可以帮您解答 WACE、AEIS、O-Level、国际学校、新加坡大学申请等问题。\n\n请直接输入您的问题。';
 
-  var cfg = { wechatId: '', wechatQrUrl: '' };
+  var cfg = Object.assign({ wechatId: 'SEDAGUIDE', wechatQrUrl: '/assets/wechat-amy-seda-guide.jpg' }, window.SEDA_CONTACT || {});
   var isOpen = false, isLoading = false, panel = null, messagesEl = null, inputEl = null, sendBtn = null;
 
   // Build trigger button
@@ -238,7 +330,11 @@ if (!document.querySelector(".wechat-float")) {
   document.body.appendChild(trigger);
 
   // Fetch config
-  fetch(API_BASE + '/api/config').then(function(r){ return r.json(); }).then(function(d){ cfg = d; }).catch(function(){});
+  fetch(API_BASE + '/api/config').then(function(r){ return r.json(); }).then(function(d){
+    cfg = Object.assign({}, cfg, d || {});
+    if (!cfg.wechatId) cfg.wechatId = 'SEDAGUIDE';
+    if (!cfg.wechatQrUrl) cfg.wechatQrUrl = '/assets/wechat-amy-seda-guide.jpg';
+  }).catch(function(){});
 
   function toggle() {
     if (isOpen) close(); else open();
@@ -318,7 +414,8 @@ if (!document.querySelector(".wechat-float")) {
     card.querySelector('.ai-wechat-btn').addEventListener('click', function(){
       fetch(API_BASE + '/api/wechat-click', { method: 'POST' }).catch(function(){});
       if (cfg.wechatId) { try { navigator.clipboard.writeText(cfg.wechatId); } catch(e){} }
-      window.open('/contact/', '_blank');
+      if (typeof window.SEDA_OPEN_WECHAT === 'function') window.SEDA_OPEN_WECHAT('扫码添加 Amy，获取免费择校方案');
+      else window.open('/contact/', '_blank');
     });
     messagesEl.appendChild(card);
     messagesEl.scrollTop = messagesEl.scrollHeight;

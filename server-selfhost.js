@@ -1362,8 +1362,8 @@ async function handleChat(req, res) {
 
 function handleConfig(req, res) {
   json(res, 200, {
-    wechatId: process.env.WECHAT_ID || '',
-    wechatQrUrl: process.env.WECHAT_QR_URL || '',
+    wechatId: process.env.WECHAT_ID || 'SEDAGUIDE',
+    wechatQrUrl: process.env.WECHAT_QR_URL || '/assets/wechat-amy-seda-guide.jpg',
     googleAnalyticsId: process.env.GOOGLE_ANALYTICS_ID || process.env.GA_MEASUREMENT_ID || DEFAULT_GOOGLE_ANALYTICS_ID,
   });
 }

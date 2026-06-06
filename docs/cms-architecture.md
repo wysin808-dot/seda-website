@@ -47,12 +47,35 @@ This phase is intentionally not a WordPress migration. It gives the team a real 
 
 ## Upgrade Path: Full CMS
 
+## Phase 2: Operations Backend Foundation
+
+Phase 2 adds the first real operations backend features while preserving the current static SEO structure.
+
+- Team login is supported through `/api/cms/login`.
+  - The old shared admin password still works as `admin`.
+  - Additional accounts can be configured with `CMS_TEAM_ACCOUNTS` JSON or stored in `data/cms/users.jsonl`.
+  - Roles: `admin`, `editor`, `reviewer`, `viewer`.
+  - Teams: `aeis`, `o-level`, `wace`, `public-university`, `private-university`, `international-school`, `general`.
+- Media Library is available in `/cms/`.
+  - Upload API: `/api/cms/media`.
+  - Files are saved to `assets/uploads/cms/`.
+  - Metadata is stored in `data/cms/media.jsonl`.
+  - Each image has alt text, team ownership, tags, page URL, upload user, and public URL.
+- Page Matrix now stores a page image URL.
+  - This lets teams attach an uploaded image to a URL-level operating record before the full visual page editor is built.
+- AI generation queue is available in `/cms/`.
+  - Queue API: `/api/cms/ai-job`.
+  - Generated articles are written to `content/articles`.
+  - All generated articles keep `draft: true` and `reviewStatus: pending`.
+  - Content build runs after generation so drafts immediately appear in CMS review.
+  - Human approval is still required before publishing.
+
+This phase is not yet a full WordPress-style visual page editor. It is the operational base for team accounts, image management, AI-assisted drafts, and manual approval.
+
 The current API and status fields are intentionally compatible with a future database-backed CMS.
 
 Planned extensions:
 
-- Team accounts and roles, replacing the single shared password.
-- Media library and image upload, so editors can attach hero images and inline images without code changes.
 - URL-level content editor for school pages, pathway pages, and pillar pages.
 - Revision history for every article and URL page.
 - Scheduled publishing.

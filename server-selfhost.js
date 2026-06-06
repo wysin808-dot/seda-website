@@ -19,12 +19,12 @@ const CONSULTATION_SUFFIX = '如需获得个性化升学规划，请联系顾问
 const DEFAULT_GOOGLE_ANALYTICS_ID = 'G-38WFES3WTH';
 const CMS_VERSION = 'lite-1';
 const CMS_CAPABILITIES = {
-  auth: 'password-cookie',
+  auth: 'team-account-cookie',
   contentStore: 'markdown-frontmatter',
   analytics: 'jsonl-pageviews',
   geoIp: 'optional-local-ip2region',
   workflow: ['draft', 'needs_revision', 'approved', 'archived'],
-  futureReady: ['pageMatrix', 'roles', 'media', 'scheduledPublish', 'revisionHistory', 'crmSync', 'aiQueue'],
+  futureReady: ['pageMatrix', 'roles', 'media', 'aiQueue', 'scheduledPublish', 'revisionHistory', 'crmSync'],
 };
 const ANALYTICS_DIR = join(process.cwd(), 'data', 'analytics');
 const ANALYTICS_FILE = join(ANALYTICS_DIR, 'events.jsonl');
@@ -35,6 +35,10 @@ const SEO_DAILY_FILE = join(SEO_DIR, 'daily.jsonl');
 const SEO_SUBMISSION_FILE = join(SEO_DIR, 'submissions.jsonl');
 const CMS_DATA_DIR = join(process.cwd(), 'data', 'cms');
 const CMS_PAGES_FILE = join(CMS_DATA_DIR, 'pages.jsonl');
+const CMS_USERS_FILE = join(CMS_DATA_DIR, 'users.jsonl');
+const CMS_MEDIA_FILE = join(CMS_DATA_DIR, 'media.jsonl');
+const CMS_AI_JOBS_FILE = join(CMS_DATA_DIR, 'ai-jobs.jsonl');
+const CMS_MEDIA_DIR = join(process.cwd(), 'assets', 'uploads', 'cms');
 
 // Load .env file
 function loadEnv(path) {
@@ -77,7 +81,7 @@ const SYSTEM_PROMPT = `你是SEDA新加坡留学平台的AI升学顾问。
 function readBody(req) {
   return new Promise((resolve, reject) => {
     let body = '';
-    req.on('data', chunk => { body += chunk; if (body.length > 240000) { req.destroy(); reject(new Error('Too large')); } });
+    req.on('data', chunk => { body += chunk; if (body.length > 4200000) { req.destroy(); reject(new Error('Too large')); } });
     req.on('end', () => { try { resolve(body ? JSON.parse(body) : {}); } catch { reject(new Error('Invalid JSON')); } });
     req.on('error', reject);
   });
@@ -135,23 +139,47 @@ function safeEqual(a, b) {
   return left.length === right.length && timingSafeEqual(left, right);
 }
 
-function createSessionCookie() {
-  const payload = `${Date.now()}.admin`;
+function createSessionCookie(user = null) {
+  const sessionUser = user || { username: 'admin', role: 'admin', team: 'all', name: '管理员' };
+  const payload = Buffer.from(JSON.stringify({
+    iat: Date.now(),
+    username: cleanLeadText(sessionUser.username || 'admin', 80),
+    role: cleanLeadText(sessionUser.role || 'admin', 40),
+    team: cleanLeadText(sessionUser.team || 'all', 80),
+    name: cleanLeadText(sessionUser.name || sessionUser.username || '管理员', 80),
+  })).toString('base64url');
   const token = `${payload}.${signSession(payload)}`;
   return `seda_cms=${encodeURIComponent(token)}; Path=/; HttpOnly; SameSite=Lax; Secure; Max-Age=604800`;
 }
 
-function isAuthenticated(req) {
+function cmsSession(req) {
   const secret = authSecret();
-  if (!secret) return false;
+  if (!secret) return null;
   const token = parseCookies(req).seda_cms || '';
   const parts = token.split('.');
-  if (parts.length < 3) return false;
+  if (parts.length < 2) return null;
   const signature = parts.pop();
   const payload = parts.join('.');
-  const issuedAt = Number(parts[0]);
-  if (!Number.isFinite(issuedAt) || Date.now() - issuedAt > 7 * 24 * 60 * 60 * 1000) return false;
-  return safeEqual(signature, signSession(payload));
+  if (!safeEqual(signature, signSession(payload))) return null;
+  try {
+    const data = JSON.parse(Buffer.from(payload, 'base64url').toString('utf8'));
+    const issuedAt = Number(data.iat);
+    if (!Number.isFinite(issuedAt) || Date.now() - issuedAt > 7 * 24 * 60 * 60 * 1000) return null;
+    return {
+      username: cleanLeadText(data.username || 'admin', 80),
+      role: cleanLeadText(data.role || 'admin', 40),
+      team: cleanLeadText(data.team || 'all', 80),
+      name: cleanLeadText(data.name || data.username || '管理员', 80),
+    };
+  } catch {
+    const legacyIssuedAt = Number(parts[0]);
+    if (!Number.isFinite(legacyIssuedAt) || Date.now() - legacyIssuedAt > 7 * 24 * 60 * 60 * 1000) return null;
+    return { username: parts[1] || 'admin', role: 'admin', team: 'all', name: '管理员' };
+  }
+}
+
+function isAuthenticated(req) {
+  return Boolean(cmsSession(req));
 }
 
 function requireCmsAuth(req, res) {
@@ -472,6 +500,28 @@ function cleanSlugText(value = '', max = 120) {
   return String(value || '').replace(/[^\w\u4e00-\u9fa5\-/. ]+/g, '').trim().slice(0, max);
 }
 
+function cleanAccountId(value = '', max = 80) {
+  return String(value || '').toLowerCase().replace(/[^a-z0-9._-]+/g, '').slice(0, max);
+}
+
+function safeFilePart(value = '', max = 90) {
+  return String(value || 'file')
+    .toLowerCase()
+    .replace(/\.[^.]+$/, '')
+    .replace(/[^a-z0-9\u4e00-\u9fa5-]+/g, '-')
+    .replace(/-+/g, '-')
+    .replace(/^-|-$/g, '')
+    .slice(0, max) || 'file';
+}
+
+function cmsId(prefix = 'cms') {
+  return `${prefix}_${Date.now().toString(36)}_${Math.random().toString(36).slice(2, 8)}`;
+}
+
+function compactDate() {
+  return new Date().toISOString().slice(0, 10).replaceAll('-', '');
+}
+
 function leadId() {
   return `lead_${Date.now().toString(36)}_${Math.random().toString(36).slice(2, 8)}`;
 }
@@ -537,6 +587,7 @@ function pageRecords() {
       contentType: row.contentType || (path.includes('/tools/') ? 'tool' : path.split('/').filter(Boolean).length >= 2 ? 'seo-page' : 'pillar'),
       reviewStatus: row.reviewStatus || 'pending',
       imageStatus: row.imageStatus || 'missing',
+      imageUrl: row.imageUrl || '',
       imageBrief: row.imageBrief || '',
       aiPrompt: row.aiPrompt || '',
       notes: row.notes || '',
@@ -544,6 +595,56 @@ function pageRecords() {
     };
   });
   return sitemapPages.sort((a, b) => a.team.localeCompare(b.team) || a.url.localeCompare(b.url));
+}
+
+function cmsUsers() {
+  const allowedTeams = new Set(['all', ...CMS_TEAMS.map((team) => team.id)]);
+  const rows = [];
+  const adminPassword = process.env.CMS_ADMIN_PASSWORD || process.env.REVIEW_ADMIN_TOKEN || '';
+  if (adminPassword) {
+    rows.push({ username: 'admin', password: adminPassword, role: 'admin', team: 'all', name: '管理员', active: true, source: 'env' });
+  }
+  if (process.env.CMS_TEAM_ACCOUNTS) {
+    try {
+      const parsed = JSON.parse(process.env.CMS_TEAM_ACCOUNTS);
+      if (Array.isArray(parsed)) rows.push(...parsed.map((row) => ({ ...row, source: 'env' })));
+    } catch {
+      // Keep legacy password login available if the optional JSON is malformed.
+    }
+  }
+  rows.push(...readJsonl(CMS_USERS_FILE, 10000).map((row) => ({ ...row, source: row.source || 'file' })));
+  const byUser = new Map();
+  for (const row of rows) {
+    const username = cleanAccountId(row.username || row.user);
+    const password = String(row.password || '').trim();
+    if (!username || !password || row.active === false) continue;
+    const team = allowedTeams.has(row.team) ? row.team : 'general';
+    byUser.set(username, {
+      username,
+      password,
+      role: ['admin', 'editor', 'reviewer', 'viewer'].includes(row.role) ? row.role : 'editor',
+      team,
+      name: cleanLeadText(row.name || username, 80),
+      source: row.source || 'file',
+      active: row.active !== false,
+    });
+  }
+  return [...byUser.values()];
+}
+
+function publicCmsUser(user) {
+  if (!user) return null;
+  return { username: user.username, role: user.role, team: user.team, name: user.name };
+}
+
+function authenticateCmsUser(username, password) {
+  const inputPassword = String(password || '').trim();
+  const inputUsername = cleanAccountId(username || 'admin');
+  if (!inputPassword) return null;
+  for (const user of cmsUsers()) {
+    if (user.username === inputUsername && safeEqual(inputPassword, user.password)) return publicCmsUser(user);
+  }
+  return null;
 }
 
 function pageMatrixSummary(pages = pageRecords()) {
@@ -1310,15 +1411,15 @@ function requireReviewAccess(req, body, res) {
 async function handleCmsLogin(req, res) {
   let body;
   try { body = await readBody(req); } catch { return json(res, 400, { error: '请求格式错误' }); }
-  const expected = process.env.CMS_ADMIN_PASSWORD || process.env.REVIEW_ADMIN_TOKEN || '';
-  if (!expected) return json(res, 503, { error: 'CMS 登录密码未配置' });
-  if (!safeEqual(String(body.password || '').trim(), expected)) return json(res, 401, { error: '登录密码错误' });
+  if (!authSecret()) return json(res, 503, { error: 'CMS 登录密钥未配置' });
+  const user = authenticateCmsUser(body.username || 'admin', body.password);
+  if (!user) return json(res, 401, { error: '账号或密码错误' });
   res.writeHead(200, {
     'Content-Type': 'application/json; charset=utf-8',
-    'Set-Cookie': createSessionCookie(),
+    'Set-Cookie': createSessionCookie(user),
     'Cache-Control': 'no-store',
   });
-  res.end(JSON.stringify({ ok: true }));
+  res.end(JSON.stringify({ ok: true, user }));
 }
 
 function handleCmsLogout(req, res) {
@@ -1521,6 +1622,258 @@ function handleCmsPages(req, res, url) {
   json(res, 200, { ok: true, summary: pageMatrixSummary(pageRecords()), pages: pages.slice(0, 800) });
 }
 
+function handleCmsUsers(req, res) {
+  if (!requireCmsAuth(req, res)) return;
+  const session = cmsSession(req);
+  if (session.role !== 'admin') return json(res, 403, { error: '只有管理员可以查看账号列表' });
+  const users = cmsUsers().map((user) => ({
+    username: user.username,
+    role: user.role,
+    team: user.team,
+    name: user.name,
+    source: user.source,
+    active: user.active,
+  }));
+  json(res, 200, { ok: true, users, teams: CMS_TEAMS.map(({ id, name }) => ({ id, name })) });
+}
+
+async function handleCmsUserSave(req, res) {
+  if (!requireCmsAuth(req, res)) return;
+  const session = cmsSession(req);
+  if (session.role !== 'admin') return json(res, 403, { error: '只有管理员可以维护账号' });
+  let body;
+  try { body = await readBody(req); } catch { return json(res, 400, { error: '请求格式错误' }); }
+  const username = cleanAccountId(body.username);
+  const password = String(body.password || '').trim();
+  if (!username || !password) return json(res, 400, { error: '请输入账号和密码' });
+  const allowedTeams = new Set(['all', ...CMS_TEAMS.map((team) => team.id)]);
+  const rows = readJsonl(CMS_USERS_FILE, 10000).filter((row) => cleanAccountId(row.username) !== username);
+  rows.push({
+    username,
+    password,
+    role: ['admin', 'editor', 'reviewer', 'viewer'].includes(body.role) ? body.role : 'editor',
+    team: allowedTeams.has(body.team) ? body.team : 'general',
+    name: cleanLeadText(body.name || username, 80),
+    active: body.active !== false,
+    createdAt: new Date().toISOString(),
+    updatedAt: new Date().toISOString(),
+  });
+  writeJsonl(CMS_USERS_FILE, rows);
+  json(res, 200, { ok: true, users: cmsUsers().map(publicCmsUser) });
+}
+
+function mediaUrlFor(filename) {
+  return `/assets/uploads/cms/${filename}`;
+}
+
+function handleCmsMediaList(req, res, url) {
+  if (!requireCmsAuth(req, res)) return;
+  const team = String(url.searchParams.get('team') || '').trim();
+  let media = readJsonl(CMS_MEDIA_FILE, 5000).reverse();
+  if (team && team !== 'all') media = media.filter((item) => item.team === team);
+  json(res, 200, { ok: true, media: media.slice(0, 300), teams: CMS_TEAMS.map(({ id, name }) => ({ id, name })) });
+}
+
+async function handleCmsMediaUpload(req, res) {
+  if (!requireCmsAuth(req, res)) return;
+  let body;
+  try { body = await readBody(req); } catch { return json(res, 400, { error: '请求格式错误或图片过大' }); }
+  const match = String(body.dataUrl || '').match(/^data:(image\/(?:png|jpeg|webp|svg\+xml));base64,([A-Za-z0-9+/=]+)$/);
+  if (!match) return json(res, 400, { error: '只支持 PNG/JPG/WebP/SVG 图片上传' });
+  const mime = match[1];
+  const buffer = Buffer.from(match[2], 'base64');
+  if (!buffer.length || buffer.length > 2.5 * 1024 * 1024) return json(res, 400, { error: '图片请控制在 2.5MB 以内' });
+  const ext = mime === 'image/jpeg' ? 'jpg' : mime === 'image/svg+xml' ? 'svg' : mime.split('/')[1];
+  const base = safeFilePart(body.filename || body.alt || 'cms-image');
+  const filename = `${compactDate()}-${base}-${Math.random().toString(36).slice(2, 6)}.${ext}`;
+  mkdirSync(CMS_MEDIA_DIR, { recursive: true });
+  writeFileSync(join(CMS_MEDIA_DIR, filename), buffer);
+  const session = cmsSession(req) || {};
+  const allowedTeams = new Set(CMS_TEAMS.map((team) => team.id));
+  const record = {
+    id: cmsId('media'),
+    filename,
+    url: mediaUrlFor(filename),
+    mime,
+    size: buffer.length,
+    alt: cleanLeadText(body.alt || 'SEDA 新加坡择校网配图', 160),
+    team: allowedTeams.has(body.team) ? body.team : (session.team === 'all' ? 'general' : session.team || 'general'),
+    pageUrl: cleanLeadText(body.pageUrl, 240),
+    tags: cleanLeadText(body.tags, 240),
+    uploadedBy: session.username || 'admin',
+    createdAt: new Date().toISOString(),
+  };
+  mkdirSync(dirname(CMS_MEDIA_FILE), { recursive: true });
+  appendFileSync(CMS_MEDIA_FILE, `${JSON.stringify(record)}\n`, 'utf8');
+  json(res, 200, { ok: true, media: record });
+}
+
+function seoSlug(value = '') {
+  const raw = String(value || '')
+    .trim()
+    .toLowerCase()
+    .replace(/&/g, ' and ')
+    .replace(/[^a-z0-9\u4e00-\u9fa5]+/g, '-')
+    .replace(/-+/g, '-')
+    .replace(/^-|-$/g, '');
+  if (/^[\u4e00-\u9fa5-]+$/.test(raw)) return `seo-${Date.now().toString(36)}`;
+  return raw.slice(0, 80) || `seo-${Date.now().toString(36)}`;
+}
+
+function uniqueArticleSlug(topic) {
+  const dir = join(process.cwd(), 'content', 'articles');
+  const base = seoSlug(topic);
+  let slug = base;
+  let index = 2;
+  while (existsSync(join(dir, `${slug}.md`))) {
+    slug = `${base}-${index}`;
+    index += 1;
+  }
+  return slug;
+}
+
+function quotedYaml(value = '') {
+  return `"${String(value || '').replace(/\r?\n/g, ' ').replace(/"/g, '\\"')}"`;
+}
+
+function fallbackAiArticle({ topic, category, targetUrl }) {
+  const title = cleanLeadText(topic, 90);
+  return `# ${title}
+
+很多中国家长第一次搜索“${title}”时，真正想解决的不是概念问题，而是想判断这条路径是否适合自己的孩子。SEDA 建议先把年龄、英文基础、目标学校类型和家庭预算放在一起看，再决定是否进入申请或备考阶段。
+
+## 适合哪些学生
+
+如果孩子希望在新加坡继续升学，且家庭希望有清晰的课程路径、考试节点和学校选择，那么这个方向值得重点评估。不同学生的情况差异很大，不能只看单一考试成绩。
+
+## 家长需要先确认什么
+
+建议先确认当前年级、英文水平、数学基础、目标学校类型和可接受的准备周期。对于国际学生来说，时间线经常比成绩本身更重要。
+
+## 申请或备考重点
+
+准备阶段应优先解决三件事：第一是明确目标路径，第二是判断差距，第三是安排备考或申请材料。不要等到临近截止日期才开始整理资料。
+
+## 和其他路径怎么比较
+
+可以同时比较 AEIS、O-Level、WACE、A-Level、Poly、公立大学和国际学校路径。不同路径的适配人群、英语要求和升学出口不同，家长应避免只听单一学校或单一课程的说法。
+
+## SEDA 建议
+
+如果还没有明确方向，可以先阅读 ${targetUrl || '/'} 相关页面，再结合孩子当前情况做一次路径筛选。真正好的规划不是选最热门的学校，而是选孩子能够持续推进的路径。
+
+## 常见问题
+
+### 这个方向适合中国学生吗？
+
+适合一部分学生，但需要结合年龄、英文水平、目标大学或学校类型判断。
+
+### 需要提前多久准备？
+
+通常建议至少提前 6-12 个月做规划，热门学校和关键考试路径需要更早。
+
+### 家长下一步应该做什么？
+
+先整理孩子年级、成绩、英文水平和目标，再让顾问判断更稳妥的路径。`;
+}
+
+async function generateAiArticle(body) {
+  const topic = cleanLeadText(body.topic, 120);
+  if (!topic) throw new Error('请输入文章主题');
+  const category = cleanAccountId(body.category || 'guides', 60) || 'guides';
+  const slug = uniqueArticleSlug(topic);
+  const targetUrl = pageUrlPath(body.targetUrl || `/${category}/`);
+  const prompt = cleanMultilineText(body.prompt, 1800);
+  const system = '你是 SEDA 新加坡择校网的中文 SEO 编辑。写给中国家长，语气自然，不要 AI 味。必须包含 H2、FAQ、站内内链建议，不夸大承诺。';
+  let articleBody = '';
+  const apiKey = process.env.DEEPSEEK_API_KEY;
+  if (apiKey) {
+    const aiRes = await fetch(DEEPSEEK_API_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${apiKey}` },
+      body: JSON.stringify({
+        model: process.env.DEEPSEEK_MODEL || 'deepseek-chat',
+        messages: [
+          { role: 'system', content: system },
+          { role: 'user', content: `请写一篇 1500-2500 字中文 SEO 草稿，标题：${topic}\n栏目：${category}\n目标页面：${targetUrl}\n补充要求：${prompt || '面向中国家长，加入 FAQ 和自然内链。'}` },
+        ],
+        temperature: 0.45,
+        max_tokens: 2800,
+      }),
+    });
+    if (aiRes.ok) {
+      const data = await aiRes.json();
+      articleBody = data.choices?.[0]?.message?.content?.trim() || '';
+    }
+  }
+  if (!articleBody) articleBody = fallbackAiArticle({ topic, category, targetUrl });
+  articleBody = articleBody.replace(/^---[\s\S]*?---\s*/, '').trim();
+  const description = `${topic}完整指南：面向中国家长梳理适合人群、申请节奏、常见误区和下一步规划建议。`;
+  const content = `---
+title: ${quotedYaml(topic)}
+slug: ${quotedYaml(slug)}
+category: ${quotedYaml(category)}
+categoryLabel: ${quotedYaml(category.toUpperCase())}
+description: ${quotedYaml(description)}
+keywords: ${quotedYaml(`${topic}, 新加坡择校, SEDA`)}
+date: "${todayDate()}"
+updated: "${todayDate()}"
+draft: true
+reviewStatus: "pending"
+generatedBy: "cms-ai-queue"
+targetUrl: ${quotedYaml(targetUrl)}
+---
+
+${articleBody}
+`;
+  const articleDir = join(process.cwd(), 'content', 'articles');
+  mkdirSync(articleDir, { recursive: true });
+  const file = join(articleDir, `${slug}.md`);
+  writeFileSync(file, content, 'utf8');
+  return { file: relativeArticlePath(file), slug, title: topic, category, targetUrl };
+}
+
+function handleCmsAiJobs(req, res) {
+  if (!requireCmsAuth(req, res)) return;
+  json(res, 200, { ok: true, jobs: readJsonl(CMS_AI_JOBS_FILE, 1000).reverse().slice(0, 200), teams: CMS_TEAMS.map(({ id, name }) => ({ id, name })) });
+}
+
+async function handleCmsAiJob(req, res) {
+  if (!requireCmsAuth(req, res)) return;
+  let body;
+  try { body = await readBody(req); } catch { return json(res, 400, { error: '请求格式错误' }); }
+  const session = cmsSession(req) || {};
+  const allowedTeams = new Set(CMS_TEAMS.map((team) => team.id));
+  const job = {
+    id: cmsId('job'),
+    topic: cleanLeadText(body.topic, 120),
+    category: cleanAccountId(body.category || 'guides', 60) || 'guides',
+    team: allowedTeams.has(body.team) ? body.team : (session.team === 'all' ? 'general' : session.team || 'general'),
+    targetUrl: pageUrlPath(body.targetUrl || '/guides/'),
+    prompt: cleanMultilineText(body.prompt, 1800),
+    status: 'queued',
+    createdBy: session.username || 'admin',
+    createdAt: new Date().toISOString(),
+  };
+  try {
+    const draft = await generateAiArticle(job);
+    job.status = 'draft_ready';
+    job.draftFile = draft.file;
+    job.draftSlug = draft.slug;
+    job.finishedAt = new Date().toISOString();
+    mkdirSync(dirname(CMS_AI_JOBS_FILE), { recursive: true });
+    appendFileSync(CMS_AI_JOBS_FILE, `${JSON.stringify(job)}\n`, 'utf8');
+    const output = await rebuildContent();
+    json(res, 200, { ok: true, job, draft, output });
+  } catch (error) {
+    job.status = 'failed';
+    job.error = error.message;
+    mkdirSync(dirname(CMS_AI_JOBS_FILE), { recursive: true });
+    appendFileSync(CMS_AI_JOBS_FILE, `${JSON.stringify(job)}\n`, 'utf8');
+    json(res, 500, { error: 'AI 草稿生成失败', detail: error.message, job });
+  }
+}
+
 async function handleCmsPageSave(req, res) {
   if (!requireCmsAuth(req, res)) return;
   let body;
@@ -1542,6 +1895,7 @@ async function handleCmsPageSave(req, res) {
     contentType: cleanLeadText(body.contentType || 'seo-page', 50),
     reviewStatus: allowedReview.has(body.reviewStatus) ? body.reviewStatus : 'pending',
     imageStatus: allowedImage.has(body.imageStatus) ? body.imageStatus : 'missing',
+    imageUrl: cleanLeadText(body.imageUrl, 240),
     imageBrief: cleanMultilineText(body.imageBrief, 1200),
     aiPrompt: cleanMultilineText(body.aiPrompt, 1600),
     notes: cleanMultilineText(body.notes, 1600),
@@ -1561,7 +1915,9 @@ const server = createServer(async (req, res) => {
 
   if (req.method === 'POST' && url.pathname === '/api/cms/login') return handleCmsLogin(req, res);
   if (req.method === 'POST' && url.pathname === '/api/cms/logout') return handleCmsLogout(req, res);
-  if (req.method === 'GET' && url.pathname === '/api/cms/me') return json(res, 200, { authenticated: isAuthenticated(req) });
+  if (req.method === 'GET' && url.pathname === '/api/cms/me') return json(res, 200, { authenticated: isAuthenticated(req), user: cmsSession(req) });
+  if (req.method === 'GET' && url.pathname === '/api/cms/users') return handleCmsUsers(req, res);
+  if (req.method === 'POST' && url.pathname === '/api/cms/user') return handleCmsUserSave(req, res);
   if (req.method === 'GET' && url.pathname === '/api/cms/geo-debug') return handleCmsGeoDebug(req, res);
   if (req.method === 'GET' && url.pathname === '/api/cms/overview') return handleCmsOverview(req, res);
   if (req.method === 'GET' && url.pathname === '/api/cms/status') return cmsStats(req, res);
@@ -1573,6 +1929,10 @@ const server = createServer(async (req, res) => {
   if (req.method === 'POST' && url.pathname === '/api/cms/lead') return handleCmsLeadUpdate(req, res);
   if (req.method === 'GET' && url.pathname === '/api/cms/pages') return handleCmsPages(req, res, url);
   if (req.method === 'POST' && url.pathname === '/api/cms/page') return handleCmsPageSave(req, res);
+  if (req.method === 'GET' && url.pathname === '/api/cms/media') return handleCmsMediaList(req, res, url);
+  if (req.method === 'POST' && url.pathname === '/api/cms/media') return handleCmsMediaUpload(req, res);
+  if (req.method === 'GET' && url.pathname === '/api/cms/ai-jobs') return handleCmsAiJobs(req, res);
+  if (req.method === 'POST' && url.pathname === '/api/cms/ai-job') return handleCmsAiJob(req, res);
   if (req.method === 'GET' && url.pathname === '/api/cms/articles') return listCmsArticles(req, res);
   if (req.method === 'GET' && url.pathname === '/api/cms/article') return getCmsArticle(req, res, url);
   if (req.method === 'POST' && url.pathname === '/api/cms/article') return saveCmsArticle(req, res);

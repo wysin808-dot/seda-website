@@ -150,8 +150,21 @@
     .editor-image-plan{border:1px solid #e5e8ee;border-radius:8px;background:#fff;padding:12px;color:#344054;font-size:13px;line-height:1.6}
     .editor-image-plan p{margin:4px 0}
     .editor-suggestions{margin:12px 0 0;padding-left:18px;color:#344054;line-height:1.7}
+    .ops-form{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:18px}
+    .ops-form .wide{grid-column:span 2}
+    .ops-form label{display:block;color:#667085;font-size:12px;font-weight:900;margin-bottom:6px}
+    .media-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+    .media-card{border:1px solid #e2e6ee;border-radius:8px;background:#fff;overflow:hidden}
+    .media-card img{display:block;width:100%;aspect-ratio:1.35;object-fit:cover;background:#f2f4f7}
+    .media-card div{padding:12px}
+    .media-card strong{display:block;font-size:14px;line-height:1.35;word-break:break-all}
+    .media-card code{display:block;margin-top:8px;color:#667085;font-size:12px;word-break:break-all}
+    .job-list{display:grid;gap:10px}
+    .job-item{border:1px solid #e2e6ee;border-radius:8px;background:#fff;padding:14px}
+    .job-item strong{display:block;font-size:16px}
+    .job-item p{margin:8px 0 0;color:#667085;font-size:13px;line-height:1.6}
     [hidden]{display:none!important}
-    @media (max-width:900px){.cms-grid,.analytics-panels,.seo-form,.overview-grid,.quick-grid,.ops-grid,.topic-row,.page-workbench,.page-editor-grid{grid-template-columns:1fr}.seo-field.wide,.page-field.wide{grid-column:auto}.cms-list,.page-list{max-height:none}.cms-editor-head{display:grid}.cms-stats{grid-template-columns:1fr 1fr 1fr}.analytics-grid,.overview-cards{grid-template-columns:1fr 1fr}.bar-row{grid-template-columns:96px minmax(0,1fr) 42px}.editor-quality-grid{grid-template-columns:1fr 1fr}.editor-quality-top{display:grid}}
+    @media (max-width:900px){.cms-grid,.analytics-panels,.seo-form,.overview-grid,.quick-grid,.ops-grid,.topic-row,.page-workbench,.page-editor-grid,.ops-form,.media-grid{grid-template-columns:1fr}.seo-field.wide,.page-field.wide,.ops-form .wide{grid-column:auto}.cms-list,.page-list{max-height:none}.cms-editor-head{display:grid}.cms-stats{grid-template-columns:1fr 1fr 1fr}.analytics-grid,.overview-cards{grid-template-columns:1fr 1fr}.bar-row{grid-template-columns:96px minmax(0,1fr) 42px}.editor-quality-grid{grid-template-columns:1fr 1fr}.editor-quality-top{display:grid}}
   </style>
 </head>
 <body>
@@ -160,6 +173,8 @@
       <h1>SEDA CMS 内容后台</h1>
       <p>请输入后台密码。登录后可以审核、编辑并发布 SEO 草稿。</p>
       <form id="loginForm">
+        <input id="usernameInput" class="cms-input" type="text" autocomplete="username" placeholder="团队账号（默认 admin）" />
+        <div style="height:10px"></div>
         <input id="passwordInput" class="cms-input" type="password" autocomplete="current-password" placeholder="后台密码" />
         <div style="height:14px"></div>
         <button class="cms-button" type="submit">登录</button>
@@ -184,6 +199,8 @@
         <button class="cms-tab active" type="button" data-view="overview">运营首页</button>
         <button class="cms-tab" type="button" data-view="content">内容管理</button>
         <button class="cms-tab" type="button" data-view="pages">页面矩阵</button>
+        <button class="cms-tab" type="button" data-view="media">媒体库</button>
+        <button class="cms-tab" type="button" data-view="ai">AI生产</button>
         <button class="cms-tab" type="button" data-view="analytics">流量分析</button>
         <button class="cms-tab" type="button" data-view="leads">客户线索</button>
         <button class="cms-tab" type="button" data-view="seo">SEO/GEO收录</button>
@@ -365,6 +382,10 @@
                     </select>
                   </div>
                   <div class="page-field wide">
+                    <label for="pageImageUrlInput">页面图片 URL</label>
+                    <input id="pageImageUrlInput" class="cms-input" type="text" placeholder="/assets/uploads/cms/xxx.jpg">
+                  </div>
+                  <div class="page-field wide">
                     <label for="pageImageBriefInput">配图需求</label>
                     <textarea id="pageImageBriefInput" class="cms-input" placeholder="例如：页面首图、学校环境图、路径流程图、信息图等"></textarea>
                   </div>
@@ -381,6 +402,81 @@
             </div>
           </section>
         </div>
+      </section>
+
+      <section id="mediaView" hidden>
+        <section class="analytics-panel">
+          <h2>Media Library 图片库</h2>
+          <p style="color:#667085;line-height:1.7;margin-top:0">上传后的图片会保存到 <code>/assets/uploads/cms/</code>，页面矩阵和文章编辑可直接复制图片 URL 使用。</p>
+          <div class="ops-form">
+            <div>
+              <label for="mediaFileInput">图片文件</label>
+              <input id="mediaFileInput" class="cms-input" type="file" accept="image/png,image/jpeg,image/webp,image/svg+xml">
+            </div>
+            <div>
+              <label for="mediaTeamInput">所属团队</label>
+              <select id="mediaTeamInput" class="cms-input"></select>
+            </div>
+            <div class="wide">
+              <label for="mediaAltInput">图片 Alt / 用途说明</label>
+              <input id="mediaAltInput" class="cms-input" type="text" placeholder="例如：新加坡国际学校申请流程配图">
+            </div>
+            <div>
+              <label for="mediaPageUrlInput">关联页面 URL</label>
+              <input id="mediaPageUrlInput" class="cms-input" type="text" placeholder="/international-school/">
+            </div>
+            <div>
+              <label for="mediaTagsInput">标签</label>
+              <input id="mediaTagsInput" class="cms-input" type="text" placeholder="AEIS, WACE, 学校图">
+            </div>
+          </div>
+          <button id="uploadMediaButton" class="cms-button" type="button">上传图片</button>
+        </section>
+        <section class="analytics-panel" style="margin-top:18px">
+          <h2>最近图片</h2>
+          <div id="mediaList" class="media-grid"></div>
+        </section>
+      </section>
+
+      <section id="aiView" hidden>
+        <section class="analytics-panel">
+          <h2>AI SEO 草稿队列</h2>
+          <p style="color:#667085;line-height:1.7;margin-top:0">这里生成的内容全部保持 draft，不会直接发布；生成后进入“内容管理”的待审核列表，由团队审核，管理员发布。</p>
+          <div class="ops-form">
+            <div class="wide">
+              <label for="aiTopicInput">文章主题 / 长尾词</label>
+              <input id="aiTopicInput" class="cms-input" type="text" placeholder="例如：O-Level 自学报名还是读学校更适合">
+            </div>
+            <div>
+              <label for="aiCategoryInput">栏目</label>
+              <select id="aiCategoryInput" class="cms-input">
+                <option value="guides">guides</option>
+                <option value="aeis">aeis</option>
+                <option value="o-level">o-level</option>
+                <option value="wace">wace</option>
+                <option value="university">university</option>
+                <option value="international-school">international-school</option>
+              </select>
+            </div>
+            <div>
+              <label for="aiTeamInput">负责团队</label>
+              <select id="aiTeamInput" class="cms-input"></select>
+            </div>
+            <div class="wide">
+              <label for="aiTargetUrlInput">目标内链 / 相关页面</label>
+              <input id="aiTargetUrlInput" class="cms-input" type="text" placeholder="/o-level/">
+            </div>
+            <div class="wide">
+              <label for="aiPromptInput">补充要求</label>
+              <textarea id="aiPromptInput" class="cms-input" style="min-height:130px;padding:12px;resize:vertical" placeholder="写清楚目标家长、关键词、FAQ、需要避开的承诺、推荐内链等"></textarea>
+            </div>
+          </div>
+          <button id="generateAiButton" class="cms-button" type="button">生成待审核草稿</button>
+        </section>
+        <section class="analytics-panel" style="margin-top:18px">
+          <h2>最近生成记录</h2>
+          <div id="aiJobList" class="job-list"></div>
+        </section>
       </section>
 
       <section id="analyticsView" hidden>
@@ -512,11 +608,12 @@
   </main>
 
   <script>
-    const state = { articles: [], filter: 'all', selected: null, query: '', status: null, analytics: null, analyticsRecent: [], leads: null, seo: null, overview: null, pages: null, selectedPage: null, pageQuery: '', pageTeam: 'all', pageStatus: 'all', view: 'overview' };
+    const state = { articles: [], filter: 'all', selected: null, query: '', status: null, analytics: null, analyticsRecent: [], leads: null, seo: null, overview: null, pages: null, selectedPage: null, pageQuery: '', pageTeam: 'all', pageStatus: 'all', media: null, aiJobs: null, user: null, view: 'overview' };
     const els = {
       loginPanel: document.getElementById('loginPanel'),
       appPanel: document.getElementById('appPanel'),
       loginForm: document.getElementById('loginForm'),
+      usernameInput: document.getElementById('usernameInput'),
       passwordInput: document.getElementById('passwordInput'),
       articleList: document.getElementById('articleList'),
       cmsStats: document.getElementById('cmsStats'),
@@ -562,12 +659,29 @@
       pageStatusInput: document.getElementById('pageStatusInput'),
       pageReviewInput: document.getElementById('pageReviewInput'),
       pageImageStatusInput: document.getElementById('pageImageStatusInput'),
+      pageImageUrlInput: document.getElementById('pageImageUrlInput'),
       pageImageBriefInput: document.getElementById('pageImageBriefInput'),
       pageAiPromptInput: document.getElementById('pageAiPromptInput'),
       pageNotesInput: document.getElementById('pageNotesInput'),
       analyticsView: document.getElementById('analyticsView'),
       leadsView: document.getElementById('leadsView'),
       seoView: document.getElementById('seoView'),
+      mediaView: document.getElementById('mediaView'),
+      aiView: document.getElementById('aiView'),
+      mediaFileInput: document.getElementById('mediaFileInput'),
+      mediaTeamInput: document.getElementById('mediaTeamInput'),
+      mediaAltInput: document.getElementById('mediaAltInput'),
+      mediaPageUrlInput: document.getElementById('mediaPageUrlInput'),
+      mediaTagsInput: document.getElementById('mediaTagsInput'),
+      uploadMediaButton: document.getElementById('uploadMediaButton'),
+      mediaList: document.getElementById('mediaList'),
+      aiTopicInput: document.getElementById('aiTopicInput'),
+      aiCategoryInput: document.getElementById('aiCategoryInput'),
+      aiTeamInput: document.getElementById('aiTeamInput'),
+      aiTargetUrlInput: document.getElementById('aiTargetUrlInput'),
+      aiPromptInput: document.getElementById('aiPromptInput'),
+      generateAiButton: document.getElementById('generateAiButton'),
+      aiJobList: document.getElementById('aiJobList'),
       analyticsStats: document.getElementById('analyticsStats'),
       recentVisitsMeta: document.getElementById('recentVisitsMeta'),
       loadMoreVisitsBtn: document.getElementById('loadMoreVisitsBtn'),
@@ -819,6 +933,8 @@
       els.pageTeamFilter.innerHTML = options;
       els.pageTeamFilter.value = state.pageTeam;
       els.pageTeamInput.innerHTML = teams.map((team) => `<option value="${esc(team.id)}">${esc(team.name)}</option>`).join('');
+      els.mediaTeamInput.innerHTML = teams.map((team) => `<option value="${esc(team.id)}">${esc(team.name)}</option>`).join('');
+      els.aiTeamInput.innerHTML = teams.map((team) => `<option value="${esc(team.id)}">${esc(team.name)}</option>`).join('');
     }
 
     function renderPages() {
@@ -862,6 +978,7 @@
       els.pageStatusInput.value = page.status || 'todo';
       els.pageReviewInput.value = page.reviewStatus || 'pending';
       els.pageImageStatusInput.value = page.imageStatus || 'missing';
+      els.pageImageUrlInput.value = page.imageUrl || '';
       els.pageImageBriefInput.value = page.imageBrief || '';
       els.pageAiPromptInput.value = page.aiPrompt || '';
       els.pageNotesInput.value = page.notes || '';
@@ -887,6 +1004,7 @@
             status: els.pageStatusInput.value,
             reviewStatus: els.pageReviewInput.value,
             imageStatus: els.pageImageStatusInput.value,
+            imageUrl: els.pageImageUrlInput.value,
             imageBrief: els.pageImageBriefInput.value,
             aiPrompt: els.pageAiPromptInput.value,
             notes: els.pageNotesInput.value,
@@ -1152,12 +1270,112 @@
       }
     }
 
+    function ensureTeamOptions(teams = []) {
+      if (!teams.length || els.mediaTeamInput.options.length) return;
+      renderPageTeamOptions(teams);
+    }
+
+    function fileToDataUrl(file) {
+      return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = () => resolve(reader.result);
+        reader.onerror = () => reject(new Error('图片读取失败'));
+        reader.readAsDataURL(file);
+      });
+    }
+
+    function renderMedia() {
+      const media = state.media?.media || [];
+      ensureTeamOptions(state.media?.teams || []);
+      els.mediaList.innerHTML = media.length ? media.map((item) => `<article class="media-card">
+        <img src="${esc(item.url)}" alt="${esc(item.alt || '')}" loading="lazy">
+        <div>
+          <strong>${esc(item.alt || item.filename)}</strong>
+          <span class="cms-meta"><span>${esc(item.team || '')}</span><span>${Math.round((item.size || 0) / 1024)}KB</span></span>
+          <code>${esc(item.url)}</code>
+        </div>
+      </article>`).join('') : '<div class="cms-empty" style="padding:24px">暂无图片，先上传一张。</div>';
+    }
+
+    async function loadMedia() {
+      state.media = await api('/api/cms/media');
+      renderMedia();
+    }
+
+    async function uploadMedia() {
+      const file = els.mediaFileInput.files?.[0];
+      if (!file) return toast('请先选择图片');
+      els.uploadMediaButton.disabled = true;
+      try {
+        const dataUrl = await fileToDataUrl(file);
+        await api('/api/cms/media', {
+          method: 'POST',
+          body: JSON.stringify({
+            filename: file.name,
+            dataUrl,
+            alt: els.mediaAltInput.value,
+            team: els.mediaTeamInput.value,
+            pageUrl: els.mediaPageUrlInput.value,
+            tags: els.mediaTagsInput.value,
+          }),
+        });
+        els.mediaFileInput.value = '';
+        toast('图片已上传到媒体库');
+        await loadMedia();
+      } finally {
+        els.uploadMediaButton.disabled = false;
+      }
+    }
+
+    function renderAiJobs() {
+      const jobs = state.aiJobs?.jobs || [];
+      ensureTeamOptions(state.aiJobs?.teams || []);
+      els.aiJobList.innerHTML = jobs.length ? jobs.map((job) => `<article class="job-item">
+        <strong>${esc(job.topic || '未命名任务')}</strong>
+        <p>状态：${esc(job.status)} · 团队：${esc(job.team || '')} · 栏目：${esc(job.category || '')}</p>
+        <p>草稿：${job.draftFile ? `<code>${esc(job.draftFile)}</code>` : '暂无'} ${job.error ? ` · ${esc(job.error)}` : ''}</p>
+      </article>`).join('') : '<div class="cms-empty" style="padding:24px">暂无 AI 生成记录。</div>';
+    }
+
+    async function loadAiJobs() {
+      state.aiJobs = await api('/api/cms/ai-jobs');
+      renderAiJobs();
+    }
+
+    async function generateAiDraft() {
+      const topic = els.aiTopicInput.value.trim();
+      if (!topic) return toast('请输入文章主题');
+      els.generateAiButton.disabled = true;
+      els.generateAiButton.textContent = '生成中...';
+      try {
+        const data = await api('/api/cms/ai-job', {
+          method: 'POST',
+          body: JSON.stringify({
+            topic,
+            category: els.aiCategoryInput.value,
+            team: els.aiTeamInput.value,
+            targetUrl: els.aiTargetUrlInput.value,
+            prompt: els.aiPromptInput.value,
+          }),
+        });
+        toast(`草稿已生成：${data.draft?.file || topic}`);
+        els.aiTopicInput.value = '';
+        els.aiPromptInput.value = '';
+        await Promise.all([loadAiJobs(), loadArticles().catch(() => null)]);
+      } finally {
+        els.generateAiButton.disabled = false;
+        els.generateAiButton.textContent = '生成待审核草稿';
+      }
+    }
+
     function switchView(view) {
       state.view = view;
       document.querySelectorAll('.cms-tab').forEach((tab) => tab.classList.toggle('active', tab.dataset.view === view));
       els.overviewView.hidden = view !== 'overview';
       els.contentView.hidden = view !== 'content';
       els.pagesView.hidden = view !== 'pages';
+      els.mediaView.hidden = view !== 'media';
+      els.aiView.hidden = view !== 'ai';
       els.analyticsView.hidden = view !== 'analytics';
       els.leadsView.hidden = view !== 'leads';
       els.seoView.hidden = view !== 'seo';
@@ -1170,6 +1388,8 @@
       if (view === 'leads') loadLeads().catch((error) => toast(error.message));
       if (view === 'seo') loadSeo().catch((error) => toast(error.message));
       if (view === 'pages') loadPages().catch((error) => toast(error.message));
+      if (view === 'media') loadMedia().catch((error) => toast(error.message));
+      if (view === 'ai') loadAiJobs().catch((error) => toast(error.message));
     }
 
     async function loadArticles() {
@@ -1225,9 +1445,10 @@
     els.loginForm.addEventListener('submit', async (event) => {
       event.preventDefault();
       try {
-        await api('/api/cms/login', { method: 'POST', body: JSON.stringify({ password: els.passwordInput.value }) });
+        const data = await api('/api/cms/login', { method: 'POST', body: JSON.stringify({ username: els.usernameInput.value || 'admin', password: els.passwordInput.value }) });
+        state.user = data.user || null;
         showApp();
-        await loadArticles();
+        await loadOverview();
       } catch (error) {
         toast(error.message);
       }
@@ -1290,6 +1511,8 @@
 
     els.saveButton.addEventListener('click', () => saveArticle().catch((error) => toast(error.message)));
     els.pageSaveButton.addEventListener('click', () => savePage().catch((error) => toast(error.message)));
+    els.uploadMediaButton.addEventListener('click', () => uploadMedia().catch((error) => toast(error.message)));
+    els.generateAiButton.addEventListener('click', () => generateAiDraft().catch((error) => toast(error.message)));
     els.approveButton.addEventListener('click', () => review('approve').catch((error) => toast(error.message)));
     els.reviseButton.addEventListener('click', () => review('revise').catch((error) => toast(error.message)));
     els.archiveButton.addEventListener('click', () => review('archive').catch((error) => toast(error.message)));
@@ -1325,6 +1548,14 @@
         loadPages().catch((error) => toast(error.message));
         return;
       }
+      if (state.view === 'media') {
+        loadMedia().catch((error) => toast(error.message));
+        return;
+      }
+      if (state.view === 'ai') {
+        loadAiJobs().catch((error) => toast(error.message));
+        return;
+      }
       const action = state.view === 'analytics' ? loadAnalytics : state.view === 'leads' ? loadLeads : loadArticles;
       action().catch((error) => toast(error.message));
     });
@@ -1338,6 +1569,7 @@
 
     api('/api/cms/me').then((data) => {
       if (data.authenticated) {
+        state.user = data.user || null;
         showApp();
         return loadOverview();
       }

@@ -822,12 +822,15 @@ async function handleAnalyticsCollect(req, res) {
   try { body = await readBody(req); } catch { return noContent(res); }
   const path = normalizePath(body.path || body.pathname || '');
   if (!path) return noContent(res);
+  const eventType = cleanLeadText(body.eventType || 'pageview', 40);
+  const durationSeconds = Math.max(0, Math.min(Number(body.durationSeconds || 0) || 0, 86400));
   const timezone = String(body.timezone || '').slice(0, 80);
   const language = String(body.language || req.headers['accept-language'] || '').slice(0, 120);
   const visitorRaw = body.visitorId || `${clientIp(req)}:${req.headers['user-agent'] || ''}`;
   const location = inferLocation(req, body, timezone, language);
   const event = {
     ts: new Date().toISOString(),
+    eventType,
     path,
     title: String(body.title || '').slice(0, 140),
     referrer: String(body.referrer || '').slice(0, 240),
@@ -839,6 +842,7 @@ async function handleAnalyticsCollect(req, res) {
     timezone,
     language,
     device: deviceType(req.headers['user-agent'] || body.userAgent || ''),
+    durationSeconds,
     visitor: hashVisitor(visitorRaw),
   };
   mkdirSync(ANALYTICS_DIR, { recursive: true });
@@ -990,11 +994,16 @@ function handleCmsAnalytics(req, res, url) {
   if (!requireCmsAuth(req, res)) return;
   const days = Math.min(Math.max(Number(url.searchParams.get('days') || 30), 1), 90);
   const events = readAnalyticsEvents(days);
+  const pageviews = events.filter((event) => (event.eventType || 'pageview') === 'pageview');
+  const engagementEvents = events.filter((event) => event.eventType === 'engagement' && Number(event.durationSeconds || 0) > 0);
   const todayKey = new Date().toISOString().slice(0, 10);
-  const todayEvents = events.filter((event) => String(event.ts).startsWith(todayKey));
-  const visitors = new Set(events.map((event) => event.visitor)).size;
+  const todayEvents = pageviews.filter((event) => String(event.ts).startsWith(todayKey));
+  const visitors = new Set(pageviews.map((event) => event.visitor)).size;
   const todayVisitors = new Set(todayEvents.map((event) => event.visitor)).size;
-  const recent = events.slice(-20).reverse().map((event) => ({
+  const averageDurationSeconds = engagementEvents.length
+    ? Math.round(engagementEvents.reduce((sum, event) => sum + (Number(event.durationSeconds || 0) || 0), 0) / engagementEvents.length)
+    : 0;
+  const recent = pageviews.slice(-20).reverse().map((event) => ({
     ts: event.ts,
     path: event.path,
     title: event.title,
@@ -1010,16 +1019,18 @@ function handleCmsAnalytics(req, res, url) {
     days,
     totals: {
       pageviews: events.length,
+      pageviewEvents: pageviews.length,
       visitors,
       todayPageviews: todayEvents.length,
       todayVisitors,
+      averageDurationSeconds,
     },
-    regions: topCounts(events, 'region', 12),
-    locations: topLocationCounts(events, 12),
-    provinces: topCounts(events, 'province', 12),
-    pages: topCounts(events, 'path', 12),
-    sources: topCounts(events, 'source', 10),
-    devices: topCounts(events, 'device', 6),
+    regions: topCounts(pageviews, 'region', 12),
+    locations: topLocationCounts(pageviews, 12),
+    provinces: topCounts(pageviews, 'province', 12),
+    pages: topCounts(pageviews, 'path', 12),
+    sources: topCounts(pageviews, 'source', 10),
+    devices: topCounts(pageviews, 'device', 6),
     recent: recent.map((event) => ({ ...event, location: displayLocation(event) })),
   });
 }
@@ -1029,7 +1040,7 @@ function handleCmsOverview(req, res) {
   const today = todayDate();
   const articles = articleSummaries();
   const leads = readJsonl(LEADS_FILE, 100000);
-  const events = readAnalyticsEvents(30);
+  const events = readAnalyticsEvents(30).filter((event) => (event.eventType || 'pageview') === 'pageview');
   const todayEvents = events.filter((event) => String(event.ts || '').startsWith(today));
   const seo = seoSnapshot(today);
   const topics = topicMatrix(articles, readSitemapUrls());
@@ -1335,6 +1346,7 @@ function handleConfig(req, res) {
   json(res, 200, {
     wechatId: process.env.WECHAT_ID || '',
     wechatQrUrl: process.env.WECHAT_QR_URL || '',
+    googleAnalyticsId: process.env.GOOGLE_ANALYTICS_ID || process.env.GA_MEASUREMENT_ID || '',
   });
 }
 

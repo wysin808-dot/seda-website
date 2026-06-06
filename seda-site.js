@@ -62,6 +62,8 @@
 (function(){
   if (location.pathname.startsWith('/cms/') || location.pathname.startsWith('/content-review/')) return;
   var key = 'sedaVisitorId';
+  var startTime = Date.now();
+  var engagementSent = false;
   var visitorId = localStorage.getItem(key);
   if (!visitorId) {
     visitorId = Date.now().toString(36) + Math.random().toString(36).slice(2, 12);
@@ -69,6 +71,7 @@
   }
   var payload = {
     visitorId: visitorId,
+    eventType: 'pageview',
     path: location.pathname,
     title: document.title,
     referrer: document.referrer,
@@ -81,6 +84,56 @@
   } else {
     fetch('/api/analytics/collect', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: body, keepalive: true }).catch(function(){});
   }
+
+  function sendEngagement() {
+    if (engagementSent) return;
+    engagementSent = true;
+    var seconds = Math.max(1, Math.round((Date.now() - startTime) / 1000));
+    var engagementBody = JSON.stringify({
+      visitorId: visitorId,
+      eventType: 'engagement',
+      path: location.pathname,
+      title: document.title,
+      referrer: document.referrer,
+      durationSeconds: seconds,
+      timezone: Intl.DateTimeFormat().resolvedOptions().timeZone || '',
+      language: navigator.language || '',
+    });
+    if (navigator.sendBeacon) {
+      navigator.sendBeacon('/api/analytics/collect', new Blob([engagementBody], { type: 'application/json' }));
+    } else {
+      fetch('/api/analytics/collect', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: engagementBody, keepalive: true }).catch(function(){});
+    }
+  }
+
+  document.addEventListener('visibilitychange', function(){
+    if (document.visibilityState === 'hidden') sendEngagement();
+  });
+  window.addEventListener('pagehide', sendEngagement);
+})();
+
+/* ── Google Analytics 4 ── */
+(function(){
+  if (location.pathname.startsWith('/cms/') || location.pathname.startsWith('/content-review/')) return;
+  fetch('/api/config', { credentials: 'same-origin' }).then(function(res){
+    return res.ok ? res.json() : {};
+  }).then(function(config){
+    var id = String(config.googleAnalyticsId || '').trim();
+    if (!/^G-[A-Z0-9]+$/i.test(id)) return;
+    if (window.__sedaGaLoaded) return;
+    window.__sedaGaLoaded = true;
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function(){ window.dataLayer.push(arguments); };
+    window.gtag('js', new Date());
+    window.gtag('config', id, {
+      send_page_view: true,
+      linker: { domains: ['sgeda.org.cn'] },
+    });
+    var script = document.createElement('script');
+    script.async = true;
+    script.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(id);
+    document.head.appendChild(script);
+  }).catch(function(){});
 })();
 
 document.querySelectorAll(".filter").forEach((button) => {

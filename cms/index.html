@@ -271,7 +271,7 @@
           <div class="analytics-card"><strong>0</strong><span>30天浏览量</span></div>
           <div class="analytics-card"><strong>0</strong><span>30天访客</span></div>
           <div class="analytics-card"><strong>0</strong><span>今日浏览</span></div>
-          <div class="analytics-card"><strong>0</strong><span>今日访客</span></div>
+          <div class="analytics-card"><strong>0s</strong><span>平均停留</span></div>
         </div>
         <div class="analytics-panels">
           <section class="analytics-panel">
@@ -657,10 +657,10 @@
       const data = state.analytics;
       const totals = data?.totals || {};
       els.analyticsStats.innerHTML = `
-        <div class="analytics-card"><strong>${totals.pageviews || 0}</strong><span>30天浏览量</span></div>
+        <div class="analytics-card"><strong>${totals.pageviewEvents || totals.pageviews || 0}</strong><span>30天浏览量</span></div>
         <div class="analytics-card"><strong>${totals.visitors || 0}</strong><span>30天访客</span></div>
         <div class="analytics-card"><strong>${totals.todayPageviews || 0}</strong><span>今日浏览</span></div>
-        <div class="analytics-card"><strong>${totals.todayVisitors || 0}</strong><span>今日访客</span></div>
+        <div class="analytics-card"><strong>${formatDuration(totals.averageDurationSeconds || 0)}</strong><span>平均停留</span></div>
       `;
       renderBarChart(els.regionChart, data?.regions || []);
       renderBarChart(els.locationChart, data?.locations || []);
@@ -750,6 +750,14 @@
       if (level === 'error') return '需修复';
       if (level === 'warning') return '可优化';
       return '通过';
+    }
+
+    function formatDuration(seconds = 0) {
+      const value = Math.max(0, Number(seconds || 0) || 0);
+      if (value < 60) return `${value}s`;
+      const minutes = Math.floor(value / 60);
+      const rest = value % 60;
+      return rest ? `${minutes}m${rest}s` : `${minutes}m`;
     }
 
     function renderSeoQuality() {

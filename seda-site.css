@@ -631,6 +631,14 @@ main > section:not(.hero) {
   border-top: 1px solid var(--line);
 }
 
+.school-showcase .section-head,
+.showcase-grid,
+.showcase-more {
+  max-width: 1180px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .school-showcase .section-sub {
   margin-top: 8px;
   color: var(--muted);
@@ -640,7 +648,7 @@ main > section:not(.hero) {
 
 .showcase-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 12px;
   margin-top: 28px;
 }
@@ -757,7 +765,13 @@ main > section:not(.hero) {
 
 @media (max-width: 768px) {
   .showcase-grid {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 1100px) and (min-width: 769px) {
+  .showcase-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 

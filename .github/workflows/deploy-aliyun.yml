@@ -24,6 +24,14 @@ jobs:
           script: |
             set -e
             cd /var/www/sgeda
+
+            if git status --porcelain | grep -q '^UU\|^AA\|^DD\|^AU\|^UA\|^DU\|^UD'; then
+              echo "Found unresolved merge state, aborting it before deploy."
+              git merge --abort || true
+              git rebase --abort || true
+              git reset --merge || true
+            fi
+
             git stash push -u -m "github-actions-predeploy-$(date +%Y%m%d%H%M%S)" || true
             git fetch origin main
             git checkout main

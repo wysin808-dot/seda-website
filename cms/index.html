@@ -95,6 +95,10 @@
     .recent-table{width:100%;border-collapse:collapse;font-size:14px}
     .recent-table th,.recent-table td{border-bottom:1px solid #eef0f4;padding:10px 8px;text-align:left;vertical-align:top}
     .recent-table th{color:#667085;font-size:12px}
+    .recent-actions{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:14px;color:#667085;font-size:13px;font-weight:800}
+    .recent-actions button{border:1px solid #d8dde7;border-radius:999px;background:#fff;color:#cf2029;font-weight:900;padding:9px 16px;cursor:pointer}
+    .recent-actions button:hover{border-color:#cf2029;background:#fff5f5}
+    .recent-actions button:disabled{cursor:not-allowed;color:#98a2b3;background:#f2f4f7;border-color:#e4e7ec}
     .lead-table td{line-height:1.55}
     .lead-contact{font-weight:900;color:#172033}
     .lead-muted{color:#667085;font-size:12px}
@@ -298,6 +302,10 @@
         <section class="analytics-panel" style="margin-top:18px">
           <h2>最近访问流</h2>
           <div id="recentVisits"></div>
+          <div class="recent-actions">
+            <span id="recentVisitsMeta">显示最近 0 条</span>
+            <button id="loadMoreVisitsBtn" type="button">加载更多访问</button>
+          </div>
         </section>
       </section>
 
@@ -391,7 +399,7 @@
   </main>
 
   <script>
-    const state = { articles: [], filter: 'all', selected: null, query: '', status: null, analytics: null, leads: null, seo: null, overview: null, view: 'overview' };
+    const state = { articles: [], filter: 'all', selected: null, query: '', status: null, analytics: null, analyticsRecent: [], leads: null, seo: null, overview: null, view: 'overview' };
     const els = {
       loginPanel: document.getElementById('loginPanel'),
       appPanel: document.getElementById('appPanel'),
@@ -427,6 +435,8 @@
       leadsView: document.getElementById('leadsView'),
       seoView: document.getElementById('seoView'),
       analyticsStats: document.getElementById('analyticsStats'),
+      recentVisitsMeta: document.getElementById('recentVisitsMeta'),
+      loadMoreVisitsBtn: document.getElementById('loadMoreVisitsBtn'),
       regionChart: document.getElementById('regionChart'),
       locationChart: document.getElementById('locationChart'),
       pageChart: document.getElementById('pageChart'),
@@ -667,9 +677,11 @@
       renderBarChart(els.pageChart, data?.pages || []);
       renderBarChart(els.sourceChart, data?.sources || []);
       renderBarChart(els.deviceChart, data?.devices || []);
-      els.recentVisits.innerHTML = data?.recent?.length ? `<table class="recent-table">
+      const recentRows = state.analyticsRecent || [];
+      const paging = data?.recentPaging || {};
+      els.recentVisits.innerHTML = recentRows.length ? `<table class="recent-table">
         <thead><tr><th>时间</th><th>页面</th><th>国家/地区</th><th>省市</th><th>来源</th><th>设备</th></tr></thead>
-        <tbody>${data.recent.map((row) => `<tr>
+        <tbody>${recentRows.map((row) => `<tr>
           <td>${new Date(row.ts).toLocaleString('zh-CN', { hour12: false })}</td>
           <td>${esc(row.path)}</td>
           <td>${esc(row.region)}</td>
@@ -678,10 +690,22 @@
           <td>${esc(row.device)}</td>
         </tr>`).join('')}</tbody>
       </table>` : '<div class="cms-empty" style="padding:24px">暂无最近访问。</div>';
+      if (els.recentVisitsMeta) {
+        els.recentVisitsMeta.textContent = `已显示 ${recentRows.length} / ${paging.total || recentRows.length} 条最近访问`;
+      }
+      if (els.loadMoreVisitsBtn) {
+        els.loadMoreVisitsBtn.hidden = !recentRows.length && !paging.hasMore;
+        els.loadMoreVisitsBtn.disabled = !paging.hasMore;
+        els.loadMoreVisitsBtn.textContent = paging.hasMore ? '加载更多访问' : '已经到底';
+      }
     }
 
-    async function loadAnalytics() {
-      state.analytics = await api('/api/cms/analytics?days=30');
+    async function loadAnalytics(options = {}) {
+      const append = !!options.append;
+      const nextOffset = append ? (state.analytics?.recentPaging?.nextOffset || state.analyticsRecent.length || 0) : 0;
+      const data = await api(`/api/cms/analytics?days=30&recentLimit=20&recentOffset=${nextOffset}`);
+      state.analytics = data;
+      state.analyticsRecent = append ? [...(state.analyticsRecent || []), ...(data.recent || [])] : (data.recent || []);
       renderAnalytics();
     }
 
@@ -1021,6 +1045,7 @@
     });
     els.seoDate.addEventListener('change', () => loadSeo(els.seoDate.value).catch((error) => toast(error.message)));
     els.saveSeoButton.addEventListener('click', () => saveSeo().catch((error) => toast(error.message)));
+    els.loadMoreVisitsBtn.addEventListener('click', () => loadAnalytics({ append: true }).catch((error) => toast(error.message)));
     els.refreshButton.addEventListener('click', () => {
       if (state.view === 'overview') {
         loadOverview().catch((error) => toast(error.message));

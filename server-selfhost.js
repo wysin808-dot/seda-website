@@ -994,6 +994,8 @@ async function handleCmsSeoSave(req, res) {
 function handleCmsAnalytics(req, res, url) {
   if (!requireCmsAuth(req, res)) return;
   const days = Math.min(Math.max(Number(url.searchParams.get('days') || 30), 1), 90);
+  const recentLimit = Math.min(Math.max(Number(url.searchParams.get('recentLimit') || 20), 1), 100);
+  const recentOffset = Math.min(Math.max(Number(url.searchParams.get('recentOffset') || 0), 0), 5000);
   const events = readAnalyticsEvents(days);
   const pageviews = events.filter((event) => (event.eventType || 'pageview') === 'pageview');
   const engagementEvents = events.filter((event) => event.eventType === 'engagement' && Number(event.durationSeconds || 0) > 0);
@@ -1004,7 +1006,8 @@ function handleCmsAnalytics(req, res, url) {
   const averageDurationSeconds = engagementEvents.length
     ? Math.round(engagementEvents.reduce((sum, event) => sum + (Number(event.durationSeconds || 0) || 0), 0) / engagementEvents.length)
     : 0;
-  const recent = pageviews.slice(-20).reverse().map((event) => ({
+  const recentAll = pageviews.slice().reverse();
+  const recent = recentAll.slice(recentOffset, recentOffset + recentLimit).map((event) => ({
     ts: event.ts,
     path: event.path,
     title: event.title,
@@ -1018,6 +1021,14 @@ function handleCmsAnalytics(req, res, url) {
   json(res, 200, {
     ok: true,
     days,
+    recentPaging: {
+      offset: recentOffset,
+      limit: recentLimit,
+      total: recentAll.length,
+      returned: recent.length,
+      hasMore: recentOffset + recent.length < recentAll.length,
+      nextOffset: recentOffset + recent.length,
+    },
     totals: {
       pageviews: events.length,
       pageviewEvents: pageviews.length,

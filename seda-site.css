@@ -918,9 +918,7 @@ main > section:not(.hero) {
 .search-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1px;
-  border: 1px solid var(--line);
-  background: var(--line);
+  gap: 14px;
 }
 
 .article-grid,
@@ -931,16 +929,27 @@ main > section:not(.hero) {
 }
 
 .search-grid a {
-  min-height: 126px;
+  position: relative;
+  min-height: 132px;
   display: grid;
   align-content: center;
   gap: 9px;
-  padding: 22px;
-  border: 0;
-  border-radius: 0;
+  padding: 24px 56px 24px 24px;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
   background: var(--paper);
-  box-shadow: 0 1px 0 rgba(16, 24, 40, 0.03);
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.04);
   color: var(--deep);
+}
+
+.search-grid a::after {
+  content: "阅读";
+  position: absolute;
+  right: 20px;
+  bottom: 18px;
+  color: var(--brand);
+  font-size: 13px;
+  font-weight: 900;
 }
 
 .search-grid a span {
@@ -3036,9 +3045,10 @@ a, button, .filter, .article-card, .pathway-grid a, .search-grid a,
 }
 
 .search-grid a:hover {
-  background: var(--brand-light);
+  border-color: rgba(198, 40, 40, 0.32);
+  background: #fffafa;
   transform: translateY(-3px);
-  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.1);
+  box-shadow: 0 14px 34px rgba(15, 23, 42, 0.1);
 }
 
 .pathway-grid a {

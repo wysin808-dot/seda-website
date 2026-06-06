@@ -10,20 +10,45 @@
 
   function benefitList() {
     return [
-      'AEIS 入学规划',
-      'O-Level 升学',
-      'WACE 高中路径',
-      '公立大学申请',
-      'Poly 理工路径',
-      '国际学校择校',
+      '国际学校推荐',
+      'AEIS 规划',
+      'A-Level 规划',
+      'WACE 规划',
+      '学费预算分析',
     ].map(function(text){ return '<li>'+text+'</li>'; }).join('');
   }
 
-  function qrCard(extraClass) {
+  function trackWechat(eventType, placement) {
+    var data = {
+      visitorId: localStorage.getItem('sedaVisitorId') || '',
+      eventType: eventType,
+      placement: placement || 'global',
+      path: location.pathname,
+      title: document.title,
+      referrer: document.referrer,
+    };
+    if (typeof window.gtag === 'function') {
+      window.gtag('event', eventType, {
+        event_category: 'wechat_conversion',
+        event_label: placement || 'global',
+      });
+    }
+    var body = JSON.stringify(data);
+    if (navigator.sendBeacon) {
+      navigator.sendBeacon('/api/analytics/collect', new Blob([body], { type: 'application/json' }));
+    } else {
+      fetch('/api/analytics/collect', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: body, keepalive: true }).catch(function(){});
+    }
+  }
+
+  function qrCard(extraClass, options) {
     var cfg = window.SEDA_CONTACT;
+    var opts = options || {};
+    var subtitle = opts.subtitle || '扫码添加，获取免费择校方案';
+    var heading = opts.title || cfg.title;
     return '<div class="seda-wechat-card '+(extraClass || '')+'">' +
       '<div class="seda-wechat-head">' +
-        '<div><strong>'+cfg.title+'</strong><span>扫码添加，获取免费择校方案</span></div>' +
+        '<div><strong>'+heading+'</strong><span>'+subtitle+'</span></div>' +
         '<button type="button" class="seda-copy-wechat" data-wechat="'+cfg.wechatId+'">复制微信号</button>' +
       '</div>' +
       '<div class="seda-wechat-body">' +
@@ -36,28 +61,92 @@
     '</div>';
   }
 
-  function openWechatModal(title) {
+  function openWechatModal(title, placement) {
     var existing = document.querySelector('.seda-wechat-modal');
     if (existing) {
       existing.remove();
-      return;
     }
+    trackWechat('wechat_click', placement || 'modal');
     var panel = document.createElement('div');
     panel.className = 'seda-wechat-modal';
     panel.innerHTML =
       '<div class="seda-wechat-dialog" role="dialog" aria-label="微信咨询">' +
         '<button type="button" class="seda-wechat-close" aria-label="关闭">×</button>' +
-        qrCard('seda-wechat-card-modal') +
+        qrCard('seda-wechat-card-modal', { title: title || window.SEDA_CONTACT.title }) +
       '</div>';
     document.body.appendChild(panel);
+    trackWechat('wechat_exposure', placement || 'modal');
     panel.querySelector('.seda-wechat-close').addEventListener('click', function(){ panel.remove(); });
   }
 
   function copyWechat(button) {
     var id = button.getAttribute('data-wechat') || window.SEDA_CONTACT.wechatId;
     if (navigator.clipboard) navigator.clipboard.writeText(id).catch(function(){});
+    trackWechat('wechat_copy', button.closest('[data-wechat-placement]')?.getAttribute('data-wechat-placement') || 'copy_button');
     button.textContent = '已复制';
     setTimeout(function(){ button.textContent = '复制微信号'; }, 1600);
+  }
+
+  function createFloat() {
+    if (location.pathname.startsWith('/cms/') || location.pathname.startsWith('/content-review/')) return;
+    if (document.querySelector('.wechat-float')) return;
+    var button = document.createElement('button');
+    button.className = 'wechat-float';
+    button.type = 'button';
+    button.setAttribute('aria-label', '微信咨询');
+    button.setAttribute('data-wechat-placement', 'floating_button');
+    button.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8.691 2.188C3.891 2.188 0 5.476 0 9.53c0 2.212 1.17 4.203 3.002 5.55a.59.59 0 0 1 .213.665l-.39 1.48c-.019.07-.048.141-.048.213 0 .163.13.295.29.295a.326.326 0 0 0 .167-.054l1.903-1.114a.864.864 0 0 1 .717-.098 10.16 10.16 0 0 0 2.837.403c.276 0 .543-.027.811-.05-.857-2.578.157-4.972 1.932-6.446 1.703-1.415 3.882-1.98 5.853-1.838-.576-3.583-4.196-6.348-8.596-6.348zM5.785 5.991c.642 0 1.162.529 1.162 1.18a1.17 1.17 0 0 1-1.162 1.178A1.17 1.17 0 0 1 4.623 7.17c0-.651.52-1.18 1.162-1.18zm5.813 0c.642 0 1.162.529 1.162 1.18a1.17 1.17 0 0 1-1.162 1.178 1.17 1.17 0 0 1-1.162-1.178c0-.651.52-1.18 1.162-1.18zm3.825 4.15c-2.19 0-4.166.88-5.481 2.255-1.208 1.262-1.942 2.94-1.942 4.773 0 3.708 3.286 6.643 7.423 6.643.826 0 1.622-.12 2.361-.336a.722.722 0 0 1 .598.082l1.584.926a.272.272 0 0 0 .14.045c.133 0 .241-.11.241-.245 0-.06-.024-.12-.04-.178l-.326-1.233a.49.49 0 0 1 .177-.554C21.886 21.065 23 19.18 23 17.17c0-3.832-3.339-7.028-7.577-7.028zm-2.57 3.198c.535 0 .969.44.969.983a.976.976 0 0 1-.969.983.976.976 0 0 1-.969-.983c0-.543.434-.983.97-.983zm5.14 0c.535 0 .969.44.969.983a.976.976 0 0 1-.97.983.976.976 0 0 1-.968-.983c0-.543.434-.983.969-.983z"/></svg><span>微信咨询</span>';
+    document.body.appendChild(button);
+  }
+
+  function isSchoolDetail(path) {
+    return /^\/(international-school|secondary-schools|primary-schools|jc|poly)\/[^/]+\/$/.test(path)
+      && !/\/(index|schools)\/$/.test(path);
+  }
+
+  function isArticleLike(path) {
+    if (isSchoolDetail(path)) return false;
+    if (/^\/(cms|content-review|contact|about|news|tools)\/?/.test(path)) return false;
+    var parts = path.split('/').filter(Boolean);
+    return parts.length >= 2 && !/^(primary-schools|secondary-schools|jc|poly|international-school)$/.test(parts[0]);
+  }
+
+  function ctaHtml(type) {
+    var school = type === 'school';
+    return '<section class="seda-conversion-cta" data-wechat-placement="'+(school ? 'school_bottom' : 'article_bottom')+'">' +
+      '<div class="seda-conversion-copy">' +
+        '<p class="eyebrow">'+(school ? '学校咨询' : '免费咨询')+'</p>' +
+        '<h2>'+(school ? '想了解申请要求和录取数据？' : '还不知道如何选择学校？')+'</h2>' +
+        '<p>'+(school ? '扫码添加新加坡择校顾问 Amy，获取学费信息、申请要求、入学测试和录取案例。' : '扫码添加新加坡择校顾问 Amy，获取国际学校推荐、AEIS 规划、A-Level 规划、WACE 规划和学费预算分析。')+'</p>' +
+      '</div>' +
+      qrCard('seda-wechat-card-inline', { subtitle: school ? '获取学校申请资料与录取数据' : '扫码添加，获取免费择校方案' }) +
+    '</section>';
+  }
+
+  function injectConversionCta() {
+    if (document.querySelector('.seda-conversion-cta')) return;
+    var target = document.querySelector('.content-main, article.content-main, main article, main');
+    if (!target) return;
+    if (isSchoolDetail(location.pathname)) {
+      target.insertAdjacentHTML('beforeend', ctaHtml('school'));
+      trackWechat('wechat_exposure', 'school_bottom');
+    } else if (isArticleLike(location.pathname)) {
+      target.insertAdjacentHTML('beforeend', ctaHtml('article'));
+      trackWechat('wechat_exposure', 'article_bottom');
+    }
+  }
+
+  function enhanceAiTool() {
+    if (!location.pathname.startsWith('/tools/')) return;
+    if (document.querySelector('.seda-ai-wechat-cta')) return;
+    var target = document.querySelector('main, .tools-page, body');
+    if (!target) return;
+    target.insertAdjacentHTML('beforeend',
+      '<section class="seda-ai-wechat-cta" data-wechat-placement="ai_tool_bottom">' +
+        '<h2>需要人工顾问帮助？</h2>' +
+        '<p>AI 结果适合作为初步参考，具体学校选择、申请材料和时间线建议让 Amy 再帮你人工确认。</p>' +
+        qrCard('seda-wechat-card-inline', { subtitle: '扫码添加 Amy，继续人工咨询' }) +
+      '</section>');
   }
 
   window.SEDA_WECHAT_CARD_HTML = qrCard;
@@ -70,14 +159,20 @@
       copyWechat(copyButton);
       return;
     }
-    var trigger = event.target.closest('.wechat-float, .js-wechat-open, a[href="weixin://"]');
+    var trigger = event.target.closest('.wechat-float, .js-wechat-open, a[href="weixin://"], [data-wechat-open]');
     if (trigger) {
       event.preventDefault();
-      openWechatModal('新加坡择校顾问 Amy');
+      openWechatModal('新加坡择校顾问 Amy', trigger.getAttribute('data-wechat-placement') || 'click');
     }
   });
 
   document.addEventListener('DOMContentLoaded', function(){
+    createFloat();
+    injectConversionCta();
+    enhanceAiTool();
+    document.querySelectorAll('.seda-wechat-card, .seda-conversion-cta').forEach(function(card){
+      trackWechat('wechat_exposure', card.getAttribute('data-wechat-placement') || 'wechat_card');
+    });
     document.querySelectorAll('.contact-options').forEach(function(options){
       if (!options.querySelector('.js-wechat-open')) return;
       var link = options.querySelector('.js-wechat-open');

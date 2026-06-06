@@ -1622,6 +1622,7 @@ main > section:not(.hero) {
   background: rgba(255, 255, 255, 0.96);
   box-shadow: 0 24px 60px rgba(127, 29, 29, 0.12);
   transform: translateY(-50%);
+  animation: sedaSidecardFloat 5.5s ease-in-out infinite;
 }
 
 .seda-sidecard-kicker {
@@ -1655,6 +1656,7 @@ main > section:not(.hero) {
   border-radius: 14px;
   object-fit: cover;
   background: #fff;
+  animation: sedaQrBreath 4.8s ease-in-out infinite;
 }
 
 .seda-sidecard-id {
@@ -1713,6 +1715,23 @@ main > section:not(.hero) {
 
   body.has-seda-wechat-sidecard .wechat-float {
     display: none;
+  }
+}
+
+@keyframes sedaSidecardFloat {
+  0%, 100% { transform: translateY(-50%); }
+  50% { transform: translateY(calc(-50% - 8px)); }
+}
+
+@keyframes sedaQrBreath {
+  0%, 100% { box-shadow: 0 0 0 rgba(207, 32, 41, 0); }
+  50% { box-shadow: 0 10px 26px rgba(207, 32, 41, 0.12); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .seda-wechat-sidecard,
+  .seda-wechat-sidecard img {
+    animation: none;
   }
 }
 

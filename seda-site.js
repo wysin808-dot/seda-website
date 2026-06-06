@@ -38,19 +38,21 @@
 
   function openWechatModal(title) {
     var existing = document.querySelector('.seda-wechat-modal');
-    if (existing) existing.remove();
-    var overlay = document.createElement('div');
-    overlay.className = 'seda-wechat-modal';
-    overlay.innerHTML =
-      '<div class="seda-wechat-dialog" role="dialog" aria-modal="true" aria-label="微信咨询">' +
+    if (existing) {
+      existing.remove();
+      return;
+    }
+    var panel = document.createElement('div');
+    panel.className = 'seda-wechat-modal';
+    panel.innerHTML =
+      '<div class="seda-wechat-dialog" role="dialog" aria-label="微信咨询">' +
         '<button type="button" class="seda-wechat-close" aria-label="关闭">×</button>' +
-        '<p class="eyebrow">免费咨询</p>' +
-        '<h2>'+(title || '添加顾问微信，获取择校方案')+'</h2>' +
+        '<p class="eyebrow">微信咨询</p>' +
+        '<h2>'+(title || '添加 Amy 获取择校方案')+'</h2>' +
         qrCard('seda-wechat-card-modal') +
       '</div>';
-    document.body.appendChild(overlay);
-    overlay.querySelector('.seda-wechat-close').addEventListener('click', function(){ overlay.remove(); });
-    overlay.addEventListener('click', function(event){ if (event.target === overlay) overlay.remove(); });
+    document.body.appendChild(panel);
+    panel.querySelector('.seda-wechat-close').addEventListener('click', function(){ panel.remove(); });
   }
 
   function copyWechat(button) {
@@ -290,18 +292,6 @@ if (!document.querySelector(".wechat-float")) {
       if (e.target.closest("a")) return;
       group.classList.toggle("mobile-open");
     });
-  });
-})();
-
-/* ── Scroll CTA Popup — only attach on pages that have the element ── */
-(function(){
-  var el = document.getElementById('scrollCta');
-  if (!el) return;
-  var shown = false;
-  window.addEventListener('scroll', function(){
-    if (shown) return;
-    var scrollPct = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight);
-    if (scrollPct > 0.4) { shown = true; el.style.display = 'flex'; }
   });
 })();
 

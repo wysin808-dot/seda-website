@@ -107,12 +107,14 @@
 
   function createSideCard() {
     if (!shouldShowSideCard(location.pathname)) return;
+    if (localStorage.getItem('sedaWechatSidecardClosed') === '1') return;
     if (document.querySelector('.seda-wechat-sidecard')) return;
     var wrap = document.createElement('aside');
     wrap.className = 'seda-wechat-sidecard';
     wrap.setAttribute('data-wechat-placement', 'right_sidecard');
     wrap.setAttribute('aria-label', '新加坡择校顾问 Amy 微信咨询');
     wrap.innerHTML =
+      '<button type="button" class="seda-sidecard-close" aria-label="关闭微信咨询卡">×</button>' +
       '<p class="seda-sidecard-kicker">免费择校咨询</p>' +
       '<h2>扫码添加 Amy</h2>' +
       '<p class="seda-sidecard-sub">获取新加坡升学与选校建议</p>' +
@@ -122,6 +124,14 @@
       '<button type="button" class="seda-copy-wechat" data-wechat="'+window.SEDA_CONTACT.wechatId+'">复制微信号</button>';
     document.body.appendChild(wrap);
     document.body.classList.add('has-seda-wechat-sidecard');
+    var close = wrap.querySelector('.seda-sidecard-close');
+    if (close) {
+      close.addEventListener('click', function(){
+        localStorage.setItem('sedaWechatSidecardClosed', '1');
+        wrap.remove();
+        document.body.classList.remove('has-seda-wechat-sidecard');
+      });
+    }
     trackWechat('wechat_exposure', 'right_sidecard');
   }
 

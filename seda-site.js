@@ -10,10 +10,12 @@
 
   function benefitList() {
     return [
-      '国际学校推荐',
-      'AEIS 规划',
-      '一对一专业咨询',
-      'WACE 课程规划',
+      'AEIS 入学规划',
+      'O-Level 升学',
+      'WACE 国际高中',
+      '公立大学申请',
+      'Poly 理工路径',
+      '国际学校择校',
     ].map(function(text){ return '<li>'+text+'</li>'; }).join('');
   }
 

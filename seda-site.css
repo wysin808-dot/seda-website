@@ -1304,28 +1304,28 @@ main > section:not(.hero) {
 .seda-wechat-modal {
   position: fixed;
   top: 50%;
-  right: 92px;
+  right: 84px;
   z-index: 90;
-  width: min(660px, calc(100vw - 128px));
+  width: min(560px, calc(100vw - 120px));
   animation: wechatPanelIn 0.18s ease-out;
   transform: translateY(-50%);
 }
 
 .seda-wechat-dialog {
   position: relative;
-  padding: 28px;
+  padding: 22px 24px;
   border: 1px solid #fee2e2;
-  border-radius: 16px;
-  background: linear-gradient(135deg, #fff 0%, #fffafa 100%);
-  box-shadow: 0 24px 60px rgba(127, 29, 29, 0.18);
+  border-radius: 14px;
+  background: linear-gradient(135deg, #fff 0%, #fffafa 62%, #fff1f2 100%);
+  box-shadow: 0 18px 48px rgba(127, 29, 29, 0.16);
 }
 
 .seda-wechat-close {
   position: absolute;
-  top: 14px;
-  right: 14px;
-  width: 32px;
-  height: 32px;
+  top: 12px;
+  right: 12px;
+  width: 30px;
+  height: 30px;
   border: 0;
   border-radius: 999px;
   background: #f8fafc;
@@ -1343,41 +1343,41 @@ main > section:not(.hero) {
 }
 
 .seda-wechat-card-modal .seda-wechat-head {
-  margin: 0 0 24px;
+  margin: 0 44px 18px 0;
 }
 
 .seda-wechat-card-modal .seda-wechat-head strong {
-  font-size: clamp(24px, 3vw, 34px);
-  line-height: 1.12;
+  font-size: 28px;
+  line-height: 1.18;
 }
 
 .seda-wechat-card-modal .seda-wechat-body {
-  grid-template-columns: 280px 1fr;
-  gap: 32px;
+  grid-template-columns: 190px 1fr;
+  gap: 22px;
   align-items: center;
 }
 
 .seda-wechat-card-modal .seda-wechat-qr {
-  width: 230px;
-  height: 230px;
-  padding: 18px;
-  border-radius: 16px;
+  width: 178px;
+  height: 178px;
+  padding: 10px;
+  border-radius: 14px;
 }
 
 .seda-wechat-card-modal .seda-wechat-info ul {
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 18px 28px;
-  font-size: 22px;
-  line-height: 1.35;
+  gap: 10px 18px;
+  font-size: 17px;
+  line-height: 1.38;
 }
 
 .seda-wechat-card-modal .seda-wechat-id {
-  margin-bottom: 18px;
-  font-size: 24px;
+  margin-bottom: 14px;
+  font-size: 18px;
 }
 
 .seda-wechat-card-modal .seda-wechat-id b {
-  font-size: 28px;
+  font-size: 23px;
 }
 
 @keyframes wechatPanelIn {
@@ -3929,8 +3929,8 @@ body.nav-drawer-open {
 
   .seda-wechat-card-modal .seda-wechat-info ul {
     grid-template-columns: 1fr 1fr;
-    gap: 10px 12px;
-    font-size: 15px;
+    gap: 8px 10px;
+    font-size: 14px;
   }
 
   .seda-wechat-card-modal .seda-wechat-id {

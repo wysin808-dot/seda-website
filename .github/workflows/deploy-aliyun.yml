@@ -1,0 +1,34 @@
+name: Deploy to Aliyun ECS
+
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+
+concurrency:
+  group: aliyun-ecs-deploy
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy SEDA site on ECS
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.ALIYUN_HOST }}
+          username: ${{ secrets.ALIYUN_USER }}
+          key: ${{ secrets.ALIYUN_SSH_KEY }}
+          port: ${{ secrets.ALIYUN_PORT }}
+          script_stop: true
+          script: |
+            set -e
+            cd /var/www/sgeda
+            git stash push -u -m "github-actions-predeploy-$(date +%Y%m%d%H%M%S)" || true
+            git fetch origin main
+            git checkout main
+            git pull --ff-only origin main
+            git stash apply || true
+            node scripts/build-content.mjs
+            pm2 restart seda-api --update-env
+            pm2 list

@@ -12,10 +12,8 @@
     return [
       '国际学校推荐',
       'AEIS 规划',
-      'A-Level / O-Level 路径',
-      'WACE 课程规划',
-      '学费预算分析',
       '一对一专业咨询',
+      'WACE 课程规划',
     ].map(function(text){ return '<li>'+text+'</li>'; }).join('');
   }
 
@@ -47,8 +45,6 @@
     panel.innerHTML =
       '<div class="seda-wechat-dialog" role="dialog" aria-label="微信咨询">' +
         '<button type="button" class="seda-wechat-close" aria-label="关闭">×</button>' +
-        '<p class="eyebrow">微信咨询</p>' +
-        '<h2>'+(title || '添加 Amy 获取择校方案')+'</h2>' +
         qrCard('seda-wechat-card-modal') +
       '</div>';
     document.body.appendChild(panel);
@@ -75,7 +71,7 @@
     var trigger = event.target.closest('.wechat-float, .js-wechat-open, a[href="weixin://"]');
     if (trigger) {
       event.preventDefault();
-      openWechatModal('扫码添加 Amy，获取免费择校方案');
+      openWechatModal('新加坡择校顾问 Amy');
     }
   });
 

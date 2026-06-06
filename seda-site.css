@@ -1622,7 +1622,7 @@ main > section:not(.hero) {
   background: rgba(255, 255, 255, 0.96);
   box-shadow: 0 24px 60px rgba(127, 29, 29, 0.12);
   transform: translateY(-50%);
-  animation: sedaSidecardFloat 7s ease-in-out infinite;
+  animation: none;
 }
 
 .seda-sidecard-close {
@@ -1740,11 +1740,6 @@ main > section:not(.hero) {
   body.has-seda-wechat-sidecard .wechat-float {
     display: none;
   }
-}
-
-@keyframes sedaSidecardFloat {
-  0%, 100% { transform: translateY(-50%); }
-  50% { transform: translateY(calc(-50% - 4px)); }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -3619,12 +3614,7 @@ main > section:not(.hero) {
 .wechat-float {
   border-radius: 999px;
   backdrop-filter: blur(8px);
-  animation: wechat-pulse 3s ease-in-out infinite;
-}
-
-@keyframes wechat-pulse {
-  0%, 100% { box-shadow: 0 12px 34px rgba(198, 40, 40, 0.3); }
-  50% { box-shadow: 0 16px 44px rgba(198, 40, 40, 0.42), 0 0 0 6px rgba(198, 40, 40, 0.1); }
+  animation: none;
 }
 
 /* ── VS Grid Polish ── */

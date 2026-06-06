@@ -24,6 +24,18 @@ jobs:
           script: |
             set -e
             cd /var/www/sgeda
+
+            CMS_BACKUP="/tmp/sgeda-cms-content-$(date +%Y%m%d%H%M%S)"
+            mkdir -p "$CMS_BACKUP"
+            if [ -d content/articles ]; then
+              mkdir -p "$CMS_BACKUP/content"
+              cp -a content/articles "$CMS_BACKUP/content/articles"
+            fi
+            if [ -f content/keyword-queue.csv ]; then
+              mkdir -p "$CMS_BACKUP/content"
+              cp -a content/keyword-queue.csv "$CMS_BACKUP/content/keyword-queue.csv"
+            fi
+
             git fetch origin main
             git merge --abort || true
             git rebase --abort || true
@@ -37,6 +49,15 @@ jobs:
               -e .baidu-submit-offset \
               -e .indexnow-submit-offset \
               -e baidu-submit.log
+
+            if [ -d "$CMS_BACKUP/content/articles" ]; then
+              mkdir -p content/articles
+              cp -a "$CMS_BACKUP/content/articles/." content/articles/
+            fi
+            if [ -f "$CMS_BACKUP/content/keyword-queue.csv" ]; then
+              cp -a "$CMS_BACKUP/content/keyword-queue.csv" content/keyword-queue.csv
+            fi
+
             node scripts/build-content.mjs
             node scripts/indexnow-submit.mjs || true
             pm2 restart seda-api --update-env

@@ -978,6 +978,10 @@ main > section:not(.hero) {
   grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
+.latest-seo-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
 .article-card {
   min-height: 226px;
   border: 1px solid var(--line);

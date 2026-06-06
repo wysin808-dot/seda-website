@@ -125,6 +125,18 @@
     .quality-issues li{margin:5px 0}
     .quality-issues .error{color:#b91c1c;font-weight:800}
     .quality-issues .warning{color:#8a5a00;font-weight:800}
+    .page-workbench{display:grid;grid-template-columns:360px minmax(0,1fr);gap:18px;align-items:start}
+    .page-filter-row{display:grid;gap:10px;margin-bottom:12px}
+    .page-filter-row select{height:46px;border:1px solid #d8dde7;border-radius:8px;background:#fff;color:#172033;font:inherit;padding:0 12px}
+    .page-list{display:grid;gap:10px;max-height:720px;overflow:auto}
+    .page-item{border:1px solid #e5e8ee;border-radius:8px;background:#fff;padding:13px;text-align:left;cursor:pointer}
+    .page-item.active{border-color:#cf2029;box-shadow:0 0 0 3px rgba(207,32,41,.1)}
+    .page-item strong{display:block;line-height:1.35}
+    .page-url{display:block;margin-top:6px;color:#667085;font-size:12px;word-break:break-all}
+    .page-editor-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+    .page-field label{display:block;color:#667085;font-size:12px;font-weight:900;margin-bottom:6px}
+    .page-field textarea{min-height:112px;padding:12px;resize:vertical}
+    .page-field.wide{grid-column:span 2}
     .editor-quality{margin:18px 18px 0;padding:16px;border:1px solid #eef0f4;border-radius:8px;background:#fafbfc}
     .editor-quality-top{display:flex;justify-content:space-between;gap:14px;align-items:flex-start;margin-bottom:12px}
     .editor-quality-score{border-radius:999px;background:#eef2f7;color:#344054;font-weight:900;padding:7px 10px;white-space:nowrap}
@@ -139,7 +151,7 @@
     .editor-image-plan p{margin:4px 0}
     .editor-suggestions{margin:12px 0 0;padding-left:18px;color:#344054;line-height:1.7}
     [hidden]{display:none!important}
-    @media (max-width:900px){.cms-grid,.analytics-panels,.seo-form,.overview-grid,.quick-grid,.ops-grid,.topic-row{grid-template-columns:1fr}.seo-field.wide{grid-column:auto}.cms-list{max-height:none}.cms-editor-head{display:grid}.cms-stats{grid-template-columns:1fr 1fr 1fr}.analytics-grid,.overview-cards{grid-template-columns:1fr 1fr}.bar-row{grid-template-columns:96px minmax(0,1fr) 42px}.editor-quality-grid{grid-template-columns:1fr 1fr}.editor-quality-top{display:grid}}
+    @media (max-width:900px){.cms-grid,.analytics-panels,.seo-form,.overview-grid,.quick-grid,.ops-grid,.topic-row,.page-workbench,.page-editor-grid{grid-template-columns:1fr}.seo-field.wide,.page-field.wide{grid-column:auto}.cms-list,.page-list{max-height:none}.cms-editor-head{display:grid}.cms-stats{grid-template-columns:1fr 1fr 1fr}.analytics-grid,.overview-cards{grid-template-columns:1fr 1fr}.bar-row{grid-template-columns:96px minmax(0,1fr) 42px}.editor-quality-grid{grid-template-columns:1fr 1fr}.editor-quality-top{display:grid}}
   </style>
 </head>
 <body>
@@ -171,6 +183,7 @@
       <div class="cms-tabs" role="tablist" aria-label="CMS 模块">
         <button class="cms-tab active" type="button" data-view="overview">运营首页</button>
         <button class="cms-tab" type="button" data-view="content">内容管理</button>
+        <button class="cms-tab" type="button" data-view="pages">页面矩阵</button>
         <button class="cms-tab" type="button" data-view="analytics">流量分析</button>
         <button class="cms-tab" type="button" data-view="leads">客户线索</button>
         <button class="cms-tab" type="button" data-view="seo">SEO/GEO收录</button>
@@ -269,6 +282,106 @@
           </div>
         </section>
       </div>
+
+      <section id="pagesView" hidden>
+        <div id="pageStats" class="analytics-grid">
+          <div class="analytics-card"><strong>0</strong><span>URL 总数</span></div>
+          <div class="analytics-card"><strong>0</strong><span>待处理</span></div>
+          <div class="analytics-card"><strong>0</strong><span>缺图片</span></div>
+          <div class="analytics-card"><strong>0</strong><span>已完成</span></div>
+        </div>
+        <div class="page-workbench">
+          <aside class="cms-panel cms-sidebar">
+            <div class="page-filter-row">
+              <input id="pageSearchInput" class="cms-input" type="search" placeholder="搜索 URL、标题、负责人" />
+              <select id="pageTeamFilter"></select>
+              <select id="pageStatusFilter">
+                <option value="all">全部状态</option>
+                <option value="todo">待处理</option>
+                <option value="in_progress">处理中</option>
+                <option value="ready">待发布/已优化</option>
+                <option value="missing">缺图片</option>
+                <option value="pending">待审核</option>
+                <option value="approved">审核通过</option>
+              </select>
+            </div>
+            <div id="pageList" class="page-list"></div>
+          </aside>
+          <section class="cms-panel">
+            <div id="pageEmptyState" class="cms-empty">
+              <h2>请选择一个 URL</h2>
+              <p>每个团队可以维护自己的页面：负责人、状态、配图需求、AI 生成提示词和审核备注。</p>
+            </div>
+            <div id="pageEditorPanel" hidden>
+              <div class="cms-editor-head">
+                <div>
+                  <h2 id="pageEditorTitle"></h2>
+                  <p id="pageEditorUrl"></p>
+                </div>
+                <div class="cms-toolbar">
+                  <a id="pageOpenLink" class="cms-button secondary" href="/" target="_blank" rel="noopener">打开页面</a>
+                  <button id="pageSaveButton" class="cms-button" type="button">保存页面运营信息</button>
+                </div>
+              </div>
+              <div class="cms-editor-body">
+                <div class="page-editor-grid">
+                  <div class="page-field">
+                    <label for="pageTitleInput">后台标题</label>
+                    <input id="pageTitleInput" class="cms-input" type="text">
+                  </div>
+                  <div class="page-field">
+                    <label for="pageOwnerInput">负责人 / 团队成员</label>
+                    <input id="pageOwnerInput" class="cms-input" type="text" placeholder="例如 Amy / AEIS 小组">
+                  </div>
+                  <div class="page-field">
+                    <label for="pageTeamInput">所属团队</label>
+                    <select id="pageTeamInput" class="cms-input"></select>
+                  </div>
+                  <div class="page-field">
+                    <label for="pageStatusInput">页面状态</label>
+                    <select id="pageStatusInput" class="cms-input">
+                      <option value="todo">待处理</option>
+                      <option value="in_progress">处理中</option>
+                      <option value="ready">待发布/已优化</option>
+                      <option value="published">已发布</option>
+                      <option value="paused">暂停</option>
+                    </select>
+                  </div>
+                  <div class="page-field">
+                    <label for="pageReviewInput">审核状态</label>
+                    <select id="pageReviewInput" class="cms-input">
+                      <option value="pending">待审核</option>
+                      <option value="needs_revision">需修改</option>
+                      <option value="approved">审核通过</option>
+                    </select>
+                  </div>
+                  <div class="page-field">
+                    <label for="pageImageStatusInput">图片状态</label>
+                    <select id="pageImageStatusInput" class="cms-input">
+                      <option value="missing">缺图片</option>
+                      <option value="planned">已规划</option>
+                      <option value="uploaded">已上传</option>
+                      <option value="not_needed">不需要</option>
+                    </select>
+                  </div>
+                  <div class="page-field wide">
+                    <label for="pageImageBriefInput">配图需求</label>
+                    <textarea id="pageImageBriefInput" class="cms-input" placeholder="例如：页面首图、学校环境图、路径流程图、信息图等"></textarea>
+                  </div>
+                  <div class="page-field wide">
+                    <label for="pageAiPromptInput">大模型生成/改写提示词</label>
+                    <textarea id="pageAiPromptInput" class="cms-input" placeholder="写给大模型：目标关键词、用户人群、需要补充的段落、FAQ、内链要求"></textarea>
+                  </div>
+                  <div class="page-field wide">
+                    <label for="pageNotesInput">运营备注 / 审核意见</label>
+                    <textarea id="pageNotesInput" class="cms-input" placeholder="团队协作备注、审核意见、下一步动作"></textarea>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </section>
 
       <section id="analyticsView" hidden>
         <div id="analyticsStats" class="analytics-grid">
@@ -399,7 +512,7 @@
   </main>
 
   <script>
-    const state = { articles: [], filter: 'all', selected: null, query: '', status: null, analytics: null, analyticsRecent: [], leads: null, seo: null, overview: null, view: 'overview' };
+    const state = { articles: [], filter: 'all', selected: null, query: '', status: null, analytics: null, analyticsRecent: [], leads: null, seo: null, overview: null, pages: null, selectedPage: null, pageQuery: '', pageTeam: 'all', pageStatus: 'all', view: 'overview' };
     const els = {
       loginPanel: document.getElementById('loginPanel'),
       appPanel: document.getElementById('appPanel'),
@@ -431,6 +544,27 @@
       overviewArticles: document.getElementById('overviewArticles'),
       overviewLeads: document.getElementById('overviewLeads'),
       contentView: document.getElementById('contentView'),
+      pagesView: document.getElementById('pagesView'),
+      pageStats: document.getElementById('pageStats'),
+      pageSearchInput: document.getElementById('pageSearchInput'),
+      pageTeamFilter: document.getElementById('pageTeamFilter'),
+      pageStatusFilter: document.getElementById('pageStatusFilter'),
+      pageList: document.getElementById('pageList'),
+      pageEmptyState: document.getElementById('pageEmptyState'),
+      pageEditorPanel: document.getElementById('pageEditorPanel'),
+      pageEditorTitle: document.getElementById('pageEditorTitle'),
+      pageEditorUrl: document.getElementById('pageEditorUrl'),
+      pageOpenLink: document.getElementById('pageOpenLink'),
+      pageSaveButton: document.getElementById('pageSaveButton'),
+      pageTitleInput: document.getElementById('pageTitleInput'),
+      pageOwnerInput: document.getElementById('pageOwnerInput'),
+      pageTeamInput: document.getElementById('pageTeamInput'),
+      pageStatusInput: document.getElementById('pageStatusInput'),
+      pageReviewInput: document.getElementById('pageReviewInput'),
+      pageImageStatusInput: document.getElementById('pageImageStatusInput'),
+      pageImageBriefInput: document.getElementById('pageImageBriefInput'),
+      pageAiPromptInput: document.getElementById('pageAiPromptInput'),
+      pageNotesInput: document.getElementById('pageNotesInput'),
       analyticsView: document.getElementById('analyticsView'),
       leadsView: document.getElementById('leadsView'),
       seoView: document.getElementById('seoView'),
@@ -661,6 +795,109 @@
     async function loadOverview() {
       state.overview = await api('/api/cms/overview');
       renderOverview();
+    }
+
+    function statusLabel(value) {
+      return {
+        todo: '待处理',
+        in_progress: '处理中',
+        ready: '待发布/已优化',
+        published: '已发布',
+        paused: '暂停',
+        pending: '待审核',
+        needs_revision: '需修改',
+        approved: '审核通过',
+        missing: '缺图片',
+        planned: '已规划',
+        uploaded: '已上传',
+        not_needed: '不需要',
+      }[value] || value || '未设置';
+    }
+
+    function renderPageTeamOptions(teams = []) {
+      const options = [`<option value="all">全部团队</option>`].concat(teams.map((team) => `<option value="${esc(team.id)}">${esc(team.name)}</option>`)).join('');
+      els.pageTeamFilter.innerHTML = options;
+      els.pageTeamFilter.value = state.pageTeam;
+      els.pageTeamInput.innerHTML = teams.map((team) => `<option value="${esc(team.id)}">${esc(team.name)}</option>`).join('');
+    }
+
+    function renderPages() {
+      const data = state.pages || {};
+      const summary = data.summary || {};
+      const pages = data.pages || [];
+      if (summary.teams?.length && !els.pageTeamInput.options.length) renderPageTeamOptions(summary.teams);
+      els.pageStats.innerHTML = `
+        <div class="analytics-card"><strong>${summary.total || 0}</strong><span>URL 总数</span></div>
+        <div class="analytics-card"><strong>${summary.todo || 0}</strong><span>待处理</span></div>
+        <div class="analytics-card"><strong>${summary.missingImages || 0}</strong><span>缺图片</span></div>
+        <div class="analytics-card"><strong>${summary.ready || 0}</strong><span>已完成</span></div>
+      `;
+      els.pageList.innerHTML = pages.length ? pages.map((page) => `<button class="page-item ${state.selectedPage?.url === page.url ? 'active' : ''}" type="button" data-url="${esc(page.url)}">
+        <strong>${esc(page.title)}</strong>
+        <span class="page-url">${esc(page.url)}</span>
+        <span class="cms-meta" style="margin-top:8px">
+          <span class="cms-pill">${esc((summary.teams || []).find((team) => team.id === page.team)?.name || page.team)}</span>
+          <span>${esc(statusLabel(page.status))}</span>
+          <span>${esc(statusLabel(page.imageStatus))}</span>
+          ${page.owner ? `<span>${esc(page.owner)}</span>` : ''}
+        </span>
+      </button>`).join('') : '<div class="cms-empty" style="padding:24px">没有匹配的 URL。</div>';
+      if (state.selectedPage) {
+        renderPageEditor(state.selectedPage);
+      } else {
+        els.pageEditorPanel.hidden = true;
+        els.pageEmptyState.hidden = false;
+      }
+    }
+
+    function renderPageEditor(page) {
+      els.pageEmptyState.hidden = true;
+      els.pageEditorPanel.hidden = false;
+      els.pageEditorTitle.textContent = page.title || page.url;
+      els.pageEditorUrl.textContent = page.url;
+      els.pageOpenLink.href = page.fullUrl || page.url;
+      els.pageTitleInput.value = page.title || '';
+      els.pageOwnerInput.value = page.owner || '';
+      els.pageTeamInput.value = page.team || 'general';
+      els.pageStatusInput.value = page.status || 'todo';
+      els.pageReviewInput.value = page.reviewStatus || 'pending';
+      els.pageImageStatusInput.value = page.imageStatus || 'missing';
+      els.pageImageBriefInput.value = page.imageBrief || '';
+      els.pageAiPromptInput.value = page.aiPrompt || '';
+      els.pageNotesInput.value = page.notes || '';
+    }
+
+    async function loadPages() {
+      const params = new URLSearchParams({ team: state.pageTeam, status: state.pageStatus, q: state.pageQuery });
+      state.pages = await api(`/api/cms/pages?${params.toString()}`);
+      renderPages();
+    }
+
+    async function savePage() {
+      if (!state.selectedPage) return toast('请先选择一个 URL');
+      els.pageSaveButton.disabled = true;
+      try {
+        const data = await api('/api/cms/page', {
+          method: 'POST',
+          body: JSON.stringify({
+            url: state.selectedPage.url,
+            title: els.pageTitleInput.value,
+            owner: els.pageOwnerInput.value,
+            team: els.pageTeamInput.value,
+            status: els.pageStatusInput.value,
+            reviewStatus: els.pageReviewInput.value,
+            imageStatus: els.pageImageStatusInput.value,
+            imageBrief: els.pageImageBriefInput.value,
+            aiPrompt: els.pageAiPromptInput.value,
+            notes: els.pageNotesInput.value,
+          }),
+        });
+        state.selectedPage = data.page;
+        toast('页面运营信息已保存');
+        await loadPages();
+      } finally {
+        els.pageSaveButton.disabled = false;
+      }
     }
 
     function renderAnalytics() {
@@ -920,6 +1157,7 @@
       document.querySelectorAll('.cms-tab').forEach((tab) => tab.classList.toggle('active', tab.dataset.view === view));
       els.overviewView.hidden = view !== 'overview';
       els.contentView.hidden = view !== 'content';
+      els.pagesView.hidden = view !== 'pages';
       els.analyticsView.hidden = view !== 'analytics';
       els.leadsView.hidden = view !== 'leads';
       els.seoView.hidden = view !== 'seo';
@@ -931,6 +1169,7 @@
       if (view === 'analytics') loadAnalytics().catch((error) => toast(error.message));
       if (view === 'leads') loadLeads().catch((error) => toast(error.message));
       if (view === 'seo') loadSeo().catch((error) => toast(error.message));
+      if (view === 'pages') loadPages().catch((error) => toast(error.message));
     }
 
     async function loadArticles() {
@@ -999,6 +1238,32 @@
       if (item) openArticle(item.dataset.file).catch((error) => toast(error.message));
     });
 
+    els.pageList.addEventListener('click', (event) => {
+      const item = event.target.closest('.page-item');
+      if (!item) return;
+      const page = (state.pages?.pages || []).find((entry) => entry.url === item.dataset.url);
+      if (!page) return;
+      state.selectedPage = page;
+      renderPages();
+    });
+
+    els.pageSearchInput.addEventListener('input', () => {
+      state.pageQuery = els.pageSearchInput.value.trim();
+      loadPages().catch((error) => toast(error.message));
+    });
+
+    els.pageTeamFilter.addEventListener('change', () => {
+      state.pageTeam = els.pageTeamFilter.value;
+      state.selectedPage = null;
+      loadPages().catch((error) => toast(error.message));
+    });
+
+    els.pageStatusFilter.addEventListener('change', () => {
+      state.pageStatus = els.pageStatusFilter.value;
+      state.selectedPage = null;
+      loadPages().catch((error) => toast(error.message));
+    });
+
     document.querySelectorAll('.cms-filter').forEach((button) => {
       button.addEventListener('click', () => {
         document.querySelectorAll('.cms-filter').forEach((item) => item.classList.remove('active'));
@@ -1024,6 +1289,7 @@
     });
 
     els.saveButton.addEventListener('click', () => saveArticle().catch((error) => toast(error.message)));
+    els.pageSaveButton.addEventListener('click', () => savePage().catch((error) => toast(error.message)));
     els.approveButton.addEventListener('click', () => review('approve').catch((error) => toast(error.message)));
     els.reviseButton.addEventListener('click', () => review('revise').catch((error) => toast(error.message)));
     els.archiveButton.addEventListener('click', () => review('archive').catch((error) => toast(error.message)));
@@ -1053,6 +1319,10 @@
       }
       if (state.view === 'seo') {
         loadSeo().catch((error) => toast(error.message));
+        return;
+      }
+      if (state.view === 'pages') {
+        loadPages().catch((error) => toast(error.message));
         return;
       }
       const action = state.view === 'analytics' ? loadAnalytics : state.view === 'leads' ? loadLeads : loadArticles;

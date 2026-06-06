@@ -24,7 +24,7 @@ const CMS_CAPABILITIES = {
   analytics: 'jsonl-pageviews',
   geoIp: 'optional-local-ip2region',
   workflow: ['draft', 'needs_revision', 'approved', 'archived'],
-  futureReady: ['roles', 'media', 'scheduledPublish', 'revisionHistory', 'crmSync'],
+  futureReady: ['pageMatrix', 'roles', 'media', 'scheduledPublish', 'revisionHistory', 'crmSync', 'aiQueue'],
 };
 const ANALYTICS_DIR = join(process.cwd(), 'data', 'analytics');
 const ANALYTICS_FILE = join(ANALYTICS_DIR, 'events.jsonl');
@@ -33,6 +33,8 @@ const LEADS_FILE = join(LEADS_DIR, 'leads.jsonl');
 const SEO_DIR = join(process.cwd(), 'data', 'seo');
 const SEO_DAILY_FILE = join(SEO_DIR, 'daily.jsonl');
 const SEO_SUBMISSION_FILE = join(SEO_DIR, 'submissions.jsonl');
+const CMS_DATA_DIR = join(process.cwd(), 'data', 'cms');
+const CMS_PAGES_FILE = join(CMS_DATA_DIR, 'pages.jsonl');
 
 // Load .env file
 function loadEnv(path) {
@@ -466,6 +468,10 @@ function cleanMultilineText(value = '', max = 1200) {
     .slice(0, max);
 }
 
+function cleanSlugText(value = '', max = 120) {
+  return String(value || '').replace(/[^\w\u4e00-\u9fa5\-/. ]+/g, '').trim().slice(0, max);
+}
+
 function leadId() {
   return `lead_${Date.now().toString(36)}_${Math.random().toString(36).slice(2, 8)}`;
 }
@@ -479,6 +485,89 @@ function readSitemapUrls() {
   if (!existsSync(file)) return [];
   const raw = readFileSync(file, 'utf8');
   return [...raw.matchAll(/<loc>(.*?)<\/loc>/g)].map((match) => match[1]).filter(Boolean);
+}
+
+const CMS_TEAMS = [
+  { id: 'aeis', name: 'AEIS 团队', keywords: ['aeis', 's-aeis', 'government-schools', 'primary-schools', 'secondary-schools'] },
+  { id: 'o-level', name: 'O-Level 团队', keywords: ['o-level', 'jc', 'poly'] },
+  { id: 'wace', name: 'WACE 团队', keywords: ['wace', 'atar'] },
+  { id: 'public-university', name: '公立大学团队', keywords: ['university', 'nus', 'ntu', 'smu', 'sutd', 'sit', 'suss', 'uas'] },
+  { id: 'private-university', name: '私立大学团队', keywords: ['private-university', 'private-schools', 'kaplan', 'sim', 'psb', 'mdis', 'jcu', 'curtin'] },
+  { id: 'international-school', name: '国际学校团队', keywords: ['international-school', 'ib', 'ap'] },
+  { id: 'general', name: '综合运营团队', keywords: ['guides', 'pathway', 'news', 'topics', 'tools'] },
+];
+
+function pageUrlPath(url = '') {
+  try {
+    return new URL(url).pathname || '/';
+  } catch {
+    const value = String(url || '/').trim();
+    return value.startsWith('/') ? value : `/${value}`;
+  }
+}
+
+function inferPageTeam(path = '') {
+  const value = String(path || '').toLowerCase();
+  for (const team of CMS_TEAMS) {
+    if (team.keywords.some((keyword) => value.includes(keyword))) return team.id;
+  }
+  return 'general';
+}
+
+function pageTitleFromPath(path = '') {
+  const clean = String(path || '/').replace(/^\/|\/$/g, '');
+  if (!clean) return '首页';
+  return clean.split('/').filter(Boolean).map((part) => part.replace(/-/g, ' ')).join(' / ');
+}
+
+function pageRecords() {
+  const savedRows = readJsonl(CMS_PAGES_FILE, 100000);
+  const saved = new Map(savedRows.map((row) => [pageUrlPath(row.url), row]));
+  const sitemapPages = readSitemapUrls().map((url) => {
+    const path = pageUrlPath(url);
+    const row = saved.get(path) || {};
+    return {
+      url: path,
+      fullUrl: `https://sgeda.org.cn${path}`,
+      title: row.title || pageTitleFromPath(path),
+      team: row.team || inferPageTeam(path),
+      owner: row.owner || '',
+      status: row.status || 'todo',
+      priority: row.priority || 'normal',
+      contentType: row.contentType || (path.includes('/tools/') ? 'tool' : path.split('/').filter(Boolean).length >= 2 ? 'seo-page' : 'pillar'),
+      reviewStatus: row.reviewStatus || 'pending',
+      imageStatus: row.imageStatus || 'missing',
+      imageBrief: row.imageBrief || '',
+      aiPrompt: row.aiPrompt || '',
+      notes: row.notes || '',
+      updatedAt: row.updatedAt || '',
+    };
+  });
+  return sitemapPages.sort((a, b) => a.team.localeCompare(b.team) || a.url.localeCompare(b.url));
+}
+
+function pageMatrixSummary(pages = pageRecords()) {
+  const byTeam = CMS_TEAMS.map((team) => {
+    const items = pages.filter((page) => page.team === team.id);
+    return {
+      id: team.id,
+      name: team.name,
+      total: items.length,
+      todo: items.filter((page) => page.status === 'todo').length,
+      inProgress: items.filter((page) => page.status === 'in_progress').length,
+      review: items.filter((page) => page.reviewStatus === 'pending').length,
+      missingImages: items.filter((page) => page.imageStatus === 'missing').length,
+    };
+  });
+  return {
+    teams: CMS_TEAMS.map(({ id, name }) => ({ id, name })),
+    total: pages.length,
+    todo: pages.filter((page) => page.status === 'todo').length,
+    inProgress: pages.filter((page) => page.status === 'in_progress').length,
+    ready: pages.filter((page) => page.status === 'ready').length,
+    missingImages: pages.filter((page) => page.imageStatus === 'missing').length,
+    byTeam,
+  };
 }
 
 function countArticlesByDate(date) {
@@ -1418,6 +1507,52 @@ function handleCmsGeoDebug(req, res) {
   });
 }
 
+function handleCmsPages(req, res, url) {
+  if (!requireCmsAuth(req, res)) return;
+  const team = String(url.searchParams.get('team') || '').trim();
+  const status = String(url.searchParams.get('status') || '').trim();
+  const q = String(url.searchParams.get('q') || '').trim().toLowerCase();
+  let pages = pageRecords();
+  if (team && team !== 'all') pages = pages.filter((page) => page.team === team);
+  if (status && status !== 'all') pages = pages.filter((page) => page.status === status || page.reviewStatus === status || page.imageStatus === status);
+  if (q) {
+    pages = pages.filter((page) => [page.url, page.title, page.owner, page.notes, page.aiPrompt].join(' ').toLowerCase().includes(q));
+  }
+  json(res, 200, { ok: true, summary: pageMatrixSummary(pageRecords()), pages: pages.slice(0, 800) });
+}
+
+async function handleCmsPageSave(req, res) {
+  if (!requireCmsAuth(req, res)) return;
+  let body;
+  try { body = await readBody(req); } catch { return json(res, 400, { error: '请求格式错误' }); }
+  const path = pageUrlPath(body.url);
+  if (!path || path.includes('..')) return json(res, 400, { error: 'URL 无效' });
+  const allowedTeams = new Set(CMS_TEAMS.map((team) => team.id));
+  const allowedStatus = new Set(['todo', 'in_progress', 'ready', 'published', 'paused']);
+  const allowedReview = new Set(['pending', 'needs_revision', 'approved']);
+  const allowedImage = new Set(['missing', 'planned', 'uploaded', 'not_needed']);
+  const rows = readJsonl(CMS_PAGES_FILE, 100000).filter((row) => pageUrlPath(row.url) !== path);
+  const record = {
+    url: path,
+    title: cleanSlugText(body.title || pageTitleFromPath(path), 160),
+    team: allowedTeams.has(body.team) ? body.team : inferPageTeam(path),
+    owner: cleanLeadText(body.owner, 80),
+    status: allowedStatus.has(body.status) ? body.status : 'todo',
+    priority: ['low', 'normal', 'high'].includes(body.priority) ? body.priority : 'normal',
+    contentType: cleanLeadText(body.contentType || 'seo-page', 50),
+    reviewStatus: allowedReview.has(body.reviewStatus) ? body.reviewStatus : 'pending',
+    imageStatus: allowedImage.has(body.imageStatus) ? body.imageStatus : 'missing',
+    imageBrief: cleanMultilineText(body.imageBrief, 1200),
+    aiPrompt: cleanMultilineText(body.aiPrompt, 1600),
+    notes: cleanMultilineText(body.notes, 1600),
+    updatedAt: new Date().toISOString(),
+  };
+  rows.push(record);
+  rows.sort((a, b) => pageUrlPath(a.url).localeCompare(pageUrlPath(b.url)));
+  writeJsonl(CMS_PAGES_FILE, rows);
+  json(res, 200, { ok: true, page: record, summary: pageMatrixSummary() });
+}
+
 const server = createServer(async (req, res) => {
   const url = new URL(req.url, `http://localhost`);
 
@@ -1436,6 +1571,8 @@ const server = createServer(async (req, res) => {
   if (req.method === 'GET' && url.pathname === '/api/cms/leads') return handleCmsLeads(req, res, url);
   if (req.method === 'GET' && url.pathname === '/api/cms/leads/export') return handleCmsLeadsExport(req, res);
   if (req.method === 'POST' && url.pathname === '/api/cms/lead') return handleCmsLeadUpdate(req, res);
+  if (req.method === 'GET' && url.pathname === '/api/cms/pages') return handleCmsPages(req, res, url);
+  if (req.method === 'POST' && url.pathname === '/api/cms/page') return handleCmsPageSave(req, res);
   if (req.method === 'GET' && url.pathname === '/api/cms/articles') return listCmsArticles(req, res);
   if (req.method === 'GET' && url.pathname === '/api/cms/article') return getCmsArticle(req, res, url);
   if (req.method === 'POST' && url.pathname === '/api/cms/article') return saveCmsArticle(req, res);

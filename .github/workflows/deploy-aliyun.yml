@@ -60,5 +60,7 @@ jobs:
 
             node scripts/build-content.mjs
             node scripts/indexnow-submit.mjs || true
+            bash scripts/install-daily-drafts-cron.sh
+            bash scripts/install-seo-submit-cron.sh
             pm2 restart seda-api --update-env
             pm2 list

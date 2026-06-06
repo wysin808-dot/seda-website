@@ -31,9 +31,14 @@ record_submission() {
   mkdir -p "$(dirname "$SEO_SUBMISSION_FILE")"
   PROVIDER="$provider" SUBMITTED="$submitted" STATUS="$status" HTTP_STATUS="$http_status" MESSAGE="$message" TOTAL="$TOTAL" OFFSET="$OFFSET" NEXT_OFFSET="$NEXT_OFFSET" \
     python3 -c 'import json, os, datetime
-now = datetime.datetime.utcnow().replace(microsecond=0).isoformat() + "Z"
+try:
+    from zoneinfo import ZoneInfo
+    local = datetime.datetime.now(ZoneInfo("Asia/Singapore")).replace(microsecond=0)
+except Exception:
+    local = datetime.datetime.utcnow().replace(microsecond=0)
+now = local.isoformat()
 record = {
-  "date": now[:10],
+  "date": local.date().isoformat(),
   "createdAt": now,
   "provider": os.environ.get("PROVIDER", ""),
   "submitted": int(os.environ.get("SUBMITTED", "0") or 0),

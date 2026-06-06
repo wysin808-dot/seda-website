@@ -3090,6 +3090,52 @@ a, button, .filter, .article-card, .pathway-grid a, .search-grid a,
   transform: translateY(-1px);
 }
 
+.partner-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  max-width: 100%;
+  min-height: 46px;
+  padding: 0 20px;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  font-size: 15px;
+  font-weight: 900;
+  line-height: 1.1;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: all 0.2s var(--ease);
+}
+
+.partner-action-primary {
+  background: var(--brand);
+  color: #fff !important;
+  box-shadow: 0 8px 22px rgba(198, 40, 40, 0.22);
+}
+
+.partner-action-primary:hover {
+  background: var(--brand-strong);
+  color: #fff !important;
+  text-decoration: none;
+  transform: translateY(-1px);
+  box-shadow: 0 12px 28px rgba(198, 40, 40, 0.3);
+}
+
+.partner-action-secondary {
+  background: #fff;
+  color: var(--brand) !important;
+  border-color: #fecaca;
+  box-shadow: 0 6px 18px rgba(198, 40, 40, 0.08);
+}
+
+.partner-action-secondary:hover {
+  background: #fff1f2;
+  color: var(--brand-strong) !important;
+  text-decoration: none;
+  transform: translateY(-1px);
+}
+
 .nav-cta {
   transition: all 0.2s var(--ease);
   box-shadow: 0 2px 8px rgba(198, 40, 40, 0.2);

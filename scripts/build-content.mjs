@@ -373,7 +373,7 @@ function renderArticle(article, articles) {
 <meta name="keywords" content="${keywords}"/>
 <link rel="canonical" href="${domain}${url}"/>
 <link rel="alternate" type="application/rss+xml" title="SEDA 新加坡择校网最新文章" href="${domain}/feed.xml"/>
-<link rel="stylesheet" href="/seda-site.css?v=32"/>
+<link rel="stylesheet" href="/seda-site.css?v=34"/>
 <script type="application/ld+json">${articleSchema}</script>
 <script type="application/ld+json">${webPageSchema}</script>
 <script type="application/ld+json">${breadcrumbSchema}</script>
@@ -427,7 +427,7 @@ ${header}
   </article>
 </main>
 ${footer}
-<script src="/seda-site.js?v=24"></script>
+<script src="/seda-site.js?v=25"></script>
 </body>
 </html>`;
 }
@@ -537,7 +537,7 @@ function renderReviewPage(articles) {
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <meta name="robots" content="noindex,nofollow"/>
 <title>SEDA 内容审核后台</title>
-<link rel="stylesheet" href="/seda-site.css?v=32"/>
+<link rel="stylesheet" href="/seda-site.css?v=34"/>
 <style>
   body{background:#f6f7f9;color:#172033}
   .review-main{max-width:1180px;margin:0 auto;padding:32px 20px 72px}

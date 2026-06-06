@@ -107,7 +107,7 @@
 
   function createSideCard() {
     if (!shouldShowSideCard(location.pathname)) return;
-    if (localStorage.getItem('sedaWechatSidecardClosed') === '1') return;
+    if (sessionStorage.getItem('sedaWechatSidecardClosed') === '1') return;
     if (document.querySelector('.seda-wechat-sidecard')) return;
     var wrap = document.createElement('aside');
     wrap.className = 'seda-wechat-sidecard';
@@ -127,7 +127,7 @@
     var close = wrap.querySelector('.seda-sidecard-close');
     if (close) {
       close.addEventListener('click', function(){
-        localStorage.setItem('sedaWechatSidecardClosed', '1');
+        sessionStorage.setItem('sedaWechatSidecardClosed', '1');
         wrap.remove();
         document.body.classList.remove('has-seda-wechat-sidecard');
       });

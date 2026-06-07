@@ -99,6 +99,14 @@
     .school-action-list{display:flex;gap:6px;flex-wrap:wrap}
     .school-action{border-radius:999px;background:#fff7ed;color:#9a3412;padding:5px 8px;font-size:12px;font-weight:900}
     .school-action.ok{background:#ecfdf3;color:#027a48}
+    .submit-pipeline{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:12px}
+    .submit-step{border:1px solid #e5e8ee;border-radius:8px;background:#fff;padding:12px}
+    .submit-step strong{display:block;font-size:15px}
+    .submit-step span{display:inline-flex;margin-top:8px;border-radius:999px;background:#eef2f7;color:#475569;padding:5px 8px;font-size:12px;font-weight:900}
+    .submit-step.ok span{background:#ecfdf3;color:#027a48}
+    .submit-step.pending span{background:#fff7ed;color:#9a3412}
+    .submit-step.error span{background:#fff1f1;color:#b91c1c}
+    .pipeline-note{border:1px solid #e5e8ee;border-radius:8px;background:#fbfcfe;padding:12px;color:#475569;font-size:13px;font-weight:800;line-height:1.6}
     .status-dot{display:inline-flex;align-items:center;gap:6px;border-radius:999px;background:#eef2f7;color:#344054;padding:5px 8px;font-size:12px;font-weight:900}
     .status-dot.ok{background:#ecfdf3;color:#027a48}
     .status-dot.warn{background:#fff8e6;color:#9a6400}
@@ -286,7 +294,7 @@
     .seo-log{border:1px solid #1f2937;border-radius:8px}
     .cms-toast{border-radius:8px;background:#111827;box-shadow:0 18px 48px rgba(15,23,42,.24)}
     @media (max-width:1100px){.cms-tabs{grid-template-columns:repeat(3,minmax(0,1fr))}.cms-sidebar{position:static;max-height:none}.cms-list,.page-list{max-height:none}}
-    @media (max-width:900px){.cms-shell{padding:16px 14px 64px}.cms-top{display:grid;padding:20px}.cms-grid,.analytics-panels,.seo-form,.overview-grid,.quick-grid,.ops-grid,.topic-row,.school-row,.page-workbench,.page-editor-grid,.ops-form,.media-grid,.account-layout,.production-flow{grid-template-columns:1fr}.seo-field.wide,.page-field.wide,.ops-form .wide{grid-column:auto}.cms-list,.page-list{max-height:none}.cms-editor-head,.visual-editor-head{display:grid}.cms-stats{grid-template-columns:1fr 1fr 1fr}.analytics-grid,.overview-cards,.publish-checklist{grid-template-columns:1fr 1fr}.bar-row{grid-template-columns:96px minmax(0,1fr) 42px}.editor-quality-grid{grid-template-columns:1fr 1fr}.editor-quality-top{display:grid}}
+    @media (max-width:900px){.cms-shell{padding:16px 14px 64px}.cms-top{display:grid;padding:20px}.cms-grid,.analytics-panels,.seo-form,.overview-grid,.quick-grid,.ops-grid,.topic-row,.school-row,.page-workbench,.page-editor-grid,.ops-form,.media-grid,.account-layout,.production-flow{grid-template-columns:1fr}.seo-field.wide,.page-field.wide,.ops-form .wide{grid-column:auto}.cms-list,.page-list{max-height:none}.cms-editor-head,.visual-editor-head{display:grid}.cms-stats{grid-template-columns:1fr 1fr 1fr}.analytics-grid,.overview-cards,.publish-checklist,.submit-pipeline{grid-template-columns:1fr 1fr}.bar-row{grid-template-columns:96px minmax(0,1fr) 42px}.editor-quality-grid{grid-template-columns:1fr 1fr}.editor-quality-top{display:grid}}
     @media (max-width:560px){.cms-tabs{grid-template-columns:1fr 1fr}.overview-cards,.analytics-grid,.cms-stats{grid-template-columns:1fr}.cms-toolbar{width:100%}.cms-button{flex:1}.cms-editor-head .cms-toolbar{display:grid;grid-template-columns:1fr 1fr}.recent-table{font-size:13px}}
   </style>
 </head>
@@ -1134,6 +1142,7 @@
       </div>`).join('') : '<div class="cms-empty" style="padding:24px">核心选题池暂时覆盖得不错。</div>';
       renderBarChart(els.overviewHotPages, data.topPages || []);
       els.overviewSeoOps.innerHTML = `
+        ${renderSubmitPipeline(seoOps.pipeline || {}, seoOps.providers || {})}
         <div class="ops-grid">
           <div class="ops-card"><strong>${seoOps.sitemapUrlCount || 0}</strong><span>sitemap URL</span></div>
           <div class="ops-card"><strong>${seoOps.baiduSubmitted || 0}</strong><span>百度提交</span></div>
@@ -1575,6 +1584,25 @@
       return `${label}${provider.lastHttpStatus ? ` · HTTP ${provider.lastHttpStatus}` : ''}`;
     }
 
+    function pipelineLabel(value) {
+      return value === 'ok' ? '完成' : value === 'error' ? '异常' : value === 'idle' ? '等待' : '待处理';
+    }
+
+    function renderSubmitPipeline(pipeline = {}, providers = {}) {
+      const steps = [
+        { key: 'sitemap', title: 'Sitemap 更新', value: pipeline.sitemap || 'pending' },
+        { key: 'publish', title: '今日发布', value: pipeline.publish || 'idle' },
+        { key: 'baidu', title: '百度推送', value: pipeline.baidu || 'pending', meta: providers.baidu?.lastCreatedAt ? String(providers.baidu.lastCreatedAt).replace('T', ' ').slice(0, 16) : '' },
+        { key: 'indexnow', title: 'IndexNow', value: pipeline.indexnow || 'pending', meta: providers.indexnow?.lastCreatedAt ? String(providers.indexnow.lastCreatedAt).replace('T', ' ').slice(0, 16) : '' },
+      ];
+      return `<div class="submit-pipeline">${steps.map((step) => `<div class="submit-step ${esc(step.value)}">
+        <strong>${esc(step.title)}</strong>
+        <span>${esc(pipelineLabel(step.value))}</span>
+        ${step.meta ? `<div class="lead-muted" style="margin-top:7px">${esc(step.meta)}</div>` : ''}
+      </div>`).join('')}</div>
+      <div class="pipeline-note">${esc(pipeline.message || '暂无提交流水线状态。')}</div>`;
+    }
+
     function renderSeo() {
       const data = state.seo || {};
       const saved = data.saved || {};
@@ -1603,7 +1631,8 @@
           <td>${esc(row.notes || '')}</td>
         </tr>`).join('')}</tbody>
       </table>` : '<div class="cms-empty" style="padding:24px">暂无 SEO/GEO 记录。</div>';
-      els.seoSubmitRecent.innerHTML = submissions.records?.length ? `<div class="quality-metrics" style="margin-bottom:12px">
+      els.seoSubmitRecent.innerHTML = `${renderSubmitPipeline(data.pipeline || {}, providers)}
+        ${submissions.records?.length ? `<div class="quality-metrics" style="margin-bottom:12px">
           <span>百度：${providers.baidu?.submitted || 0} URL</span>
           <span>${esc(renderSubmissionStatus(providers.baidu))}</span>
           <span>IndexNow：${providers.indexnow?.submitted || 0} URL</span>
@@ -1618,7 +1647,7 @@
             <td>${esc(row.status || '')}</td>
             <td>${row.httpStatus || 0}</td>
           </tr>`).join('')}</tbody>
-        </table>` : '<div class="cms-empty" style="padding:24px">暂无自动提交记录。运行百度提交或 IndexNow 脚本后会显示。</div>';
+        </table>` : '<div class="cms-empty" style="padding:24px">暂无自动提交记录。发布文章后会自动尝试提交，也可以由服务器定时任务补跑。</div>'}`;
       els.seoLog.textContent = data.baiduLogTail?.length ? data.baiduLogTail.join('\n') : '暂无日志';
     }
 

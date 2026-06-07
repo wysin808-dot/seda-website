@@ -764,8 +764,8 @@ function submissionSummary(date = todayDate()) {
     .filter((row) => row.date === date || String(row.createdAt || '').startsWith(date))
     .sort((a, b) => String(b.createdAt || '').localeCompare(String(a.createdAt || '')));
   const providers = {
-    baidu: { submitted: 0, success: 0, error: 0, lastStatus: '', lastHttpStatus: 0 },
-    indexnow: { submitted: 0, success: 0, error: 0, lastStatus: '', lastHttpStatus: 0 },
+    baidu: { submitted: 0, success: 0, error: 0, lastStatus: '', lastHttpStatus: 0, lastCreatedAt: '' },
+    indexnow: { submitted: 0, success: 0, error: 0, lastStatus: '', lastHttpStatus: 0, lastCreatedAt: '' },
   };
   for (const record of records) {
     const provider = String(record.provider || '').toLowerCase();
@@ -776,12 +776,42 @@ function submissionSummary(date = todayDate()) {
     if (!providers[provider].lastStatus) {
       providers[provider].lastStatus = record.status || '';
       providers[provider].lastHttpStatus = Number(record.httpStatus || 0) || 0;
+      providers[provider].lastCreatedAt = record.createdAt || '';
     }
   }
   return {
     records: records.slice(0, 20),
     providers,
     totalSubmitted: Object.values(providers).reduce((sum, item) => sum + item.submitted, 0),
+  };
+}
+
+function submitPipelineStatus({ sitemapUrlCount = 0, todayPublishedArticles = 0, submissions = {} } = {}) {
+  const providers = submissions.providers || {};
+  const baidu = providers.baidu || {};
+  const indexnow = providers.indexnow || {};
+  const baiduOk = baidu.lastStatus === 'success' && Number(baidu.submitted || 0) > 0;
+  const indexNowOk = indexnow.lastStatus === 'success' && Number(indexnow.submitted || 0) > 0;
+  const hasPublish = Number(todayPublishedArticles || 0) > 0;
+  const hasAnySubmit = Number(submissions.totalSubmitted || 0) > 0;
+  const needsRun = hasPublish && (!baiduOk || !indexNowOk);
+  const hasError = [baidu.lastStatus, indexnow.lastStatus].some((status) => status && status !== 'success');
+  return {
+    sitemap: sitemapUrlCount > 0 ? 'ok' : 'error',
+    publish: hasPublish ? 'ok' : 'idle',
+    baidu: baiduOk ? 'ok' : hasError && baidu.lastStatus ? 'error' : 'pending',
+    indexnow: indexNowOk ? 'ok' : hasError && indexnow.lastStatus ? 'error' : 'pending',
+    needsRun,
+    hasAnySubmit,
+    hasError,
+    status: hasError ? 'error' : needsRun ? 'pending' : hasAnySubmit ? 'ok' : 'idle',
+    message: hasError
+      ? '提交脚本有异常，需要查看日志'
+      : needsRun
+        ? '今日有发布内容，建议补跑百度 / IndexNow 提交'
+        : hasAnySubmit
+          ? '今日自动提交已记录'
+          : '今日还没有提交记录',
   };
 }
 
@@ -795,14 +825,16 @@ function seoSnapshot(date = todayDate()) {
   const saved = latestSeoRecord(date);
   const audit = seoContentAudit(sitemapUrls);
   const submissions = submissionSummary(date);
+  const todayPublishedArticles = countArticlesByDate(date);
   return {
     date,
     sitemapUrlCount: sitemapUrls.length,
-    todayPublishedArticles: countArticlesByDate(date),
+    todayPublishedArticles,
     baiduOffset: baidu.offset,
     baiduNextStart: baidu.nextStart,
     baiduLogTail: baidu.logTail,
     submissions,
+    pipeline: submitPipelineStatus({ sitemapUrlCount: sitemapUrls.length, todayPublishedArticles, submissions }),
     saved,
     audit,
     recent: readJsonl(SEO_DAILY_FILE, 60).reverse(),
@@ -1516,8 +1548,10 @@ function handleCmsOverview(req, res) {
       indexNowSubmitted: seo.submissions?.providers?.indexnow?.submitted || 0,
       baiduStatus: seo.submissions?.providers?.baidu?.lastStatus || '',
       indexNowStatus: seo.submissions?.providers?.indexnow?.lastStatus || '',
+      providers: seo.submissions?.providers || {},
       auditTotals: seo.audit?.totals || {},
       saved: Boolean(seo.saved),
+      pipeline: seo.pipeline,
     },
     contentIdeas: contentIdeasFromArticles(articles),
     recentArticles: articles.slice(0, 8),

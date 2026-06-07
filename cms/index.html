@@ -152,6 +152,10 @@
     .editor-image-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
     .mini-action{border:1px solid #f1c9cd;border-radius:999px;background:#fff;color:#cf2029;font-weight:900;font-size:12px;padding:8px 12px;cursor:pointer}
     .mini-action:hover{background:#fff5f5}
+    .current-image-list{display:grid;gap:8px;margin-top:12px}
+    .current-image-item{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px;align-items:center;border:1px solid #eef0f4;border-radius:8px;background:#fafbfc;padding:10px}
+    .current-image-item code{display:block;color:#344054;font-size:12px;word-break:break-all;margin-top:4px}
+    .current-image-item span{display:block;color:#667085;font-size:12px;line-height:1.5}
     .editor-suggestions{margin:12px 0 0;padding-left:18px;color:#344054;line-height:1.7}
     .ops-form{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:18px}
     .ops-form .wide{grid-column:span 2}
@@ -919,6 +923,7 @@
       const label = level === 'error' ? '需修复' : level === 'warning' ? '可优化' : '通过';
       const metrics = optimization.metrics || {};
       const imagePlan = optimization.imagePlan || {};
+      const images = optimization.images || [];
       const suggestions = optimization.suggestions || [];
       els.editorQuality.innerHTML = `
         <div class="editor-quality-top">
@@ -945,6 +950,16 @@
             <button class="mini-action" type="button" data-editor-action="generate-cover">生成并插入首图</button>
             <button class="mini-action" type="button" data-editor-action="copy-image-markdown">复制图片 Markdown</button>
             <button class="mini-action" type="button" data-editor-action="copy-image-prompt">复制绘图提示词</button>
+          </div>
+          <div class="current-image-list">
+            <strong>当前文章图片</strong>
+            ${images.length ? images.map((image) => `<div class="current-image-item">
+              <div>
+                <span>Alt：${esc(image.alt || '未填写')}</span>
+                <code>${esc(image.src || '')}</code>
+              </div>
+              <a class="mini-action" href="${esc(image.src || '#')}" target="_blank" rel="noopener">查看图片</a>
+            </div>`).join('') : '<div class="lead-muted">还没有插入图片。点击“生成并插入首图”后，会自动写入文章正文顶部。</div>'}
           </div>
         </div>
         ${suggestions.length ? `<ul class="editor-suggestions">${suggestions.map((item) => `<li>${esc(item)}</li>`).join('')}</ul>` : '<div class="lead-muted" style="margin-top:12px">暂无明显问题。</div>'}

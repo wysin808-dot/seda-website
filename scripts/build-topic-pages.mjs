@@ -258,11 +258,6 @@ ${header}
           <h3>专题定位</h3>
           <p>本页用于聚合 SEDA 关于 ${escapeHtml(topic.title)} 的核心解释、学校页面和长尾文章，帮助搜索引擎和 AI 搜索理解主题关系。</p>
         </div>
-        <div class="sidebar-card cta-card">
-          <h3>需要判断孩子路径？</h3>
-          <p>告诉我们孩子年龄、英文基础和目标学校，SEDA 顾问可以帮你比较路径。</p>
-          <a class="btn" href="/contact/">免费咨询</a>
-        </div>
       </aside>
     </div>
   </section>
@@ -283,7 +278,7 @@ ${matched.length ? renderCards(matched) : topic.links.map(([label, href]) => `
   </section>
 </main>
 ${footer}
-<script src="/seda-site.js?v=25"></script>
+<script src="/seda-site.js?v=26"></script>
 </body>
 </html>`;
 }
@@ -330,7 +325,7 @@ ${header}
   </section>
 </main>
 ${footer}
-<script src="/seda-site.js?v=25"></script>
+<script src="/seda-site.js?v=26"></script>
 </body>
 </html>`;
 }

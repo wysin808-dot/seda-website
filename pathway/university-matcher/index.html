@@ -1049,22 +1049,6 @@
         <h2 id="contact-title">AI 给你方向，顾问帮你落地</h2>
         <p>把你的匹配结果告诉我们，顾问团队会在 24 小时内提供一对一选校策略、申请时间表与材料指导。</p>
       </div>
-      <form class="lead-form">
-        <label><span>学生当前年级</span><input type="text" name="grade" placeholder="例如：国内高二 / JC1 / IB Year 12" /></label>
-        <label><span>考试体系</span>
-          <select name="track">
-            <option>新加坡 A-Level (GCE)</option>
-            <option>国际 A-Level (CIE)</option>
-            <option>IB Diploma</option>
-            <option>AP</option>
-            <option>WACE 国际高中</option>
-            <option>中国高考</option>
-            <option>还不确定，需要规划</option>
-          </select>
-        </label>
-        <label><span>联系方式</span><input type="text" name="contact" placeholder="微信 / WhatsApp / 手机" /></label>
-        <button class="primary-button" type="submit">提交咨询</button>
-      </form>
     </section>
   </main>
 
@@ -1093,7 +1077,7 @@
       </div>
     </footer>
 
-  <script src="/seda-site.js?v=25"></script>
+  <script src="/seda-site.js?v=26"></script>
   <script>
   /* ============================================================
      SEDA University Matcher v2 — Subject-Level Matching
@@ -1715,7 +1699,6 @@
       const data={action:'wechat_gate_passed',exam:state.exam,
         programs:state._selectedPrograms?Array.from(state._selectedPrograms):[],
         timestamp:new Date().toISOString(),source:'university-matcher'};
-      console.log('[SEDA Lead]',JSON.stringify(data));
     }catch(e){}
     /* Continue with match */
     executeMatch();

@@ -416,18 +416,12 @@ ${header}
             </div>
           </div>
         </div>
-        <form class="lead-form">
-          <label><span>学生当前年级</span><input type="text" name="grade" placeholder="例如：国内初三 / 高一" /></label>
-          <label><span>目标方向</span><input type="text" name="target" placeholder="${categoryLabel}" /></label>
-          <label><span>联系方式</span><input type="text" name="contact" placeholder="微信 SEDAGUIDE / 手机" /></label>
-          <button class="primary-button" type="submit">提交咨询</button>
-        </form>
       </div>
     </section>
   </article>
 </main>
 ${footer}
-<script src="/seda-site.js?v=25"></script>
+<script src="/seda-site.js?v=26"></script>
 </body>
 </html>`;
 }

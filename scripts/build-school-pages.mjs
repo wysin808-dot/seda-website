@@ -584,12 +584,6 @@ ${header}
               </div>
             </div>
           </div>
-          <form class="lead-form">
-            <label><span>学生当前年级</span><input type="text" name="grade" placeholder="例如：国内初二 / 小五 / 高一" /></label>
-            <label><span>目标学校</span><input type="text" name="target" value="${escapeHtml(school.nameZh)}" /></label>
-            <label><span>联系方式</span><input type="text" name="contact" placeholder="微信 SEDAGUIDE / 手机" /></label>
-            <button class="primary-button" type="submit">提交咨询</button>
-          </form>
         </div>
       </section>
     </article>
@@ -598,12 +592,11 @@ ${header}
         <li><a href="/${school.basePath}/">${escapeHtml(school.categoryLabel)}总览</a></li>
         ${related.slice(0, 3).map(([label, href]) => `<li><a href="${href}">${escapeHtml(label)}</a></li>`).join('')}
       </ul></div>
-      <div class="sidebar-card cta-card"><h3>免费选校咨询</h3><p>想比较 ${escapeHtml(school.nameZh)} 和其他学校？联系 SEDA。</p><a class="btn" href="/contact/">预约咨询</a></div>
     </aside>
   </div>
 </main>
 ${footer}
-<script src="/seda-site.js?v=25"></script>
+<script src="/seda-site.js?v=26"></script>
 </body>
 </html>`;
 }
@@ -698,17 +691,11 @@ ${cards}
           </div>
         </div>
       </div>
-      <form class="lead-form">
-        <label><span>学生当前年级</span><input type="text" name="grade" placeholder="例如：国内小五 / 初二 / 高一" /></label>
-        <label><span>目标课程</span><input type="text" name="target" placeholder="IB / A-Level / AP / WACE / 还不确定" /></label>
-        <label><span>联系方式</span><input type="text" name="contact" placeholder="微信 SEDAGUIDE / 手机" /></label>
-        <button class="primary-button" type="submit">提交咨询</button>
-      </form>
     </div>
   </section>
 </main>
 ${footer}
-<script src="/seda-site.js?v=25"></script>
+<script src="/seda-site.js?v=26"></script>
 </body>
 </html>`;
 }

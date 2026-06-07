@@ -2704,42 +2704,6 @@ main > section:not(.hero) {
   color: var(--brand);
 }
 
-.sidebar-cta {
-  padding: 24px;
-  border-radius: var(--radius);
-  background: linear-gradient(135deg, var(--brand) 0%, var(--brand-strong) 100%);
-  color: #fff;
-  text-align: center;
-}
-
-.sidebar-cta h4 {
-  margin: 0 0 10px;
-  padding: 0;
-  border: 0;
-  color: #fff;
-  font-size: 18px;
-}
-
-.sidebar-cta p {
-  margin: 0 0 14px;
-  color: rgba(255, 255, 255, 0.76);
-  font-size: 14px;
-  line-height: 1.6;
-}
-
-.sidebar-cta .primary-button {
-  width: 100%;
-  font-size: 14px;
-}
-
-/* The site now uses one unified WeChat conversion path. Hide old sidebar
-   hard-sell CTA blocks so content pages feel like an education portal. */
-.sidebar-cta,
-.sidebar .cta-card,
-.content-sidebar .cta-card {
-  display: none !important;
-}
-
 /* ── Related Articles ── */
 .geo-summary {
   margin: 0 0 34px;
@@ -3630,16 +3594,6 @@ a, button, .filter, .article-card, .pathway-grid a, .search-grid a,
   box-shadow: var(--shadow-sm);
 }
 
-.sidebar-cta {
-  box-shadow: 0 8px 32px rgba(198, 40, 40, 0.2);
-  transition: transform 0.2s var(--ease), box-shadow 0.2s var(--ease);
-}
-
-.sidebar-cta:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 12px 40px rgba(198, 40, 40, 0.3);
-}
-
 /* ── Info Box Polish ── */
 .info-box {
   border-radius: var(--radius);
@@ -3938,40 +3892,6 @@ details summary:focus-visible {
   color: var(--brand);
 }
 
-.sidebar .cta-card {
-  background: linear-gradient(135deg, var(--brand) 0%, var(--brand-strong) 100%);
-  color: #fff;
-  text-align: center;
-}
-
-.sidebar .cta-card h3 {
-  color: #fff;
-  border-bottom-color: rgba(255,255,255,0.3);
-}
-
-.sidebar .cta-card p {
-  margin: 0 0 14px;
-  color: rgba(255,255,255,0.8);
-  font-size: 14px;
-  line-height: 1.6;
-}
-
-.sidebar .cta-card .btn {
-  display: inline-block;
-  padding: 10px 24px;
-  background: #fff;
-  color: var(--brand);
-  border-radius: 8px;
-  font-weight: 700;
-  font-size: 14px;
-  transition: all 0.2s var(--ease);
-}
-
-.sidebar .cta-card .btn:hover {
-  background: var(--brand-light);
-  text-decoration: none;
-}
-
 /* ── HK University Detail Pages — Footer Grid ── */
 .footer-grid {
   display: grid;
@@ -4202,7 +4122,7 @@ body.nav-drawer-open {
 
 /* ── Print Styles ── */
 @media print {
-  .site-header, .wechat-float, .sidebar-cta, .contact-section, .menu-toggle {
+  .site-header, .wechat-float, .contact-section, .menu-toggle {
     display: none !important;
   }
   .content-layout {

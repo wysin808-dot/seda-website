@@ -1503,7 +1503,6 @@
       const data={action:'wechat_gate_passed_planner',uni:state.uni,program:state.program,
         grade:state.grade,location:state.location,
         timestamp:new Date().toISOString(),source:'study-planner'};
-      console.log('[SEDA Lead]',JSON.stringify(data));
     }catch(e){}
     executePlanner();
   });
@@ -2070,6 +2069,6 @@
     item.addEventListener('click',()=>item.classList.toggle('open'));
   });
   </script>
-<script src="/seda-site.js?v=25"></script>
+<script src="/seda-site.js?v=26"></script>
 </body>
 </html>

@@ -74,9 +74,32 @@ This phase is not yet a full WordPress-style visual page editor. It is the opera
 
 The current API and status fields are intentionally compatible with a future database-backed CMS.
 
+## Phase 2.5: Team Accounts and Visual Page Drafts
+
+Phase 2.5 turns the CMS into a more practical operating backend without forcing team members to touch Markdown or code.
+
+- `/cms/` includes an `账号管理` workspace for admins.
+  - Admins can create or reset team accounts.
+  - Team accounts are stored in `data/cms/users.jsonl`.
+  - Environment-based admin accounts still work and are shown as `env` source.
+  - Non-admin users do not see the account management tab.
+- Team accounts are scoped to their own team pages.
+  - A WACE team member only sees WACE URLs.
+  - An AEIS team member only sees AEIS / government-school URLs.
+  - Admin can view and maintain all teams.
+- `/cms/` includes a visual page body draft editor inside `页面矩阵`.
+  - API: `GET /api/cms/page-content?url=/path/`
+  - API: `POST /api/cms/page-content`
+  - The API reads the live static HTML page and extracts editable blocks such as H1, H2, paragraph, and list text.
+  - Editors can update those blocks visually in the CMS.
+  - Saves are stored as pending body drafts in `data/cms/pages.jsonl`.
+  - Saving a body draft does not directly mutate the live static HTML page. This avoids accidental SEO page damage.
+
+This is an intentional review-first model: teams can prepare page edits in the backend, then an admin can later connect a safe publishing step with revision history.
+
 Planned extensions:
 
-- URL-level content editor for school pages, pathway pages, and pillar pages.
+- Admin-only publish action for URL-level visual page drafts.
 - Revision history for every article and URL page.
 - Scheduled publishing.
 - Content collections and taxonomy management.

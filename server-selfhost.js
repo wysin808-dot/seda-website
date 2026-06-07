@@ -570,6 +570,60 @@ function pageTitleFromPath(path = '') {
   return clean.split('/').filter(Boolean).map((part) => part.replace(/-/g, ' ')).join(' / ');
 }
 
+function pageFilePath(path = '') {
+  const clean = pageUrlPath(path);
+  if (!clean || clean.includes('..')) return null;
+  const file = clean === '/' ? join(process.cwd(), 'index.html') : join(process.cwd(), clean.replace(/^\/+/, ''), 'index.html');
+  const rel = relative(process.cwd(), file);
+  if (!rel || rel.startsWith('..') || rel.includes(`..${sep}`)) return null;
+  return file;
+}
+
+function htmlEntityDecode(value = '') {
+  return String(value || '')
+    .replace(/&nbsp;/g, ' ')
+    .replace(/&amp;/g, '&')
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;/g, "'")
+    .replace(/&#(\d+);/g, (_, code) => {
+      const number = Number(code);
+      return Number.isFinite(number) ? String.fromCharCode(number) : '';
+    });
+}
+
+function textFromHtml(html = '') {
+  return htmlEntityDecode(String(html || '')
+    .replace(/<script[\s\S]*?<\/script>/gi, ' ')
+    .replace(/<style[\s\S]*?<\/style>/gi, ' ')
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim());
+}
+
+function extractPageBlocks(html = '') {
+  const main = String(html || '').match(/<main\b[\s\S]*?<\/main>/i)?.[0] || String(html || '');
+  const blocks = [];
+  const seen = new Set();
+  const blockRe = /<(h1|h2|h3|h4|p|li)(?:\s[^>]*)?>([\s\S]*?)<\/\1>/gi;
+  let match;
+  while ((match = blockRe.exec(main)) && blocks.length < 120) {
+    const tag = match[1].toLowerCase();
+    const text = textFromHtml(match[2]);
+    if (!text || text.length < 2 || text.length > 900) continue;
+    const key = `${tag}:${text}`;
+    if (seen.has(key)) continue;
+    seen.add(key);
+    blocks.push({ id: `block_${blocks.length + 1}`, tag, text });
+  }
+  return blocks;
+}
+
+function savedPageRow(path = '') {
+  return readJsonl(CMS_PAGES_FILE, 100000).find((row) => pageUrlPath(row.url) === pageUrlPath(path)) || {};
+}
+
 function pageRecords() {
   const savedRows = readJsonl(CMS_PAGES_FILE, 100000);
   const saved = new Map(savedRows.map((row) => [pageUrlPath(row.url), row]));
@@ -591,6 +645,11 @@ function pageRecords() {
       imageBrief: row.imageBrief || '',
       aiPrompt: row.aiPrompt || '',
       notes: row.notes || '',
+      bodyStatus: row.bodyStatus || '',
+      bodyDraftBlocks: Array.isArray(row.bodyDraftBlocks) ? row.bodyDraftBlocks : [],
+      bodyNote: row.bodyNote || '',
+      bodyUpdatedAt: row.bodyUpdatedAt || '',
+      bodyUpdatedBy: row.bodyUpdatedBy || '',
       updatedAt: row.updatedAt || '',
     };
   });
@@ -1610,10 +1669,12 @@ function handleCmsGeoDebug(req, res) {
 
 function handleCmsPages(req, res, url) {
   if (!requireCmsAuth(req, res)) return;
+  const session = cmsSession(req) || {};
   const team = String(url.searchParams.get('team') || '').trim();
   const status = String(url.searchParams.get('status') || '').trim();
   const q = String(url.searchParams.get('q') || '').trim().toLowerCase();
   let pages = pageRecords();
+  if (session.team && session.team !== 'all') pages = pages.filter((page) => page.team === session.team);
   if (team && team !== 'all') pages = pages.filter((page) => page.team === team);
   if (status && status !== 'all') pages = pages.filter((page) => page.status === status || page.reviewStatus === status || page.imageStatus === status);
   if (q) {
@@ -1876,19 +1937,24 @@ async function handleCmsAiJob(req, res) {
 
 async function handleCmsPageSave(req, res) {
   if (!requireCmsAuth(req, res)) return;
+  const session = cmsSession(req) || {};
   let body;
   try { body = await readBody(req); } catch { return json(res, 400, { error: '请求格式错误' }); }
   const path = pageUrlPath(body.url);
   if (!path || path.includes('..')) return json(res, 400, { error: 'URL 无效' });
+  const existing = savedPageRow(path);
   const allowedTeams = new Set(CMS_TEAMS.map((team) => team.id));
   const allowedStatus = new Set(['todo', 'in_progress', 'ready', 'published', 'paused']);
   const allowedReview = new Set(['pending', 'needs_revision', 'approved']);
   const allowedImage = new Set(['missing', 'planned', 'uploaded', 'not_needed']);
+  const nextTeam = allowedTeams.has(body.team) ? body.team : inferPageTeam(path);
+  if (session.team && session.team !== 'all' && nextTeam !== session.team) return json(res, 403, { error: '不能维护其他团队的页面' });
   const rows = readJsonl(CMS_PAGES_FILE, 100000).filter((row) => pageUrlPath(row.url) !== path);
   const record = {
+    ...existing,
     url: path,
     title: cleanSlugText(body.title || pageTitleFromPath(path), 160),
-    team: allowedTeams.has(body.team) ? body.team : inferPageTeam(path),
+    team: nextTeam,
     owner: cleanLeadText(body.owner, 80),
     status: allowedStatus.has(body.status) ? body.status : 'todo',
     priority: ['low', 'normal', 'high'].includes(body.priority) ? body.priority : 'normal',
@@ -1905,6 +1971,71 @@ async function handleCmsPageSave(req, res) {
   rows.sort((a, b) => pageUrlPath(a.url).localeCompare(pageUrlPath(b.url)));
   writeJsonl(CMS_PAGES_FILE, rows);
   json(res, 200, { ok: true, page: record, summary: pageMatrixSummary() });
+}
+
+function canAccessPage(session, path) {
+  if (!session) return false;
+  if (session.role === 'admin' || session.team === 'all') return true;
+  const page = pageRecords().find((item) => item.url === pageUrlPath(path));
+  return (page?.team || inferPageTeam(path)) === session.team;
+}
+
+function handleCmsPageContent(req, res, url) {
+  if (!requireCmsAuth(req, res)) return;
+  const session = cmsSession(req);
+  const path = pageUrlPath(url.searchParams.get('url') || '/');
+  if (!canAccessPage(session, path)) return json(res, 403, { error: '不能查看其他团队的页面正文' });
+  const file = pageFilePath(path);
+  if (!file || !existsSync(file)) return json(res, 404, { error: '页面文件不存在' });
+  const html = readFileSync(file, 'utf8');
+  const row = savedPageRow(path);
+  json(res, 200, {
+    ok: true,
+    url: path,
+    title: row.title || pageTitleFromPath(path),
+    liveBlocks: extractPageBlocks(html),
+    draftBlocks: Array.isArray(row.bodyDraftBlocks) ? row.bodyDraftBlocks : [],
+    bodyStatus: row.bodyStatus || '',
+    bodyNote: row.bodyNote || '',
+    bodyUpdatedAt: row.bodyUpdatedAt || '',
+    bodyUpdatedBy: row.bodyUpdatedBy || '',
+  });
+}
+
+async function handleCmsPageContentSave(req, res) {
+  if (!requireCmsAuth(req, res)) return;
+  const session = cmsSession(req);
+  let body;
+  try { body = await readBody(req); } catch { return json(res, 400, { error: '请求格式错误' }); }
+  const path = pageUrlPath(body.url);
+  if (!canAccessPage(session, path)) return json(res, 403, { error: '不能保存其他团队的页面正文' });
+  const blocks = Array.isArray(body.blocks) ? body.blocks.slice(0, 120).map((block, index) => ({
+    id: cleanAccountId(block.id || `block_${index + 1}`, 60),
+    tag: ['h1', 'h2', 'h3', 'h4', 'p', 'li'].includes(String(block.tag || '').toLowerCase()) ? String(block.tag).toLowerCase() : 'p',
+    text: cleanMultilineText(block.text, 900),
+  })).filter((block) => block.text) : [];
+  if (!blocks.length) return json(res, 400, { error: '正文草稿不能为空' });
+  const rows = readJsonl(CMS_PAGES_FILE, 100000).filter((row) => pageUrlPath(row.url) !== path);
+  const existing = savedPageRow(path);
+  const record = {
+    ...existing,
+    url: path,
+    title: existing.title || pageTitleFromPath(path),
+    team: existing.team || inferPageTeam(path),
+    status: existing.status || 'in_progress',
+    reviewStatus: body.status === 'approved' ? 'approved' : 'pending',
+    imageStatus: existing.imageStatus || 'missing',
+    bodyDraftBlocks: blocks,
+    bodyStatus: body.status === 'approved' ? 'approved' : 'pending',
+    bodyNote: cleanMultilineText(body.note, 1200),
+    bodyUpdatedAt: new Date().toISOString(),
+    bodyUpdatedBy: session?.username || 'admin',
+    updatedAt: new Date().toISOString(),
+  };
+  rows.push(record);
+  rows.sort((a, b) => pageUrlPath(a.url).localeCompare(pageUrlPath(b.url)));
+  writeJsonl(CMS_PAGES_FILE, rows);
+  json(res, 200, { ok: true, content: record });
 }
 
 const server = createServer(async (req, res) => {
@@ -1929,6 +2060,8 @@ const server = createServer(async (req, res) => {
   if (req.method === 'POST' && url.pathname === '/api/cms/lead') return handleCmsLeadUpdate(req, res);
   if (req.method === 'GET' && url.pathname === '/api/cms/pages') return handleCmsPages(req, res, url);
   if (req.method === 'POST' && url.pathname === '/api/cms/page') return handleCmsPageSave(req, res);
+  if (req.method === 'GET' && url.pathname === '/api/cms/page-content') return handleCmsPageContent(req, res, url);
+  if (req.method === 'POST' && url.pathname === '/api/cms/page-content') return handleCmsPageContentSave(req, res);
   if (req.method === 'GET' && url.pathname === '/api/cms/media') return handleCmsMediaList(req, res, url);
   if (req.method === 'POST' && url.pathname === '/api/cms/media') return handleCmsMediaUpload(req, res);
   if (req.method === 'GET' && url.pathname === '/api/cms/ai-jobs') return handleCmsAiJobs(req, res);

@@ -159,12 +159,30 @@
     .media-card div{padding:12px}
     .media-card strong{display:block;font-size:14px;line-height:1.35;word-break:break-all}
     .media-card code{display:block;margin-top:8px;color:#667085;font-size:12px;word-break:break-all}
+    .account-layout{display:grid;grid-template-columns:360px minmax(0,1fr);gap:18px;align-items:start}
+    .account-form{display:grid;gap:12px}
+    .account-form label{display:block;color:#667085;font-size:12px;font-weight:900;margin-bottom:6px}
+    .account-help{border:1px solid #eef0f4;border-radius:8px;background:#fafbfc;color:#667085;line-height:1.65;padding:12px;font-size:13px}
+    .account-table td,.account-table th{padding:12px 10px}
+    .account-source{display:inline-flex;border-radius:999px;background:#eef2f7;color:#344054;font-size:12px;font-weight:900;padding:5px 8px}
+    .visual-editor{margin-top:18px;border:1px solid #e2e6ee;border-radius:8px;background:#fff;overflow:hidden}
+    .visual-editor-head{display:flex;justify-content:space-between;gap:14px;align-items:flex-start;border-bottom:1px solid #eef0f4;background:#fafbfc;padding:16px}
+    .visual-editor-head h3{margin:0 0 6px;font-size:18px}
+    .visual-editor-head p{margin:0;color:#667085;line-height:1.6;font-size:13px}
+    .visual-editor-body{padding:16px}
+    .visual-block-list{display:grid;gap:10px;max-height:620px;overflow:auto;padding-right:4px}
+    .visual-block{display:grid;grid-template-columns:54px minmax(0,1fr);gap:10px;align-items:start;border:1px solid #e5e8ee;border-radius:8px;background:#fff;padding:10px}
+    .visual-tag{display:inline-flex;align-items:center;justify-content:center;height:34px;border-radius:999px;background:#fff1f1;color:#c51624;font-size:12px;font-weight:900;text-transform:uppercase}
+    .visual-text{min-height:34px;border:1px solid transparent;border-radius:8px;padding:8px 10px;line-height:1.7;color:#172033;outline:none}
+    .visual-text:focus{border-color:#f1c9cd;background:#fffafa;box-shadow:0 0 0 3px rgba(207,32,41,.08)}
+    .visual-status{display:flex;gap:8px;align-items:center;flex-wrap:wrap;color:#667085;font-size:12px;font-weight:800;margin:12px 0}
+    .visual-empty{border:1px dashed #d8dde7;border-radius:8px;color:#667085;text-align:center;padding:28px}
     .job-list{display:grid;gap:10px}
     .job-item{border:1px solid #e2e6ee;border-radius:8px;background:#fff;padding:14px}
     .job-item strong{display:block;font-size:16px}
     .job-item p{margin:8px 0 0;color:#667085;font-size:13px;line-height:1.6}
     [hidden]{display:none!important}
-    @media (max-width:900px){.cms-grid,.analytics-panels,.seo-form,.overview-grid,.quick-grid,.ops-grid,.topic-row,.page-workbench,.page-editor-grid,.ops-form,.media-grid{grid-template-columns:1fr}.seo-field.wide,.page-field.wide,.ops-form .wide{grid-column:auto}.cms-list,.page-list{max-height:none}.cms-editor-head{display:grid}.cms-stats{grid-template-columns:1fr 1fr 1fr}.analytics-grid,.overview-cards{grid-template-columns:1fr 1fr}.bar-row{grid-template-columns:96px minmax(0,1fr) 42px}.editor-quality-grid{grid-template-columns:1fr 1fr}.editor-quality-top{display:grid}}
+    @media (max-width:900px){.cms-grid,.analytics-panels,.seo-form,.overview-grid,.quick-grid,.ops-grid,.topic-row,.page-workbench,.page-editor-grid,.ops-form,.media-grid,.account-layout{grid-template-columns:1fr}.seo-field.wide,.page-field.wide,.ops-form .wide{grid-column:auto}.cms-list,.page-list{max-height:none}.cms-editor-head,.visual-editor-head{display:grid}.cms-stats{grid-template-columns:1fr 1fr 1fr}.analytics-grid,.overview-cards{grid-template-columns:1fr 1fr}.bar-row{grid-template-columns:96px minmax(0,1fr) 42px}.editor-quality-grid{grid-template-columns:1fr 1fr}.editor-quality-top{display:grid}}
   </style>
 </head>
 <body>
@@ -199,6 +217,7 @@
         <button class="cms-tab active" type="button" data-view="overview">运营首页</button>
         <button class="cms-tab" type="button" data-view="content">内容管理</button>
         <button class="cms-tab" type="button" data-view="pages">页面矩阵</button>
+        <button class="cms-tab" type="button" data-view="accounts">账号管理</button>
         <button class="cms-tab" type="button" data-view="media">媒体库</button>
         <button class="cms-tab" type="button" data-view="ai">AI生产</button>
         <button class="cms-tab" type="button" data-view="analytics">流量分析</button>
@@ -398,8 +417,82 @@
                     <textarea id="pageNotesInput" class="cms-input" placeholder="团队协作备注、审核意见、下一步动作"></textarea>
                   </div>
                 </div>
+                <section class="visual-editor" aria-label="页面正文可视化编辑">
+                  <div class="visual-editor-head">
+                    <div>
+                      <h3>页面正文可视化编辑</h3>
+                      <p>从当前 URL 读取公开页面正文，团队可直接修改标题、段落和列表项；保存后进入待审核草稿，不会直接改线上页面。</p>
+                    </div>
+                    <div class="cms-toolbar">
+                      <button id="loadPageContentButton" class="cms-button secondary" type="button">读取正文</button>
+                      <button id="savePageContentButton" class="cms-button" type="button">保存正文草稿</button>
+                    </div>
+                  </div>
+                  <div class="visual-editor-body">
+                    <div id="pageBodyStatus" class="visual-status">尚未读取正文。</div>
+                    <div id="pageBodyBlocks" class="visual-block-list">
+                      <div class="visual-empty">选择 URL 后点击“读取正文”。</div>
+                    </div>
+                    <div class="page-field wide" style="margin-top:12px">
+                      <label for="pageBodyNoteInput">正文修改说明 / 审核备注</label>
+                      <textarea id="pageBodyNoteInput" class="cms-input" style="min-height:90px;padding:12px;resize:vertical" placeholder="例如：补充 WACE 适合人群、删掉重复 CTA、优化 FAQ"></textarea>
+                    </div>
+                  </div>
+                </section>
               </div>
             </div>
+          </section>
+        </div>
+      </section>
+
+      <section id="accountsView" hidden>
+        <div class="account-layout">
+          <section class="analytics-panel">
+            <h2>团队账号</h2>
+            <p style="color:#667085;line-height:1.7;margin-top:0">给 AEIS、O-Level、WACE、公立大学、私立大学、国际学校团队分别开账号。团队成员只维护自己的页面和草稿。</p>
+            <div class="account-form">
+              <div>
+                <label for="accountUsernameInput">账号</label>
+                <input id="accountUsernameInput" class="cms-input" type="text" placeholder="例如 aeis-editor">
+              </div>
+              <div>
+                <label for="accountNameInput">显示名称</label>
+                <input id="accountNameInput" class="cms-input" type="text" placeholder="例如 AEIS 内容组">
+              </div>
+              <div>
+                <label for="accountPasswordInput">密码</label>
+                <input id="accountPasswordInput" class="cms-input" type="text" placeholder="新建或重置密码">
+              </div>
+              <div>
+                <label for="accountRoleInput">角色</label>
+                <select id="accountRoleInput" class="cms-input">
+                  <option value="editor">编辑</option>
+                  <option value="reviewer">审核</option>
+                  <option value="viewer">只读</option>
+                  <option value="admin">管理员</option>
+                </select>
+              </div>
+              <div>
+                <label for="accountTeamInput">所属团队</label>
+                <select id="accountTeamInput" class="cms-input"></select>
+              </div>
+              <div>
+                <label for="accountActiveInput">状态</label>
+                <select id="accountActiveInput" class="cms-input">
+                  <option value="true">启用</option>
+                  <option value="false">停用</option>
+                </select>
+              </div>
+              <div class="cms-toolbar">
+                <button id="saveAccountButton" class="cms-button" type="button">保存账号</button>
+                <button id="resetAccountButton" class="cms-button secondary" type="button">清空</button>
+              </div>
+              <div class="account-help">建议按团队创建账号，例如 <strong>aeis-editor</strong>、<strong>wace-editor</strong>。环境变量账号会显示为 env，适合管理员账号；后台创建的账号会保存到服务器数据文件。</div>
+            </div>
+          </section>
+          <section class="analytics-panel">
+            <h2>账号列表</h2>
+            <div id="accountList"></div>
           </section>
         </div>
       </section>
@@ -608,7 +701,7 @@
   </main>
 
   <script>
-    const state = { articles: [], filter: 'all', selected: null, query: '', status: null, analytics: null, analyticsRecent: [], leads: null, seo: null, overview: null, pages: null, selectedPage: null, pageQuery: '', pageTeam: 'all', pageStatus: 'all', media: null, aiJobs: null, user: null, view: 'overview' };
+    const state = { articles: [], filter: 'all', selected: null, query: '', status: null, analytics: null, analyticsRecent: [], leads: null, seo: null, overview: null, pages: null, selectedPage: null, pageQuery: '', pageTeam: 'all', pageStatus: 'all', pageContent: null, media: null, aiJobs: null, accounts: null, user: null, view: 'overview' };
     const els = {
       loginPanel: document.getElementById('loginPanel'),
       appPanel: document.getElementById('appPanel'),
@@ -663,9 +756,24 @@
       pageImageBriefInput: document.getElementById('pageImageBriefInput'),
       pageAiPromptInput: document.getElementById('pageAiPromptInput'),
       pageNotesInput: document.getElementById('pageNotesInput'),
+      loadPageContentButton: document.getElementById('loadPageContentButton'),
+      savePageContentButton: document.getElementById('savePageContentButton'),
+      pageBodyStatus: document.getElementById('pageBodyStatus'),
+      pageBodyBlocks: document.getElementById('pageBodyBlocks'),
+      pageBodyNoteInput: document.getElementById('pageBodyNoteInput'),
       analyticsView: document.getElementById('analyticsView'),
       leadsView: document.getElementById('leadsView'),
       seoView: document.getElementById('seoView'),
+      accountsView: document.getElementById('accountsView'),
+      accountList: document.getElementById('accountList'),
+      accountUsernameInput: document.getElementById('accountUsernameInput'),
+      accountNameInput: document.getElementById('accountNameInput'),
+      accountPasswordInput: document.getElementById('accountPasswordInput'),
+      accountRoleInput: document.getElementById('accountRoleInput'),
+      accountTeamInput: document.getElementById('accountTeamInput'),
+      accountActiveInput: document.getElementById('accountActiveInput'),
+      saveAccountButton: document.getElementById('saveAccountButton'),
+      resetAccountButton: document.getElementById('resetAccountButton'),
       mediaView: document.getElementById('mediaView'),
       aiView: document.getElementById('aiView'),
       mediaFileInput: document.getElementById('mediaFileInput'),
@@ -744,6 +852,9 @@
     function showApp() {
       els.loginPanel.hidden = true;
       els.appPanel.hidden = false;
+      document.querySelectorAll('[data-view="accounts"]').forEach((tab) => {
+        tab.hidden = state.user?.role !== 'admin';
+      });
     }
 
     function passesFilter(article) {
@@ -935,6 +1046,9 @@
       els.pageTeamInput.innerHTML = teams.map((team) => `<option value="${esc(team.id)}">${esc(team.name)}</option>`).join('');
       els.mediaTeamInput.innerHTML = teams.map((team) => `<option value="${esc(team.id)}">${esc(team.name)}</option>`).join('');
       els.aiTeamInput.innerHTML = teams.map((team) => `<option value="${esc(team.id)}">${esc(team.name)}</option>`).join('');
+      if (els.accountTeamInput) {
+        els.accountTeamInput.innerHTML = [`<option value="all">全部团队</option>`].concat(teams.map((team) => `<option value="${esc(team.id)}">${esc(team.name)}</option>`)).join('');
+      }
     }
 
     function renderPages() {
@@ -982,6 +1096,77 @@
       els.pageImageBriefInput.value = page.imageBrief || '';
       els.pageAiPromptInput.value = page.aiPrompt || '';
       els.pageNotesInput.value = page.notes || '';
+      state.pageContent = null;
+      els.pageBodyNoteInput.value = page.bodyNote || '';
+      els.pageBodyStatus.innerHTML = page.bodyStatus
+        ? `已有正文草稿：${esc(statusLabel(page.bodyStatus))}${page.bodyUpdatedBy ? ` · ${esc(page.bodyUpdatedBy)}` : ''}${page.bodyUpdatedAt ? ` · ${esc(page.bodyUpdatedAt.slice(0, 16).replace('T', ' '))}` : ''}`
+        : '尚未读取正文。';
+      els.pageBodyBlocks.innerHTML = page.bodyDraftBlocks?.length
+        ? renderEditableBlocks(page.bodyDraftBlocks)
+        : '<div class="visual-empty">选择 URL 后点击“读取正文”。</div>';
+    }
+
+    function renderEditableBlocks(blocks = []) {
+      return blocks.length ? blocks.map((block, index) => `<div class="visual-block" data-id="${esc(block.id || `block_${index + 1}`)}" data-tag="${esc(block.tag || 'p')}">
+        <span class="visual-tag">${esc(block.tag || 'p')}</span>
+        <div class="visual-text" contenteditable="true" spellcheck="false">${esc(block.text || '')}</div>
+      </div>`).join('') : '<div class="visual-empty">这个页面没有抽取到可编辑正文。</div>';
+    }
+
+    function renderPageContent() {
+      const content = state.pageContent || {};
+      const blocks = content.draftBlocks?.length ? content.draftBlocks : (content.liveBlocks || []);
+      els.pageBodyBlocks.innerHTML = renderEditableBlocks(blocks);
+      els.pageBodyNoteInput.value = content.bodyNote || els.pageBodyNoteInput.value || '';
+      const source = content.draftBlocks?.length ? '正在编辑已保存草稿' : '已读取线上页面正文';
+      els.pageBodyStatus.innerHTML = `
+        <span>${source}</span>
+        <span>可编辑块：${blocks.length || 0}</span>
+        ${content.bodyStatus ? `<span>状态：${esc(statusLabel(content.bodyStatus))}</span>` : ''}
+        ${content.bodyUpdatedBy ? `<span>更新人：${esc(content.bodyUpdatedBy)}</span>` : ''}
+      `;
+    }
+
+    async function loadPageContent() {
+      if (!state.selectedPage) return toast('请先选择一个 URL');
+      els.loadPageContentButton.disabled = true;
+      try {
+        state.pageContent = await api(`/api/cms/page-content?url=${encodeURIComponent(state.selectedPage.url)}`);
+        renderPageContent();
+        toast('已读取页面正文');
+      } finally {
+        els.loadPageContentButton.disabled = false;
+      }
+    }
+
+    function collectPageContentBlocks() {
+      return [...els.pageBodyBlocks.querySelectorAll('.visual-block')].map((block, index) => ({
+        id: block.dataset.id || `block_${index + 1}`,
+        tag: block.dataset.tag || 'p',
+        text: block.querySelector('.visual-text')?.textContent.trim() || '',
+      })).filter((block) => block.text);
+    }
+
+    async function savePageContent() {
+      if (!state.selectedPage) return toast('请先选择一个 URL');
+      const blocks = collectPageContentBlocks();
+      if (!blocks.length) return toast('没有可保存的正文块');
+      els.savePageContentButton.disabled = true;
+      try {
+        await api('/api/cms/page-content', {
+          method: 'POST',
+          body: JSON.stringify({
+            url: state.selectedPage.url,
+            blocks,
+            status: 'pending',
+            note: els.pageBodyNoteInput.value,
+          }),
+        });
+        toast('正文草稿已保存，等待审核');
+        await loadPages();
+      } finally {
+        els.savePageContentButton.disabled = false;
+      }
     }
 
     async function loadPages() {
@@ -1368,12 +1553,88 @@
       }
     }
 
+    function renderAccounts() {
+      const users = state.accounts?.users || [];
+      renderPageTeamOptions(state.accounts?.teams || []);
+      els.accountList.innerHTML = users.length ? `<table class="recent-table account-table">
+        <thead><tr><th>账号</th><th>姓名</th><th>角色</th><th>团队</th><th>来源</th><th>操作</th></tr></thead>
+        <tbody>${users.map((user) => `<tr>
+          <td><strong>${esc(user.username)}</strong></td>
+          <td>${esc(user.name || '')}</td>
+          <td>${esc({ admin: '管理员', editor: '编辑', reviewer: '审核', viewer: '只读' }[user.role] || user.role)}</td>
+          <td>${esc((state.accounts?.teams || []).find((team) => team.id === user.team)?.name || (user.team === 'all' ? '全部团队' : user.team))}</td>
+          <td><span class="account-source">${esc(user.source || 'file')}</span></td>
+          <td><button class="lead-action" type="button" data-account="${esc(user.username)}">编辑</button></td>
+        </tr>`).join('')}</tbody>
+      </table>` : '<div class="cms-empty" style="padding:24px">暂无团队账号。</div>';
+    }
+
+    async function loadAccounts() {
+      if (state.user?.role !== 'admin') return toast('只有管理员可以进入账号管理');
+      state.accounts = await api('/api/cms/users');
+      renderAccounts();
+    }
+
+    function resetAccountForm() {
+      els.accountUsernameInput.value = '';
+      els.accountNameInput.value = '';
+      els.accountPasswordInput.value = '';
+      els.accountRoleInput.value = 'editor';
+      els.accountTeamInput.value = 'general';
+      els.accountActiveInput.value = 'true';
+      els.accountUsernameInput.disabled = false;
+    }
+
+    function fillAccountForm(username) {
+      const user = (state.accounts?.users || []).find((item) => item.username === username);
+      if (!user) return;
+      els.accountUsernameInput.value = user.username;
+      els.accountNameInput.value = user.name || '';
+      els.accountPasswordInput.value = '';
+      els.accountRoleInput.value = user.role || 'editor';
+      els.accountTeamInput.value = user.team || 'general';
+      els.accountActiveInput.value = user.active === false ? 'false' : 'true';
+      els.accountUsernameInput.disabled = user.source === 'env';
+      toast(user.source === 'env' ? '环境变量账号不能在这里改账号名，请填写密码保存为文件账号覆盖' : '已载入账号');
+    }
+
+    async function saveAccount() {
+      if (state.user?.role !== 'admin') return toast('只有管理员可以维护账号');
+      const username = els.accountUsernameInput.value.trim();
+      const password = els.accountPasswordInput.value.trim();
+      if (!username || !password) return toast('账号和密码都要填写');
+      els.saveAccountButton.disabled = true;
+      try {
+        state.accounts = await api('/api/cms/user', {
+          method: 'POST',
+          body: JSON.stringify({
+            username,
+            password,
+            name: els.accountNameInput.value,
+            role: els.accountRoleInput.value,
+            team: els.accountTeamInput.value,
+            active: els.accountActiveInput.value === 'true',
+          }),
+        });
+        toast('账号已保存');
+        resetAccountForm();
+        await loadAccounts();
+      } finally {
+        els.saveAccountButton.disabled = false;
+      }
+    }
+
     function switchView(view) {
+      if (view === 'accounts' && state.user?.role !== 'admin') {
+        toast('只有管理员可以进入账号管理');
+        view = 'overview';
+      }
       state.view = view;
       document.querySelectorAll('.cms-tab').forEach((tab) => tab.classList.toggle('active', tab.dataset.view === view));
       els.overviewView.hidden = view !== 'overview';
       els.contentView.hidden = view !== 'content';
       els.pagesView.hidden = view !== 'pages';
+      els.accountsView.hidden = view !== 'accounts';
       els.mediaView.hidden = view !== 'media';
       els.aiView.hidden = view !== 'ai';
       els.analyticsView.hidden = view !== 'analytics';
@@ -1388,6 +1649,7 @@
       if (view === 'leads') loadLeads().catch((error) => toast(error.message));
       if (view === 'seo') loadSeo().catch((error) => toast(error.message));
       if (view === 'pages') loadPages().catch((error) => toast(error.message));
+      if (view === 'accounts') loadAccounts().catch((error) => toast(error.message));
       if (view === 'media') loadMedia().catch((error) => toast(error.message));
       if (view === 'ai') loadAiJobs().catch((error) => toast(error.message));
     }
@@ -1465,6 +1727,7 @@
       const page = (state.pages?.pages || []).find((entry) => entry.url === item.dataset.url);
       if (!page) return;
       state.selectedPage = page;
+      state.pageContent = null;
       renderPages();
     });
 
@@ -1511,8 +1774,16 @@
 
     els.saveButton.addEventListener('click', () => saveArticle().catch((error) => toast(error.message)));
     els.pageSaveButton.addEventListener('click', () => savePage().catch((error) => toast(error.message)));
+    els.loadPageContentButton.addEventListener('click', () => loadPageContent().catch((error) => toast(error.message)));
+    els.savePageContentButton.addEventListener('click', () => savePageContent().catch((error) => toast(error.message)));
     els.uploadMediaButton.addEventListener('click', () => uploadMedia().catch((error) => toast(error.message)));
     els.generateAiButton.addEventListener('click', () => generateAiDraft().catch((error) => toast(error.message)));
+    els.saveAccountButton.addEventListener('click', () => saveAccount().catch((error) => toast(error.message)));
+    els.resetAccountButton.addEventListener('click', resetAccountForm);
+    els.accountList.addEventListener('click', (event) => {
+      const button = event.target.closest('[data-account]');
+      if (button) fillAccountForm(button.dataset.account);
+    });
     els.approveButton.addEventListener('click', () => review('approve').catch((error) => toast(error.message)));
     els.reviseButton.addEventListener('click', () => review('revise').catch((error) => toast(error.message)));
     els.archiveButton.addEventListener('click', () => review('archive').catch((error) => toast(error.message)));
@@ -1554,6 +1825,10 @@
       }
       if (state.view === 'ai') {
         loadAiJobs().catch((error) => toast(error.message));
+        return;
+      }
+      if (state.view === 'accounts') {
+        loadAccounts().catch((error) => toast(error.message));
         return;
       }
       const action = state.view === 'analytics' ? loadAnalytics : state.view === 'leads' ? loadLeads : loadArticles;

@@ -38,6 +38,7 @@ const CMS_PAGES_FILE = join(CMS_DATA_DIR, 'pages.jsonl');
 const CMS_USERS_FILE = join(CMS_DATA_DIR, 'users.jsonl');
 const CMS_MEDIA_FILE = join(CMS_DATA_DIR, 'media.jsonl');
 const CMS_AI_JOBS_FILE = join(CMS_DATA_DIR, 'ai-jobs.jsonl');
+const SCHOOL_DATA_FILE = join(process.cwd(), 'content', 'schools', 'seo-schools.json');
 const CMS_MEDIA_DIR = join(process.cwd(), 'assets', 'uploads', 'cms');
 
 // Load .env file
@@ -1064,6 +1065,81 @@ function siteFileExistsForPath(path = '') {
   return existsSync(join(process.cwd(), clean.replace(/^\/|\/$/g, ''), 'index.html'));
 }
 
+function schoolUrlFromRecord(school = {}) {
+  if (!school.basePath || !school.slug) return '';
+  return `/${String(school.basePath).replace(/^\/|\/$/g, '')}/${String(school.slug).replace(/^\/|\/$/g, '')}/`;
+}
+
+function readSchoolRecords() {
+  if (!existsSync(SCHOOL_DATA_FILE)) return [];
+  try {
+    const rows = JSON.parse(readFileSync(SCHOOL_DATA_FILE, 'utf8'));
+    return Array.isArray(rows) ? rows : [];
+  } catch {
+    return [];
+  }
+}
+
+function schoolDatabaseMatrix(sitemapUrls = readSitemapUrls()) {
+  const schools = readSchoolRecords();
+  const sitemapSet = new Set(sitemapUrls);
+  const groups = [
+    { key: 'primary-schools', label: '政府小学', target: 179, team: 'AEIS 团队' },
+    { key: 'secondary-schools', label: '政府中学', target: 146, team: 'O-Level / AEIS 团队' },
+    { key: 'international-school', label: '国际学校', target: 50, team: '国际学校团队' },
+    { key: 'jc', label: 'JC 初级学院', target: 18, team: 'O-Level 团队' },
+    { key: 'poly', label: 'Poly 理工学院', target: 5, team: 'O-Level 团队' },
+    { key: 'university', label: '公立大学 / 艺术大学', target: 7, team: '公立大学团队' },
+  ];
+  const rows = groups.map((group) => {
+    const items = schools.filter((school) => school.basePath === group.key);
+    const checked = items.map((school) => {
+      const url = schoolUrlFromRecord(school);
+      const absoluteUrl = `https://sgeda.org.cn${url}`;
+      const exists = Boolean(url) && siteFileExistsForPath(url);
+      const inSitemap = sitemapSet.has(absoluteUrl);
+      return {
+        name: school.nameZh || school.nameEn || school.slug,
+        slug: school.slug,
+        url,
+        exists,
+        inSitemap,
+      };
+    });
+    const generated = checked.filter((item) => item.exists);
+    const inSitemap = checked.filter((item) => item.inSitemap);
+    const missingPages = checked.filter((item) => !item.exists);
+    const missingSitemap = checked.filter((item) => item.exists && !item.inSitemap);
+    const dataGap = Math.max(0, group.target - items.length);
+    return {
+      ...group,
+      sourceCount: items.length,
+      targetCount: group.target,
+      generatedCount: generated.length,
+      sitemapCount: inSitemap.length,
+      missingPageCount: missingPages.length,
+      missingSitemapCount: missingSitemap.length,
+      dataGap,
+      coveragePercent: group.target ? Math.round(generated.length / group.target * 100) : 0,
+      nextActions: [
+        ...(dataGap ? [`补 ${dataGap} 条学校数据`] : []),
+        ...missingPages.slice(0, 2).map((item) => `生成 ${item.name}`),
+        ...missingSitemap.slice(0, 2).map((item) => `检查 sitemap ${item.url}`),
+      ].slice(0, 4),
+    };
+  });
+  const totals = rows.reduce((sum, row) => ({
+    sourceCount: sum.sourceCount + row.sourceCount,
+    targetCount: sum.targetCount + row.targetCount,
+    generatedCount: sum.generatedCount + row.generatedCount,
+    sitemapCount: sum.sitemapCount + row.sitemapCount,
+    missingPageCount: sum.missingPageCount + row.missingPageCount,
+    missingSitemapCount: sum.missingSitemapCount + row.missingSitemapCount,
+    dataGap: sum.dataGap + row.dataGap,
+  }), { sourceCount: 0, targetCount: 0, generatedCount: 0, sitemapCount: 0, missingPageCount: 0, missingSitemapCount: 0, dataGap: 0 });
+  return { totals, groups: rows };
+}
+
 function topicMatrix(articles = articleSummaries(), sitemapUrls = readSitemapUrls()) {
   const sitemapSet = new Set(sitemapUrls);
   return SEO_TOPICS.map((topic) => {
@@ -1385,7 +1461,9 @@ function handleCmsOverview(req, res) {
   const events = readAnalyticsEvents(30).filter((event) => (event.eventType || 'pageview') === 'pageview');
   const todayEvents = events.filter((event) => String(event.ts || '').startsWith(today));
   const seo = seoSnapshot(today);
-  const topics = topicMatrix(articles, readSitemapUrls());
+  const sitemapUrls = readSitemapUrls();
+  const topics = topicMatrix(articles, sitemapUrls);
+  const schoolMatrix = schoolDatabaseMatrix(sitemapUrls);
   const health = contentHealth(articles);
   const draftArticles = articles.filter((item) => item.draft && item.reviewStatus !== 'needs_revision');
   const revisionArticles = articles.filter((item) => item.reviewStatus === 'needs_revision');
@@ -1404,6 +1482,8 @@ function handleCmsOverview(req, res) {
   if (topics.some((topic) => !topic.inSitemap)) tasks.push({ type: 'seo', title: '检查专题页是否全部进入 sitemap', target: 'seo', priority: 'medium' });
   const missingTopicPages = topics.reduce((sum, topic) => sum + (topic.missingCount || 0), 0);
   if (missingTopicPages) tasks.push({ type: 'content', title: `专题矩阵还有 ${missingTopicPages} 个关键页面待补齐`, target: 'pages', priority: 'high' });
+  if (schoolMatrix.totals.dataGap) tasks.push({ type: 'content', title: `学校库还有 ${schoolMatrix.totals.dataGap} 条目标数据待补齐`, target: 'pages', priority: 'high' });
+  if (schoolMatrix.totals.missingSitemapCount) tasks.push({ type: 'seo', title: `${schoolMatrix.totals.missingSitemapCount} 个学校页需检查 sitemap`, target: 'seo', priority: 'medium' });
   if (health.lowScore) tasks.push({ type: 'content', title: `${health.lowScore} 篇内容 SEO 分数低于 70`, target: 'seo', priority: 'medium' });
   json(res, 200, {
     ok: true,
@@ -1427,6 +1507,7 @@ function handleCmsOverview(req, res) {
     },
     tasks,
     topicMatrix: topics,
+    schoolMatrix,
     contentHealth: health,
     seoOps: {
       sitemapUrlCount: seo.sitemapUrlCount,

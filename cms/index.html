@@ -149,6 +149,9 @@
     .editor-quality-grid span{display:block;margin-top:4px;color:#667085;font-size:12px;font-weight:800}
     .editor-image-plan{border:1px solid #e5e8ee;border-radius:8px;background:#fff;padding:12px;color:#344054;font-size:13px;line-height:1.6}
     .editor-image-plan p{margin:4px 0}
+    .editor-image-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+    .mini-action{border:1px solid #f1c9cd;border-radius:999px;background:#fff;color:#cf2029;font-weight:900;font-size:12px;padding:8px 12px;cursor:pointer}
+    .mini-action:hover{background:#fff5f5}
     .editor-suggestions{margin:12px 0 0;padding-left:18px;color:#344054;line-height:1.7}
     .ops-form{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:18px}
     .ops-form .wide{grid-column:span 2}
@@ -938,6 +941,11 @@
           <p>Alt：${esc(imagePlan.heroAlt || '')}</p>
           <p>首图方向：${esc(imagePlan.heroPrompt || '')}</p>
           <p>信息图：${esc(imagePlan.infographicAlt || '')}</p>
+          <div class="editor-image-actions">
+            <button class="mini-action" type="button" data-editor-action="generate-cover">生成并插入首图</button>
+            <button class="mini-action" type="button" data-editor-action="copy-image-markdown">复制图片 Markdown</button>
+            <button class="mini-action" type="button" data-editor-action="copy-image-prompt">复制绘图提示词</button>
+          </div>
         </div>
         ${suggestions.length ? `<ul class="editor-suggestions">${suggestions.map((item) => `<li>${esc(item)}</li>`).join('')}</ul>` : '<div class="lead-muted" style="margin-top:12px">暂无明显问题。</div>'}
       `;
@@ -1688,6 +1696,58 @@
       }
     }
 
+    function currentImagePlan() {
+      const article = state.articles.find((item) => item.file === state.selected?.file) || {};
+      return article.imagePlan || {};
+    }
+
+    async function generateArticleCover() {
+      if (!state.selected) return toast('请先选择文章');
+      const button = document.querySelector('[data-editor-action="generate-cover"]');
+      if (button) {
+        button.disabled = true;
+        button.textContent = '生成中...';
+      }
+      try {
+        const data = await api('/api/cms/article-image', {
+          method: 'POST',
+          body: JSON.stringify({ file: state.selected.file, insert: true }),
+        });
+        toast(`首图已生成并插入：${data.filename}`);
+        await loadArticles();
+        await openArticle(state.selected.file);
+      } finally {
+        if (button) {
+          button.disabled = false;
+          button.textContent = '生成并插入首图';
+        }
+      }
+    }
+
+    async function copyText(value, successMessage) {
+      await navigator.clipboard.writeText(value);
+      toast(successMessage);
+    }
+
+    function copyImageMarkdown() {
+      const plan = currentImagePlan();
+      const filename = String(plan.heroFilename || '').replace(/\.[^.]+$/, '.svg');
+      const url = `/assets/uploads/cms/${filename}`;
+      const markdown = `![${plan.heroAlt || 'SEDA 新加坡择校网文章配图'}](${url})`;
+      copyText(markdown, '图片 Markdown 已复制').catch((error) => toast(error.message));
+    }
+
+    function copyImagePrompt() {
+      const plan = currentImagePlan();
+      const prompt = [
+        plan.heroPrompt || '',
+        `标题：${state.selected?.meta?.title || ''}`,
+        `Alt：${plan.heroAlt || ''}`,
+        '画面要求：教育门户 / 国际教育媒体风格，真实、干净、不要夸张营销感，适合中国家长阅读。',
+      ].filter(Boolean).join('\n');
+      copyText(prompt, '绘图提示词已复制').catch((error) => toast(error.message));
+    }
+
     async function review(action) {
       if (!state.selected) return;
       let note = '';
@@ -1783,6 +1843,14 @@
     els.accountList.addEventListener('click', (event) => {
       const button = event.target.closest('[data-account]');
       if (button) fillAccountForm(button.dataset.account);
+    });
+    els.editorQuality.addEventListener('click', (event) => {
+      const button = event.target.closest('[data-editor-action]');
+      if (!button) return;
+      const action = button.dataset.editorAction;
+      if (action === 'generate-cover') generateArticleCover().catch((error) => toast(error.message));
+      if (action === 'copy-image-markdown') copyImageMarkdown();
+      if (action === 'copy-image-prompt') copyImagePrompt();
     });
     els.approveButton.addEventListener('click', () => review('approve').catch((error) => toast(error.message)));
     els.reviseButton.addEventListener('click', () => review('revise').catch((error) => toast(error.message)));

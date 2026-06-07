@@ -1390,6 +1390,78 @@ function relativeArticlePath(fullPath) {
   return relative(process.cwd(), fullPath).replaceAll(sep, '/');
 }
 
+function svgEscape(value = '') {
+  return String(value || '').replace(/[&<>"']/g, (char) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[char]));
+}
+
+function titleLines(title = '', maxChars = 16, maxLines = 3) {
+  const text = cleanLeadText(title, 120);
+  const lines = [];
+  let cursor = '';
+  for (const char of text) {
+    cursor += char;
+    if (cursor.length >= maxChars) {
+      lines.push(cursor);
+      cursor = '';
+      if (lines.length >= maxLines) break;
+    }
+  }
+  if (cursor && lines.length < maxLines) lines.push(cursor);
+  return lines.length ? lines : ['SEDA 新加坡择校网'];
+}
+
+function articleCoverSvg({ title, category, alt }) {
+  const lines = titleLines(title);
+  const categoryText = cleanLeadText(category || '新加坡升学', 40);
+  const altText = cleanLeadText(alt || title || 'SEDA 新加坡择校网配图', 120);
+  const lineNodes = lines.map((line, index) => `<text x="82" y="${210 + index * 58}" class="title">${svgEscape(line)}</text>`).join('');
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-label="${svgEscape(altText)}">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#fff7f7"/>
+      <stop offset="0.58" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#f3f6fb"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="18" stdDeviation="20" flood-color="#172033" flood-opacity=".13"/>
+    </filter>
+    <style>
+      .brand{font:800 30px Arial, "Noto Sans SC", sans-serif;fill:#cf2029;letter-spacing:2px}
+      .eyebrow{font:800 26px Arial, "Noto Sans SC", sans-serif;fill:#cf2029}
+      .title{font:900 48px Arial, "Noto Sans SC", sans-serif;fill:#172033}
+      .meta{font:700 24px Arial, "Noto Sans SC", sans-serif;fill:#667085}
+      .label{font:800 22px Arial, "Noto Sans SC", sans-serif;fill:#ffffff}
+    </style>
+  </defs>
+  <rect width="1200" height="675" fill="url(#bg)"/>
+  <rect x="52" y="52" width="1096" height="571" rx="34" fill="#fff" filter="url(#shadow)"/>
+  <rect x="52" y="52" width="1096" height="571" rx="34" fill="none" stroke="#f1c9cd" stroke-width="2"/>
+  <text x="82" y="112" class="brand">SEDA 新加坡择校网</text>
+  <rect x="82" y="136" width="174" height="42" rx="21" fill="#cf2029"/>
+  <text x="112" y="164" class="label">${svgEscape(categoryText)}</text>
+  ${lineNodes}
+  <text x="82" y="438" class="meta">面向中国家长的新加坡升学规划指南</text>
+  <g transform="translate(770 152)">
+    <rect width="286" height="318" rx="24" fill="#fff7f7" stroke="#f3c5c8" stroke-width="2"/>
+    <path d="M54 224h178" stroke="#cf2029" stroke-width="10" stroke-linecap="round"/>
+    <path d="M74 188h138" stroke="#cf2029" stroke-width="10" stroke-linecap="round" opacity=".82"/>
+    <path d="M94 152h98" stroke="#cf2029" stroke-width="10" stroke-linecap="round" opacity=".66"/>
+    <circle cx="144" cy="82" r="42" fill="#cf2029"/>
+    <path d="M122 83l15 15 31-38" fill="none" stroke="#fff" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <text x="82" y="558" class="meta">AEIS · O-Level · WACE · 国际学校 · 大学申请</text>
+</svg>`;
+}
+
+function insertHeroImageMarkdown(raw, markdown) {
+  if (String(raw || '').includes(markdown)) return raw;
+  const match = String(raw || '').match(/^(---\n[\s\S]*?\n---\n?)([\s\S]*)$/);
+  if (!match) return `${markdown}\n\n${raw}`;
+  const body = match[2].replace(/^\s+/, '');
+  if (/^!\[[^\]]*]\([^)]+\)/.test(body)) return `${match[1]}${markdown}\n\n${body}`;
+  return `${match[1]}\n${markdown}\n\n${body}`;
+}
+
 function replaceFrontmatterValue(raw, key, value) {
   const match = raw.match(/^---\n([\s\S]*?)\n---\n?([\s\S]*)$/);
   if (!match) throw new Error('Missing frontmatter');
@@ -1542,6 +1614,53 @@ async function saveCmsArticle(req, res) {
   } catch (error) {
     json(res, 500, { error: '保存成功，但内容构建失败', detail: error.output || error.message });
   }
+}
+
+async function handleCmsArticleImage(req, res) {
+  if (!requireCmsAuth(req, res)) return;
+  let body;
+  try { body = await readBody(req); } catch { return json(res, 400, { error: '请求格式错误' }); }
+  const fullPath = articleFilePath(body.file);
+  if (!fullPath || !existsSync(fullPath)) return json(res, 404, { error: '文章不存在' });
+  const raw = readFileSync(fullPath, 'utf8');
+  const { meta, body: articleBody } = parseFrontmatter(raw);
+  const optimization = optimizeArticle({ meta, body: articleBody });
+  const plan = optimization.imagePlan || {};
+  const filename = `${safeFilePart(plan.heroFilename || meta.slug || basename(fullPath), 120)}.svg`;
+  mkdirSync(CMS_MEDIA_DIR, { recursive: true });
+  const filePath = join(CMS_MEDIA_DIR, filename);
+  const category = cleanLeadText(meta.categoryLabel || meta.category || '新加坡升学', 40);
+  const alt = cleanLeadText(plan.heroAlt || meta.title || 'SEDA 新加坡择校网文章配图', 160);
+  writeFileSync(filePath, articleCoverSvg({ title: meta.title || basename(fullPath), category, alt }), 'utf8');
+  const url = mediaUrlFor(filename);
+  const markdown = `![${alt}](${url})`;
+  const insert = body.insert !== false;
+  let output = null;
+  if (insert && !raw.includes(url)) {
+    writeFileSync(fullPath, insertHeroImageMarkdown(raw, markdown), 'utf8');
+    try {
+      output = await rebuildContent();
+    } catch (error) {
+      return json(res, 500, { error: '图片已生成，但内容构建失败', detail: error.output || error.message, url, markdown });
+    }
+  }
+  const session = cmsSession(req) || {};
+  mkdirSync(dirname(CMS_MEDIA_FILE), { recursive: true });
+  appendFileSync(CMS_MEDIA_FILE, `${JSON.stringify({
+    id: cmsId('media'),
+    filename,
+    url,
+    mime: 'image/svg+xml',
+    size: readFileSync(filePath).length,
+    alt,
+    team: inferPageTeam(`/${meta.category || 'guides'}/`),
+    pageUrl: makeArticleUrl(meta),
+    tags: cleanLeadText([meta.category, meta.primaryKeyword, meta.title].filter(Boolean).join(', '), 240),
+    uploadedBy: session.username || 'admin',
+    createdAt: new Date().toISOString(),
+    generatedBy: 'cms-seo-cover',
+  })}\n`, 'utf8');
+  json(res, 200, { ok: true, url, markdown, alt, filename, inserted: insert, output });
 }
 
 async function handleContentReview(req, res) {
@@ -2069,6 +2188,7 @@ const server = createServer(async (req, res) => {
   if (req.method === 'GET' && url.pathname === '/api/cms/articles') return listCmsArticles(req, res);
   if (req.method === 'GET' && url.pathname === '/api/cms/article') return getCmsArticle(req, res, url);
   if (req.method === 'POST' && url.pathname === '/api/cms/article') return saveCmsArticle(req, res);
+  if (req.method === 'POST' && url.pathname === '/api/cms/article-image') return handleCmsArticleImage(req, res);
   if (req.method === 'POST' && url.pathname === '/api/chat') return handleChat(req, res);
   if (req.method === 'POST' && url.pathname === '/api/content-review') return handleContentReview(req, res);
   if (req.method === 'POST' && url.pathname === '/api/analytics/collect') return handleAnalyticsCollect(req, res);

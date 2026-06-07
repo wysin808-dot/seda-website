@@ -1000,14 +1000,69 @@ function contentIdeasFromArticles(articles) {
 }
 
 const SEO_TOPICS = [
-  { slug: 'aeis', name: 'AEIS 专题', keywords: ['aeis', 's-aeis', '政府学校', '插班'] },
-  { slug: 'o-level', name: 'O-Level 专题', keywords: ['o-level', 'o水准', 'jc', 'poly'] },
-  { slug: 'wace', name: 'WACE 专题', keywords: ['wace', 'atar', 'eald', 'methods'] },
-  { slug: 'singapore-government-schools', name: '政府学校专题', keywords: ['政府学校', '政府小学', '政府中学', 'aeis'] },
-  { slug: 'international-schools', name: '国际学校专题', keywords: ['国际学校', 'ib', 'igcse', '学费'] },
-  { slug: 'singapore-university', name: '大学申请专题', keywords: ['大学', 'nus', 'ntu', 'smu', '本科申请'] },
-  { slug: 'study-cost', name: '留学费用专题', keywords: ['费用', '学费', '预算', '住宿'] },
+  {
+    slug: 'aeis',
+    name: 'AEIS 专题',
+    team: 'AEIS 团队',
+    keywords: ['aeis', 's-aeis', '政府学校', '插班'],
+    requiredUrls: ['/aeis/', '/aeis/age-requirements/', '/aeis/timeline/', '/aeis/math/', '/aeis/english/', '/aeis/s-aeis/', '/primary-schools/', '/secondary-schools/'],
+  },
+  {
+    slug: 'o-level',
+    name: 'O-Level 专题',
+    team: 'O-Level 团队',
+    keywords: ['o-level', 'o水准', 'jc', 'poly'],
+    requiredUrls: ['/o-level/', '/o-level/subjects/', '/o-level/scoring/', '/o-level/timeline/', '/o-level-jc/', '/o-level-poly/', '/secondary-schools/', '/jc/'],
+  },
+  {
+    slug: 'wace',
+    name: 'WACE 专题',
+    team: 'WACE 团队',
+    keywords: ['wace', 'atar', 'eald', 'methods'],
+    requiredUrls: ['/wace/', '/wace/what-is/', '/wace-atar/', '/wace-vs-a-level/', '/wace/subjects/', '/wace/chinese-students/', '/wace/wace-apply-nus-requirements/', '/wace/wace-apply-ntu-difficulty/'],
+  },
+  {
+    slug: 'singapore-government-schools',
+    name: '政府学校专题',
+    team: 'AEIS 团队',
+    keywords: ['政府学校', '政府小学', '政府中学', 'aeis'],
+    requiredUrls: ['/government-schools/', '/primary-schools/', '/secondary-schools/', '/aeis/', '/aeis/age-requirements/', '/topics/singapore-government-schools/'],
+  },
+  {
+    slug: 'international-schools',
+    name: '国际学校专题',
+    team: '国际学校团队',
+    keywords: ['国际学校', 'ib', 'igcse', '学费'],
+    requiredUrls: ['/international-school/', '/international-school/schools/', '/international-school/singapore-international-school-fees/', '/ib/', '/ap/', '/topics/international-schools/'],
+  },
+  {
+    slug: 'singapore-university',
+    name: '公立大学专题',
+    team: '公立大学团队',
+    keywords: ['大学', 'nus', 'ntu', 'smu', '本科申请'],
+    requiredUrls: ['/university/', '/university/nus/', '/university/ntu/', '/university/smu/', '/university/sutd/', '/university/sit/', '/university/suss/', '/university/admission/'],
+  },
+  {
+    slug: 'private-university',
+    name: '私立大学专题',
+    team: '私立大学团队',
+    keywords: ['私立大学', 'sim', 'kaplan', 'psb', 'mdis'],
+    requiredUrls: ['/private-university/', '/private-university/sim/', '/private-university/kaplan/', '/private-university/psb/', '/private-university/mdis/', '/private-university/jcu/', '/private-university/curtin/'],
+  },
+  {
+    slug: 'study-cost',
+    name: '留学费用专题',
+    team: '综合运营团队',
+    keywords: ['费用', '学费', '预算', '住宿'],
+    requiredUrls: ['/guides/cost/', '/topics/study-cost/', '/guides/accommodation/', '/international-school/singapore-international-school-fees/', '/poly/', '/university/'],
+  },
 ];
+
+function siteFileExistsForPath(path = '') {
+  const clean = pageUrlPath(path);
+  if (clean === '/') return existsSync(join(process.cwd(), 'index.html'));
+  return existsSync(join(process.cwd(), clean.replace(/^\/|\/$/g, ''), 'index.html'));
+}
 
 function topicMatrix(articles = articleSummaries(), sitemapUrls = readSitemapUrls()) {
   const sitemapSet = new Set(sitemapUrls);
@@ -1018,6 +1073,21 @@ function topicMatrix(articles = articleSummaries(), sitemapUrls = readSitemapUrl
     });
     const url = `/topics/${topic.slug}/`;
     const absoluteUrl = `https://sgeda.org.cn${url}`;
+    const requiredUrls = Array.from(new Set([url, ...(topic.requiredUrls || [])]));
+    const coverage = requiredUrls.map((path) => {
+      const cleanPath = pageUrlPath(path);
+      const cleanUrl = `https://sgeda.org.cn${cleanPath}`;
+      const exists = siteFileExistsForPath(cleanPath);
+      const inSitemap = sitemapSet.has(cleanUrl);
+      return {
+        url: cleanPath,
+        exists,
+        inSitemap,
+        status: exists && inSitemap ? 'ok' : exists ? 'not_in_sitemap' : 'missing',
+      };
+    });
+    const missing = coverage.filter((item) => !item.exists);
+    const notInSitemap = coverage.filter((item) => item.exists && !item.inSitemap);
     return {
       ...topic,
       url,
@@ -1026,6 +1096,17 @@ function topicMatrix(articles = articleSummaries(), sitemapUrls = readSitemapUrl
       articleCount: textMatch.length,
       publishedCount: textMatch.filter((article) => !article.draft).length,
       draftCount: textMatch.filter((article) => article.draft).length,
+      requiredCount: coverage.length,
+      coveredCount: coverage.filter((item) => item.exists).length,
+      sitemapCoveredCount: coverage.filter((item) => item.inSitemap).length,
+      missingCount: missing.length,
+      notInSitemapCount: notInSitemap.length,
+      coverage,
+      nextActions: [
+        ...missing.slice(0, 3).map((item) => `补页面 ${item.url}`),
+        ...notInSitemap.slice(0, 2).map((item) => `检查 sitemap ${item.url}`),
+        ...(textMatch.filter((article) => article.draft).length ? [`审核 ${textMatch.filter((article) => article.draft).length} 篇草稿`] : []),
+      ].slice(0, 4),
     };
   });
 }
@@ -1321,6 +1402,8 @@ function handleCmsOverview(req, res) {
   if (todayPublished.length < 5) tasks.push({ type: 'content', title: `今日已发布 ${todayPublished.length} 篇，建议补到 5 篇以上`, target: 'content', priority: 'medium' });
   if (!seo.saved) tasks.push({ type: 'seo', title: '记录今日百度 / IndexNow 提交情况', target: 'seo', priority: 'medium' });
   if (topics.some((topic) => !topic.inSitemap)) tasks.push({ type: 'seo', title: '检查专题页是否全部进入 sitemap', target: 'seo', priority: 'medium' });
+  const missingTopicPages = topics.reduce((sum, topic) => sum + (topic.missingCount || 0), 0);
+  if (missingTopicPages) tasks.push({ type: 'content', title: `专题矩阵还有 ${missingTopicPages} 个关键页面待补齐`, target: 'pages', priority: 'high' });
   if (health.lowScore) tasks.push({ type: 'content', title: `${health.lowScore} 篇内容 SEO 分数低于 70`, target: 'seo', priority: 'medium' });
   json(res, 200, {
     ok: true,

@@ -82,10 +82,16 @@
     .flow-step span{display:block;margin-top:8px;color:#475569;font-size:13px;font-weight:900}
     .flow-step em{display:block;margin-top:6px;color:#94a3b8;font-style:normal;font-size:12px;font-weight:800}
     .topic-grid{display:grid;gap:10px}
-    .topic-row{display:grid;grid-template-columns:minmax(0,1.2fr) .8fr .8fr .8fr;gap:10px;align-items:center;border:1px solid #eef0f4;border-radius:8px;background:#fff;padding:12px}
+    .topic-row{display:grid;grid-template-columns:minmax(0,1.35fr) .9fr .8fr minmax(0,1.2fr);gap:12px;align-items:center;border:1px solid #eef0f4;border-radius:8px;background:#fff;padding:12px}
     .topic-row strong{display:block}
     .topic-row a{color:#172033;text-decoration:none}
     .topic-row span{color:#667085;font-size:12px;font-weight:800}
+    .coverage-meter{display:grid;gap:6px}
+    .coverage-track{height:8px;border-radius:999px;background:#eef2f7;overflow:hidden}
+    .coverage-fill{height:100%;border-radius:999px;background:linear-gradient(90deg,var(--cms-brand),#e55b63)}
+    .topic-actions{display:flex;gap:6px;flex-wrap:wrap}
+    .topic-action{border-radius:999px;background:#fff7ed;color:#9a3412;padding:5px 8px;font-size:12px;font-weight:900}
+    .topic-action.ok{background:#ecfdf3;color:#027a48}
     .status-dot{display:inline-flex;align-items:center;gap:6px;border-radius:999px;background:#eef2f7;color:#344054;padding:5px 8px;font-size:12px;font-weight:900}
     .status-dot.ok{background:#ecfdf3;color:#027a48}
     .status-dot.warn{background:#fff8e6;color:#9a6400}
@@ -1130,13 +1136,31 @@
           <span>说明：这里只做提交记录，不代表已收录</span>
         </div>
       `;
-      els.overviewTopics.innerHTML = data.topicMatrix?.length ? `<div class="topic-grid">${data.topicMatrix.map((topic) => `
+      els.overviewTopics.innerHTML = data.topicMatrix?.length ? `<div class="topic-grid">${data.topicMatrix.map((topic) => {
+        const covered = Number(topic.coveredCount ?? topic.publishedCount ?? 0);
+        const required = Math.max(1, Number(topic.requiredCount || 0));
+        const percent = Math.max(0, Math.min(100, Math.round(covered / required * 100)));
+        const actions = Array.isArray(topic.nextActions) && topic.nextActions.length ? topic.nextActions : ['暂无明显缺口'];
+        return `
         <div class="topic-row">
-          <div><strong><a href="${esc(topic.url)}" target="_blank" rel="noopener">${esc(topic.name)}</a></strong><span>${esc(topic.slug)}</span></div>
-          <div><span>文章</span><strong>${topic.publishedCount || 0}</strong></div>
-          <div><span>草稿</span><strong>${topic.draftCount || 0}</strong></div>
-          <div><span class="status-dot ${topic.exists && topic.inSitemap ? 'ok' : 'warn'}">${topic.exists && topic.inSitemap ? '已进 sitemap' : '需检查'}</span></div>
-        </div>`).join('')}</div>` : '<div class="cms-empty" style="padding:24px">暂无专题矩阵。</div>';
+          <div>
+            <strong><a href="${esc(topic.url)}" target="_blank" rel="noopener">${esc(topic.name)}</a></strong>
+            <span>${esc(topic.team || '未分配团队')} · ${esc(topic.slug)}</span>
+          </div>
+          <div class="coverage-meter">
+            <span>页面覆盖 ${covered}/${required} · ${percent}%</span>
+            <div class="coverage-track"><div class="coverage-fill" style="width:${percent}%"></div></div>
+          </div>
+          <div>
+            <span>文章 / 草稿</span>
+            <strong>${topic.publishedCount || 0} / ${topic.draftCount || 0}</strong>
+            <span class="status-dot ${topic.exists && topic.inSitemap && !topic.missingCount ? 'ok' : 'warn'}" style="margin-top:6px">${topic.exists && topic.inSitemap ? '专题正常' : '专题需查'}</span>
+          </div>
+          <div class="topic-actions">
+            ${actions.map((action) => `<span class="topic-action ${action === '暂无明显缺口' ? 'ok' : ''}">${esc(action)}</span>`).join('')}
+          </div>
+        </div>`;
+      }).join('')}</div>` : '<div class="cms-empty" style="padding:24px">暂无专题矩阵。</div>';
       els.overviewArticles.innerHTML = data.recentArticles?.length ? `<table class="recent-table">
         <thead><tr><th>标题</th><th>状态</th><th>日期</th></tr></thead>
         <tbody>${data.recentArticles.slice(0, 6).map((article) => `<tr>

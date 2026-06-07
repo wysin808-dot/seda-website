@@ -73,6 +73,14 @@
     .ops-card{border:1px solid #eef0f4;border-radius:8px;background:#fafbfc;padding:14px}
     .ops-card strong{display:block;font-size:22px}
     .ops-card span{display:block;margin-top:5px;color:#667085;font-size:12px;font-weight:800}
+    .production-flow{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin:0 0 18px}
+    .flow-step{position:relative;border:1px solid #e2e8f0;border-radius:8px;background:#fff;padding:16px 16px 14px;box-shadow:0 8px 20px rgba(15,23,42,.04)}
+    .flow-step:before{content:"";position:absolute;left:16px;right:16px;top:0;height:3px;border-radius:0 0 999px 999px;background:#e2e8f0}
+    .flow-step.hot:before{background:var(--cms-brand)}
+    .flow-step.ok:before{background:#16a34a}
+    .flow-step strong{display:block;font-size:28px;line-height:1;color:#111827}
+    .flow-step span{display:block;margin-top:8px;color:#475569;font-size:13px;font-weight:900}
+    .flow-step em{display:block;margin-top:6px;color:#94a3b8;font-style:normal;font-size:12px;font-weight:800}
     .topic-grid{display:grid;gap:10px}
     .topic-row{display:grid;grid-template-columns:minmax(0,1.2fr) .8fr .8fr .8fr;gap:10px;align-items:center;border:1px solid #eef0f4;border-radius:8px;background:#fff;padding:12px}
     .topic-row strong{display:block}
@@ -240,6 +248,13 @@
     .editor-quality-grid{gap:10px}
     .editor-quality-grid div{background:#fbfcfe;border-color:#e4eaf2}
     .editor-image-plan{background:#fbfcfe;border-color:#e4eaf2}
+    .publish-checklist{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:0 0 12px}
+    .publish-check{display:flex;align-items:center;gap:8px;border:1px solid #e5e8ee;border-radius:8px;background:#fbfcfe;padding:10px;color:#475569;font-size:13px;font-weight:900}
+    .publish-check:before{content:"";width:10px;height:10px;border-radius:999px;background:#cbd5e1;flex:0 0 auto}
+    .publish-check.ok{background:#f0fdf4;border-color:#bbf7d0;color:#166534}
+    .publish-check.ok:before{background:#16a34a}
+    .publish-check.warn{background:#fff7ed;border-color:#fed7aa;color:#9a3412}
+    .publish-check.warn:before{background:#f97316}
     .page-editor-grid,.ops-form,.seo-form{gap:14px}
     .visual-editor{border-color:#e4eaf2;box-shadow:0 10px 24px rgba(15,23,42,.04)}
     .visual-editor-head{background:#f8fafc}
@@ -258,7 +273,7 @@
     .seo-log{border:1px solid #1f2937;border-radius:8px}
     .cms-toast{border-radius:8px;background:#111827;box-shadow:0 18px 48px rgba(15,23,42,.24)}
     @media (max-width:1100px){.cms-tabs{grid-template-columns:repeat(3,minmax(0,1fr))}.cms-sidebar{position:static;max-height:none}.cms-list,.page-list{max-height:none}}
-    @media (max-width:900px){.cms-shell{padding:16px 14px 64px}.cms-top{display:grid;padding:20px}.cms-grid,.analytics-panels,.seo-form,.overview-grid,.quick-grid,.ops-grid,.topic-row,.page-workbench,.page-editor-grid,.ops-form,.media-grid,.account-layout{grid-template-columns:1fr}.seo-field.wide,.page-field.wide,.ops-form .wide{grid-column:auto}.cms-list,.page-list{max-height:none}.cms-editor-head,.visual-editor-head{display:grid}.cms-stats{grid-template-columns:1fr 1fr 1fr}.analytics-grid,.overview-cards{grid-template-columns:1fr 1fr}.bar-row{grid-template-columns:96px minmax(0,1fr) 42px}.editor-quality-grid{grid-template-columns:1fr 1fr}.editor-quality-top{display:grid}}
+    @media (max-width:900px){.cms-shell{padding:16px 14px 64px}.cms-top{display:grid;padding:20px}.cms-grid,.analytics-panels,.seo-form,.overview-grid,.quick-grid,.ops-grid,.topic-row,.page-workbench,.page-editor-grid,.ops-form,.media-grid,.account-layout,.production-flow{grid-template-columns:1fr}.seo-field.wide,.page-field.wide,.ops-form .wide{grid-column:auto}.cms-list,.page-list{max-height:none}.cms-editor-head,.visual-editor-head{display:grid}.cms-stats{grid-template-columns:1fr 1fr 1fr}.analytics-grid,.overview-cards,.publish-checklist{grid-template-columns:1fr 1fr}.bar-row{grid-template-columns:96px minmax(0,1fr) 42px}.editor-quality-grid{grid-template-columns:1fr 1fr}.editor-quality-top{display:grid}}
     @media (max-width:560px){.cms-tabs{grid-template-columns:1fr 1fr}.overview-cards,.analytics-grid,.cms-stats{grid-template-columns:1fr}.cms-toolbar{width:100%}.cms-button{flex:1}.cms-editor-head .cms-toolbar{display:grid;grid-template-columns:1fr 1fr}.recent-table{font-size:13px}}
   </style>
 </head>
@@ -266,7 +281,7 @@
   <main class="cms-shell">
     <section id="loginPanel" class="cms-panel cms-login" hidden>
       <h1>SEDA CMS 内容后台</h1>
-      <p>请输入后台密码。登录后可以审核、编辑并发布 SEO 草稿。</p>
+      <p>请输入后台密码。登录后可以生成、审核、补图、发布内容，并查看自动提交记录。</p>
       <form id="loginForm">
         <input id="usernameInput" class="cms-input" type="text" autocomplete="username" placeholder="团队账号（默认 admin）" />
         <div style="height:10px"></div>
@@ -281,7 +296,7 @@
         <div>
           <p class="eyebrow">内部内容系统</p>
           <h1>SEDA CMS 内容后台</h1>
-          <p id="cmsStatusText">审核 SEO 草稿、在线修改 Markdown，确认后发布并更新 sitemap。</p>
+          <p id="cmsStatusText">每天围绕内容生产、人工审核、图片补充、发布提交和客户转化推进。</p>
         </div>
         <div class="cms-toolbar">
           <a class="cms-button secondary" href="/" target="_blank" rel="noopener">打开网站</a>
@@ -299,14 +314,15 @@
         <button class="cms-tab" type="button" data-view="ai">AI生产</button>
         <button class="cms-tab" type="button" data-view="analytics">流量分析</button>
         <button class="cms-tab" type="button" data-view="leads">客户线索</button>
-        <button class="cms-tab" type="button" data-view="seo">SEO/GEO收录</button>
+        <button class="cms-tab" type="button" data-view="seo">提交记录</button>
       </div>
 
       <section id="overviewView">
+        <div id="productionFlow" class="production-flow" aria-label="今日内容生产流水线"></div>
         <div id="overviewCards" class="overview-cards">
           <div class="overview-card"><strong>0</strong><span>今日发布</span></div>
-          <div class="overview-card"><strong>0</strong><span>待审核文章</span></div>
-          <div class="overview-card"><strong>0</strong><span>新线索</span></div>
+          <div class="overview-card"><strong>0</strong><span>待审核</span></div>
+          <div class="overview-card"><strong>0</strong><span>待补图</span></div>
           <div class="overview-card"><strong>0</strong><span>今日浏览</span></div>
         </div>
         <div class="overview-grid">
@@ -320,11 +336,11 @@
               <button class="quick-card" type="button" data-go-view="content" data-filter="draft"><strong>审核 SEO 草稿</strong><span>进入待审核文章列表</span></button>
               <button class="quick-card" type="button" data-go-view="leads"><strong>处理客户线索</strong><span>跟进新留资与 CRM 状态</span></button>
               <button class="quick-card" type="button" data-go-view="analytics"><strong>查看流量</strong><span>页面、来源、地区趋势</span></button>
-              <button class="quick-card" type="button" data-go-view="seo"><strong>记录提交</strong><span>保存百度 / IndexNow 今日记录</span></button>
+              <button class="quick-card" type="button" data-go-view="seo"><strong>提交记录</strong><span>查看百度 / IndexNow 自动提交</span></button>
             </div>
           </section>
           <section class="analytics-panel">
-            <h2>内容生产建议</h2>
+            <h2>下一批选题</h2>
             <div id="ideaList" class="idea-list"></div>
           </section>
           <section class="analytics-panel">
@@ -332,7 +348,7 @@
             <div id="overviewHotPages"></div>
           </section>
           <section class="analytics-panel">
-            <h2>SEO/GEO 工作台</h2>
+            <h2>提交与发现状态</h2>
             <div id="overviewSeoOps"></div>
           </section>
           <section class="analytics-panel">
@@ -708,12 +724,12 @@
         <div id="seoStats" class="analytics-grid">
           <div class="analytics-card"><strong>0</strong><span>sitemap URL</span></div>
           <div class="analytics-card"><strong>0</strong><span>今日发布文章</span></div>
-          <div class="analytics-card"><strong>0</strong><span>百度下次起点</span></div>
-          <div class="analytics-card"><strong>0</strong><span>异常 URL</span></div>
+          <div class="analytics-card"><strong>0</strong><span>百度提交起点</span></div>
+          <div class="analytics-card"><strong>0</strong><span>健康异常 URL</span></div>
         </div>
         <section class="analytics-panel">
           <div style="display:flex;justify-content:space-between;gap:12px;align-items:center;margin-bottom:14px">
-            <h2 style="margin:0">每日收录记录</h2>
+            <h2 style="margin:0">每日提交记录</h2>
             <button id="saveSeoButton" class="cms-button" type="button">保存今日记录</button>
           </div>
           <div class="seo-form">
@@ -730,11 +746,11 @@
               <input id="indexNowSubmittedInput" class="cms-input" type="number" min="0" value="0">
             </div>
             <div class="seo-field">
-              <label for="baiduRemainingInput">百度剩余额度</label>
+              <label for="baiduRemainingInput">百度提交剩余额度</label>
               <input id="baiduRemainingInput" class="cms-input" type="number" min="0" value="0">
             </div>
             <div class="seo-field">
-              <label for="indexedCountInput">抽查已收录 URL</label>
+              <label for="indexedCountInput">人工抽查已收录 URL</label>
               <input id="indexedCountInput" class="cms-input" type="number" min="0" value="0">
             </div>
             <div class="seo-field">
@@ -742,18 +758,18 @@
               <input id="abnormalUrlCountInput" class="cms-input" type="number" min="0" value="0">
             </div>
             <div class="seo-field wide">
-              <label for="priorityUrlsInput">重点 URL / 关键词</label>
+              <label for="priorityUrlsInput">重点 URL / 家长搜索问题</label>
               <textarea id="priorityUrlsInput" class="cms-input" style="height:92px;padding:12px;resize:vertical"></textarea>
             </div>
             <div class="seo-field wide">
-              <label for="seoNotesInput">收录备注</label>
+              <label for="seoNotesInput">提交 / 健康检查备注</label>
               <textarea id="seoNotesInput" class="cms-input" style="height:92px;padding:12px;resize:vertical"></textarea>
             </div>
           </div>
         </section>
         <div class="analytics-panels" style="margin-top:18px">
           <section class="analytics-panel">
-            <h2>SEO 内容质检</h2>
+            <h2>发布前内容质检</h2>
             <div id="seoQuality"></div>
           </section>
           <section class="analytics-panel">
@@ -761,7 +777,7 @@
             <div id="seoQualitySummary"></div>
           </section>
           <section class="analytics-panel">
-            <h2>最近记录</h2>
+            <h2>人工记录</h2>
             <div id="seoRecent"></div>
           </section>
           <section class="analytics-panel">
@@ -802,6 +818,7 @@
       refreshButton: document.getElementById('refreshButton'),
       logoutButton: document.getElementById('logoutButton'),
       overviewView: document.getElementById('overviewView'),
+      productionFlow: document.getElementById('productionFlow'),
       overviewCards: document.getElementById('overviewCards'),
       todoList: document.getElementById('todoList'),
       ideaList: document.getElementById('ideaList'),
@@ -959,7 +976,7 @@
         <div class="cms-stat"><strong>${stats.published || 0}</strong><span>已发布</span></div>
       `;
       if (state.status) {
-        els.cmsStatusText.textContent = `轻量 CMS ${state.status.version || ''}：审核 SEO 草稿、在线修改 Markdown，确认后发布并更新 sitemap。后续可升级账号权限、媒体库、版本记录与 CRM 同步。`;
+        els.cmsStatusText.textContent = `内容生产系统 ${state.status.version || ''}：生成草稿、人工审核、补图发布、自动提交 sitemap / 百度 / IndexNow。`;
       }
     }
 
@@ -995,13 +1012,24 @@
       const imagePlan = optimization.imagePlan || {};
       const images = optimization.images || [];
       const suggestions = optimization.suggestions || [];
+      const checks = [
+        { label: '标题具体', ok: Boolean(state.selected?.title && state.selected.title.length >= 12) },
+        { label: '正文 1500 字以上', ok: Number(metrics.length || 0) >= 1500 },
+        { label: 'FAQ 4 个以上', ok: Number(metrics.faqCount || 0) >= 4 },
+        { label: '内链 3 个以上', ok: Number(metrics.internalLinkCount || 0) >= 3 },
+        { label: '已插入图片', ok: Number(metrics.imageCount || 0) > 0 || images.length > 0 },
+        { label: '进入 sitemap', ok: Boolean(optimization.inSitemap || state.selected?.inSitemap) },
+      ];
       els.editorQuality.innerHTML = `
         <div class="editor-quality-top">
           <div>
-            <strong>发布前 SEO / 图片检查</strong>
-            <div class="lead-muted" style="margin-top:5px">${optimization.recommendedPublish ? '基础项达到发布线，仍建议补图后发布。' : '建议先按下方提示优化，再通过发布。'}</div>
+            <strong>发布前内容 / 图片检查</strong>
+            <div class="lead-muted" style="margin-top:5px">${optimization.recommendedPublish ? '基础项达到发布线，建议补图后发布。' : '建议先按下方清单优化，再通过发布。'}</div>
           </div>
           <span class="editor-quality-score ${esc(level)}">${label} · ${optimization.score || 0}/100</span>
+        </div>
+        <div class="publish-checklist">
+          ${checks.map((check) => `<div class="publish-check ${check.ok ? 'ok' : 'warn'}">${esc(check.label)} · ${check.ok ? '通过' : '待补'}</div>`).join('')}
         </div>
         <div class="editor-quality-grid">
           <div><strong>${metrics.length || 0}</strong><span>约字数</span></div>
@@ -1053,28 +1081,44 @@
       const metrics = data.metrics || {};
       const seoOps = data.seoOps || {};
       const health = data.contentHealth || {};
+      const dailyTarget = 5;
+      const draftArticles = Number(metrics.draftArticles || 0);
+      const todayPublished = Number(metrics.todayPublished || 0);
+      const newLeads = Number(metrics.newLeads || 0);
+      const todayPageviews = Number(metrics.todayPageviews || 0);
+      const missingImages = Number(health.missingImages || seoOps.auditTotals?.warning || 0);
+      const submittedToday = Number(seoOps.baiduSubmitted || 0) + Number(seoOps.indexNowSubmitted || 0);
+      const publishedNotSubmitted = Math.max(0, todayPublished && !submittedToday ? todayPublished : 0);
+      const generateRemaining = Math.max(0, dailyTarget - todayPublished - draftArticles);
+      els.productionFlow.innerHTML = `
+        <div class="flow-step ${generateRemaining ? 'hot' : 'ok'}"><strong>${generateRemaining}</strong><span>待生成</span><em>每日目标 ${dailyTarget} 篇</em></div>
+        <div class="flow-step ${draftArticles ? 'hot' : 'ok'}"><strong>${draftArticles}</strong><span>待审核</span><em>人工确认后发布</em></div>
+        <div class="flow-step ${missingImages ? 'hot' : 'ok'}"><strong>${missingImages}</strong><span>待补图</span><em>首图 / 信息图 / alt</em></div>
+        <div class="flow-step ${publishedNotSubmitted ? 'hot' : 'ok'}"><strong>${publishedNotSubmitted}</strong><span>发布未提交</span><em>百度 / IndexNow</em></div>
+        <div class="flow-step ${newLeads ? 'hot' : 'ok'}"><strong>${newLeads}</strong><span>新线索</span><em>微信 / 表单跟进</em></div>
+      `;
       els.overviewCards.innerHTML = `
-        <div class="overview-card"><strong>${metrics.todayPublished || 0}</strong><span>今日发布</span></div>
-        <div class="overview-card"><strong>${metrics.draftArticles || 0}</strong><span>待审核文章</span></div>
-        <div class="overview-card"><strong>${metrics.newLeads || 0}</strong><span>新线索</span></div>
-        <div class="overview-card"><strong>${metrics.todayPageviews || 0}</strong><span>今日浏览</span></div>
+        <div class="overview-card"><strong>${todayPublished}</strong><span>今日发布</span></div>
+        <div class="overview-card"><strong>${draftArticles}</strong><span>待审核</span></div>
+        <div class="overview-card"><strong>${missingImages}</strong><span>待补图</span></div>
+        <div class="overview-card"><strong>${todayPageviews}</strong><span>今日浏览</span></div>
       `;
       els.todoList.innerHTML = data.tasks?.length ? data.tasks.map((task) => `<div class="todo-item">
         <div>
           <strong>${esc(task.title)}</strong>
-          <span>${task.type === 'content' ? '内容运营' : task.type === 'leads' ? '客户转化' : 'SEO/GEO'}</span>
+          <span>${task.type === 'content' ? '内容运营' : task.type === 'leads' ? '客户转化' : '提交记录'}</span>
         </div>
         <button class="todo-priority ${task.priority === 'high' ? 'high' : ''}" type="button" data-go-view="${esc(task.target)}">${task.priority === 'high' ? '优先' : '处理'}</button>
       </div>`).join('') : '<div class="cms-empty" style="padding:24px">今天没有紧急待办。</div>';
       els.ideaList.innerHTML = data.contentIdeas?.length ? data.contentIdeas.map((idea) => `<div class="idea-item">
         <strong>${esc(idea.title)}</strong>
-        <span>长尾词：${esc(idea.keyword)}</span>
+        <span>家长问题：${esc(idea.keyword)}</span>
       </div>`).join('') : '<div class="cms-empty" style="padding:24px">核心选题池暂时覆盖得不错。</div>';
       renderBarChart(els.overviewHotPages, data.topPages || []);
       els.overviewSeoOps.innerHTML = `
         <div class="ops-grid">
           <div class="ops-card"><strong>${seoOps.sitemapUrlCount || 0}</strong><span>sitemap URL</span></div>
-          <div class="ops-card"><strong>${seoOps.baiduSubmitted || 0}</strong><span>今日百度实提</span></div>
+          <div class="ops-card"><strong>${seoOps.baiduSubmitted || 0}</strong><span>百度提交</span></div>
           <div class="ops-card"><strong>${seoOps.indexNowSubmitted || 0}</strong><span>今日 IndexNow</span></div>
           <div class="ops-card"><strong>${health.averageScore || 0}</strong><span>内容均分</span></div>
         </div>
@@ -1083,6 +1127,7 @@
           <span>需修复：${seoOps.auditTotals?.error || 0}</span>
           <span>可优化：${seoOps.auditTotals?.warning || 0}</span>
           <span>低分内容：${health.lowScore || 0}</span>
+          <span>说明：这里只做提交记录，不代表已收录</span>
         </div>
       `;
       els.overviewTopics.innerHTML = data.topicMatrix?.length ? `<div class="topic-grid">${data.topicMatrix.map((topic) => `
@@ -1479,15 +1524,15 @@
       els.seoStats.innerHTML = `
         <div class="analytics-card"><strong>${data.sitemapUrlCount || 0}</strong><span>sitemap URL</span></div>
         <div class="analytics-card"><strong>${data.todayPublishedArticles || 0}</strong><span>当天发布文章</span></div>
-        <div class="analytics-card"><strong>${data.baiduNextStart || 0}</strong><span>百度下次起点</span></div>
-        <div class="analytics-card"><strong>${providers.baidu?.submitted || 0}</strong><span>今日百度实提</span></div>
+        <div class="analytics-card"><strong>${data.baiduNextStart || 0}</strong><span>百度提交起点</span></div>
+        <div class="analytics-card"><strong>${providers.baidu?.submitted || 0}</strong><span>今日百度提交</span></div>
         <div class="analytics-card"><strong>${providers.indexnow?.submitted || 0}</strong><span>今日 IndexNow</span></div>
-        <div class="analytics-card"><strong>${saved.abnormalUrlCount || 0}</strong><span>异常 URL</span></div>
+        <div class="analytics-card"><strong>${saved.abnormalUrlCount || 0}</strong><span>健康异常 URL</span></div>
       `;
       fillSeoForm(saved);
       renderSeoQuality();
       els.seoRecent.innerHTML = data.recent?.length ? `<table class="recent-table">
-        <thead><tr><th>日期</th><th>sitemap</th><th>文章</th><th>百度</th><th>IndexNow</th><th>已收录</th><th>异常</th><th>备注</th></tr></thead>
+        <thead><tr><th>日期</th><th>sitemap</th><th>文章</th><th>百度提交</th><th>IndexNow</th><th>人工抽查</th><th>异常</th><th>备注</th></tr></thead>
         <tbody>${data.recent.map((row) => `<tr>
           <td>${esc(row.date)}</td>
           <td>${row.sitemapUrlCount || 0}</td>

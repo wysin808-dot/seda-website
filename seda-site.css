@@ -1342,7 +1342,8 @@ main > section:not(.hero) {
 }
 
 .lead-form input,
-.lead-form select {
+.lead-form select,
+.lead-form textarea {
   width: 100%;
   min-height: 44px;
   padding: 0 12px;
@@ -1350,11 +1351,27 @@ main > section:not(.hero) {
   border-radius: 8px;
   background: #fff;
   color: var(--ink);
+  font: inherit;
+}
+
+.lead-form textarea {
+  min-height: 104px;
+  padding: 12px;
+  resize: vertical;
 }
 
 .lead-form .primary-button {
   width: 100%;
   border: 0;
+}
+
+.partnership-form {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.partnership-form textarea::placeholder,
+.partnership-form input::placeholder {
+  color: #8a94a6;
 }
 
 .contact-options {

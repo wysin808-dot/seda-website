@@ -260,7 +260,7 @@
       if (button) button.textContent = '已收到，顾问会尽快联系';
       form.reset();
       if (typeof window.SEDA_OPEN_WECHAT === 'function') {
-        window.SEDA_OPEN_WECHAT('已收到，扫码添加 Amy 加快沟通');
+        window.SEDA_OPEN_WECHAT(form.getAttribute('data-success-title') || '已收到，扫码添加 Amy 加快沟通');
       } else {
         alert('已收到，SEDA顾问会尽快联系您。');
       }

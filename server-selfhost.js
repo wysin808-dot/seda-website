@@ -1009,6 +1009,7 @@ function articleSummaries() {
         seoLevel: optimization.level,
         seoRecommendedPublish: optimization.recommendedPublish,
         seoSuggestions: optimization.suggestions,
+        imageCount: optimization.metrics?.imageCount || 0,
         imagePlan: optimization.imagePlan,
       };
     })
@@ -1221,6 +1222,7 @@ function topicMatrix(articles = articleSummaries(), sitemapUrls = readSitemapUrl
 
 function contentHealth(articles = articleSummaries()) {
   const lowScore = articles.filter((article) => (article.seoScore || 0) < 70);
+  const noImages = articles.filter((article) => (article.imageCount || 0) < 1);
   const noImagePlan = articles.filter((article) => !article.imagePlan?.heroFilename);
   const drafts = articles.filter((article) => article.draft);
   const published = articles.filter((article) => !article.draft);
@@ -1230,7 +1232,17 @@ function contentHealth(articles = articleSummaries()) {
     draft: drafts.length,
     lowScore: lowScore.length,
     averageScore: articles.length ? Math.round(articles.reduce((sum, article) => sum + (article.seoScore || 0), 0) / articles.length) : 0,
+    missingImages: noImages.length,
     missingImagePlan: noImagePlan.length,
+    imageQueue: noImages.slice(0, 8).map((article) => ({
+      title: article.title,
+      file: article.file,
+      category: article.category,
+      draft: article.draft,
+      score: article.seoScore || 0,
+      heroFilename: article.imagePlan?.heroFilename || '',
+      heroAlt: article.imagePlan?.heroAlt || '',
+    })),
     needsAction: lowScore.slice(0, 8).map((article) => ({
       title: article.title,
       score: article.seoScore || 0,

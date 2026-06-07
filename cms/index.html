@@ -99,6 +99,11 @@
     .school-action-list{display:flex;gap:6px;flex-wrap:wrap}
     .school-action{border-radius:999px;background:#fff7ed;color:#9a3412;padding:5px 8px;font-size:12px;font-weight:900}
     .school-action.ok{background:#ecfdf3;color:#027a48}
+    .image-queue{display:grid;gap:10px}
+    .image-queue-item{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px;align-items:center;border:1px solid #e5e8ee;border-radius:8px;background:#fff;padding:12px}
+    .image-queue-item strong{display:block;font-size:15px;line-height:1.45}
+    .image-queue-item span{display:block;color:#667085;font-size:12px;line-height:1.6;margin-top:4px}
+    .image-queue-item code{color:#344054;word-break:break-all}
     .submit-pipeline{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:12px}
     .submit-step{border:1px solid #e5e8ee;border-radius:8px;background:#fff;padding:12px}
     .submit-step strong{display:block;font-size:15px}
@@ -367,6 +372,10 @@
           <section class="analytics-panel">
             <h2>站点热度</h2>
             <div id="overviewHotPages"></div>
+          </section>
+          <section class="analytics-panel">
+            <h2>待补图文章</h2>
+            <div id="overviewImageQueue" class="image-queue"></div>
           </section>
           <section class="analytics-panel">
             <h2>提交与发现状态</h2>
@@ -848,6 +857,7 @@
       todoList: document.getElementById('todoList'),
       ideaList: document.getElementById('ideaList'),
       overviewHotPages: document.getElementById('overviewHotPages'),
+      overviewImageQueue: document.getElementById('overviewImageQueue'),
       overviewSeoOps: document.getElementById('overviewSeoOps'),
       overviewTopics: document.getElementById('overviewTopics'),
       overviewSchools: document.getElementById('overviewSchools'),
@@ -1141,6 +1151,14 @@
         <span>家长问题：${esc(idea.keyword)}</span>
       </div>`).join('') : '<div class="cms-empty" style="padding:24px">核心选题池暂时覆盖得不错。</div>';
       renderBarChart(els.overviewHotPages, data.topPages || []);
+      els.overviewImageQueue.innerHTML = health.imageQueue?.length ? health.imageQueue.map((item) => `<div class="image-queue-item">
+        <div>
+          <strong>${esc(item.title)}</strong>
+          <span>${esc(item.category || 'SEO文章')} · ${item.draft ? '草稿' : '已发布'} · 分数 ${item.score || 0}</span>
+          <span>建议文件：<code>${esc(item.heroFilename || '打开文章后自动生成')}</code></span>
+        </div>
+        <button class="mini-action" type="button" data-go-view="content" data-open-article="${esc(item.file)}">打开补图</button>
+      </div>`).join('') : '<div class="cms-empty" style="padding:24px">当前文章图片覆盖正常。</div>';
       els.overviewSeoOps.innerHTML = `
         ${renderSubmitPipeline(seoOps.pipeline || {}, seoOps.providers || {})}
         <div class="ops-grid">
@@ -2039,7 +2057,7 @@
       state.query = els.searchInput.value.trim();
       renderList();
     });
-    document.addEventListener('click', (event) => {
+    document.addEventListener('click', async (event) => {
       const button = event.target.closest('[data-go-view]');
       if (!button) return;
       const view = button.dataset.goView;
@@ -2048,6 +2066,14 @@
         document.querySelectorAll('.cms-filter').forEach((item) => item.classList.toggle('active', item.dataset.filter === state.filter));
       }
       switchView(view);
+      if (button.dataset.openArticle) {
+        try {
+          if (!state.articles.length) await loadArticles();
+          await openArticle(button.dataset.openArticle);
+        } catch (error) {
+          toast(error.message);
+        }
+      }
     });
 
     els.saveButton.addEventListener('click', () => saveArticle().catch((error) => toast(error.message)));

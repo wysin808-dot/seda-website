@@ -385,7 +385,7 @@ function seoMetaForSchool(school) {
       description: `${zh}（${en}）中文择校指南：${location}O-Level或IP路径、COP参考、入学申请、适合学生、费用与中国家长常见问题。`,
     },
     jc: {
-      title: `${zh}怎么样？${location}A-Level、录取与中国学生升学指南`,
+      title: `${zh}怎么样？A-Level与升学指南`,
       h1: `${zh}怎么样？${location}A-Level、录取与升学路径指南`,
       description: `${zh}（${en}）中文升学指南：${location}A-Level路径、录取要求、学科选择、公立大学出口与中国学生常见问题。`,
     },
@@ -395,7 +395,7 @@ function seoMetaForSchool(school) {
       description: `${zh}（${en}）中文升学指南：${curriculum}热门专业、O-Level申请、学费预算、大学衔接与中国学生常见问题。`,
     },
     university: {
-      title: `${zh}怎么样？${curriculum}申请要求、学费与中国学生指南`,
+      title: `${zh}申请指南：专业、学费与录取要求`,
       h1: `${zh}怎么样？${curriculum}申请要求与学费指南`,
       description: `${zh}（${en}）中文申请指南：${curriculum}热门专业、申请要求、学费预算、录取路径、就业方向与中国学生常见问题。`,
     },
@@ -410,7 +410,7 @@ function seoMetaForSchool(school) {
       description: `${zh}（${en}）中文择校指南：${curriculum}学费预算、入学申请、适合学生、大学方向与中国家长常见问题。`,
     },
     private: {
-      title: `${zh}怎么样？${curriculum}学费、申请与中国学生指南`,
+      title: `${zh}怎么样？课程、学费与申请指南`,
       h1: `${zh}怎么样？${curriculum}学费与申请指南`,
       description: `${zh}（${en}）中文择校指南：${curriculum}课程路径、申请要求、学费预算、合作大学、学生准证与中国家长常见问题。`,
     },

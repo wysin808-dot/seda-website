@@ -9,7 +9,7 @@ const topics = [
     slug: 'aeis',
     title: 'AEIS 新加坡政府学校插班专题',
     h1: 'AEIS 新加坡政府学校插班专题',
-    description: '面向中国家长的 AEIS / S-AEIS 备考、年龄要求、政府小学和政府中学插班路径专题。',
+    description: '面向中国家长的 AEIS / S-AEIS 备考专题，覆盖年龄要求、英文数学准备、政府小学和政府中学插班路径、失败后的备选方案。',
     answer: 'AEIS 是中国学生进入新加坡政府小学和政府中学的重要路径之一。家长需要同时判断年龄、年级、英文能力、数学英文题适应度和备选学校安排。',
     keywords: ['aeis', 's-aeis', '政府学校', '政府小学', '政府中学', '插班', '年龄'],
     links: [
@@ -24,7 +24,7 @@ const topics = [
     slug: 'o-level',
     title: 'O-Level 新加坡中学升学专题',
     h1: 'O-Level 新加坡中学升学专题',
-    description: '整理 O-Level 课程、JC、Poly、科目选择、难度和国际学生升学路径。',
+    description: '整理新加坡 O-Level 课程、科目选择、考试难度、JC 与 Poly 升学路径，帮助中国学生和家长判断中学阶段规划。',
     answer: 'O-Level 是新加坡中学阶段最重要的考试路径之一，直接影响学生后续进入 JC、Poly 或其他国际课程。中国学生要特别重视英文、写作和科目组合。',
     keywords: ['o-level', 'o水准', 'jc', 'poly', '中学', 'sec', '政府中学'],
     links: [
@@ -39,7 +39,7 @@ const topics = [
     slug: 'wace',
     title: 'WACE 国际高中与 ATAR 升学专题',
     h1: 'WACE 国际高中与 ATAR 升学专题',
-    description: '聚合 WACE 课程、ATAR、选课、WACE vs A-Level、NUS/NTU 和海外大学申请内容。',
+    description: '聚合 WACE 课程、ATAR 分数、选课策略、WACE vs A-Level、NUS/NTU 和海外大学申请内容，适合关注国际高中路径的家庭。',
     answer: 'WACE 不只是澳洲课程，它的价值在于课程连续性、ATAR 评价体系和国际大学申请出口。对部分中国学生来说，WACE 比传统 A-Level 更容易形成稳定升学路径。',
     keywords: ['wace', 'atar', 'eald', 'methods', 'specialist', 'a-level', '国际高中'],
     links: [
@@ -54,7 +54,7 @@ const topics = [
     slug: 'singapore-government-schools',
     title: '新加坡政府学校择校专题',
     h1: '新加坡政府学校择校专题',
-    description: '覆盖新加坡政府小学、政府中学、AEIS、PSLE、O-Level 和中国学生择校路径。',
+    description: '覆盖新加坡政府小学、政府中学、AEIS、PSLE、O-Level 和中国学生择校路径，帮助家长理解入学考试、学额和升学出口。',
     answer: '新加坡政府学校路径适合希望进入本地教育体系、预算相对可控、愿意长期适应英文环境的家庭。核心难点通常是入学考试、英文适应和学额限制。',
     keywords: ['政府学校', '政府小学', '政府中学', 'aeis', 'psle', 'o-level'],
     links: [
@@ -69,7 +69,7 @@ const topics = [
     slug: 'international-schools',
     title: '新加坡国际学校择校专题',
     h1: '新加坡国际学校择校专题',
-    description: '整理 IB、A-Level、IGCSE、AP、WACE、英式、美式、澳洲和小规模国际学校选择。',
+    description: '整理新加坡国际学校选择，覆盖 IB、A-Level、IGCSE、AP、WACE、英式、美式、澳洲课程、学费预算和入学申请。',
     answer: '国际学校选择不能只看校园和排名，关键是课程体系、英文环境、大学申请方向、学费预算和孩子是否适应国际化课堂。',
     keywords: ['国际学校', 'ib', 'igcse', 'a-level', 'ap', 'wace', '学费'],
     links: [
@@ -84,7 +84,7 @@ const topics = [
     slug: 'singapore-university',
     title: '新加坡大学申请专题',
     h1: '新加坡大学申请专题',
-    description: '聚合 NUS、NTU、SMU、SUTD、SIT、SUSS、UAS、公立大学申请和中国学生本科路径。',
+    description: '聚合 NUS、NTU、SMU、SUTD、SIT、SUSS、UAS、公立大学申请和中国学生本科路径，覆盖成绩体系、专业选择和申请策略。',
     answer: '新加坡大学申请要把成绩体系、专业要求、英文能力、文书材料和就业方向放在一起看。中国学生可以通过 A-Level、IB、Poly Diploma、高考或国际课程申请。',
     keywords: ['大学', 'nus', 'ntu', 'smu', 'sutd', 'sit', 'suss', 'uas', '本科申请'],
     links: [
@@ -99,7 +99,7 @@ const topics = [
     slug: 'study-cost',
     title: '新加坡留学费用专题',
     h1: '新加坡留学费用专题',
-    description: '整理政府学校、国际学校、Poly、大学、住宿、生活费和陪读相关预算。',
+    description: '整理新加坡留学费用预算，覆盖政府学校、国际学校、Poly、大学、住宿、生活费、陪读安排和长期升学成本。',
     answer: '新加坡留学费用不能只看学费，要把申请费、注册费、住宿、生活费、保险、校车、餐费、陪读和后续升学成本一起算。',
     keywords: ['费用', '学费', '预算', '住宿', '陪读', '国际学校', '大学'],
     links: [

@@ -831,6 +831,7 @@ function isSitemapPage(file) {
   if (rel.includes('/api/') || rel.startsWith('content/') || rel.startsWith('scripts/')) return false;
   if (rel.startsWith('content-review/')) return false;
   if (rel.startsWith('cms/')) return false;
+  if (rel === 'private-schools/bci/index.html') return false;
   if (rel.startsWith('news/') && rel !== 'news/index.html') return false;
   if (['googlec871b41fdb15d90a.html'].includes(rel)) return false;
   return rel.endsWith('.html');
@@ -952,7 +953,7 @@ function enhanceUtilityPageSchema() {
         '@context': 'https://schema.org',
         '@type': 'SearchResultsPage',
         name: 'SEDA 站内搜索',
-        description: '搜索 SEDA 新加坡择校网的 WACE、O-Level、AEIS、国际学校与升学路径内容。',
+        description: '搜索 SEDA 新加坡择校网的 WACE、O-Level、AEIS、国际学校、政府学校、私立学校与新加坡升学路径内容。',
         url: `${domain}/search/`,
         inLanguage: 'zh-CN',
         dateModified: buildDate,

@@ -54,7 +54,7 @@ function privateSchool({
 const schools = [
   privateSchool({
     slug: 'brentvale-college-international',
-    nameZh: 'BCI 博慧国际学院',
+    nameZh: 'BCI 博林国际学校',
     nameEn: 'Brentvale College International',
     location: 'Singapore',
     schoolType: '私立国际高中 / 国际课程学校',

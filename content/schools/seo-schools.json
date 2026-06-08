@@ -7325,5 +7325,42 @@
     "chinaStudentNotes": "中国学生要重点看英文过渡、课程出口和后续升学衔接。",
     "sedaAdvice": "如果家庭预算相对谨慎，San Yu 可以作为私立中小学备选之一。",
     "officialSource": "San Yu Adventist School 官方网站"
+  },
+  {
+    "type": "private",
+    "categoryLabel": "私立学校",
+    "basePath": "private-schools",
+    "slug": "brentvale-college-international",
+    "nameZh": "BCI 博慧国际学院",
+    "nameEn": "Brentvale College International",
+    "location": "Singapore",
+    "schoolType": "私立国际高中 / 国际课程学校",
+    "curriculum": "WACE / 国际高中 / ATAR 大学申请路径",
+    "features": [
+      "WACE 国际高中",
+      "ATAR 大学申请",
+      "中国学生升学规划",
+      "英文过渡支持"
+    ],
+    "audience": "希望通过新加坡私立国际高中衔接 WACE、ATAR 和英澳新港大学申请的中国学生家庭",
+    "angle": "Brentvale College International 是 SEDA 重点关注的私立国际高中路径，核心价值在于把 WACE 课程、ATAR 目标、英文过渡和大学申请规划放在一起。",
+    "majorAreas": [
+      "WACE 课程",
+      "ATAR 升学",
+      "国际高中",
+      "英文过渡",
+      "大学申请规划"
+    ],
+    "admissionPaths": [
+      "初三至高二阶段评估入学",
+      "成绩单和英文能力评估",
+      "按年级进入国际高中或预科阶段",
+      "学生准证申请"
+    ],
+    "geoAnswer": "Brentvale College International 适合希望在新加坡读 WACE 国际高中、用 ATAR 申请澳洲、新加坡、香港或其他英联邦大学的学生。",
+    "positioning": "Brentvale College International 应作为 WACE 国际高中路径的重点页面，帮助家长理解私立国际高中不是普通补习机构，而是课程、升学和申请规划结合的路径。",
+    "chinaStudentNotes": "中国学生要重点看英文过渡、WACE 选课、ATAR 目标和目标大学专业要求，不能只看学校名称或单一年级费用。",
+    "sedaAdvice": "如果家庭目标是 WACE、ATAR 或国际高中转轨，Brentvale College International 可以作为重点咨询页面。",
+    "officialSource": "Brentvale College International 学校资料"
   }
 ]

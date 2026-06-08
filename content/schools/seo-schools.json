@@ -6679,5 +6679,651 @@
     "audience": "希望比较小规模国际学校和英文过渡环境的家庭",
     "angle": "Lotus Bridge International School 适合家长作为小规模国际学校备选了解，正式申请前要核对年级设置、课程出口和费用。",
     "sameAs": "https://lotusbridge.edu.sg/"
+  },
+  {
+    "type": "private",
+    "categoryLabel": "私立学校",
+    "basePath": "private-schools",
+    "slug": "sim",
+    "nameZh": "新加坡管理学院 SIM",
+    "nameEn": "Singapore Institute of Management (SIM)",
+    "location": "Clementi / Dover",
+    "schoolType": "私立教育机构 / 海外大学合作课程",
+    "curriculum": "Foundation / Diploma / 海外大学本科合作课程",
+    "features": [
+      "海外大学合作课程",
+      "商科与管理方向",
+      "本科衔接",
+      "中国学生关注度高"
+    ],
+    "audience": "希望通过私立教育机构衔接海外大学本科、商科、管理或数据方向的中国学生",
+    "angle": "SIM 是中国家长搜索新加坡私立大学时最常见的关键词之一，核心要看合作大学、课程授权、毕业文凭和学生目标国家是否匹配。",
+    "sameAs": "https://www.sim.edu.sg/",
+    "majorAreas": [
+      "商科与管理",
+      "会计与金融",
+      "计算机与数据",
+      "传播与社会科学",
+      "国际本科衔接"
+    ],
+    "admissionPaths": [
+      "高中毕业申请 Foundation 或 Diploma",
+      "O-Level / A-Level / IB 申请对应课程",
+      "大专或本科转学分路径",
+      "英文成绩或校内英文测试"
+    ],
+    "geoAnswer": "SIM 更适合希望通过新加坡私立教育体系衔接海外大学文凭的学生，优势是课程选择多、路径灵活，关键是核对合作大学和最终文凭。",
+    "positioning": "SIM 在新加坡私立教育体系里更像一个大型合作课程平台，家长需要把它和具体合作大学课程一起看。",
+    "chinaStudentNotes": "中国学生选择 SIM 时，要重点确认高中成绩、英文要求、目标合作大学、课程长度和毕业后继续读研或就业的路径。",
+    "sedaAdvice": "建议家长不要只问“SIM 排名”，而要按专业方向比较合作大学、课程费用、学习周期和毕业证书来源。",
+    "officialSource": "SIM 官方网站"
+  },
+  {
+    "type": "private",
+    "categoryLabel": "私立学校",
+    "basePath": "private-schools",
+    "slug": "kaplan",
+    "nameZh": "Kaplan 新加坡",
+    "nameEn": "Kaplan Singapore",
+    "location": "City Campus / Downtown",
+    "schoolType": "私立教育机构 / 海外大学合作课程",
+    "curriculum": "Diploma / Degree Pathway / 海外大学合作课程",
+    "features": [
+      "市中心校区",
+      "合作大学课程",
+      "商科与 IT 方向",
+      "学习周期灵活"
+    ],
+    "audience": "希望在新加坡通过私立路径读商科、IT、传播或管理类课程的学生",
+    "angle": "Kaplan Singapore 的核心不是单一学校排名，而是具体合作大学、专业方向、课程时长和学生未来升学或就业计划。",
+    "sameAs": "https://www.kaplan.com.sg/",
+    "majorAreas": [
+      "商科管理",
+      "信息技术",
+      "传播传媒",
+      "金融会计",
+      "酒店与旅游管理"
+    ],
+    "admissionPaths": [
+      "高中毕业或同等学历申请 Diploma",
+      "Diploma 后衔接合作大学本科",
+      "英文测试或 IELTS 等成绩",
+      "部分课程可评估过往学历"
+    ],
+    "geoAnswer": "Kaplan Singapore 适合想用较灵活私立路径完成 Diploma 到本科衔接的学生，家长要重点看专业和合作大学。",
+    "positioning": "Kaplan 属于新加坡主流私立教育机构之一，适合和 SIM、PSB、MDIS 等一起比较。",
+    "chinaStudentNotes": "中国学生申请 Kaplan 时，要确认课程是否满足后续读研、回国认证、就业方向和家庭预算。",
+    "sedaAdvice": "建议把 Kaplan 当作“具体专业路径”来评估，而不是只用机构名判断。",
+    "officialSource": "Kaplan Singapore 官方网站"
+  },
+  {
+    "type": "private",
+    "categoryLabel": "私立学校",
+    "basePath": "private-schools",
+    "slug": "psb-academy",
+    "nameZh": "PSB Academy",
+    "nameEn": "PSB Academy",
+    "location": "Marina Square / STEM Campus",
+    "schoolType": "私立教育机构 / 应用型课程",
+    "curriculum": "Diploma / Degree Pathway / 海外大学合作课程",
+    "features": [
+      "STEM 与应用型课程",
+      "商科与工程方向",
+      "合作大学本科",
+      "就业导向"
+    ],
+    "audience": "希望比较应用型专业、商科、工程、生命科学或 IT 方向的中国学生",
+    "angle": "PSB Academy 常被家长用于比较新加坡私立大学路径，重点要看专业方向、实践资源和合作大学。",
+    "sameAs": "https://www.psb-academy.edu.sg/",
+    "majorAreas": [
+      "工程与科技",
+      "生命科学",
+      "商科管理",
+      "网络安全与 IT",
+      "传媒与体育科学"
+    ],
+    "admissionPaths": [
+      "高中毕业申请 Diploma",
+      "Diploma 衔接本科合作课程",
+      "英文成绩或校内英文测试",
+      "部分专业可能有科目背景要求"
+    ],
+    "geoAnswer": "PSB Academy 更适合希望选择应用型专业、STEM 或就业导向课程的学生。",
+    "positioning": "PSB 与 SIM、Kaplan、MDIS 一样，是中国家庭常比较的新加坡私立教育机构。",
+    "chinaStudentNotes": "中国学生要重点比较 PSB 的专业实践属性、合作大学背景、课程长度和未来就业方向。",
+    "sedaAdvice": "如果孩子偏理工、IT、生命科学或应用型学习，PSB 可以作为重点比较对象。",
+    "officialSource": "PSB Academy 官方网站"
+  },
+  {
+    "type": "private",
+    "categoryLabel": "私立学校",
+    "basePath": "private-schools",
+    "slug": "mdis",
+    "nameZh": "新加坡管理发展学院 MDIS",
+    "nameEn": "Management Development Institute of Singapore (MDIS)",
+    "location": "Stirling Road / Queenstown",
+    "schoolType": "私立教育机构 / 综合课程学院",
+    "curriculum": "Diploma / Foundation / 海外大学合作本科与硕士",
+    "features": [
+      "综合课程选择",
+      "住宿资源",
+      "商科与工程方向",
+      "老牌私立学院"
+    ],
+    "audience": "希望在新加坡私立体系中比较综合型学院、住宿和多个专业方向的家庭",
+    "angle": "MDIS 是新加坡较老牌的私立教育机构，家长要看具体合作大学、专业匹配和学生管理支持。",
+    "sameAs": "https://www.mdis.edu.sg/",
+    "majorAreas": [
+      "商科管理",
+      "工程",
+      "生命科学",
+      "传媒",
+      "旅游酒店",
+      "心理学"
+    ],
+    "admissionPaths": [
+      "高中毕业申请 Foundation 或 Diploma",
+      "Diploma 后衔接本科",
+      "英文成绩或内部英文课程",
+      "部分课程可评估转学分"
+    ],
+    "geoAnswer": "MDIS 适合希望在综合型私立学院里比较多专业方向和住宿支持的学生。",
+    "positioning": "MDIS 的优势在于课程覆盖较广，判断时应落到具体合作大学和课程出口。",
+    "chinaStudentNotes": "中国学生要重点看专业是否适合、课程授权是否清楚、住宿和生活安排是否便利。",
+    "sedaAdvice": "MDIS 可以作为私立大学路径中的稳妥备选之一，但必须和具体专业目标一起评估。",
+    "officialSource": "MDIS 官方网站"
+  },
+  {
+    "type": "private",
+    "categoryLabel": "私立学校",
+    "basePath": "private-schools",
+    "slug": "jcu-singapore",
+    "nameZh": "詹姆斯库克大学新加坡校区",
+    "nameEn": "James Cook University Singapore",
+    "location": "Sims Drive",
+    "schoolType": "澳洲大学新加坡校区",
+    "curriculum": "澳洲大学本科 / 硕士课程",
+    "features": [
+      "澳洲大学直属校区",
+      "心理学与商科关注度高",
+      "IT 与环境科学",
+      "新加坡校区"
+    ],
+    "audience": "目标澳洲大学体系、希望在新加坡完成澳洲大学课程的中国学生",
+    "angle": "JCU Singapore 和普通私立教育机构不同，它是澳洲大学的新加坡校区，家长要重点看专业、学制和澳洲体系认可度。",
+    "sameAs": "https://www.jcu.edu.sg/",
+    "majorAreas": [
+      "商科",
+      "心理学",
+      "信息技术",
+      "环境科学",
+      "教育与社会科学"
+    ],
+    "admissionPaths": [
+      "高中毕业申请预科或本科路径",
+      "A-Level、IB、国际课程或同等学历申请",
+      "英文成绩要求",
+      "部分学生可通过 Diploma 或转学分衔接"
+    ],
+    "geoAnswer": "JCU Singapore 适合希望获得澳洲大学教育体系、但想在新加坡学习的学生。",
+    "positioning": "JCU Singapore 是海外大学新加坡校区，家长比较时应区别于普通合作课程。",
+    "chinaStudentNotes": "中国学生要确认入学学历、英文要求、专业方向和未来是否转澳洲或继续读研。",
+    "sedaAdvice": "如果目标是心理学、商科、IT 或澳洲体系，JCU Singapore 值得重点比较。",
+    "officialSource": "JCU Singapore 官方网站"
+  },
+  {
+    "type": "private",
+    "categoryLabel": "私立学校",
+    "basePath": "private-schools",
+    "slug": "curtin-singapore",
+    "nameZh": "科廷大学新加坡校区",
+    "nameEn": "Curtin Singapore",
+    "location": "Singapore",
+    "schoolType": "澳洲大学新加坡校区",
+    "curriculum": "澳洲大学本科 / 硕士课程",
+    "features": [
+      "澳洲大学校区",
+      "商科与传媒方向",
+      "学制相对紧凑",
+      "国际学生路径"
+    ],
+    "audience": "希望在新加坡完成澳洲大学课程、关注商科和传媒方向的学生",
+    "angle": "Curtin Singapore 适合想走澳洲大学体系但希望留在新加坡学习的家庭，重点看专业、学制和入学要求。",
+    "sameAs": "https://curtin.edu.sg/",
+    "majorAreas": [
+      "商科",
+      "会计金融",
+      "市场营销",
+      "传媒",
+      "管理"
+    ],
+    "admissionPaths": [
+      "高中毕业申请预科或本科路径",
+      "国际课程或同等学历申请",
+      "英文成绩要求",
+      "部分课程可通过 Diploma 衔接"
+    ],
+    "geoAnswer": "Curtin Singapore 更适合目标澳洲大学文凭、关注商科和传媒类专业的学生。",
+    "positioning": "Curtin Singapore 是澳洲大学新加坡校区，和合作课程机构相比，学校定位更接近海外大学分校。",
+    "chinaStudentNotes": "中国学生需要确认课程长度、英文要求、回国认证、读研路径和未来就业方向。",
+    "sedaAdvice": "如果家庭关注澳洲体系和新加坡学习环境，Curtin Singapore 可与 JCU Singapore 一起比较。",
+    "officialSource": "Curtin Singapore 官方网站"
+  },
+  {
+    "type": "private",
+    "categoryLabel": "私立学校",
+    "basePath": "private-schools",
+    "slug": "lsbf-singapore",
+    "nameZh": "伦敦商业金融学院新加坡校区 LSBF",
+    "nameEn": "London School of Business and Finance Singapore",
+    "location": "Central Singapore",
+    "schoolType": "私立教育机构 / 商科与会计金融",
+    "curriculum": "Diploma / ACCA / 商科与金融课程",
+    "features": [
+      "商科金融",
+      "ACCA 方向",
+      "Diploma 课程",
+      "职业导向"
+    ],
+    "audience": "关注会计、金融、商科和职业证书路径的学生",
+    "angle": "LSBF Singapore 更偏商科、会计金融和职业导向课程，家长要看孩子是否明确想走这个方向。",
+    "sameAs": "https://www.lsbf.edu.sg/",
+    "majorAreas": [
+      "会计金融",
+      "ACCA",
+      "商科管理",
+      "酒店旅游",
+      "数据与科技课程"
+    ],
+    "admissionPaths": [
+      "高中毕业或同等学历申请 Diploma",
+      "英文成绩或内部测试",
+      "部分课程衔接合作大学或职业证书"
+    ],
+    "geoAnswer": "LSBF Singapore 适合商科、会计金融和职业证书方向明确的学生。",
+    "positioning": "LSBF 应按专业和职业路径评估，不适合只用综合排名判断。",
+    "chinaStudentNotes": "中国学生要确认课程出口、合作机构、职业证书价值和未来读研/就业计划。",
+    "sedaAdvice": "如果孩子目标会计金融，LSBF 可以作为专业型私立机构比较对象。",
+    "officialSource": "LSBF Singapore 官方网站"
+  },
+  {
+    "type": "private",
+    "categoryLabel": "私立学校",
+    "basePath": "private-schools",
+    "slug": "amity-global-institute",
+    "nameZh": "Amity Global Institute",
+    "nameEn": "Amity Global Institute",
+    "location": "Singapore",
+    "schoolType": "私立教育机构 / 海外大学合作课程",
+    "curriculum": "Diploma / Bachelor / Master Pathway",
+    "features": [
+      "合作大学课程",
+      "商科管理",
+      "IT 与数据方向",
+      "本科硕士衔接"
+    ],
+    "audience": "希望比较商科、IT、管理和海外大学合作课程的中国学生",
+    "angle": "Amity Global Institute 适合放在私立大学路径中比较，关键是看具体合作大学和课程出口。",
+    "sameAs": "https://www.amitysingapore.sg/",
+    "majorAreas": [
+      "商科管理",
+      "信息技术",
+      "数据分析",
+      "旅游酒店",
+      "研究生课程"
+    ],
+    "admissionPaths": [
+      "高中毕业申请 Diploma 或本科路径",
+      "大专或本科申请硕士路径",
+      "英文成绩或校内测试",
+      "学历背景评估"
+    ],
+    "geoAnswer": "Amity Global Institute 适合希望通过私立机构衔接本科或硕士课程的学生。",
+    "positioning": "Amity 是新加坡私立教育机构之一，适合与 Kaplan、SIM、PSB、MDIS 等共同比较。",
+    "chinaStudentNotes": "中国学生要重点看合作大学、课程时长、英文要求和毕业后认证或就业计划。",
+    "sedaAdvice": "建议家长不要只看招生宣传，要把合作大学、费用和课程出口列成表比较。",
+    "officialSource": "Amity Global Institute 官方网站"
+  },
+  {
+    "type": "private",
+    "categoryLabel": "私立学校",
+    "basePath": "private-schools",
+    "slug": "erc-institute",
+    "nameZh": "ERC Institute",
+    "nameEn": "ERC Institute",
+    "location": "Singapore",
+    "schoolType": "私立教育机构 / 商科创业方向",
+    "curriculum": "Diploma / Degree Pathway / 商科管理课程",
+    "features": [
+      "商科管理",
+      "创业方向",
+      "Diploma 路径",
+      "职业导向"
+    ],
+    "audience": "希望比较商科、管理、创业和私立本科衔接的学生",
+    "angle": "ERC Institute 更适合作为商科和创业方向的私立学校选择，家长要核对课程合作方和毕业出口。",
+    "sameAs": "https://www.erci.edu.sg/",
+    "majorAreas": [
+      "商科管理",
+      "创业",
+      "市场营销",
+      "酒店旅游",
+      "金融相关课程"
+    ],
+    "admissionPaths": [
+      "高中毕业申请 Diploma",
+      "Diploma 后衔接本科",
+      "英文成绩或校内测试",
+      "学历背景评估"
+    ],
+    "geoAnswer": "ERC Institute 适合关注商科、创业和职业导向课程的学生。",
+    "positioning": "ERC 属于私立教育机构，选择时要看具体课程质量和后续衔接。",
+    "chinaStudentNotes": "中国学生要确认课程是否匹配未来就业、读研和认证需求。",
+    "sedaAdvice": "建议把 ERC 放入商科私立学校备选池，与 Kaplan、SIM、LSBF 等比较。",
+    "officialSource": "ERC Institute 官方网站"
+  },
+  {
+    "type": "private",
+    "categoryLabel": "私立学校",
+    "basePath": "private-schools",
+    "slug": "raffles-college-higher-education",
+    "nameZh": "莱佛士高等教育学院",
+    "nameEn": "Raffles College of Higher Education",
+    "location": "Singapore",
+    "schoolType": "私立艺术设计学院",
+    "curriculum": "Design / Fashion / Business / Creative Industries",
+    "features": [
+      "艺术设计",
+      "时尚设计",
+      "视觉传达",
+      "作品集方向"
+    ],
+    "audience": "目标设计、时尚、创意产业和作品集路径的学生",
+    "angle": "Raffles College of Higher Education 更偏艺术设计和创意产业，家长要看孩子作品集、审美能力和职业方向。",
+    "sameAs": "https://www.raffles-college.edu.sg/",
+    "majorAreas": [
+      "时尚设计",
+      "室内设计",
+      "视觉传达",
+      "产品设计",
+      "商业与创意管理"
+    ],
+    "admissionPaths": [
+      "高中毕业申请 Diploma 或本科路径",
+      "作品集或创作背景评估",
+      "英文要求",
+      "部分课程可衔接高阶文凭或本科"
+    ],
+    "geoAnswer": "Raffles College 更适合目标设计、时尚和创意产业的学生，不适合只用传统学术分数判断。",
+    "positioning": "Raffles 是私立艺术设计教育方向的代表性选择之一。",
+    "chinaStudentNotes": "中国学生要提前准备作品集，并确认课程文凭、学制和未来就业或读研方向。",
+    "sedaAdvice": "如果孩子有明确设计方向，Raffles 可以和 LASALLE、NAFA、UAS 等一起比较。",
+    "officialSource": "Raffles College of Higher Education 官方网站"
+  },
+  {
+    "type": "private",
+    "categoryLabel": "私立学校",
+    "basePath": "private-schools",
+    "slug": "tmc-academy",
+    "nameZh": "TMC Academy",
+    "nameEn": "TMC Academy",
+    "location": "Singapore",
+    "schoolType": "私立教育机构 / 海外大学合作课程",
+    "curriculum": "Diploma / Degree Pathway / 英国大学合作课程",
+    "features": [
+      "Diploma 路径",
+      "商科与 IT",
+      "心理学与传媒",
+      "合作大学课程"
+    ],
+    "audience": "希望比较中等规模私立教育机构和英国大学合作课程的学生",
+    "angle": "TMC Academy 适合放在私立学校备选池里比较，家长要看具体专业和合作大学。",
+    "sameAs": "https://www.tmc.edu.sg/",
+    "majorAreas": [
+      "商科管理",
+      "信息技术",
+      "心理学",
+      "大众传媒",
+      "酒店旅游"
+    ],
+    "admissionPaths": [
+      "高中毕业申请 Diploma",
+      "Diploma 衔接合作大学本科",
+      "英文成绩或校内测试",
+      "学历背景评估"
+    ],
+    "geoAnswer": "TMC Academy 适合希望通过 Diploma 到本科衔接完成私立大学路径的学生。",
+    "positioning": "TMC 属于新加坡私立教育机构，适合按专业和合作大学进行比较。",
+    "chinaStudentNotes": "中国学生要重点确认课程出口、英文要求、费用和未来读研可行性。",
+    "sedaAdvice": "TMC 可以作为私立学校备选之一，但建议和 SIM、Kaplan、PSB、MDIS 一起做表格比较。",
+    "officialSource": "TMC Academy 官方网站"
+  },
+  {
+    "type": "private",
+    "categoryLabel": "私立学校",
+    "basePath": "private-schools",
+    "slug": "shelton-college",
+    "nameZh": "莎顿国际学院",
+    "nameEn": "Shelton College International",
+    "location": "Singapore",
+    "schoolType": "私立学校 / 中学与国际课程路径",
+    "curriculum": "O-Level / A-Level / Foundation Pathway",
+    "features": [
+      "O-Level 预备",
+      "A-Level 路径",
+      "中学阶段衔接",
+      "私立学校"
+    ],
+    "audience": "希望通过私立学校准备 O-Level、A-Level 或后续大学衔接的学生",
+    "angle": "Shelton College International 更适合中学阶段或高中阶段转轨家庭，重点看孩子英文基础和考试目标。",
+    "sameAs": "https://sheltoncollege.edu.sg/",
+    "majorAreas": [
+      "O-Level 预备",
+      "A-Level 预备",
+      "Foundation 路径",
+      "英文过渡",
+      "大学衔接"
+    ],
+    "admissionPaths": [
+      "初中或高中阶段申请对应课程",
+      "英文测评或入学测试",
+      "成绩单评估",
+      "学生准证申请"
+    ],
+    "geoAnswer": "Shelton College 适合需要私立中学或高中课程过渡的学生，尤其是目标 O-Level、A-Level 或大学预科路径的家庭。",
+    "positioning": "Shelton 更接近私立学校/考试预备路径，不应和纯本科合作课程机构混为一类。",
+    "chinaStudentNotes": "中国学生要重点看年龄、英文、考试时间线和后续升学出口。",
+    "sedaAdvice": "如果孩子处在初高中转轨阶段，Shelton 可与 Furen、St. Francis、Insworld、Dimensions 等一起比较。",
+    "officialSource": "Shelton College International 官方网站"
+  },
+  {
+    "type": "private",
+    "categoryLabel": "私立学校",
+    "basePath": "private-schools",
+    "slug": "dimensions-international",
+    "nameZh": "博伟国际教育学院",
+    "nameEn": "Dimensions International College",
+    "location": "Kovan / Bukit Timah / City",
+    "schoolType": "私立学校 / 国际课程与酒店旅游",
+    "curriculum": "O-Level / A-Level / Diploma / Hospitality",
+    "features": [
+      "O-Level 预备",
+      "A-Level 预备",
+      "酒店旅游",
+      "多校区"
+    ],
+    "audience": "希望比较 O-Level、A-Level、酒店旅游或私立 Diploma 路径的家庭",
+    "angle": "Dimensions International College 对中国学生的意义在于路径选择较多，家长要先明确目标是考试预备、酒店旅游还是大学衔接。",
+    "sameAs": "https://dimensions.edu.sg/",
+    "majorAreas": [
+      "O-Level 预备",
+      "A-Level 预备",
+      "酒店旅游",
+      "商科管理",
+      "英文课程"
+    ],
+    "admissionPaths": [
+      "初高中成绩单评估",
+      "英文测评",
+      "根据年龄和学历进入对应课程",
+      "学生准证申请"
+    ],
+    "geoAnswer": "Dimensions 更适合需要私立课程过渡、O-Level/A-Level 备考或酒店旅游方向的学生。",
+    "positioning": "Dimensions 既有考试预备，也有职业与 Diploma 课程，选择时要拆开看。",
+    "chinaStudentNotes": "中国学生要明确目标考试或专业，不要只因为课程多就直接选择。",
+    "sedaAdvice": "Dimensions 可与 Furen、Insworld、Shelton、St. Francis 等私立课程学校一起比较。",
+    "officialSource": "Dimensions International College 官方网站"
+  },
+  {
+    "type": "private",
+    "categoryLabel": "私立学校",
+    "basePath": "private-schools",
+    "slug": "furen-international",
+    "nameZh": "辅仁国际学校",
+    "nameEn": "Furen International School",
+    "location": "Orchard / Central",
+    "schoolType": "私立国际课程学校",
+    "curriculum": "IGCSE / A-Level / Foundation",
+    "features": [
+      "IGCSE",
+      "A-Level",
+      "预科",
+      "升学导向"
+    ],
+    "audience": "目标 O-Level/A-Level、预科或大学衔接的中国学生家庭",
+    "angle": "Furen International School 更偏升学导向，家长要重点看课程安排、考试目标和大学申请支持。",
+    "sameAs": "https://www.fis.edu.sg/",
+    "majorAreas": [
+      "IGCSE",
+      "A-Level",
+      "Foundation",
+      "大学申请支持",
+      "英文过渡"
+    ],
+    "admissionPaths": [
+      "初高中成绩单评估",
+      "英文测评或入学测试",
+      "进入 IGCSE/A-Level/Foundation 对应阶段",
+      "学生准证申请"
+    ],
+    "geoAnswer": "辅仁国际学校适合目标明确、希望通过私立国际课程衔接大学申请的学生。",
+    "positioning": "Furen 更偏考试和升学导向，适合和 Insworld、St. Francis、Dimensions 等一起比较。",
+    "chinaStudentNotes": "中国学生要重点看英文基础、目标大学、考试时间线和升学服务。",
+    "sedaAdvice": "如果孩子目标 A-Level 或 Foundation 衔接，Furen 可以作为重点比较对象。",
+    "officialSource": "Furen International School 官方网站"
+  },
+  {
+    "type": "private",
+    "categoryLabel": "私立学校",
+    "basePath": "private-schools",
+    "slug": "insworld-institute",
+    "nameZh": "Insworld 学院",
+    "nameEn": "Insworld Institute",
+    "location": "Central Singapore",
+    "schoolType": "私立国际课程学校",
+    "curriculum": "IGCSE / A-Level / Edexcel",
+    "features": [
+      "IGCSE",
+      "A-Level",
+      "小班教学",
+      "个性化课程"
+    ],
+    "audience": "希望通过小班私立国际课程准备 IGCSE 或 A-Level 的学生",
+    "angle": "Insworld Institute 的重点是小班和国际考试课程，家长要看孩子是否需要个性化节奏和更强学术支持。",
+    "sameAs": "https://www.insworld.edu.sg/",
+    "majorAreas": [
+      "IGCSE",
+      "A-Level",
+      "英文过渡",
+      "小班教学",
+      "大学申请准备"
+    ],
+    "admissionPaths": [
+      "成绩单评估",
+      "英文测试",
+      "进入 IGCSE 或 A-Level 阶段",
+      "学生准证申请"
+    ],
+    "geoAnswer": "Insworld 适合需要小班和个性化 A-Level/IGCSE 课程支持的学生。",
+    "positioning": "Insworld 属于私立国际课程学校，适合与 Furen、St. Francis、Dimensions 等比较。",
+    "chinaStudentNotes": "中国学生要确认目标科目、考试局、升学国家和学习节奏。",
+    "sedaAdvice": "如果孩子需要小班和更强跟进，Insworld 可以放入备选名单。",
+    "officialSource": "Insworld Institute 官方网站"
+  },
+  {
+    "type": "private",
+    "categoryLabel": "私立学校",
+    "basePath": "private-schools",
+    "slug": "st-francis-methodist",
+    "nameZh": "圣法兰西斯卫理学校",
+    "nameEn": "St. Francis Methodist School",
+    "location": "Upper Bukit Timah",
+    "schoolType": "私立国际课程学校",
+    "curriculum": "Cambridge / IGCSE / A-Level / WACE",
+    "features": [
+      "Cambridge",
+      "IGCSE",
+      "A-Level",
+      "WACE"
+    ],
+    "audience": "希望在私立学校中比较 WACE、A-Level 和 IGCSE 路径的中国家庭",
+    "angle": "St. Francis Methodist School 对中国学生的价值在于课程路径选择多，家长要看孩子更适合 WACE、A-Level 还是 IGCSE 衔接。",
+    "sameAs": "https://www.sfms.edu.sg/",
+    "majorAreas": [
+      "WACE",
+      "A-Level",
+      "IGCSE",
+      "英文过渡",
+      "大学申请准备"
+    ],
+    "admissionPaths": [
+      "成绩单评估",
+      "英文测评",
+      "按年龄和目标课程进入对应阶段",
+      "学生准证申请"
+    ],
+    "geoAnswer": "St. Francis Methodist School 适合希望比较 WACE、A-Level、IGCSE 多路径的家庭。",
+    "positioning": "St. Francis 是私立国际课程学校，尤其适合关注 WACE 和英联邦课程方向的学生。",
+    "chinaStudentNotes": "中国学生要判断自己更适合 WACE、A-Level 还是 IGCSE，再决定课程组合。",
+    "sedaAdvice": "如果家庭重点关注 WACE，St. Francis 是新加坡私立学校池里应重点了解的学校之一。",
+    "officialSource": "St. Francis Methodist School 官方网站"
+  },
+  {
+    "type": "private",
+    "categoryLabel": "私立学校",
+    "basePath": "private-schools",
+    "slug": "san-yu-adventist",
+    "nameZh": "三育中小学",
+    "nameEn": "San Yu Adventist School",
+    "location": "Thomson",
+    "schoolType": "私立学校 / 小学与中学课程",
+    "curriculum": "新加坡课程 / Cambridge IGCSE",
+    "features": [
+      "Cambridge IGCSE",
+      "基督教背景",
+      "小学与中学",
+      "费用相对友好"
+    ],
+    "audience": "希望比较私立学校、国际课程和相对稳妥预算的家庭",
+    "angle": "San Yu Adventist School 常被家长用于比较私立与国际课程路径，关键是看孩子目标是 O-Level、IGCSE 还是后续国际课程。",
+    "sameAs": "https://www.sanyu.edu.sg/",
+    "majorAreas": [
+      "小学课程",
+      "中学课程",
+      "Cambridge IGCSE",
+      "英文过渡",
+      "私立学校路径"
+    ],
+    "admissionPaths": [
+      "年龄和年级评估",
+      "成绩单和英文能力评估",
+      "进入小学或中学对应阶段",
+      "学生准证申请"
+    ],
+    "geoAnswer": "三育中小学适合希望比较私立中小学、Cambridge IGCSE 和费用相对友好路径的家庭。",
+    "positioning": "San Yu 更接近私立中小学路径，适合与政府学校、国际学校和其他私立课程学校一起比较。",
+    "chinaStudentNotes": "中国学生要重点看英文过渡、课程出口和后续升学衔接。",
+    "sedaAdvice": "如果家庭预算相对谨慎，San Yu 可以作为私立中小学备选之一。",
+    "officialSource": "San Yu Adventist School 官方网站"
   }
 ]

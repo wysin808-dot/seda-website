@@ -42,6 +42,7 @@ function typeIntro(school) {
     university: '公立大学阶段决定的是专业方向、就业城市、研究机会和长期身份规划。对中国学生来说，新加坡大学不是只看排名，而是要看申请路径、专业匹配和毕业后的发展空间。',
     artsUniversity: '艺术大学路径更看重作品集、创作能力、面试表达和长期行业积累。它不适合只用传统分数逻辑判断，更适合有清晰艺术、设计、表演或创意产业方向的学生。',
     international: '国际学校的重点不只是学费和校园，而是课程体系、英文环境、大学申请方向和孩子是否适应国际化学习方式。',
+    private: '私立学校和私立教育机构的重点不是“是不是大学”，而是课程是否被认可、合作大学是否清楚、学制和费用是否适合孩子当前成绩与目标。',
   };
   return map[school.type] || '选校不是只看名气，而是看孩子的年龄、英文、目标路径和家庭预算是否匹配。';
 }
@@ -65,6 +66,9 @@ function admissionCopy(school) {
   if (school.type === 'artsUniversity') {
     return '新加坡艺术大学路径通常需要看学历背景、作品集、面试、英文能力和具体专业要求。艺术、设计、音乐、表演、电影、艺术管理等方向，申请逻辑和普通综合大学不同，家长要提前准备作品集时间线。';
   }
+  if (school.type === 'private') {
+    return '私立学校或私立教育机构通常会有不同层级课程，例如 O-Level/A-Level 预备、Foundation、Diploma、本科衔接或海外大学合作课程。家长要重点核对 EduTrust、课程授权、合作大学、入学要求、升学出口和学生准证安排。';
+  }
   return '国际学校通常需要提交成绩单、英文水平、面试或入学测评。不同学校和年级名额差异很大，申请时间线、课程体系和家庭预算都要提前确认。';
 }
 
@@ -77,6 +81,9 @@ function feesCopy(school) {
   }
   if (school.type === 'university' || school.type === 'artsUniversity') {
     return '大学阶段费用要分开看学费、生活费、住宿、保险、材料或项目支出。国际学生费用通常高于本地学生，部分专业费用差异明显，最终应以学校当年官方收费表为准。';
+  }
+  if (school.type === 'private') {
+    return '私立学校费用要按课程阶段拆开看：申请费、学费、考试费、教材费、学生准证、住宿与生活费都要单独计算。不同合作大学和课程长度差异较大，实际金额应以学校当年官方收费表为准。';
   }
   return '政府学校费用会根据学生身份不同而变化，例如新加坡公民、永久居民、东盟国际学生和非东盟国际学生收费不同。具体金额每年可能调整，应以 MOE 当年公布为准。';
 }
@@ -142,12 +149,19 @@ function relatedLinks(school) {
       ['WACE 课程', '/wace/'],
       ['新加坡国际学校费用', '/international-school/singapore-international-school-fees/'],
     ],
+    private: [
+      ['私立学校总览', '/private-schools/'],
+      ['私立大学路径', '/private-university/'],
+      ['Foundation 预科', '/foundation/'],
+      ['O-Level 课程', '/o-level/'],
+      ['留学费用', '/guides/cost/'],
+    ],
   };
   return links[school.type] || [['学校数据库', '/school-database/'], ['留学指南', '/guides/']];
 }
 
 function isHigherEducation(school) {
-  return school.type === 'university' || school.type === 'artsUniversity' || school.type === 'poly';
+  return school.type === 'university' || school.type === 'artsUniversity' || school.type === 'poly' || school.type === 'private';
 }
 
 function schemaType(school) {
@@ -209,11 +223,12 @@ function seoTagsForSchool(school) {
     university: ['新加坡公立大学', '本科申请', '中国学生申请', '大学专业选择', '就业导向'],
     artsUniversity: ['艺术大学', '作品集申请', '设计艺术专业', '创意产业', '面试准备'],
     international: ['国际学校', '国际课程', '大学申请方向', '国际学校学费', '入学评估'],
+    private: ['私立学校', '私立大学', '海外大学合作课程', 'Foundation 预科', 'Diploma 文凭', '学生准证'],
   };
   tags.push(...(typeTags[school.type] || []));
 
   const curriculumRules = [
-    ['IB', ['IB 课程', 'IBDP', '探究式学习']],
+    [/\bIB\b|IBDP/i, ['IB 课程', 'IBDP', '探究式学习']],
     ['IGCSE', ['IGCSE', 'Cambridge 课程']],
     ['A-Level', ['A-Level', '英联邦大学申请']],
     [/\bAP\b|Advanced Placement/i, ['AP 课程', '美国大学申请']],
@@ -236,7 +251,7 @@ function seoTagsForSchool(school) {
   if (textIncludes(school, '女校')) tags.push('女校');
   if (textIncludes(school, '男校')) tags.push('男校');
   if (textIncludes(school, 'SAP')) tags.push('SAP 特选学校');
-  if (textIncludes(school, 'IP')) tags.push('IP 直通车');
+  if (textMatches(school, /\bIP\b|直通车/)) tags.push('IP 直通车');
   if (textIncludes(school, '学习支持') || textIncludes(school, '特殊教育')) tags.push('学习支持');
   if (textIncludes(school, '小班') || textIncludes(school, '小规模')) tags.push('小班教学');
   if (textIncludes(school, '中文') || textIncludes(school, '华文') || textIncludes(school, '双语')) tags.push('中文/双语环境');
@@ -275,6 +290,7 @@ function quickAnswerForSchool(school) {
     university: 'A-Level、IB、Poly Diploma、中国高考或国际课程申请本科',
     artsUniversity: '作品集、面试、英文要求和艺术设计类专业申请',
     international: '国际课程、入学测评、英文过渡和未来大学申请方向',
+    private: '私立学校、Foundation、Diploma、海外大学合作本科或 O-Level/A-Level 预备路径',
   };
   return `${school.nameZh}（${school.nameEn}）是${school.location ? `位于 ${school.location} 的` : ''}${school.schoolType || school.categoryLabel}，主要关联 ${school.curriculum || school.categoryLabel}。对中国学生来说，判断它是否适合，重点不是只看名气，而是看孩子英文基础、年龄阶段、家庭预算、目标课程和后续升学路径是否匹配。常见规划方向包括${pathMap[school.type] || '新加坡选校、课程衔接和长期升学路径'}。`;
 }
@@ -302,6 +318,7 @@ function renderApplicationChecklist(school) {
     university: ['核对目标专业对 A-Level、IB、高考或 Poly 成绩的要求', '准备英文、文书、面试或作品材料', '同时评估专业就业方向和长期发展城市'],
     artsUniversity: ['提前准备作品集主题、项目说明和面试表达', '核对专业对学历、英文和创作经历的要求', '预留足够时间打磨作品而不是临时拼材料'],
     international: ['确认年级名额、英文测评和入学面试要求', '比较课程体系是否匹配未来大学国家', '把学费、注册费、校车、餐费和活动费一起预算'],
+    private: ['核对 EduTrust、课程授权和合作大学信息', '确认课程阶段、学制、英文要求和学生准证安排', '比较毕业文凭、升学出口、实习机会和总预算'],
   };
   const items = checklist[school.type] || ['确认入学要求和年级名额', '评估英文能力和课程适应度', '准备同类型备选学校'];
   return `<section class="geo-summary" aria-labelledby="school-checklist">
@@ -391,6 +408,11 @@ function seoMetaForSchool(school) {
       title: internationalTitle,
       h1: `${zh}怎么样？${curriculum}学费与申请指南`,
       description: `${zh}（${en}）中文择校指南：${curriculum}学费预算、入学申请、适合学生、大学方向与中国家长常见问题。`,
+    },
+    private: {
+      title: `${zh}怎么样？${curriculum}学费、申请与中国学生指南`,
+      h1: `${zh}怎么样？${curriculum}学费与申请指南`,
+      description: `${zh}（${en}）中文择校指南：${curriculum}课程路径、申请要求、学费预算、合作大学、学生准证与中国家长常见问题。`,
     },
   };
   return meta[school.type] || {
@@ -700,6 +722,115 @@ ${footer}
 </html>`;
 }
 
+function renderPrivateSchoolIndex(schools, header, footer) {
+  const sorted = [...schools].sort((a, b) => a.nameEn.localeCompare(b.nameEn));
+  const title = '新加坡主流私立学校名单：SIM、Kaplan、PSB、MDIS、JCU 与私立大学路径';
+  const description = `SEDA 新加坡择校网整理 ${sorted.length} 所新加坡主流私立学校、私立教育机构和海外大学新加坡校区，覆盖 Foundation、Diploma、本科衔接、O-Level/A-Level 预备与合作大学课程。`;
+  const indexTags = unique(sorted.flatMap((school) => seoTagsForSchool(school))).slice(0, 40);
+  const schema = {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: title,
+    description,
+    url: `${domain}/private-schools/`,
+    inLanguage: 'zh-CN',
+    about: indexTags.map((tag) => ({ '@type': 'Thing', name: tag })),
+    knowsAbout: indexTags,
+    mainEntity: sorted.map((school) => ({
+      '@type': 'EducationalOrganization',
+      name: school.nameZh,
+      alternateName: school.nameEn,
+      url: `${domain}${schoolUrl(school)}`,
+      address: school.location,
+      knowsAbout: seoTagsForSchool(school).slice(0, 10),
+    })),
+    publisher: {
+      '@type': 'Organization',
+      name: 'SEDA 新加坡择校网',
+      url: `${domain}/`,
+    },
+  };
+  const cards = sorted.map((school) => `
+        <a class="article-card" href="${schoolUrl(school)}">
+          <span class="tag">${escapeHtml(school.curriculum)}</span>
+          <h3>${escapeHtml(school.nameZh)}</h3>
+          <p>${escapeHtml(school.nameEn)}</p>
+          <p>${escapeHtml(school.location)} · ${escapeHtml(school.features?.slice(0, 3).join(' / ') || '私立学校')}</p>
+        </a>`).join('\n');
+
+  return `<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml"/>
+<title>${escapeHtml(title)} | SEDA 新加坡择校网</title>
+<meta name="description" content="${escapeHtml(description)}"/>
+<meta name="keywords" content="新加坡私立学校,新加坡私立大学,SIM新加坡,Kaplan新加坡,PSB Academy,MDIS,JCU Singapore,新加坡私立学校排名"/>
+<meta name="robots" content="index,follow,max-image-preview:large"/>
+<link rel="canonical" href="${domain}/private-schools/"/>
+<link rel="stylesheet" href="/seda-site.css?v=36"/>
+<script type="application/ld+json">${jsonLd(schema)}</script>
+</head>
+<body>
+${header}
+<nav class="breadcrumb" aria-label="面包屑导航"><a href="/">首页</a> <span class="bc-sep">›</span> <span>私立学校</span></nav>
+<main>
+  <section class="page-hero school-hero">
+    <p class="eyebrow">私立学校数据库</p>
+    <h1>新加坡主流私立学校名单</h1>
+    <p class="hero-subtitle">${escapeHtml(description)}</p>
+  </section>
+  <section class="geo-summary">
+    <p class="eyebrow">家长先看</p>
+    <h2>新加坡私立学校怎么选？</h2>
+    <p>中国家长搜索新加坡私立学校时，最容易混淆的是“私立学校”“私立大学”“海外大学新加坡校区”和“国际课程学校”。SEDA 建议先确认课程授权、EduTrust、合作大学、学生准证、毕业文凭和后续升学出口，再比较学费和学校名气。</p>
+    <ul>
+      <li>如果目标是本科文凭：重点看 SIM、Kaplan、PSB、MDIS、JCU、Curtin、LSBF、Amity、ERC 等私立教育机构或海外大学新加坡校区。</li>
+      <li>如果目标是中学或高中课程：重点看 O-Level、A-Level、Foundation、IGCSE 或 WACE 路径是否适合孩子。</li>
+      <li>如果目标是长期升学：要同时比较私立路径、公立大学路径、Poly 路径和国际学校路径。</li>
+    </ul>
+  </section>
+  <section class="section">
+    <div class="section-head">
+      <p class="eyebrow">学校 SEO 页面</p>
+      <h2>${sorted.length} 所私立学校独立择校页</h2>
+      <p>每所学校页面都包含课程体系、适合学生、费用关注、申请路径、FAQ 与结构化数据，方便中国家长搜索和 AI 摘要理解。</p>
+    </div>
+    <div class="seo-tag-cloud seo-tag-cloud-wide">${indexTags.map((tag) => `<span>${escapeHtml(tag)}</span>`).join('')}</div>
+    <div class="article-grid">
+${cards}
+    </div>
+  </section>
+  <section class="contact-section" id="contact" aria-labelledby="contact-title">
+    <div>
+      <p class="eyebrow">免费咨询</p>
+      <h2 id="contact-title">不知道哪所私立学校适合孩子？</h2>
+      <p>告诉我们孩子年龄、当前学历、英文基础和目标大学方向，SEDA 顾问会帮你比较更合适的私立学校和升学路径。</p>
+    </div>
+    <div class="contact-action-stack">
+      <div class="seda-wechat-card">
+        <div class="seda-wechat-head">
+          <div><strong>新加坡择校顾问 Amy</strong><span>扫码添加，获取免费择校方案</span></div>
+          <button type="button" class="seda-copy-wechat" data-wechat="SEDAGUIDE">复制微信号</button>
+        </div>
+        <div class="seda-wechat-body">
+          <img class="seda-wechat-qr" src="/assets/wechat-amy-seda-guide.jpg" alt="新加坡择校顾问Amy微信二维码" loading="lazy" decoding="async">
+          <div class="seda-wechat-info">
+            <p class="seda-wechat-id">微信号：<b>SEDAGUIDE</b></p>
+            <ul><li>私立学校推荐</li><li>课程路径比较</li><li>学费预算分析</li><li>一对一专业咨询</li></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+${footer}
+<script src="/seda-site.js?v=26"></script>
+</body>
+</html>`;
+}
+
 export function buildSchoolPages() {
   if (!fs.existsSync(dataFile)) return 0;
   const home = read(path.join(root, 'index.html'));
@@ -717,6 +848,12 @@ export function buildSchoolPages() {
     const indexDir = path.join(root, 'international-school', 'schools');
     fs.mkdirSync(indexDir, { recursive: true });
     fs.writeFileSync(path.join(indexDir, 'index.html'), renderInternationalSchoolIndex(internationalSchools, header, footer), 'utf8');
+  }
+  const privateSchools = schools.filter((school) => school.type === 'private');
+  if (privateSchools.length) {
+    const indexDir = path.join(root, 'private-schools');
+    fs.mkdirSync(indexDir, { recursive: true });
+    fs.writeFileSync(path.join(indexDir, 'index.html'), renderPrivateSchoolIndex(privateSchools, header, footer), 'utf8');
   }
   return schools.length;
 }

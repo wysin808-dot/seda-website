@@ -5,6 +5,7 @@
     "content:drafts": "node scripts/generate-daily-drafts.mjs",
     "content:build": "node scripts/build-content.mjs",
     "schools:build": "node scripts/build-school-pages.mjs",
+    "schools:private": "node scripts/import-private-school-data.mjs",
     "seo:submit": "bash scripts/baidu-submit.sh",
     "seo:indexnow": "node scripts/indexnow-submit.mjs"
   },

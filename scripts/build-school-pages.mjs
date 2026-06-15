@@ -838,6 +838,7 @@ export function buildSchoolPages() {
   const footer = between(home, '<footer class="site-footer">', '</footer>');
   const schools = JSON.parse(read(dataFile));
   for (const school of schools) {
+    if (school.customContent) continue;
     const url = schoolUrl(school);
     const dir = path.join(root, url);
     fs.mkdirSync(dir, { recursive: true });

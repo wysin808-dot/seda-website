@@ -111,7 +111,8 @@
       "A-Level 路径"
     ],
     "audience": "目标顶尖中学、JC和新加坡公立大学的家庭",
-    "angle": "莱佛士书院不是简单的“好学校推荐”，而是新加坡本地顶尖学生高度集中的学校。"
+    "angle": "莱佛士书院不是简单的“好学校推荐”，而是新加坡本地顶尖学生高度集中的学校。",
+    "customContent": true
   },
   {
     "type": "secondary",
@@ -130,7 +131,8 @@
       "顶尖中学"
     ],
     "audience": "重视中文背景、学术成绩和顶尖大学路径的家庭",
-    "angle": "华侨中学对中国家长有天然吸引力，因为它既代表新加坡精英教育，也保留了明显的华文传统。"
+    "angle": "华侨中学对中国家长有天然吸引力，因为它既代表新加坡精英教育，也保留了明显的华文传统。",
+    "customContent": true
   },
   {
     "type": "secondary",
@@ -193,44 +195,6 @@
     "type": "jc",
     "categoryLabel": "初级学院",
     "basePath": "jc",
-    "slug": "raffles-institution",
-    "nameZh": "莱佛士初级学院",
-    "nameEn": "Raffles Institution Junior College",
-    "location": "Bishan",
-    "schoolType": "JC / A-Level",
-    "curriculum": "Singapore-Cambridge GCE A-Level",
-    "features": [
-      "顶尖 JC",
-      "A-Level 路径",
-      "NUS/NTU 关注度高",
-      "竞争强"
-    ],
-    "audience": "目标新加坡公立大学或海外名校的高中阶段学生",
-    "angle": "家长看莱佛士 JC，真正要判断的是孩子是否能承受高强度 A-Level 竞争。"
-  },
-  {
-    "type": "jc",
-    "categoryLabel": "初级学院",
-    "basePath": "jc",
-    "slug": "hwa-chong-institution",
-    "nameZh": "华侨中学高中部",
-    "nameEn": "Hwa Chong Institution College Section",
-    "location": "Bukit Timah",
-    "schoolType": "JC / A-Level",
-    "curriculum": "Singapore-Cambridge GCE A-Level",
-    "features": [
-      "顶尖 JC",
-      "华文传统",
-      "A-Level 路径",
-      "大学出口强"
-    ],
-    "audience": "目标新加坡公立大学、也重视中文文化背景的家庭",
-    "angle": "华中高中部的优势不是单点成绩，而是强同伴环境、强资源和清晰的大学升学路径。"
-  },
-  {
-    "type": "jc",
-    "categoryLabel": "初级学院",
-    "basePath": "jc",
     "slug": "national-jc",
     "nameZh": "国家初级学院",
     "nameEn": "National Junior College",
@@ -244,7 +208,8 @@
       "学术稳定"
     ],
     "audience": "关注 JC 路线、希望兼顾学术和综合发展的家庭",
-    "angle": "National JC 不是只看排名的学校，它更适合希望走稳健 A-Level 路径的学生。"
+    "angle": "National JC 不是只看排名的学校，它更适合希望走稳健 A-Level 路径的学生。",
+    "customContent": true
   },
   {
     "type": "poly",
@@ -3756,40 +3721,6 @@
     "type": "secondary",
     "categoryLabel": "政府中学",
     "basePath": "secondary-schools",
-    "slug": "admiralty",
-    "nameZh": "海军部中学",
-    "nameEn": "Admiralty Secondary School",
-    "location": "Woodlands",
-    "schoolType": "政府中学 / Government / 参考 COP 22",
-    "curriculum": "O-Level / SEC 中学课程",
-    "features": [
-      "Government",
-      "社区中学",
-      "适合稳妥择校比较"
-    ],
-    "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
-    "angle": "海军部中学（Admiralty Secondary School）位于Woodlands，位于兀兰北部，注重全面发展，设有优秀的课外活动项目。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
-  },
-  {
-    "type": "secondary",
-    "categoryLabel": "政府中学",
-    "basePath": "secondary-schools",
-    "slug": "ahmad-ibrahim",
-    "nameZh": "阿末依布拉欣中学",
-    "nameEn": "Ahmad Ibrahim Secondary School",
-    "location": "Yishun",
-    "schoolType": "政府中学 / Government / 参考 COP 18",
-    "curriculum": "O-Level / SEC 中学课程",
-    "features": [
-      "Government"
-    ],
-    "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
-    "angle": "阿末依布拉欣中学（Ahmad Ibrahim Secondary School）位于Yishun，以培养领导力见长，是义顺区历史悠久的中学之一。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
-  },
-  {
-    "type": "secondary",
-    "categoryLabel": "政府中学",
-    "basePath": "secondary-schools",
     "slug": "anderson",
     "nameZh": "安德逊中学",
     "nameEn": "Anderson Secondary School",
@@ -3801,22 +3732,6 @@
     ],
     "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
     "angle": "安德逊中学（Anderson Secondary School）位于Ang Mo Kio，学术表现优异的自主学校，宏茂桥区名校，理科与数学实力突出。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
-  },
-  {
-    "type": "secondary",
-    "categoryLabel": "政府中学",
-    "basePath": "secondary-schools",
-    "slug": "ang-mo-kio",
-    "nameZh": "宏茂桥中学",
-    "nameEn": "Ang Mo Kio Secondary School",
-    "location": "Ang Mo Kio",
-    "schoolType": "政府中学 / Government / 参考 COP 16",
-    "curriculum": "O-Level / SEC 中学课程",
-    "features": [
-      "Government"
-    ],
-    "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
-    "angle": "宏茂桥中学（Ang Mo Kio Secondary School）位于Ang Mo Kio，社区型中学，提供全面的课程与丰富课外活动。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
   },
   {
     "type": "secondary",
@@ -3925,24 +3840,6 @@
     "type": "secondary",
     "categoryLabel": "政府中学",
     "basePath": "secondary-schools",
-    "slug": "bedok-green",
-    "nameZh": "勿洛绿苑中学",
-    "nameEn": "Bedok Green Secondary School",
-    "location": "Bedok",
-    "schoolType": "政府中学 / Government / 参考 COP 20",
-    "curriculum": "O-Level / SEC 中学课程",
-    "features": [
-      "Government",
-      "社区中学",
-      "适合稳妥择校比较"
-    ],
-    "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
-    "angle": "勿洛绿苑中学（Bedok Green Secondary School）位于Bedok，勿洛区新兴中学，注重科技与创新教育。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
-  },
-  {
-    "type": "secondary",
-    "categoryLabel": "政府中学",
-    "basePath": "secondary-schools",
     "slug": "bedok-south",
     "nameZh": "勿洛南中学",
     "nameEn": "Bedok South Secondary School",
@@ -3970,24 +3867,6 @@
     ],
     "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
     "angle": "勿洛景中学（Bedok View Secondary School）位于Bedok，提供丰富的应用学习项目，注重学生技能培养。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
-  },
-  {
-    "type": "secondary",
-    "categoryLabel": "政府中学",
-    "basePath": "secondary-schools",
-    "slug": "bendemeer",
-    "nameZh": "明地迷亚中学",
-    "nameEn": "Bendemeer Secondary School",
-    "location": "Kallang",
-    "schoolType": "政府中学 / Government / 参考 COP 22",
-    "curriculum": "O-Level / SEC 中学课程",
-    "features": [
-      "Government",
-      "社区中学",
-      "适合稳妥择校比较"
-    ],
-    "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
-    "angle": "明地迷亚中学（Bendemeer Secondary School）位于Kallang，加冷区社区中学，注重多元文化教育。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
   },
   {
     "type": "secondary",
@@ -4090,42 +3969,6 @@
     ],
     "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
     "angle": "武吉班让政府中学（Bukit Panjang Government High School）位于Bukit Panjang，自主中学，武吉班让区顶尖学校，学术表现出色。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
-  },
-  {
-    "type": "secondary",
-    "categoryLabel": "政府中学",
-    "basePath": "secondary-schools",
-    "slug": "bukit-view",
-    "nameZh": "武吉景中学",
-    "nameEn": "Bukit View Secondary School",
-    "location": "Bukit Batok",
-    "schoolType": "政府中学 / Government / 参考 COP 20",
-    "curriculum": "O-Level / SEC 中学课程",
-    "features": [
-      "Government",
-      "社区中学",
-      "适合稳妥择校比较"
-    ],
-    "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
-    "angle": "武吉景中学（Bukit View Secondary School）位于Bukit Batok，武吉巴督区社区中学，注重品格教育。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
-  },
-  {
-    "type": "secondary",
-    "categoryLabel": "政府中学",
-    "basePath": "secondary-schools",
-    "slug": "canberra",
-    "nameZh": "坎培拉中学",
-    "nameEn": "Canberra Secondary School",
-    "location": "Sembawang",
-    "schoolType": "政府中学 / Government / 参考 COP 22",
-    "curriculum": "O-Level / SEC 中学课程",
-    "features": [
-      "Government",
-      "社区中学",
-      "适合稳妥择校比较"
-    ],
-    "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
-    "angle": "坎培拉中学（Canberra Secondary School）位于Sembawang，三巴旺区较新中学，设施现代化。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
   },
   {
     "type": "secondary",
@@ -4285,24 +4128,6 @@
     ],
     "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
     "angle": "基督堂中学（Christ Church Secondary School）位于Woodlands，兀兰区基督教背景中学。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
-  },
-  {
-    "type": "secondary",
-    "categoryLabel": "政府中学",
-    "basePath": "secondary-schools",
-    "slug": "chua-chu-kang",
-    "nameZh": "蔡厝港中学",
-    "nameEn": "Chua Chu Kang Secondary School",
-    "location": "Choa Chu Kang",
-    "schoolType": "政府中学 / Government / 参考 COP 20",
-    "curriculum": "O-Level / SEC 中学课程",
-    "features": [
-      "Government",
-      "社区中学",
-      "适合稳妥择校比较"
-    ],
-    "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
-    "angle": "蔡厝港中学（Chua Chu Kang Secondary School）位于Choa Chu Kang，蔡厝港区社区中学。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
   },
   {
     "type": "secondary",
@@ -4513,38 +4338,6 @@
     "type": "secondary",
     "categoryLabel": "政府中学",
     "basePath": "secondary-schools",
-    "slug": "edgefield",
-    "nameZh": "毅道中学",
-    "nameEn": "Edgefield Secondary School",
-    "location": "Punggol",
-    "schoolType": "政府中学 / Government / 参考 COP 14",
-    "curriculum": "O-Level / SEC 中学课程",
-    "features": [
-      "Government"
-    ],
-    "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
-    "angle": "毅道中学（Edgefield Secondary School）位于Punggol，榜鹅区中学，设施较新。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
-  },
-  {
-    "type": "secondary",
-    "categoryLabel": "政府中学",
-    "basePath": "secondary-schools",
-    "slug": "evergreen",
-    "nameZh": "常青中学",
-    "nameEn": "Evergreen Secondary School",
-    "location": "Woodlands",
-    "schoolType": "政府中学 / Government / 参考 COP 15",
-    "curriculum": "O-Level / SEC 中学课程",
-    "features": [
-      "Government"
-    ],
-    "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
-    "angle": "常青中学（Evergreen Secondary School）位于Woodlands，兀兰区中学，注重环保与可持续发展教育。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
-  },
-  {
-    "type": "secondary",
-    "categoryLabel": "政府中学",
-    "basePath": "secondary-schools",
     "slug": "fairfield-methodist",
     "nameZh": "花菲卫理中学",
     "nameEn": "Fairfield Methodist School (Secondary)",
@@ -4556,38 +4349,6 @@
     ],
     "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
     "angle": "花菲卫理中学（Fairfield Methodist School (Secondary)）位于Queenstown，卫理公会学校，女皇镇区学术实力不俗。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
-  },
-  {
-    "type": "secondary",
-    "categoryLabel": "政府中学",
-    "basePath": "secondary-schools",
-    "slug": "fuhua",
-    "nameZh": "辅华中学",
-    "nameEn": "Fuhua Secondary School",
-    "location": "Jurong West",
-    "schoolType": "政府中学 / Government / 参考 COP 13",
-    "curriculum": "O-Level / SEC 中学课程",
-    "features": [
-      "Government"
-    ],
-    "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
-    "angle": "辅华中学（Fuhua Secondary School）位于Jurong West，裕廊西区中学，注重科技与创新教育。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
-  },
-  {
-    "type": "secondary",
-    "categoryLabel": "政府中学",
-    "basePath": "secondary-schools",
-    "slug": "gan-eng-seng",
-    "nameZh": "颜永成中学",
-    "nameEn": "Gan Eng Seng School",
-    "location": "Bukit Merah",
-    "schoolType": "政府中学 / Government / 参考 COP 15",
-    "curriculum": "O-Level / SEC 中学课程",
-    "features": [
-      "Government"
-    ],
-    "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
-    "angle": "颜永成中学（Gan Eng Seng School）位于Bukit Merah，红山区历史悠久的中学，创校于 1844 年。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
   },
   {
     "type": "secondary",
@@ -4620,24 +4381,6 @@
     ],
     "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
     "angle": "青景中学（Greendale Secondary School）位于Punggol，榜鹅区社区中学。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
-  },
-  {
-    "type": "secondary",
-    "categoryLabel": "政府中学",
-    "basePath": "secondary-schools",
-    "slug": "greenridge",
-    "nameZh": "青岭中学",
-    "nameEn": "Greenridge Secondary School",
-    "location": "Bukit Panjang",
-    "schoolType": "政府中学 / Government / 参考 COP 22",
-    "curriculum": "O-Level / SEC 中学课程",
-    "features": [
-      "Government",
-      "社区中学",
-      "适合稳妥择校比较"
-    ],
-    "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
-    "angle": "青岭中学（Greenridge Secondary School）位于Bukit Panjang，武吉班让区社区学校。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
   },
   {
     "type": "secondary",
@@ -4709,24 +4452,6 @@
     "type": "secondary",
     "categoryLabel": "政府中学",
     "basePath": "secondary-schools",
-    "slug": "hougang",
-    "nameZh": "后港中学",
-    "nameEn": "Hougang Secondary School",
-    "location": "Hougang",
-    "schoolType": "政府中学 / Government / 参考 COP 20",
-    "curriculum": "O-Level / SEC 中学课程",
-    "features": [
-      "Government",
-      "社区中学",
-      "适合稳妥择校比较"
-    ],
-    "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
-    "angle": "后港中学（Hougang Secondary School）位于Hougang，后港区社区中学。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
-  },
-  {
-    "type": "secondary",
-    "categoryLabel": "政府中学",
-    "basePath": "secondary-schools",
     "slug": "hua-yi",
     "nameZh": "华义中学",
     "nameEn": "Hua Yi Secondary School",
@@ -4754,22 +4479,6 @@
     ],
     "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
     "angle": "裕廊中学（Jurong Secondary School）位于Jurong West，裕廊西区历史悠久的中学。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
-  },
-  {
-    "type": "secondary",
-    "categoryLabel": "政府中学",
-    "basePath": "secondary-schools",
-    "slug": "jurong-west",
-    "nameZh": "裕廊西中学",
-    "nameEn": "Jurong West Secondary School",
-    "location": "Jurong West",
-    "schoolType": "政府中学 / Government / 参考 COP 16",
-    "curriculum": "O-Level / SEC 中学课程",
-    "features": [
-      "Government"
-    ],
-    "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
-    "angle": "裕廊西中学（Jurong West Secondary School）位于Jurong West，裕廊西区社区中学。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
   },
   {
     "type": "secondary",
@@ -4843,24 +4552,6 @@
     "type": "secondary",
     "categoryLabel": "政府中学",
     "basePath": "secondary-schools",
-    "slug": "kuo-chuan-presbyterian",
-    "nameZh": "国专长老会中学",
-    "nameEn": "Kuo Chuan Presbyterian Secondary School",
-    "location": "Bishan",
-    "schoolType": "政府中学 / Government-Aided / 参考 COP 20",
-    "curriculum": "O-Level / SEC 中学课程",
-    "features": [
-      "Government-Aided",
-      "社区中学",
-      "适合稳妥择校比较"
-    ],
-    "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
-    "angle": "国专长老会中学（Kuo Chuan Presbyterian Secondary School）位于Bishan，碧山区优秀学校，基督教长老会背景，学术竞争力强。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
-  },
-  {
-    "type": "secondary",
-    "categoryLabel": "政府中学",
-    "basePath": "secondary-schools",
     "slug": "loyang-view",
     "nameZh": "洛阳景中学",
     "nameEn": "Loyang View Secondary School",
@@ -4909,24 +4600,6 @@
     ],
     "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
     "angle": "海星中学（Maris Stella High School）位于Bedok，特选男校，华文教育传统深厚，学术表现优秀。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
-  },
-  {
-    "type": "secondary",
-    "categoryLabel": "政府中学",
-    "basePath": "secondary-schools",
-    "slug": "marsiling",
-    "nameZh": "马西岭中学",
-    "nameEn": "Marsiling Secondary School",
-    "location": "Woodlands",
-    "schoolType": "政府中学 / Government / 参考 COP 22",
-    "curriculum": "O-Level / SEC 中学课程",
-    "features": [
-      "Government",
-      "社区中学",
-      "适合稳妥择校比较"
-    ],
-    "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
-    "angle": "马西岭中学（Marsiling Secondary School）位于Woodlands，兀兰区社区中学。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
   },
   {
     "type": "secondary",
@@ -5040,74 +4713,6 @@
     "type": "secondary",
     "categoryLabel": "政府中学",
     "basePath": "secondary-schools",
-    "slug": "naval-base",
-    "nameZh": "海军基地中学",
-    "nameEn": "Naval Base Secondary School",
-    "location": "Yishun",
-    "schoolType": "政府中学 / Government / 参考 COP 19",
-    "curriculum": "O-Level / SEC 中学课程",
-    "features": [
-      "Government",
-      "社区中学",
-      "适合稳妥择校比较"
-    ],
-    "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
-    "angle": "海军基地中学（Naval Base Secondary School）位于Yishun，义顺区中学。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
-  },
-  {
-    "type": "secondary",
-    "categoryLabel": "政府中学",
-    "basePath": "secondary-schools",
-    "slug": "new-town",
-    "nameZh": "新镇中学",
-    "nameEn": "New Town Secondary School",
-    "location": "Queenstown",
-    "schoolType": "政府中学 / Government / 参考 COP 20",
-    "curriculum": "O-Level / SEC 中学课程",
-    "features": [
-      "Government",
-      "社区中学",
-      "适合稳妥择校比较"
-    ],
-    "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
-    "angle": "新镇中学（New Town Secondary School）位于Queenstown，女皇镇区社区中学。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
-  },
-  {
-    "type": "secondary",
-    "categoryLabel": "政府中学",
-    "basePath": "secondary-schools",
-    "slug": "ngee-ann",
-    "nameZh": "义安中学",
-    "nameEn": "Ngee Ann Secondary School",
-    "location": "Tampines",
-    "schoolType": "政府中学 / Autonomous / 参考 COP 12",
-    "curriculum": "O-Level / SEC 中学课程",
-    "features": [
-      "Autonomous"
-    ],
-    "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
-    "angle": "义安中学（Ngee Ann Secondary School）位于Tampines，自主中学，淡滨尼区学术强校。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
-  },
-  {
-    "type": "secondary",
-    "categoryLabel": "政府中学",
-    "basePath": "secondary-schools",
-    "slug": "north-vista",
-    "nameZh": "北景中学",
-    "nameEn": "North Vista Secondary School",
-    "location": "Sengkang",
-    "schoolType": "政府中学 / Government / 参考 COP 18",
-    "curriculum": "O-Level / SEC 中学课程",
-    "features": [
-      "Government"
-    ],
-    "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
-    "angle": "北景中学（North Vista Secondary School）位于Sengkang，盛港区中学。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
-  },
-  {
-    "type": "secondary",
-    "categoryLabel": "政府中学",
-    "basePath": "secondary-schools",
     "slug": "northbrooks",
     "nameZh": "北溪中学",
     "nameEn": "Northbrooks Secondary School",
@@ -5153,22 +4758,6 @@
     ],
     "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
     "angle": "巴西立峰中学（Pasir Ris Crest Secondary School）位于Pasir Ris，巴西立区中学。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
-  },
-  {
-    "type": "secondary",
-    "categoryLabel": "政府中学",
-    "basePath": "secondary-schools",
-    "slug": "pasir-ris",
-    "nameZh": "巴西立中学",
-    "nameEn": "Pasir Ris Secondary School",
-    "location": "Tampines",
-    "schoolType": "政府中学 / Government / 参考 COP 17",
-    "curriculum": "O-Level / SEC 中学课程",
-    "features": [
-      "Government"
-    ],
-    "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
-    "angle": "巴西立中学（Pasir Ris Secondary School）位于Tampines，淡滨尼/巴西立区中学。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
   },
   {
     "type": "secondary",
@@ -5317,22 +4906,6 @@
     "type": "secondary",
     "categoryLabel": "政府中学",
     "basePath": "secondary-schools",
-    "slug": "riverside",
-    "nameZh": "河畔中学",
-    "nameEn": "Riverside Secondary School",
-    "location": "Woodlands",
-    "schoolType": "政府中学 / Government / 参考 COP 14",
-    "curriculum": "O-Level / SEC 中学课程",
-    "features": [
-      "Government"
-    ],
-    "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
-    "angle": "河畔中学（Riverside Secondary School）位于Woodlands，兀兰区中学。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
-  },
-  {
-    "type": "secondary",
-    "categoryLabel": "政府中学",
-    "basePath": "secondary-schools",
     "slug": "school-of-science-technology",
     "nameZh": "科技中学",
     "nameEn": "School of Science and Technology",
@@ -5360,24 +4933,6 @@
     ],
     "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
     "angle": "艺术中学（School of the Arts）位于Central，新加坡唯一艺术专科中学，通过才艺测试入学。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
-  },
-  {
-    "type": "secondary",
-    "categoryLabel": "政府中学",
-    "basePath": "secondary-schools",
-    "slug": "sembawang",
-    "nameZh": "三巴旺中学",
-    "nameEn": "Sembawang Secondary School",
-    "location": "Sembawang",
-    "schoolType": "政府中学 / Government / 参考 COP 22",
-    "curriculum": "O-Level / SEC 中学课程",
-    "features": [
-      "Government",
-      "社区中学",
-      "适合稳妥择校比较"
-    ],
-    "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
-    "angle": "三巴旺中学（Sembawang Secondary School）位于Sembawang，三巴旺区社区中学。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
   },
   {
     "type": "secondary",
@@ -5670,24 +5225,6 @@
     "type": "secondary",
     "categoryLabel": "政府中学",
     "basePath": "secondary-schools",
-    "slug": "woodlands-ring",
-    "nameZh": "兀兰环中学",
-    "nameEn": "Woodlands Ring Secondary School",
-    "location": "Woodlands",
-    "schoolType": "政府中学 / Government / 参考 COP 22",
-    "curriculum": "O-Level / SEC 中学课程",
-    "features": [
-      "Government",
-      "社区中学",
-      "适合稳妥择校比较"
-    ],
-    "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
-    "angle": "兀兰环中学（Woodlands Ring Secondary School）位于Woodlands，兀兰区社区学校。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
-  },
-  {
-    "type": "secondary",
-    "categoryLabel": "政府中学",
-    "basePath": "secondary-schools",
     "slug": "xinmin",
     "nameZh": "新民中学",
     "nameEn": "Xinmin Secondary School",
@@ -5699,42 +5236,6 @@
     ],
     "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
     "angle": "新民中学（Xinmin Secondary School）位于Hougang，自主中学，后港区学术强校。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
-  },
-  {
-    "type": "secondary",
-    "categoryLabel": "政府中学",
-    "basePath": "secondary-schools",
-    "slug": "yio-chu-kang",
-    "nameZh": "杨厝港中学",
-    "nameEn": "Yio Chu Kang Secondary School",
-    "location": "Ang Mo Kio",
-    "schoolType": "政府中学 / Government / 参考 COP 22",
-    "curriculum": "O-Level / SEC 中学课程",
-    "features": [
-      "Government",
-      "社区中学",
-      "适合稳妥择校比较"
-    ],
-    "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
-    "angle": "杨厝港中学（Yio Chu Kang Secondary School）位于Ang Mo Kio，宏茂桥区社区中学。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
-  },
-  {
-    "type": "secondary",
-    "categoryLabel": "政府中学",
-    "basePath": "secondary-schools",
-    "slug": "yishun",
-    "nameZh": "义顺中学",
-    "nameEn": "Yishun Secondary School",
-    "location": "Yishun",
-    "schoolType": "政府中学 / Government / 参考 COP 20",
-    "curriculum": "O-Level / SEC 中学课程",
-    "features": [
-      "Government",
-      "社区中学",
-      "适合稳妥择校比较"
-    ],
-    "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
-    "angle": "义顺中学（Yishun Secondary School）位于Yishun，义顺区社区中学。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
   },
   {
     "type": "secondary",
@@ -5783,22 +5284,6 @@
     ],
     "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
     "angle": "尤索夫依萨中学（Yusof Ishak Secondary School）位于Punggol，榜鹅区中学，以新加坡首任总统命名。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
-  },
-  {
-    "type": "secondary",
-    "categoryLabel": "政府中学",
-    "basePath": "secondary-schools",
-    "slug": "zhonghua",
-    "nameZh": "中华中学",
-    "nameEn": "Zhonghua Secondary School",
-    "location": "Serangoon",
-    "schoolType": "政府中学 / Autonomous / 参考 COP 12",
-    "curriculum": "O-Level / SEC 中学课程",
-    "features": [
-      "Autonomous"
-    ],
-    "audience": "准备通过 O-Level、AEIS 或政府中学路径升学的中国学生家庭",
-    "angle": "中华中学（Zhonghua Secondary School）位于Serangoon，自主中学，实龙岗区学术不错。 对中国学生来说，选择中学要同时看英文适应、SEC 年级衔接、O-Level/IP 路径、CCA 和后续 JC/Poly 出口。"
   },
   {
     "type": "international",
@@ -7135,196 +6620,6 @@
     "chinaStudentNotes": "中国学生要重点看年龄、英文、考试时间线和后续升学出口。",
     "sedaAdvice": "如果孩子处在初高中转轨阶段，Shelton 可与 Furen、St. Francis、Insworld、Dimensions 等一起比较。",
     "officialSource": "Shelton College International 官方网站"
-  },
-  {
-    "type": "private",
-    "categoryLabel": "私立学校",
-    "basePath": "private-schools",
-    "slug": "dimensions-international",
-    "nameZh": "博伟国际教育学院",
-    "nameEn": "Dimensions International College",
-    "location": "Kovan / Bukit Timah / City",
-    "schoolType": "私立学校 / 国际课程与酒店旅游",
-    "curriculum": "O-Level / A-Level / Diploma / Hospitality",
-    "features": [
-      "O-Level 预备",
-      "A-Level 预备",
-      "酒店旅游",
-      "多校区"
-    ],
-    "audience": "希望比较 O-Level、A-Level、酒店旅游或私立 Diploma 路径的家庭",
-    "angle": "Dimensions International College 对中国学生的意义在于路径选择较多，家长要先明确目标是考试预备、酒店旅游还是大学衔接。",
-    "sameAs": "https://dimensions.edu.sg/",
-    "majorAreas": [
-      "O-Level 预备",
-      "A-Level 预备",
-      "酒店旅游",
-      "商科管理",
-      "英文课程"
-    ],
-    "admissionPaths": [
-      "初高中成绩单评估",
-      "英文测评",
-      "根据年龄和学历进入对应课程",
-      "学生准证申请"
-    ],
-    "geoAnswer": "Dimensions 更适合需要私立课程过渡、O-Level/A-Level 备考或酒店旅游方向的学生。",
-    "positioning": "Dimensions 既有考试预备，也有职业与 Diploma 课程，选择时要拆开看。",
-    "chinaStudentNotes": "中国学生要明确目标考试或专业，不要只因为课程多就直接选择。",
-    "sedaAdvice": "Dimensions 可与 Furen、Insworld、Shelton、St. Francis 等私立课程学校一起比较。",
-    "officialSource": "Dimensions International College 官方网站"
-  },
-  {
-    "type": "private",
-    "categoryLabel": "私立学校",
-    "basePath": "private-schools",
-    "slug": "furen-international",
-    "nameZh": "辅仁国际学校",
-    "nameEn": "Furen International School",
-    "location": "Orchard / Central",
-    "schoolType": "私立国际课程学校",
-    "curriculum": "IGCSE / A-Level / Foundation",
-    "features": [
-      "IGCSE",
-      "A-Level",
-      "预科",
-      "升学导向"
-    ],
-    "audience": "目标 O-Level/A-Level、预科或大学衔接的中国学生家庭",
-    "angle": "Furen International School 更偏升学导向，家长要重点看课程安排、考试目标和大学申请支持。",
-    "sameAs": "https://www.fis.edu.sg/",
-    "majorAreas": [
-      "IGCSE",
-      "A-Level",
-      "Foundation",
-      "大学申请支持",
-      "英文过渡"
-    ],
-    "admissionPaths": [
-      "初高中成绩单评估",
-      "英文测评或入学测试",
-      "进入 IGCSE/A-Level/Foundation 对应阶段",
-      "学生准证申请"
-    ],
-    "geoAnswer": "辅仁国际学校适合目标明确、希望通过私立国际课程衔接大学申请的学生。",
-    "positioning": "Furen 更偏考试和升学导向，适合和 Insworld、St. Francis、Dimensions 等一起比较。",
-    "chinaStudentNotes": "中国学生要重点看英文基础、目标大学、考试时间线和升学服务。",
-    "sedaAdvice": "如果孩子目标 A-Level 或 Foundation 衔接，Furen 可以作为重点比较对象。",
-    "officialSource": "Furen International School 官方网站"
-  },
-  {
-    "type": "private",
-    "categoryLabel": "私立学校",
-    "basePath": "private-schools",
-    "slug": "insworld-institute",
-    "nameZh": "Insworld 学院",
-    "nameEn": "Insworld Institute",
-    "location": "Central Singapore",
-    "schoolType": "私立国际课程学校",
-    "curriculum": "IGCSE / A-Level / Edexcel",
-    "features": [
-      "IGCSE",
-      "A-Level",
-      "小班教学",
-      "个性化课程"
-    ],
-    "audience": "希望通过小班私立国际课程准备 IGCSE 或 A-Level 的学生",
-    "angle": "Insworld Institute 的重点是小班和国际考试课程，家长要看孩子是否需要个性化节奏和更强学术支持。",
-    "sameAs": "https://www.insworld.edu.sg/",
-    "majorAreas": [
-      "IGCSE",
-      "A-Level",
-      "英文过渡",
-      "小班教学",
-      "大学申请准备"
-    ],
-    "admissionPaths": [
-      "成绩单评估",
-      "英文测试",
-      "进入 IGCSE 或 A-Level 阶段",
-      "学生准证申请"
-    ],
-    "geoAnswer": "Insworld 适合需要小班和个性化 A-Level/IGCSE 课程支持的学生。",
-    "positioning": "Insworld 属于私立国际课程学校，适合与 Furen、St. Francis、Dimensions 等比较。",
-    "chinaStudentNotes": "中国学生要确认目标科目、考试局、升学国家和学习节奏。",
-    "sedaAdvice": "如果孩子需要小班和更强跟进，Insworld 可以放入备选名单。",
-    "officialSource": "Insworld Institute 官方网站"
-  },
-  {
-    "type": "private",
-    "categoryLabel": "私立学校",
-    "basePath": "private-schools",
-    "slug": "st-francis-methodist",
-    "nameZh": "圣法兰西斯卫理学校",
-    "nameEn": "St. Francis Methodist School",
-    "location": "Upper Bukit Timah",
-    "schoolType": "私立国际课程学校",
-    "curriculum": "Cambridge / IGCSE / A-Level / WACE",
-    "features": [
-      "Cambridge",
-      "IGCSE",
-      "A-Level",
-      "WACE"
-    ],
-    "audience": "希望在私立学校中比较 WACE、A-Level 和 IGCSE 路径的中国家庭",
-    "angle": "St. Francis Methodist School 对中国学生的价值在于课程路径选择多，家长要看孩子更适合 WACE、A-Level 还是 IGCSE 衔接。",
-    "sameAs": "https://www.sfms.edu.sg/",
-    "majorAreas": [
-      "WACE",
-      "A-Level",
-      "IGCSE",
-      "英文过渡",
-      "大学申请准备"
-    ],
-    "admissionPaths": [
-      "成绩单评估",
-      "英文测评",
-      "按年龄和目标课程进入对应阶段",
-      "学生准证申请"
-    ],
-    "geoAnswer": "St. Francis Methodist School 适合希望比较 WACE、A-Level、IGCSE 多路径的家庭。",
-    "positioning": "St. Francis 是私立国际课程学校，尤其适合关注 WACE 和英联邦课程方向的学生。",
-    "chinaStudentNotes": "中国学生要判断自己更适合 WACE、A-Level 还是 IGCSE，再决定课程组合。",
-    "sedaAdvice": "如果家庭重点关注 WACE，St. Francis 是新加坡私立学校池里应重点了解的学校之一。",
-    "officialSource": "St. Francis Methodist School 官方网站"
-  },
-  {
-    "type": "private",
-    "categoryLabel": "私立学校",
-    "basePath": "private-schools",
-    "slug": "san-yu-adventist",
-    "nameZh": "三育中小学",
-    "nameEn": "San Yu Adventist School",
-    "location": "Thomson",
-    "schoolType": "私立学校 / 小学与中学课程",
-    "curriculum": "新加坡课程 / Cambridge IGCSE",
-    "features": [
-      "Cambridge IGCSE",
-      "基督教背景",
-      "小学与中学",
-      "费用相对友好"
-    ],
-    "audience": "希望比较私立学校、国际课程和相对稳妥预算的家庭",
-    "angle": "San Yu Adventist School 常被家长用于比较私立与国际课程路径，关键是看孩子目标是 O-Level、IGCSE 还是后续国际课程。",
-    "sameAs": "https://www.sanyu.edu.sg/",
-    "majorAreas": [
-      "小学课程",
-      "中学课程",
-      "Cambridge IGCSE",
-      "英文过渡",
-      "私立学校路径"
-    ],
-    "admissionPaths": [
-      "年龄和年级评估",
-      "成绩单和英文能力评估",
-      "进入小学或中学对应阶段",
-      "学生准证申请"
-    ],
-    "geoAnswer": "三育中小学适合希望比较私立中小学、Cambridge IGCSE 和费用相对友好路径的家庭。",
-    "positioning": "San Yu 更接近私立中小学路径，适合与政府学校、国际学校和其他私立课程学校一起比较。",
-    "chinaStudentNotes": "中国学生要重点看英文过渡、课程出口和后续升学衔接。",
-    "sedaAdvice": "如果家庭预算相对谨慎，San Yu 可以作为私立中小学备选之一。",
-    "officialSource": "San Yu Adventist School 官方网站"
   },
   {
     "type": "private",

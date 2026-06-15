@@ -14,8 +14,8 @@ if [ -z "$SITE_DIR" ]; then
     fi
   done
 fi
-SITEMAP_FILE="${SITEMAP_FILE:-$SITE_DIR/sitemap.xml}"
-STATE_FILE="${STATE_FILE:-$SITE_DIR/.baidu-submit-offset}"
+SITEMAP_FILE="${SITEMAP_FILE:-$SITE_DIR/baidu-sitemap.xml}"
+STATE_FILE="${STATE_FILE:-$SITE_DIR/.baidu-submit-offset-v2}"
 LOG_FILE="/var/log/baidu-submit.log"
 SEO_SUBMISSION_FILE="${SEO_SUBMISSION_FILE:-$SITE_DIR/data/seo/submissions.jsonl}"
 BATCH_SIZE=5   # 安全批次：每次5条，避免超出剩余配额导致整批失败

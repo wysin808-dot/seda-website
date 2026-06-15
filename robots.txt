@@ -3,4 +3,20 @@ Allow: /
 Disallow: /cms/
 Disallow: /content-review/
 
+# Baiduspider: only index pages with substantial unique content.
+# Template school pages are blocked until unique content is published.
+User-agent: Baiduspider
+Disallow: /cms/
+Disallow: /content-review/
+# Individual school pages with unique content — always allowed
+Allow: /primary-schools/kong-hwa/
+Allow: /poly/rp/
+# Block all other individual school sub-pages (template content)
+Disallow: /primary-schools/*/
+Disallow: /secondary-schools/*/
+Disallow: /jc/*/
+Disallow: /poly/*/
+Disallow: /international-school/*/
+Disallow: /private-schools/*/
+
 Sitemap: https://sgeda.org.cn/sitemap.xml

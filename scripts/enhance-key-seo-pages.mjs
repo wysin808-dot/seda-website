@@ -121,21 +121,15 @@ ${headMarkerEnd}`;
 
 function buildBodyBlock(page) {
   const id = slugId(page.path);
+  // NOTE: the keyword-stuffing "主题标签"(seo-tags) section was intentionally
+  // removed — visible tag clouds triggered a Baidu quality penalty. Only the
+  // readable GEO summary is injected now.
   const content = `<section class="geo-summary core-geo-summary" aria-labelledby="geo-summary-${id}">
         <p class="eyebrow">GEO 可读答案</p>
         <h2 id="geo-summary-${id}">${escapeHtml(page.geoTitle || `${page.title}核心结论`)}</h2>
         <ul>
 ${page.summary.map((item) => `          <li>${escapeHtml(item)}</li>`).join('\n')}
         </ul>
-      </section>
-
-      <section class="seo-tags core-seo-tags" aria-labelledby="core-tags-${id}">
-        <p class="eyebrow">主题标签</p>
-        <h2 id="core-tags-${id}">${escapeHtml(page.tagTitle || `${page.title}核心主题`)}</h2>
-        <p>这些主题帮助家长快速判断页面重点，也帮助搜索引擎和 AI 搜索理解本页内容。</p>
-        <div class="seo-tag-cloud">
-${page.about.map((item) => `          <span>${escapeHtml(item)}</span>`).join('\n')}
-        </div>
       </section>`;
   const body = page.compactBody
     ? `      <div class="${escapeHtml(page.compactBody)}" aria-label="${escapeHtml(page.title)}页面核心摘要">

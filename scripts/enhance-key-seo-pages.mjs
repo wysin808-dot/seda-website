@@ -142,9 +142,12 @@ ${bodyMarkerEnd}`;
 }
 
 function enhancePageHtml(page, html) {
+  // Only inject head structured data (WebPage/ItemList/FAQ JSON-LD + robots meta).
+  // The visible body block (GEO 可读答案 / seo-tags) is no longer injected —
+  // it read as redundant/keyword-stuffing. stripExisting clears any previously
+  // injected body block on the next deploy.
   const clean = stripExisting(html);
-  const withHead = injectHead(clean, buildHeadBlock(page));
-  return injectBody(withHead, buildBodyBlock(page), page);
+  return injectHead(clean, buildHeadBlock(page));
 }
 
 const pages = [

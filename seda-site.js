@@ -100,9 +100,9 @@
   }
 
   function shouldShowSideCard(path) {
-    if (path === '/' || path === '/index.html') return false;
-    if (/^\/(cms|content-review|contact)\/?/.test(path)) return false;
-    return true;
+    // Floating Amy sidecard disabled site-wide — pages have their own
+    // consultation CTA, the popup card was intrusive/repetitive.
+    return false;
   }
 
   function createSideCard() {

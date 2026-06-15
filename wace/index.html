@@ -98,7 +98,516 @@
   gtag('config', 'G-38WFES3WTH');
 </script>
 <!-- SEDA_GA4_END -->
-</head>
+
+<!-- WACE_STATIC_STYLE_START -->
+<style>
+  .wace-static-page {
+    background: #fff;
+    color: #172033;
+  }
+
+  .wace-static-page * {
+    box-sizing: border-box;
+  }
+
+  .wace-static-wrap {
+    width: min(1180px, calc(100% - 40px));
+    margin: 0 auto;
+  }
+
+  .wace-static-hero {
+    position: relative;
+    overflow: hidden;
+    background:
+      linear-gradient(110deg, rgba(22, 31, 50, .92) 0%, rgba(121, 29, 31, .86) 56%, rgba(202, 43, 48, .78) 100%),
+      radial-gradient(circle at 80% 20%, rgba(255,255,255,.18), transparent 34%);
+    color: #fff;
+    border-bottom: 1px solid rgba(202, 43, 48, .16);
+  }
+
+  .wace-static-hero::after {
+    content: "";
+    position: absolute;
+    inset: auto -10% -42% 42%;
+    height: 320px;
+    background: rgba(255,255,255,.08);
+    transform: rotate(-8deg);
+    border-radius: 50%;
+  }
+
+  .wace-static-hero-inner {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: minmax(0, 1.08fr) minmax(300px, .92fr);
+    gap: 42px;
+    align-items: center;
+    padding: 72px 0 58px;
+  }
+
+  .wace-static-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 18px;
+    font-size: .78rem;
+    font-weight: 800;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.82);
+  }
+
+  .wace-static-eyebrow::before {
+    content: "";
+    width: 28px;
+    height: 2px;
+    background: rgba(255,255,255,.68);
+  }
+
+  .wace-static-hero h1 {
+    margin: 0;
+    max-width: 720px;
+    font-size: clamp(2.35rem, 4.8vw, 4.7rem);
+    line-height: 1.06;
+    letter-spacing: 0;
+    color: #fff;
+  }
+
+  .wace-static-subtitle {
+    margin: 18px 0 0;
+    max-width: 690px;
+    font-size: clamp(1.05rem, 1.7vw, 1.38rem);
+    line-height: 1.78;
+    color: rgba(255,255,255,.9);
+  }
+
+  .wace-static-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 30px;
+  }
+
+  .wace-static-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 46px;
+    padding: 0 22px;
+    border-radius: 6px;
+    font-weight: 800;
+    text-decoration: none;
+  }
+
+  .wace-static-btn.primary {
+    background: #fff;
+    color: #c9252b;
+  }
+
+  .wace-static-btn.secondary {
+    border: 1px solid rgba(255,255,255,.5);
+    color: #fff;
+  }
+
+  .wace-static-hero-panel {
+    background: rgba(255,255,255,.96);
+    color: #172033;
+    border-radius: 10px;
+    padding: 26px;
+    box-shadow: 0 24px 70px rgba(0,0,0,.2);
+  }
+
+  .wace-static-hero-panel h2 {
+    margin: 0 0 16px;
+    font-size: 1.25rem;
+  }
+
+  .wace-static-path {
+    display: grid;
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .wace-static-path li {
+    display: grid;
+    grid-template-columns: 32px 1fr;
+    gap: 12px;
+    align-items: start;
+    padding: 12px;
+    border: 1px solid #edf0f4;
+    border-radius: 8px;
+    background: #fafbfc;
+    color: #344056;
+    line-height: 1.55;
+  }
+
+  .wace-static-step {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    background: #c9252b;
+    color: #fff;
+    font-weight: 800;
+    font-size: .86rem;
+  }
+
+  .wace-static-stats {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 14px;
+    margin-top: 24px;
+  }
+
+  .wace-static-stat {
+    padding: 16px;
+    border-radius: 10px;
+    background: rgba(255,255,255,.1);
+    border: 1px solid rgba(255,255,255,.16);
+  }
+
+  .wace-static-stat strong {
+    display: block;
+    margin-bottom: 5px;
+    color: #fff;
+    font-size: 1.75rem;
+    line-height: 1;
+  }
+
+  .wace-static-stat span {
+    color: rgba(255,255,255,.76);
+    font-size: .84rem;
+  }
+
+  .wace-static-section {
+    padding: 64px 0;
+    border-bottom: 1px solid #edf0f4;
+  }
+
+  .wace-static-section.soft {
+    background: #f8fafc;
+  }
+
+  .wace-static-kicker {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+    color: #c9252b;
+    font-size: .86rem;
+    font-weight: 900;
+  }
+
+  .wace-static-kicker::before {
+    content: "";
+    width: 4px;
+    height: 22px;
+    border-radius: 3px;
+    background: #c9252b;
+  }
+
+  .wace-static-section h2 {
+    margin: 0 0 18px;
+    font-size: clamp(1.65rem, 3vw, 2.55rem);
+    line-height: 1.18;
+    color: #172033;
+    letter-spacing: 0;
+  }
+
+  .wace-static-lead {
+    max-width: 850px;
+    margin: 0 0 26px;
+    color: #536176;
+    font-size: 1.04rem;
+    line-height: 1.9;
+  }
+
+  .wace-static-two-col {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 360px;
+    gap: 34px;
+    align-items: start;
+  }
+
+  .wace-static-copy {
+    display: grid;
+    gap: 16px;
+    color: #364156;
+    line-height: 1.9;
+    font-size: 1rem;
+  }
+
+  .wace-static-note {
+    margin-top: 22px;
+    padding: 18px 20px;
+    border-radius: 10px;
+    background: #fff7f7;
+    border: 1px solid #f3d2d4;
+    color: #5f2527;
+    line-height: 1.75;
+  }
+
+  .wace-static-card-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  .wace-static-card {
+    min-height: 100%;
+    padding: 22px;
+    border-radius: 10px;
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 10px 26px rgba(23,32,51,.05);
+  }
+
+  .wace-static-card h3 {
+    margin: 0 0 10px;
+    color: #172033;
+    font-size: 1.12rem;
+  }
+
+  .wace-static-card p {
+    margin: 0;
+    color: #5a687d;
+    line-height: 1.7;
+  }
+
+  .wace-static-pill-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 24px 0 0;
+  }
+
+  .wace-static-pill {
+    display: inline-flex;
+    align-items: center;
+    min-height: 36px;
+    padding: 0 14px;
+    border-radius: 999px;
+    background: #fff5f5;
+    border: 1px solid #f2c5c7;
+    color: #b91f27;
+    font-weight: 800;
+    font-size: .92rem;
+  }
+
+  .wace-static-table-wrap {
+    overflow-x: auto;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    background: #fff;
+  }
+
+  .wace-static-table {
+    width: 100%;
+    min-width: 760px;
+    border-collapse: collapse;
+  }
+
+  .wace-static-table th,
+  .wace-static-table td {
+    padding: 16px 18px;
+    border-bottom: 1px solid #edf0f4;
+    text-align: left;
+    vertical-align: top;
+    line-height: 1.6;
+  }
+
+  .wace-static-table th {
+    background: #f8fafc;
+    color: #172033;
+    font-size: .92rem;
+  }
+
+  .wace-static-table td {
+    color: #425066;
+  }
+
+  .wace-static-compare {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+    margin-top: 22px;
+  }
+
+  .wace-static-compare .wace-static-card {
+    box-shadow: none;
+  }
+
+  .wace-static-university-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 14px;
+  }
+
+  .wace-static-uni {
+    padding: 18px;
+    border-radius: 10px;
+    border: 1px solid #e2e8f0;
+    background: #fff;
+  }
+
+  .wace-static-uni strong {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 1.05rem;
+  }
+
+  .wace-static-uni span {
+    display: block;
+    color: #c9252b;
+    font-weight: 900;
+    margin-bottom: 6px;
+  }
+
+  .wace-static-uni small {
+    color: #5a687d;
+    line-height: 1.55;
+  }
+
+  .wace-static-faq {
+    display: grid;
+    gap: 12px;
+  }
+
+  .wace-static-faq details {
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    background: #fff;
+    padding: 0;
+  }
+
+  .wace-static-faq summary {
+    cursor: pointer;
+    padding: 18px 20px;
+    font-weight: 900;
+    color: #172033;
+  }
+
+  .wace-static-faq p {
+    margin: 0;
+    padding: 0 20px 18px;
+    color: #536176;
+    line-height: 1.8;
+  }
+
+  .wace-static-sidebar {
+    position: sticky;
+    top: 110px;
+    display: grid;
+    gap: 16px;
+  }
+
+  .wace-static-sidebar-card {
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    background: #fff;
+    padding: 20px;
+  }
+
+  .wace-static-sidebar-card h3 {
+    margin: 0 0 14px;
+    font-size: 1.05rem;
+  }
+
+  .wace-static-sidebar-card a {
+    display: block;
+    padding: 10px 0;
+    border-top: 1px solid #edf0f4;
+    color: #344056;
+    text-decoration: none;
+    font-weight: 700;
+  }
+
+  .wace-static-contact {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 260px;
+    gap: 28px;
+    align-items: center;
+    padding: 30px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #fff8f8 0%, #ffffff 58%, #fff1f1 100%);
+    border: 1px solid #f2c5c7;
+  }
+
+  .wace-static-contact h2 {
+    margin-bottom: 12px;
+  }
+
+  .wace-static-qr {
+    text-align: center;
+  }
+
+  .wace-static-qr img {
+    width: 190px;
+    height: 190px;
+    object-fit: contain;
+    border-radius: 10px;
+    border: 1px solid #f2c5c7;
+    background: #fff;
+    padding: 8px;
+  }
+
+  .wace-static-wechat {
+    margin-top: 10px;
+    color: #c9252b;
+    font-size: 1.18rem;
+    font-weight: 900;
+    letter-spacing: .02em;
+  }
+
+  @media (max-width: 980px) {
+    .wace-static-hero-inner,
+    .wace-static-two-col,
+    .wace-static-contact {
+      grid-template-columns: 1fr;
+    }
+
+    .wace-static-sidebar {
+      position: static;
+    }
+
+    .wace-static-card-grid,
+    .wace-static-university-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 680px) {
+    .wace-static-wrap {
+      width: min(100% - 28px, 1180px);
+    }
+
+    .wace-static-hero-inner {
+      padding: 48px 0 42px;
+    }
+
+    .wace-static-stats,
+    .wace-static-card-grid,
+    .wace-static-university-grid,
+    .wace-static-compare {
+      grid-template-columns: 1fr;
+    }
+
+    .wace-static-section {
+      padding: 46px 0;
+    }
+
+    .wace-static-contact {
+      padding: 22px;
+    }
+  }
+</style>
+<!-- WACE_STATIC_STYLE_END -->
+
+  </head>
   <body>
     <header class="site-header">
       <div class="header-main">
@@ -143,602 +652,208 @@
       <span>WACE 课程</span>
     </nav>
 
-    <main class="wace-guide-page">
-      <section class="page-hero content-hero hero-exam">
-        <p class="eyebrow">WACE 西澳课程</p>
-        <h1>WACE 完全攻略：中国学生新加坡读 WACE 全面指南</h1>
-        <p class="hero-subtitle">从课程结构、ATAR 计算、科目选择到大学申请，一篇讲透 WACE 对中国家庭的真正价值。</p>
-      </section>
-<!-- SEDA_GEO_BODY_START -->
-      <div class="wace-geo-strip" aria-label="WACE 课程完全攻略页面核心摘要">
-      <section class="geo-summary core-geo-summary" aria-labelledby="geo-summary-wace">
-        <p class="eyebrow">GEO 可读答案</p>
-        <h2 id="geo-summary-wace">WACE 课程完全攻略核心结论</h2>
-        <ul>
-          <li>WACE 是新加坡国际高中路径中适合中国学生重点关注的课程，核心出口是 ATAR 和全球大学申请。</li>
-          <li>中国学生选择 WACE 时，要重点看英文过渡、数学科目、ATAR 目标和学校是否具备稳定教学支持。</li>
-          <li>本页应与 WACE vs A-Level、WACE ATAR、WACE 申请 NUS/NTU、国际学校和大学页面形成强内链。</li>
-        </ul>
-      </section>
-
-      <section class="seo-tags core-seo-tags" aria-labelledby="core-tags-wace">
-        <p class="eyebrow">主题标签</p>
-        <h2 id="core-tags-wace">WACE 课程完全攻略核心主题</h2>
-        <p>这些主题帮助家长快速判断页面重点，也帮助搜索引擎和 AI 搜索理解本页内容。</p>
-        <div class="seo-tag-cloud">
-          <span>WACE 课程</span>
-          <span>ATAR</span>
-          <span>新加坡国际高中</span>
-          <span>WACE 选课</span>
-          <span>WACE 申请 NUS</span>
-          <span>WACE 申请 NTU</span>
-          <span>EALD 英文</span>
-          <span>澳洲高中课程</span>
+    <main class="wace-guide-page wace-static-page">
+  <section class="wace-static-hero">
+    <div class="wace-static-wrap wace-static-hero-inner">
+      <div>
+        <div class="wace-static-eyebrow">Western Australian Certificate of Education</div>
+        <h1>WACE 完全指南</h1>
+        <p class="wace-static-subtitle">中国学生在新加坡读国际高中的另一条路径：课程结构、ATAR 成绩、选科策略与大学申请，一页讲清楚。</p>
+        <div class="wace-static-actions">
+          <a class="wace-static-btn primary" href="#atar">查看 ATAR 与大学门槛</a>
+          <a class="wace-static-btn secondary" href="#contact">咨询 WACE 选校</a>
         </div>
-      </section>
-      </div>
-<!-- SEDA_GEO_BODY_END -->
-
-      <div class="content-layout">
-        <article class="content-main">
-
-          <h2>一、WACE 是什么</h2>
-
-          <div class="stat-grid">
-            <div class="sg-item"><span class="sg-num">2 年</span><span class="sg-label">课程周期 (Year 11-12)</span></div>
-            <div class="sg-item"><span class="sg-num">5-6 门</span><span class="sg-label">选修科目数</span></div>
-            <div class="sg-item"><span class="sg-num">ATAR</span><span class="sg-label">全球大学排名成绩</span></div>
-            <div class="sg-item"><span class="sg-num">42+</span><span class="sg-label">澳洲大学全部认可</span></div>
-          </div>
-
-          <p>WACE（Western Australian Certificate of Education）是澳大利亚西澳州教育部颁发的高中毕业文凭。它不仅是澳大利亚本土认可的高中学历，也是一个被全球大学广泛接受的国际课程体系。</p>
-          <p>对于中国学生来说，WACE 的核心价值在于：它提供了一条<strong>不依赖高考、也不需要走 A-Level 或 IB 高压路线的国际升学通道</strong>。学生通过 Year 11 和 Year 12 两年的课程学习，参加西澳州统一外部考试，获得 ATAR（Australian Tertiary Admission Rank）排名成绩，然后可以直接申请澳洲、新加坡、英国、香港、新西兰等地的大学。</p>
-
-          <div class="info-box">
-            <strong>WACE 核心要点</strong>
-            <p>课程周期 2 年（Year 11-12）→ 外部统考 + 校内评估 → 获得 ATAR 排名 → 申请全球大学。WACE 不是某一门考试，而是一整套高中教育体系。</p>
-          </div>
-
-          <h3>WACE 的全球地位</h3>
-          <p>WACE 由西澳州课程与标准局（SCSA, School Curriculum and Standards Authority）监管和认证。虽然它起源于西澳州，但目前在全球多个国家设有授权教学点，包括新加坡、马来西亚、中国、印度尼西亚、越南等。在新加坡，多所经 SSG 注册的私立教育机构获授权开设 WACE 课程，例如 BCI 国际学院（Brentvale College International）。</p>
-          <p>大学认可方面，WACE ATAR 成绩被以下大学体系直接接受：</p>
-          <ul>
-            <li><strong>澳大利亚</strong>：所有 42 所大学（Group of Eight 八大名校全部认可）</li>
-            <li><strong>新加坡</strong>：NUS、NTU、SMU、SUTD 等公立大学</li>
-            <li><strong>英国</strong>：UCAS 系统接受 WACE 成绩转换</li>
-            <li><strong>香港</strong>：港大、港科大、港中文等均接受</li>
-            <li><strong>新西兰、加拿大</strong>：主要大学均认可</li>
-          </ul>
-
-          <h2>二、WACE 课程结构详解</h2>
-          <p>WACE 课程分为 Year 11（预备年）和 Year 12（考试年）两个阶段。学生通常选择 5-6 门科目，最终 ATAR 计算取最好的 4 门成绩。</p>
-
-          <h3>科目等级体系</h3>
-          <p>WACE 科目分为不同等级，最核心的区分是 ATAR 科目和 General 科目：</p>
-          <div class="table-wrap"><table class="data-table">
-            <thead>
-              <tr>
-                <th>类别</th>
-                <th>说明</th>
-                <th>是否计入 ATAR</th>
-                <th>适合学生</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><strong>ATAR 科目</strong></td>
-                <td>学术型科目，有外部考试</td>
-                <td>是</td>
-                <td>目标大学申请的学生</td>
-              </tr>
-              <tr>
-                <td><strong>General 科目</strong></td>
-                <td>应用型科目，无外部考试</td>
-                <td>否</td>
-                <td>职业导向或基础较弱的学生</td>
-              </tr>
-              <tr>
-                <td><strong>Foundation 科目</strong></td>
-                <td>基础型，帮助建立核心能力</td>
-                <td>否</td>
-                <td>英文或学术基础需要加强的学生</td>
-              </tr>
-            </tbody>
-          </table></div>
-
-          <div class="info-box tip">
-            <strong>选课建议</strong>
-            <p>中国学生申请大学，必须选择至少 4 门 ATAR 科目。建议选 5-6 门 ATAR 科目，取最好的 4 门计算 ATAR，为自己留足容错空间。</p>
-          </div>
-
-          <h3>核心科目一览</h3>
-          <p>WACE 提供超过 50 门科目选择，以下是中国学生最常选的科目：</p>
-          <div class="table-wrap"><table class="data-table">
-            <thead>
-              <tr>
-                <th>学科领域</th>
-                <th>ATAR 科目</th>
-                <th>中国学生难度评估</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><strong>数学</strong></td>
-                <td>Mathematics Methods（方法数学）</td>
-                <td>中等偏低，国内初三水平可衔接</td>
-              </tr>
-              <tr>
-                <td><strong>数学</strong></td>
-                <td>Mathematics Specialist（高等数学）</td>
-                <td>中等，涵盖微积分和复数</td>
-              </tr>
-              <tr>
-                <td><strong>数学</strong></td>
-                <td>Mathematics Applications（应用数学）</td>
-                <td>较低，统计和金融数学为主</td>
-              </tr>
-              <tr>
-                <td><strong>英语</strong></td>
-                <td>English as an Additional Language/Dialect (EALD)</td>
-                <td>中等，专为非母语学生设计</td>
-              </tr>
-              <tr>
-                <td><strong>英语</strong></td>
-                <td>English</td>
-                <td>较高，需要较强的文学分析能力</td>
-              </tr>
-              <tr>
-                <td><strong>科学</strong></td>
-                <td>Physics（物理）</td>
-                <td>中等偏低，数理强的学生占优</td>
-              </tr>
-              <tr>
-                <td><strong>科学</strong></td>
-                <td>Chemistry（化学）</td>
-                <td>中等，英文专业术语是挑战</td>
-              </tr>
-              <tr>
-                <td><strong>商科</strong></td>
-                <td>Accounting and Finance（会计与金融）</td>
-                <td>中等偏低，逻辑清晰易上手</td>
-              </tr>
-              <tr>
-                <td><strong>商科</strong></td>
-                <td>Economics（经济学）</td>
-                <td>中等，需要较多英文写作</td>
-              </tr>
-              <tr>
-                <td><strong>中文</strong></td>
-                <td>Chinese: Second Language</td>
-                <td>极低，中国学生的优势科目</td>
-              </tr>
-            </tbody>
-          </table></div>
-
-          <h3>评估方式</h3>
-          <p>WACE 的成绩由两部分组成：</p>
-          <ul>
-            <li><strong>校内评估（School Assessment）</strong>：占总成绩 50%，包括作业、测验、项目、期中/期末考试</li>
-            <li><strong>外部考试（External Examination）</strong>：占总成绩 50%，由 SCSA 统一出题、统一评卷</li>
-          </ul>
-          <p>这意味着 WACE 不像 A-Level 那样"一考定终身"。学生在整个学年中的持续表现都会被计入最终成绩，这对学习节奏稳定、但考试发挥不够理想的学生非常有利。</p>
-
-          <div class="highlight-box green">
-            <strong>✅ WACE 成绩构成优势</strong>
-            <p>50% 校内 + 50% 外部考试，全年持续评估。相比 A-Level 的期末集中考试，WACE 对发挥稳定但不擅长压力考试的学生更友好。</p>
-          </div>
-
-          <h2>三、ATAR 成绩计算与大学申请</h2>
-          <p>ATAR（Australian Tertiary Admission Rank）是 WACE 学生申请大学最核心的成绩指标。它不是一个绝对分数，而是一个<strong>百分位排名</strong>——代表学生在全澳同届考生中的相对位置。</p>
-
-          <h3>ATAR 计算原理</h3>
-          <p>ATAR 的范围是 0 到 99.95，精确到 0.05。计算过程如下：</p>
-          <ol>
-            <li>取学生最好的 4 门 ATAR 科目成绩（含校内 + 外部考试）</li>
-            <li>将每门科目的原始分进行标准化调整（Scaling），考虑科目难度差异</li>
-            <li>将调整后的 4 门成绩合计，得出一个综合分数</li>
-            <li>将综合分数与全澳同届考生进行排名，转化为百分位</li>
-          </ol>
-
-          <div class="info-box">
-            <strong>ATAR 的实际意义</strong>
-            <p>ATAR 90 = 成绩优于全澳 90% 的同届考生。ATAR 99 = 优于 99%，即全澳前 1%。不同大学和专业对 ATAR 有不同的最低要求（cut-off）。</p>
-          </div>
-
-          <h3>各大学/专业 ATAR 参考门槛</h3>
-          <div class="table-wrap"><table class="data-table">
-            <thead>
-              <tr>
-                <th>大学/方向</th>
-                <th>专业</th>
-                <th>ATAR 参考要求</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><strong>NUS</strong></td>
-                <td>商科</td>
-                <td>90+</td>
-              </tr>
-              <tr>
-                <td><strong>NUS</strong></td>
-                <td>计算机科学</td>
-                <td>92+</td>
-              </tr>
-              <tr>
-                <td><strong>NUS</strong></td>
-                <td>医学</td>
-                <td>99+</td>
-              </tr>
-              <tr>
-                <td><strong>NTU</strong></td>
-                <td>工程</td>
-                <td>85+</td>
-              </tr>
-              <tr>
-                <td><strong>NTU</strong></td>
-                <td>商科</td>
-                <td>88+</td>
-              </tr>
-              <tr>
-                <td><strong>墨尔本大学</strong></td>
-                <td>Commerce</td>
-                <td>92+</td>
-              </tr>
-              <tr>
-                <td><strong>悉尼大学</strong></td>
-                <td>Commerce</td>
-                <td>88+</td>
-              </tr>
-              <tr>
-                <td><strong>UNSW</strong></td>
-                <td>Engineering</td>
-                <td>85+</td>
-              </tr>
-              <tr class="highlight">
-                <td><strong>澳洲八大平均</strong></td>
-                <td>多数专业</td>
-                <td>80-90</td>
-              </tr>
-            </tbody>
-          </table></div>
-
-          <p>更多 WACE 申请 NUS/NTU 的详细要求，请参阅 <a href="/wace-nus-ntu/" style="color:var(--brand);font-weight:700">WACE 申请 NUS/NTU 完全指南</a>。</p>
-
-          <h2>四、WACE 科目选择策略</h2>
-          <p>选课是 WACE 学习中最关键的决策之一。正确的科目组合不仅影响 ATAR 成绩，更直接决定学生能申请哪些大学和专业。</p>
-
-          <h3>选课核心原则</h3>
-          <ol>
-            <li><strong>先看大学要求，再倒推选课</strong>：不同大学专业有不同的先修科目（prerequisite）要求。例如，NUS 工程要求 Mathematics Methods + Physics。</li>
-            <li><strong>选自己能拿高分的科目</strong>：ATAR 是排名机制，选一门"看起来高大上但拿不了高分"的科目，不如选一门"擅长且能稳定发挥"的科目。</li>
-            <li><strong>数学是中国学生最大优势</strong>：Mathematics Methods + Mathematics Specialist 的组合可以在 ATAR Scaling 中获得极大优势。</li>
-            <li><strong>英文选择 EALD</strong>：中国学生优先选 EALD（English as an Additional Language/Dialect），它专为非英语母语学生设计，难度适中且评分标准更合理。</li>
-            <li><strong>中文作为第五科目</strong>：Chinese: Second Language 对中国学生几乎是"送分"科目，可作为 ATAR 计算的安全垫。</li>
-          </ol>
-
-          <h3>典型选课组合推荐</h3>
-          <div class="table-wrap"><table class="data-table">
-            <thead>
-              <tr>
-                <th>目标方向</th>
-                <th>推荐选课（5-6门）</th>
-                <th>说明</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><strong>工程/理科</strong></td>
-                <td>Methods + Specialist + Physics + Chemistry + EALD + Chinese</td>
-                <td>双数学 + 双理科，ATAR 竞争力最强</td>
-              </tr>
-              <tr>
-                <td><strong>商科/金融</strong></td>
-                <td>Methods + Accounting + Economics + EALD + Chinese + Physics/Chemistry</td>
-                <td>数学 + 商科核心，灵活性高</td>
-              </tr>
-              <tr>
-                <td><strong>计算机科学</strong></td>
-                <td>Methods + Specialist + Physics + Computer Science + EALD + Chinese</td>
-                <td>双数学必选，CS 科目加分</td>
-              </tr>
-              <tr>
-                <td><strong>综合/未定方向</strong></td>
-                <td>Methods + Physics + Chemistry + Accounting + EALD + Chinese</td>
-                <td>理科 + 商科均衡，不锁死方向</td>
-              </tr>
-            </tbody>
-          </table></div>
-
-          <div class="info-card">
-            <span class="ic-icon">🎯</span>
-            <div class="ic-body">
-              <h3>ATAR 快速换算</h3>
-              <p>ATAR 90 = 优于全澳 90% 考生。NUS 热门专业通常要求 ATAR 92+，工程/商科约 85-90，理工院校约 75+。</p>
-            </div>
-          </div>
-
-          <h2>五、WACE 适合什么样的中国学生</h2>
-          <p>不是每个中国学生都适合 WACE，也不是每个不适合 A-Level 的学生就该选 WACE。以下是最适合的学生画像：</p>
-
-          <h3>最适合的学生类型</h3>
-          <ul>
-            <li><strong>数理基础扎实、英文中等</strong>：WACE 数学对中国学生相对简单，EALD 为英文过渡提供缓冲，适合"理科强、英文在爬坡"的学生。</li>
-            <li><strong>国内初三或高一转轨</strong>：这个年龄段可以直接衔接 Year 11，两年内完成 WACE 并获得大学录取。</li>
-            <li><strong>目标澳洲或新加坡大学</strong>：WACE 在这两个方向的大学认可度最高，申请最直接。</li>
-            <li><strong>考试心态不够稳定</strong>：WACE 50% 校内 + 50% 外部考试的模式，减轻了"一考定终身"的压力。</li>
-            <li><strong>需要更清晰的课程节奏</strong>：WACE 的课程安排、评估时间点相对固定，适合需要结构化学习环境的学生。</li>
-          </ul>
-
-          <h3>不太适合的学生类型</h3>
-          <ul>
-            <li><strong>英文已经很强、目标 NUS/NTU 热门专业</strong>：这类学生走 A-Level（通过 JC）可能更有竞争力。</li>
-            <li><strong>希望留在新加坡本地体系</strong>：WACE 不通向 JC 或 Poly，如果目标是新加坡本地路径，O-Level → JC 更合适。</li>
-            <li><strong>对课程灵活性要求极高</strong>：IB 的 CAS、EE、TOK 三大核心提供了更全面的学术训练，适合全面发展型学生。</li>
-          </ul>
-
-          <div class="info-box amber">
-            <strong>家长决策提示</strong>
-            <p>选 WACE 还是 A-Level，不要看"哪个更高级"，而要看<strong>孩子当前的英文水平、数学基础、学习风格和目标大学</strong>。详细对比请参阅 <a href="/wace-vs-a-level/" style="color:var(--brand);font-weight:700">WACE vs A-Level 完全对比</a>。</p>
-          </div>
-
-          <h2>六、WACE vs A-Level vs IB 快速对比</h2>
-          <div class="table-wrap"><table class="data-table">
-            <thead>
-              <tr>
-                <th>维度</th>
-                <th>WACE</th>
-                <th>A-Level</th>
-                <th>IB</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><strong>课程周期</strong></td>
-                <td>2 年（Year 11-12）</td>
-                <td>2 年（AS + A2）</td>
-                <td>2 年（DP）</td>
-              </tr>
-              <tr>
-                <td><strong>科目数量</strong></td>
-                <td>5-6 门，取最好 4 门</td>
-                <td>3-4 门</td>
-                <td>6 门（3HL + 3SL）+ 核心</td>
-              </tr>
-              <tr>
-                <td><strong>评估方式</strong></td>
-                <td>50% 校内 + 50% 外考</td>
-                <td>主要靠外部考试</td>
-                <td>校内评估 + 外部考试</td>
-              </tr>
-              <tr>
-                <td><strong>数学难度</strong></td>
-                <td>中等偏低</td>
-                <td>中等偏高</td>
-                <td>HL 较高，SL 中等</td>
-              </tr>
-              <tr>
-                <td><strong>英文要求</strong></td>
-                <td>EALD 可过渡</td>
-                <td>高（GP 通识论文）</td>
-                <td>高（TOK + EE）</td>
-              </tr>
-              <tr>
-                <td><strong>中国学生友好度</strong></td>
-                <td>较高</td>
-                <td>中等</td>
-                <td>中等偏低</td>
-              </tr>
-              <tr>
-                <td><strong>新加坡大学认可</strong></td>
-                <td>认可（部分专业有限制）</td>
-                <td>最高认可度</td>
-                <td>高认可度</td>
-              </tr>
-              <tr>
-                <td><strong>澳洲大学认可</strong></td>
-                <td>最高（直接 ATAR）</td>
-                <td>认可（需转换）</td>
-                <td>认可（需转换）</td>
-              </tr>
-              <tr>
-                <td><strong>学费（新加坡）</strong></td>
-                <td>S$15,000-25,000/年</td>
-                <td>JC 免费 / 私立 S$15,000-30,000</td>
-                <td>S$30,000-50,000/年</td>
-              </tr>
-            </tbody>
-          </table></div>
-
-          <h2>七、新加坡开设 WACE 的学校</h2>
-          <p>目前在新加坡，经 SSG 注册并获得 SCSA 授权开设 WACE 课程的学校包括：</p>
-          <div class="table-wrap"><table class="data-table">
-            <thead>
-              <tr>
-                <th>学校</th>
-                <th>课程阶段</th>
-                <th>特色</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr class="highlight">
-                <td><strong>BCI 国际学院（Brentvale College International）</strong></td>
-                <td>Year 10-12</td>
-                <td>中国学生比例高、中英双语支持、小班制教学、ATAR 成绩记录良好</td>
-              </tr>
-              <tr>
-                <td>其他 WACE 授权学校</td>
-                <td>Year 11-12</td>
-                <td>各校师资和支持体系不同，建议实地考察</td>
-              </tr>
-            </tbody>
-          </table></div>
-
-          <div class="info-box">
-            <strong>择校建议</strong>
-            <p>选 WACE 学校时，重点关注：SCSA 授权资质是否有效、过往学生 ATAR 成绩分布、师资背景（是否有西澳教学经验）、英文支持课程是否完善、升学指导服务是否到位。</p>
-          </div>
-
-          <h2>八、WACE 学习时间线</h2>
-          <div class="table-wrap"><table class="data-table">
-            <thead>
-              <tr>
-                <th>时间</th>
-                <th>阶段</th>
-                <th>关键事项</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><strong>Year 10（预备）</strong></td>
-                <td>英文过渡 + 基础课程</td>
-                <td>适应英文教学环境、打好数理基础、确定选课方向</td>
-              </tr>
-              <tr>
-                <td><strong>Year 11 上学期</strong></td>
-                <td>正式课程开始</td>
-                <td>适应 ATAR 科目节奏、建立校内评估习惯</td>
-              </tr>
-              <tr>
-                <td><strong>Year 11 下学期</strong></td>
-                <td>校内评估密集期</td>
-                <td>期末考试权重大、开始关注大学专业方向</td>
-              </tr>
-              <tr>
-                <td><strong>Year 12 上学期</strong></td>
-                <td>核心学习期</td>
-                <td>校内评估 + 大学申请研究 + 选课确认</td>
-              </tr>
-              <tr>
-                <td><strong>Year 12 下学期</strong></td>
-                <td>冲刺 + 外部考试</td>
-                <td>10-11 月 WACE 外部考试、同步准备大学申请材料</td>
-              </tr>
-              <tr>
-                <td><strong>12 月-次年 2 月</strong></td>
-                <td>成绩发布 + 大学申请</td>
-                <td>ATAR 成绩公布、提交大学申请、等待录取</td>
-              </tr>
-            </tbody>
-          </table></div>
-
-          <h2>九、常见问题 FAQ</h2>
-          <div class="faq-list">
-            <details open>
-              <summary>WACE 是什么？</summary>
-              <p>WACE（Western Australian Certificate of Education）是澳大利亚西澳州的高中毕业文凭课程，受全球大学认可。学生通过 Year 11-12 两年学习，参加外部考试并获得 ATAR 排名成绩，可申请澳洲、新加坡、英国、香港等地大学。</p>
-            </details>
-            <details>
-              <summary>WACE ATAR 是怎么计算的？</summary>
-              <p>ATAR（Australian Tertiary Admission Rank）是一个百分位排名，范围 0-99.95。它综合考虑学生最好的 4 门 ATAR 科目成绩，通过统计算法将原始分转化为全澳排名。ATAR 90 意味着成绩优于 90% 的同届考生。</p>
-            </details>
-            <details>
-              <summary>WACE 成绩可以申请新加坡大学吗？</summary>
-              <p>可以。NUS、NTU 等新加坡大学接受 WACE ATAR 成绩申请。不同专业对 ATAR 要求不同，一般来说竞争激烈的专业需要 ATAR 95 以上，商科和工程通常需要 85-92。详见 <a href="/wace-nus-ntu/" style="color:var(--brand);font-weight:700">WACE 申请 NUS/NTU 完全指南</a>。</p>
-            </details>
-            <details>
-              <summary>WACE 适合中国学生吗？</summary>
-              <p>WACE 对中国学生相对友好：数学难度低于国内高考，科目可以选择性组合，英文有 EALD 过渡课程，课程节奏比 A-Level 更可控。适合英文基础中等、数理基础扎实、目标澳洲或新加坡大学的中国学生。</p>
-            </details>
-            <details>
-              <summary>WACE 和 A-Level 哪个更好？</summary>
-              <p>没有绝对优劣。A-Level 学术认可度更广、新加坡本地路径直通大学，但考试压力集中、英文要求高。WACE 课程节奏更均匀、选课灵活、数学友好，但在新加坡知名度不如 A-Level。选择取决于学生英文水平、目标大学和学习风格。详见 <a href="/wace-vs-a-level/" style="color:var(--brand);font-weight:700">WACE vs A-Level 完全对比</a>。</p>
-            </details>
-            <details>
-              <summary>WACE 学费大概多少？</summary>
-              <p>在新加坡就读 WACE 课程的学费大约在 S$15,000-25,000/年（约人民币 8-14 万），加上住宿和生活费，总预算约 S$30,000-45,000/年。详见 <a href="/guides/cost/" style="color:var(--brand);font-weight:700">新加坡留学费用指南</a>。</p>
-            </details>
-          </div>
-
-        </article>
-
-        <aside class="content-sidebar">
-          <div class="sidebar-card">
-            <h4>WACE 专题导航</h4>
-            <ul>
-              <li><a href="/wace/">WACE 完全攻略（本页）</a></li>
-              <li><a href="/wace-atar/">WACE ATAR 成绩详解</a></li>
-              <li><a href="/wace-vs-a-level/">WACE vs A-Level 对比</a></li>
-              <li><a href="/wace-nus-ntu/">WACE 申请 NUS/NTU</a></li>
-            </ul>
-          </div>
-          <div class="sidebar-card">
-            <h4>相关页面</h4>
-            <ul>
-              <li><a href="/o-level/">O-Level 完全攻略</a></li>
-              <li><a href="/a-level/">A-Level 完全攻略</a></li>
-              <li><a href="/ib/">IB 课程完全攻略</a></li>
-              <li><a href="/pathway/">升学路径总览</a></li>
-              <li><a href="/university/">新加坡公立大学指南</a></li>
-              <li><a href="/private-schools/">新加坡私立学校指南</a></li>
-              <li><a href="/international-school/">国际学校指南</a></li>
-            </ul>
-          </div>
-        </aside>
-      </div>
-
-      <section class="related-section">
-        <h2>相关阅读</h2>
-        <div class="article-grid">
-          <article class="article-card">
-            <a href="/wace-vs-a-level/">
-              <span class="tag">对比</span>
-              <h3>WACE vs A-Level 完全对比</h3>
-              <p>从课程结构、考试压力、大学认可和中国学生适配度四个维度深入比较。</p>
-            </a>
-          </article>
-          <article class="article-card">
-            <a href="/wace-nus-ntu/">
-              <span class="tag">升学</span>
-              <h3>WACE 申请 NUS/NTU 指南</h3>
-              <p>各专业 ATAR 门槛、先修科目要求、申请时间线与选课策略。</p>
-            </a>
-          </article>
-          <article class="article-card">
-            <a href="/wace-atar/">
-              <span class="tag">ATAR</span>
-              <h3>WACE ATAR 成绩详解</h3>
-              <p>ATAR 计算原理、科目 Scaling 机制与提分策略。</p>
-            </a>
-          </article>
-          <article class="article-card">
-            <a href="/private-schools/">
-              <span class="tag alt">学校</span>
-              <h3>新加坡私立学校指南</h3>
-              <p>SSG 注册、EduTrust、各校课程对比与学费汇总。</p>
-            </a>
-          </article>
+        <div class="wace-static-stats" aria-label="WACE 核心数据">
+          <div class="wace-static-stat"><strong>2 年</strong><span>Year 11-12 课程周期</span></div>
+          <div class="wace-static-stat"><strong>50%</strong><span>校内评估占比</span></div>
+          <div class="wace-static-stat"><strong>42+</strong><span>澳洲大学认可</span></div>
+          <div class="wace-static-stat"><strong>99.95</strong><span>ATAR 最高排名</span></div>
         </div>
-      </section>
+      </div>
+      <aside class="wace-static-hero-panel" aria-label="WACE 升学路径">
+        <h2>WACE 升学路径</h2>
+        <ol class="wace-static-path">
+          <li><span class="wace-static-step">1</span><span>完成 Year 11 与 Year 12 科目学习，建立校内评估成绩。</span></li>
+          <li><span class="wace-static-step">2</span><span>参加西澳州统一外部考试，形成最终科目分数。</span></li>
+          <li><span class="wace-static-step">3</span><span>最优科目经标准化后计算 ATAR 百分位排名。</span></li>
+          <li><span class="wace-static-step">4</span><span>用 ATAR 申请新加坡、澳洲、英国、香港等大学。</span></li>
+        </ol>
+      </aside>
+    </div>
+  </section>
 
-      <section class="contact-section wechat-contact-section" id="contact" aria-labelledby="contact-title">
+  <section class="wace-static-section" id="overview">
+    <div class="wace-static-wrap wace-static-two-col">
+      <article>
+        <div class="wace-static-kicker">课程概述</div>
+        <h2>WACE 是什么？</h2>
+        <div class="wace-static-copy">
+          <p><strong>WACE（Western Australian Certificate of Education）</strong>是澳大利亚西澳州高中毕业文凭，由 School Curriculum and Standards Authority（SCSA）监管。学生通常在 Year 11 和 Year 12 完成课程，毕业后取得 WACE 资格，并通过 ATAR 成绩申请大学。</p>
+          <p>很多家长第一次了解 WACE，会把它理解成“澳洲课程”。但对中国学生来说，WACE 真正值得关注的地方，是它把高中学习、校内评估和大学申请结果连接在一起，不完全依赖一次性大考。</p>
+          <p>在新加坡，WACE 更适合希望走国际高中路径、目标新加坡公立大学或澳洲/英国/香港大学，同时又不一定适合 A-Level 高压考试节奏的学生。</p>
+        </div>
+        <div class="wace-static-note">核心判断：如果孩子数学和理科基础不错，英文有一定基础，但不想把所有升学压力压在一次大考上，WACE 值得认真比较。</div>
+      </article>
+      <aside class="wace-static-sidebar">
+        <div class="wace-static-sidebar-card">
+          <h3>WACE 专题导航</h3>
+          <a href="#overview">WACE 是什么</a>
+          <a href="#subjects">课程结构与选科</a>
+          <a href="#atar">ATAR 怎么算</a>
+          <a href="#universities">能申请哪些大学</a>
+          <a href="#fit">适合哪些学生</a>
+          <a href="#faq">家长 FAQ</a>
+        </div>
+        <div class="wace-static-sidebar-card">
+          <h3>相关页面</h3>
+          <a href="/wace-vs-a-level/">WACE vs A-Level</a>
+          <a href="/wace-atar/">WACE ATAR 成绩详解</a>
+          <a href="/wace-nus-ntu/">WACE 申请 NUS / NTU</a>
+          <a href="/international-school/">新加坡国际学校</a>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="wace-static-section soft" id="recognition">
+    <div class="wace-static-wrap">
+      <div class="wace-static-kicker">全球认可</div>
+      <h2>WACE ATAR 被哪些大学接受？</h2>
+      <p class="wace-static-lead">WACE 的大学申请核心不是“文凭名称”，而是最终生成的 ATAR 排名。ATAR 是澳洲大学非常熟悉的录取语言，也被多个主流留学目的地接受。</p>
+      <div class="wace-static-card-grid">
+        <div class="wace-static-card"><h3>澳大利亚大学</h3><p>澳洲全部大学均可使用 ATAR 申请，包括墨尔本大学、悉尼大学、新南威尔士大学、莫纳什大学和西澳大学。</p></div>
+        <div class="wace-static-card"><h3>新加坡公立大学</h3><p>NUS、NTU、SMU、SUTD 等院校可接受 WACE/ATAR 成绩，热门专业通常需要更高 ATAR 和科目匹配。</p></div>
+        <div class="wace-static-card"><h3>英国与香港大学</h3><p>英国 UCAS 和香港主要大学一般可参考 WACE/ATAR 进行录取评估，具体要求以当年招生页面为准。</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wace-static-section" id="subjects">
+    <div class="wace-static-wrap">
+      <div class="wace-static-kicker">课程结构</div>
+      <h2>WACE 选科怎么选？</h2>
+      <p class="wace-static-lead">WACE 不只是“选几门课考试”。科目组合会影响 ATAR、大学专业资格和未来申请方向。中国学生通常需要重点关注英文、数学、理科和商科组合。</p>
+      <div class="wace-static-table-wrap">
+        <table class="wace-static-table">
+          <thead>
+            <tr>
+              <th>科目方向</th>
+              <th>常见科目</th>
+              <th>难度判断</th>
+              <th>适合学生</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>数学</td><td>Mathematics Methods</td><td>中等偏低</td><td>国内初三到高一数学基础较好的学生，适合多数商科、工程、理科方向。</td></tr>
+            <tr><td>数学</td><td>Mathematics Specialist</td><td>中等偏高</td><td>目标工程、计算机、数学、物理等强数理专业的学生。</td></tr>
+            <tr><td>英文</td><td>EALD</td><td>中等</td><td>非英语母语学生常见选择，比普通 English 更贴近国际学生语言背景。</td></tr>
+            <tr><td>科学</td><td>Physics / Chemistry</td><td>中等</td><td>数理逻辑强、目标工程、医学、生命科学或理科方向的学生。</td></tr>
+            <tr><td>商科</td><td>Accounting and Finance</td><td>中等偏低</td><td>目标商科、会计、金融、管理方向，且希望科目上手更稳定的学生。</td></tr>
+            <tr><td>中文</td><td>Chinese: Second Language</td><td>较低</td><td>具备中文优势的学生，可作为稳定成绩科目，但需确认大学科目认可规则。</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="wace-static-compare">
+        <div class="wace-static-card"><h3>校内评估约 50%</h3><p>WACE 的平时作业、测验、项目和校内考试会进入最终成绩，适合持续学习能力强、不想完全押注一次考试的学生。</p></div>
+        <div class="wace-static-card"><h3>外部统考约 50%</h3><p>Year 12 末参加统一考试。它仍然重要，但不是唯一结果，因此备考节奏比纯大考体系更分散。</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wace-static-section soft" id="atar">
+    <div class="wace-static-wrap">
+      <div class="wace-static-kicker">ATAR 成绩</div>
+      <h2>WACE ATAR 是怎么计算的？</h2>
+      <p class="wace-static-lead">ATAR 不是百分制成绩，而是学生在同届考生中的百分位排名。99.00 代表成绩高于约 99% 同届考生，并不等于每门课 99 分。</p>
+      <div class="wace-static-card-grid">
+        <div class="wace-static-card"><h3>1. 选择最佳科目</h3><p>通常取最能拉高排名的 ATAR 科目组合，英文要求和专业先修要求必须同时满足。</p></div>
+        <div class="wace-static-card"><h3>2. 科目 Scaling</h3><p>不同科目会进行标准化处理，避免简单科目和高难科目直接用原始分比较。</p></div>
+        <div class="wace-static-card"><h3>3. 转换为排名</h3><p>最终转换为 0 到 99.95 的 ATAR 百分位，用于大学录取评估。</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wace-static-section" id="universities">
+    <div class="wace-static-wrap">
+      <div class="wace-static-kicker">大学申请</div>
+      <h2>WACE 可以申请 NUS、NTU 吗？</h2>
+      <p class="wace-static-lead">可以，但不能只看“能不能申请”，更要看目标专业和竞争区间。以下为家长做初步判断的参考范围，正式申请仍应以大学当年招生要求为准。</p>
+      <div class="wace-static-university-grid">
+        <div class="wace-static-uni"><strong>NUS 新加坡国立大学</strong><span>ATAR 90-99+</span><small>商科、计算机、医学等热门专业竞争强，科目要求需要提前规划。</small></div>
+        <div class="wace-static-uni"><strong>NTU 南洋理工大学</strong><span>ATAR 85-92+</span><small>工程、商科、计算机方向对数学和理科科目匹配度较敏感。</small></div>
+        <div class="wace-static-uni"><strong>SMU 新加坡管理大学</strong><span>ATAR 85-92+</span><small>商科、经济、法律方向更看重综合成绩、英文和面试表现。</small></div>
+        <div class="wace-static-uni"><strong>澳洲八大</strong><span>ATAR 80-98+</span><small>不同专业差异明显，医学、法律、商科和工程门槛通常更高。</small></div>
+      </div>
+      <div class="wace-static-note">建议家长不要只问“ATAR 多少能进大学”。更准确的问题是：孩子的目标专业是什么、英文科目是否满足要求、数学/理科是否覆盖先修要求，以及是否需要准备作品集、面试或额外测试。</div>
+    </div>
+  </section>
+
+  <section class="wace-static-section soft" id="fit">
+    <div class="wace-static-wrap">
+      <div class="wace-static-kicker">适配判断</div>
+      <h2>WACE 适合哪些中国学生？</h2>
+      <p class="wace-static-lead">WACE 不是“低难度捷径”，而是另一套升学规则。选对学生，它能把孩子的持续学习、数理基础和国际大学申请连接起来；选错学生，也会浪费时间和预算。</p>
+      <div class="wace-static-card-grid">
+        <div class="wace-static-card"><h3>适合：数理基础较好</h3><p>数学、物理、化学基础好的学生，通常更容易在 WACE 科目中建立优势。</p></div>
+        <div class="wace-static-card"><h3>适合：不擅长一次性大考</h3><p>校内评估占比较高，持续学习和阶段性反馈更重要。</p></div>
+        <div class="wace-static-card"><h3>适合：目标国际大学</h3><p>想申请新加坡、澳洲、英国、香港等地大学的学生更适合考虑。</p></div>
+        <div class="wace-static-card"><h3>谨慎：英文零基础</h3><p>即使有 EALD，课堂、作业和考试仍然需要英文输入输出能力。</p></div>
+        <div class="wace-static-card"><h3>谨慎：只想回国内高考</h3><p>WACE 是国际升学体系，不适合只围绕国内高考做准备的学生。</p></div>
+        <div class="wace-static-card"><h3>谨慎：预算非常紧</h3><p>新加坡国际高中和私立学校路径需要考虑学费、生活费和升学申请预算。</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wace-static-section" id="faq">
+    <div class="wace-static-wrap">
+      <div class="wace-static-kicker">家长 FAQ</div>
+      <h2>关于 WACE，家长最常问的问题</h2>
+      <div class="wace-static-faq">
+        <details open><summary>WACE 和 A-Level 哪个更适合中国学生？</summary><p>没有绝对答案。A-Level 更传统、考试导向更强；WACE 更强调校内评估和持续学习。孩子英文、数学基础、抗压能力和目标大学不同，选择也不同。</p></details>
+        <details><summary>WACE 可以申请新加坡公立大学吗？</summary><p>可以。NUS、NTU、SMU、SUTD 等院校可以接受 WACE/ATAR 作为国际申请成绩，但热门专业仍然需要较高 ATAR 和对应科目背景。</p></details>
+        <details><summary>英文不好的学生适合 WACE 吗？</summary><p>如果是完全零基础，不建议直接进入 WACE。若已有基础但不适合本地英文体系，可评估 EALD 路径，并提前做学术英语训练。</p></details>
+        <details><summary>WACE 读几年？什么时候开始准备？</summary><p>完整路径通常为 Year 11 和 Year 12 两年。若学生从中国初三、高一转入，建议至少提前 6-12 个月评估英文、数学和目标专业要求。</p></details>
+        <details><summary>WACE 成绩不好还有补救空间吗？</summary><p>有，但取决于时间点和目标。可以考虑补强科目、调整目标大学、选择澳洲/英国/私立大学衔接路径，或重新规划申请批次。</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="wace-static-section soft">
+    <div class="wace-static-wrap">
+      <div class="wace-static-kicker">相关阅读</div>
+      <h2>继续了解 WACE 路径</h2>
+      <div class="wace-static-pill-row">
+        <a class="wace-static-pill" href="/wace-vs-a-level/">WACE vs A-Level 怎么选</a>
+        <a class="wace-static-pill" href="/wace-atar/">WACE ATAR 成绩详解</a>
+        <a class="wace-static-pill" href="/wace-nus-ntu/">WACE 申请 NUS / NTU</a>
+        <a class="wace-static-pill" href="/international-school/">新加坡国际学校</a>
+        <a class="wace-static-pill" href="/private-schools/">新加坡私立学校</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="wace-static-section" id="contact">
+    <div class="wace-static-wrap">
+      <div class="wace-static-contact">
         <div>
-          <p class="eyebrow">微信咨询</p>
-          <h2 id="contact-title">想了解 WACE 是否适合您的孩子？</h2>
-          <p>不需要填写表单。扫码添加 Amy，直接说明孩子年级、英文水平和目标大学方向，获取 WACE 选课与升学建议。</p>
-        </div>
-        <div class="seda-wechat-card seda-wechat-card-inline" data-wechat-placement="wace_contact">
-          <div class="seda-wechat-head">
-            <div><strong>新加坡择校顾问 Amy</strong><span>扫码添加，获取 WACE 规划建议</span></div>
-            <button type="button" class="seda-copy-wechat" data-wechat="SEDAGUIDE">复制微信号</button>
-          </div>
-          <div class="seda-wechat-body">
-            <img class="seda-wechat-qr" src="/assets/wechat-amy-seda-guide.jpg" alt="新加坡择校顾问Amy微信二维码" loading="lazy" decoding="async">
-            <div class="seda-wechat-info">
-              <p class="seda-wechat-id">微信号：<b>SEDAGUIDE</b></p>
-              <ul><li>WACE 国际高中</li><li>ATAR 选课规划</li><li>公立大学申请</li><li>学费预算分析</li></ul>
-            </div>
+          <div class="wace-static-kicker">择校咨询</div>
+          <h2>不确定孩子是否适合 WACE？</h2>
+          <p class="wace-static-lead">扫码添加新加坡择校顾问 Amy，说明孩子当前年级、英文水平、数学基础和目标大学方向，获取更具体的 WACE 选校与升学建议。</p>
+          <div class="wace-static-pill-row">
+            <span class="wace-static-pill">WACE 课程规划</span>
+            <span class="wace-static-pill">AEIS / O-Level 对比</span>
+            <span class="wace-static-pill">国际学校择校</span>
+            <span class="wace-static-pill">学费预算分析</span>
           </div>
         </div>
-      </section>
-    <section class="related-articles" style="max-width:900px;margin:48px auto 0;padding:0 20px 48px">
-      <h2 style="font-size:1.1rem;color:#62676d;border-bottom:2px solid #c6923a;padding-bottom:8px;margin-bottom:20px">相关阅读</h2>
-      <ul style="list-style:none;padding:0;margin:0;display:grid;gap:12px">
-        <li><a href="/wace/wace-apply-ntu-difficulty/" style="color:#c90016;text-decoration:none;font-size:0.95rem">▶ WACE申请NTU难吗？中国学生要看哪些成绩和科目</a></li>
-        <li><a href="/wace/wace-suitable-for-chinese-students/" style="color:#c90016;text-decoration:none;font-size:0.95rem">▶ WACE适合中国学生吗？家长最关心的7个判断点</a></li>
-      </ul>
-    </section>
-    </main>
+        <div class="wace-static-qr">
+          <img src="/assets/wechat-amy-seda-guide.jpg" alt="新加坡择校顾问 Amy 微信二维码" loading="lazy">
+          <div class="wace-static-wechat">微信号：SEDAGUIDE</div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
 
     <footer class="site-footer">
       <div>

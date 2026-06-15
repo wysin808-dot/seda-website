@@ -986,6 +986,23 @@
   .wace-infographic{display:flex}
   .wace-atar-viz{flex:1;display:flex;flex-direction:column}
   .wace-atar-cards{margin-top:auto}
+
+  /* === 底部 CTA 咨询区重设计 === */
+  .wace-contact{background:#fff}
+  .wace-cta-card{display:grid;grid-template-columns:1fr 248px;gap:44px;align-items:center;padding:46px 48px;border-radius:20px;color:#fff;position:relative;overflow:hidden;background:linear-gradient(135deg,#c0392b 0%,#7e231b 100%);box-shadow:0 22px 50px rgba(150,40,30,.28)}
+  .wace-cta-card::before{content:"";position:absolute;top:-60px;right:-40px;width:240px;height:240px;border-radius:50%;background:rgba(255,255,255,.06)}
+  .wace-cta-left{position:relative;z-index:1}
+  .wace-cta-eyebrow{display:inline-block;font-size:.76rem;font-weight:700;letter-spacing:.05em;background:rgba(255,255,255,.18);padding:5px 14px;border-radius:999px;margin-bottom:16px}
+  .wace-cta-left h2{color:#fff;font-size:1.7rem;line-height:1.3;margin:0 0 12px}
+  .wace-cta-left p{color:rgba(255,255,255,.9);line-height:1.85;max-width:580px;margin:0 0 20px;font-size:.95rem}
+  .wace-cta-points{list-style:none;padding:0;margin:0 0 22px;display:flex;flex-wrap:wrap;gap:10px 26px}
+  .wace-cta-points li{position:relative;padding-left:25px;font-size:.9rem;color:#fff}
+  .wace-cta-points li::before{content:"✓";position:absolute;left:0;top:-1px;display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;border-radius:50%;background:rgba(255,255,255,.22);font-size:.7rem;font-weight:700}
+  .wace-cta-wx{font-size:.95rem;color:rgba(255,255,255,.82)}
+  .wace-cta-wx b{font-size:1.2rem;color:#fff;letter-spacing:.06em;margin-left:8px}
+  .wace-cta-qr{position:relative;z-index:1;justify-self:end}
+  .wace-cta-qr img{width:248px;max-width:100%;height:auto;display:block;border-radius:14px;box-shadow:0 16px 40px rgba(0,0,0,.30)}
+  @media(max-width:860px){.wace-cta-card{grid-template-columns:1fr;gap:28px;padding:34px 26px;text-align:center}.wace-cta-points{justify-content:center}.wace-cta-qr{justify-self:center}.wace-cta-left p{margin-inline:auto}}
 </style>
 <!-- WACE_STATIC_STYLE_END -->
 
@@ -1310,15 +1327,22 @@
   </section>
 
   <section class="wace-section wace-contact" id="contact">
-    <div class="wace-manus-container wace-contact-box">
-      <div>
-        <div class="wace-label"><span>免费咨询</span></div>
-        <h2>不确定孩子是否适合 WACE？</h2>
-        <p>告诉我们孩子的当前年级、英文水平和目标大学方向，SEDA 顾问会根据孩子情况给出 WACE、A-Level、O-Level 或国际学校路线建议。</p>
-      </div>
-      <div class="wace-qr">
-        <img src="/assets/wechat-amy-seda-guide.jpg" alt="新加坡择校顾问 Amy 微信二维码" loading="lazy">
-        <strong>微信号：SEDAGUIDE</strong>
+    <div class="wace-manus-container">
+      <div class="wace-cta-card">
+        <div class="wace-cta-left">
+          <span class="wace-cta-eyebrow">免费 1 对 1 咨询</span>
+          <h2>不确定孩子是否适合 WACE？</h2>
+          <p>告诉我们孩子的当前年级、英文水平和目标大学方向，SEDA 顾问会结合实际情况，给出 WACE、A-Level、O-Level 或国际学校的路线建议。</p>
+          <ul class="wace-cta-points">
+            <li>免费评估孩子适不适合 WACE</li>
+            <li>对比 WACE / A-Level / 国际学校路线</li>
+            <li>新加坡升学规划与择校建议</li>
+          </ul>
+          <div class="wace-cta-wx">微信号 <b>SEDAGUIDE</b></div>
+        </div>
+        <div class="wace-cta-qr">
+          <img src="/assets/wechat-amy-seda-guide.jpg" alt="新加坡择校顾问 Amy 微信二维码" loading="lazy">
+        </div>
       </div>
     </div>
   </section>

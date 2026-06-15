@@ -36,7 +36,7 @@
     body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei","Helvetica Neue",Arial,sans-serif;font-size:16px;line-height:1.75;color:#1a1a1a;background:#fff}
     a{color:inherit;text-decoration:none}
     img{max-width:100%;height:auto;display:block}
-    :root{--red:#C0392B;--red-dark:#a93226;--navy:#1A2340;--gray-bg:#f7f7f7;--gray-border:#e8e8e8;--gray-text:#555;--max-w:900px}
+    :root{--red:#C0392B;--red-dark:#a93226;--navy:#1a2332;--gray-bg:#f7f7f7;--gray-border:#e8e8e8;--gray-text:#555;--max-w:900px}
     .container{max-width:var(--max-w);margin:0 auto;padding:0 24px}
     .section{padding:64px 0}
     .section-alt{background:var(--gray-bg)}
@@ -52,7 +52,7 @@
     p:last-child{margin-bottom:0}
     strong{color:#1a1a1a}
     /* Announce bar */
-    .announce{background:#1e1b4b;color:#e0d9ff;font-size:13px;padding:9px 0;text-align:center}
+    .announce{background:#2b1414;color:#f3d9d4;font-size:13px;padding:9px 0;text-align:center}
     .announce strong{color:#c4b5fd}
     .announce a{color:#a78bfa;text-decoration:underline}
     /* Navbar */
@@ -113,12 +113,12 @@
     .subj-card h4{font-size:14.5px;font-weight:700;color:var(--navy);margin-bottom:6px}
     .subj-card p{font-size:13px;color:var(--gray-text);margin:0}
     /* Data table */
-    .data-table{width:100%;border-collapse:collapse;margin:18px 0;font-size:14px}
-    .data-table th{background:var(--navy);color:#fff;padding:11px 14px;text-align:left;font-weight:600;font-size:13px}
-    .data-table td{padding:10px 14px;border-bottom:1px solid var(--gray-border);color:#444}
-    .data-table tr:last-child td{border-bottom:none}
-    .data-table tr:hover td{background:#fafafa}
-    .data-table .green{color:#16a34a;font-weight:700}
+    .ol-data-table{width:100%;border-collapse:collapse;margin:18px 0;font-size:14px}
+    .ol-data-table th{background:var(--navy);color:#fff;padding:11px 14px;text-align:left;font-weight:600;font-size:13px}
+    .ol-data-table td{padding:10px 14px;border-bottom:1px solid var(--gray-border);color:#444}
+    .ol-data-table tr:last-child td{border-bottom:none}
+    .ol-data-table tr:hover td{background:#fafafa}
+    .ol-data-table .green{color:#16a34a;font-weight:700}
     /* Grade scale */
     .grade-scale{display:grid;grid-template-columns:repeat(9,1fr);gap:5px;margin:22px 0}
     .grade-item{border-radius:8px;padding:11px 4px;text-align:center}
@@ -265,6 +265,18 @@
       .fb{min-width:56px;padding:9px 8px}
       .fb .fb-code{font-size:13px}
     }
+
+    /* === 配色对齐主站（去深蓝，统一红/墨）=== */
+    /* 小标题文字：深蓝 → 墨黑（标题不该是蓝色）*/
+    .subj-card h4,.pathway-card h4,.tl-content h4,.strategy-card h4,
+    .related-card h4,.faq-btn,.compare-table td:first-child,.fb .fb-code{color:#1a2332}
+    /* 大色块背景：深蓝 → 品牌红（与主站 CTA/强调色一致）*/
+    .cta-section{background:linear-gradient(135deg,#c0392b 0%,#8e2820 100%)}
+    .btn-white{color:#c0392b}
+    .flow-box{background:#a93226}
+    .ol-data-table th,.compare-table th{background:#c0392b !important;color:#fff !important}
+    /* Hero：深蓝遮罩 → 品牌红遮罩 + 新加坡城景 */
+    .hero{background:linear-gradient(135deg,rgba(140,32,24,.90),rgba(90,20,15,.72)),url('/assets/sg-px-20779788.jpg');background-size:cover;background-position:center 35%}
   </style>
 </head>
 <body>
@@ -409,7 +421,7 @@
     </div>
 
     <h3 style="margin-top:28px">选修科目一览</h3>
-    <table class="data-table">
+    <table class="ol-data-table">
       <thead><tr><th>学科领域</th><th>常见科目</th><th>说明</th></tr></thead>
       <tbody>
         <tr><td>科学</td><td>Physics、Chemistry、Biology</td><td>多数学生选 2 门纯科学；也有 Combined Science 选项</td></tr>
@@ -466,7 +478,7 @@
     </div>
 
     <h3 style="margin-top:28px">各 JC 的 L1R5 参考截分点</h3>
-    <table class="data-table">
+    <table class="ol-data-table">
       <thead><tr><th>初级学院</th><th>文科截分</th><th>理科截分</th><th>说明</th></tr></thead>
       <tbody>
         <tr><td>华侨中学 Hwa Chong</td><td class="green">4</td><td class="green">4</td><td>传统华族名校，学术氛围浓厚</td></tr>

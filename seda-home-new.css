@@ -109,10 +109,11 @@
 .hero {
   position: relative;
   background:
-    linear-gradient(to right, rgba(10,14,23,.82) 0%, rgba(10,14,23,.65) 55%, rgba(10,14,23,.35) 100%),
-    url('/assets/hero-mbs-day3.jpg') center center / cover no-repeat;
+    linear-gradient(to right, rgba(10,14,23,.85) 0%, rgba(10,14,23,.70) 50%, rgba(10,14,23,.25) 100%),
+    url('/assets/hero-mbs-day3.jpg') center 30% / cover no-repeat;
   color: #fff;
   padding: 0 0 0;
+  min-height: 520px;
 }
 .hero-inner {
   max-width: 1200px;

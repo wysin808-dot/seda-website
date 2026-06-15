@@ -107,7 +107,10 @@
    1. HERO
    ════════════════════════════════════════ */
 .hero {
-  background: linear-gradient(135deg, #1a202c 0%, #2d3748 60%, #1a202c 100%);
+  position: relative;
+  background:
+    linear-gradient(to right, rgba(10,14,23,.82) 0%, rgba(10,14,23,.65) 55%, rgba(10,14,23,.35) 100%),
+    url('/assets/hero-mbs-day3.jpg') center center / cover no-repeat;
   color: #fff;
   padding: 0 0 0;
 }

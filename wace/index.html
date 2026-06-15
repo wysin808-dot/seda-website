@@ -119,8 +119,8 @@
     position: relative;
     overflow: hidden;
     background:
-      linear-gradient(110deg, rgba(22, 31, 50, .92) 0%, rgba(121, 29, 31, .86) 56%, rgba(202, 43, 48, .78) 100%),
-      radial-gradient(circle at 80% 20%, rgba(255,255,255,.18), transparent 34%);
+      linear-gradient(105deg, rgba(30, 8, 8, .60) 0%, rgba(192, 57, 43, .28) 55%, rgba(80, 10, 5, .10) 100%),
+      url(/assets/wace-hero-perth.webp) center 30% / cover no-repeat;
     color: #fff;
     border-bottom: 1px solid rgba(202, 43, 48, .16);
   }
@@ -210,11 +210,34 @@
   }
 
   .wace-static-hero-panel {
-    background: rgba(255,255,255,.96);
-    color: #172033;
-    border-radius: 10px;
-    padding: 26px;
-    box-shadow: 0 24px 70px rgba(0,0,0,.2);
+    display: none;
+  }
+
+  .wace-static-path-strip {
+    margin-top: -34px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .wace-static-path-strip-inner {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 14px;
+  }
+
+  .wace-static-path-card {
+    display: grid;
+    grid-template-columns: 38px 1fr;
+    gap: 12px;
+    align-items: start;
+    min-height: 112px;
+    padding: 18px;
+    border-radius: 12px;
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 16px 42px rgba(23, 32, 51, .10);
+    color: #344056;
+    line-height: 1.62;
   }
 
   .wace-static-hero-panel h2 {
@@ -349,6 +372,88 @@
     border: 1px solid #f3d2d4;
     color: #5f2527;
     line-height: 1.75;
+  }
+
+
+  .wace-static-visual-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(360px, .88fr);
+    gap: 44px;
+    align-items: center;
+  }
+
+  .wace-static-photo-card {
+    position: relative;
+    overflow: hidden;
+    min-height: 430px;
+    border-radius: 12px;
+    background: #f3f6fa;
+    box-shadow: 0 22px 70px rgba(23, 32, 51, .14);
+  }
+
+  .wace-static-photo-card img {
+    width: 100%;
+    height: 100%;
+    min-height: 430px;
+    object-fit: cover;
+    display: block;
+  }
+
+  .wace-static-photo-caption {
+    position: absolute;
+    left: 18px;
+    right: 18px;
+    bottom: 18px;
+    padding: 16px 18px;
+    border-radius: 10px;
+    background: rgba(255,255,255,.93);
+    color: #172033;
+    box-shadow: 0 12px 34px rgba(23, 32, 51, .14);
+  }
+
+  .wace-static-photo-caption strong {
+    display: block;
+    margin-bottom: 5px;
+    color: #c9252b;
+  }
+
+  .wace-static-atar-layout {
+    display: grid;
+    grid-template-columns: minmax(0, .9fr) minmax(400px, 1.1fr);
+    gap: 34px;
+    align-items: center;
+  }
+
+  .wace-static-atar-image {
+    overflow: hidden;
+    border-radius: 12px;
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 22px 70px rgba(23, 32, 51, .10);
+  }
+
+  .wace-static-atar-image img {
+    width: 100%;
+    display: block;
+  }
+
+  .wace-static-mini-list {
+    display: grid;
+    gap: 12px;
+    margin-top: 24px;
+  }
+
+  .wace-static-mini-list div {
+    padding: 16px 18px;
+    border-radius: 10px;
+    background: #fff;
+    border: 1px solid #e2e8f0;
+  }
+
+  .wace-static-mini-list strong {
+    display: block;
+    margin-bottom: 5px;
+    color: #172033;
   }
 
   .wace-static-card-grid {
@@ -566,6 +671,8 @@
   @media (max-width: 980px) {
     .wace-static-hero-inner,
     .wace-static-two-col,
+    .wace-static-visual-grid,
+    .wace-static-atar-layout,
     .wace-static-contact {
       grid-template-columns: 1fr;
     }
@@ -590,6 +697,7 @@
     }
 
     .wace-static-stats,
+    .wace-static-path-strip-inner,
     .wace-static-card-grid,
     .wace-static-university-grid,
     .wace-static-compare {
@@ -646,13 +754,7 @@
       </div>
     </header>
 
-    <nav class="breadcrumb" aria-label="面包屑导航">
-      <a href="/">首页</a> <span>›</span>
-      <a href="/wace/">考试攻略</a> <span>›</span>
-      <span>WACE 课程</span>
-    </nav>
-
-    <main class="wace-guide-page wace-static-page">
+<main class="wace-guide-page wace-static-page">
   <section class="wace-static-hero">
     <div class="wace-static-wrap wace-static-hero-inner">
       <div>
@@ -670,20 +772,20 @@
           <div class="wace-static-stat"><strong>99.95</strong><span>ATAR 最高排名</span></div>
         </div>
       </div>
-      <aside class="wace-static-hero-panel" aria-label="WACE 升学路径">
-        <h2>WACE 升学路径</h2>
-        <ol class="wace-static-path">
-          <li><span class="wace-static-step">1</span><span>完成 Year 11 与 Year 12 科目学习，建立校内评估成绩。</span></li>
-          <li><span class="wace-static-step">2</span><span>参加西澳州统一外部考试，形成最终科目分数。</span></li>
-          <li><span class="wace-static-step">3</span><span>最优科目经标准化后计算 ATAR 百分位排名。</span></li>
-          <li><span class="wace-static-step">4</span><span>用 ATAR 申请新加坡、澳洲、英国、香港等大学。</span></li>
-        </ol>
-      </aside>
+    </div>
+  </section>
+
+  <section class="wace-static-path-strip" aria-label="WACE 升学路径">
+    <div class="wace-static-wrap wace-static-path-strip-inner">
+      <div class="wace-static-path-card"><span class="wace-static-step">1</span><span>完成 Year 11 与 Year 12 科目学习，建立校内评估成绩。</span></div>
+      <div class="wace-static-path-card"><span class="wace-static-step">2</span><span>参加西澳州统一外部考试，形成最终科目分数。</span></div>
+      <div class="wace-static-path-card"><span class="wace-static-step">3</span><span>最优科目经标准化后计算 ATAR 百分位排名。</span></div>
+      <div class="wace-static-path-card"><span class="wace-static-step">4</span><span>用 ATAR 申请新加坡、澳洲、英国、香港等大学。</span></div>
     </div>
   </section>
 
   <section class="wace-static-section" id="overview">
-    <div class="wace-static-wrap wace-static-two-col">
+    <div class="wace-static-wrap wace-static-visual-grid">
       <article>
         <div class="wace-static-kicker">课程概述</div>
         <h2>WACE 是什么？</h2>
@@ -694,24 +796,13 @@
         </div>
         <div class="wace-static-note">核心判断：如果孩子数学和理科基础不错，英文有一定基础，但不想把所有升学压力压在一次大考上，WACE 值得认真比较。</div>
       </article>
-      <aside class="wace-static-sidebar">
-        <div class="wace-static-sidebar-card">
-          <h3>WACE 专题导航</h3>
-          <a href="#overview">WACE 是什么</a>
-          <a href="#subjects">课程结构与选科</a>
-          <a href="#atar">ATAR 怎么算</a>
-          <a href="#universities">能申请哪些大学</a>
-          <a href="#fit">适合哪些学生</a>
-          <a href="#faq">家长 FAQ</a>
-        </div>
-        <div class="wace-static-sidebar-card">
-          <h3>相关页面</h3>
-          <a href="/wace-vs-a-level/">WACE vs A-Level</a>
-          <a href="/wace-atar/">WACE ATAR 成绩详解</a>
-          <a href="/wace-nus-ntu/">WACE 申请 NUS / NTU</a>
-          <a href="/international-school/">新加坡国际学校</a>
-        </div>
-      </aside>
+      <figure class="wace-static-photo-card">
+        <img src="/assets/wace-study-group-1400.jpg" alt="WACE 学生在图书馆小组学习，讨论课程内容" loading="lazy">
+        <figcaption class="wace-static-photo-caption">
+          <strong>适合持续学习型学生</strong>
+          WACE 把校内评估、课堂表现和外部考试结合起来，不是只看最后一次大考。
+        </figcaption>
+      </figure>
     </div>
   </section>
 
@@ -761,15 +852,20 @@
   </section>
 
   <section class="wace-static-section soft" id="atar">
-    <div class="wace-static-wrap">
-      <div class="wace-static-kicker">ATAR 成绩</div>
-      <h2>WACE ATAR 是怎么计算的？</h2>
-      <p class="wace-static-lead">ATAR 不是百分制成绩，而是学生在同届考生中的百分位排名。99.00 代表成绩高于约 99% 同届考生，并不等于每门课 99 分。</p>
-      <div class="wace-static-card-grid">
-        <div class="wace-static-card"><h3>1. 选择最佳科目</h3><p>通常取最能拉高排名的 ATAR 科目组合，英文要求和专业先修要求必须同时满足。</p></div>
-        <div class="wace-static-card"><h3>2. 科目 Scaling</h3><p>不同科目会进行标准化处理，避免简单科目和高难科目直接用原始分比较。</p></div>
-        <div class="wace-static-card"><h3>3. 转换为排名</h3><p>最终转换为 0 到 99.95 的 ATAR 百分位，用于大学录取评估。</p></div>
-      </div>
+    <div class="wace-static-wrap wace-static-atar-layout">
+      <article>
+        <div class="wace-static-kicker">ATAR 成绩</div>
+        <h2>WACE ATAR 是怎么计算的？</h2>
+        <p class="wace-static-lead">ATAR 不是百分制成绩，而是学生在同届考生中的百分位排名。99.00 代表成绩高于约 99% 同届考生，并不等于每门课 99 分。</p>
+        <div class="wace-static-mini-list">
+          <div><strong>1. 选择最佳科目</strong><span>通常取最能拉高排名的 ATAR 科目组合，英文要求和专业先修要求必须同时满足。</span></div>
+          <div><strong>2. 科目 Scaling</strong><span>不同科目会进行标准化处理，避免简单科目和高难科目直接用原始分比较。</span></div>
+          <div><strong>3. 转换为排名</strong><span>最终转换为 0 到 99.95 的 ATAR 百分位，用于大学录取评估。</span></div>
+        </div>
+      </article>
+      <figure class="wace-static-atar-image">
+        <img src="/assets/wace-atar-infographic-1300.jpg" alt="ATAR 分数段说明：70-80 普通大学，80-90 澳洲八大，90+ NUS 和 NTU">
+      </figure>
     </div>
   </section>
 

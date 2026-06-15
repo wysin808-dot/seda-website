@@ -522,6 +522,11 @@
   object-fit: cover;
   display: block;
   background: #e5e7eb;
+  filter: saturate(1.5) contrast(1.08) brightness(1.04);
+  transition: filter .3s;
+}
+.guide-featured:hover .guide-featured-img img {
+  filter: saturate(1.7) contrast(1.1) brightness(1.06);
 }
 .guide-featured-overlay {
   background: #fff;

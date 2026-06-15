@@ -154,31 +154,9 @@ function enhancePageHtml(page, html) {
 }
 
 const pages = [
-  {
-    path: '/wace/',
-    file: 'wace/index.html',
-    title: 'WACE 课程完全攻略',
-    description: '面向中国学生和家长的新加坡 WACE 课程攻略，覆盖课程结构、ATAR、选课、申请 NUS/NTU、大学认可度和国际高中路径。',
-    about: ['WACE 课程', 'ATAR', '新加坡国际高中', 'WACE 选课', 'WACE 申请 NUS', 'WACE 申请 NTU', 'EALD 英文', '澳洲高中课程'],
-    compactBody: 'wace-geo-strip',
-    summary: [
-      'WACE 是新加坡国际高中路径中适合中国学生重点关注的课程，核心出口是 ATAR 和全球大学申请。',
-      '中国学生选择 WACE 时，要重点看英文过渡、数学科目、ATAR 目标和学校是否具备稳定教学支持。',
-      '本页应与 WACE vs A-Level、WACE ATAR、WACE 申请 NUS/NTU、国际学校和大学页面形成强内链。',
-    ],
-    links: [
-      { name: 'WACE vs A-Level', url: '/wace-vs-a-level/' },
-      { name: 'WACE ATAR', url: '/wace-atar/' },
-      { name: 'WACE 申请 NUS / NTU', url: '/wace-nus-ntu/' },
-      { name: '国际学校指南', url: '/international-school/' },
-      { name: '新加坡公立大学', url: '/university/' },
-    ],
-    faq: [
-      { q: 'WACE 适合中国学生吗？', a: '适合一部分目标明确、希望用 ATAR 申请大学，并且需要比 IB/A-Level 更灵活路径的中国学生。' },
-      { q: 'WACE 可以申请新加坡大学吗？', a: 'WACE 的 ATAR 成绩可用于申请 NUS、NTU、SMU 等大学，但不同专业会有具体科目和分数要求。' },
-      { q: 'WACE 最应该关注什么？', a: '家长应重点关注学校授权、英文支持、科目组合、ATAR 目标和历届升学结果。' },
-    ],
-  },
+  // NOTE: /wace/ is intentionally excluded — it is a fully hand-built static
+  // page with its own structured data and content, so it must NOT be enhanced
+  // (the injected geo-summary / seo-tags blocks are unwanted there).
   {
     path: '/wace-vs-a-level/',
     file: 'wace-vs-a-level/index.html',

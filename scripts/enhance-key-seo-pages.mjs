@@ -244,30 +244,8 @@ const pages = [
       { q: 'AEIS 通过后可以指定学校吗？', a: '通常不能完全指定学校，教育部会根据成绩、年级和学校学额进行分配。' },
     ],
   },
-  {
-    path: '/o-level/',
-    file: 'o-level/index.html',
-    title: 'O-Level 考试与升学攻略',
-    description: '新加坡 O-Level 中文攻略，覆盖科目、评分、JC、Poly、私立路径、中国学生备考重点和家长常见问题。',
-    about: ['O-Level', 'O 水准', 'JC', 'Poly', '新加坡中学', 'L1R5', 'ELR2B2', 'SEC 中学'],
-    summary: [
-      'O-Level 是新加坡中学阶段最重要的升学考试之一，直接影响 JC、Poly 和后续大学路径。',
-      '中国学生准备 O-Level，要同时理解英文、数学、科学、人文和评分规则。',
-      'O-Level 页面应和 JC、Poly、学校数据库、科目页和评分页形成长尾内链。',
-    ],
-    links: [
-      { name: 'O-Level 评分规则', url: '/o-level/scoring/' },
-      { name: 'O-Level 科目选择', url: '/o-level/subjects/' },
-      { name: 'O-Level 申请 JC', url: '/o-level-jc/' },
-      { name: 'O-Level 申请 Poly', url: '/o-level-poly/' },
-      { name: '政府中学数据库', url: '/secondary-schools/' },
-    ],
-    faq: [
-      { q: 'O-Level 是什么？', a: 'O-Level 是新加坡中学阶段的重要考试，成绩可用于申请 JC、Poly、MI 或其他升学路径。' },
-      { q: 'O-Level 申请 JC 看什么？', a: 'JC 通常重点看 L1R5 成绩，同时不同学校和年份的录取分数会变化。' },
-      { q: 'O-Level 申请 Poly 看什么？', a: 'Poly 通常看 ELR2B2、科目要求和专业竞争情况，选专业比单纯选学校更重要。' },
-    ],
-  },
+  // NOTE: /o-level/ excluded — now a fully hand-built static page with its own
+  // structured data and content; must NOT be enhanced (avoids injected blocks).
   {
     path: '/o-level-jc/',
     file: 'o-level-jc/index.html',

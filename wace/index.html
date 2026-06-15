@@ -101,615 +101,667 @@
 
 <!-- WACE_STATIC_STYLE_START -->
 <style>
-  .wace-static-page {
+  .wace-manus-page {
+    --wace-red: #C0392B;
+    --wace-red-bg: #FEF0EE;
+    --wace-red-border: #F5C6C0;
+    --wace-ink: #1a1a1a;
+    --wace-muted: #555;
+    --wace-line: #e8e4e0;
     background: #fff;
-    color: #172033;
+    color: var(--wace-ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
   }
 
-  .wace-static-page * {
+  .wace-manus-page * {
     box-sizing: border-box;
   }
 
-  .wace-static-wrap {
-    width: min(1180px, calc(100% - 40px));
+  body:has(.wace-manus-page) .seda-wechat-sidecard,
+  body:has(.wace-manus-page) .seda-floating-wechat,
+  body:has(.wace-manus-page) .seda-ai-fab,
+  body:has(.wace-manus-page) .ai-chat-trigger {
+    display: none !important;
+  }
+
+  .wace-manus-container {
+    width: min(1120px, calc(100% - 32px));
     margin: 0 auto;
   }
 
-  .wace-static-hero {
-    position: relative;
-    overflow: hidden;
-    background:
-      linear-gradient(105deg, rgba(30, 8, 8, .60) 0%, rgba(192, 57, 43, .28) 55%, rgba(80, 10, 5, .10) 100%),
-      url(/assets/wace-hero-perth.webp) center 30% / cover no-repeat;
-    color: #fff;
-    border-bottom: 1px solid rgba(202, 43, 48, .16);
+  .wace-manus-breadcrumb {
+    padding: 12px 0 0;
+    font-size: .8rem;
+    color: #888;
   }
 
-  .wace-static-hero::after {
-    content: "";
-    position: absolute;
-    inset: auto -10% -42% 42%;
-    height: 320px;
-    background: rgba(255,255,255,.08);
-    transform: rotate(-8deg);
-    border-radius: 50%;
-  }
-
-  .wace-static-hero-inner {
-    position: relative;
-    z-index: 1;
-    display: grid;
-    grid-template-columns: minmax(0, 1.08fr) minmax(300px, .92fr);
-    gap: 42px;
-    align-items: center;
-    padding: 72px 0 58px;
-  }
-
-  .wace-static-eyebrow {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 18px;
-    font-size: .78rem;
-    font-weight: 800;
-    letter-spacing: .12em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,.82);
-  }
-
-  .wace-static-eyebrow::before {
-    content: "";
-    width: 28px;
-    height: 2px;
-    background: rgba(255,255,255,.68);
-  }
-
-  .wace-static-hero h1 {
-    margin: 0;
-    max-width: 720px;
-    font-size: clamp(2.35rem, 4.8vw, 4.7rem);
-    line-height: 1.06;
-    letter-spacing: 0;
-    color: #fff;
-  }
-
-  .wace-static-subtitle {
-    margin: 18px 0 0;
-    max-width: 690px;
-    font-size: clamp(1.05rem, 1.7vw, 1.38rem);
-    line-height: 1.78;
-    color: rgba(255,255,255,.9);
-  }
-
-  .wace-static-actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    margin-top: 30px;
-  }
-
-  .wace-static-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 46px;
-    padding: 0 22px;
-    border-radius: 6px;
-    font-weight: 800;
+  .wace-manus-breadcrumb a {
+    color: #888;
     text-decoration: none;
   }
 
-  .wace-static-btn.primary {
-    background: #fff;
-    color: #c9252b;
+  .wace-manus-breadcrumb span {
+    margin: 0 6px;
   }
 
-  .wace-static-btn.secondary {
-    border: 1px solid rgba(255,255,255,.5);
-    color: #fff;
-  }
-
-  .wace-static-hero-panel {
-    display: none;
-  }
-
-  .wace-static-path-strip {
-    margin-top: -34px;
+  .wace-hero {
     position: relative;
-    z-index: 2;
+    overflow: hidden;
+    min-height: 380px;
+    margin-top: 10px;
   }
 
-  .wace-static-path-strip-inner {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 14px;
+  .wace-hero-bg {
+    position: absolute;
+    inset: 0;
+    background-image: url("/assets/wace-hero-perth.webp");
+    background-size: cover;
+    background-position: center 30%;
+    filter: brightness(.80) saturate(1.05);
   }
 
-  .wace-static-path-card {
-    display: grid;
-    grid-template-columns: 38px 1fr;
-    gap: 12px;
-    align-items: start;
-    min-height: 112px;
-    padding: 18px;
-    border-radius: 12px;
-    background: #fff;
-    border: 1px solid #e2e8f0;
-    box-shadow: 0 16px 42px rgba(23, 32, 51, .10);
-    color: #344056;
-    line-height: 1.62;
+  .wace-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(105deg, rgba(30,8,8,.60) 0%, rgba(192,57,43,.28) 55%, rgba(80,10,5,.10) 100%);
   }
 
-  .wace-static-hero-panel h2 {
-    margin: 0 0 16px;
-    font-size: 1.25rem;
+  .wace-hero-stripe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: rgba(255,255,255,.18);
   }
 
-  .wace-static-path {
-    display: grid;
-    gap: 10px;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-  }
-
-  .wace-static-path li {
-    display: grid;
-    grid-template-columns: 32px 1fr;
-    gap: 12px;
-    align-items: start;
-    padding: 12px;
-    border: 1px solid #edf0f4;
-    border-radius: 8px;
-    background: #fafbfc;
-    color: #344056;
-    line-height: 1.55;
-  }
-
-  .wace-static-step {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 32px;
-    height: 32px;
-    border-radius: 999px;
-    background: #c9252b;
+  .wace-hero-content {
+    position: relative;
+    z-index: 1;
+    padding: 58px 16px 54px;
     color: #fff;
-    font-weight: 800;
-    font-size: .86rem;
   }
 
-  .wace-static-stats {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 14px;
-    margin-top: 24px;
-  }
-
-  .wace-static-stat {
-    padding: 16px;
-    border-radius: 10px;
-    background: rgba(255,255,255,.1);
-    border: 1px solid rgba(255,255,255,.16);
-  }
-
-  .wace-static-stat strong {
-    display: block;
-    margin-bottom: 5px;
-    color: #fff;
-    font-size: 1.75rem;
-    line-height: 1;
-  }
-
-  .wace-static-stat span {
-    color: rgba(255,255,255,.76);
-    font-size: .84rem;
-  }
-
-  .wace-static-section {
-    padding: 64px 0;
-    border-bottom: 1px solid #edf0f4;
-  }
-
-  .wace-static-section.soft {
-    background: #f8fafc;
-  }
-
-  .wace-static-kicker {
+  .wace-hero-label {
     display: flex;
     align-items: center;
-    gap: 10px;
-    margin-bottom: 14px;
-    color: #c9252b;
-    font-size: .86rem;
-    font-weight: 900;
+    gap: 8px;
+    margin-bottom: 20px;
   }
 
-  .wace-static-kicker::before {
+  .wace-hero-label::before {
     content: "";
-    width: 4px;
-    height: 22px;
-    border-radius: 3px;
-    background: #c9252b;
+    display: inline-block;
+    width: 20px;
+    height: 2px;
+    background: rgba(255,255,255,.6);
   }
 
-  .wace-static-section h2 {
-    margin: 0 0 18px;
-    font-size: clamp(1.65rem, 3vw, 2.55rem);
-    line-height: 1.18;
-    color: #172033;
+  .wace-hero-label span {
+    font-size: .7rem;
+    font-weight: 700;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    opacity: .75;
+  }
+
+  .wace-hero h1 {
+    max-width: 600px;
+    margin: 0 0 8px;
+    color: #fff;
+    font-family: "Noto Serif SC", "Songti SC", serif;
+    font-size: clamp(2rem, 4.5vw, 3rem);
+    line-height: 1.2;
+    font-weight: 700;
     letter-spacing: 0;
   }
 
-  .wace-static-lead {
-    max-width: 850px;
-    margin: 0 0 26px;
-    color: #536176;
-    font-size: 1.04rem;
-    line-height: 1.9;
+  .wace-hero-subhead {
+    max-width: 540px;
+    margin-bottom: 20px;
+    font-family: "Noto Serif SC", "Songti SC", serif;
+    font-size: clamp(1.1rem, 2.5vw, 1.45rem);
+    opacity: .85;
   }
 
-  .wace-static-two-col {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) 360px;
-    gap: 34px;
-    align-items: start;
+  .wace-hero p {
+    max-width: 520px;
+    margin: 0 0 36px;
+    padding-left: 14px;
+    border-left: 2px solid rgba(255,255,255,.3);
+    color: rgba(255,255,255,.82);
+    font-size: clamp(.88rem, 1.6vw, 1rem);
+    line-height: 1.8;
   }
 
-  .wace-static-copy {
-    display: grid;
-    gap: 16px;
-    color: #364156;
-    line-height: 1.9;
-    font-size: 1rem;
-  }
-
-  .wace-static-note {
-    margin-top: 22px;
-    padding: 18px 20px;
-    border-radius: 10px;
-    background: #fff7f7;
-    border: 1px solid #f3d2d4;
-    color: #5f2527;
-    line-height: 1.75;
-  }
-
-
-  .wace-static-visual-grid {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(360px, .88fr);
-    gap: 44px;
-    align-items: center;
-  }
-
-  .wace-static-photo-card {
-    position: relative;
-    overflow: hidden;
-    min-height: 430px;
-    border-radius: 12px;
-    background: #f3f6fa;
-    box-shadow: 0 22px 70px rgba(23, 32, 51, .14);
-  }
-
-  .wace-static-photo-card img {
-    width: 100%;
-    height: 100%;
-    min-height: 430px;
-    object-fit: cover;
-    display: block;
-  }
-
-  .wace-static-photo-caption {
-    position: absolute;
-    left: 18px;
-    right: 18px;
-    bottom: 18px;
-    padding: 16px 18px;
-    border-radius: 10px;
-    background: rgba(255,255,255,.93);
-    color: #172033;
-    box-shadow: 0 12px 34px rgba(23, 32, 51, .14);
-  }
-
-  .wace-static-photo-caption strong {
-    display: block;
-    margin-bottom: 5px;
-    color: #c9252b;
-  }
-
-  .wace-static-atar-layout {
-    display: grid;
-    grid-template-columns: minmax(0, .9fr) minmax(400px, 1.1fr);
-    gap: 34px;
-    align-items: center;
-  }
-
-  .wace-static-atar-image {
-    overflow: hidden;
-    border-radius: 12px;
-    background: #fff;
-    border: 1px solid #e2e8f0;
-    box-shadow: 0 22px 70px rgba(23, 32, 51, .10);
-  }
-
-  .wace-static-atar-image img {
-    width: 100%;
-    display: block;
-  }
-
-  .wace-static-mini-list {
-    display: grid;
+  .wace-hero-actions {
+    display: flex;
+    flex-wrap: wrap;
     gap: 12px;
-    margin-top: 24px;
+    margin-bottom: 44px;
   }
 
-  .wace-static-mini-list div {
-    padding: 16px 18px;
-    border-radius: 10px;
+  .wace-hero-actions a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: 0 26px;
+    border-radius: 3px;
+    font-weight: 700;
+    font-size: .88rem;
+    text-decoration: none;
+  }
+
+  .wace-hero-actions .primary {
     background: #fff;
-    border: 1px solid #e2e8f0;
+    color: var(--wace-red);
   }
 
-  .wace-static-mini-list strong {
+  .wace-hero-actions .secondary {
+    border: 1.5px solid rgba(255,255,255,.5);
+    color: #fff;
+  }
+
+  .wace-hero-stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0;
+    max-width: 760px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(255,255,255,.15);
+  }
+
+  .wace-hero-stat {
+    margin-right: 32px;
+    padding-right: 32px;
+    border-right: 1px solid rgba(255,255,255,.15);
+  }
+
+  .wace-hero-stat:last-child {
+    border-right: 0;
+  }
+
+  .wace-hero-stat strong {
     display: block;
-    margin-bottom: 5px;
-    color: #172033;
+    color: #fff;
+    font-family: "Noto Serif SC", "Songti SC", serif;
+    font-size: 1.75rem;
+    line-height: 1;
+    font-weight: 800;
   }
 
-  .wace-static-card-grid {
+  .wace-hero-stat span {
+    display: block;
+    margin-top: 5px;
+    color: rgba(255,255,255,.65);
+    font-size: .72rem;
+    letter-spacing: .04em;
+  }
+
+  .wace-section {
+    padding: 60px 0;
+  }
+
+  .wace-section.soft {
+    background: #f8f6f4;
+  }
+
+  .wace-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+
+  .wace-label::before {
+    content: "";
+    width: 4px;
+    height: 18px;
+    border-radius: 2px;
+    background: var(--wace-red);
+  }
+
+  .wace-label span {
+    color: var(--wace-red);
+    font-size: .78rem;
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+  }
+
+  .wace-section h2 {
+    margin: 0 0 20px;
+    color: var(--wace-ink);
+    font-family: "Noto Serif SC", "Songti SC", serif;
+    font-size: clamp(1.4rem, 2.5vw, 1.9rem);
+    line-height: 1.28;
+    font-weight: 700;
+  }
+
+  .wace-lead {
+    max-width: 720px;
+    margin: 0 0 28px;
+    color: var(--wace-muted);
+    line-height: 1.85;
+  }
+
+  .wace-two-col {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 16px;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: stretch;
   }
 
-  .wace-static-card {
-    min-height: 100%;
-    padding: 22px;
-    border-radius: 10px;
-    background: #fff;
-    border: 1px solid #e2e8f0;
-    box-shadow: 0 10px 26px rgba(23,32,51,.05);
+  .wace-copy {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 
-  .wace-static-card h3 {
-    margin: 0 0 10px;
-    color: #172033;
-    font-size: 1.12rem;
+  .wace-copy p {
+    margin: 0 0 16px;
+    color: #444;
+    line-height: 1.85;
   }
 
-  .wace-static-card p {
-    margin: 0;
-    color: #5a687d;
+  .wace-note {
+    margin-top: auto;
+    padding: 14px 18px;
+    border: 1px solid var(--wace-red-border);
+    border-radius: 8px;
+    background: var(--wace-red-bg);
+  }
+
+  .wace-note strong {
+    display: block;
+    margin-bottom: 6px;
+    color: var(--wace-red);
+    font-size: .78rem;
+    letter-spacing: .06em;
+  }
+
+  .wace-note span {
+    color: #444;
+    font-size: .88rem;
     line-height: 1.7;
   }
 
-  .wace-static-pill-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin: 24px 0 0;
-  }
-
-  .wace-static-pill {
-    display: inline-flex;
-    align-items: center;
-    min-height: 36px;
-    padding: 0 14px;
-    border-radius: 999px;
-    background: #fff5f5;
-    border: 1px solid #f2c5c7;
-    color: #b91f27;
-    font-weight: 800;
-    font-size: .92rem;
-  }
-
-  .wace-static-table-wrap {
-    overflow-x: auto;
-    border: 1px solid #e2e8f0;
+  .wace-image-card {
+    min-height: 320px;
+    overflow: hidden;
     border-radius: 10px;
+    box-shadow: 0 4px 24px rgba(0,0,0,.12);
+  }
+
+  .wace-image-card img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-height: 320px;
+    object-fit: cover;
+  }
+
+  .wace-recognition-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+  }
+
+  .wace-recognition-card,
+  .wace-card,
+  .wace-uni-card,
+  .wace-faq details,
+  .wace-related-card {
+    background: #fff;
+    border: 1px solid var(--wace-line);
+    border-radius: 8px;
+  }
+
+  .wace-recognition-card {
+    padding: 20px 18px;
+  }
+
+  .wace-recognition-card .flag {
+    margin-bottom: 8px;
+    font-size: 1.8rem;
+  }
+
+  .wace-recognition-card h3,
+  .wace-card h3,
+  .wace-uni-card h3,
+  .wace-related-card h3 {
+    margin: 0 0 6px;
+    color: var(--wace-ink);
+    font-size: 1rem;
+  }
+
+  .wace-recognition-card p,
+  .wace-card p,
+  .wace-related-card p {
+    margin: 0;
+    color: #666;
+    font-size: .88rem;
+    line-height: 1.65;
+  }
+
+  .wace-table-wrap {
+    overflow-x: auto;
+    border: 1px solid var(--wace-line);
+    border-radius: 8px;
     background: #fff;
   }
 
-  .wace-static-table {
+  .wace-table {
     width: 100%;
     min-width: 760px;
     border-collapse: collapse;
   }
 
-  .wace-static-table th,
-  .wace-static-table td {
-    padding: 16px 18px;
-    border-bottom: 1px solid #edf0f4;
+  .wace-table th,
+  .wace-table td {
+    padding: 14px 16px;
+    border-bottom: 1px solid #eee;
     text-align: left;
     vertical-align: top;
-    line-height: 1.6;
+    color: #444;
+    line-height: 1.65;
   }
 
-  .wace-static-table th {
-    background: #f8fafc;
-    color: #172033;
-    font-size: .92rem;
+  .wace-table th {
+    background: #fafafa;
+    color: #222;
+    font-size: .88rem;
   }
 
-  .wace-static-table td {
-    color: #425066;
-  }
-
-  .wace-static-compare {
+  .wace-assessment {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 18px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
     margin-top: 22px;
   }
 
-  .wace-static-compare .wace-static-card {
-    box-shadow: none;
+  .wace-card {
+    padding: 20px;
   }
 
-  .wace-static-university-grid {
+  .wace-atar-grid {
     display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 14px;
+    grid-template-columns: .9fr 1.1fr;
+    gap: 34px;
+    align-items: center;
   }
 
-  .wace-static-uni {
-    padding: 18px;
-    border-radius: 10px;
-    border: 1px solid #e2e8f0;
-    background: #fff;
-  }
-
-  .wace-static-uni strong {
-    display: block;
-    margin-bottom: 6px;
-    font-size: 1.05rem;
-  }
-
-  .wace-static-uni span {
-    display: block;
-    color: #c9252b;
-    font-weight: 900;
-    margin-bottom: 6px;
-  }
-
-  .wace-static-uni small {
-    color: #5a687d;
-    line-height: 1.55;
-  }
-
-  .wace-static-faq {
+  .wace-atar-steps {
     display: grid;
     gap: 12px;
   }
 
-  .wace-static-faq details {
-    border: 1px solid #e2e8f0;
-    border-radius: 10px;
-    background: #fff;
-    padding: 0;
-  }
-
-  .wace-static-faq summary {
-    cursor: pointer;
-    padding: 18px 20px;
-    font-weight: 900;
-    color: #172033;
-  }
-
-  .wace-static-faq p {
-    margin: 0;
-    padding: 0 20px 18px;
-    color: #536176;
-    line-height: 1.8;
-  }
-
-  .wace-static-sidebar {
-    position: sticky;
-    top: 110px;
+  .wace-atar-step {
     display: grid;
-    gap: 16px;
-  }
-
-  .wace-static-sidebar-card {
-    border: 1px solid #e2e8f0;
-    border-radius: 10px;
+    grid-template-columns: 34px 1fr;
+    gap: 12px;
+    align-items: start;
+    padding: 14px;
+    border-radius: 8px;
     background: #fff;
-    padding: 20px;
+    border: 1px solid var(--wace-line);
   }
 
-  .wace-static-sidebar-card h3 {
-    margin: 0 0 14px;
-    font-size: 1.05rem;
+  .wace-step-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: var(--wace-red);
+    color: #fff;
+    font-weight: 800;
   }
 
-  .wace-static-sidebar-card a {
+  .wace-atar-step strong {
     display: block;
-    padding: 10px 0;
-    border-top: 1px solid #edf0f4;
-    color: #344056;
-    text-decoration: none;
+    margin-bottom: 4px;
+    color: #222;
+  }
+
+  .wace-atar-step span {
+    color: #666;
+    line-height: 1.6;
+  }
+
+  .wace-infographic {
+    overflow: hidden;
+    border-radius: 10px;
+    border: 1px solid var(--wace-line);
+    background: #fff;
+    box-shadow: 0 4px 24px rgba(0,0,0,.10);
+  }
+
+  .wace-infographic img {
+    display: block;
+    width: 100%;
+  }
+
+  .wace-region {
+    margin-top: 28px;
+  }
+
+  .wace-region-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 14px;
+  }
+
+  .wace-region-head h3 {
+    margin: 0;
+    font-size: 1.2rem;
+  }
+
+  .wace-region-head span {
+    color: var(--wace-red);
+    font-size: .88rem;
     font-weight: 700;
   }
 
-  .wace-static-contact {
+  .wace-uni-grid {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) 260px;
-    gap: 28px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+  }
+
+  .wace-uni-card {
+    padding: 18px;
+  }
+
+  .wace-uni-card .abbr {
+    display: inline-flex;
     align-items: center;
-    padding: 30px;
-    border-radius: 14px;
-    background: linear-gradient(135deg, #fff8f8 0%, #ffffff 58%, #fff1f1 100%);
-    border: 1px solid #f2c5c7;
-  }
-
-  .wace-static-contact h2 {
+    justify-content: center;
+    min-width: 48px;
+    height: 34px;
     margin-bottom: 12px;
+    border-radius: 6px;
+    background: var(--wace-red-bg);
+    color: var(--wace-red);
+    font-weight: 800;
   }
 
-  .wace-static-qr {
+  .wace-uni-card .atar {
+    display: block;
+    margin: 8px 0 4px;
+    color: var(--wace-red);
+    font-weight: 800;
+  }
+
+  .wace-uni-card p {
+    margin: 0;
+    color: #666;
+    font-size: .84rem;
+    line-height: 1.55;
+  }
+
+  .wace-fit-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+
+  .wace-fit-card {
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #d9eadb;
+    background: linear-gradient(135deg, #f1f8e9 0%, #e8f5e9 100%);
+  }
+
+  .wace-fit-card.warning {
+    border-color: #f3d1d1;
+    background: linear-gradient(135deg, #fff8f8 0%, #ffebee 100%);
+  }
+
+  .wace-fit-card h3 {
+    margin: 0 0 8px;
+    color: #172033;
+    font-size: 1rem;
+  }
+
+  .wace-fit-card p {
+    margin: 0;
+    color: #555;
+    line-height: 1.65;
+    font-size: .9rem;
+  }
+
+  .wace-faq {
+    display: grid;
+    gap: 12px;
+  }
+
+  .wace-faq summary {
+    cursor: pointer;
+    padding: 16px 18px;
+    color: #222;
+    font-weight: 700;
+  }
+
+  .wace-faq p {
+    margin: 0;
+    padding: 0 18px 16px;
+    color: #666;
+    line-height: 1.75;
+  }
+
+  .wace-related-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+  }
+
+  .wace-related-card {
+    display: block;
+    padding: 18px;
+    text-decoration: none;
+    transition: transform .2s ease, box-shadow .2s ease;
+  }
+
+  .wace-related-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 24px rgba(0,0,0,.08);
+  }
+
+  .wace-contact {
+    background: #2b1414;
+    color: #fff;
+  }
+
+  .wace-contact-box {
+    display: grid;
+    grid-template-columns: 1fr 240px;
+    gap: 36px;
+    align-items: center;
+    padding: 34px;
+    border-radius: 10px;
+    background: linear-gradient(105deg, rgba(192,57,43,.95), rgba(72,20,20,.96));
+  }
+
+  .wace-contact h2 {
+    color: #fff;
+  }
+
+  .wace-contact p {
+    max-width: 700px;
+    color: rgba(255,255,255,.86);
+    line-height: 1.8;
+  }
+
+  .wace-qr {
     text-align: center;
   }
 
-  .wace-static-qr img {
+  .wace-qr img {
     width: 190px;
     height: 190px;
     object-fit: contain;
-    border-radius: 10px;
-    border: 1px solid #f2c5c7;
-    background: #fff;
     padding: 8px;
+    border-radius: 8px;
+    background: #fff;
   }
 
-  .wace-static-wechat {
+  .wace-qr strong {
+    display: block;
     margin-top: 10px;
-    color: #c9252b;
-    font-size: 1.18rem;
-    font-weight: 900;
-    letter-spacing: .02em;
+    color: #fff;
   }
 
   @media (max-width: 980px) {
-    .wace-static-hero-inner,
-    .wace-static-two-col,
-    .wace-static-visual-grid,
-    .wace-static-atar-layout,
-    .wace-static-contact {
+    .wace-two-col,
+    .wace-atar-grid,
+    .wace-contact-box {
       grid-template-columns: 1fr;
     }
 
-    .wace-static-sidebar {
-      position: static;
+    .wace-uni-grid,
+    .wace-related-grid {
+      grid-template-columns: repeat(2, 1fr);
     }
 
-    .wace-static-card-grid,
-    .wace-static-university-grid {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+    .wace-fit-grid {
+      grid-template-columns: repeat(2, 1fr);
     }
   }
 
   @media (max-width: 680px) {
-    .wace-static-wrap {
-      width: min(100% - 28px, 1180px);
+    .wace-hero {
+      min-height: auto;
+      max-height: none;
     }
 
-    .wace-static-hero-inner {
-      padding: 48px 0 42px;
+    .wace-hero-content {
+      padding: 48px 16px 44px;
     }
 
-    .wace-static-stats,
-    .wace-static-path-strip-inner,
-    .wace-static-card-grid,
-    .wace-static-university-grid,
-    .wace-static-compare {
+    .wace-hero-stat {
+      width: 50%;
+      margin: 0 0 18px;
+      padding-right: 20px;
+    }
+
+    .wace-section {
+      padding: 44px 0;
+    }
+
+    .wace-assessment,
+    .wace-fit-grid,
+    .wace-uni-grid,
+    .wace-related-grid {
       grid-template-columns: 1fr;
     }
 
-    .wace-static-section {
-      padding: 46px 0;
-    }
-
-    .wace-static-contact {
-      padding: 22px;
+    .wace-contact-box {
+      padding: 24px;
     }
   }
 </style>
@@ -754,198 +806,199 @@
       </div>
     </header>
 
-<main class="wace-guide-page wace-static-page">
-  <section class="wace-static-hero">
-    <div class="wace-static-wrap wace-static-hero-inner">
-      <div>
-        <div class="wace-static-eyebrow">Western Australian Certificate of Education</div>
-        <h1>WACE 完全指南</h1>
-        <p class="wace-static-subtitle">中国学生在新加坡读国际高中的另一条路径：课程结构、ATAR 成绩、选科策略与大学申请，一页讲清楚。</p>
-        <div class="wace-static-actions">
-          <a class="wace-static-btn primary" href="#atar">查看 ATAR 与大学门槛</a>
-          <a class="wace-static-btn secondary" href="#contact">咨询 WACE 选校</a>
-        </div>
-        <div class="wace-static-stats" aria-label="WACE 核心数据">
-          <div class="wace-static-stat"><strong>2 年</strong><span>Year 11-12 课程周期</span></div>
-          <div class="wace-static-stat"><strong>50%</strong><span>校内评估占比</span></div>
-          <div class="wace-static-stat"><strong>42+</strong><span>澳洲大学认可</span></div>
-          <div class="wace-static-stat"><strong>99.95</strong><span>ATAR 最高排名</span></div>
-        </div>
+<main class="wace-manus-page">
+  <div class="wace-manus-container wace-manus-breadcrumb">
+    <a href="/">首页</a><span>›</span><a href="/wace/">课程攻略</a><span>›</span><strong>WACE 课程</strong>
+  </div>
+
+  <section class="wace-hero">
+    <div class="wace-hero-bg" aria-hidden="true"></div>
+    <div class="wace-hero-overlay" aria-hidden="true"></div>
+    <div class="wace-hero-stripe" aria-hidden="true"></div>
+    <div class="wace-manus-container wace-hero-content">
+      <div class="wace-hero-label"><span>Western Australian Certificate of Education</span></div>
+      <h1>WACE 完全指南</h1>
+      <div class="wace-hero-subhead">中国学生新加坡升学的另一条路</div>
+      <p>很多家长第一次听说 WACE，是因为孩子英文还不够强、又不想走高考。这篇指南从课程结构讲到 ATAR 计算，帮你判断 WACE 是不是适合自家孩子的那条路。</p>
+      <div class="wace-hero-actions">
+        <a class="primary" href="#atar">查看 ATAR 门槛</a>
+        <a class="secondary" href="#contact">免费咨询</a>
+      </div>
+      <div class="wace-hero-stats">
+        <div class="wace-hero-stat"><strong>2年</strong><span>课程周期</span></div>
+        <div class="wace-hero-stat"><strong>42+</strong><span>澳洲大学认可</span></div>
+        <div class="wace-hero-stat"><strong>50%</strong><span>校内评估占比</span></div>
+        <div class="wace-hero-stat"><strong>35所</strong><span>收录大学数据</span></div>
       </div>
     </div>
   </section>
 
-  <section class="wace-static-path-strip" aria-label="WACE 升学路径">
-    <div class="wace-static-wrap wace-static-path-strip-inner">
-      <div class="wace-static-path-card"><span class="wace-static-step">1</span><span>完成 Year 11 与 Year 12 科目学习，建立校内评估成绩。</span></div>
-      <div class="wace-static-path-card"><span class="wace-static-step">2</span><span>参加西澳州统一外部考试，形成最终科目分数。</span></div>
-      <div class="wace-static-path-card"><span class="wace-static-step">3</span><span>最优科目经标准化后计算 ATAR 百分位排名。</span></div>
-      <div class="wace-static-path-card"><span class="wace-static-step">4</span><span>用 ATAR 申请新加坡、澳洲、英国、香港等大学。</span></div>
-    </div>
-  </section>
-
-  <section class="wace-static-section" id="overview">
-    <div class="wace-static-wrap wace-static-visual-grid">
-      <article>
-        <div class="wace-static-kicker">课程概述</div>
+  <section class="wace-section" id="overview">
+    <div class="wace-manus-container wace-two-col">
+      <article class="wace-copy">
+        <div class="wace-label"><span>课程概述</span></div>
         <h2>WACE 是什么？</h2>
-        <div class="wace-static-copy">
-          <p><strong>WACE（Western Australian Certificate of Education）</strong>是澳大利亚西澳州高中毕业文凭，由 School Curriculum and Standards Authority（SCSA）监管。学生通常在 Year 11 和 Year 12 完成课程，毕业后取得 WACE 资格，并通过 ATAR 成绩申请大学。</p>
-          <p>很多家长第一次了解 WACE，会把它理解成“澳洲课程”。但对中国学生来说，WACE 真正值得关注的地方，是它把高中学习、校内评估和大学申请结果连接在一起，不完全依赖一次性大考。</p>
-          <p>在新加坡，WACE 更适合希望走国际高中路径、目标新加坡公立大学或澳洲/英国/香港大学，同时又不一定适合 A-Level 高压考试节奏的学生。</p>
-        </div>
-        <div class="wace-static-note">核心判断：如果孩子数学和理科基础不错，英文有一定基础，但不想把所有升学压力压在一次大考上，WACE 值得认真比较。</div>
+        <p><strong>WACE（Western Australian Certificate of Education）</strong>是澳大利亚西澳州政府颁发的高中毕业文凭，由西澳州课程与标准局（SCSA）监管认证。简单说，它是一套完整的两年制高中教育体系，不只是一张证书。</p>
+        <p>对很多中国家庭来说，WACE 吸引人的地方在于：<strong>不用参加高考，也不需要走 A-Level 或 IB 那种高压路线</strong>。孩子完成 Year 11 和 Year 12 两年课程后，参加西澳州统一外部考试，拿到 ATAR 百分位排名，再凭这个成绩去申请全球大学。</p>
+        <p>目前新加坡、马来西亚、中国、印度尼西亚等地都有 WACE 授权教学点。在新加坡，有几所经 SSG 注册的私立学校获得了 SCSA 的正式授权，可以开设完整的 WACE 课程。</p>
+        <div class="wace-note"><strong>核心路径</strong><span>Year 11–12 两年学习 → 校内评估 + 外部统考 → 获得 ATAR 排名 → 申请全球大学</span></div>
       </article>
-      <figure class="wace-static-photo-card">
+      <figure class="wace-image-card">
         <img src="/assets/wace-study-group-1400.jpg" alt="WACE 学生在图书馆小组学习，讨论课程内容" loading="lazy">
-        <figcaption class="wace-static-photo-caption">
-          <strong>适合持续学习型学生</strong>
-          WACE 把校内评估、课堂表现和外部考试结合起来，不是只看最后一次大考。
-        </figcaption>
       </figure>
     </div>
   </section>
 
-  <section class="wace-static-section soft" id="recognition">
-    <div class="wace-static-wrap">
-      <div class="wace-static-kicker">全球认可</div>
+  <section class="wace-section soft" id="recognition">
+    <div class="wace-manus-container">
+      <div class="wace-label"><span>全球认可</span></div>
       <h2>WACE ATAR 被哪些大学接受？</h2>
-      <p class="wace-static-lead">WACE 的大学申请核心不是“文凭名称”，而是最终生成的 ATAR 排名。ATAR 是澳洲大学非常熟悉的录取语言，也被多个主流留学目的地接受。</p>
-      <div class="wace-static-card-grid">
-        <div class="wace-static-card"><h3>澳大利亚大学</h3><p>澳洲全部大学均可使用 ATAR 申请，包括墨尔本大学、悉尼大学、新南威尔士大学、莫纳什大学和西澳大学。</p></div>
-        <div class="wace-static-card"><h3>新加坡公立大学</h3><p>NUS、NTU、SMU、SUTD 等院校可接受 WACE/ATAR 成绩，热门专业通常需要更高 ATAR 和科目匹配。</p></div>
-        <div class="wace-static-card"><h3>英国与香港大学</h3><p>英国 UCAS 和香港主要大学一般可参考 WACE/ATAR 进行录取评估，具体要求以当年招生页面为准。</p></div>
+      <p class="wace-lead">很多家长担心 WACE 是“小众文凭”，其实它的认可范围相当广。以下是主要认可地区和院校体系，供参考。</p>
+      <div class="wace-recognition-grid">
+        <div class="wace-recognition-card"><div class="flag">🇦🇺</div><h3>澳大利亚</h3><p>全部 42 所大学，含 Group of Eight 八大名校，直接使用 ATAR 申请。</p></div>
+        <div class="wace-recognition-card"><div class="flag">🇸🇬</div><h3>新加坡</h3><p>NUS、NTU、SMU、SUTD 等公立大学均接受 WACE ATAR 成绩。</p></div>
+        <div class="wace-recognition-card"><div class="flag">🇬🇧</div><h3>英国</h3><p>UCAS 系统接受 WACE 成绩转换，可申请英国各大学。</p></div>
+        <div class="wace-recognition-card"><div class="flag">🇭🇰</div><h3>香港</h3><p>港大、港科大、港中文等主要院校均接受 WACE 申请。</p></div>
+        <div class="wace-recognition-card"><div class="flag">🇳🇿</div><h3>新西兰</h3><p>奥克兰大学等主要大学均认可 WACE 成绩。</p></div>
       </div>
     </div>
   </section>
 
-  <section class="wace-static-section" id="subjects">
-    <div class="wace-static-wrap">
-      <div class="wace-static-kicker">课程结构</div>
-      <h2>WACE 选科怎么选？</h2>
-      <p class="wace-static-lead">WACE 不只是“选几门课考试”。科目组合会影响 ATAR、大学专业资格和未来申请方向。中国学生通常需要重点关注英文、数学、理科和商科组合。</p>
-      <div class="wace-static-table-wrap">
-        <table class="wace-static-table">
-          <thead>
-            <tr>
-              <th>科目方向</th>
-              <th>常见科目</th>
-              <th>难度判断</th>
-              <th>适合学生</th>
-            </tr>
-          </thead>
+  <section class="wace-section" id="subjects">
+    <div class="wace-manus-container">
+      <div class="wace-label"><span>课程结构</span></div>
+      <h2>WACE 课程结构与常见选科</h2>
+      <p class="wace-lead">WACE 的重点不是“随便选几门课”，而是用科目组合支撑 ATAR、大学专业要求和孩子实际能力。中国学生通常需要重点关注英文、数学、理科和商科组合。</p>
+      <div class="wace-table-wrap">
+        <table class="wace-table">
+          <thead><tr><th>领域</th><th>常见科目</th><th>难度</th><th>中国学生判断</th></tr></thead>
           <tbody>
-            <tr><td>数学</td><td>Mathematics Methods</td><td>中等偏低</td><td>国内初三到高一数学基础较好的学生，适合多数商科、工程、理科方向。</td></tr>
-            <tr><td>数学</td><td>Mathematics Specialist</td><td>中等偏高</td><td>目标工程、计算机、数学、物理等强数理专业的学生。</td></tr>
-            <tr><td>英文</td><td>EALD</td><td>中等</td><td>非英语母语学生常见选择，比普通 English 更贴近国际学生语言背景。</td></tr>
-            <tr><td>科学</td><td>Physics / Chemistry</td><td>中等</td><td>数理逻辑强、目标工程、医学、生命科学或理科方向的学生。</td></tr>
-            <tr><td>商科</td><td>Accounting and Finance</td><td>中等偏低</td><td>目标商科、会计、金融、管理方向，且希望科目上手更稳定的学生。</td></tr>
-            <tr><td>中文</td><td>Chinese: Second Language</td><td>较低</td><td>具备中文优势的学生，可作为稳定成绩科目，但需确认大学科目认可规则。</td></tr>
+            <tr><td>数学</td><td>Mathematics Methods（方法数学）</td><td>中等偏低</td><td>国内初三水平可衔接，适合多数商科、工程、理科方向。</td></tr>
+            <tr><td>数学</td><td>Mathematics Specialist（高等数学）</td><td>中等</td><td>涵盖微积分和复数，适合目标工程、计算机、数学、物理方向。</td></tr>
+            <tr><td>英语</td><td>EALD（非母语英语）</td><td>中等</td><td>专为非母语学生设计，但仍需要持续提升学术英文。</td></tr>
+            <tr><td>科学</td><td>Physics（物理）</td><td>中等偏低</td><td>数理强的学生占优，适合工程和理科申请。</td></tr>
+            <tr><td>科学</td><td>Chemistry（化学）</td><td>中等</td><td>英文专业术语是挑战，目标医学、生命科学需重点考虑。</td></tr>
+            <tr><td>商科</td><td>Accounting and Finance（会计与金融）</td><td>中等偏低</td><td>逻辑清晰易上手，适合商科、金融、会计方向。</td></tr>
+            <tr><td>中文</td><td>Chinese: Second Language</td><td>较低</td><td>中国学生优势科目，但要确认大学科目认可规则。</td></tr>
           </tbody>
         </table>
       </div>
-      <div class="wace-static-compare">
-        <div class="wace-static-card"><h3>校内评估约 50%</h3><p>WACE 的平时作业、测验、项目和校内考试会进入最终成绩，适合持续学习能力强、不想完全押注一次考试的学生。</p></div>
-        <div class="wace-static-card"><h3>外部统考约 50%</h3><p>Year 12 末参加统一考试。它仍然重要，但不是唯一结果，因此备考节奏比纯大考体系更分散。</p></div>
+      <div class="wace-assessment">
+        <div class="wace-card"><h3>50% 校内评估</h3><p>平时作业、测验、项目和校内考试会进入最终成绩，适合持续学习能力强的学生。</p></div>
+        <div class="wace-card"><h3>50% 外部统考</h3><p>Year 12 末参加统一考试，仍然重要，但不是唯一结果，因此备考节奏比纯大考体系更分散。</p></div>
       </div>
     </div>
   </section>
 
-  <section class="wace-static-section soft" id="atar">
-    <div class="wace-static-wrap wace-static-atar-layout">
+  <section class="wace-section soft" id="atar">
+    <div class="wace-manus-container wace-atar-grid">
       <article>
-        <div class="wace-static-kicker">ATAR 成绩</div>
+        <div class="wace-label"><span>ATAR 成绩</span></div>
         <h2>WACE ATAR 是怎么计算的？</h2>
-        <p class="wace-static-lead">ATAR 不是百分制成绩，而是学生在同届考生中的百分位排名。99.00 代表成绩高于约 99% 同届考生，并不等于每门课 99 分。</p>
-        <div class="wace-static-mini-list">
-          <div><strong>1. 选择最佳科目</strong><span>通常取最能拉高排名的 ATAR 科目组合，英文要求和专业先修要求必须同时满足。</span></div>
-          <div><strong>2. 科目 Scaling</strong><span>不同科目会进行标准化处理，避免简单科目和高难科目直接用原始分比较。</span></div>
-          <div><strong>3. 转换为排名</strong><span>最终转换为 0 到 99.95 的 ATAR 百分位，用于大学录取评估。</span></div>
+        <p class="wace-lead">ATAR 不是百分制成绩，而是学生在同届考生中的百分位排名。99.00 代表成绩高于约 99% 同届考生，并不等于每门课 99 分。</p>
+        <div class="wace-atar-steps">
+          <div class="wace-atar-step"><span class="wace-step-num">1</span><div><strong>选择最佳科目</strong><span>通常取最能拉高排名的 ATAR 科目组合，英文要求和专业先修要求必须同时满足。</span></div></div>
+          <div class="wace-atar-step"><span class="wace-step-num">2</span><div><strong>科目 Scaling</strong><span>不同科目会进行标准化处理，避免简单科目和高难科目直接用原始分比较。</span></div></div>
+          <div class="wace-atar-step"><span class="wace-step-num">3</span><div><strong>转换为排名</strong><span>最终转换为 0 到 99.95 的 ATAR 百分位，用于大学录取评估。</span></div></div>
         </div>
       </article>
-      <figure class="wace-static-atar-image">
-        <img src="/assets/wace-atar-infographic-1300.jpg" alt="ATAR 分数段说明：70-80 普通大学，80-90 澳洲八大，90+ NUS 和 NTU">
+      <figure class="wace-infographic">
+        <img src="/assets/wace-atar-infographic-1300.jpg" alt="ATAR 分数段说明：70-80 普通大学，80-90 澳洲八大，90+ NUS 和 NTU" loading="lazy">
       </figure>
     </div>
   </section>
 
-  <section class="wace-static-section" id="universities">
-    <div class="wace-static-wrap">
-      <div class="wace-static-kicker">大学申请</div>
-      <h2>WACE 可以申请 NUS、NTU 吗？</h2>
-      <p class="wace-static-lead">可以，但不能只看“能不能申请”，更要看目标专业和竞争区间。以下为家长做初步判断的参考范围，正式申请仍应以大学当年招生要求为准。</p>
-      <div class="wace-static-university-grid">
-        <div class="wace-static-uni"><strong>NUS 新加坡国立大学</strong><span>ATAR 90-99+</span><small>商科、计算机、医学等热门专业竞争强，科目要求需要提前规划。</small></div>
-        <div class="wace-static-uni"><strong>NTU 南洋理工大学</strong><span>ATAR 85-92+</span><small>工程、商科、计算机方向对数学和理科科目匹配度较敏感。</small></div>
-        <div class="wace-static-uni"><strong>SMU 新加坡管理大学</strong><span>ATAR 85-92+</span><small>商科、经济、法律方向更看重综合成绩、英文和面试表现。</small></div>
-        <div class="wace-static-uni"><strong>澳洲八大</strong><span>ATAR 80-98+</span><small>不同专业差异明显，医学、法律、商科和工程门槛通常更高。</small></div>
-      </div>
-      <div class="wace-static-note">建议家长不要只问“ATAR 多少能进大学”。更准确的问题是：孩子的目标专业是什么、英文科目是否满足要求、数学/理科是否覆盖先修要求，以及是否需要准备作品集、面试或额外测试。</div>
-    </div>
-  </section>
+  <section class="wace-section" id="universities">
+    <div class="wace-manus-container">
+      <div class="wace-label"><span>大学申请</span></div>
+      <h2>WACE 可以申请哪些大学？</h2>
+      <p class="wace-lead">WACE 的申请价值主要体现在 ATAR。不同大学和专业要求差异很大，下面是家长做初步判断时最常看的几个区间。</p>
 
-  <section class="wace-static-section soft" id="fit">
-    <div class="wace-static-wrap">
-      <div class="wace-static-kicker">适配判断</div>
-      <h2>WACE 适合哪些中国学生？</h2>
-      <p class="wace-static-lead">WACE 不是“低难度捷径”，而是另一套升学规则。选对学生，它能把孩子的持续学习、数理基础和国际大学申请连接起来；选错学生，也会浪费时间和预算。</p>
-      <div class="wace-static-card-grid">
-        <div class="wace-static-card"><h3>适合：数理基础较好</h3><p>数学、物理、化学基础好的学生，通常更容易在 WACE 科目中建立优势。</p></div>
-        <div class="wace-static-card"><h3>适合：不擅长一次性大考</h3><p>校内评估占比较高，持续学习和阶段性反馈更重要。</p></div>
-        <div class="wace-static-card"><h3>适合：目标国际大学</h3><p>想申请新加坡、澳洲、英国、香港等地大学的学生更适合考虑。</p></div>
-        <div class="wace-static-card"><h3>谨慎：英文零基础</h3><p>即使有 EALD，课堂、作业和考试仍然需要英文输入输出能力。</p></div>
-        <div class="wace-static-card"><h3>谨慎：只想回国内高考</h3><p>WACE 是国际升学体系，不适合只围绕国内高考做准备的学生。</p></div>
-        <div class="wace-static-card"><h3>谨慎：预算非常紧</h3><p>新加坡国际高中和私立学校路径需要考虑学费、生活费和升学申请预算。</p></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="wace-static-section" id="faq">
-    <div class="wace-static-wrap">
-      <div class="wace-static-kicker">家长 FAQ</div>
-      <h2>关于 WACE，家长最常问的问题</h2>
-      <div class="wace-static-faq">
-        <details open><summary>WACE 和 A-Level 哪个更适合中国学生？</summary><p>没有绝对答案。A-Level 更传统、考试导向更强；WACE 更强调校内评估和持续学习。孩子英文、数学基础、抗压能力和目标大学不同，选择也不同。</p></details>
-        <details><summary>WACE 可以申请新加坡公立大学吗？</summary><p>可以。NUS、NTU、SMU、SUTD 等院校可以接受 WACE/ATAR 作为国际申请成绩，但热门专业仍然需要较高 ATAR 和对应科目背景。</p></details>
-        <details><summary>英文不好的学生适合 WACE 吗？</summary><p>如果是完全零基础，不建议直接进入 WACE。若已有基础但不适合本地英文体系，可评估 EALD 路径，并提前做学术英语训练。</p></details>
-        <details><summary>WACE 读几年？什么时候开始准备？</summary><p>完整路径通常为 Year 11 和 Year 12 两年。若学生从中国初三、高一转入，建议至少提前 6-12 个月评估英文、数学和目标专业要求。</p></details>
-        <details><summary>WACE 成绩不好还有补救空间吗？</summary><p>有，但取决于时间点和目标。可以考虑补强科目、调整目标大学、选择澳洲/英国/私立大学衔接路径，或重新规划申请批次。</p></details>
-      </div>
-    </div>
-  </section>
-
-  <section class="wace-static-section soft">
-    <div class="wace-static-wrap">
-      <div class="wace-static-kicker">相关阅读</div>
-      <h2>继续了解 WACE 路径</h2>
-      <div class="wace-static-pill-row">
-        <a class="wace-static-pill" href="/wace-vs-a-level/">WACE vs A-Level 怎么选</a>
-        <a class="wace-static-pill" href="/wace-atar/">WACE ATAR 成绩详解</a>
-        <a class="wace-static-pill" href="/wace-nus-ntu/">WACE 申请 NUS / NTU</a>
-        <a class="wace-static-pill" href="/international-school/">新加坡国际学校</a>
-        <a class="wace-static-pill" href="/private-schools/">新加坡私立学校</a>
-      </div>
-    </div>
-  </section>
-
-  <section class="wace-static-section" id="contact">
-    <div class="wace-static-wrap">
-      <div class="wace-static-contact">
-        <div>
-          <div class="wace-static-kicker">择校咨询</div>
-          <h2>不确定孩子是否适合 WACE？</h2>
-          <p class="wace-static-lead">扫码添加新加坡择校顾问 Amy，说明孩子当前年级、英文水平、数学基础和目标大学方向，获取更具体的 WACE 选校与升学建议。</p>
-          <div class="wace-static-pill-row">
-            <span class="wace-static-pill">WACE 课程规划</span>
-            <span class="wace-static-pill">AEIS / O-Level 对比</span>
-            <span class="wace-static-pill">国际学校择校</span>
-            <span class="wace-static-pill">学费预算分析</span>
-          </div>
+      <div class="wace-region">
+        <div class="wace-region-head"><h3>🇸🇬 新加坡主要大学</h3><span>NUS / NTU 热门专业建议 ATAR 90+ 冲刺</span></div>
+        <div class="wace-uni-grid">
+          <div class="wace-uni-card"><div class="abbr">NUS</div><h3>新加坡国立大学</h3><span class="atar">90–99+</span><p>商科 90+ · CS 92+ · 医学 99+</p></div>
+          <div class="wace-uni-card"><div class="abbr">NTU</div><h3>南洋理工大学</h3><span class="atar">85–92+</span><p>工程 85+ · 商科 88+ · CS 90+</p></div>
+          <div class="wace-uni-card"><div class="abbr">SMU</div><h3>新加坡管理大学</h3><span class="atar">85–92+</span><p>商科 85+ · 法律 92+</p></div>
+          <div class="wace-uni-card"><div class="abbr">SUTD</div><h3>新加坡科技设计大学</h3><span class="atar">80–88+</span><p>工程与设计 80+</p></div>
         </div>
-        <div class="wace-static-qr">
-          <img src="/assets/wechat-amy-seda-guide.jpg" alt="新加坡择校顾问 Amy 微信二维码" loading="lazy">
-          <div class="wace-static-wechat">微信号：SEDAGUIDE</div>
+      </div>
+
+      <div class="wace-region">
+        <div class="wace-region-head"><h3>🇦🇺 澳洲大学</h3><span>WACE ATAR 直接使用，全部澳洲大学认可</span></div>
+        <div class="wace-uni-grid">
+          <div class="wace-uni-card"><div class="abbr">UM</div><h3>墨尔本大学</h3><span class="atar">90–98+</span><p>法律 98+ · Commerce 92+</p></div>
+          <div class="wace-uni-card"><div class="abbr">USYD</div><h3>悉尼大学</h3><span class="atar">88–96+</span><p>医学 96+ · Commerce 88+</p></div>
+          <div class="wace-uni-card"><div class="abbr">UNSW</div><h3>新南威尔士大学</h3><span class="atar">85–96+</span><p>工程 85+ · 法律 96+</p></div>
+          <div class="wace-uni-card"><div class="abbr">UWA</div><h3>西澳大学</h3><span class="atar">80–90+</span><p>工程 80+ · 医学 90+</p></div>
         </div>
+      </div>
+
+      <div class="wace-region">
+        <div class="wace-region-head"><h3>🇭🇰 香港与 🇬🇧 英国</h3><span>经院校或 UCAS 规则评估</span></div>
+        <div class="wace-uni-grid">
+          <div class="wace-uni-card"><div class="abbr">HKU</div><h3>香港大学</h3><span class="atar">92–99+</span><p>法律、商科、医学方向竞争强。</p></div>
+          <div class="wace-uni-card"><div class="abbr">HKUST</div><h3>香港科技大学</h3><span class="atar">88–95+</span><p>工程、商科、计算机方向常见。</p></div>
+          <div class="wace-uni-card"><div class="abbr">UCL</div><h3>伦敦大学学院</h3><span class="atar">92–98+</span><p>建筑、工程、商科方向需高分。</p></div>
+          <div class="wace-uni-card"><div class="abbr">KCL</div><h3>伦敦国王学院</h3><span class="atar">90–96+</span><p>医学、法律、商科方向竞争较强。</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wace-section soft" id="fit">
+    <div class="wace-manus-container">
+      <div class="wace-label"><span>适合人群</span></div>
+      <h2>WACE 适合中国学生吗？</h2>
+      <p class="wace-lead">WACE 不适合所有学生。它更适合目标国际大学、愿意持续学习、数理基础不错、英文可以逐步提升的孩子。</p>
+      <div class="wace-fit-grid">
+        <div class="wace-fit-card"><h3>📐 理科优势</h3><p>数学、物理、化学基础好的学生，更容易在 WACE 科目中建立优势。</p></div>
+        <div class="wace-fit-card"><h3>🌏 国际路线</h3><p>目标新加坡、澳洲、英国、香港等地大学的学生更适合考虑。</p></div>
+        <div class="wace-fit-card"><h3>📊 分散评估</h3><p>不擅长一次性大考，但能稳定完成作业和测验的学生会更适配。</p></div>
+        <div class="wace-fit-card"><h3>🗣️ EALD 友好</h3><p>非英语母语学生可以考虑 EALD，但仍需要学术英文训练。</p></div>
+        <div class="wace-fit-card warning"><h3>🚫 英文零基础</h3><p>完全零基础不建议直接进入 WACE，建议先做语言和学术桥梁。</p></div>
+        <div class="wace-fit-card warning"><h3>🏛️ 目标不符</h3><p>如果只想回国内高考，WACE 通常不是最合适的路线。</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wace-section" id="faq">
+    <div class="wace-manus-container">
+      <div class="wace-label"><span>FAQ</span></div>
+      <h2>家长常见问题</h2>
+      <div class="wace-faq">
+        <details open><summary>WACE 是什么？和高考有什么关系？</summary><p>WACE 是西澳州高中毕业文凭，不属于中国高考体系。学生通过 WACE 课程和 ATAR 成绩申请海外大学。</p></details>
+        <details><summary>ATAR 多少分才能申请 NUS / NTU？</summary><p>NUS、NTU 热门专业通常需要更高 ATAR，很多方向建议以 90+ 为冲刺目标。具体仍要看专业和当年竞争。</p></details>
+        <details><summary>英文不好的学生适合读 WACE 吗？</summary><p>如果英文完全零基础，不建议直接读。若已有一定基础，可以结合 EALD 和学术英语支持来评估。</p></details>
+        <details><summary>WACE 和 A-Level 哪个更好？</summary><p>没有绝对好坏。A-Level 更传统，WACE 更分散评估。应根据孩子学习风格、英文能力、目标大学和预算判断。</p></details>
+        <details><summary>新加坡读 WACE 学费大概多少？</summary><p>不同学校差异明显，通常需要同时考虑学费、生活费、申请费和升学辅导费用。建议按两年完整预算评估。</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="wace-section soft">
+    <div class="wace-manus-container">
+      <div class="wace-label"><span>相关阅读</span></div>
+      <h2>继续了解 WACE 路线</h2>
+      <div class="wace-related-grid">
+        <a class="wace-related-card" href="/wace-nus-ntu/"><h3>WACE 申请 NUS / NTU</h3><p>看新加坡公立大学门槛和专业要求。</p></a>
+        <a class="wace-related-card" href="/wace-vs-a-level/"><h3>WACE vs A-Level</h3><p>对比考试难度、英文要求和认可度。</p></a>
+        <a class="wace-related-card" href="/wace-atar/"><h3>WACE ATAR 成绩</h3><p>理解 ATAR 计算和分数区间。</p></a>
+        <a class="wace-related-card" href="/international-school/"><h3>新加坡国际学校</h3><p>比较不同课程体系和学校选择。</p></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="wace-section wace-contact" id="contact">
+    <div class="wace-manus-container wace-contact-box">
+      <div>
+        <div class="wace-label"><span>免费咨询</span></div>
+        <h2>不确定孩子是否适合 WACE？</h2>
+        <p>告诉我们孩子的当前年级、英文水平和目标大学方向，SEDA 顾问会根据孩子情况给出 WACE、A-Level、O-Level 或国际学校路线建议。</p>
+      </div>
+      <div class="wace-qr">
+        <img src="/assets/wechat-amy-seda-guide.jpg" alt="新加坡择校顾问 Amy 微信二维码" loading="lazy">
+        <strong>微信号：SEDAGUIDE</strong>
       </div>
     </div>
   </section>

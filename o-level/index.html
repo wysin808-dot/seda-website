@@ -271,7 +271,7 @@
     .subj-card h4,.pathway-card h4,.tl-content h4,.strategy-card h4,
     .related-card h4,.faq-btn,.compare-table td:first-child,.fb .fb-code{color:#1a2332}
     /* 大色块背景：深蓝 → 品牌红（与主站 CTA/强调色一致）*/
-    .cta-section{background:linear-gradient(135deg,#c0392b 0%,#8e2820 100%)}
+    .cta-section{background:#fff}
     .btn-white{color:#c0392b}
     .flow-box{background:#a93226}
     .ol-data-table th,.compare-table th{background:#c0392b !important;color:#fff !important}
@@ -287,6 +287,22 @@
     .ol-faq[open] summary::after{content:'\2212'}
     .ol-faq summary:hover{color:var(--red)}
     .ol-faq p{padding:0 20px 18px;margin:0;font-size:14px;color:var(--gray-text);line-height:1.75}
+
+    /* 底部咨询卡（对齐 WACE CTA 风格）*/
+    .ol-cta-card{display:grid;grid-template-columns:1fr 248px;gap:44px;align-items:center;max-width:var(--max-w);margin:0 auto;padding:42px 46px;border-radius:18px;color:#fff;position:relative;overflow:hidden;background:linear-gradient(135deg,#c0392b 0%,#7e231b 100%);box-shadow:0 20px 46px rgba(150,40,30,.28)}
+    .ol-cta-card::before{content:"";position:absolute;top:-60px;right:-40px;width:230px;height:230px;border-radius:50%;background:rgba(255,255,255,.06)}
+    .ol-cta-left{position:relative;z-index:1;text-align:left}
+    .ol-cta-eyebrow{display:inline-block;font-size:12.5px;font-weight:700;letter-spacing:.05em;background:rgba(255,255,255,.18);padding:5px 14px;border-radius:999px;margin-bottom:14px}
+    .ol-cta-left h2{color:#fff;font-size:1.55rem;line-height:1.3;margin:0 0 10px}
+    .ol-cta-left p{color:rgba(255,255,255,.92);line-height:1.8;max-width:560px;margin:0 0 18px;font-size:14.5px}
+    .ol-cta-points{list-style:none;padding:0;margin:0 0 18px;display:flex;flex-wrap:wrap;gap:9px 24px}
+    .ol-cta-points li{position:relative;padding-left:24px;font-size:14px;color:#fff}
+    .ol-cta-points li::before{content:"✓";position:absolute;left:0;top:0;display:inline-flex;align-items:center;justify-content:center;width:17px;height:17px;border-radius:50%;background:rgba(255,255,255,.22);font-size:11px;font-weight:700}
+    .ol-cta-wx{font-size:14.5px;color:rgba(255,255,255,.85)}
+    .ol-cta-wx b{font-size:18px;color:#fff;letter-spacing:.04em;margin-left:8px}
+    .ol-cta-qr{position:relative;z-index:1;justify-self:end}
+    .ol-cta-qr img{width:240px;max-width:100%;height:auto;display:block;border-radius:14px;box-shadow:0 14px 36px rgba(0,0,0,.28)}
+    @media(max-width:760px){.ol-cta-card{grid-template-columns:1fr;gap:24px;padding:30px 22px}.ol-cta-left{text-align:center}.ol-cta-points{justify-content:center}.ol-cta-qr{justify-self:center}.ol-cta-left p{margin-inline:auto}}
   </style>
 </head>
 <body>
@@ -835,13 +851,22 @@
 <!-- CTA -->
 <section class="cta-section" id="contact">
   <div class="container">
-    <h2>不确定 O-Level 是否适合你的孩子？</h2>
-    <p>告诉我们孩子的年级和英文基础，顾问 24 小时内回复，帮你找到最合适的新加坡升学路径。</p>
-    <div class="cta-btns">
-      <a href="https://wa.me/6512345678" class="btn-white">WhatsApp 咨询</a>
-      <a href="/pathway/" class="btn-ghost">查看升学路径总览</a>
+    <div class="ol-cta-card">
+      <div class="ol-cta-left">
+        <span class="ol-cta-eyebrow">免费 1 对 1 咨询</span>
+        <h2>不确定 O-Level 是否适合你的孩子？</h2>
+        <p>告诉我们孩子的当前年级和英文基础，SEDA 顾问会结合 O-Level、JC、Poly 和国际课程，给出最适合的新加坡升学路径建议。</p>
+        <ul class="ol-cta-points">
+          <li>免费评估适不适合 O-Level / SEC</li>
+          <li>对比 JC / Poly / ITE / 国际课程</li>
+          <li>L1R5 目标与选校规划</li>
+        </ul>
+        <div class="ol-cta-wx">微信号 <b>SEDAGUIDE</b></div>
+      </div>
+      <div class="ol-cta-qr">
+        <img src="/assets/wechat-amy-seda-guide.jpg" alt="新加坡择校顾问 Amy 微信二维码" loading="lazy">
+      </div>
     </div>
-    <p style="color:#475569;font-size:13px;margin-top:14px">微信号：SEDAGUIDE</p>
   </div>
 </section>
 

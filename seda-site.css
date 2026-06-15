@@ -1918,7 +1918,7 @@ main > section:not(.hero) {
 
   .nav-group > .mega-dropdown {
     display: none;
-    padding: 0 0 4px 16px;
+    padding: 0 0 4px;
     position: static;
     transform: none;
     border: 0;
@@ -2207,6 +2207,7 @@ main > section:not(.hero) {
   color: var(--brand);
   letter-spacing: 1.5px;
   text-transform: uppercase;
+  text-align: center;
   border-bottom: 1px solid var(--line);
   margin-bottom: 2px;
 }
@@ -2227,6 +2228,7 @@ main > section:not(.hero) {
   font-weight: 600;
   color: #344054;
   line-height: 1.45;
+  text-align: center;
   white-space: nowrap;
 }
 

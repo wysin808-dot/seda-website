@@ -66,16 +66,16 @@
     .nav-cta{background:var(--red);color:#fff!important;padding:8px 20px;border-radius:6px;font-weight:600;font-size:13.5px;transition:background .2s}
     .nav-cta:hover{background:var(--red-dark)!important}
     /* Breadcrumb */
-    .breadcrumb{padding:10px 0;font-size:12.5px;color:#aaa;border-bottom:1px solid var(--gray-border)}
-    .breadcrumb a{color:#888}
-    .breadcrumb a:hover{color:var(--red)}
+    .ol-breadcrumb{padding:10px 0;font-size:12.5px;color:#aaa;border-bottom:1px solid var(--gray-border)}
+    .ol-breadcrumb a{color:#888}
+    .ol-breadcrumb a:hover{color:var(--red)}
     /* Hero */
-    .hero{background:linear-gradient(135deg,rgba(18,27,52,.93),rgba(18,27,52,.74)),url('/assets/sg-px-20779788.jpg');background-size:cover;background-position:center 35%;position:relative;padding:80px 0 72px;color:#fff;overflow:hidden}
-    .hero::before{content:'';position:absolute;inset:0;background:linear-gradient(105deg,rgba(26,35,64,.93) 0%,rgba(26,35,64,.78) 55%,rgba(26,35,64,.4) 100%)}
+    .ol-hero{background:linear-gradient(135deg,rgba(18,27,52,.93),rgba(18,27,52,.74)),url('/assets/sg-px-20779788.jpg');background-size:cover;background-position:center 35%;position:relative;padding:80px 0 72px;color:#fff;overflow:hidden}
+    .ol-hero::before{content:'';position:absolute;inset:0;background:linear-gradient(105deg,rgba(26,35,64,.93) 0%,rgba(26,35,64,.78) 55%,rgba(26,35,64,.4) 100%)}
     .hero-inner{position:relative;max-width:var(--max-w);margin:0 auto;padding:0 24px}
     .hero-eye{font-size:11.5px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:#94a3b8;margin-bottom:14px}
-    .hero h1{color:#fff;margin-bottom:8px}
-    .hero h1 em{color:#fca5a5;font-style:normal}
+    .ol-hero h1{color:#fff;margin-bottom:8px}
+    .ol-hero h1 em{color:#fca5a5;font-style:normal}
     .hero-sub{font-size:1rem;color:#cbd5e1;margin:14px 0 28px;max-width:560px;line-height:1.7}
     .hero-btns{display:flex;gap:12px;flex-wrap:wrap}
     .btn-primary{background:var(--red);color:#fff;padding:12px 28px;border-radius:6px;font-weight:600;font-size:14.5px;transition:background .2s;display:inline-block}
@@ -85,10 +85,10 @@
     /* Stats strip */
     .stats-strip{background:var(--red)}
     .stats-grid{max-width:var(--max-w);margin:0 auto;display:grid;grid-template-columns:repeat(5,1fr)}
-    .stat-item{padding:18px 12px;text-align:center;border-right:1px solid rgba(255,255,255,.2)}
-    .stat-item:last-child{border-right:none}
+    .ol-stat-item{padding:18px 12px;text-align:center;border-right:1px solid rgba(255,255,255,.2)}
+    .ol-stat-item:last-child{border-right:none}
     .stat-num{font-size:1.55rem;font-weight:800;color:#fff;line-height:1;margin-bottom:4px}
-    .stat-label{font-size:11px;color:rgba(255,255,255,.85);line-height:1.3}
+    .ol-stat-label{font-size:11px;color:rgba(255,255,255,.85);line-height:1.3}
     /* Summary box */
     .summary-box{background:#fff8f7;border-left:4px solid var(--red);border-radius:0 8px 8px 0;padding:18px 22px;margin:28px 0}
     .summary-box h4{font-size:12px;font-weight:700;color:var(--red);margin-bottom:10px;text-transform:uppercase;letter-spacing:.06em}
@@ -118,7 +118,7 @@
     .ol-data-table td{padding:10px 14px;border-bottom:1px solid var(--gray-border);color:#444}
     .ol-data-table tr:last-child td{border-bottom:none}
     .ol-data-table tr:hover td{background:#fafafa}
-    .ol-data-table .green{color:#16a34a;font-weight:700}
+    .ol-data-table .ol-green{color:#16a34a;font-weight:700}
     /* Grade scale */
     .grade-scale{display:grid;grid-template-columns:repeat(9,1fr);gap:5px;margin:22px 0}
     .grade-item{border-radius:8px;padding:11px 4px;text-align:center}
@@ -137,7 +137,7 @@
     .fb.accent .fb-name{color:rgba(255,255,255,.85)}
     .formula-op{font-size:18px;font-weight:700;color:#bbb}
     /* Info/tip boxes */
-    .info-box{background:#eff6ff;border-left:4px solid #c0392b;border-radius:0 8px 8px 0;padding:14px 18px;margin:18px 0;font-size:13.5px;color:#a93226}
+    .ol-info-box{background:#eff6ff;border-left:4px solid #c0392b;border-radius:0 8px 8px 0;padding:14px 18px;margin:18px 0;font-size:13.5px;color:#a93226}
     .tip-box{background:#fefce8;border-left:4px solid #eab308;border-radius:0 8px 8px 0;padding:14px 18px;margin:18px 0;font-size:13.5px;color:#713f12}
     /* SEC reform section */
     .sec-reform-section{background:linear-gradient(135deg,#2b1414 0%,#7e231b 50%,#2b1414 100%);padding:72px 0;color:#fff}
@@ -146,14 +146,14 @@
     .sec-reform-section h2{color:#fff}
     .sec-reform-section p{color:#f3d3cd}
     .sec-reform-section strong{color:#f7e6e2}
-    .sec-reform-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(167,139,250,.2);border:1px solid rgba(167,139,250,.4);color:#f3d3cd;font-size:12px;font-weight:600;padding:4px 12px;border-radius:20px;margin-bottom:18px}
+    .sec-reform-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(192,57,43,.2);border:1px solid rgba(192,57,43,.4);color:#f3d3cd;font-size:12px;font-weight:600;padding:4px 12px;border-radius:20px;margin-bottom:18px}
     .g-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:28px 0}
     .g-card{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);border-radius:12px;padding:22px 18px;transition:background .2s}
     .g-card:hover{background:rgba(255,255,255,.12)}
-    .g-card.featured{background:rgba(167,139,250,.2);border-color:rgba(167,139,250,.5)}
+    .g-card.featured{background:rgba(192,57,43,.2);border-color:rgba(192,57,43,.5)}
     .g-card .g-level{font-size:1.9rem;font-weight:900;color:#c0392b;line-height:1;margin-bottom:5px}
     .g-card.featured .g-level{color:#f7e6e2}
-    .g-card .g-badge{font-size:11px;font-weight:700;background:rgba(167,139,250,.3);color:#f3d3cd;padding:2px 10px;border-radius:20px;display:inline-block;margin-bottom:10px}
+    .g-card .g-badge{font-size:11px;font-weight:700;background:rgba(192,57,43,.3);color:#f3d3cd;padding:2px 10px;border-radius:20px;display:inline-block;margin-bottom:10px}
     .g-card h4{font-size:14.5px;font-weight:700;color:#e2e8f0;margin-bottom:7px}
     .g-card p{font-size:13px;color:#f3d3cd;margin:0}
     .g-card .g-star{color:#fbbf24;margin-left:3px}
@@ -162,12 +162,12 @@
     .sec-table td{padding:10px 14px;border-bottom:1px solid rgba(255,255,255,.08);color:#f3d3cd}
     .sec-table td:first-child{color:#e2e8f0;font-weight:600}
     .sec-table tr:last-child td{border-bottom:none}
-    .sec-impact{background:rgba(167,139,250,.15);border:1px solid rgba(167,139,250,.3);border-radius:10px;padding:18px 22px;margin-top:22px}
+    .sec-impact{background:rgba(192,57,43,.15);border:1px solid rgba(192,57,43,.3);border-radius:10px;padding:18px 22px;margin-top:22px}
     .sec-impact h4{font-size:13.5px;font-weight:700;color:#f3d3cd;margin-bottom:8px}
     .sec-impact p{font-size:13.5px;color:#f3d3cd;margin:0}
     .sec-impact strong{color:#f7e6e2}
     /* Pathway cards */
-    .pathway-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:28px}
+    .ol-pathway-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:28px}
     .pathway-card{border:1.5px solid var(--gray-border);border-radius:12px;overflow:hidden;background:#fff;transition:box-shadow .2s}
     .pathway-card:hover{box-shadow:0 6px 24px rgba(0,0,0,.09)}
     .pathway-card img{width:100%;height:170px;object-fit:cover}
@@ -214,7 +214,7 @@
     .related-card h4{font-size:14.5px;font-weight:700;color:var(--navy);margin-bottom:5px;line-height:1.4}
     .related-card p{font-size:12.5px;color:var(--gray-text);margin:0}
     /* FAQ */
-    .faq-list{margin-top:24px}
+    .ol-faq-list{margin-top:24px}
     .faq-item{border-bottom:1px solid var(--gray-border)}
     .faq-item:last-child{border-bottom:none}
     .faq-btn{width:100%;background:none;border:none;padding:16px 0;text-align:left;font-size:14.5px;font-weight:600;color:var(--navy);cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px;font-family:inherit}
@@ -252,7 +252,7 @@
       .subj-cards{grid-template-columns:1fr 1fr}
       .grade-scale{grid-template-columns:repeat(5,1fr)}
       .g-cards{grid-template-columns:1fr}
-      .pathway-grid{grid-template-columns:1fr}
+      .ol-pathway-grid{grid-template-columns:1fr}
       .strategy-grid{grid-template-columns:1fr 1fr}
       .related-grid{grid-template-columns:1fr}
       .footer-grid{grid-template-columns:1fr 1fr}
@@ -276,7 +276,17 @@
     .flow-box{background:#a93226}
     .ol-data-table th,.compare-table th{background:#c0392b !important;color:#fff !important}
     /* Hero：深蓝遮罩 → 品牌红遮罩 + 新加坡城景 */
-    .hero{background:linear-gradient(135deg,rgba(140,32,24,.90),rgba(90,20,15,.72)),url('/assets/sg-px-20779788.jpg');background-size:cover;background-position:center 35%}
+    .ol-hero{background:linear-gradient(135deg,rgba(140,32,24,.90),rgba(90,20,15,.72)),url('/assets/sg-px-20779788.jpg');background-size:cover;background-position:center 35%}
+
+    /* FAQ：WACE 风格 details 折叠 */
+    .ol-faq-list{margin-top:24px;display:grid;gap:12px}
+    .ol-faq{border:1px solid var(--gray-border);border-radius:10px;background:#fff;overflow:hidden}
+    .ol-faq summary{cursor:pointer;padding:16px 20px;font-weight:700;font-size:14.5px;color:#1a2332;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px}
+    .ol-faq summary::-webkit-details-marker{display:none}
+    .ol-faq summary::after{content:'+';color:var(--red);font-size:20px;font-weight:400;flex-shrink:0}
+    .ol-faq[open] summary::after{content:'\2212'}
+    .ol-faq summary:hover{color:var(--red)}
+    .ol-faq p{padding:0 20px 18px;margin:0;font-size:14px;color:var(--gray-text);line-height:1.75}
   </style>
 </head>
 <body>
@@ -330,7 +340,7 @@
 <!-- BREADCRUMB -->
 <div style="background:#fff;border-bottom:1px solid var(--gray-border)">
   <div class="container">
-    <nav class="breadcrumb">
+    <nav class="ol-breadcrumb">
       <a href="/">首页</a> ›
       <a href="/o-level/">课程攻略</a> ›
       <span style="color:#555">O-Level / SEC</span>
@@ -339,7 +349,7 @@
 </div>
 
 <!-- HERO -->
-<section class="hero">
+<section class="ol-hero">
   <div class="hero-inner">
     <p class="hero-eye">Singapore-Cambridge GCE Ordinary Level</p>
     <h1>新加坡 <em>O-Level</em> 完全攻略<br>2027 年起改制为 SEC</h1>
@@ -354,11 +364,11 @@
 <!-- STATS STRIP -->
 <div class="stats-strip">
   <div class="stats-grid">
-    <div class="stat-item"><div class="stat-num">6–8</div><div class="stat-label">通常选考科目数</div></div>
-    <div class="stat-item"><div class="stat-num">A1</div><div class="stat-label">最高成绩等级（积 1 分）</div></div>
-    <div class="stat-item"><div class="stat-num">≤20</div><div class="stat-label">JC 入学 L1R5 门槛</div></div>
-    <div class="stat-item"><div class="stat-num">2027</div><div class="stat-label">O-Level 改制为 SEC</div></div>
-    <div class="stat-item"><div class="stat-num">JC/Poly</div><div class="stat-label">两大主要升学出口</div></div>
+    <div class="ol-stat-item"><div class="stat-num">6–8</div><div class="ol-stat-label">通常选考科目数</div></div>
+    <div class="ol-stat-item"><div class="stat-num">A1</div><div class="ol-stat-label">最高成绩等级（积 1 分）</div></div>
+    <div class="ol-stat-item"><div class="stat-num">≤20</div><div class="ol-stat-label">JC 入学 L1R5 门槛</div></div>
+    <div class="ol-stat-item"><div class="stat-num">2027</div><div class="ol-stat-label">O-Level 改制为 SEC</div></div>
+    <div class="ol-stat-item"><div class="stat-num">JC/Poly</div><div class="ol-stat-label">两大主要升学出口</div></div>
   </div>
 </div>
 
@@ -481,9 +491,9 @@
     <table class="ol-data-table">
       <thead><tr><th>初级学院</th><th>文科截分</th><th>理科截分</th><th>说明</th></tr></thead>
       <tbody>
-        <tr><td>华侨中学 Hwa Chong</td><td class="green">4</td><td class="green">4</td><td>传统华族名校，学术氛围浓厚</td></tr>
-        <tr><td>莱佛士书院 Raffles</td><td class="green">4</td><td class="green">4</td><td>新加坡最顶尖的 JC 之一</td></tr>
-        <tr><td>维多利亚初院 Victoria JC</td><td class="green">7</td><td class="green">6</td><td>理科较强，有双文化课程</td></tr>
+        <tr><td>华侨中学 Hwa Chong</td><td class="ol-green">4</td><td class="ol-green">4</td><td>传统华族名校，学术氛围浓厚</td></tr>
+        <tr><td>莱佛士书院 Raffles</td><td class="ol-green">4</td><td class="ol-green">4</td><td>新加坡最顶尖的 JC 之一</td></tr>
+        <tr><td>维多利亚初院 Victoria JC</td><td class="ol-green">7</td><td class="ol-green">6</td><td>理科较强，有双文化课程</td></tr>
         <tr><td>国家初院 National JC</td><td>7</td><td>7</td><td>综合型 JC，位置便利</td></tr>
         <tr><td>淡马锡初院 Temasek JC</td><td>8</td><td>8</td><td>校园文化活跃</td></tr>
         <tr><td>安德逊-实龙岗初院</td><td>11</td><td>10</td><td>2019 年合并新校</td></tr>
@@ -494,7 +504,7 @@
 
     <h3 style="margin-top:28px">ELR2B2 计分（申请 Poly）</h3>
     <p>申请理工学院（Poly）使用 ELR2B2 计分，由英文、数学、2 门相关科目和 2 门最佳成绩组成。</p>
-    <div class="info-box">
+    <div class="ol-info-box">
       <strong>L1R5 vs ELR2B2 快速区别：</strong><br>
       <strong>L1R5（申请 JC）：</strong>总分 ≤ 20 才有资格，顶尖 JC 要求 4–8 分。<br>
       <strong>ELR2B2（申请 Poly）：</strong>英文 + 数学 + 2 门相关 + 2 门最佳，热门专业通常要求 10–15 分以内。
@@ -559,7 +569,7 @@
     <h2>O-Level / SEC 后的升学路径</h2>
     <p>O-Level（2027 年后为 SEC G3）成绩公布后，学生面临新加坡教育体系中最重要的路径选择。每条路径都通向大学，但时间线和侧重点各有不同。</p>
 
-    <div class="pathway-grid">
+    <div class="ol-pathway-grid">
       <div class="pathway-card">
         <img src="/assets/o-level-3.jpg" alt="新加坡初级学院 JC 学生">
         <div class="pathway-card-body">
@@ -641,7 +651,7 @@
         <p>中国学生参加 O-Level 主要有两条路径：通过 <strong>AEIS 考试</strong>进入政府中学就读，或以<strong>私人考生（Private Candidate）</strong>身份直接向 SEAB 报名。</p>
         <p>两条路径各有优劣：政府中学路径学习环境更完整，但需要通过竞争激烈的 AEIS；私人考生路径更灵活，但需要自行安排备考资源。</p>
       </div>
-      <img src="/assets/o-level-7.jpg" alt="国际学生在新加坡学习">
+      <img src="/assets/wace-study-group-1400.jpg" alt="国际学生在新加坡学习">
     </div>
 
     <h3 style="margin-top:32px">路径一：AEIS 考试 → 政府中学</h3>
@@ -694,7 +704,7 @@
       </div>
     </div>
 
-    <div class="info-box">
+    <div class="ol-info-box">
       <strong>学生准证（Student Pass）：</strong>在新加坡就读的国际学生需申请学生准证（SP）。就读政府中学由 MOE 协助办理；就读私立学校需通过 SOLAR 系统自行申请，学校须持有 EduTrust 认证。
     </div>
   </div>
@@ -750,7 +760,7 @@
     <p>在新加坡，中国学生可选择的主要高中课程包括 O-Level、WACE、A-Level 和 IB。以下对比帮助家长做出更理性的选择。</p>
 
     <div class="img-text" style="margin-top:28px">
-      <img src="/assets/o-level-8.jpg" alt="学生在图书馆认真备考">
+      <img src="/assets/sg-px-36882343.jpg" alt="学生在图书馆认真备考">
       <div>
         <h3>O-Level 适合哪类学生？</h3>
         <p><strong>目标进入新加坡公立大学（NUS/NTU/SMU）</strong>的学生，O-Level → JC → A-Level 是最直接的路径，本地认可度最高。</p>
@@ -781,12 +791,12 @@
     <div class="sec-label"><span>延伸阅读</span></div>
     <h2>相关攻略</h2>
     <div class="related-grid">
-      <a href="/o-level/jc-guide/" class="related-card">
+      <a href="/o-level-jc/" class="related-card">
         <div class="rc-tag">升学</div>
         <h4>O-Level 申请 JC 完全指南</h4>
         <p>L1R5 计算详解、各 JC 截分点、科目组合要求和申请时间线</p>
       </a>
-      <a href="/o-level/poly-guide/" class="related-card">
+      <a href="/o-level-poly/" class="related-card">
         <div class="rc-tag">升学</div>
         <h4>O-Level 申请 Poly 完全指南</h4>
         <p>ELR2B2 计分、五大理工学院专业推荐和就业前景分析</p>
@@ -810,56 +820,14 @@
   <div class="container">
     <div class="sec-label"><span>常见问题</span></div>
     <h2>常见问题 FAQ</h2>
-    <div class="faq-list">
-      <div class="faq-item">
-        <button class="faq-btn" aria-expanded="false" onclick="toggleFaq(this)">
-          O-Level 是什么？和中国中考有什么区别？
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-answer">O-Level 是新加坡中学阶段的毕业统考，由 MOE 与剑桥大学联合举办，相当于新加坡版“中考”。但与中国中考不同，O-Level 成绩直接决定升读 JC（高中）还是 Poly（理工学院），并影响最终大学申请。考试科目更多（6–8 门），且英文是必考核心科目。</div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-btn" aria-expanded="false" onclick="toggleFaq(this)">
-          O-Level 2027 年改为 SEC，对中国学生有影响吗？
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-answer">影响有限。SEC G3 级别延续原 O-Level Express 的学术标准，A1–F9 等级制不变，L1R5 和 ELR2B2 计分方式不变，JC 和 Poly 的升学路径不变。改制主要影响的是本地学校的分流架构（取消固定 Express / Normal 分流），对国际学生的实际备考和升学影响极小。</div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-btn" aria-expanded="false" onclick="toggleFaq(this)">
-          L1R5 是怎么计算的？高级华文的 2 分减免怎么用？
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-answer">L1R5 = 英文（L1）+ 1 门人文/艺术（R1）+ 1 门数学/科学（R2）+ 最佳 3 门其余科目（R3–R5），总分越低越好。高级华文（Higher Chinese）达 D7 及以上，可在 L1R5 基础上直接减 2 分。例如原始 L1R5 = 12，加上高华减免后实际竞争分 = 10，大幅提升进入好 JC 的机会。</div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-btn" aria-expanded="false" onclick="toggleFaq(this)">
-          O-Level 之后可以选择哪些升学路径？
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-answer">主要有四条路径：① JC（初级学院）：L1R5 ≤ 20，2 年读 A-Level，升本地或海外大学；② Poly（理工学院）：ELR2B2 按专业截分，3 年读专业文凭，可升大学；③ ITE（工艺教育学院）：2 年 Nitec，可升 Poly；④ 私立/海外：直接申请私立大学或海外大学。对中国学生来说，JC 和 Poly 是最主流的两条路。</div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-btn" aria-expanded="false" onclick="toggleFaq(this)">
-          国际学生如何参加 O-Level / SEC？
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-answer">两条路径：① AEIS 路径：通过 AEIS 考试（每年 9 月）进入政府中学，完成 Sec 1–4 后参加 O-Level，学费低、环境好，但竞争激烈；② 私人考生路径：在私立学校备考 1–2 年后，直接向 SEAB 报名参加 O-Level，灵活度高，适合年龄较大或已有一定基础的学生。</div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-btn" aria-expanded="false" onclick="toggleFaq(this)">
-          O-Level 和 WACE 哪个更适合中国学生？
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-answer">取决于目标和英文基础。O-Level 适合：目标新加坡公立大学（NUS/NTU）、英文中等、预算有限、希望进入政府中学环境的学生。WACE 适合：目标澳洲八大或新加坡大学、英文较弱（有 EALD 专为非母语学生设计）、希望减少考试压力（50% 校内评估）的学生。两条路都能通向顶尖大学，关键是找到适合孩子的那条。</div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-btn" aria-expanded="false" onclick="toggleFaq(this)">
-          O-Level 考试一般什么时候举行？成绩什么时候出？
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-answer">O-Level 笔试通常在每年 10 月至 11 月进行，口试（如英文口语、母语口语）在 9–10 月。成绩于次年 1 月中旬公布，学生可在成绩公布后的 JC / Poly 申请窗口期提交申请，通常为 1 月底至 2 月初。</div>
-      </div>
+    <div class="ol-faq-list">
+      <details class="ol-faq"><summary>O-Level 是什么？和中国中考有什么区别？</summary><p>O-Level 是新加坡中学阶段的毕业统考，由 MOE 与剑桥大学联合举办，相当于新加坡版“中考”。但与中国中考不同，O-Level 成绩直接决定升读 JC（高中）还是 Poly（理工学院），并影响最终大学申请。考试科目更多（6–8 门），且英文是必考核心科目。</p></details>
+      <details class="ol-faq"><summary>O-Level 2027 年改为 SEC，对中国学生有影响吗？</summary><p>影响有限。SEC G3 级别延续原 O-Level Express 的学术标准，A1–F9 等级制不变，L1R5 和 ELR2B2 计分方式不变，JC 和 Poly 的升学路径不变。改制主要影响的是本地学校的分流架构（取消固定 Express / Normal 分流），对国际学生的实际备考和升学影响极小。</p></details>
+      <details class="ol-faq"><summary>L1R5 是怎么计算的？高级华文的 2 分减免怎么用？</summary><p>L1R5 = 英文（L1）+ 1 门人文/艺术（R1）+ 1 门数学/科学（R2）+ 最佳 3 门其余科目（R3–R5），总分越低越好。高级华文（Higher Chinese）达 D7 及以上，可在 L1R5 基础上直接减 2 分。例如原始 L1R5 = 12，加上高华减免后实际竞争分 = 10，大幅提升进入好 JC 的机会。</p></details>
+      <details class="ol-faq"><summary>O-Level 之后可以选择哪些升学路径？</summary><p>主要有四条路径：① JC（初级学院）：L1R5 ≤ 20，2 年读 A-Level，升本地或海外大学；② Poly（理工学院）：ELR2B2 按专业截分，3 年读专业文凭，可升大学；③ ITE（工艺教育学院）：2 年 Nitec，可升 Poly；④ 私立/海外：直接申请私立大学或海外大学。对中国学生来说，JC 和 Poly 是最主流的两条路。</p></details>
+      <details class="ol-faq"><summary>国际学生如何参加 O-Level / SEC？</summary><p>两条路径：① AEIS 路径：通过 AEIS 考试（每年 9 月）进入政府中学，完成 Sec 1–4 后参加 O-Level，学费低、环境好，但竞争激烈；② 私人考生路径：在私立学校备考 1–2 年后，直接向 SEAB 报名参加 O-Level，灵活度高，适合年龄较大或已有一定基础的学生。</p></details>
+      <details class="ol-faq"><summary>O-Level 和 WACE 哪个更适合中国学生？</summary><p>取决于目标和英文基础。O-Level 适合：目标新加坡公立大学（NUS/NTU）、英文中等、预算有限、希望进入政府中学环境的学生。WACE 适合：目标澳洲八大或新加坡大学、英文较弱（有 EALD 专为非母语学生设计）、希望减少考试压力（50% 校内评估）的学生。两条路都能通向顶尖大学，关键是找到适合孩子的那条。</p></details>
+      <details class="ol-faq"><summary>O-Level 考试一般什么时候举行？成绩什么时候出？</summary><p>O-Level 笔试通常在每年 10 月至 11 月进行，口试（如英文口语、母语口语）在 9–10 月。成绩于次年 1 月中旬公布，学生可在成绩公布后的 JC / Poly 申请窗口期提交申请，通常为 1 月底至 2 月初。</p></details>
     </div>
   </div>
 </section>
@@ -878,42 +846,30 @@
 </section>
 
 <!-- FOOTER -->
-<footer class="footer">
-  <div class="footer-inner">
-    <div class="footer-grid">
+    <footer class="site-footer">
       <div>
-        <div class="footer-brand">SEDA <small>新加坡择校网</small></div>
-        <p style="font-size:12.5px;line-height:1.7;max-width:260px;color:#555">专注新加坡教育资讯，帮助中国家庭找到最适合孩子的升学路径。</p>
+        <strong>SEDA 新加坡择校网</strong>
+        <p>中文新加坡升学资讯与选校内容平台。</p>
+        <p style="margin-top:.5rem;font-size:.85rem;opacity:.7">由 Singapore Educational Development Association Ltd. 监管</p>
+        <p class="icp-record" style="margin-top:.5rem;font-size:.85rem;opacity:.7"><a href="https://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">沪ICP备2022009720号-9</a></p>
       </div>
-      <div class="footer-col">
-        <h5>课程体系</h5>
-        <a href="/wace/">WACE</a>
-        <a href="/o-level/">O-Level / SEC</a>
-        <a href="/a-level/">A-Level</a>
-        <a href="/ib/">IB</a>
-        <a href="/aeis/">AEIS</a>
+      <div>
+        <span>课程体系</span>
+        <p><a href="/wace/">WACE</a> · <a href="/o-level/">O-Level</a> · <a href="/a-level/">A-Level</a> · <a href="/ib/">IB</a> · <a href="/aeis/">AEIS</a> · <a href="/ap/">AP</a> · <a href="/foundation/">Foundation</a></p>
       </div>
-      <div class="footer-col">
-        <h5>升学路径</h5>
-        <a href="/jc/">JC 初级学院</a>
-        <a href="/poly/">理工学院</a>
-        <a href="/university/">公立大学</a>
-        <a href="/pathway/">升学路径总览</a>
+      <div>
+        <span>升学路径</span>
+        <p><a href="/jc/">JC 初级学院</a> · <a href="/poly/">理工学院</a> · <a href="/university/">公立大学</a> · <a href="/private-university/">私立大学</a> · <a href="/hk-university/">香港升学</a> · <a href="/au-university/">澳洲升学</a> · <a href="/uk-university/">英国升学</a></p>
       </div>
-      <div class="footer-col">
-        <h5>留学指南</h5>
-        <a href="/student-pass/">学生准证</a>
-        <a href="/fees/">留学费用</a>
-        <a href="/accommodation/">住宿方案</a>
-        <a href="/contact/">联系我们</a>
+      <div>
+        <span>留学指南</span>
+        <p><a href="/guides/student-pass/">学生准证</a> · <a href="/guides/cost/">留学费用</a> · <a href="/guides/accommodation/">住宿方案</a> · <a href="/guides/dependent-pass/">陪读准证</a> · <a href="/guides/timeline/">留学时间线</a> · <a href="/guides/scholarship/">奖学金</a></p>
       </div>
-    </div>
-    <div class="footer-bottom">
-      <span>© 2026 SEDA 新加坡择校网. All rights reserved.</span>
-      <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener">沪ICP备2022009720号-9</a>
-    </div>
-  </div>
-</footer>
+      <div>
+        <span>关于 SEDA</span>
+        <p><a href="/about/">关于我们</a> · <a href="/contact/">联系我们</a> · <a href="/news/">教育资讯</a> · <a href="/tools/">AI 升学工具</a> · <a href="/school-database/">学校数据库</a></p>
+      </div>
+    </footer>
 
 <script>
 function toggleFaq(btn){

@@ -248,7 +248,8 @@
     "chinaStudentNotes": "中国学生如果想从 O-Level 后进入 SP，需要提前理解 Poly 不是“低一档大学”，而是新加坡本地非常主流的应用型路径。关键是选对专业，并保持 GPA，为后续升大学保留空间。",
     "sedaAdvice": "如果孩子不适合 JC 的纯考试压力，但有明确专业兴趣，SP 可以作为重点研究对象。家长应重点比较专业课程内容、实习安排和后续大学衔接。",
     "officialSource": "MOE Polytechnic overview / Singapore Polytechnic official information",
-    "sameAs": "https://www.sp.edu.sg/"
+    "sameAs": "https://www.sp.edu.sg/",
+    "customContent": true
   },
   {
     "type": "poly",
@@ -287,7 +288,8 @@
     "chinaStudentNotes": "中国学生选择 NP，要重点看专业匹配度，而不是只看学校名字。Poly 阶段成绩会直接影响后续公立大学申请，因此第一年适应和 GPA 管理非常重要。",
     "sedaAdvice": "如果孩子对商业、传媒、信息科技或设计类方向有兴趣，NP 可以重点比较；如果目标是 NUS/NTU/SMU，需从入学第一学期就重视 GPA。",
     "officialSource": "MOE Polytechnic overview / Ngee Ann Polytechnic official information",
-    "sameAs": "https://www.np.edu.sg/"
+    "sameAs": "https://www.np.edu.sg/",
+    "customContent": true
   },
   {
     "type": "poly",
@@ -326,7 +328,8 @@
     "chinaStudentNotes": "中国学生申请 NYP 时，要提前看专业是否要求特定 O-Level 科目或英文基础。健康科学、IT、工程等方向对学习节奏和术语英文都有要求。",
     "sedaAdvice": "如果孩子对护理、健康科学、IT 或工程有真实兴趣，NYP 是值得列入备选的 Poly。选专业比选校名更重要。",
     "officialSource": "MOE Polytechnic overview / Nanyang Polytechnic official information",
-    "sameAs": "https://www.nyp.edu.sg/"
+    "sameAs": "https://www.nyp.edu.sg/",
+    "customContent": true
   },
   {
     "type": "poly",
@@ -365,7 +368,8 @@
     "chinaStudentNotes": "中国学生选择 TP 时，应同时看专业录取要求、作品集要求、英文表达能力和后续大学衔接。设计、传媒、IT 等方向尤其需要项目积累。",
     "sedaAdvice": "如果家庭住在东部或孩子目标专业与 TP 强项匹配，可以重点研究 TP；同时建议准备 2-3 个相近专业作备选。",
     "officialSource": "MOE Polytechnic overview / Temasek Polytechnic official information",
-    "sameAs": "https://www.tp.edu.sg/"
+    "sameAs": "https://www.tp.edu.sg/",
+    "customContent": true
   },
   {
     "type": "poly",

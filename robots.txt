@@ -10,7 +10,29 @@ Disallow: /cms/
 Disallow: /content-review/
 # Individual school pages with unique content — always allowed
 Allow: /primary-schools/kong-hwa/
+# Polytechnics with unique, hand-written content
+Allow: /poly/sp/
+Allow: /poly/np/
+Allow: /poly/nyp/
+Allow: /poly/tp/
 Allow: /poly/rp/
+# Junior Colleges with unique, hand-written content (16 pages)
+Allow: /jc/hwa-chong-institution/
+Allow: /jc/raffles-institution/
+Allow: /jc/national-jc/
+Allow: /jc/victoria-jc/
+Allow: /jc/eunoia-jc/
+Allow: /jc/anglo-chinese-jc/
+Allow: /jc/nanyang-jc/
+Allow: /jc/temasek-jc/
+Allow: /jc/catholic-jc/
+Allow: /jc/anderson-serangoon-jc/
+Allow: /jc/jurong-pioneer-jc/
+Allow: /jc/tampines-meridian-jc/
+Allow: /jc/yishun-innova-jc/
+Allow: /jc/dunman-high/
+Allow: /jc/river-valley-high/
+Allow: /jc/st-andrews-jc/
 # Block all other individual school sub-pages (template content)
 Disallow: /primary-schools/*/
 Disallow: /secondary-schools/*/

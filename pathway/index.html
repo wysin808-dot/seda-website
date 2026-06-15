@@ -73,7 +73,7 @@
     <meta property="og:title" content="中国学生新加坡留学路径全攻略：按年龄、目标选最优方案 | SEDA 新加坡择校网" />
     <meta property="og:description" content="中国学生新加坡留学路径全面规划。WACE/O-Level/A-Level/IB 路径对比，按年龄、目标大学找最优方案。" />
     <meta property="og:url" content="https://sgeda.org.cn/pathway/" />
-    <meta property="og:image" content="https://sgeda.org.cn/assets/hero-mbs-day3.jpg" />
+    <meta property="og:image" content="https://sgeda.org.cn/assets/sg-px-37182575.jpg" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <!-- SEDA_KEY_SEO_START -->
@@ -140,7 +140,7 @@
   .pw-hero-bg {
     position: absolute;
     inset: 0;
-    background-image: url("/assets/hero-mbs-day3.jpg");
+    background-image: url("/assets/sg-px-37182575.jpg");
     background-size: cover;
     background-position: center 40%;
     filter: brightness(.72) saturate(1.05);
@@ -353,59 +353,84 @@
   }
   .pw-path-card {
     position: relative;
-    padding: 26px 22px 22px;
     border: 1px solid var(--pw-line);
     border-radius: 12px;
     background: #fff;
+    overflow: hidden;
     transition: box-shadow .22s, transform .22s, border-color .22s;
+    display: flex;
+    flex-direction: column;
   }
   .pw-path-card:hover {
     box-shadow: 0 10px 28px rgba(192,57,43,.12);
     transform: translateY(-4px);
     border-color: var(--pw-red);
   }
-  .pw-path-card .path-num {
+  .pw-path-card-img {
+    position: relative;
+    height: 180px;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+  .pw-path-card-img img {
+    display: block;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform .4s ease;
+  }
+  .pw-path-card:hover .pw-path-card-img img { transform: scale(1.05); }
+  .pw-path-card-img .path-num-overlay {
     position: absolute;
-    top: 18px; right: 20px;
-    font-size: 3rem;
-    font-weight: 800;
-    color: rgba(192,57,43,.07);
+    bottom: 10px; left: 14px;
+    font-size: 2.6rem;
+    font-weight: 900;
+    color: rgba(255,255,255,.22);
     font-family: Georgia, serif;
     line-height: 1;
+    pointer-events: none;
   }
-  .pw-path-card .path-tag {
+  .pw-path-card-img .path-tag {
+    position: absolute;
+    top: 12px; left: 12px;
     display: inline-flex;
     align-items: center;
-    padding: 3px 10px;
+    padding: 4px 12px;
     border-radius: 999px;
-    background: var(--pw-red-bg);
-    color: var(--pw-red);
-    font-size: .72rem;
+    background: var(--pw-red);
+    color: #fff;
+    font-size: .7rem;
     font-weight: 800;
-    margin-bottom: 12px;
+    letter-spacing: .04em;
   }
-  .pw-path-card h3 {
+  .pw-path-card-body {
+    padding: 20px 20px 18px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  .pw-path-card-body h3 {
     margin: 0 0 10px;
     color: var(--pw-ink);
-    font-size: 1.08rem;
+    font-size: 1.05rem;
     font-family: "Noto Serif SC","Songti SC",serif;
   }
-  .pw-path-card p {
+  .pw-path-card-body p {
     margin: 0 0 14px;
     color: #555;
-    font-size: .88rem;
+    font-size: .87rem;
     line-height: 1.75;
+    flex: 1;
   }
   .pw-path-card .path-flow {
-    padding: 10px 14px;
+    padding: 9px 13px;
     border-radius: 8px;
     background: #f8f6f4;
-    font-size: .78rem;
+    font-size: .76rem;
     color: #666;
     line-height: 1.7;
+    margin-bottom: 14px;
   }
   .pw-path-card .path-links {
-    margin-top: 14px;
     display: flex;
     flex-wrap: wrap;
     gap: 6px;
@@ -456,30 +481,81 @@
   .pw-table .age { font-weight: 800; color: var(--pw-red); white-space: nowrap; }
   .pw-table .rec { font-weight: 700; color: var(--pw-ink); }
 
-  /* ── 路径对比大表 ── */
-  .pw-compare-table {
-    width: 100%;
-    min-width: 800px;
-    border-collapse: collapse;
+  /* ── 路径对比卡片式 ── */
+  .pw-compare-cols {
+    display: grid;
+    grid-template-columns: 180px 1fr 1fr 1fr;
+    border: 1px solid var(--pw-line);
+    border-radius: 12px;
+    overflow: hidden;
+    background: #fff;
+    margin-top: 8px;
   }
-  .pw-compare-table th, .pw-compare-table td {
-    padding: 13px 15px;
-    border-bottom: 1px solid #eee;
-    text-align: left;
-    vertical-align: top;
-    font-size: .88rem;
+  .pw-compare-col-head {
+    background: var(--pw-red);
+    color: #fff;
+    padding: 18px 16px;
+    font-weight: 800;
+    font-size: .9rem;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    border-bottom: 1px solid rgba(255,255,255,.15);
+  }
+  .pw-compare-col-head.dim {
+    background: #f5f5f5;
+    color: #888;
+    font-size: .78rem;
+    font-weight: 700;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    justify-content: flex-end;
+  }
+  .pw-compare-col-head .col-sub {
+    font-size: .72rem;
+    font-weight: 400;
+    opacity: .8;
+  }
+  .pw-compare-row {
+    display: contents;
+  }
+  .pw-compare-row > div {
+    padding: 13px 16px;
+    border-bottom: 1px solid #f0eeec;
+    font-size: .87rem;
     color: #444;
     line-height: 1.6;
+    display: flex;
+    align-items: center;
   }
-  .pw-compare-table th {
-    background: #fafafa;
-    color: #222;
+  .pw-compare-row > div:first-child {
+    background: #fafaf9;
     font-weight: 700;
-    font-size: .84rem;
+    color: #333;
+    font-size: .82rem;
+    letter-spacing: .02em;
   }
-  .pw-compare-table td:first-child { font-weight: 700; color: #333; white-space: nowrap; }
-  .pw-compare-table tbody tr:last-child td { border-bottom: none; }
-  .pw-compare-table .best { color: #2e7d32; font-weight: 700; }
+  .pw-compare-row:last-child > div { border-bottom: none; }
+  .pw-compare-row .best {
+    color: #1a6b2e;
+    font-weight: 700;
+    background: #f0fdf4;
+  }
+  .pw-compare-row .mid {
+    color: #92400e;
+    font-weight: 600;
+    background: #fffbeb;
+  }
+  .pw-compare-row .low {
+    color: #991b1b;
+    font-weight: 600;
+    background: #fff1f2;
+  }
+  @media (max-width: 820px) {
+    .pw-compare-cols { grid-template-columns: 1fr; }
+    .pw-compare-col-head.dim { display: none; }
+    .pw-compare-row { display: grid; grid-template-columns: 120px 1fr 1fr 1fr; }
+  }
 
   /* ── 决策维度卡片 ── */
   .pw-decision-grid {
@@ -799,7 +875,7 @@
         </div>
       </article>
       <figure class="pw-image-card">
-        <img src="/assets/wace-study-group-1400.jpg" alt="新加坡留学学生在课堂学习" loading="lazy">
+        <img src="/assets/wace-atar-infographic-1300.jpg" alt="新加坡 WACE ATAR 升学路径示意图" loading="lazy">
       </figure>
     </div>
   </section>
@@ -813,42 +889,57 @@
       <div class="pw-path-grid">
 
         <div class="pw-path-card">
-          <span class="path-num">1</span>
-          <span class="path-tag">政府学校路线</span>
-          <h3>AEIS → O-Level → JC / Poly</h3>
-          <p>通过 AEIS 考试进入政府中小学，完成 O-Level 后升入 JC（A-Level）或 Poly（理工学院），再申请本地大学。费用最低，本地认可度最高。</p>
-          <div class="path-flow">国内学生 → AEIS 考试 → 政府中小学 → O-Level → JC / Poly → 大学</div>
-          <div class="path-links">
-            <a href="/aeis/">AEIS 攻略</a>
-            <a href="/o-level/">O-Level 攻略</a>
-            <a href="/jc/">JC 路径</a>
-            <a href="/poly/">Poly 路径</a>
+          <div class="pw-path-card-img">
+            <img src="/assets/sg-px-6305534.jpg" alt="新加坡政府学校校园" loading="lazy">
+            <span class="path-tag">政府学校路线</span>
+            <span class="path-num-overlay">01</span>
+          </div>
+          <div class="pw-path-card-body">
+            <h3>AEIS → O-Level → JC / Poly</h3>
+            <p>通过 AEIS 考试进入政府中小学，完成 O-Level 后升入 JC（A-Level）或 Poly（理工学院），再申请本地大学。费用最低，本地认可度最高。</p>
+            <div class="path-flow">国内学生 → AEIS 考试 → 政府中小学 → O-Level → JC / Poly → 大学</div>
+            <div class="path-links">
+              <a href="/aeis/">AEIS 攻略</a>
+              <a href="/o-level/">O-Level 攻略</a>
+              <a href="/jc/">JC 路径</a>
+              <a href="/poly/">Poly 路径</a>
+            </div>
           </div>
         </div>
 
         <div class="pw-path-card">
-          <span class="path-num">2</span>
-          <span class="path-tag">私立学校路线</span>
-          <h3>WACE Year 10–12 → ATAR → 大学</h3>
-          <p>无需 AEIS，进入新加坡私立学校修读西澳 WACE 课程，获得 ATAR 排名成绩，申请新加坡、澳洲、英国、香港大学。数学友好，有英文过渡。</p>
-          <div class="path-flow">国内学生 → 私立学校入学 → WACE Year 10–12 → ATAR → 全球大学</div>
-          <div class="path-links">
-            <a href="/wace/">WACE 完全攻略</a>
-            <a href="/wace-nus-ntu/">WACE 申请 NUS/NTU</a>
-            <a href="/private-schools/">私立学校库</a>
+          <div class="pw-path-card-img">
+            <img src="/assets/wace-study-group-1400.jpg" alt="新加坡私立学校 WACE 课堂" loading="lazy">
+            <span class="path-tag">私立学校路线</span>
+            <span class="path-num-overlay">02</span>
+          </div>
+          <div class="pw-path-card-body">
+            <h3>WACE Year 10–12 → ATAR → 大学</h3>
+            <p>无需 AEIS，进入新加坡私立学校修读西澳 WACE 课程，获得 ATAR 排名成绩，申请新加坡、澳洲、英国、香港大学。数学友好，有英文过渡。</p>
+            <div class="path-flow">国内学生 → 私立学校入学 → WACE Year 10–12 → ATAR → 全球大学</div>
+            <div class="path-links">
+              <a href="/wace/">WACE 完全攻略</a>
+              <a href="/wace-nus-ntu/">WACE 申请 NUS/NTU</a>
+              <a href="/private-schools/">私立学校库</a>
+            </div>
           </div>
         </div>
 
         <div class="pw-path-card">
-          <span class="path-num">3</span>
-          <span class="path-tag">国际学校路线</span>
-          <h3>IGCSE → IB / A-Level → 全球大学</h3>
-          <p>直接入读新加坡国际学校，修读 IB Diploma 或 A-Level，面向全球顶尖大学申请。学术训练全面，英美名校认可度最高，但学费最贵。</p>
-          <div class="path-flow">国内学生 → 国际学校入学 → IGCSE → IB / A-Level → 全球大学</div>
-          <div class="path-links">
-            <a href="/international-school/">国际学校指南</a>
-            <a href="/ib/">IB 课程</a>
-            <a href="/a-level/">A-Level 课程</a>
+          <div class="pw-path-card-img">
+            <img src="/assets/sg-px-32818048.jpg" alt="新加坡国际学校校园" loading="lazy">
+            <span class="path-tag">国际学校路线</span>
+            <span class="path-num-overlay">03</span>
+          </div>
+          <div class="pw-path-card-body">
+            <h3>IGCSE → IB / A-Level → 全球大学</h3>
+            <p>直接入读新加坡国际学校，修读 IB Diploma 或 A-Level，面向全球顶尖大学申请。学术训练全面，英美名校认可度最高，但学费最贵。</p>
+            <div class="path-flow">国内学生 → 国际学校入学 → IGCSE → IB / A-Level → 全球大学</div>
+            <div class="path-links">
+              <a href="/international-school/">国际学校指南</a>
+              <a href="/ib/">IB 课程</a>
+              <a href="/a-level/">A-Level 课程</a>
+            </div>
           </div>
         </div>
 
@@ -860,7 +951,7 @@
   <section class="pw-section" id="by-age">
     <div class="pw-container">
       <div class="pw-label"><span>按年龄规划</span></div>
-      <h2>孩子现在几岁？对应这条路</h2>
+      <h2>不同年龄，不同的道路</h2>
       <p class="pw-lead">不同年龄的孩子，可选路径和最佳策略差异很大。年龄越小，选择越多；年龄越大，时间窗口越窄，越需要尽早决策。</p>
       <div class="pw-table-wrap">
         <table class="pw-table">
@@ -915,22 +1006,82 @@
     </div>
   </section>
 
-  <!-- ── 路径对比大表 ── -->
+  <!-- ── 路径对比卡片 ── -->
   <section class="pw-section soft" id="compare">
     <div class="pw-container">
       <div class="pw-label"><span>路径对比</span></div>
-      <h2>三条路径，六个维度全面对比</h2>
-      <p class="pw-lead">以下从入学方式、课程周期、学费、核心考试、大学认可和英文要求六个维度，帮你做出有依据的选择。</p>
-      <div class="pw-table-wrap">
-        <table class="pw-compare-table">
-          <thead>
-            <tr>
-              <th>对比维度</th>
-              <th>政府学校（O-Level → JC/Poly）</th>
-              <th>私立学校（WACE）</th>
-              <th>国际学校（IB / A-Level）</th>
-            </tr>
-          </thead>
+      <h2>三条路径，一眼看清差异</h2>
+      <p class="pw-lead">从入学门槛、学费、课程周期到大学认可度，六个维度直观对比，帮你快速锁定最适合的路径。</p>
+      <div class="pw-compare-cols">
+        <!-- 表头行 -->
+        <div class="pw-compare-col-head dim">对比维度</div>
+        <div class="pw-compare-col-head">🏫 政府学校<span class="col-sub">O-Level → JC / Poly</span></div>
+        <div class="pw-compare-col-head">🎓 私立学校<span class="col-sub">WACE → ATAR</span></div>
+        <div class="pw-compare-col-head">🌏 国际学校<span class="col-sub">IB / A-Level</span></div>
+        <!-- 数据行 -->
+        <div class="pw-compare-row">
+          <div>入学方式</div>
+          <div class="low">AEIS 考试（竞争激烈）</div>
+          <div class="best">学校入学测试（门槛灵活）</div>
+          <div class="mid">学校测试 + 面试</div>
+        </div>
+        <div class="pw-compare-row">
+          <div>课程周期</div>
+          <div>中学 4–5 年 + JC 2 年 或 Poly 3 年</div>
+          <div class="best">Year 10–12 共 2–3 年</div>
+          <div>IGCSE 2 年 + IB/A-Level 2 年</div>
+        </div>
+        <div class="pw-compare-row">
+          <div>学费 / 年</div>
+          <div class="best">SGD 7,000–9,000（最低）</div>
+          <div>SGD 15,000–25,000</div>
+          <div class="low">SGD 30,000–50,000</div>
+        </div>
+        <div class="pw-compare-row">
+          <div>核心考试</div>
+          <div>GCE O-Level → A-Level</div>
+          <div>WACE 外部考试 → ATAR</div>
+          <div>IB Diploma 或 A-Level</div>
+        </div>
+        <div class="pw-compare-row">
+          <div>新加坡大学</div>
+          <div class="best">最高（A-Level 主通道）</div>
+          <div>认可（ATAR 可申请）</div>
+          <div>高（IB/A-Level 均接受）</div>
+        </div>
+        <div class="pw-compare-row">
+          <div>澳洲大学</div>
+          <div>认可（需成绩转换）</div>
+          <div class="best">最高（ATAR 直接对接）</div>
+          <div>认可（需成绩转换）</div>
+        </div>
+        <div class="pw-compare-row">
+          <div>英美大学</div>
+          <div>认可</div>
+          <div>认可（UCAS 接受）</div>
+          <div class="best">最高（IB/A-Level 主流）</div>
+        </div>
+        <div class="pw-compare-row">
+          <div>英文要求</div>
+          <div class="low">高（AEIS + GP 通识论文）</div>
+          <div class="best">中等（EALD 可过渡）</div>
+          <div class="low">高（全英文 + TOK/EE）</div>
+        </div>
+        <div class="pw-compare-row">
+          <div>数学友好度</div>
+          <div>中等</div>
+          <div class="best">高（中国学生天然优势）</div>
+          <div>中等</div>
+        </div>
+        <div class="pw-compare-row">
+          <div>适合人群</div>
+          <div>英文好、年龄小、预算有限</div>
+          <div>英文中等、数理强、目标澳洲/新加坡</div>
+          <div>英文强、预算充裕、目标英美名校</div>
+        </div>
+      </div>
+      <!-- 原表格保留作为备用（隐藏） -->
+      <div style="display:none"><table>
           <tbody>
             <tr>
               <td>入学方式</td>

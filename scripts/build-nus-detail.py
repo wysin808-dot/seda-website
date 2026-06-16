@@ -9,8 +9,10 @@ FOOTER=SP[SP.index('<footer class="site-footer">'):SP.index('</footer>')+len('</
 def esc(s): return html.escape(str(s),quote=True)
 
 CSS=r'''
-.nx{--navy:#0d2240;--navy2:#17386a;--gold:#c8a24a;--ink:#16202e;--mut:#5d6b7e;--line:#e6eaf0;--bg:#f7f9fc;color:var(--ink);background:#fff}
+.nx{--navy:#0d2240;--navy2:#17386a;--gold:#c8a24a;--ink:#16202e;--mut:#5d6b7e;--line:#e6eaf0;--bg:#f7f9fc;color:var(--ink);background:#fff;-webkit-tap-highlight-color:transparent}
 .nx *{box-sizing:border-box}
+.nx ::selection{background:rgba(200,162,74,.28);color:var(--ink)}
+.nx-fcard,.nx-pcard,.nx-rcard,.nx-fee,.nx-cc,.nx-fb{-webkit-tap-highlight-color:transparent}
 .nx-hero{position:relative;min-height:clamp(340px,44vw,480px);display:flex;align-items:flex-end;background-size:cover;background-position:center;color:#fff}
 .nx-hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,18,38,.28) 0%,rgba(8,18,38,.55) 55%,rgba(8,18,38,.82) 100%)}
 .nx-hero .in{position:relative;z-index:2;max-width:1160px;margin:0 auto;width:100%;padding:0 clamp(20px,6vw,72px) clamp(30px,4vw,48px)}

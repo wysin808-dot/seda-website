@@ -496,7 +496,8 @@
     "chinaStudentNotes": "中国学生申请 NTU，需要把专业选择和申请材料放在一起准备。工程、计算机、商科等热门方向竞争激烈，建议提前准备英文成绩、竞赛、项目和备选专业。",
     "sedaAdvice": "如果孩子理工科能力强，NTU 应作为重点目标；但申请时不要只盯热门专业，可结合成绩和职业方向设置专业梯度。",
     "officialSource": "MOE Autonomous Universities overview / NTU official admissions information",
-    "sameAs": "https://www.ntu.edu.sg/"
+    "sameAs": "https://www.ntu.edu.sg/",
+    "customContent": true
   },
   {
     "type": "university",

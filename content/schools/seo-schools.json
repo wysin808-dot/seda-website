@@ -538,7 +538,8 @@
     "chinaStudentNotes": "中国学生申请 SMU，除了成绩，还要重视面试表达、活动经历、商业理解和英文沟通。内向但学术强的学生也可以申请，但要提前适应研讨式课堂。",
     "sedaAdvice": "如果孩子目标金融、会计、商业、法律或信息系统，SMU 值得重点研究。家长要关注孩子是否适合高互动课堂和城市校园节奏。",
     "officialSource": "MOE Autonomous Universities overview / SMU official admissions information",
-    "sameAs": "https://www.smu.edu.sg/"
+    "sameAs": "https://www.smu.edu.sg/",
+    "customContent": true
   },
   {
     "type": "university",

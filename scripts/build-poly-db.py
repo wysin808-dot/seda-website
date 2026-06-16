@@ -44,7 +44,8 @@ def head(title, desc, canon, jsonld):
 {HEADER}
 <main>'''
 
-TAIL = f'''{FOOTER}
+TAIL = f'''</main>
+{FOOTER}
 <script src="/seda-site.js?v=27"></script>
 </body>
 </html>'''

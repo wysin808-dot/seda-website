@@ -239,7 +239,50 @@ JCU_PROGS=[
  ("Master of Conflict Management and Resolution","jcu","硕士","社会科学","冲突管理与化解硕士"),
 ]
 
+# ============ LSBF ============
+LSBF_PARTNERS=[
+ ("greenwich","格林威治大学","University of Greenwich","英国","🇬🇧","LSBF 主要学位伙伴，酒店管理见长","QS #801-850"),
+ ("uel","东伦敦大学","University of East London","英国","🇬🇧","网络安全等技术方向","英国伦敦应用型大学"),
+ ("chichester","奇切斯特大学","University of Chichester","英国","🇬🇧","市场营销与传播","英国应用型大学"),
+ ("mmu","曼彻斯特城市大学","Manchester Metropolitan University","英国","🇬🇧","商科等方向","英国应用型大学"),
+ ("lsbf","伦敦商业金融学院","London School of Business and Finance","新加坡","🇸🇬","自颁文凭与 ACCA 备考课程","新加坡本地学府"),
+]
+LSBF_PROGS=[
+ ("BA (Hons) Accounting and Finance","greenwich","本科","会计与金融","会计与金融（荣誉文学士）"),
+ ("BA (Hons) Accounting and Finance (Top-up)","greenwich","本科","会计与金融","会计与金融（荣誉文学士·专升本）"),
+ ("BA (Hons) Business Management","greenwich","本科","商科","商业管理（荣誉文学士）"),
+ ("BA (Hons) Business Studies (Top-up)","greenwich","本科","商科","商学（荣誉文学士·专升本）"),
+ ("BA (Hons) Hospitality Management (Top-up)","greenwich","本科","酒店旅游","酒店管理（荣誉文学士·专升本）"),
+ ("BA (Hons) Business Logistics and Transport Management (Top-up)","greenwich","本科","物流供应链","商业物流与运输管理（荣誉文学士·专升本）"),
+ ("BSc (Hons) Cyber Security Networks","uel","本科","网络安全","网络安全（荣誉理学士）"),
+ ("MBA Global","greenwich","硕士","商科","全球工商管理硕士（MBA Global）"),
+ ("MA Logistics and Supply Chain Management","greenwich","硕士","物流供应链","物流与供应链管理硕士"),
+ ("Advanced Diploma in Accounting and Finance","lsbf","文凭","会计与金融","会计与金融高级大专"),
+ ("Advanced Diploma in Business Administration","lsbf","文凭","商科","工商管理高级大专"),
+ ("Preparatory Course for ACCA","lsbf","文凭","会计与金融","ACCA 特许会计师备考课程"),
+]
+
 RICH={
+"lsbf":{
+ "abbr":"LSBF","zh":"伦敦商业金融学院（新加坡）","en":"London School of Business and Finance Singapore","color":"#16306b","founded":2007,
+ "tagline":"专注商科、财会与金融",
+ "sig":"伦敦商业金融学院新加坡校区，专注<b>商科、会计金融与酒店管理</b>；合作英国格林威治大学等授予学位，课程偏实务与职业资格（如 ACCA）衔接。EduTrust 4 年认证。",
+ "fee":"S$28,000–46,000","fee_note":"本科总学费按合作大学与专业不同；以官方为准。私立大学不提供 MOE 政府津贴。",
+ "intake":"1 / 5 / 9 月","edutrust":"EduTrust 4 年认证",
+ "china":"取决于合作大学（如格林威治大学）是否在中留服名单；申请前请在中留服官网核实具体学位。",
+ "overview":[
+   "LSBF（伦敦商业金融学院）新加坡校区<b>专注商科、会计金融与酒店管理</b>，合作<b>英国格林威治大学</b>等授予学位，持 EduTrust 4 年认证。",
+   "课程偏<b>实务与职业资格衔接</b>——会计金融方向与 <b>ACCA</b>（特许会计师）紧密结合，可走「ACCA 备考 → 应用会计学位」路线；酒店管理（格林威治该学科 QS 全球前 175）与商业物流也是特色。",
+   "本科多为 Top-up（专升本，最快约 8–12 个月），适合已有大专 / 文凭、目标财会 / 金融职业路径的学生。",
+ ],
+ "highlights":[("财会见长","ACCA 衔接、应用会计强"),("英国学位","格林威治等授予"),("实务导向","职业资格 + 快速专升本")],
+ "pathway":[("文凭 / ACCA 备考","按学历入读 LSBF 高级大专或 ACCA 备考课程。"),
+   ("本科学位（Top-up）","凭文凭专升本，最快约 8–12 个月拿格林威治等英国学位。"),
+   ("硕士学位","MBA Global、物流与供应链管理硕士等，约 12 个月。")],
+ "finder":"https://www.lsbf.edu.sg/programmes",
+ "coverage":"以下为 LSBF 主要学位专业；LSBF 另有更多文凭、专业资格与中文课程，完整清单见官方课程页。",
+ "partners":LSBF_PARTNERS,"progs":LSBF_PROGS,
+},
 "curtin":{
  "abbr":"Curtin","zh":"科廷大学（新加坡）","en":"Curtin University Singapore","color":"#1a1a1a","founded":2008,
  "direct":True,"qs":"#183",

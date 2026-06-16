@@ -11,7 +11,7 @@ HEADER=SP[SP.index('<header class="site-header">'):SP.index('</header>')+len('</
 FOOTER=SP[SP.index('<footer class="site-footer">'):SP.index('</footer>')+len('</footer>')]
 def esc(s): return html.escape(str(s),quote=True)
 
-FIELDICON={"商科":"💼","会计与金融":"📊","市场营销":"📣","数据与分析":"📈","IT计算机":"💻","工程":"⚙️","网络安全":"🔐","生命科学":"🧬","医疗健康":"🩺","护理":"❤️","传媒":"🎬","酒店旅游":"🏨","体育运动":"🏅","物流供应链":"🚚","设计":"🎨"}
+FIELDICON={"商科":"💼","会计与金融":"📊","市场营销":"📣","数据与分析":"📈","IT计算机":"💻","工程":"⚙️","网络安全":"🔐","生命科学":"🧬","医疗健康":"🩺","护理":"❤️","传媒":"🎬","酒店旅游":"🏨","体育运动":"🏅","物流供应链":"🚚","设计":"🎨","经济":"💹","社会科学":"🌐","心理学":"🧠"}
 LEVELORDER={"证书":0,"文凭":1,"本科":2,"硕士":3}
 
 # ============ PSB ============
@@ -106,7 +106,90 @@ PSB_PROGS=[
  ("Foundation Diploma in Life Sciences","psb","文凭","生命科学","生命科学基础大专"),
 ]
 
-RICH={"psb":{
+# ============ SIM ============
+SIM_PARTNERS=[
+ ("uol","伦敦大学","University of London","英国","🇬🇧","LSE 学术引领，英国名校学位","LSE 学术引领"),
+ ("bham","伯明翰大学","University of Birmingham","英国","🇬🇧","罗素集团名校，商科强","QS #76"),
+ ("warwick","华威大学","University of Warwick","英国","🇬🇧","罗素集团顶尖名校","QS #74"),
+ ("cardiff","卡迪夫大学","Cardiff University","英国","🇬🇧","罗素集团名校","QS #181"),
+ ("stir","斯特灵大学","University of Stirling","英国","🇬🇧","市场营销与体育管理","QS #517"),
+ ("usyd","悉尼大学","University of Sydney","澳大利亚","🇦🇺","澳洲八大，护理见长","QS #25"),
+ ("rmit","皇家墨尔本理工","RMIT University","澳大利亚","🇦🇺","设计 / 商科 / 传媒","QS #125"),
+ ("uow","卧龙岗大学","University of Wollongong","澳大利亚","🇦🇺","计算机与 IT 见长","QS #184"),
+ ("monash","莫纳什学院","Monash College","澳大利亚","🇦🇺","衔接莫纳什大学（QS #36）","Monash 衔接"),
+ ("alberta","阿尔伯塔大学","University of Alberta","加拿大","🇨🇦","加拿大顶尖研究型大学","QS #94"),
+ ("buffalo","纽约州立布法罗大学","University at Buffalo (SUNY)","美国","🇺🇸","纽约州公立名校，文理见长","QS #410"),
+ ("grenoble","格勒诺布尔高商","Grenoble École de Management","法国","🇫🇷","欧洲顶尖商学院","欧洲顶尖商学院"),
+ ("sim","新加坡管理学院","SIM Global Education","新加坡","🇸🇬","自颁文凭与预科，衔接合作大学本科","新加坡本地学府"),
+]
+SIM_PROGS=[
+ # University of London（LSE 学术引领）
+ ("BSc Economics","uol","本科","经济","经济学（理学士）"),
+ ("BSc Accountancy","uol","本科","会计与金融","会计学（理学士）"),
+ ("BSc Banking and Finance","uol","本科","会计与金融","银行与金融（理学士）"),
+ ("BSc Finance","uol","本科","会计与金融","金融（理学士）"),
+ ("BSc Business and Management","uol","本科","商科","商业与管理（理学士）"),
+ ("BSc Management","uol","本科","商科","管理学（理学士）"),
+ ("BSc Business Analytics","uol","本科","数据与分析","商业分析（理学士）"),
+ ("BSc Data Science and Business Analytics","uol","本科","数据与分析","数据科学与商业分析（理学士）"),
+ ("BSc Digital Innovation","uol","本科","IT计算机","数字创新（理学士）"),
+ ("BSc International Relations","uol","本科","社会科学","国际关系（理学士）"),
+ ("BSc Politics and International Relations","uol","本科","社会科学","政治与国际关系（理学士）"),
+ ("BSc Computer Science","uol","本科","IT计算机","计算机科学（理学士）"),
+ ("BSc Computer Science (Machine Learning and AI)","uol","本科","IT计算机","计算机科学（机器学习与人工智能）"),
+ ("BSc Computer Science (Web and Mobile Development)","uol","本科","IT计算机","计算机科学（网络与移动开发）"),
+ ("MSc Professional Accountancy","uol","硕士","会计与金融","专业会计（理学硕士）"),
+ ("MSc Accounting and Financial Management","uol","硕士","会计与金融","会计与财务管理（理学硕士）"),
+ # University of Birmingham
+ ("BSc Business Management","bham","本科","商科","商业管理（理学士）"),
+ ("BSc International Business","bham","本科","商科","国际商务（理学士）"),
+ ("BSc Money, Banking and Finance","bham","本科","会计与金融","货币、银行与金融（理学士）"),
+ ("BSc Accounting and Finance","bham","本科","会计与金融","会计与金融（理学士）"),
+ ("BSc Marketing","bham","本科","市场营销","市场营销（理学士）"),
+ ("BA Media and Communication","bham","本科","传媒","媒体与传播（文学士）"),
+ ("MSc Management","bham","硕士","商科","管理学（理学硕士）"),
+ ("MSc International Business","bham","硕士","商科","国际商务（理学硕士）"),
+ # RMIT University
+ ("Bachelor of Business (Accountancy)","rmit","本科","会计与金融","商学学士（会计）"),
+ ("Bachelor of Business (Economics and Finance)","rmit","本科","会计与金融","商学学士（经济与金融）"),
+ ("Bachelor of Business (Business and Technology)","rmit","本科","商科","商学学士（商业与技术）"),
+ ("Bachelor of Business (Global Business)","rmit","本科","商科","商学学士（全球商务）"),
+ ("Bachelor of Business (Logistics and Supply Chain)","rmit","本科","物流供应链","商学学士（物流与供应链）"),
+ ("Bachelor of Business (Management and Change)","rmit","本科","商科","商学学士（管理与变革）"),
+ ("Bachelor of Business (Marketing)","rmit","本科","市场营销","商学学士（市场营销）"),
+ ("Bachelor of Accounting","rmit","本科","会计与金融","会计学学士"),
+ ("Bachelor of Communication (Professional Communication)","rmit","本科","传媒","传播学学士（专业传播）"),
+ ("Bachelor of Design (Communication Design)","rmit","本科","设计","设计学学士（传达设计）"),
+ ("Bachelor of Aviation","rmit","本科","商科","航空学学士"),
+ ("Bachelor of Applied Science (Construction Management)","rmit","本科","工程","应用科学学士（建筑管理）"),
+ # University of Wollongong
+ ("Bachelor of Computer Science","uow","本科","IT计算机","计算机科学学士"),
+ ("Bachelor of Information Technology","uow","本科","IT计算机","信息技术学士"),
+ ("Bachelor of Business Information Systems","uow","本科","IT计算机","商业信息系统学士"),
+ ("Bachelor of Psychological Science","uow","本科","心理学","心理科学学士"),
+ # University at Buffalo
+ ("BS Business Administration","buffalo","本科","商科","工商管理（理学士）"),
+ ("BA Communication","buffalo","本科","传媒","传播学（文学士）"),
+ ("BA Psychology","buffalo","本科","心理学","心理学（文学士）"),
+ ("BA Sociology","buffalo","本科","社会科学","社会学（文学士）"),
+ ("BA Economics","buffalo","本科","经济","经济学（文学士）"),
+ ("BA Geographic Information Science","buffalo","本科","IT计算机","地理信息科学（文学士）"),
+ ("BA International Trade","buffalo","本科","商科","国际贸易（文学士）"),
+ # University of Stirling
+ ("BA (Hons) Marketing","stir","本科","市场营销","市场营销（荣誉文学士）"),
+ ("BA (Hons) Digital Media","stir","本科","传媒","数字媒体（荣誉文学士）"),
+ ("BA (Hons) Sport and Marketing","stir","本科","市场营销","体育与市场营销（荣誉文学士）"),
+ ("BA (Hons) Sport Business Management","stir","本科","体育运动","体育商业管理（荣誉文学士）"),
+ # University of Sydney
+ ("Bachelor of Nursing (Post-registration)","usyd","本科","护理","护理学学士（注册后）"),
+ ("Bachelor of Nursing (Honours)","usyd","本科","护理","护理学学士（荣誉）"),
+ # Grenoble École de Management
+ ("Bachelor in International Business","grenoble","本科","商科","国际商务学士"),
+ ("MSc in Management","grenoble","硕士","商科","管理学理学硕士"),
+]
+
+RICH={
+"psb":{
  "abbr":"PSB","zh":"PSB 学院","en":"PSB Academy","color":"#b30537","founded":1964,
  "tagline":"亚洲未来学院 · 理工与商科并重",
  "sig":"新加坡领先私立学府，与英、澳、新西兰 8 所大学合作，提供从语言、文凭到本科、硕士的完整升学路径；3 大市中心校区，EduTrust 认证，工程与生命科学是特色。",
@@ -119,8 +202,37 @@ RICH={"psb":{
    "<b>工程与生命科学</b>是 PSB 区别于其他私立的特色，商科、IT、传媒、体育科学、护理与医疗健康同样齐全。",
  ],
  "highlights":[("省时省钱","Trimester 制，比澳洲本校区省约 1 年"),("同等学历","学位与本校区一致，可中留服认证"),("专业最全","16 大方向、8 所合作大学")],
+ "pathway":[("语言课程 CEP","按入学测试分级；已有雅思 5.5 可跳过，直入证书/文凭。"),
+   ("证书 / 预科","6 个月，高中均分达标可跳过，直接读文凭。"),
+   ("PSB 文凭","约 12 个月，16 大方向，完成后<b>直入合作大学本科大二</b>。"),
+   ("本科学位","直入大二（主流，最快约 16 个月）/ Top-up 专升本（最快约 8 个月）/ 大一直入；学位由合作大学颁发。"),
+   ("硕士学位","12–16 个月，合作大学颁发，可衔接 MBA / 工程 / 数据 / 生科等。")],
+ "finder":"https://www.psb-academy.edu.sg/programmes",
+ "coverage":"以下收录 PSB 各合作大学的主要学位专业；PSB 还有更多文凭与方向，完整清单见官方课程页。",
  "partners":PSB_PARTNERS,"progs":PSB_PROGS,
-}}
+},
+"sim":{
+ "abbr":"SIM","zh":"新加坡管理学院","en":"Singapore Institute of Management (SIM)","color":"#e4002b","founded":1964,
+ "tagline":"新加坡规模最大的私立学府 · 140+ 专业",
+ "sig":"新加坡规模最大、历史最久的私立学府之一（1964 年创办），与英、澳、美、加、欧 12 所大学合作，提供 140+ 专业；伦敦大学（LSE 学术引领）、悉尼大学、伯明翰、华威等名校学位，校园与学生生活成熟。",
+ "fee":"S$30,000–50,000","fee_note":"本科总学费按合作大学与专业不同；以官方为准。私立大学不提供 MOE 政府津贴。",
+ "intake":"每年多次开学（按合作大学）","edutrust":"EduTrust 认证",
+ "china":"取决于合作大学，如<b>伦敦大学、伯明翰、悉尼大学、华威</b>等可获中留服认证；申请前请在中留服官网核实具体学位。",
+ "overview":[
+   "新加坡管理学院（SIM Global Education）创办于 1964 年，是新加坡<b>规模最大、最具声誉的私立学府之一</b>，在校学生与校友众多、学生生活与社团成熟。",
+   "SIM 与<b>英国、澳大利亚、美国、加拿大、法国 12 所大学</b>合作，提供 <b>140+ 个</b>从文凭、预科到本科、硕士的专业。招牌是<b>伦敦大学（学术由 LSE 等引领）</b>，并有悉尼大学（澳洲八大）、伯明翰、华威、卧龙岗、RMIT、布法罗等名校学位。",
+   "商科、金融、会计、数据科学、计算机、传媒、心理学、护理等方向齐全，是公立大学之外名校学位的热门之选。",
+ ],
+ "highlights":[("规模最大","在校学生与校友众多，学生生活成熟"),("名校云集","伦敦大学 / 悉尼 / 伯明翰 / 华威等"),("专业最全","140+ 专业、12 所合作大学")],
+ "pathway":[("预科 / 文凭","SIM 管理预科或文凭，按学历从对应阶段入读。"),
+   ("英语 / 桥梁","英语不达标可先读英语 / 桥梁课程，再入读学位。"),
+   ("本科学位","2–3 年，合作大学颁发学位，部分文凭可学分减免、加速完成。"),
+   ("荣誉年 / 硕士","可读荣誉学位年或衔接合作大学硕士（如会计、管理、商务等）。")],
+ "finder":"https://www.sim.edu.sg/degrees-diplomas/overview",
+ "coverage":"SIM 有 140+ 专业，以下收录各合作大学的主要学位专业（按官方学科整理）；完整清单见 SIM 官方课程查找器。",
+ "partners":SIM_PARTNERS,"progs":SIM_PROGS,
+},
+}
 
 CSS=r'''
 :root{--prc-ink:#1f2430;--prc-line:#e7ebf1;--prc-muted:#6a7383}
@@ -255,11 +367,12 @@ def build(slug):
     # partner cards
     pcards=""
     for key,zh,en,ctry,flag,note,qs in partners:
-        if key=="psb":
+        if key in ("psb",) and n_d:
             cnt=f'<span>{n_d} 个文凭</span>'
         else:
             b=pcount(key,"本科"); m=pcount(key,"硕士")
             cnt="".join([f'<span>{b} 本科专业</span>' if b else '',f'<span>{m} 硕士专业</span>' if m else ''])
+            if not cnt: cnt='<span>更多专业见官方查找器</span>'
         pcards+=f'<div class="prc-pc"><div class="ctry">{flag} {esc(ctry)} <span class="qs">{esc(qs)}</span></div><h3>{esc(zh)}</h3><div class="en">{esc(en)}</div><p class="note">{esc(note)}</p><div class="cnt">{cnt}</div></div>'
     # database
     def prog_card(p):
@@ -277,17 +390,13 @@ def build(slug):
     lvchips="".join(f'<span class="prc-chip" data-f="lv" data-v="{lv}">{lv}（{sum(1 for p in progs if p[2]==lv)}）</span>' for lv in levels)
     hl="".join(f'<div class="prc-hlc"><b>{esc(t)}</b><span>{esc(x)}</span></div>' for t,x in d["highlights"])
     ov="".join(f'<p class="ov">{p}</p>' for p in d["overview"])
-    pathway=[("语言课程 CEP","按入学测试分级；已有雅思 5.5 可跳过，直入证书/文凭。"),
-             ("证书 / 预科","6 个月，高中均分达标可跳过，直接读文凭。"),
-             ("PSB 文凭","约 12 个月，16 大方向，完成后<b>直入合作大学本科大二</b>。"),
-             ("本科学位","直入大二（主流，最快约 16 个月）/ Top-up 专升本（最快约 8 个月）/ 大一直入；学位由合作大学颁发。"),
-             ("硕士学位","12–16 个月，合作大学颁发，可衔接 MBA / 工程 / 数据 / 生科等。")]
-    pathhtml="".join(f'<div class="prc-step"><div class="no">{i+1}</div><b>{esc(t)}</b><span>{x}</span></div>' for i,(t,x) in enumerate(pathway))
+    pathhtml="".join(f'<div class="prc-step"><div class="no">{i+1}</div><b>{esc(t)}</b><span>{x}</span></div>' for i,(t,x) in enumerate(d["pathway"]))
+    pnames="、".join(z for k,z,*_ in partners if k not in ("psb","sim"))
     faqs=[
-     (f"{d['abbr']} 和哪些大学合作？",f"{d['zh']}与 {len(partners)-1} 所大学合作：考文垂、赫特福德、爱丁堡龙比亚（英国），纽卡斯尔、拉筹伯、埃迪斯科文、堪培拉（澳大利亚），梅西（新西兰）。学位由合作大学颁发，与其本校区一致。"),
-     (f"{d['abbr']} 有多少专业？",f"目前约 {len(progs)} 个专业：本科 {n_b} 个、硕士 {n_m} 个、文凭 {n_d} 个，覆盖 {len(fields)} 大方向。可用本页的专业数据库按方向、合作大学、层级筛选。"),
+     (f"{d['abbr']} 和哪些大学合作？",f"{d['zh']}与 {len(partners)-1} 所大学合作：{pnames}。学位由合作大学颁发，与其本校区一致。"),
+     (f"{d['abbr']} 有多少专业？",f"本页收录约 {len(progs)} 个主要专业（本科 {n_b}、硕士 {n_m}、文凭 {n_d}），覆盖 {len(fields)} 大方向，可按方向、合作大学、层级筛选；完整清单见学校官方课程查找器。"),
      (f"{d['abbr']} 的学位中留服认可吗？",d["china"]),
-     ("中国学生没有高考能申请吗？","可以。接受高中毕业证 + 成绩单，按学历从证书/文凭起读；英语雅思约 5.5（本科段 6.0–6.5），不达标可先读 PSB 语言课程（CEP）。"),
+     ("中国学生没有高考能申请吗？","可以。接受高中毕业证 + 成绩单，按学历从证书 / 文凭 / 预科起读；英语雅思约 5.5（本科段 6.0–6.5），不达标可先读语言 / 预科课程。"),
      (f"{d['abbr']} 学费多少？",f"本科总学费约 {d['fee']}，按合作大学与专业不同。{d['fee_note']} 学费通常可按学期分期。"),
     ]
     faq="".join(f'<details><summary>{esc(q)}</summary><div class="a">{a}</div></details>' for q,a in faqs)
@@ -348,7 +457,7 @@ def build(slug):
     <div class="prc-count">显示 <b id="prcshow">{len(progs)}</b> / {len(progs)} 个专业</div>
     <div class="prc-progs" id="prcprogs">{progcards}</div>
     <div class="prc-empty" id="prcempty">没有匹配的专业，试试减少筛选条件。</div>
-    <p style="max-width:1080px;margin:0 auto;padding:0 clamp(20px,6vw,80px) 34px;font-size:.82rem;color:var(--prc-muted)">数据来自 {d['en']} 官网课程信息；专业每年略有调整，精确学费 / 学制以官方为准。</p>
+    <p style="max-width:1080px;margin:0 auto;padding:0 clamp(20px,6vw,80px) 34px;font-size:.82rem;color:var(--prc-muted)">{esc(d.get("coverage",""))} 数据来自 {d['en']} 官网课程信息；专业每年略有调整，精确学费 / 学制以官方为准。{(f' <a href="{d["finder"]}" target="_blank" rel="nofollow" style="color:var(--acc);font-weight:700">→ 官方完整专业查找器</a>') if d.get("finder") else ""}</p>
   </div>
 
   <section class="prc-sec"><h2>关键信息</h2>

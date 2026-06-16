@@ -228,7 +228,7 @@ def build_db():
       tr.classList.toggle('dim',!ok);if(ok)n++;
     });
     show.textContent=n;
-    hint.textContent=(!isNaN(g))?('· GPA '+g.toFixed(2)+' 够得着的成绩录取专业；SIT/SUTD/SUSS 为综合评估':'');
+    hint.textContent=(!isNaN(g))?('· GPA '+g.toFixed(2)+' 够得着的成绩录取专业；SIT/SUTD/SUSS 为综合评估'):'';
   }
   q.addEventListener('input',apply);gpa.addEventListener('input',apply);only.addEventListener('change',apply);
   document.querySelectorAll('.uchip').forEach(function(c){c.addEventListener('click',function(){c.classList.toggle('on');var f=c.getAttribute('data-f'),v=c.getAttribute('data-v');(f==='uni'?fU:fC)[v]=c.classList.contains('on');apply();});});

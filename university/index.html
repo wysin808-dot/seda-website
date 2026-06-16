@@ -101,6 +101,34 @@
 .req-作品集{font-size:.72rem;font-weight:800;color:#fff;background:#b5179e;padding:2px 8px;border-radius:999px;white-space:nowrap}
 .req-试演{font-size:.72rem;font-weight:800;color:#fff;background:#d97706;padding:2px 8px;border-radius:999px;white-space:nowrap}
 .req-面试{font-size:.72rem;font-weight:800;color:#fff;background:#2563eb;padding:2px 8px;border-radius:999px;white-space:nowrap}
+
+/* ===== 目录页：白底红字简洁风（gostudy/schools） ===== */
+.ud-page .udb-hero{background:#fff;border-bottom:1px solid var(--line);padding:46px clamp(20px,6vw,80px) 30px}
+.ud-page .udb-hero *{color:var(--ink)}
+.ud-page .udb-ey{display:inline-block;background:var(--brand-light);border:1px solid #f3c6c6;color:var(--brand-strong);padding:6px 14px;border-radius:999px;font-size:.82rem;font-weight:700;margin-bottom:18px}
+.ud-page .udb-hero h1{color:var(--ink);letter-spacing:-.01em}
+.ud-page .udb-hero p.s{color:var(--muted)}
+.ud-page .udb-search{border:1px solid var(--line);box-shadow:0 12px 30px rgba(198,40,40,.1)}
+.ud-page .udb-search button{background:var(--brand)}
+.ud-page .udb-search button:hover{background:var(--brand-strong)}
+.ud-page .udb-statsband{background:#fff}
+.ud-page .udb-stat .n{color:var(--brand)}
+.ud-page .ucard .abbr{background:var(--brand)}
+.ud-page .ucard .cover.grad{background:linear-gradient(135deg,#a31515,#d83a3a)}
+.ud-page .ucard.arts .cover.grad{background:linear-gradient(135deg,#8a2b6b,#c2569e)}
+.ud-page .adm-grade{background:var(--brand-light);color:var(--brand-strong)}
+.ud-page .ucard .foot .c b,.ud-page .ucard .foot .go{color:var(--brand)}
+.ud-page .uclcard:hover{border-color:#f0bcbc}
+.ud-page .uclcard .ct b{color:var(--brand)}
+.ud-page .uteaser{background:linear-gradient(135deg,#fff7f7,#fff 62%);border-color:#f3d6d6}
+.ud-page .uteaser h2,.ud-page .usec h2{color:var(--ink)}
+.ud-page .uteaser .btn{background:var(--brand)}
+.ud-page .uteaser .btn:hover{background:var(--brand-strong)}
+.ud-page .upstep .n{color:var(--brand)}
+.ud-page .ufaq summary::after{color:var(--brand)}
+.ud-page .ufaq details[open] summary::after{color:var(--brand)}
+.ud-page .ufaq .a a{color:var(--brand-strong)}
+.ud-page ::selection{background:var(--brand-light)}
 </style>
 </head>
 <body>
@@ -142,7 +170,7 @@
         <a href="/o-level/">O-Level</a>
       </div>
     </header>
-<main>
+<main><div class="ud-page">
   <section class="udb-hero"><div class="in">
     <span class="udb-ey">🎓 6 公立大学 + 艺术大学 · 137 个专业 · A-Level / WACE / 理工 GPA</span>
     <h1>新加坡大学完全指南</h1>
@@ -220,7 +248,7 @@
 
   <section class="usec" style="padding-top:0"><h2>按专业方向浏览</h2>
     <p class="lead">137 个本科专业按 10 个方向归类，点一下进数据库看该方向所有专业的录取分。</p>
-    <div class="uclusters"><a class="uclcard" href="/university/degrees/?cluster=工程"><span class="ic">⚙️</span><span class="nm">工程</span><span class="ct"><b>33</b> 专业</span></a><a class="uclcard" href="/university/degrees/?cluster=计算机"><span class="ic">💻</span><span class="nm">计算机</span><span class="ct"><b>28</b> 专业</span></a><a class="uclcard" href="/university/degrees/?cluster=人文社科"><span class="ic">📚</span><span class="nm">人文社科</span><span class="ct"><b>19</b> 专业</span></a><a class="uclcard" href="/university/degrees/?cluster=商科"><span class="ic">📊</span><span class="nm">商科</span><span class="ct"><b>18</b> 专业</span></a><a class="uclcard" href="/university/degrees/?cluster=医学健康"><span class="ic">🩺</span><span class="nm">医学健康</span><span class="ct"><b>15</b> 专业</span></a><a class="uclcard" href="/university/degrees/?cluster=理学"><span class="ic">🧪</span><span class="nm">理学</span><span class="ct"><b>10</b> 专业</span></a><a class="uclcard" href="/university/degrees/?cluster=设计建筑"><span class="ic">🏛️</span><span class="nm">设计建筑</span><span class="ct"><b>7</b> 专业</span></a><a class="uclcard" href="/university/degrees/?cluster=传媒"><span class="ic">🎬</span><span class="nm">传媒</span><span class="ct"><b>3</b> 专业</span></a><a class="uclcard" href="/university/degrees/?cluster=法律"><span class="ic">⚖️</span><span class="nm">法律</span><span class="ct"><b>3</b> 专业</span></a><a class="uclcard" href="/university/degrees/?cluster=其他"><span class="ic">🎓</span><span class="nm">其他</span><span class="ct"><b>1</b> 专业</span></a></div></section>
+    <div class="uclusters"><a class="uclcard" href="/university/degrees/?cluster=工程"><span class="ic">⚙️</span><span class="nm">工程</span><span class="ct"><b>33</b> 专业</span></a><a class="uclcard" href="/university/degrees/?cluster=计算机"><span class="ic">💻</span><span class="nm">计算机</span><span class="ct"><b>28</b> 专业</span></a><a class="uclcard" href="/university/degrees/?cluster=人文社科"><span class="ic">📚</span><span class="nm">人文社科</span><span class="ct"><b>19</b> 专业</span></a><a class="uclcard" href="/university/degrees/?cluster=商科"><span class="ic">📊</span><span class="nm">商科</span><span class="ct"><b>18</b> 专业</span></a><a class="uclcard" href="/university/degrees/?cluster=医学健康"><span class="ic">🩺</span><span class="nm">医学健康</span><span class="ct"><b>15</b> 专业</span></a><a class="uclcard" href="/university/degrees/?cluster=理学"><span class="ic">🧪</span><span class="nm">理学</span><span class="ct"><b>10</b> 专业</span></a><a class="uclcard" href="/university/degrees/?cluster=设计建筑"><span class="ic">🏛️</span><span class="nm">设计建筑</span><span class="ct"><b>7</b> 专业</span></a><a class="uclcard" href="/university/degrees/?cluster=法律"><span class="ic">⚖️</span><span class="nm">法律</span><span class="ct"><b>3</b> 专业</span></a><a class="uclcard" href="/university/degrees/?cluster=传媒"><span class="ic">🎬</span><span class="nm">传媒</span><span class="ct"><b>3</b> 专业</span></a><a class="uclcard" href="/university/degrees/?cluster=其他"><span class="ic">🎓</span><span class="nm">其他</span><span class="ct"><b>1</b> 专业</span></a></div></section>
 
   <section class="usec" style="padding-top:0"><div class="uteaser">
     <h2>📊 专业录取分数据库</h2>
@@ -238,7 +266,7 @@
     </div></section>
 
   <section class="usec ufaq" style="padding-top:0"><h2>常见问题</h2><div style="margin-top:6px"><details><summary>新加坡有几所公立大学？</summary><div class="a">6 所自治（公立）大学：NUS、NTU、SMU、SUTD、SIT、SUSS；外加 2024 年新成立的艺术大学 UAS（政府支持、NAFA+LASALLE 组成）。学位全球认可。</div></details><details><summary>中国学生能申请新加坡公立大学吗？</summary><div class="a">能。可凭 A-Level、IB、WACE/ATAR 等国际学历，或新加坡理工 Diploma（GPA）申请。中国高考成绩部分大学也接受，个案评估。语言一般要求雅思/托福或同等。</div></details><details><summary>WACE / ATAR 申请新加坡大学的门槛？</summary><div class="a">按 ATAR 整体评估，如 NTU 官方门槛 ATAR ≥90；热门专业更高。具体专业竞争度可参考数据库的「WACE 参考 ATAR」列。</div></details><details><summary>理工 Diploma 能升哪些大学？</summary><div class="a">6 所公立都收理工生（看 GPA）：NUS/NTU/SMU 看 IGP GPA 区间；SIT 最欢迎理工生、应用型；SUSS/SUTD 综合评估。打开数据库输入 GPA 即可看能进哪些。</div></details></div></section>
-</main>
+</div></main>
 <footer class="site-footer">
       <div>
         <strong>SEDA 新加坡择校网</strong>

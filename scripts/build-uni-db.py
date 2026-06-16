@@ -108,6 +108,34 @@ CSS=r'''
 .req-作品集{font-size:.72rem;font-weight:800;color:#fff;background:#b5179e;padding:2px 8px;border-radius:999px;white-space:nowrap}
 .req-试演{font-size:.72rem;font-weight:800;color:#fff;background:#d97706;padding:2px 8px;border-radius:999px;white-space:nowrap}
 .req-面试{font-size:.72rem;font-weight:800;color:#fff;background:#2563eb;padding:2px 8px;border-radius:999px;white-space:nowrap}
+
+/* ===== 目录页：白底红字简洁风（gostudy/schools） ===== */
+.ud-page .udb-hero{background:#fff;border-bottom:1px solid var(--line);padding:46px clamp(20px,6vw,80px) 30px}
+.ud-page .udb-hero *{color:var(--ink)}
+.ud-page .udb-ey{display:inline-block;background:var(--brand-light);border:1px solid #f3c6c6;color:var(--brand-strong);padding:6px 14px;border-radius:999px;font-size:.82rem;font-weight:700;margin-bottom:18px}
+.ud-page .udb-hero h1{color:var(--ink);letter-spacing:-.01em}
+.ud-page .udb-hero p.s{color:var(--muted)}
+.ud-page .udb-search{border:1px solid var(--line);box-shadow:0 12px 30px rgba(198,40,40,.1)}
+.ud-page .udb-search button{background:var(--brand)}
+.ud-page .udb-search button:hover{background:var(--brand-strong)}
+.ud-page .udb-statsband{background:#fff}
+.ud-page .udb-stat .n{color:var(--brand)}
+.ud-page .ucard .abbr{background:var(--brand)}
+.ud-page .ucard .cover.grad{background:linear-gradient(135deg,#a31515,#d83a3a)}
+.ud-page .ucard.arts .cover.grad{background:linear-gradient(135deg,#8a2b6b,#c2569e)}
+.ud-page .adm-grade{background:var(--brand-light);color:var(--brand-strong)}
+.ud-page .ucard .foot .c b,.ud-page .ucard .foot .go{color:var(--brand)}
+.ud-page .uclcard:hover{border-color:#f0bcbc}
+.ud-page .uclcard .ct b{color:var(--brand)}
+.ud-page .uteaser{background:linear-gradient(135deg,#fff7f7,#fff 62%);border-color:#f3d6d6}
+.ud-page .uteaser h2,.ud-page .usec h2{color:var(--ink)}
+.ud-page .uteaser .btn{background:var(--brand)}
+.ud-page .uteaser .btn:hover{background:var(--brand-strong)}
+.ud-page .upstep .n{color:var(--brand)}
+.ud-page .ufaq summary::after{color:var(--brand)}
+.ud-page .ufaq details[open] summary::after{color:var(--brand)}
+.ud-page .ufaq .a a{color:var(--brand-strong)}
+.ud-page ::selection{background:var(--brand-light)}
 '''
 
 def head(title,desc,canon,jsonld,noindex=False):
@@ -331,7 +359,7 @@ def build_landing():
 
   <section class="usec ufaq" style="padding-top:0"><h2>常见问题</h2><div style="margin-top:6px">{faqhtml}</div></section>
 '''
-    return head(title,desc,canon,jsonld)+body+TAIL
+    return head(title,desc,canon,jsonld)+'<div class="ud-page">'+body+'</div>'+TAIL
 
 os.makedirs(os.path.join(ROOT,"university/degrees"),exist_ok=True)
 open(os.path.join(ROOT,"university/degrees/index.html"),"w",encoding="utf-8").write(build_db())

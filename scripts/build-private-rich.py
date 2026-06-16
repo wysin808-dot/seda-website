@@ -11,7 +11,7 @@ HEADER=SP[SP.index('<header class="site-header">'):SP.index('</header>')+len('</
 FOOTER=SP[SP.index('<footer class="site-footer">'):SP.index('</footer>')+len('</footer>')]
 def esc(s): return html.escape(str(s),quote=True)
 
-FIELDICON={"商科":"💼","会计与金融":"📊","市场营销":"📣","数据与分析":"📈","IT计算机":"💻","工程":"⚙️","网络安全":"🔐","生命科学":"🧬","医疗健康":"🩺","护理":"❤️","传媒":"🎬","酒店旅游":"🏨","体育运动":"🏅","物流供应链":"🚚","设计":"🎨","经济":"💹","社会科学":"🌐","心理学":"🧠","环境科学":"🌿","教育":"🎓","预科":"📘","商业心理":"🧩","健康科学":"⚕️"}
+FIELDICON={"商科":"💼","会计与金融":"📊","市场营销":"📣","数据与分析":"📈","IT计算机":"💻","工程":"⚙️","网络安全":"🔐","生命科学":"🧬","医疗健康":"🩺","护理":"❤️","传媒":"🎬","酒店旅游":"🏨","体育运动":"🏅","物流供应链":"🚚","设计":"🎨","经济":"💹","社会科学":"🌐","心理学":"🧠","环境科学":"🌿","教育":"🎓","预科":"📘","商业心理":"🧩","健康科学":"⚕️","时尚设计":"👗"}
 LEVELORDER={"证书":0,"文凭":1,"本科":2,"硕士":3}
 
 # ============ PSB ============
@@ -335,7 +335,60 @@ TMC_PROGS=[
  ("Executive MBA (Top-up)","northampton","硕士","商科","高级工商管理硕士（EMBA·专升本）"),
 ]
 
+# ============ MDIS ============
+MDIS_PARTNERS=[
+ ("teesside","蒂赛德大学","Teesside University","英国","🇬🇧","IT / AI / 工程 / 生物医学","英国应用型大学"),
+ ("sunderland","桑德兰大学","University of Sunderland","英国","🇬🇧","商科 / 传媒 / 时尚","英国应用型大学"),
+ ("napier","爱丁堡龙比亚大学","Edinburgh Napier University","英国","🇬🇧","护理等","英国应用型大学"),
+ ("roehampton","罗汉普顿大学","University of Roehampton","英国","🇬🇧","心理学","英国应用型大学"),
+ ("bangor","班戈大学","Bangor University","英国","🇬🇧","财会 / 商科（部分招生至 2026/06）","QS #601-650"),
+ ("uco","中俄克拉荷马大学","University of Central Oklahoma","美国","🇺🇸","工商管理","美国公立大学"),
+ ("mdis","新加坡管理发展学院","MDIS","新加坡","🇸🇬","1956 创办，自颁文凭与预科","新加坡本地学府"),
+]
+MDIS_PROGS=[
+ ("BSc (Hons) Information Technology","teesside","本科","IT计算机","信息技术（荣誉理学士）"),
+ ("BSc (Hons) Artificial Intelligence and Computer Science","teesside","本科","IT计算机","人工智能与计算机科学（荣誉理学士）"),
+ ("BEng Technology (Hons) Mechanical Engineering (Top-up)","teesside","本科","工程","机械工程技术（荣誉工程学士·专升本）"),
+ ("BSc (Hons) Biomedical Sciences","teesside","本科","生命科学","生物医学（荣誉理学士）"),
+ ("BA (Hons) Business and Management (Top-up)","sunderland","本科","商科","商业与管理（荣誉文学士·专升本）"),
+ ("BA (Hons) Media, Culture and Communication","sunderland","本科","传媒","媒体、文化与传播（荣誉文学士）"),
+ ("BA (Hons) Fashion Product and Promotion","sunderland","本科","时尚设计","时尚产品与推广（荣誉文学士）"),
+ ("BSc Nursing (Top-up)","napier","本科","护理","护理学（理学士·专升本）"),
+ ("BSc (Hons) Psychological and Behavioural Science","roehampton","本科","心理学","心理与行为科学（荣誉理学士）"),
+ ("BSc (Hons) Banking and Finance","bangor","本科","会计与金融","银行与金融（荣誉理学士）"),
+ ("BSc (Hons) Business Management and Finance","bangor","本科","商科","商业管理与金融（荣誉理学士）"),
+ ("Bachelor of Business Administration","uco","本科","商科","工商管理学士（BBA）"),
+ ("MBA in Banking and Finance","bangor","硕士","商科","工商管理硕士（银行与金融）"),
+ ("MSc Information Technology","teesside","硕士","IT计算机","信息技术理学硕士"),
+ ("International Foundation Diploma","mdis","文凭","预科","国际预科文凭"),
+ ("Diploma in Business Management","mdis","文凭","商科","工商管理大专"),
+ ("Diploma in Information Technology","mdis","文凭","IT计算机","信息技术大专"),
+ ("Diploma in Mass Communications","mdis","文凭","传媒","大众传播大专"),
+ ("Diploma in Psychology","mdis","文凭","心理学","心理学大专"),
+ ("Diploma in Fashion Design","mdis","文凭","时尚设计","时装设计大专"),
+ ("Diploma in Tourism and Hospitality Management","mdis","文凭","酒店旅游","旅游与酒店管理大专"),
+]
+
 RICH={
+"mdis":{
+ "abbr":"MDIS","zh":"新加坡管理发展学院","en":"Management Development Institute of Singapore (MDIS)","color":"#c81432","founded":1956,
+ "tagline":"新加坡历史最悠久的私立学府（1956）",
+ "sig":"<b>新加坡历史最悠久的非营利私立学府</b>（1956 年创办），自有校园与宿舍；合作英国 Teesside、Sunderland、Edinburgh Napier、Roehampton、Bangor 及美国中俄克拉荷马大学，<b>专业覆盖最广</b>——商科、工程、生科、时尚、传媒、心理、护理、IT。EduTrust 认证。",
+ "fee":"S$28,000–48,000","fee_note":"本科总学费按合作大学与专业不同；以官方为准。私立大学不提供 MOE 政府津贴。",
+ "intake":"每年多次开学","edutrust":"EduTrust 认证",
+ "china":"MDIS 有 8 所英国合作大学的部分专业获中国教育部（中留服）认证（含 Sunderland、Portsmouth、Bangor、Roehampton、Northumbria、Teesside、Leeds Beckett、Edinburgh Napier）；申请前请在中留服官网核实具体专业。",
+ "overview":[
+   "MDIS（新加坡管理发展学院）创办于 <b>1956 年</b>，是新加坡<b>历史最悠久的非营利私立学府</b>，拥有自有校园与学生宿舍，持 EduTrust 认证。",
+   "合作<b>英国 Teesside、Sunderland、Edinburgh Napier、Roehampton、Bangor</b> 及<b>美国中俄克拉荷马大学</b>授予学位，<b>专业覆盖最广</b>——商科、工程、生命科学、时尚设计、传媒、心理学、护理、信息技术等。",
+   "提供从国际预科到博士的完整路径，本科多可专升本（Top-up）。适合想要稳健老牌私校、专业选择多、目标英国学位的学生。",
+ ],
+ "highlights":[("历史最悠久","1956 创办、非营利"),("专业最广","8+ 学科、自有校园宿舍"),("多国合作","英美 6+ 所大学")],
+ "pathway":[("预科 / 文凭","国际预科或 MDIS 文凭，按学历入读，衔接本科。"),
+   ("本科学位","2–3 年或专升本（Top-up），合作大学颁发学位。"),
+   ("硕士学位","MBA / MSc 等，合作大学颁发。")],
+ "finder":"https://www.mdis.edu.sg/degree","coverage":"以下为 MDIS 各合作大学的主要学位专业；Bangor 部分专业招生至 2026/06，MDIS 另有更多文凭与方向，完整清单见官方课程页。",
+ "partners":MDIS_PARTNERS,"progs":MDIS_PROGS,
+},
 "shrm":{
  "abbr":"SHRM","zh":"SHRM 学院","en":"SHRM College Singapore","color":"#8a6d1f","founded":2007,
  "tagline":"酒店与旅游管理专精",

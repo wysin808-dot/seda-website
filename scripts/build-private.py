@@ -61,7 +61,7 @@ SCHOOLS=[
  "edutrust":"EduTrust 认证","china":"取决于合作大学是否在中留服名单；申请前请在中留服核实。",
  "overview":["PSB 学院前身可追溯到 1964 年，是少数<b>理工与商科并重</b>的私立学府，合作英澳大学授予学位。","合作大学含<b>纽卡斯尔（澳）、考文垂、爱丁堡龙比亚、拉筹伯</b>等，<b>工程、生命科学</b>是它区别于其他私立的特色，商科、IT、传媒同样齐全。"],
  "fit":["想读工程 / 生命科学等理工方向","目标商科 / IT 也合适","看重理工 + 商科兼顾的私立"]},
-{"slug":"mdis","abbr":"MDIS","zh":"新加坡管理发展学院","en":"Management Development Institute of Singapore (MDIS)","type":"合作","founded":1956,"color":"#005baa",
+{"slug":"mdis","abbr":"MDIS","zh":"新加坡管理发展学院","en":"Management Development Institute of Singapore (MDIS)","type":"合作","founded":1956,"color":"#c81432",
  "sig":"新加坡历史最悠久的非营利私立学府（1956），专业覆盖广。",
  "partners":["班戈大学 Bangor University","蒂赛德大学 Teesside University","桑德兰大学 University of Sunderland"],
  "fields":["商科","工程","生命科学","时尚设计","传媒","心理学"],
@@ -410,7 +410,7 @@ def detail(s):
 # ---- write ----
 open(os.path.join(ROOT,"private-university/index.html"),"w",encoding="utf-8").write(build_directory())
 print("wrote private-university/index.html")
-RICH_SLUGS={"psb","sim","jcu","curtin","lsbf","amity","shrm","tmc"}  # 这些由 build-private-rich.py 生成 gostudy 式富页，简单模板跳过
+RICH_SLUGS={"psb","sim","jcu","curtin","lsbf","amity","shrm","tmc","mdis"}  # 这些由 build-private-rich.py 生成 gostudy 式富页，简单模板跳过
 for s in SCHOOLS:
     if s["slug"] in RICH_SLUGS: continue
     d=os.path.join(ROOT,"private-university",s["slug"]); os.makedirs(d,exist_ok=True)

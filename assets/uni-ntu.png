@@ -1,0 +1,369 @@
+ <!DOCTYPE html> <html class='no-js' lang='en'> <head> <meta charset="utf-8"><script type="text/html" id="sf-tracking-consent-manager">
+	<!--<div class="consent-container" id="tracking-consent-dialog">
+    <div class="consent-text-container">
+        <strong>&ltDialog title goes here&gt</strong>
+        <p>&ltDialog description or question goes here&gt</p>
+    </div>
+    <div class="consent-button-container">
+        <button class="btn btn--red consent-accept" id="tracking-consent-dialog-accept" type="button" onclick="TrackingConsentManager.updateUserConsent(true)">I accept</button>
+        <!--<button class="btn btn--stroke consent-reject" id="tracking-consent-dialog-reject" type="button" onclick="TrackingConsentManager.updateUserConsent(false)">I refuse</button>
+    </div>
+</div>-->
+
+<div class="consent-container" id="tracking-consent-dialog">
+    <div class="consent-text-container">
+        <strong>
+            Privacy Notice
+        </strong>
+        <p>This site uses cookies to offer you a better browsing experience. By continuing, you are agreeing to the use of cookies on your device as described in our <a href="/footer/ntu-privacy-statement" target="_blank">privacy policy</a>.</p>
+    </div>
+    <div class="consent-button-container">
+        <button class="btn btn--red consent-accept" id="tracking-consent-dialog-accept" type="button" onclick="TrackingConsentManager.updateUserConsent(true)">Close</button>
+        <!--<button class="btn btn--stroke consent-reject" id="tracking-consent-dialog-reject" type="button" onclick="TrackingConsentManager.updateUserConsent(false)">I refuse</button>-->
+    </div>
+</div>
+</script><script type="text/javascript" src="/WebResource.axd?d=DzHrpQl5URXarFHAtrmzFh-kK052iwJ80m5KSLpHNuEJE1OGza3LTWWJZDhEI6gLOEewcLbP-bPaY1EFnJ-Bhey12suEmUFhJq6SDp-kL6Cso_mLhiwuXZ0tTTm1ZmNsA_cHavEgxLflonVUIzRznruteZ-v1tTyxpm_3vPtAzDXU5f7H8Umw_P1YJsnmHXA0&amp;t=639137365720000000">
+
+</script> <meta http-equiv="X-UA-Compatible" content="IE=edge"> <meta name="viewport" content="width=device-width, initial-scale=1.0">  <link rel="preload" href="/ResourcePackages/NTU/assets/fonts/icomoon.ttf?pek60p" as="font" crossorigin="anonymous"> <title>
+	Page Not Found | NTU Singapore
+</title> <meta name="theme-color" content="#d71440"> <meta name="robots" content="follow"> <style type="text/css">
+        .container {
+            position: relative;
+            max-width: 1440px;
+        }
+
+        .breadcrumbs, .notification, .site-search, .mega-menu {
+            visibility: hidden;
+        }
+
+        .mega-menu {
+            background: #fff;
+            box-shadow: 0 0 20px 0 rgba(0,0,0,.15);
+            height: 100vh;
+            max-width: 768px;
+            position: fixed;
+            right: 0;
+            top: 0;
+            -webkit-transform: translateX(100%);
+            transform: translateX(100%);
+            -webkit-transition: -webkit-transform .3s cubic-bezier(.75,0,0,.75);
+            transition: -webkit-transform .3s cubic-bezier(.75,0,0,.75);
+            transition: transform .3s cubic-bezier(.75,0,0,.75);
+            transition: transform .3s cubic-bezier(.75,0,0,.75),-webkit-transform .3s cubic-bezier(.75,0,0,.75);
+            width: 100%;
+            z-index: 1001
+        }
+
+            .mega-menu.opened {
+                -webkit-transform: translateX(0);
+                transform: translateX(0)
+            }
+
+            .mega-menu .btn-close {
+                border: 0;
+                background: none;
+                color: #fff;
+                font-size: 2.5em;
+                outline: 0;
+                position: absolute;
+                right: 20px;
+                top: 20px;
+                -webkit-transition: color .3s cubic-bezier(.75,0,0,.75);
+                transition: color .3s cubic-bezier(.75,0,0,.75);
+                z-index: 1
+            }
+    </style> <link rel="stylesheet" href="/ResourcePackages/NTU/assets/styles/main.css?v=14"> <link href="/ResourcePackages/NTU/assets/images/favicon.png" rel="shortcut icon" type="image/x-icon"> <link href="/ResourcePackages/NTU/assets/images/favicon.png" rel="icon" type="image/x-icon"> <!-- Google Tag Manager --> <script>
+(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-WHB582W');</script> <!-- End Google Tag Manager --> <!-- ShareThis script --> <script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=645dd50e522c900019fc1334&product=inline-share-buttons' async='async'></script> <!-- End ShareThis script --> <meta name="robots" content="noindex" /><meta property="og:title" content="Page Not Found" /><meta property="og:url" content="https://www.ntu.edu.sg/404" /><meta property="og:type" content="website" /><meta property="og:site_name" content="Corporate NTU" /><style type="text/css" media="all">/* For class for showing side navigation in mobile*/
+@media only screen and (max-width: 767px) {
+    .secondaryNavigationMobile {
+        display: flex !important;
+    }
+    .detail-aside .secondary-nav {
+        display: block !important;
+    }
+}
+
+.site-footer-revamp {
+  margin-bottom: -15px;
+  bottom: 0 !important;
+}</style><style type="text/css" media="all">.carousel-banner.removeShading .carousel-banner__img:before,
+.carousel-banner-type2.removeShading .carousel-banner-type2__img:before
+{
+    background: none !important;
+}</style><style type="text/css" media="all">@media only screen and (min-width: 1024px) {
+    .site-header-revamp__controls {
+        margin-right: initial;
+    }
+    .site-header-revamp__nav {
+        margin: 0 10rem 0 0;
+    }
+    .site-header-revamp__navigation {
+        padding-inline-end: 0px;
+    }
+}
+.site-header-revamp__controls button {
+    padding: 0.2rem 0.36rem;
+}
+
+.site-header-revamp__logo {
+    margin-left: 11px;
+}
+.site-header-revamp__left {
+    margin-left: -11px;
+}</style><style type="text/css" media="all">.ntu-profile-list {
+  font-family: "Lato", Arial, sans-serif;
+}
+
+.ntu-profile-list .icon {
+  margin-right: 10px;
+}
+
+.ntu-profile-list .profile-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.ntu-profile-list .profile-row {
+  display: flex;
+  gap: 28px;
+  align-items: flex-start;
+  padding: 20px 0;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid #e0e0e0;
+  border-radius: 0;
+  box-shadow: none;
+  transition: none;
+}
+
+.ntu-profile-list .profile-row:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+.ntu-profile-list .profile-row-image-wrap {
+  width: 120px;
+  min-width: 120px;
+}
+
+/* IMAGE */
+.ntu-profile-list .profile-row-image-wrap img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 14px;
+  background: #fff;
+}
+
+/* SILENT PLACEHOLDER (no text, no border) */
+.ntu-profile-list .profile-row-image-wrap:empty::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 140px; /* smaller so it doesn't dominate */
+  background: transparent;
+  border-radius: 14px;
+}
+
+.ntu-profile-list .profile-row-content {
+  flex: 1;
+  padding-top: 4px;
+}
+
+.ntu-profile-list .profile-row-name {
+  margin: 0 0 10px;
+  font-size: 1.125em !important;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.ntu-profile-list .profile-row-name a {
+  text-decoration: none;
+}
+
+.ntu-profile-list .profile-row-name a:hover {
+  text-decoration: underline;
+}
+
+.ntu-profile-list .profile-row-designation {
+  font-size: 16px;
+  line-height: 1.25;
+  color: #222;
+  margin-bottom: 10px;
+}
+
+.ntu-profile-list .profile-row-org {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #333;
+}
+
+.ntu-profile-list .profile-row-org a {
+  color: #d71440;
+  text-decoration: none;
+}
+
+.ntu-profile-list .profile-row-org a:hover .text,
+.ntu-profile-list .profile-row-org a .text:hover {
+  text-decoration: underline;
+}
+
+/* CARD GRID */
+.ntu-profile-list .profile-card-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 24px;
+  align-items: stretch;
+}
+
+.ntu-profile-list .profile-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+  transition: all 0.2s ease;
+}
+
+.ntu-profile-list .profile-card-image-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 215px;
+  padding: 15px;
+  background: #fff;
+}
+
+/* CARD IMAGE */
+.ntu-profile-list .profile-card-image-wrap img {
+  display: block;
+  max-width: 100%;
+  width: auto;
+  max-height: 180px;
+  object-fit: contain;
+  border-radius: 10px;
+  background: #fff;
+}
+
+/* SILENT CARD PLACEHOLDER */
+.ntu-profile-list .profile-card-image-wrap:empty::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 160px;
+  background: transparent;
+  border-radius: 10px;
+}
+
+.ntu-profile-list .profile-card-content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 6px;
+  padding: 16px 18px 18px;
+}
+
+.ntu-profile-list .profile-card-name {
+  min-height: 1.2em;
+  margin: 0;
+  font-size: 17px !important;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.ntu-profile-list .profile-card-name a {
+  color: #d71440;
+  text-decoration: none;
+}
+
+.ntu-profile-list .profile-card-name a:hover {
+  text-decoration: underline;
+}
+
+.ntu-profile-list .profile-card-designation {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #333;
+}
+
+.ntu-profile-list .profile-card-org {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #444;
+}
+
+.ntu-profile-list .profile-card-org a {
+  color: #d71440;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.ntu-profile-list .profile-card-org a:hover .text,
+.ntu-profile-list .profile-card-org a .text:hover {
+  text-decoration: underline;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .ntu-profile-list .profile-card-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .ntu-profile-list .profile-row {
+    flex-direction: column;
+    padding: 20px 0 26px;
+  }
+
+  .ntu-profile-list .profile-row-image-wrap {
+    width: 160px;
+    min-width: 160px;
+  }
+
+  .ntu-profile-list .profile-row-name {
+    font-size: 20px !important;
+  }
+
+  .ntu-profile-list .profile-card-grid {
+    grid-template-columns: 1fr;
+  }
+}</style><link rel="canonical" href="https://www.ntu.edu.sg/404" /><meta property="og:image" content="https://www.ntu.edu.sg/images/default-source/default-album/ntu-thehive-775x465.jpg" /></head> <body> <!-- Google Tag Manager (noscript) --> <noscript> <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WHB582W"
+                height="0" width="0" style="display:none;visibility:hidden"></iframe> </noscript> <!-- End Google Tag Manager (noscript) -->  
+
+
+
+ <header class="site-header-revamp loading"> <div class="site-header-revamp__body"> <div class="container"> <div class="site-header-revamp__left"> <a class="site-header-revamp__logo" href="/" title="Nanyang Technological University"> <picture> <source media="(max-width: 1023px)" srcset="/ResourcePackages/NTU/assets/images/NTU_Logo.png"> <source srcset="/ResourcePackages/NTU/assets/images/NTU_Logo.png"> <img src="/ResourcePackages/NTU/assets/images/NTU_Logo.png" alt="NTU Logo"> </picture> </a> </div> <div class="site-header-revamp__right"> <div class="site-header-revamp__controls"> <button class="btn-notification" type="button"><span class="sr-only">Toggle notification</span><span class="icon icon-bell"></span></button> <button class="btn-search" type="button"><span class="sr-only">Toggle search</span><span class="icon icon-glass"></span></button> <button class="btn-menu-toggle" type="button"><span class="sr-only">Toggle menu</span><span class="line"></span><span class="line"></span><span class="line"></span></button> </div> <div class="site-header-revamp__navigation"> 
+
+<div class="site-header-revamp__nav">
+    <nav class="site-nav" aria-label="Site Navigation">
+        <ul class="site-nav__lvl1">
+            <li class="site-nav__lvl1__item has-child">
+                <a href="https://www.ntu.edu.sg/about-us" target="_self">About Us</a><i class="icon icon-angle-down"></i>
+                <div class="site-nav__megamenu">
+                    <div>
+                        <div class="site-nav__lvl2-back desktop-only">
+                            <button type="button"><span class="icon icon-angle-left"></span><span>Back</span></button>
+                        </div>
+                        <div class="site-nav__lvl2-back no-desktop">
+                            <button type="button"><span class="icon icon-angle-left"></span><span>Back</span></button>
+                            <div>About Us</div>
+                        </div>
+                        <ul class="site-nav__lvl2">
+        <li class="site-nav__lvl2__item">
+                <a href="https://www.ntu.edu.sg/about-us/the-chancellery" target="_self"><span>The Chancellery</span><i class="icon icon-angle-right"></i></a>
+                <div>
+                    <div class="site-nav__lvl3-back no-desktop">
+                        <button type="button"><span class="icon icon-angle-left"></span><span>Back</span></button>
+                        <div>The Chancellery</div>
+                    </div>
+                    <ul class="site-nav__lvl3">
+        <li class="site-nav__lvl3__item">
+                <a href="https://www.ntu.edu.sg/about-us/the-chancellery/president-tharman-shanmugaratnam" target="_self"><span>President 

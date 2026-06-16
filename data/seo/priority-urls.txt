@@ -45,3 +45,12 @@ https://sgeda.org.cn/private-university/amity/
 https://sgeda.org.cn/private-university/shrm/
 https://sgeda.org.cn/private-university/tmc/
 https://sgeda.org.cn/tools/private-university-matcher.html
+# 最近更新的重点页面（再次推送加强收录：6 所公立大学详情页 + UAS + 国际 A-Level）
+https://sgeda.org.cn/university/nus/
+https://sgeda.org.cn/university/ntu/
+https://sgeda.org.cn/university/smu/
+https://sgeda.org.cn/university/sutd/
+https://sgeda.org.cn/university/sit/
+https://sgeda.org.cn/university/suss/
+https://sgeda.org.cn/university/uas/
+https://sgeda.org.cn/international-alevel/

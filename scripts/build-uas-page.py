@@ -87,9 +87,13 @@ CSS=r'''
 .ua-count{max-width:1120px;margin:0 auto;padding:16px clamp(20px,6vw,84px) 0;font-size:.92rem;color:var(--ua-muted)}
 .ua-count b{color:var(--ua-pur2);font-size:1.08rem}
 .ua-progs{max-width:1120px;margin:0 auto;padding:14px clamp(20px,6vw,84px) 50px;display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px}
-.ua-prog{border:1px solid var(--ua-line);border-left:4px solid var(--cl,#6a2c91);border-radius:13px;padding:15px 17px;background:#fff;transition:transform .15s,box-shadow .15s}
-.ua-prog:hover{transform:translateY(-2px);box-shadow:0 12px 26px rgba(61,27,84,.12)}
+.ua-prog{display:flex;flex-direction:column;border:1px solid var(--ua-line);border-left:4px solid var(--cl,#6a2c91);border-radius:13px;padding:15px 17px;background:#fff;transition:transform .15s,box-shadow .15s}
+.ua-prog:hover{transform:translateY(-2px);box-shadow:0 12px 26px rgba(61,27,84,.12);border-color:var(--cl,#6a2c91)}
 .ua-prog.hide{display:none}
+.ua-plink{display:block;flex:1;text-decoration:none;color:inherit}
+.ua-prog .zh .ext{font-size:.8em;color:var(--cl,#6a2c91);opacity:.85;margin-left:2px}
+.ua-consult{display:inline-flex;align-items:center;gap:4px;align-self:flex-start;margin-top:12px;font-size:.8rem;font-weight:800;color:var(--cl,#6a2c91);text-decoration:none;border-top:1px dashed var(--ua-line);padding-top:10px;width:100%}
+.ua-consult:hover{text-decoration:underline}
 .ua-prog .zh{font-weight:800;font-size:1.05rem;line-height:1.3}
 .ua-prog .en{color:var(--ua-muted);font-size:.78rem;margin:.12rem 0 .6rem}
 .ua-prog .tags{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:.6rem}
@@ -153,12 +157,15 @@ TAIL=f'''</main>
 
 # ---- programme cards ----
 def prog_card(p):
-    cl=p["cluster"]; en=p["rtype"]
+    cl=p["cluster"]; en=p["rtype"]; url=p.get("url","#")
     name=(p["zh"]+" "+p["en"]+" "+p["college"]+" "+cl+" "+p["level"]+" "+en).lower()
     return f'''<div class="ua-prog" style="--cl:{CLCOLOR[cl]}" data-col="{esc(p['college'])}" data-cl="{esc(cl)}" data-lv="{esc(p['level'])}" data-en="{esc(en)}" data-name="{esc(name)}">
-  <div class="zh">{esc(p['zh'])}</div><div class="en">{esc(p['en'])}</div>
-  <div class="tags"><span class="t cl">{CLICON[cl]} {esc(cl)}</span><span class="t col">{esc(p['college'])}</span><span class="t lv">{esc(p['level'])}</span><span class="t en2 {ENPILL[en]}">{esc(en)}</span></div>
-  <p class="req">{esc(p['req'])}</p>
+  <a class="ua-plink" href="{esc(url)}" target="_blank" rel="nofollow noopener" title="查看 {esc(p['college'])} 官方专业页">
+    <div class="zh">{esc(p['zh'])}<span class="ext">↗</span></div><div class="en">{esc(p['en'])}</div>
+    <div class="tags"><span class="t cl">{CLICON[cl]} {esc(cl)}</span><span class="t col">{esc(p['college'])}</span><span class="t lv">{esc(p['level'])}</span><span class="t en2 {ENPILL[en]}">{esc(en)}</span></div>
+    <p class="req">{esc(p['req'])}</p>
+  </a>
+  <a class="ua-consult" href="/contact/">💬 免费咨询该专业 →</a>
 </div>'''
 
 def chips(field,vals,icons=None):
@@ -272,7 +279,7 @@ def build():
   <div class="ua-db">
     <div class="ua-tools">
       <h2 style="font-size:clamp(22px,3vw,31px);margin:6px 0 4px;font-weight:840">UAS 学位专业目录 · <span style="color:var(--ua-pur2)">{N} 个</span></h2>
-      <p style="color:var(--ua-muted);margin:0 0 18px;line-height:1.7">LASALLE + NAFA 在 UAS 下开设的全部学位专业。<b>艺术大学不看分数线</b>，每个专业按<b>作品集 / 试镜 / 面试</b>录取——下表可按学院、学科、层级、入学方式筛选。</p>
+      <p style="color:var(--ua-muted);margin:0 0 18px;line-height:1.7">LASALLE + NAFA 在 UAS 下开设的全部学位专业。<b>艺术大学不看分数线</b>，每个专业按<b>作品集 / 试镜 / 面试</b>录取——可按学院、学科、层级、入学方式筛选。<b>点专业卡片 ↗ 可查看官方专业页详情</b>，或点卡片底部「免费咨询」。</p>
       <div class="ua-find">🔎<input type="search" id="uaq" placeholder="搜专业，如 电影、音乐、设计、Fine Art"></div>
       <div class="ua-frow"><span class="ua-flb">学院</span>{chips("col",COLLEGES)}</div>
       <div class="ua-frow"><span class="ua-flb">学科</span>{chips("cl",CLUSTERS,CLICON)}</div>

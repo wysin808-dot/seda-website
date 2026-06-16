@@ -452,7 +452,8 @@
     "chinaStudentNotes": "中国学生申请 NUS，不能只看高考分数。热门专业会同时看英文、竞赛、活动、面试或补充材料。若走 Poly 或国际课程路径，也要提前规划 GPA 和专业匹配。",
     "sedaAdvice": "NUS 可以作为冲刺目标，但家长应同时准备 NTU、SMU、SUTD、SIT、SUSS 或海外大学备选，不要把全部路径压在一个学校上。",
     "officialSource": "MOE Autonomous Universities overview / NUS official admissions information",
-    "sameAs": "https://www.nus.edu.sg/"
+    "sameAs": "https://www.nus.edu.sg/",
+    "customContent": true
   },
   {
     "type": "university",

@@ -9,7 +9,7 @@
    "founded": 1905,
    "type": "grade",
    "atar": "WACE 综合评估",
-   "campus": "/assets/nus-campus.jpg",
+   "campus": "/assets/nus-hero.jpg",
    "sig": "综合排名全国第一，文理工医法全覆盖"
   },
   {
@@ -33,7 +33,7 @@
    "founded": 2000,
    "type": "grade",
    "atar": "WACE 综合评估",
-   "campus": null,
+   "campus": "/assets/smu-campus.jpg",
    "sig": "商科/会计/法律/计算机，研讨式小班教学"
   },
   {
@@ -84,7 +84,7 @@
    "founded": 2024,
    "type": "portfolio",
    "atar": "作品集/试演",
-   "campus": null,
+   "campus": "/assets/uas-campus.jpg",
    "sig": "NAFA+LASALLE 组成，艺术设计表演类"
   }
  ],

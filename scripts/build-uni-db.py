@@ -136,6 +136,13 @@ CSS=r'''
 .ud-page .ufaq details[open] summary::after{color:var(--brand)}
 .ud-page .ufaq .a a{color:var(--brand-strong)}
 .ud-page ::selection{background:var(--brand-light)}
+/* 封面 = 白底居中校徽（一眼识别） */
+.ud-page .ucard .cover.logo{height:104px;background:linear-gradient(180deg,#fafbfc,#fff);border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:center;padding:16px}
+.ud-page .ucard .cover.logo img{max-height:64px;max-width:80%;width:auto;object-fit:contain}
+.ud-page .ucard .abbrow{display:flex;align-items:center;gap:9px;margin-bottom:.15rem}
+.ud-page .ucard .abbr2{font-size:.72rem;font-weight:800;color:#fff;background:var(--brand);padding:2px 8px;border-radius:6px;letter-spacing:.03em;flex:0 0 auto}
+.ud-page .ucard.arts .abbr2{background:#b5179e}
+.ud-page .ucard .abbrow h3{margin:0;font-size:1.08rem}
 '''
 
 def head(title,desc,canon,jsonld,noindex=False):
@@ -294,14 +301,14 @@ def build_landing():
     for u in D["unis"]:
         a,lbl=admtag[u["type"]]
         arts=" arts" if u["type"]=="portfolio" else ""
-        camp=u.get("campus")
-        cover=(f'<div class="cover" style="background-image:linear-gradient(0deg,rgba(15,42,92,.6),rgba(15,42,92,.12)),url(\'{camp}\')">' if camp else '<div class="cover grad">')
+        ext="png" if u["slug"]=="suss" else "svg"
+        cover=f'<div class="cover logo"><img src="/assets/uni-{u["slug"]}-logo.{ext}" alt="{esc(u["zh"])} 校徽" loading="lazy" decoding="async"></div>'
         cards.append(f'''<a class="ucard{arts}" href="/university/{u['slug']}/">
-  {cover}<span class="ab2">{esc(u['abbr'])}</span><span class="qs2">{esc(u['qs'])}</span></div>
+  {cover}
   <div class="body">
-    <h3>{esc(u['zh'])}</h3><p class="en">{esc(u['en'])}</p>
+    <div class="abbrow"><span class="abbr2">{esc(u['abbr'])}</span><h3>{esc(u['zh'])}</h3></div><p class="en">{esc(u['en'])}</p>
     <p class="sig">{esc(u['sig'])}</p>
-    <div class="meta"><span>📅 {u['founded']}</span><span>🎓 {counts[u['slug']]} 专业</span><span>🎯 {esc(u.get('atar_est') or u['atar'])}{' ATAR 估' if u.get('atar_est') else ''}</span></div>
+    <div class="meta"><span>📅 {u['founded']}</span><span>🏅 {esc(u['qs'])}</span><span>🎯 {esc(u.get('atar_est') or u['atar'])}{' 估' if u.get('atar_est') else ''}</span></div>
     <span class="adm {a}">{lbl}</span>
     <div class="foot"><span class="c"><b>{counts[u['slug']]}</b> 个本科专业</span><span class="go">查看详情 →</span></div>
   </div>

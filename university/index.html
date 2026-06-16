@@ -129,6 +129,13 @@
 .ud-page .ufaq details[open] summary::after{color:var(--brand)}
 .ud-page .ufaq .a a{color:var(--brand-strong)}
 .ud-page ::selection{background:var(--brand-light)}
+/* 封面 = 白底居中校徽（一眼识别） */
+.ud-page .ucard .cover.logo{height:104px;background:linear-gradient(180deg,#fafbfc,#fff);border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:center;padding:16px}
+.ud-page .ucard .cover.logo img{max-height:64px;max-width:80%;width:auto;object-fit:contain}
+.ud-page .ucard .abbrow{display:flex;align-items:center;gap:9px;margin-bottom:.15rem}
+.ud-page .ucard .abbr2{font-size:.72rem;font-weight:800;color:#fff;background:var(--brand);padding:2px 8px;border-radius:6px;letter-spacing:.03em;flex:0 0 auto}
+.ud-page .ucard.arts .abbr2{background:#b5179e}
+.ud-page .ucard .abbrow h3{margin:0;font-size:1.08rem}
 </style>
 </head>
 <body>
@@ -182,65 +189,65 @@
   <section class="usec"><h2>6 公立大学 + 1 艺术大学</h2>
     <p class="lead">新加坡 6 所政府资助的自治大学，加上 2024 年新成立的艺术大学 UAS，学位全球认可。注意录取方式不同：NUS/NTU/SMU 看成绩（IGP），SIT/SUTD/SUSS 能力本位/综合评估，UAS 看作品集。</p>
     <div class="ucards"><a class="ucard" href="/university/nus/">
-  <div class="cover" style="background-image:linear-gradient(0deg,rgba(15,42,92,.6),rgba(15,42,92,.12)),url('/assets/nus-hero.jpg')"><span class="ab2">NUS</span><span class="qs2">QS #8</span></div>
+  <div class="cover logo"><img src="/assets/uni-nus-logo.svg" alt="新加坡国立大学 校徽" loading="lazy" decoding="async"></div>
   <div class="body">
-    <h3>新加坡国立大学</h3><p class="en">National University of Singapore</p>
+    <div class="abbrow"><span class="abbr2">NUS</span><h3>新加坡国立大学</h3></div><p class="en">National University of Singapore</p>
     <p class="sig">综合排名全国第一，文理工医法全覆盖</p>
-    <div class="meta"><span>📅 1905</span><span>🎓 22 专业</span><span>🎯 WACE 综合评估</span></div>
+    <div class="meta"><span>📅 1905</span><span>🏅 QS #8</span><span>🎯 WACE 综合评估</span></div>
     <span class="adm adm-grade">成绩录取 · IGP</span>
     <div class="foot"><span class="c"><b>22</b> 个本科专业</span><span class="go">查看详情 →</span></div>
   </div>
 </a><a class="ucard" href="/university/ntu/">
-  <div class="cover" style="background-image:linear-gradient(0deg,rgba(15,42,92,.6),rgba(15,42,92,.12)),url('/assets/ntu-campus.jpg')"><span class="ab2">NTU</span><span class="qs2">QS #12</span></div>
+  <div class="cover logo"><img src="/assets/uni-ntu-logo.svg" alt="南洋理工大学 校徽" loading="lazy" decoding="async"></div>
   <div class="body">
-    <h3>南洋理工大学</h3><p class="en">Nanyang Technological University</p>
+    <div class="abbrow"><span class="abbr2">NTU</span><h3>南洋理工大学</h3></div><p class="en">Nanyang Technological University</p>
     <p class="sig">工程与计算机全球顶尖，理工强校</p>
-    <div class="meta"><span>📅 1991</span><span>🎓 39 专业</span><span>🎯 ATAR ≥90</span></div>
+    <div class="meta"><span>📅 1991</span><span>🏅 QS #12</span><span>🎯 ATAR ≥90</span></div>
     <span class="adm adm-grade">成绩录取 · IGP</span>
     <div class="foot"><span class="c"><b>39</b> 个本科专业</span><span class="go">查看详情 →</span></div>
   </div>
 </a><a class="ucard" href="/university/smu/">
-  <div class="cover" style="background-image:linear-gradient(0deg,rgba(15,42,92,.6),rgba(15,42,92,.12)),url('/assets/smu-campus.jpg')"><span class="ab2">SMU</span><span class="qs2">商科顶尖</span></div>
+  <div class="cover logo"><img src="/assets/uni-smu-logo.svg" alt="新加坡管理大学 校徽" loading="lazy" decoding="async"></div>
   <div class="body">
-    <h3>新加坡管理大学</h3><p class="en">Singapore Management University</p>
+    <div class="abbrow"><span class="abbr2">SMU</span><h3>新加坡管理大学</h3></div><p class="en">Singapore Management University</p>
     <p class="sig">商科/会计/法律/计算机，研讨式小班教学</p>
-    <div class="meta"><span>📅 2000</span><span>🎓 9 专业</span><span>🎯 WACE 综合评估</span></div>
+    <div class="meta"><span>📅 2000</span><span>🏅 商科顶尖</span><span>🎯 WACE 综合评估</span></div>
     <span class="adm adm-grade">成绩录取 · IGP</span>
     <div class="foot"><span class="c"><b>9</b> 个本科专业</span><span class="go">查看详情 →</span></div>
   </div>
 </a><a class="ucard" href="/university/sutd/">
-  <div class="cover grad"><span class="ab2">SUTD</span><span class="qs2">科技+设计</span></div>
+  <div class="cover logo"><img src="/assets/uni-sutd-logo.svg" alt="新加坡科技设计大学 校徽" loading="lazy" decoding="async"></div>
   <div class="body">
-    <h3>新加坡科技设计大学</h3><p class="en">Singapore Univ. of Technology &amp; Design</p>
+    <div class="abbrow"><span class="abbr2">SUTD</span><h3>新加坡科技设计大学</h3></div><p class="en">Singapore Univ. of Technology &amp; Design</p>
     <p class="sig">科技与设计交叉，含作品/面试整体评估</p>
-    <div class="meta"><span>📅 2009</span><span>🎓 6 专业</span><span>🎯 ≈88–95 ATAR 估</span></div>
+    <div class="meta"><span>📅 2009</span><span>🏅 科技+设计</span><span>🎯 ≈88–95 估</span></div>
     <span class="adm adm-apt">综合评估录取</span>
     <div class="foot"><span class="c"><b>6</b> 个本科专业</span><span class="go">查看详情 →</span></div>
   </div>
 </a><a class="ucard" href="/university/sit/">
-  <div class="cover" style="background-image:linear-gradient(0deg,rgba(15,42,92,.6),rgba(15,42,92,.12)),url('/assets/sit-campus.jpg')"><span class="ab2">SIT</span><span class="qs2">应用型</span></div>
+  <div class="cover logo"><img src="/assets/uni-sit-logo.svg" alt="新加坡理工大学 校徽" loading="lazy" decoding="async"></div>
   <div class="body">
-    <h3>新加坡理工大学</h3><p class="en">Singapore Institute of Technology</p>
+    <div class="abbrow"><span class="abbr2">SIT</span><h3>新加坡理工大学</h3></div><p class="en">Singapore Institute of Technology</p>
     <p class="sig">应用型大学，与海外名校联合学位、行业实战</p>
-    <div class="meta"><span>📅 2009</span><span>🎓 45 专业</span><span>🎯 ≈80–90 ATAR 估</span></div>
+    <div class="meta"><span>📅 2009</span><span>🏅 应用型</span><span>🎯 ≈80–90 估</span></div>
     <span class="adm adm-apt">能力本位录取</span>
     <div class="foot"><span class="c"><b>45</b> 个本科专业</span><span class="go">查看详情 →</span></div>
   </div>
 </a><a class="ucard" href="/university/suss/">
-  <div class="cover grad"><span class="ab2">SUSS</span><span class="qs2">社科见长</span></div>
+  <div class="cover logo"><img src="/assets/uni-suss-logo.png" alt="新跃社科大学 校徽" loading="lazy" decoding="async"></div>
   <div class="body">
-    <h3>新跃社科大学</h3><p class="en">Singapore Univ. of Social Sciences</p>
+    <div class="abbrow"><span class="abbr2">SUSS</span><h3>新跃社科大学</h3></div><p class="en">Singapore Univ. of Social Sciences</p>
     <p class="sig">社会科学、商科、心理与社工见长</p>
-    <div class="meta"><span>📅 2017</span><span>🎓 16 专业</span><span>🎯 ≈75–88 ATAR 估</span></div>
+    <div class="meta"><span>📅 2017</span><span>🏅 社科见长</span><span>🎯 ≈75–88 估</span></div>
     <span class="adm adm-apt">能力本位录取</span>
     <div class="foot"><span class="c"><b>16</b> 个本科专业</span><span class="go">查看详情 →</span></div>
   </div>
 </a><a class="ucard arts" href="/university/uas/">
-  <div class="cover" style="background-image:linear-gradient(0deg,rgba(15,42,92,.6),rgba(15,42,92,.12)),url('/assets/uas-campus.jpg')"><span class="ab2">UAS</span><span class="qs2">艺术</span></div>
+  <div class="cover logo"><img src="/assets/uni-uas-logo.svg" alt="新加坡艺术大学 校徽" loading="lazy" decoding="async"></div>
   <div class="body">
-    <h3>新加坡艺术大学</h3><p class="en">University of the Arts Singapore</p>
+    <div class="abbrow"><span class="abbr2">UAS</span><h3>新加坡艺术大学</h3></div><p class="en">University of the Arts Singapore</p>
     <p class="sig">NAFA+LASALLE 组成，艺术设计表演类</p>
-    <div class="meta"><span>📅 2024</span><span>🎓 10 专业</span><span>🎯 作品集/试演</span></div>
+    <div class="meta"><span>📅 2024</span><span>🏅 艺术</span><span>🎯 作品集/试演</span></div>
     <span class="adm adm-port">作品集 / 试演</span>
     <div class="foot"><span class="c"><b>10</b> 个本科专业</span><span class="go">查看详情 →</span></div>
   </div>

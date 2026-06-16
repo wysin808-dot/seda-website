@@ -619,7 +619,8 @@
     "chinaStudentNotes": "中国学生如果计划 O-Level 后先读 Poly，再升新加坡大学，SIT 是必须重点研究的目标之一。专业相关性和 GPA 会非常关键。",
     "sedaAdvice": "如果孩子更适合应用学习而不是纯学术研究，SIT 可能是非常现实的大学路径。建议从 Poly 选专业时就倒推 SIT 的录取要求。",
     "officialSource": "MOE Autonomous Universities overview / SIT official admissions information",
-    "sameAs": "https://www.singaporetech.edu.sg/"
+    "sameAs": "https://www.singaporetech.edu.sg/",
+    "customContent": true
   },
   {
     "type": "university",
@@ -660,7 +661,8 @@
     "chinaStudentNotes": "中国学生选择 SUSS，要看专业是否匹配长期就业和身份规划。它不是单纯追求排名的选择，而是看职业方向和个人特质。",
     "sedaAdvice": "如果孩子目标不是医学、工程或传统商科，而是教育、社科、管理、社会服务等方向，SUSS 可以作为务实选择。",
     "officialSource": "MOE Autonomous Universities overview / SUSS official admissions information",
-    "sameAs": "https://www.suss.edu.sg/"
+    "sameAs": "https://www.suss.edu.sg/",
+    "customContent": true
   },
   {
     "type": "artsUniversity",

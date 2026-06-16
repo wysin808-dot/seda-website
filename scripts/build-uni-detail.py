@@ -16,6 +16,9 @@ CSS_TMPL=r'''
 .nx-fcard,.nx-pcard,.nx-rcard,.nx-fee,.nx-cc,.nx-fb{-webkit-tap-highlight-color:transparent}
 .nx-hero{position:relative;min-height:clamp(340px,44vw,480px);display:flex;align-items:flex-end;background-size:cover;background-position:center;color:#fff}
 .nx-hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,18,38,.28) 0%,rgba(8,18,38,.55) 55%,rgba(8,18,38,.82) 100%)}
+.nx-hero-grad::after{background:linear-gradient(180deg,rgba(0,0,0,.04) 0%,rgba(0,0,0,.12) 60%,rgba(0,0,0,.28) 100%)}
+.nx-hero-grad{position:relative;overflow:hidden}
+.nx-hero-grad::before{content:"";position:absolute;right:-8%;top:-30%;width:60%;height:160%;background:radial-gradient(closest-side,rgba(255,255,255,.14),transparent 70%);transform:rotate(12deg);pointer-events:none}
 .nx-hero .in{position:relative;z-index:2;max-width:1160px;margin:0 auto;width:100%;padding:0 clamp(20px,6vw,72px) clamp(30px,4vw,48px)}
 .nx-kicker{display:flex;flex-wrap:wrap;gap:9px;margin-bottom:16px}
 .nx-kicker span{font-size:.8rem;font-weight:700;letter-spacing:.02em;padding:5px 13px;border:1px solid rgba(255,255,255,.4);border-radius:999px;background:rgba(255,255,255,.08);backdrop-filter:blur(3px)}
@@ -154,8 +157,9 @@ def render(c):
     faqs="".join(f'<details><summary>{esc(q)}</summary><div class="a">{a}</div></details>' for q,a in c["faqs"])
     rel="".join(f'<a href="{u}">{esc(t)}</a>' for t,u in c["rel"])
 
+    hero_style=(f"background-image:url('{c['hero_img']}')" if c.get("hero_img") else f"background:linear-gradient(135deg,{c['navy']} 0%,{c['navy2']} 60%,{c['acc']} 140%)")
     body=f'''<div class="nx">
-  <section class="nx-hero" style="background-image:url('{c["hero_img"]}')"><div class="in">
+  <section class="nx-hero{'' if c.get('hero_img') else ' nx-hero-grad'}" style="{hero_style}"><div class="in">
     <div class="nx-kicker">{kick}</div><div class="rule"></div>
     <h1>{esc(c["name_zh"])} {esc(c["abbr"])}</h1>
     <p class="sub">{esc(c["hero_sub"])}</p>

@@ -579,7 +579,8 @@
     "chinaStudentNotes": "中国学生申请 SUTD，不应只问排名，而要看是否适合项目制学习。数学、物理、编程、设计作品或工程项目都会帮助展示匹配度。",
     "sedaAdvice": "如果孩子喜欢工程和设计交叉方向，SUTD 可能比传统综合大学更匹配。建议提前准备作品、项目和英文表达。",
     "officialSource": "MOE Autonomous Universities overview / SUTD official admissions information",
-    "sameAs": "https://www.sutd.edu.sg/"
+    "sameAs": "https://www.sutd.edu.sg/",
+    "customContent": true
   },
   {
     "type": "university",

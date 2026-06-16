@@ -706,7 +706,8 @@
     "chinaStudentNotes": "中国艺术生申请 UAS，要提前 6-12 个月准备作品集。不同专业对作品、试镜、面试和英文要求不同，家长要把时间线放在第一位。",
     "sedaAdvice": "如果孩子有明确艺术或设计方向，UAS 值得重点研究；如果只是因为文化课压力大才临时转艺术，则要先做专业测评和作品集规划。",
     "officialSource": "University of the Arts Singapore official programmes and FAQ / LASALLE and NAFA official information",
-    "sameAs": "https://uas.edu.sg/"
+    "sameAs": "https://uas.edu.sg/",
+    "customContent": true
   },
   {
     "type": "international",

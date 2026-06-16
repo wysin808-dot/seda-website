@@ -410,8 +410,10 @@ def detail(s):
 # ---- write ----
 open(os.path.join(ROOT,"private-university/index.html"),"w",encoding="utf-8").write(build_directory())
 print("wrote private-university/index.html")
+RICH_SLUGS={"psb"}  # 这些由 build-private-rich.py 生成 gostudy 式富页，简单模板跳过
 for s in SCHOOLS:
+    if s["slug"] in RICH_SLUGS: continue
     d=os.path.join(ROOT,"private-university",s["slug"]); os.makedirs(d,exist_ok=True)
     open(os.path.join(d,"index.html"),"w",encoding="utf-8").write(detail(s))
     print("wrote private-university/%s/index.html"%s["slug"])
-print("DONE | %d schools"%len(SCHOOLS))
+print("DONE | %d schools (rich skipped: %s)"%(len(SCHOOLS),RICH_SLUGS))

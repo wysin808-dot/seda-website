@@ -6213,7 +6213,8 @@
     "positioning": "SIM 在新加坡私立教育体系里更像一个大型合作课程平台，家长需要把它和具体合作大学课程一起看。",
     "chinaStudentNotes": "中国学生选择 SIM 时，要重点确认高中成绩、英文要求、目标合作大学、课程长度和毕业后继续读研或就业的路径。",
     "sedaAdvice": "建议家长不要只问“SIM 排名”，而要按专业方向比较合作大学、课程费用、学习周期和毕业证书来源。",
-    "officialSource": "SIM 官方网站"
+    "officialSource": "SIM 官方网站",
+    "customContent": true
   },
   {
     "type": "private",
@@ -6251,7 +6252,8 @@
     "positioning": "Kaplan 属于新加坡主流私立教育机构之一，适合和 SIM、PSB、MDIS 等一起比较。",
     "chinaStudentNotes": "中国学生申请 Kaplan 时，要确认课程是否满足后续读研、回国认证、就业方向和家庭预算。",
     "sedaAdvice": "建议把 Kaplan 当作“具体专业路径”来评估，而不是只用机构名判断。",
-    "officialSource": "Kaplan Singapore 官方网站"
+    "officialSource": "Kaplan Singapore 官方网站",
+    "customContent": true
   },
   {
     "type": "private",
@@ -6328,7 +6330,8 @@
     "positioning": "MDIS 的优势在于课程覆盖较广，判断时应落到具体合作大学和课程出口。",
     "chinaStudentNotes": "中国学生要重点看专业是否适合、课程授权是否清楚、住宿和生活安排是否便利。",
     "sedaAdvice": "MDIS 可以作为私立大学路径中的稳妥备选之一，但必须和具体专业目标一起评估。",
-    "officialSource": "MDIS 官方网站"
+    "officialSource": "MDIS 官方网站",
+    "customContent": true
   },
   {
     "type": "private",

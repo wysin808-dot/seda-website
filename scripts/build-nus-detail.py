@@ -155,7 +155,7 @@ jsonld="\n".join('<script type="application/ld+json">%s</script>'%json.dumps(j,e
 faqhtml="".join(f'<details><summary>{esc(q)}</summary><div class="a">{a}</div></details>' for q,a in faqs)
 
 BODY=f'''<div class="nx">
-  <section class="nx-hero" style="background-image:url('/assets/nus-hero.jpg?v=2')"><div class="in">
+  <section class="nx-hero" style="background-image:url('/assets/nus-hero.jpg?v=3')"><div class="in">
     <div class="nx-kicker"><span class="au">🏆 QS 世界排名 #8</span><span>🇸🇬 新加坡综合第一</span><span>📅 1905 年创办</span></div>
     <div class="rule"></div>
     <h1>新加坡国立大学 NUS</h1>
@@ -229,7 +229,7 @@ BODY=f'''<div class="nx">
         <div class="nx-pcard"><div class="t"><span class="ic">💼</span><h3>工商管理 Business</h3></div><p>NUS Business School，亚洲商学院第一梯队。</p><div class="cop">A-Level <b>AAA/C–AAA/A</b> · GPA <b>3.61–3.94</b></div></div>
         <div class="nx-pcard"><div class="t"><span class="ic">⚙️</span><h3>工程（大类）</h3></div><p>含机械、电子、生物医学等，名额多、相对友好。</p><div class="cop">A-Level <b>BBB/C–AAA/A</b> · GPA <b>3.57–3.94</b></div></div>
       </div>
-      <figure class="nx-figure"><img src="/assets/nus-campus2.jpg" alt="NUS 计算机学院 COM2 大楼" loading="lazy" decoding="async" width="1200"><figcaption>NUS 计算机学院（School of Computing）—— 全亚洲顶尖</figcaption></figure>
+      <figure class="nx-figure"><img src="/assets/nus-utown.jpg" alt="NUS University Town 教育资源中心" loading="lazy" decoding="async" width="1200"><figcaption>University Town（UTown）教育资源中心 —— NUS 现代化书院与学习社区</figcaption></figure>
     </section>
 
     <section class="nx-sec">

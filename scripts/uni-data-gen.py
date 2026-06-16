@@ -10,13 +10,13 @@ import os, json, re
 ROOT=os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 UNIS=[
- {"slug":"nus","abbr":"NUS","zh":"新加坡国立大学","en":"National University of Singapore","qs":"QS #8","founded":1905,"type":"grade","atar":"≥90（热门专业近满分）","sig":"综合排名全国第一，文理工医法全覆盖"},
- {"slug":"ntu","abbr":"NTU","zh":"南洋理工大学","en":"Nanyang Technological University","qs":"QS #12","founded":1991,"type":"grade","atar":"≥90","sig":"工程与计算机全球顶尖，理工强校"},
- {"slug":"smu","abbr":"SMU","zh":"新加坡管理大学","en":"Singapore Management University","qs":"商科顶尖","founded":2000,"type":"grade","atar":"≥90（参照）","sig":"商科/会计/法律/计算机，研讨式小班教学"},
- {"slug":"sutd","abbr":"SUTD","zh":"新加坡科技设计大学","en":"Singapore Univ. of Technology & Design","qs":"科技+设计","founded":2009,"type":"holistic","atar":"综合评估","sig":"科技与设计交叉，含作品/面试整体评估"},
- {"slug":"sit","abbr":"SIT","zh":"新加坡理工大学","en":"Singapore Institute of Technology","qs":"应用型","founded":2009,"type":"aptitude","atar":"能力本位·无硬性截分","sig":"应用型大学，与海外名校联合学位、行业实战"},
- {"slug":"suss","abbr":"SUSS","zh":"新跃社科大学","en":"Singapore Univ. of Social Sciences","qs":"社科见长","founded":2017,"type":"aptitude","atar":"多轮评估（笔试+面试）","sig":"社会科学、商科、心理与社工见长"},
- {"slug":"uas","abbr":"UAS","zh":"新加坡艺术大学","en":"University of the Arts Singapore","qs":"艺术","founded":2024,"type":"portfolio","atar":"作品集/试演","sig":"NAFA+LASALLE 组成，艺术设计表演类"},
+ {"slug":"nus","abbr":"NUS","zh":"新加坡国立大学","en":"National University of Singapore","qs":"QS #8","founded":1905,"type":"grade","atar":"WACE 综合评估","campus":"/assets/nus-campus.jpg","sig":"综合排名全国第一，文理工医法全覆盖"},
+ {"slug":"ntu","abbr":"NTU","zh":"南洋理工大学","en":"Nanyang Technological University","qs":"QS #12","founded":1991,"type":"grade","atar":"ATAR ≥90","campus":"/assets/ntu-campus.jpg","sig":"工程与计算机全球顶尖，理工强校"},
+ {"slug":"smu","abbr":"SMU","zh":"新加坡管理大学","en":"Singapore Management University","qs":"商科顶尖","founded":2000,"type":"grade","atar":"WACE 综合评估","campus":None,"sig":"商科/会计/法律/计算机，研讨式小班教学"},
+ {"slug":"sutd","abbr":"SUTD","zh":"新加坡科技设计大学","en":"Singapore Univ. of Technology & Design","qs":"科技+设计","founded":2009,"type":"holistic","atar":"综合评估","campus":None,"sig":"科技与设计交叉，含作品/面试整体评估"},
+ {"slug":"sit","abbr":"SIT","zh":"新加坡理工大学","en":"Singapore Institute of Technology","qs":"应用型","founded":2009,"type":"aptitude","atar":"能力本位·无硬性截分","campus":"/assets/sit-campus.jpg","sig":"应用型大学，与海外名校联合学位、行业实战"},
+ {"slug":"suss","abbr":"SUSS","zh":"新跃社科大学","en":"Singapore Univ. of Social Sciences","qs":"社科见长","founded":2017,"type":"aptitude","atar":"多轮评估（笔试+面试）","campus":None,"sig":"社会科学、商科、心理与社工见长"},
+ {"slug":"uas","abbr":"UAS","zh":"新加坡艺术大学","en":"University of the Arts Singapore","qs":"艺术","founded":2024,"type":"portfolio","atar":"作品集/试演","campus":None,"sig":"NAFA+LASALLE 组成，艺术设计表演类"},
 ]
 
 # ---- grade unis: "name_en | A-Level lo | A-Level hi" (A-Level from illum) ----
@@ -155,51 +155,65 @@ Social Sciences|3.67-3.93""",
 APT={
 "sit":"""Information & Communications Technology (Software Engineering)
 Information & Communications Technology (Information Security)
-Computing Science (with Univ. of Glasgow)
+Computing Science
+Applied Computing
 Applied Artificial Intelligence
-Applied Computing (Fintech)
+Computer Science in Interactive Media and Game Development
+Computer Science in Real-Time Interactive Simulation
 Computer Engineering
-Robotics Systems
-Mechatronics Systems
-Digital Art & Animation
 User Experience & Game Design
+Game Design
+Digital Art & Animation
+Business and Infocomm Technology
+Digital Communications & Integrated Media
+Accountancy
+Business and Management
+Hospitality and Tourism Management
+Air Transport Management
+Food Business Management (Culinary Arts)
+Food Business Management (Baking & Pastry)
 Civil Engineering
 Aerospace Engineering
 Aircraft Systems Engineering
-Electrical Power Engineering
-Electronics & Data Engineering
 Mechanical Engineering
 Mechanical Design & Manufacturing Engineering
-Naval Architecture & Marine Engineering
+Electrical & Electronic Engineering
+Electrical Power Engineering
+Electronics & Data Engineering
+Robotics Systems
+Engineering Systems
+Infrastructure and Systems Engineering
+Sustainable Infrastructure Engineering (Building Services)
+Sustainable Built Environment
+Telematics (Intelligent Transportation Systems Engineering)
 Pharmaceutical Engineering
 Chemical Engineering
-Sustainable Built Environment
-Digital Supply Chain
-Dietetics & Nutrition
+Naval Architecture & Marine Engineering
+Marine Engineering
+Food Technology
+Nursing
 Diagnostic Radiography
+Radiation Therapy
 Physiotherapy
 Occupational Therapy
 Speech & Language Therapy
-Nursing
-Accountancy
-Hospitality Business
-Food Business Management (Culinary Arts)
-Food Business Management (Baking & Pastry)
-Air Transport Management
-Digital Communications & Integrated Media
-Food Technology""",
+Dietetics & Nutrition""",
 "suss":"""Accountancy
 Finance
 Marketing
-Supply Chain Management
 Business Analytics
+Supply Chain Management
 Human Resource Management
-Social Work
 Early Childhood Education
-Public Safety & Security
 Psychology
+Social Work
+Public Safety & Security
 Information & Communication Technology
-Chinese Studies""",
+Sociology
+Chinese Studies
+English Language and Literature
+Translation and Interpretation (English-Chinese)
+Communication""",
 "sutd":"""Architecture & Sustainable Design
 Engineering Product Development
 Engineering Systems & Design
@@ -239,6 +253,7 @@ ZH={
 "Public Policy & Global Affairs":"公共政策与全球事务","Sociology":"社会学","Sport Science & Management":"运动科学与管理",
 "Business Management":"工商管理","Computing & Law":"计算机与法律","Software Engineering":"软件工程","Social Sciences":"社会科学",
 "Air Transport Management":"航空运输管理","Aircraft Systems Engineering":"飞机系统工程","Applied Artificial Intelligence":"应用人工智能","Applied Computing (Fintech)":"应用计算（金融科技）","Architecture & Sustainable Design":"建筑与可持续设计","Chemical Engineering":"化学工程","Chinese Studies":"中文研究","Computer Science & Design":"计算机科学与设计","Computing Science (with Univ. of Glasgow)":"计算机科学（格拉斯哥联合）","Design & Artificial Intelligence":"设计与人工智能","Diagnostic Radiography":"诊断放射学","Dietetics & Nutrition":"营养与膳食学","Digital Art & Animation":"数字艺术与动画","Digital Communications & Integrated Media":"数字传播与整合媒体","Digital Supply Chain":"数字供应链","Early Childhood Education":"幼儿教育","Electrical Power Engineering":"电力工程","Electronics & Data Engineering":"电子与数据工程","Engineering Product Development":"工程产品开发","Engineering Systems & Design":"工程系统与设计","Finance":"金融","Food Business Management (Baking & Pastry)":"餐饮管理（烘焙）","Food Business Management (Culinary Arts)":"餐饮管理（烹饪）","Food Technology":"食品科技","Hospitality Business":"酒店商业","Human Resource Management":"人力资源管理","Information & Communication Technology":"信息与通信技术","Information & Communications Technology (Information Security)":"信息与通信技术（信息安全）","Information & Communications Technology (Software Engineering)":"信息与通信技术（软件工程）","Information Systems Technology & Design":"信息系统技术与设计","Marketing":"市场营销","Mechanical Design & Manufacturing Engineering":"机械设计与制造工程","Mechatronics Systems":"机电系统","Naval Architecture & Marine Engineering":"船舶与海洋工程","Occupational Therapy":"职业治疗","Pharmaceutical Engineering":"制药工程","Physiotherapy":"物理治疗","Public Safety & Security":"公共安全","Robotics Systems":"机器人系统","Social Work":"社会工作","Speech & Language Therapy":"言语与语言治疗","Supply Chain Management":"供应链管理","Sustainable Built Environment":"可持续建筑环境","User Experience & Game Design":"用户体验与游戏设计",
+"Computing Science":"计算机科学（应用）","Applied Computing":"应用计算","Computer Science in Interactive Media and Game Development":"互动媒体与游戏开发","Computer Science in Real-Time Interactive Simulation":"实时互动仿真计算机科学","Game Design":"游戏设计","Business and Infocomm Technology":"商业与信息通信技术","Business and Management":"商业与管理","Hospitality and Tourism Management":"酒店与旅游管理","Engineering Systems":"工程系统","Infrastructure and Systems Engineering":"基础设施与系统工程","Sustainable Infrastructure Engineering (Building Services)":"可持续基础设施工程（楼宇）","Telematics (Intelligent Transportation Systems Engineering)":"智能交通系统工程","Marine Engineering":"轮机工程","Radiation Therapy":"放射治疗","English Language and Literature":"英语语言与文学","Translation and Interpretation (English-Chinese)":"翻译与口译（中英）","Communication":"传播学",
 }
 CLUSTER_RULES=[
  ("医学健康",["Medicine","Dentistry","Nursing","Pharmac","Therapy","Radiography","Physiotherap","Dietetics","Occupational","Speech","Chinese Medicine"]),

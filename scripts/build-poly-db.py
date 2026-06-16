@@ -407,7 +407,14 @@ def build_database():
     <div class="pdb-empty" id="pdbempty">没有符合条件的专业，试着放宽筛选条件。</div>
   </div>
 
-  <section class="pdb-sec" style="padding-top:24px">
+  <section class="pdb-sec" style="padding-top:18px">
+    <a href="/university/degrees/" style="display:block;background:linear-gradient(135deg,#eef4fc,#fff 60%);border:1px solid #cdddf5;border-left:4px solid #1f4e9c;border-radius:14px;padding:18px 22px;text-decoration:none">
+      <span style="font-weight:800;color:#1f4e9c;font-size:1.05rem">🎓 理工毕业还能升大学 →</span>
+      <span style="display:block;margin-top:6px;color:#5a6478;font-size:.92rem;line-height:1.6">Diploma 毕业凭 GPA 可升 NUS / NTU / SMU 等。查 6 所大学 + 123 个本科专业的录取分数据库——「理工 GPA」一列正好对应你的成绩，输入 GPA 就能看能进哪些大学专业。</span>
+    </a>
+  </section>
+
+  <section class="pdb-sec" style="padding-top:8px">
     <h2>如何看懂理工学院录取分（ELR2B2）</h2>
     <p class="lead">ELR2B2 是新加坡 O-Level 升理工学院（JAE 联合招生）的核心分数：<b>英文（EL）+ 2 门相关科目（R2）+ 2 门最佳科目（B2）</b>，共 5 科成绩之和，可减去 CCA 等加分，<b>分数越低越好</b>。大部分专业要求净分不超过 26，护理类（ELR2B2-C）放宽到 28。</p>
     <p class="lead">本数据库每个专业显示的是 {YEAR} 年 JAE 实际录取学生的<b>净 ELR2B2 区间</b>——例如「5–12」表示分数最好的被录取者 5 分、分数最低的被录取者 12 分。区间右端（最低录取分）可粗略当作该专业的「门槛」：你的分数只要不高于它，通常就有竞争机会。颜色越红代表越难进。这是历史参考，实际截分每届会随考生成绩和报考热度浮动。</p>

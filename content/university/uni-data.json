@@ -8,7 +8,8 @@
    "qs": "QS #8",
    "founded": 1905,
    "type": "grade",
-   "atar": "≥90（热门专业近满分）",
+   "atar": "WACE 综合评估",
+   "campus": "/assets/nus-campus.jpg",
    "sig": "综合排名全国第一，文理工医法全覆盖"
   },
   {
@@ -19,7 +20,8 @@
    "qs": "QS #12",
    "founded": 1991,
    "type": "grade",
-   "atar": "≥90",
+   "atar": "ATAR ≥90",
+   "campus": "/assets/ntu-campus.jpg",
    "sig": "工程与计算机全球顶尖，理工强校"
   },
   {
@@ -30,7 +32,8 @@
    "qs": "商科顶尖",
    "founded": 2000,
    "type": "grade",
-   "atar": "≥90（参照）",
+   "atar": "WACE 综合评估",
+   "campus": null,
    "sig": "商科/会计/法律/计算机，研讨式小班教学"
   },
   {
@@ -42,6 +45,7 @@
    "founded": 2009,
    "type": "holistic",
    "atar": "综合评估",
+   "campus": null,
    "sig": "科技与设计交叉，含作品/面试整体评估"
   },
   {
@@ -53,6 +57,7 @@
    "founded": 2009,
    "type": "aptitude",
    "atar": "能力本位·无硬性截分",
+   "campus": "/assets/sit-campus.jpg",
    "sig": "应用型大学，与海外名校联合学位、行业实战"
   },
   {
@@ -64,6 +69,7 @@
    "founded": 2017,
    "type": "aptitude",
    "atar": "多轮评估（笔试+面试）",
+   "campus": null,
    "sig": "社会科学、商科、心理与社工见长"
   },
   {
@@ -75,6 +81,7 @@
    "founded": 2024,
    "type": "portfolio",
    "atar": "作品集/试演",
+   "campus": null,
    "sig": "NAFA+LASALLE 组成，艺术设计表演类"
   }
  ],
@@ -951,8 +958,19 @@
   },
   {
    "uni": "sit",
-   "name_en": "Computing Science (with Univ. of Glasgow)",
-   "name_zh": "计算机科学（格拉斯哥联合）",
+   "name_en": "Computing Science",
+   "name_zh": "计算机科学（应用）",
+   "cluster": "计算机",
+   "alevel": "—",
+   "gpa": "—",
+   "glo": 0,
+   "atar": "—",
+   "type": "aptitude"
+  },
+  {
+   "uni": "sit",
+   "name_en": "Applied Computing",
+   "name_zh": "应用计算",
    "cluster": "计算机",
    "alevel": "—",
    "gpa": "—",
@@ -973,8 +991,19 @@
   },
   {
    "uni": "sit",
-   "name_en": "Applied Computing (Fintech)",
-   "name_zh": "应用计算（金融科技）",
+   "name_en": "Computer Science in Interactive Media and Game Development",
+   "name_zh": "互动媒体与游戏开发",
+   "cluster": "计算机",
+   "alevel": "—",
+   "gpa": "—",
+   "glo": 0,
+   "atar": "—",
+   "type": "aptitude"
+  },
+  {
+   "uni": "sit",
+   "name_en": "Computer Science in Real-Time Interactive Simulation",
+   "name_zh": "实时互动仿真计算机科学",
    "cluster": "计算机",
    "alevel": "—",
    "gpa": "—",
@@ -995,9 +1024,9 @@
   },
   {
    "uni": "sit",
-   "name_en": "Robotics Systems",
-   "name_zh": "机器人系统",
-   "cluster": "工程",
+   "name_en": "User Experience & Game Design",
+   "name_zh": "用户体验与游戏设计",
+   "cluster": "计算机",
    "alevel": "—",
    "gpa": "—",
    "glo": 0,
@@ -1006,9 +1035,9 @@
   },
   {
    "uni": "sit",
-   "name_en": "Mechatronics Systems",
-   "name_zh": "机电系统",
-   "cluster": "工程",
+   "name_en": "Game Design",
+   "name_zh": "游戏设计",
+   "cluster": "计算机",
    "alevel": "—",
    "gpa": "—",
    "glo": 0,
@@ -1028,9 +1057,86 @@
   },
   {
    "uni": "sit",
-   "name_en": "User Experience & Game Design",
-   "name_zh": "用户体验与游戏设计",
-   "cluster": "计算机",
+   "name_en": "Business and Infocomm Technology",
+   "name_zh": "商业与信息通信技术",
+   "cluster": "商科",
+   "alevel": "—",
+   "gpa": "—",
+   "glo": 0,
+   "atar": "—",
+   "type": "aptitude"
+  },
+  {
+   "uni": "sit",
+   "name_en": "Digital Communications & Integrated Media",
+   "name_zh": "数字传播与整合媒体",
+   "cluster": "传媒",
+   "alevel": "—",
+   "gpa": "—",
+   "glo": 0,
+   "atar": "—",
+   "type": "aptitude"
+  },
+  {
+   "uni": "sit",
+   "name_en": "Accountancy",
+   "name_zh": "会计学",
+   "cluster": "商科",
+   "alevel": "—",
+   "gpa": "—",
+   "glo": 0,
+   "atar": "—",
+   "type": "aptitude"
+  },
+  {
+   "uni": "sit",
+   "name_en": "Business and Management",
+   "name_zh": "商业与管理",
+   "cluster": "商科",
+   "alevel": "—",
+   "gpa": "—",
+   "glo": 0,
+   "atar": "—",
+   "type": "aptitude"
+  },
+  {
+   "uni": "sit",
+   "name_en": "Hospitality and Tourism Management",
+   "name_zh": "酒店与旅游管理",
+   "cluster": "商科",
+   "alevel": "—",
+   "gpa": "—",
+   "glo": 0,
+   "atar": "—",
+   "type": "aptitude"
+  },
+  {
+   "uni": "sit",
+   "name_en": "Air Transport Management",
+   "name_zh": "航空运输管理",
+   "cluster": "商科",
+   "alevel": "—",
+   "gpa": "—",
+   "glo": 0,
+   "atar": "—",
+   "type": "aptitude"
+  },
+  {
+   "uni": "sit",
+   "name_en": "Food Business Management (Culinary Arts)",
+   "name_zh": "餐饮管理（烹饪）",
+   "cluster": "商科",
+   "alevel": "—",
+   "gpa": "—",
+   "glo": 0,
+   "atar": "—",
+   "type": "aptitude"
+  },
+  {
+   "uni": "sit",
+   "name_en": "Food Business Management (Baking & Pastry)",
+   "name_zh": "餐饮管理（烘焙）",
+   "cluster": "商科",
    "alevel": "—",
    "gpa": "—",
    "glo": 0,
@@ -1072,28 +1178,6 @@
   },
   {
    "uni": "sit",
-   "name_en": "Electrical Power Engineering",
-   "name_zh": "电力工程",
-   "cluster": "工程",
-   "alevel": "—",
-   "gpa": "—",
-   "glo": 0,
-   "atar": "—",
-   "type": "aptitude"
-  },
-  {
-   "uni": "sit",
-   "name_en": "Electronics & Data Engineering",
-   "name_zh": "电子与数据工程",
-   "cluster": "工程",
-   "alevel": "—",
-   "gpa": "—",
-   "glo": 0,
-   "atar": "—",
-   "type": "aptitude"
-  },
-  {
-   "uni": "sit",
    "name_en": "Mechanical Engineering",
    "name_zh": "机械工程",
    "cluster": "工程",
@@ -1116,8 +1200,96 @@
   },
   {
    "uni": "sit",
-   "name_en": "Naval Architecture & Marine Engineering",
-   "name_zh": "船舶与海洋工程",
+   "name_en": "Electrical & Electronic Engineering",
+   "name_zh": "电气与电子工程",
+   "cluster": "工程",
+   "alevel": "—",
+   "gpa": "—",
+   "glo": 0,
+   "atar": "—",
+   "type": "aptitude"
+  },
+  {
+   "uni": "sit",
+   "name_en": "Electrical Power Engineering",
+   "name_zh": "电力工程",
+   "cluster": "工程",
+   "alevel": "—",
+   "gpa": "—",
+   "glo": 0,
+   "atar": "—",
+   "type": "aptitude"
+  },
+  {
+   "uni": "sit",
+   "name_en": "Electronics & Data Engineering",
+   "name_zh": "电子与数据工程",
+   "cluster": "工程",
+   "alevel": "—",
+   "gpa": "—",
+   "glo": 0,
+   "atar": "—",
+   "type": "aptitude"
+  },
+  {
+   "uni": "sit",
+   "name_en": "Robotics Systems",
+   "name_zh": "机器人系统",
+   "cluster": "工程",
+   "alevel": "—",
+   "gpa": "—",
+   "glo": 0,
+   "atar": "—",
+   "type": "aptitude"
+  },
+  {
+   "uni": "sit",
+   "name_en": "Engineering Systems",
+   "name_zh": "工程系统",
+   "cluster": "工程",
+   "alevel": "—",
+   "gpa": "—",
+   "glo": 0,
+   "atar": "—",
+   "type": "aptitude"
+  },
+  {
+   "uni": "sit",
+   "name_en": "Infrastructure and Systems Engineering",
+   "name_zh": "基础设施与系统工程",
+   "cluster": "工程",
+   "alevel": "—",
+   "gpa": "—",
+   "glo": 0,
+   "atar": "—",
+   "type": "aptitude"
+  },
+  {
+   "uni": "sit",
+   "name_en": "Sustainable Infrastructure Engineering (Building Services)",
+   "name_zh": "可持续基础设施工程（楼宇）",
+   "cluster": "工程",
+   "alevel": "—",
+   "gpa": "—",
+   "glo": 0,
+   "atar": "—",
+   "type": "aptitude"
+  },
+  {
+   "uni": "sit",
+   "name_en": "Sustainable Built Environment",
+   "name_zh": "可持续建筑环境",
+   "cluster": "设计建筑",
+   "alevel": "—",
+   "gpa": "—",
+   "glo": 0,
+   "atar": "—",
+   "type": "aptitude"
+  },
+  {
+   "uni": "sit",
+   "name_en": "Telematics (Intelligent Transportation Systems Engineering)",
+   "name_zh": "智能交通系统工程",
    "cluster": "工程",
    "alevel": "—",
    "gpa": "—",
@@ -1149,9 +1321,9 @@
   },
   {
    "uni": "sit",
-   "name_en": "Sustainable Built Environment",
-   "name_zh": "可持续建筑环境",
-   "cluster": "设计建筑",
+   "name_en": "Naval Architecture & Marine Engineering",
+   "name_zh": "船舶与海洋工程",
+   "cluster": "工程",
    "alevel": "—",
    "gpa": "—",
    "glo": 0,
@@ -1160,9 +1332,9 @@
   },
   {
    "uni": "sit",
-   "name_en": "Digital Supply Chain",
-   "name_zh": "数字供应链",
-   "cluster": "商科",
+   "name_en": "Marine Engineering",
+   "name_zh": "轮机工程",
+   "cluster": "工程",
    "alevel": "—",
    "gpa": "—",
    "glo": 0,
@@ -1171,8 +1343,19 @@
   },
   {
    "uni": "sit",
-   "name_en": "Dietetics & Nutrition",
-   "name_zh": "营养与膳食学",
+   "name_en": "Food Technology",
+   "name_zh": "食品科技",
+   "cluster": "理学",
+   "alevel": "—",
+   "gpa": "—",
+   "glo": 0,
+   "atar": "—",
+   "type": "aptitude"
+  },
+  {
+   "uni": "sit",
+   "name_en": "Nursing",
+   "name_zh": "护理学",
    "cluster": "医学健康",
    "alevel": "—",
    "gpa": "—",
@@ -1184,6 +1367,17 @@
    "uni": "sit",
    "name_en": "Diagnostic Radiography",
    "name_zh": "诊断放射学",
+   "cluster": "医学健康",
+   "alevel": "—",
+   "gpa": "—",
+   "glo": 0,
+   "atar": "—",
+   "type": "aptitude"
+  },
+  {
+   "uni": "sit",
+   "name_en": "Radiation Therapy",
+   "name_zh": "放射治疗",
    "cluster": "医学健康",
    "alevel": "—",
    "gpa": "—",
@@ -1226,86 +1420,9 @@
   },
   {
    "uni": "sit",
-   "name_en": "Nursing",
-   "name_zh": "护理学",
+   "name_en": "Dietetics & Nutrition",
+   "name_zh": "营养与膳食学",
    "cluster": "医学健康",
-   "alevel": "—",
-   "gpa": "—",
-   "glo": 0,
-   "atar": "—",
-   "type": "aptitude"
-  },
-  {
-   "uni": "sit",
-   "name_en": "Accountancy",
-   "name_zh": "会计学",
-   "cluster": "商科",
-   "alevel": "—",
-   "gpa": "—",
-   "glo": 0,
-   "atar": "—",
-   "type": "aptitude"
-  },
-  {
-   "uni": "sit",
-   "name_en": "Hospitality Business",
-   "name_zh": "酒店商业",
-   "cluster": "商科",
-   "alevel": "—",
-   "gpa": "—",
-   "glo": 0,
-   "atar": "—",
-   "type": "aptitude"
-  },
-  {
-   "uni": "sit",
-   "name_en": "Food Business Management (Culinary Arts)",
-   "name_zh": "餐饮管理（烹饪）",
-   "cluster": "商科",
-   "alevel": "—",
-   "gpa": "—",
-   "glo": 0,
-   "atar": "—",
-   "type": "aptitude"
-  },
-  {
-   "uni": "sit",
-   "name_en": "Food Business Management (Baking & Pastry)",
-   "name_zh": "餐饮管理（烘焙）",
-   "cluster": "商科",
-   "alevel": "—",
-   "gpa": "—",
-   "glo": 0,
-   "atar": "—",
-   "type": "aptitude"
-  },
-  {
-   "uni": "sit",
-   "name_en": "Air Transport Management",
-   "name_zh": "航空运输管理",
-   "cluster": "商科",
-   "alevel": "—",
-   "gpa": "—",
-   "glo": 0,
-   "atar": "—",
-   "type": "aptitude"
-  },
-  {
-   "uni": "sit",
-   "name_en": "Digital Communications & Integrated Media",
-   "name_zh": "数字传播与整合媒体",
-   "cluster": "传媒",
-   "alevel": "—",
-   "gpa": "—",
-   "glo": 0,
-   "atar": "—",
-   "type": "aptitude"
-  },
-  {
-   "uni": "sit",
-   "name_en": "Food Technology",
-   "name_zh": "食品科技",
-   "cluster": "理学",
    "alevel": "—",
    "gpa": "—",
    "glo": 0,
@@ -1347,9 +1464,9 @@
   },
   {
    "uni": "suss",
-   "name_en": "Supply Chain Management",
-   "name_zh": "供应链管理",
-   "cluster": "商科",
+   "name_en": "Business Analytics",
+   "name_zh": "商业分析",
+   "cluster": "计算机",
    "alevel": "—",
    "gpa": "—",
    "glo": 0,
@@ -1358,9 +1475,9 @@
   },
   {
    "uni": "suss",
-   "name_en": "Business Analytics",
-   "name_zh": "商业分析",
-   "cluster": "计算机",
+   "name_en": "Supply Chain Management",
+   "name_zh": "供应链管理",
+   "cluster": "商科",
    "alevel": "—",
    "gpa": "—",
    "glo": 0,
@@ -1380,8 +1497,8 @@
   },
   {
    "uni": "suss",
-   "name_en": "Social Work",
-   "name_zh": "社会工作",
+   "name_en": "Early Childhood Education",
+   "name_zh": "幼儿教育",
    "cluster": "人文社科",
    "alevel": "—",
    "gpa": "—",
@@ -1391,8 +1508,19 @@
   },
   {
    "uni": "suss",
-   "name_en": "Early Childhood Education",
-   "name_zh": "幼儿教育",
+   "name_en": "Psychology",
+   "name_zh": "心理学",
+   "cluster": "人文社科",
+   "alevel": "—",
+   "gpa": "—",
+   "glo": 0,
+   "atar": "—",
+   "type": "aptitude"
+  },
+  {
+   "uni": "suss",
+   "name_en": "Social Work",
+   "name_zh": "社会工作",
    "cluster": "人文社科",
    "alevel": "—",
    "gpa": "—",
@@ -1413,17 +1541,6 @@
   },
   {
    "uni": "suss",
-   "name_en": "Psychology",
-   "name_zh": "心理学",
-   "cluster": "人文社科",
-   "alevel": "—",
-   "gpa": "—",
-   "glo": 0,
-   "atar": "—",
-   "type": "aptitude"
-  },
-  {
-   "uni": "suss",
    "name_en": "Information & Communication Technology",
    "name_zh": "信息与通信技术",
    "cluster": "计算机",
@@ -1435,9 +1552,53 @@
   },
   {
    "uni": "suss",
+   "name_en": "Sociology",
+   "name_zh": "社会学",
+   "cluster": "人文社科",
+   "alevel": "—",
+   "gpa": "—",
+   "glo": 0,
+   "atar": "—",
+   "type": "aptitude"
+  },
+  {
+   "uni": "suss",
    "name_en": "Chinese Studies",
    "name_zh": "中文研究",
    "cluster": "人文社科",
+   "alevel": "—",
+   "gpa": "—",
+   "glo": 0,
+   "atar": "—",
+   "type": "aptitude"
+  },
+  {
+   "uni": "suss",
+   "name_en": "English Language and Literature",
+   "name_zh": "英语语言与文学",
+   "cluster": "人文社科",
+   "alevel": "—",
+   "gpa": "—",
+   "glo": 0,
+   "atar": "—",
+   "type": "aptitude"
+  },
+  {
+   "uni": "suss",
+   "name_en": "Translation and Interpretation (English-Chinese)",
+   "name_zh": "翻译与口译（中英）",
+   "cluster": "人文社科",
+   "alevel": "—",
+   "gpa": "—",
+   "glo": 0,
+   "atar": "—",
+   "type": "aptitude"
+  },
+  {
+   "uni": "suss",
+   "name_en": "Communication",
+   "name_zh": "传播学",
+   "cluster": "传媒",
    "alevel": "—",
    "gpa": "—",
    "glo": 0,
@@ -1517,6 +1678,6 @@
    "req": "个人陈述 + 面试（无需作品集）"
   }
  ],
- "count": 123,
+ "count": 137,
  "year": "2025/26"
 }

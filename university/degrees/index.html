@@ -5,11 +5,11 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml"/>
 <title>新加坡大学本科专业录取分数据库：A-Level / WACE / 理工GPA 一表查询（2025/26）</title>
-<meta name="description" content="新加坡 6 所公立大学 123 个本科专业的 A-Level IGP 成绩档、理工 GPA 录取线与 WACE 参考 ATAR 一表查询，可按学校、方向、GPA 筛选；含艺术大学 UAS 作品集要求。"/>
+<meta name="description" content="新加坡 6 所公立大学 137 个本科专业的 A-Level IGP 成绩档、理工 GPA 录取线与 WACE 参考 ATAR 一表查询，可按学校、方向、GPA 筛选；含艺术大学 UAS 作品集要求。"/>
 <meta name="robots" content="index,follow,max-image-preview:large"/>
 <link rel="canonical" href="https://sgeda.org.cn/university/degrees/"/>
 <link rel="stylesheet" href="/seda-site.css?v=38"/>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Dataset","name":"新加坡大学本科专业录取分数据库（2025/26）","description":"新加坡 6 所公立大学（NUS/NTU/SMU/SUTD/SIT/SUSS）共 123 个本科专业的 A-Level IGP 成绩档、理工 Diploma GPA 录取线、WACE 参考 ATAR；含艺术大学 UAS 作品集要求。","url":"https://sgeda.org.cn/university/degrees/","inLanguage":"zh-CN","isAccessibleForFree":true,"keywords":"IGP,A-Level,ATAR,WACE,理工GPA,新加坡大学,录取分数","creator":{"@type":"Organization","name":"SEDA 新加坡择校网"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Dataset","name":"新加坡大学本科专业录取分数据库（2025/26）","description":"新加坡 6 所公立大学（NUS/NTU/SMU/SUTD/SIT/SUSS）共 137 个本科专业的 A-Level IGP 成绩档、理工 Diploma GPA 录取线、WACE 参考 ATAR；含艺术大学 UAS 作品集要求。","url":"https://sgeda.org.cn/university/degrees/","inLanguage":"zh-CN","isAccessibleForFree":true,"keywords":"IGP,A-Level,ATAR,WACE,理工GPA,新加坡大学,录取分数","creator":{"@type":"Organization","name":"SEDA 新加坡择校网"}}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首页","item":"https://sgeda.org.cn/"},{"@type":"ListItem","position":2,"name":"新加坡大学","item":"https://sgeda.org.cn/university/"},{"@type":"ListItem","position":3,"name":"专业录取分数据库"}]}</script>
 <style>
 .udb-hero{padding:38px clamp(20px,6vw,80px);background:linear-gradient(135deg,#0f2a5c,#1f4e9c)}
@@ -29,12 +29,14 @@
 .usec h2{font-size:clamp(22px,3vw,30px);margin:0 0 6px;color:var(--ink);font-weight:820}
 .usec .lead{color:var(--muted);margin:0 0 24px;line-height:1.7}
 .ucards{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px}
-.ucard{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:16px;padding:20px;background:#fff;box-shadow:0 2px 10px rgba(20,20,40,.04);transition:transform .2s,box-shadow .2s;text-decoration:none}
+.ucard{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:#fff;box-shadow:0 2px 10px rgba(20,20,40,.04);transition:transform .2s,box-shadow .2s;text-decoration:none}
 .ucard:hover{transform:translateY(-4px);box-shadow:var(--shadow-md)}
-.ucard .top{display:flex;align-items:center;gap:12px;margin-bottom:10px}
-.ucard .abbr{font-size:.92rem;font-weight:800;color:#fff;background:#1f4e9c;padding:5px 11px;border-radius:9px;letter-spacing:.03em}
-.ucard.arts .abbr{background:#b5179e}
-.ucard .qs{font-size:.74rem;color:var(--muted);background:#eef2f8;padding:3px 9px;border-radius:999px}
+.ucard .cover{height:104px;background-size:cover;background-position:center;position:relative;display:flex;align-items:flex-end;justify-content:space-between;padding:10px 14px}
+.ucard .cover.grad{background:linear-gradient(135deg,#1f4e9c,#4277cc)}
+.ucard.arts .cover.grad{background:linear-gradient(135deg,#b5179e,#d94fc4)}
+.ucard .cover .ab2{color:#fff;font-weight:800;font-size:1.15rem;letter-spacing:.03em;text-shadow:0 1px 5px rgba(0,0,0,.45)}
+.ucard .cover .qs2{color:#fff;font-size:.72rem;font-weight:700;background:rgba(0,0,0,.32);padding:3px 9px;border-radius:999px;backdrop-filter:blur(2px)}
+.ucard .body{display:flex;flex-direction:column;flex:1;padding:16px 18px}
 .ucard h3{margin:0;font-size:1.12rem;color:var(--ink)}
 .ucard .en{color:var(--muted);font-size:.8rem;margin:.1rem 0 .6rem}
 .ucard .sig{font-size:.88rem;color:var(--ink);line-height:1.6;margin:0 0 .7rem}
@@ -109,7 +111,7 @@
           <a href="/" class="nav-link"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg><span>首页</span></a>
           <div class="nav-group"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg><span class="nav-label">课程体系 <svg class="nav-arrow" viewBox="0 0 10 6"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none"/></svg></span>
             <div class="mega-dropdown">
-              <div class="mega-col"><a href="/wace/">WACE 西澳课程</a><a href="/o-level/">O-Level 课程</a><a href="/a-level/">A-Level 课程</a><a href="/ib/">IB 课程</a><a href="/aeis/">AEIS 预备课程</a><a href="/ap/">AP 课程</a><a href="/foundation/">Foundation 预科</a></div>
+              <div class="mega-col"><a href="/wace/">WACE 西澳课程</a><a href="/o-level/">O-Level 课程</a><a href="/a-level/">A-Level 课程</a><a href="/international-alevel/">国际 A-Level</a><a href="/ib/">IB 课程</a><a href="/aeis/">AEIS 预备课程</a><a href="/ap/">AP 课程</a><a href="/foundation/">Foundation 预科</a></div>
             </div>
           </div>
           <div class="nav-group"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 16 16 12 12 8"/><line x1="8" y1="12" x2="16" y2="12"/></svg><span class="nav-label">升学路径 <svg class="nav-arrow" viewBox="0 0 10 6"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none"/></svg></span>
@@ -140,11 +142,11 @@
     </header>
 <main>
   <section class="udb-hero"><div class="in">
-    <span class="udb-ey">🎓 6 公立大学 + 艺术大学 · 123 个本科专业 · 2025/26</span>
+    <span class="udb-ey">🎓 6 公立大学 + 艺术大学 · 137 个本科专业 · 2025/26</span>
     <h1>新加坡大学专业录取分数据库</h1>
     <p class="s">每个专业三条录取通道一表看清：<b>A-Level 成绩档（IGP 官方）</b> · <b>理工 Diploma GPA（IGP 官方）</b> · <b>WACE 参考 ATAR</b>。能力本位录取的 SIT/SUTD/SUSS 与作品集录取的艺术大学 UAS 另列说明。</p>
   </div></section>
-  <div class="atar-floor"><div class="box">🎓 <b>WACE / 澳洲学历须知</b>：新加坡公立大学对 WACE/澳洲 Year 12 按 <b>ATAR</b> 整体评估（如 NTU 官方门槛 ATAR ≥90）。表中「WACE 参考 ATAR」是按各专业最低录取 A-Level 档<b>换算的估算</b>，达校级门槛后按此判断竞争度，<b>具体以各校官方为准</b>。</div></div>
+  <div class="atar-floor"><div class="box">🎓 <b>WACE / 澳洲学历须知</b>：6 所公立中<b>只有 NTU 公布固定 ATAR 门槛（≥90）</b>；NUS、SMU、SUTD、SIT、SUSS 对 WACE/澳洲 Year 12 为<b>综合评估、未公布固定 ATAR</b>。表中「WACE 参考 ATAR」是按 NUS/NTU/SMU 各专业最低录取 A-Level 档<b>换算的估算值</b>，仅用于判断专业竞争度，<b>最终以各校官方评估为准</b>。</div></div>
 
   <div class="udb-tools"><div class="in">
     <div class="urow">
@@ -152,9 +154,9 @@
       <div class="ugpa"><span>我的理工 GPA</span><input type="number" id="ugpa" min="0" max="4" step="0.01" placeholder="如 3.7"><label><input type="checkbox" id="uonly"> 只看我够得着</label></div>
     </div>
     <div class="urow"><span class="uchiplb">学校</span><div class="uchips"><span class="uchip" data-f="uni" data-v="nus">NUS</span><span class="uchip" data-f="uni" data-v="ntu">NTU</span><span class="uchip" data-f="uni" data-v="smu">SMU</span><span class="uchip" data-f="uni" data-v="sutd">SUTD</span><span class="uchip" data-f="uni" data-v="sit">SIT</span><span class="uchip" data-f="uni" data-v="suss">SUSS</span></div></div>
-    <div class="urow"><span class="uchiplb">方向</span><div class="uchips"><span class="uchip" data-f="cluster" data-v="工程">⚙️ 工程</span><span class="uchip" data-f="cluster" data-v="计算机">💻 计算机</span><span class="uchip" data-f="cluster" data-v="商科">📊 商科</span><span class="uchip" data-f="cluster" data-v="人文社科">📚 人文社科</span><span class="uchip" data-f="cluster" data-v="医学健康">🩺 医学健康</span><span class="uchip" data-f="cluster" data-v="理学">🧪 理学</span><span class="uchip" data-f="cluster" data-v="设计建筑">🏛️ 设计建筑</span><span class="uchip" data-f="cluster" data-v="法律">⚖️ 法律</span><span class="uchip" data-f="cluster" data-v="传媒">🎬 传媒</span><span class="uchip" data-f="cluster" data-v="其他">🎓 其他</span></div></div>
+    <div class="urow"><span class="uchiplb">方向</span><div class="uchips"><span class="uchip" data-f="cluster" data-v="工程">⚙️ 工程</span><span class="uchip" data-f="cluster" data-v="计算机">💻 计算机</span><span class="uchip" data-f="cluster" data-v="人文社科">📚 人文社科</span><span class="uchip" data-f="cluster" data-v="商科">📊 商科</span><span class="uchip" data-f="cluster" data-v="医学健康">🩺 医学健康</span><span class="uchip" data-f="cluster" data-v="理学">🧪 理学</span><span class="uchip" data-f="cluster" data-v="设计建筑">🏛️ 设计建筑</span><span class="uchip" data-f="cluster" data-v="法律">⚖️ 法律</span><span class="uchip" data-f="cluster" data-v="传媒">🎬 传媒</span><span class="uchip" data-f="cluster" data-v="其他">🎓 其他</span></div></div>
   </div></div>
-  <div class="ucount">显示 <b id="ushow">123</b> / 123 个专业　<span id="uhint" style="color:var(--muted)"></span></div>
+  <div class="ucount">显示 <b id="ushow">137</b> / 137 个专业　<span id="uhint" style="color:var(--muted)"></span></div>
   <div class="uwrap"><table class="utable" id="utable"><thead><tr>
     <th>专业</th><th>大学</th><th>方向</th>
     <th>A-Level 档<br><small style="font-weight:400;color:#999">IGP 官方</small></th>
@@ -520,8 +522,13 @@
 <td><span class="ubadge apt">SIT</span></td>
 <td><span class="utag">💻 计算机</span></td>
 <td><span class="holi">能力本位·无硬性截分</span></td><td><span class="na">—</span></td><td><span class="na">综合</span></td></tr>
-<tr data-uni="sit" data-cluster="计算机" data-grade="0" data-glo="0" data-name="计算机科学（格拉斯哥联合） computing science (with univ. of glasgow) sit 计算机">
-<td><span class="ucn">计算机科学（格拉斯哥联合）</span><span class="uce">Computing Science (with Univ. of Glasgow)</span></td>
+<tr data-uni="sit" data-cluster="计算机" data-grade="0" data-glo="0" data-name="计算机科学（应用） computing science sit 计算机">
+<td><span class="ucn">计算机科学（应用）</span><span class="uce">Computing Science</span></td>
+<td><span class="ubadge apt">SIT</span></td>
+<td><span class="utag">💻 计算机</span></td>
+<td><span class="holi">能力本位·无硬性截分</span></td><td><span class="na">—</span></td><td><span class="na">综合</span></td></tr>
+<tr data-uni="sit" data-cluster="计算机" data-grade="0" data-glo="0" data-name="应用计算 applied computing sit 计算机">
+<td><span class="ucn">应用计算</span><span class="uce">Applied Computing</span></td>
 <td><span class="ubadge apt">SIT</span></td>
 <td><span class="utag">💻 计算机</span></td>
 <td><span class="holi">能力本位·无硬性截分</span></td><td><span class="na">—</span></td><td><span class="na">综合</span></td></tr>
@@ -530,8 +537,13 @@
 <td><span class="ubadge apt">SIT</span></td>
 <td><span class="utag">💻 计算机</span></td>
 <td><span class="holi">能力本位·无硬性截分</span></td><td><span class="na">—</span></td><td><span class="na">综合</span></td></tr>
-<tr data-uni="sit" data-cluster="计算机" data-grade="0" data-glo="0" data-name="应用计算（金融科技） applied computing (fintech) sit 计算机">
-<td><span class="ucn">应用计算（金融科技）</span><span class="uce">Applied Computing (Fintech)</span></td>
+<tr data-uni="sit" data-cluster="计算机" data-grade="0" data-glo="0" data-name="互动媒体与游戏开发 computer science in interactive media and game development sit 计算机">
+<td><span class="ucn">互动媒体与游戏开发</span><span class="uce">Computer Science in Interactive Media and Game Development</span></td>
+<td><span class="ubadge apt">SIT</span></td>
+<td><span class="utag">💻 计算机</span></td>
+<td><span class="holi">能力本位·无硬性截分</span></td><td><span class="na">—</span></td><td><span class="na">综合</span></td></tr>
+<tr data-uni="sit" data-cluster="计算机" data-grade="0" data-glo="0" data-name="实时互动仿真计算机科学 computer science in real-time interactive simulation sit 计算机">
+<td><span class="ucn">实时互动仿真计算机科学</span><span class="uce">Computer Science in Real-Time Interactive Simulation</span></td>
 <td><span class="ubadge apt">SIT</span></td>
 <td><span class="utag">💻 计算机</span></td>
 <td><span class="holi">能力本位·无硬性截分</span></td><td><span class="na">—</span></td><td><span class="na">综合</span></td></tr>
@@ -540,25 +552,60 @@
 <td><span class="ubadge apt">SIT</span></td>
 <td><span class="utag">⚙️ 工程</span></td>
 <td><span class="holi">能力本位·无硬性截分</span></td><td><span class="na">—</span></td><td><span class="na">综合</span></td></tr>
-<tr data-uni="sit" data-cluster="工程" data-grade="0" data-glo="0" data-name="机器人系统 robotics systems sit 工程">
-<td><span class="ucn">机器人系统</span><span class="uce">Robotics Systems</span></td>
+<tr data-uni="sit" data-cluster="计算机" data-grade="0" data-glo="0" data-name="用户体验与游戏设计 user experience &amp; game design sit 计算机">
+<td><span class="ucn">用户体验与游戏设计</span><span class="uce">User Experience &amp; Game Design</span></td>
 <td><span class="ubadge apt">SIT</span></td>
-<td><span class="utag">⚙️ 工程</span></td>
+<td><span class="utag">💻 计算机</span></td>
 <td><span class="holi">能力本位·无硬性截分</span></td><td><span class="na">—</span></td><td><span class="na">综合</span></td></tr>
-<tr data-uni="sit" data-cluster="工程" data-grade="0" data-glo="0" data-name="机电系统 mechatronics systems sit 工程">
-<td><span class="ucn">机电系统</span><span class="uce">Mechatronics Systems</span></td>
+<tr data-uni="sit" data-cluster="计算机" data-grade="0" data-glo="0" data-name="游戏设计 game design sit 计算机">
+<td><span class="ucn">游戏设计</span><span class="uce">Game Design</span></td>
 <td><span class="ubadge apt">SIT</span></td>
-<td><span class="utag">⚙️ 工程</span></td>
+<td><span class="utag">💻 计算机</span></td>
 <td><span class="holi">能力本位·无硬性截分</span></td><td><span class="na">—</span></td><td><span class="na">综合</span></td></tr>
 <tr data-uni="sit" data-cluster="设计建筑" data-grade="0" data-glo="0" data-name="数字艺术与动画 digital art &amp; animation sit 设计建筑">
 <td><span class="ucn">数字艺术与动画</span><span class="uce">Digital Art &amp; Animation</span></td>
 <td><span class="ubadge apt">SIT</span></td>
 <td><span class="utag">🏛️ 设计建筑</span></td>
 <td><span class="holi">能力本位·无硬性截分</span></td><td><span class="na">—</span></td><td><span class="na">综合</span></td></tr>
-<tr data-uni="sit" data-cluster="计算机" data-grade="0" data-glo="0" data-name="用户体验与游戏设计 user experience &amp; game design sit 计算机">
-<td><span class="ucn">用户体验与游戏设计</span><span class="uce">User Experience &amp; Game Design</span></td>
+<tr data-uni="sit" data-cluster="商科" data-grade="0" data-glo="0" data-name="商业与信息通信技术 business and infocomm technology sit 商科">
+<td><span class="ucn">商业与信息通信技术</span><span class="uce">Business and Infocomm Technology</span></td>
 <td><span class="ubadge apt">SIT</span></td>
-<td><span class="utag">💻 计算机</span></td>
+<td><span class="utag">📊 商科</span></td>
+<td><span class="holi">能力本位·无硬性截分</span></td><td><span class="na">—</span></td><td><span class="na">综合</span></td></tr>
+<tr data-uni="sit" data-cluster="传媒" data-grade="0" data-glo="0" data-name="数字传播与整合媒体 digital communications &amp; integrated media sit 传媒">
+<td><span class="ucn">数字传播与整合媒体</span><span class="uce">Digital Communications &amp; Integrated Media</span></td>
+<td><span class="ubadge apt">SIT</span></td>
+<td><span class="utag">🎬 传媒</span></td>
+<td><span class="holi">能力本位·无硬性截分</span></td><td><span class="na">—</span></td><td><span class="na">综合</span></td></tr>
+<tr data-uni="sit" data-cluster="商科" data-grade="0" data-glo="0" data-name="会计学 accountancy sit 商科">
+<td><span class="ucn">会计学</span><span class="uce">Accountancy</span></td>
+<td><span class="ubadge apt">SIT</span></td>
+<td><span class="utag">📊 商科</span></td>
+<td><span class="holi">能力本位·无硬性截分</span></td><td><span class="na">—</span></td><td><span class="na">综合</span></td></tr>
+<tr data-uni="sit" data-cluster="商科" data-grade="0" data-glo="0" data-name="商业与管理 business and management sit 商科">
+<td><span class="ucn">商业与管理</span><span class="uce">Business and Management</span></td>
+<td><span class="ubadge apt">SIT</span></td>
+<td><span class="utag">📊 商科</span></td>
+<td><span class="holi">能力本位·无硬性截分</span></td><td><span class="na">—</span></td><td><span class="na">综合</span></td></tr>
+<tr data-uni="sit" data-cluster="商科" data-grade="0" data-glo="0" data-name="酒店与旅游管理 hospitality and tourism management sit 商科">
+<td><span class="ucn">酒店与旅游管理</span><span class="uce">Hospitality and Tourism Management</span></td>
+<td><span class="ubadge apt">SIT</span></td>
+<td><span class="utag">📊 商科</span></td>
+<td><span class="holi">能力本位·无硬性截分</span></td><td><span class="na">—</span></td><td><span class="na">综合</span></td></tr>
+<tr data-uni="sit" data-cluster="商科" data-grade="0" data-glo="0" data-name="航空运输管理 air transport management sit 商科">
+<td><span class="ucn">航空运输管理</span><span class="uce">Air Transport Management</span></td>
+<td><span class="ubadge apt">SIT</span></td>
+<td><span class="utag">📊 商科</span></td>
+<td><span class="holi">能力本位·无硬性截分</span></td><td><span class="na">—</span></td><td><span class="na">综合</span></td></tr>
+<tr data-uni="sit" data-cluster="商科" data-grade="0" data-glo="0" data-name="餐饮管理（烹饪） food business management (culinary arts) sit 商科">
+<td><span class="ucn">餐饮管理（烹饪）</span><span class="uce">Food Business Management (Culinary Arts)</span></td>
+<td><span class="ubadge apt">SIT</span></td>
+<td><span class="utag">📊 商科</span></td>
+<td><span class="holi">能力本位·无硬性截分</span></td><td><span class="na">—</span></td><td><span class="na">综合</span></td></tr>
+<tr data-uni="sit" data-cluster="商科" data-grade="0" data-glo="0" data-name="餐饮管理（烘焙） food business management (baking &amp; pastry) sit 商科">
+<td><span class="ucn">餐饮管理（烘焙）</span><span class="uce">Food Business Management (Baking &amp; Pastry)</span></td>
+<td><span class="ubadge apt">SIT</span></td>
+<td><span class="utag">📊 商科</span></td>
 <td><span class="holi">能力本位·无硬性截分</span></td><td><span class="na">—</span></td><td><span class="na">综合</span></td></tr>
 <tr data-uni="sit" data-cluster="工程" data-grade="0" data-glo="0" data-name="土木工程 civil engineering sit 工程">
 <td><span class="ucn">土木工程</span><span class="uce">Civil Engineering</span></td>
@@ -575,16 +622,6 @@
 <td><span class="ubadge apt">SIT</span></td>
 <td><span class="utag">⚙️ 工程</span></td>
 <td><span class="holi">能力本位·无硬性截分</span></td><td><span class="na">—</span></td><td><span class="na">综合</span></td></tr>
-<tr data-uni="sit" data-cluster="工程" data-grade="0" data-glo="0" data-name="电力工程 electrical power engineering sit 工程">
-<td><span class="ucn">电力工程</span><span class="uce">Electrical Power Engineering</span></td>
-<td><span class="ubadge apt">SIT</span></td>
-<td><span class="utag">⚙️ 工程</span></td>
-<td><span class="holi">能力本位·无硬性截分</span></td><td><span class="na">—</span></td><td><span class="na">综合</span></td></tr>
-<tr data-uni="sit" data-cluster="工程" data-grade="0" data-glo="0" data-name="电子与数据工程 electronics &amp; data engineering sit 工程">
-<td><span class="ucn">电子与数据工程</span><span class="uce">Electronics &amp; Data Engineering</span></td>
-<td><span class="ubadge apt">SIT</span></td>
-<td><span class="utag">⚙️ 工程</span></td>
-<td><span class="holi">能力本位·无硬性截分</span></td><td><span class="na">—</span></td><td><span class="na">综合</span></td></tr>
 <tr data-uni="sit" data-cluster="工程" data-grade="0" data-glo="0" data-name="机械工程 mechanical engineering sit 工程">
 <td><span class="ucn">机械工程</span><span class="uce">Mechanical Engineering</span></td>
 <td><span class="ubadge apt">SIT</span></td>
@@ -595,8 +632,48 @@
 <td><span class="ubadge apt">SIT</span></td>
 <td><span class="utag">⚙️ 工程</span></td>
 <td><span class="holi">能力本位·无硬性截分</span></td><td><span class="na">—</span></td><td><span class="na">综合</span></td></tr>
-<tr data-uni="sit" data-cluster="工程" data-grade="0" data-glo="0" data-name="船舶与海洋工程 naval architecture &amp; marine engineering sit 工程">
-<td><span class="ucn">船舶与海洋工程</span><span class="uce">Naval Architecture &amp; Marine Engineering</span></td>
+<tr data-uni="sit" data-cluster="工程" data-grade="0" data-glo="0" data-name="电气与电子工程 electrical &amp; electronic engineering sit 工程">
+<td><span class="ucn">电气与电子工程</span><span class="uce">Electrical &amp; Electronic Engineering</span></td>
+<td><span class="ubadge apt">SIT</span></td>
+<td><span class="utag">⚙️ 工程</span></td>
+<td><span class="holi">能力本位·无硬性截分</span></td><td><span class="na">—</span></td><td><span class="na">综合</span></td></tr>
+<tr data-uni="sit" data-cluster="工程" data-grade="0" data-glo="0" data-name="电力工程 electrical power engineering sit 工程">
+<td><span class="ucn">电力工程</span><span class="uce">Electrical Power Engineering</span></td>
+<td><span class="ubadge apt">SIT</span></td>
+<td><span class="utag">⚙️ 工程</span></td>
+<td><span class="holi">能力本位·无硬性截分</span></td><td><span class="na">—</span></td><td><span class="na">综合</span></td></tr>
+<tr data-uni="sit" data-cluster="工程" data-grade="0" data-glo="0" data-name="电子与数据工程 electronics &amp; data engineering sit 工程">
+<td><span class="ucn">电子与数据工程</span><span class="uce">Electronics &amp; Data Engineering</span></td>
+<td><span class="ubadge apt">SIT</span></td>
+<td><span class="utag">⚙️ 工程</span></td>
+<td><span class="holi">能力本位·无硬性截分</span></td><td><span class="na">—</span></td><td><span class="na">综合</span></td></tr>
+<tr data-uni="sit" data-cluster="工程" data-grade="0" data-glo="0" data-name="机器人系统 robotics systems sit 工程">
+<td><span class="ucn">机器人系统</span><span class="uce">Robotics Systems</span></td>
+<td><span class="ubadge apt">SIT</span></td>
+<td><span class="utag">⚙️ 工程</span></td>
+<td><span class="holi">能力本位·无硬性截分</span></td><td><span class="na">—</span></td><td><span class="na">综合</span></td></tr>
+<tr data-uni="sit" data-cluster="工程" data-grade="0" data-glo="0" data-name="工程系统 engineering systems sit 工程">
+<td><span class="ucn">工程系统</span><span class="uce">Engineering Systems</span></td>
+<td><span class="ubadge apt">SIT</span></td>
+<td><span class="utag">⚙️ 工程</span></td>
+<td><span class="holi">能力本位·无硬性截分</span></td><td><span class="na">—</span></td><td><span class="na">综合</span></td></tr>
+<tr data-uni="sit" data-cluster="工程" data-grade="0" data-glo="0" data-name="基础设施与系统工程 infrastructure and systems engineering sit 工程">
+<td><span class="ucn">基础设施与系统工程</span><span class="uce">Infrastructure and Systems Engineering</span></td>
+<td><span class="ubadge apt">SIT</span></td>
+<td><span class="utag">⚙️ 工程</span></td>
+<td><span class="holi">能力本位·无硬性截分</span></td><td><span class="na">—</span></td><td><span class="na">综合</span></td></tr>
+<tr data-uni="sit" data-cluster="工程" data-grade="0" data-glo="0" data-name="可持续基础设施工程（楼宇） sustainable infrastructure engineering (building services) sit 工程">
+<td><span class="ucn">可持续基础设施工程（楼宇）</span><span class="uce">Sustainable Infrastructure Engineering (Building Services)</span></td>
+<td><span class="ubadge apt">SIT</span></td>
+<td><span class="utag">⚙️ 工程</span></td>
+<td><span class="holi">能力本位·无硬性截分</span></td><td><span class="na">—</span></td><td><span class="na">综合</span></td></tr>
+<tr data-uni="sit" data-cluster="设计建筑" data-grade="0" data-glo="0" data-name="可持续建筑环境 sustainable built environment sit 设计建筑">
+<td><span class="ucn">可持续建筑环境</span><span class="uce">Sustainable Built Environment</span></td>
+<td><span class="ubadge apt">SIT</span></td>
+<td><span class="utag">🏛️ 设计建筑</span></td>
+<td><span class="holi">能力本位·无硬性截分</span></td><td><span class="na">—</span></td><td><span class="na">综合</span></td></tr>
+<tr data-uni="sit" data-cluster="工程" data-grade="0" data-glo="0" data-name="智能交通系统工程 telematics (intelligent transportation systems engineering) sit 工程">
+<td><span class="ucn">智能交通系统工程</span><span class="uce">Telematics (Intelligent Transportation Systems Engineering)</span></td>
 <td><span class="ubadge apt">SIT</span></td>
 <td><span class="utag">⚙️ 工程</span></td>
 <td><span class="holi">能力本位·无硬性截分</span></td><td><span class="na">—</span></td><td><span class="na">综合</span></td></tr>
@@ -610,23 +687,33 @@
 <td><span class="ubadge apt">SIT</span></td>
 <td><span class="utag">⚙️ 工程</span></td>
 <td><span class="holi">能力本位·无硬性截分</span></td><td><span class="na">—</span></td><td><span class="na">综合</span></td></tr>
-<tr data-uni="sit" data-cluster="设计建筑" data-grade="0" data-glo="0" data-name="可持续建筑环境 sustainable built environment sit 设计建筑">
-<td><span class="ucn">可持续建筑环境</span><span class="uce">Sustainable Built Environment</span></td>
+<tr data-uni="sit" data-cluster="工程" data-grade="0" data-glo="0" data-name="船舶与海洋工程 naval architecture &amp; marine engineering sit 工程">
+<td><span class="ucn">船舶与海洋工程</span><span class="uce">Naval Architecture &amp; Marine Engineering</span></td>
 <td><span class="ubadge apt">SIT</span></td>
-<td><span class="utag">🏛️ 设计建筑</span></td>
+<td><span class="utag">⚙️ 工程</span></td>
 <td><span class="holi">能力本位·无硬性截分</span></td><td><span class="na">—</span></td><td><span class="na">综合</span></td></tr>
-<tr data-uni="sit" data-cluster="商科" data-grade="0" data-glo="0" data-name="数字供应链 digital supply chain sit 商科">
-<td><span class="ucn">数字供应链</span><span class="uce">Digital Supply Chain</span></td>
+<tr data-uni="sit" data-cluster="工程" data-grade="0" data-glo="0" data-name="轮机工程 marine engineering sit 工程">
+<td><span class="ucn">轮机工程</span><span class="uce">Marine Engineering</span></td>
 <td><span class="ubadge apt">SIT</span></td>
-<td><span class="utag">📊 商科</span></td>
+<td><span class="utag">⚙️ 工程</span></td>
 <td><span class="holi">能力本位·无硬性截分</span></td><td><span class="na">—</span></td><td><span class="na">综合</span></td></tr>
-<tr data-uni="sit" data-cluster="医学健康" data-grade="0" data-glo="0" data-name="营养与膳食学 dietetics &amp; nutrition sit 医学健康">
-<td><span class="ucn">营养与膳食学</span><span class="uce">Dietetics &amp; Nutrition</span></td>
+<tr data-uni="sit" data-cluster="理学" data-grade="0" data-glo="0" data-name="食品科技 food technology sit 理学">
+<td><span class="ucn">食品科技</span><span class="uce">Food Technology</span></td>
+<td><span class="ubadge apt">SIT</span></td>
+<td><span class="utag">🧪 理学</span></td>
+<td><span class="holi">能力本位·无硬性截分</span></td><td><span class="na">—</span></td><td><span class="na">综合</span></td></tr>
+<tr data-uni="sit" data-cluster="医学健康" data-grade="0" data-glo="0" data-name="护理学 nursing sit 医学健康">
+<td><span class="ucn">护理学</span><span class="uce">Nursing</span></td>
 <td><span class="ubadge apt">SIT</span></td>
 <td><span class="utag">🩺 医学健康</span></td>
 <td><span class="holi">能力本位·无硬性截分</span></td><td><span class="na">—</span></td><td><span class="na">综合</span></td></tr>
 <tr data-uni="sit" data-cluster="医学健康" data-grade="0" data-glo="0" data-name="诊断放射学 diagnostic radiography sit 医学健康">
 <td><span class="ucn">诊断放射学</span><span class="uce">Diagnostic Radiography</span></td>
+<td><span class="ubadge apt">SIT</span></td>
+<td><span class="utag">🩺 医学健康</span></td>
+<td><span class="holi">能力本位·无硬性截分</span></td><td><span class="na">—</span></td><td><span class="na">综合</span></td></tr>
+<tr data-uni="sit" data-cluster="医学健康" data-grade="0" data-glo="0" data-name="放射治疗 radiation therapy sit 医学健康">
+<td><span class="ucn">放射治疗</span><span class="uce">Radiation Therapy</span></td>
 <td><span class="ubadge apt">SIT</span></td>
 <td><span class="utag">🩺 医学健康</span></td>
 <td><span class="holi">能力本位·无硬性截分</span></td><td><span class="na">—</span></td><td><span class="na">综合</span></td></tr>
@@ -645,45 +732,10 @@
 <td><span class="ubadge apt">SIT</span></td>
 <td><span class="utag">🩺 医学健康</span></td>
 <td><span class="holi">能力本位·无硬性截分</span></td><td><span class="na">—</span></td><td><span class="na">综合</span></td></tr>
-<tr data-uni="sit" data-cluster="医学健康" data-grade="0" data-glo="0" data-name="护理学 nursing sit 医学健康">
-<td><span class="ucn">护理学</span><span class="uce">Nursing</span></td>
+<tr data-uni="sit" data-cluster="医学健康" data-grade="0" data-glo="0" data-name="营养与膳食学 dietetics &amp; nutrition sit 医学健康">
+<td><span class="ucn">营养与膳食学</span><span class="uce">Dietetics &amp; Nutrition</span></td>
 <td><span class="ubadge apt">SIT</span></td>
 <td><span class="utag">🩺 医学健康</span></td>
-<td><span class="holi">能力本位·无硬性截分</span></td><td><span class="na">—</span></td><td><span class="na">综合</span></td></tr>
-<tr data-uni="sit" data-cluster="商科" data-grade="0" data-glo="0" data-name="会计学 accountancy sit 商科">
-<td><span class="ucn">会计学</span><span class="uce">Accountancy</span></td>
-<td><span class="ubadge apt">SIT</span></td>
-<td><span class="utag">📊 商科</span></td>
-<td><span class="holi">能力本位·无硬性截分</span></td><td><span class="na">—</span></td><td><span class="na">综合</span></td></tr>
-<tr data-uni="sit" data-cluster="商科" data-grade="0" data-glo="0" data-name="酒店商业 hospitality business sit 商科">
-<td><span class="ucn">酒店商业</span><span class="uce">Hospitality Business</span></td>
-<td><span class="ubadge apt">SIT</span></td>
-<td><span class="utag">📊 商科</span></td>
-<td><span class="holi">能力本位·无硬性截分</span></td><td><span class="na">—</span></td><td><span class="na">综合</span></td></tr>
-<tr data-uni="sit" data-cluster="商科" data-grade="0" data-glo="0" data-name="餐饮管理（烹饪） food business management (culinary arts) sit 商科">
-<td><span class="ucn">餐饮管理（烹饪）</span><span class="uce">Food Business Management (Culinary Arts)</span></td>
-<td><span class="ubadge apt">SIT</span></td>
-<td><span class="utag">📊 商科</span></td>
-<td><span class="holi">能力本位·无硬性截分</span></td><td><span class="na">—</span></td><td><span class="na">综合</span></td></tr>
-<tr data-uni="sit" data-cluster="商科" data-grade="0" data-glo="0" data-name="餐饮管理（烘焙） food business management (baking &amp; pastry) sit 商科">
-<td><span class="ucn">餐饮管理（烘焙）</span><span class="uce">Food Business Management (Baking &amp; Pastry)</span></td>
-<td><span class="ubadge apt">SIT</span></td>
-<td><span class="utag">📊 商科</span></td>
-<td><span class="holi">能力本位·无硬性截分</span></td><td><span class="na">—</span></td><td><span class="na">综合</span></td></tr>
-<tr data-uni="sit" data-cluster="商科" data-grade="0" data-glo="0" data-name="航空运输管理 air transport management sit 商科">
-<td><span class="ucn">航空运输管理</span><span class="uce">Air Transport Management</span></td>
-<td><span class="ubadge apt">SIT</span></td>
-<td><span class="utag">📊 商科</span></td>
-<td><span class="holi">能力本位·无硬性截分</span></td><td><span class="na">—</span></td><td><span class="na">综合</span></td></tr>
-<tr data-uni="sit" data-cluster="传媒" data-grade="0" data-glo="0" data-name="数字传播与整合媒体 digital communications &amp; integrated media sit 传媒">
-<td><span class="ucn">数字传播与整合媒体</span><span class="uce">Digital Communications &amp; Integrated Media</span></td>
-<td><span class="ubadge apt">SIT</span></td>
-<td><span class="utag">🎬 传媒</span></td>
-<td><span class="holi">能力本位·无硬性截分</span></td><td><span class="na">—</span></td><td><span class="na">综合</span></td></tr>
-<tr data-uni="sit" data-cluster="理学" data-grade="0" data-glo="0" data-name="食品科技 food technology sit 理学">
-<td><span class="ucn">食品科技</span><span class="uce">Food Technology</span></td>
-<td><span class="ubadge apt">SIT</span></td>
-<td><span class="utag">🧪 理学</span></td>
 <td><span class="holi">能力本位·无硬性截分</span></td><td><span class="na">—</span></td><td><span class="na">综合</span></td></tr>
 <tr data-uni="suss" data-cluster="商科" data-grade="0" data-glo="0" data-name="会计学 accountancy suss 商科">
 <td><span class="ucn">会计学</span><span class="uce">Accountancy</span></td>
@@ -700,28 +752,33 @@
 <td><span class="ubadge apt">SUSS</span></td>
 <td><span class="utag">📊 商科</span></td>
 <td><span class="holi">多轮评估（笔试+面试）</span></td><td><span class="na">—</span></td><td><span class="na">综合</span></td></tr>
-<tr data-uni="suss" data-cluster="商科" data-grade="0" data-glo="0" data-name="供应链管理 supply chain management suss 商科">
-<td><span class="ucn">供应链管理</span><span class="uce">Supply Chain Management</span></td>
-<td><span class="ubadge apt">SUSS</span></td>
-<td><span class="utag">📊 商科</span></td>
-<td><span class="holi">多轮评估（笔试+面试）</span></td><td><span class="na">—</span></td><td><span class="na">综合</span></td></tr>
 <tr data-uni="suss" data-cluster="计算机" data-grade="0" data-glo="0" data-name="商业分析 business analytics suss 计算机">
 <td><span class="ucn">商业分析</span><span class="uce">Business Analytics</span></td>
 <td><span class="ubadge apt">SUSS</span></td>
 <td><span class="utag">💻 计算机</span></td>
+<td><span class="holi">多轮评估（笔试+面试）</span></td><td><span class="na">—</span></td><td><span class="na">综合</span></td></tr>
+<tr data-uni="suss" data-cluster="商科" data-grade="0" data-glo="0" data-name="供应链管理 supply chain management suss 商科">
+<td><span class="ucn">供应链管理</span><span class="uce">Supply Chain Management</span></td>
+<td><span class="ubadge apt">SUSS</span></td>
+<td><span class="utag">📊 商科</span></td>
 <td><span class="holi">多轮评估（笔试+面试）</span></td><td><span class="na">—</span></td><td><span class="na">综合</span></td></tr>
 <tr data-uni="suss" data-cluster="商科" data-grade="0" data-glo="0" data-name="人力资源管理 human resource management suss 商科">
 <td><span class="ucn">人力资源管理</span><span class="uce">Human Resource Management</span></td>
 <td><span class="ubadge apt">SUSS</span></td>
 <td><span class="utag">📊 商科</span></td>
 <td><span class="holi">多轮评估（笔试+面试）</span></td><td><span class="na">—</span></td><td><span class="na">综合</span></td></tr>
-<tr data-uni="suss" data-cluster="人文社科" data-grade="0" data-glo="0" data-name="社会工作 social work suss 人文社科">
-<td><span class="ucn">社会工作</span><span class="uce">Social Work</span></td>
+<tr data-uni="suss" data-cluster="人文社科" data-grade="0" data-glo="0" data-name="幼儿教育 early childhood education suss 人文社科">
+<td><span class="ucn">幼儿教育</span><span class="uce">Early Childhood Education</span></td>
 <td><span class="ubadge apt">SUSS</span></td>
 <td><span class="utag">📚 人文社科</span></td>
 <td><span class="holi">多轮评估（笔试+面试）</span></td><td><span class="na">—</span></td><td><span class="na">综合</span></td></tr>
-<tr data-uni="suss" data-cluster="人文社科" data-grade="0" data-glo="0" data-name="幼儿教育 early childhood education suss 人文社科">
-<td><span class="ucn">幼儿教育</span><span class="uce">Early Childhood Education</span></td>
+<tr data-uni="suss" data-cluster="人文社科" data-grade="0" data-glo="0" data-name="心理学 psychology suss 人文社科">
+<td><span class="ucn">心理学</span><span class="uce">Psychology</span></td>
+<td><span class="ubadge apt">SUSS</span></td>
+<td><span class="utag">📚 人文社科</span></td>
+<td><span class="holi">多轮评估（笔试+面试）</span></td><td><span class="na">—</span></td><td><span class="na">综合</span></td></tr>
+<tr data-uni="suss" data-cluster="人文社科" data-grade="0" data-glo="0" data-name="社会工作 social work suss 人文社科">
+<td><span class="ucn">社会工作</span><span class="uce">Social Work</span></td>
 <td><span class="ubadge apt">SUSS</span></td>
 <td><span class="utag">📚 人文社科</span></td>
 <td><span class="holi">多轮评估（笔试+面试）</span></td><td><span class="na">—</span></td><td><span class="na">综合</span></td></tr>
@@ -730,20 +787,35 @@
 <td><span class="ubadge apt">SUSS</span></td>
 <td><span class="utag">🎓 其他</span></td>
 <td><span class="holi">多轮评估（笔试+面试）</span></td><td><span class="na">—</span></td><td><span class="na">综合</span></td></tr>
-<tr data-uni="suss" data-cluster="人文社科" data-grade="0" data-glo="0" data-name="心理学 psychology suss 人文社科">
-<td><span class="ucn">心理学</span><span class="uce">Psychology</span></td>
-<td><span class="ubadge apt">SUSS</span></td>
-<td><span class="utag">📚 人文社科</span></td>
-<td><span class="holi">多轮评估（笔试+面试）</span></td><td><span class="na">—</span></td><td><span class="na">综合</span></td></tr>
 <tr data-uni="suss" data-cluster="计算机" data-grade="0" data-glo="0" data-name="信息与通信技术 information &amp; communication technology suss 计算机">
 <td><span class="ucn">信息与通信技术</span><span class="uce">Information &amp; Communication Technology</span></td>
 <td><span class="ubadge apt">SUSS</span></td>
 <td><span class="utag">💻 计算机</span></td>
 <td><span class="holi">多轮评估（笔试+面试）</span></td><td><span class="na">—</span></td><td><span class="na">综合</span></td></tr>
+<tr data-uni="suss" data-cluster="人文社科" data-grade="0" data-glo="0" data-name="社会学 sociology suss 人文社科">
+<td><span class="ucn">社会学</span><span class="uce">Sociology</span></td>
+<td><span class="ubadge apt">SUSS</span></td>
+<td><span class="utag">📚 人文社科</span></td>
+<td><span class="holi">多轮评估（笔试+面试）</span></td><td><span class="na">—</span></td><td><span class="na">综合</span></td></tr>
 <tr data-uni="suss" data-cluster="人文社科" data-grade="0" data-glo="0" data-name="中文研究 chinese studies suss 人文社科">
 <td><span class="ucn">中文研究</span><span class="uce">Chinese Studies</span></td>
 <td><span class="ubadge apt">SUSS</span></td>
 <td><span class="utag">📚 人文社科</span></td>
+<td><span class="holi">多轮评估（笔试+面试）</span></td><td><span class="na">—</span></td><td><span class="na">综合</span></td></tr>
+<tr data-uni="suss" data-cluster="人文社科" data-grade="0" data-glo="0" data-name="英语语言与文学 english language and literature suss 人文社科">
+<td><span class="ucn">英语语言与文学</span><span class="uce">English Language and Literature</span></td>
+<td><span class="ubadge apt">SUSS</span></td>
+<td><span class="utag">📚 人文社科</span></td>
+<td><span class="holi">多轮评估（笔试+面试）</span></td><td><span class="na">—</span></td><td><span class="na">综合</span></td></tr>
+<tr data-uni="suss" data-cluster="人文社科" data-grade="0" data-glo="0" data-name="翻译与口译（中英） translation and interpretation (english-chinese) suss 人文社科">
+<td><span class="ucn">翻译与口译（中英）</span><span class="uce">Translation and Interpretation (English-Chinese)</span></td>
+<td><span class="ubadge apt">SUSS</span></td>
+<td><span class="utag">📚 人文社科</span></td>
+<td><span class="holi">多轮评估（笔试+面试）</span></td><td><span class="na">—</span></td><td><span class="na">综合</span></td></tr>
+<tr data-uni="suss" data-cluster="传媒" data-grade="0" data-glo="0" data-name="传播学 communication suss 传媒">
+<td><span class="ucn">传播学</span><span class="uce">Communication</span></td>
+<td><span class="ubadge apt">SUSS</span></td>
+<td><span class="utag">🎬 传媒</span></td>
 <td><span class="holi">多轮评估（笔试+面试）</span></td><td><span class="na">—</span></td><td><span class="na">综合</span></td></tr>
 <tr data-uni="sutd" data-cluster="设计建筑" data-grade="0" data-glo="0" data-name="建筑与可持续设计 architecture &amp; sustainable design sutd 设计建筑">
 <td><span class="ucn">建筑与可持续设计</span><span class="uce">Architecture &amp; Sustainable Design</span></td>
@@ -781,6 +853,13 @@
     <h2>🎨 新加坡艺术大学 UAS（作品集 / 试演录取）</h2>
     <p class="lead">UAS（NAFA + LASALLE）<b>不看分数线</b>——A-Level / WACE 达学术门槛即可，录取看<b>作品集或试演</b>。代表专业与要求如下（以 NAFA / LASALLE 官方为准）。</p>
     <div style="overflow-x:auto"><table class="uas-table"><thead><tr><th>专业</th><th>学院</th><th>录取方式</th><th>作品集 / 试演要求</th></tr></thead><tbody><tr><td><span class="ucn">纯艺术</span><span class="uce">Fine Arts</span></td><td>NAFA / LASALLE</td><td><span class="req-作品集">作品集</span></td><td>15–20 件原创作品（素描/绘画/立体）+ 面试</td></tr><tr><td><span class="ucn">视觉传达设计</span><span class="uce">Design Communication</span></td><td>LASALLE</td><td><span class="req-作品集">作品集</span></td><td>设计/插画作品集 + 创意测试 + 面试</td></tr><tr><td><span class="ucn">动画艺术</span><span class="uce">Animation Art</span></td><td>NAFA</td><td><span class="req-作品集">作品集</span></td><td>速写、角色设计、动画样片 + 面试</td></tr><tr><td><span class="ucn">电影</span><span class="uce">Film</span></td><td>LASALLE</td><td><span class="req-作品集">作品集</span></td><td>短片/影像样片 + 创作陈述 + 面试</td></tr><tr><td><span class="ucn">时装设计</span><span class="uce">Fashion Design</span></td><td>LASALLE / NAFA</td><td><span class="req-作品集">作品集</span></td><td>时装设计作品集 + 面试</td></tr><tr><td><span class="ucn">室内设计</span><span class="uce">Interior Design</span></td><td>LASALLE</td><td><span class="req-作品集">作品集</span></td><td>空间/设计作品集 + 面试</td></tr><tr><td><span class="ucn">音乐</span><span class="uce">Music</span></td><td>NAFA / LASALLE</td><td><span class="req-试演">试演</span></td><td>现场或录制试演 + 乐理测试</td></tr><tr><td><span class="ucn">舞蹈</span><span class="uce">Dance</span></td><td>NAFA / LASALLE</td><td><span class="req-试演">试演</span></td><td>现场试演（技巧 + 即兴）</td></tr><tr><td><span class="ucn">戏剧表演</span><span class="uce">Acting / Theatre</span></td><td>LASALLE</td><td><span class="req-试演">试演</span></td><td>独白试演 + 面试 + 工作坊</td></tr><tr><td><span class="ucn">艺术管理</span><span class="uce">Arts Management</span></td><td>LASALLE</td><td><span class="req-面试">面试</span></td><td>个人陈述 + 面试（无需作品集）</td></tr></tbody></table></div>
+  </section>
+
+  <section class="usec" style="padding-top:0">
+    <a href="/poly/courses/" style="display:block;background:linear-gradient(135deg,#fff7f7,#fff 60%);border:1px solid #f3d6d6;border-left:4px solid #c62828;border-radius:14px;padding:18px 22px;text-decoration:none">
+      <span style="font-weight:800;color:#c62828;font-size:1.05rem">🏫 还在读 O-Level / 打算先读理工？→ 理工学院专业录取分</span>
+      <span style="display:block;margin-top:6px;color:#5a6478;font-size:.92rem;line-height:1.6">很多人「O-Level → 理工 Diploma → 大学」三步走。查 5 所理工 195 个专业的 ELR2B2 录取分数据库，先选对 Diploma，再用本页「理工 GPA」一列升大学。</span>
+    </a>
   </section>
 
   <section class="usec ufaq" style="padding-top:0">
@@ -832,7 +911,7 @@
       </div>
       <div>
         <span>课程体系</span>
-        <p><a href="/wace/">WACE</a> · <a href="/o-level/">O-Level</a> · <a href="/a-level/">A-Level</a> · <a href="/ib/">IB</a> · <a href="/aeis/">AEIS</a> · <a href="/ap/">AP</a> · <a href="/foundation/">Foundation</a></p>
+        <p><a href="/wace/">WACE</a> · <a href="/o-level/">O-Level</a> · <a href="/a-level/">A-Level</a> · <a href="/international-alevel/">国际 A-Level</a> · <a href="/ib/">IB</a> · <a href="/aeis/">AEIS</a> · <a href="/ap/">AP</a> · <a href="/foundation/">Foundation</a></p>
       </div>
       <div>
         <span>升学路径</span>

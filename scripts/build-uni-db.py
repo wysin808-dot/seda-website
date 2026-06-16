@@ -38,12 +38,14 @@ CSS=r'''
 .usec h2{font-size:clamp(22px,3vw,30px);margin:0 0 6px;color:var(--ink);font-weight:820}
 .usec .lead{color:var(--muted);margin:0 0 24px;line-height:1.7}
 .ucards{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px}
-.ucard{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:16px;padding:20px;background:#fff;box-shadow:0 2px 10px rgba(20,20,40,.04);transition:transform .2s,box-shadow .2s;text-decoration:none}
+.ucard{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:#fff;box-shadow:0 2px 10px rgba(20,20,40,.04);transition:transform .2s,box-shadow .2s;text-decoration:none}
 .ucard:hover{transform:translateY(-4px);box-shadow:var(--shadow-md)}
-.ucard .top{display:flex;align-items:center;gap:12px;margin-bottom:10px}
-.ucard .abbr{font-size:.92rem;font-weight:800;color:#fff;background:#1f4e9c;padding:5px 11px;border-radius:9px;letter-spacing:.03em}
-.ucard.arts .abbr{background:#b5179e}
-.ucard .qs{font-size:.74rem;color:var(--muted);background:#eef2f8;padding:3px 9px;border-radius:999px}
+.ucard .cover{height:104px;background-size:cover;background-position:center;position:relative;display:flex;align-items:flex-end;justify-content:space-between;padding:10px 14px}
+.ucard .cover.grad{background:linear-gradient(135deg,#1f4e9c,#4277cc)}
+.ucard.arts .cover.grad{background:linear-gradient(135deg,#b5179e,#d94fc4)}
+.ucard .cover .ab2{color:#fff;font-weight:800;font-size:1.15rem;letter-spacing:.03em;text-shadow:0 1px 5px rgba(0,0,0,.45)}
+.ucard .cover .qs2{color:#fff;font-size:.72rem;font-weight:700;background:rgba(0,0,0,.32);padding:3px 9px;border-radius:999px;backdrop-filter:blur(2px)}
+.ucard .body{display:flex;flex-direction:column;flex:1;padding:16px 18px}
 .ucard h3{margin:0;font-size:1.12rem;color:var(--ink)}
 .ucard .en{color:var(--muted);font-size:.8rem;margin:.1rem 0 .6rem}
 .ucard .sig{font-size:.88rem;color:var(--ink);line-height:1.6;margin:0 0 .7rem}
@@ -172,7 +174,7 @@ def build_db():
     <h1>新加坡大学专业录取分数据库</h1>
     <p class="s">每个专业三条录取通道一表看清：<b>A-Level 成绩档（IGP 官方）</b> · <b>理工 Diploma GPA（IGP 官方）</b> · <b>WACE 参考 ATAR</b>。能力本位录取的 SIT/SUTD/SUSS 与作品集录取的艺术大学 UAS 另列说明。</p>
   </div></section>
-  <div class="atar-floor"><div class="box">🎓 <b>WACE / 澳洲学历须知</b>：新加坡公立大学对 WACE/澳洲 Year 12 按 <b>ATAR</b> 整体评估（如 NTU 官方门槛 ATAR ≥90）。表中「WACE 参考 ATAR」是按各专业最低录取 A-Level 档<b>换算的估算</b>，达校级门槛后按此判断竞争度，<b>具体以各校官方为准</b>。</div></div>
+  <div class="atar-floor"><div class="box">🎓 <b>WACE / 澳洲学历须知</b>：6 所公立中<b>只有 NTU 公布固定 ATAR 门槛（≥90）</b>；NUS、SMU、SUTD、SIT、SUSS 对 WACE/澳洲 Year 12 为<b>综合评估、未公布固定 ATAR</b>。表中「WACE 参考 ATAR」是按 NUS/NTU/SMU 各专业最低录取 A-Level 档<b>换算的估算值</b>，仅用于判断专业竞争度，<b>最终以各校官方评估为准</b>。</div></div>
 
   <div class="udb-tools"><div class="in">
     <div class="urow">
@@ -195,6 +197,13 @@ def build_db():
     <h2>🎨 新加坡艺术大学 UAS（作品集 / 试演录取）</h2>
     <p class="lead">UAS（NAFA + LASALLE）<b>不看分数线</b>——A-Level / WACE 达学术门槛即可，录取看<b>作品集或试演</b>。代表专业与要求如下（以 NAFA / LASALLE 官方为准）。</p>
     <div style="overflow-x:auto"><table class="uas-table"><thead><tr><th>专业</th><th>学院</th><th>录取方式</th><th>作品集 / 试演要求</th></tr></thead><tbody>{uasrows}</tbody></table></div>
+  </section>
+
+  <section class="usec" style="padding-top:0">
+    <a href="/poly/courses/" style="display:block;background:linear-gradient(135deg,#fff7f7,#fff 60%);border:1px solid #f3d6d6;border-left:4px solid #c62828;border-radius:14px;padding:18px 22px;text-decoration:none">
+      <span style="font-weight:800;color:#c62828;font-size:1.05rem">🏫 还在读 O-Level / 打算先读理工？→ 理工学院专业录取分</span>
+      <span style="display:block;margin-top:6px;color:#5a6478;font-size:.92rem;line-height:1.6">很多人「O-Level → 理工 Diploma → 大学」三步走。查 5 所理工 195 个专业的 ELR2B2 录取分数据库，先选对 Diploma，再用本页「理工 GPA」一列升大学。</span>
+    </a>
   </section>
 
   <section class="usec ufaq" style="padding-top:0">
@@ -251,13 +260,17 @@ def build_landing():
     for u in D["unis"]:
         a,lbl=admtag[u["type"]]
         arts=" arts" if u["type"]=="portfolio" else ""
+        camp=u.get("campus")
+        cover=(f'<div class="cover" style="background-image:linear-gradient(0deg,rgba(15,42,92,.6),rgba(15,42,92,.12)),url(\'{camp}\')">' if camp else '<div class="cover grad">')
         cards.append(f'''<a class="ucard{arts}" href="/university/{u['slug']}/">
-  <div class="top"><span class="abbr">{esc(u['abbr'])}</span><span class="qs">{esc(u['qs'])}</span></div>
-  <h3>{esc(u['zh'])}</h3><p class="en">{esc(u['en'])}</p>
-  <p class="sig">{esc(u['sig'])}</p>
-  <div class="meta"><span>📅 {u['founded']}</span><span>🎓 {counts[u['slug']]} 专业</span></div>
-  <span class="adm {a}">{lbl}</span>
-  <div class="foot"><span class="c"><b>{counts[u['slug']]}</b> 个本科专业</span><span class="go">查看详情 →</span></div>
+  {cover}<span class="ab2">{esc(u['abbr'])}</span><span class="qs2">{esc(u['qs'])}</span></div>
+  <div class="body">
+    <h3>{esc(u['zh'])}</h3><p class="en">{esc(u['en'])}</p>
+    <p class="sig">{esc(u['sig'])}</p>
+    <div class="meta"><span>📅 {u['founded']}</span><span>🎓 {counts[u['slug']]} 专业</span></div>
+    <span class="adm {a}">{lbl}</span>
+    <div class="foot"><span class="c"><b>{counts[u['slug']]}</b> 个本科专业</span><span class="go">查看详情 →</span></div>
+  </div>
 </a>''')
     clcards="".join(f'<a class="uclcard" href="/university/degrees/?cluster={esc(c)}"><span class="ic">{CLI.get(c,"🎓")}</span><span class="nm">{esc(c)}</span><span class="ct"><b>{cl_counts[c]}</b> 专业</span></a>' for c in clusters)
     stats=[("6","所公立大学"),("1","所艺术大学"),(str(N),"个本科专业"),(str(len(clusters)),"个专业方向"),("A-Level·WACE·GPA","三通道录取分")]

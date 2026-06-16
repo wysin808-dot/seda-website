@@ -44,3 +44,4 @@ https://sgeda.org.cn/private-university/lsbf/
 https://sgeda.org.cn/private-university/amity/
 https://sgeda.org.cn/private-university/shrm/
 https://sgeda.org.cn/private-university/tmc/
+https://sgeda.org.cn/tools/private-university-matcher.html

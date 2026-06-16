@@ -1,0 +1,381 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml"/>
+<title>新加坡大学本科专业录取分数据库：A-Level / WACE / 理工GPA 一表查询（样板）</title>
+<meta name="description" content="新加坡公立大学本科专业的 A-Level IGP 成绩档、理工 Diploma GPA 录取线与 WACE 参考 ATAR 一表查询，含艺术大学 UAS 作品集要求。当前为 NUS + UAS 样板页。"/>
+<meta name="robots" content="noindex,follow"/>
+<link rel="canonical" href="https://sgeda.org.cn/university/degrees/"/>
+<link rel="stylesheet" href="/seda-site.css?v=38"/>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Dataset","name":"新加坡大学本科专业录取分数据库（样板：NUS）","description":"新加坡公立大学本科专业的 A-Level IGP 成绩档、理工 Diploma GPA 录取线与 WACE 参考 ATAR；含艺术大学 UAS 作品集要求。当前为 NUS + UAS 样板。","url":"https://sgeda.org.cn/university/degrees/","inLanguage":"zh-CN","isAccessibleForFree":true,"creator":{"@type":"Organization","name":"SEDA 新加坡择校网"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首页","item":"https://sgeda.org.cn/"},{"@type":"ListItem","position":2,"name":"新加坡大学","item":"https://sgeda.org.cn/university/"},{"@type":"ListItem","position":3,"name":"专业录取分数据库"}]}</script>
+<style>
+.udb-hero{padding:34px clamp(20px,6vw,80px);background:linear-gradient(135deg,#0f2a5c,#1f4e9c);color:#fff}
+.udb-hero .in{max-width:1180px;margin:0 auto}
+.udb-hero h1{font-size:clamp(24px,3.4vw,36px);margin:0 0 8px;font-weight:850}
+.udb-hero p{margin:0;color:rgba(255,255,255,.9);font-size:.98rem;line-height:1.6}
+.udb-sample{display:inline-block;margin-bottom:12px;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.3);padding:5px 13px;border-radius:999px;font-size:.82rem;font-weight:700}
+.udb-tools{position:sticky;top:0;z-index:20;background:#fff;border-bottom:1px solid var(--line);box-shadow:0 4px 14px rgba(20,20,40,.05)}
+.udb-tools .in{max-width:1180px;margin:0 auto;padding:16px clamp(20px,6vw,80px)}
+.udb-row{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:10px}
+.udb-find{display:flex;align-items:center;gap:8px;flex:1;min-width:220px;border:1px solid var(--line);border-radius:10px;padding:9px 13px;background:#fafafa}
+.udb-find input{border:0;outline:0;background:transparent;flex:1;font-size:.95rem;min-width:0}
+.udb-gpa{display:flex;align-items:center;gap:8px;border:1px solid var(--line);border-radius:10px;padding:7px 12px;background:#fafafa;font-size:.88rem;white-space:nowrap}
+.udb-gpa input{width:62px;border:1px solid var(--line);border-radius:7px;padding:5px 8px;text-align:center;outline:0}
+.udb-chips{display:flex;flex-wrap:wrap;gap:7px}
+.udb-chip{font-size:.84rem;border:1px solid var(--line);background:#fff;color:var(--muted);padding:6px 13px;border-radius:999px;cursor:pointer;user-select:none}
+.udb-chip.on{background:#1f4e9c;border-color:#1f4e9c;color:#fff}
+.udb-chiplabel{font-size:.78rem;color:var(--muted);font-weight:700;align-self:center;margin-right:4px}
+.udb-count{max-width:1180px;margin:14px auto 0;padding:0 clamp(20px,6vw,80px);font-size:.86rem;color:var(--muted)}
+.udb-count b{color:#1f4e9c}
+.udb-wrap{max-width:1180px;margin:8px auto 0;padding:0 clamp(20px,6vw,80px) 10px;overflow-x:auto}
+.udb-table{width:100%;border-collapse:collapse;font-size:.9rem;min-width:760px}
+.udb-table thead th{position:sticky;top:0;background:#f5f8fc;text-align:left;padding:11px 12px;font-weight:800;color:var(--ink);border-bottom:2px solid var(--line);white-space:nowrap}
+.udb-table td{padding:11px 12px;border-bottom:1px solid var(--line);vertical-align:middle}
+.udb-table tbody tr:hover td{background:#f9fbfe}
+.udb-table tr.dim{display:none}
+.uni-badge{display:inline-block;font-size:.72rem;font-weight:800;color:#fff;background:#1f4e9c;padding:2px 8px;border-radius:6px}
+.cn{font-weight:700;color:var(--ink)}.ce{display:block;color:var(--muted);font-size:.76rem;font-weight:400}
+.ctag{font-size:.74rem;background:#eef2f8;color:#33507e;padding:2px 9px;border-radius:999px;white-space:nowrap}
+.sc-al{font-weight:700;color:#7a3b00;background:#fff4e6;padding:3px 8px;border-radius:7px;font-size:.82rem;white-space:nowrap}
+.sc-gpa{font-weight:800;color:#1f6e3a;background:#eaf7ee;padding:3px 9px;border-radius:7px;white-space:nowrap}
+.sc-atar{font-weight:800;color:#1f4e9c;background:#eaf0fb;padding:3px 9px;border-radius:7px;white-space:nowrap}
+.sc-na{color:var(--muted)}
+.udb-note{max-width:1180px;margin:0 auto;padding:6px clamp(20px,6vw,80px) 0;font-size:.8rem;color:var(--muted)}
+.udb-sec{max-width:1180px;margin:0 auto;padding:30px clamp(20px,6vw,80px)}
+.udb-sec h2{font-size:clamp(22px,3vw,30px);margin:0 0 6px;color:var(--ink)}
+.udb-sec .lead{color:var(--muted);margin:0 0 20px;line-height:1.7}
+.uas-table{width:100%;border-collapse:collapse;font-size:.9rem;min-width:680px}
+.uas-table thead th{background:#fbf3fb;text-align:left;padding:10px 12px;font-weight:800;border-bottom:2px solid var(--line);white-space:nowrap}
+.uas-table td{padding:11px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+.req-port{font-size:.72rem;font-weight:800;color:#fff;background:#b5179e;padding:2px 8px;border-radius:999px;white-space:nowrap}
+.req-aud{font-size:.72rem;font-weight:800;color:#fff;background:#d97706;padding:2px 8px;border-radius:999px;white-space:nowrap}
+.req-int{font-size:.72rem;font-weight:800;color:#fff;background:#2563eb;padding:2px 8px;border-radius:999px;white-space:nowrap}
+.atar-floor{max-width:1180px;margin:18px auto 0;padding:14px clamp(20px,6vw,80px)}
+.atar-floor .box{background:#eaf0fb;border:1px solid #c7d7f5;border-left:4px solid #1f4e9c;border-radius:12px;padding:14px 18px;font-size:.92rem;color:var(--ink);line-height:1.7}
+</style>
+</head>
+<body>
+<header class="site-header">
+      <div class="header-main">
+        <a class="brand" href="/" aria-label="SEDA 新加坡择校网 首页">
+          <img class="brand-logo" src="/assets/seda-wordmark.svg" alt="SEDA 新加坡择校网" height="38">
+        </a>
+        <nav class="main-nav" aria-label="主导航">
+          <a href="/" class="nav-link"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg><span>首页</span></a>
+          <div class="nav-group"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg><span class="nav-label">课程体系 <svg class="nav-arrow" viewBox="0 0 10 6"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none"/></svg></span>
+            <div class="mega-dropdown">
+              <div class="mega-col"><a href="/wace/">WACE 西澳课程</a><a href="/o-level/">O-Level 课程</a><a href="/a-level/">A-Level 课程</a><a href="/ib/">IB 课程</a><a href="/aeis/">AEIS 预备课程</a><a href="/ap/">AP 课程</a><a href="/foundation/">Foundation 预科</a></div>
+            </div>
+          </div>
+          <div class="nav-group"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 16 16 12 12 8"/><line x1="8" y1="12" x2="16" y2="12"/></svg><span class="nav-label">升学路径 <svg class="nav-arrow" viewBox="0 0 10 6"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none"/></svg></span>
+            <div class="mega-dropdown"><a href="/jc/">JC 初级学院</a><a href="/poly/">Poly 理工学院</a><a href="/university/">新加坡公立大学</a><a href="/private-university/">新加坡私立大学</a><a href="/international-school/">国际学校</a><a href="/hk-university/">香港升学</a><a href="/au-university/">澳洲升学</a><a href="/uk-university/">英国升学</a></div>
+          </div>
+          <div class="nav-group"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg><span class="nav-label">学校库 <svg class="nav-arrow" viewBox="0 0 10 6"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none"/></svg></span>
+            <div class="mega-dropdown"><a href="/primary-schools/">小学数据库（179 所）</a><a href="/secondary-schools/">中学数据库（146 所）</a><a href="/jc/">初级学院（16 所）</a><a href="/international-school/">国际学校</a><a href="/private-schools/">私立学校</a><a href="/school-database/">全部学校总览</a></div>
+          </div>
+          <div class="nav-group"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg><span class="nav-label">留学指南 <svg class="nav-arrow" viewBox="0 0 10 6"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none"/></svg></span>
+            <div class="mega-dropdown"><a href="/guides/student-pass/">学生准证申请</a><a href="/guides/cost/">留学费用</a><a href="/guides/accommodation/">住宿方案</a><a href="/guides/dependent-pass/">陪读准证</a><a href="/guides/timeline/">留学时间线</a><a href="/guides/parents-faq/">家长 FAQ</a><a href="/guides/scholarship/">奖学金</a></div>
+          </div>
+          <a href="/news/" class="nav-link"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg><span>教育资讯</span></a>
+          <a href="/tools/" class="nav-link"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><span>AI升学工具</span></a>
+          <a href="/about/" class="nav-link"><span>合作入口</span></a>
+        </nav>
+        <a class="nav-cta" href="/contact/">免费咨询</a>
+      </div>
+      <div class="trending-bar" aria-label="站内搜索与热门搜索">
+        <form class="header-search" action="/search/" method="get" role="search">
+          <input type="search" name="q" placeholder="搜索 WACE / O-Level / 学校" aria-label="搜索 SEDA 内容">
+          <button type="submit">搜索</button>
+        </form>
+        <span>热门：</span>
+        <a href="/wace/">WACE 课程</a>
+        <a href="/aeis/">AEIS 考试</a>
+        <a href="/o-level/">O-Level</a>
+      </div>
+    </header>
+<main>
+  <section class="udb-hero"><div class="in">
+    <span class="udb-sample">⚙️ 样板页 · 当前仅含 NUS + UAS，确认格式后扩展到 6 公立全量</span>
+    <h1>新加坡大学本科专业录取分数据库</h1>
+    <p>每个专业三条录取通道一表看清：<b>A-Level 成绩档（IGP 官方）</b> · <b>理工 Diploma GPA（IGP 官方）</b> · <b>WACE 参考 ATAR</b>。艺术大学 UAS 按作品集/试演要求单列。</p>
+  </div></section>
+
+  <div class="atar-floor"><div class="box">
+    🎓 <b>WACE / 澳洲学历申请须知</b>：新加坡公立大学对 WACE/澳洲 Year 12 按 <b>ATAR</b> 整体评估（如 NTU 官方门槛 ATAR ≥90）。下表「WACE 参考 ATAR」是按各专业<b>最低录取 A-Level 档换算的估算值</b>，用于判断专业竞争度，达校级门槛后按此竞争——具体以各校官方为准。
+  </div></div>
+
+  <div class="udb-tools"><div class="in">
+    <div class="udb-row">
+      <div class="udb-find">🔎<input type="search" id="uq" placeholder="搜专业 / 方向，如 计算机、护理、商科"></div>
+      <div class="udb-gpa"><span>我的理工 GPA</span><input type="number" id="ugpa" min="0" max="4" step="0.01" placeholder="如 3.7"><label><input type="checkbox" id="uonly"> 只看我够得着</label></div>
+    </div>
+    <div class="udb-row"><span class="udb-chiplabel">方向</span><div class="udb-chips"><span class="udb-chip" data-f="cluster" data-v="计算机">💻 计算机</span><span class="udb-chip" data-f="cluster" data-v="医学健康">🩺 医学健康</span><span class="udb-chip" data-f="cluster" data-v="理学">🧪 理学</span><span class="udb-chip" data-f="cluster" data-v="设计建筑">🏛️ 设计建筑</span><span class="udb-chip" data-f="cluster" data-v="工程">⚙️ 工程</span><span class="udb-chip" data-f="cluster" data-v="人文社科">📚 人文社科</span><span class="udb-chip" data-f="cluster" data-v="商科">📊 商科</span><span class="udb-chip" data-f="cluster" data-v="法律">⚖️ 法律</span></div></div>
+  </div></div>
+  <div class="udb-count">显示 <b id="ushow">21</b> / 21 个专业（NUS 样板）　<span id="uhint" style="color:var(--muted)"></span></div>
+
+  <div class="udb-wrap">
+    <table class="udb-table" id="utable">
+      <thead><tr>
+        <th>专业</th><th>大学</th><th>方向</th>
+        <th>A-Level 档<br><small style="font-weight:400;color:#999">官方 IGP</small></th>
+        <th>理工 GPA<br><small style="font-weight:400;color:#999">官方 IGP</small></th>
+        <th>WACE 参考 ATAR<br><small style="font-weight:400;color:#999">估算</small></th>
+      </tr></thead>
+      <tbody id="ubody"><tr data-uni="nus" data-cluster="法律" data-glo="0" data-name="法学（法律） law nus 法律">
+<td><span class="cn">法学（法律）</span><span class="ce">Law</span></td>
+<td><span class="uni-badge">NUS</span></td>
+<td><span class="ctag">⚖️ 法律</span></td>
+<td><span class="sc-al">AAA/A – AAA/A</span></td>
+<td><span class="sc-na">样本少</span></td>
+<td><span class="sc-atar">≈99</span></td>
+</tr>
+<tr data-uni="nus" data-cluster="医学健康" data-glo="3.87" data-name="医学 medicine nus 医学健康">
+<td><span class="cn">医学</span><span class="ce">Medicine</span></td>
+<td><span class="uni-badge">NUS</span></td>
+<td><span class="ctag">🩺 医学健康</span></td>
+<td><span class="sc-al">AAA/A – AAA/A</span></td>
+<td><span class="sc-gpa">3.87–3.99</span></td>
+<td><span class="sc-atar">≈99</span></td>
+</tr>
+<tr data-uni="nus" data-cluster="医学健康" data-glo="0" data-name="牙医学 dentistry nus 医学健康">
+<td><span class="cn">牙医学</span><span class="ce">Dentistry</span></td>
+<td><span class="uni-badge">NUS</span></td>
+<td><span class="ctag">🩺 医学健康</span></td>
+<td><span class="sc-al">AAA/A – AAA/A</span></td>
+<td><span class="sc-na">样本少</span></td>
+<td><span class="sc-atar">≈99</span></td>
+</tr>
+<tr data-uni="nus" data-cluster="医学健康" data-glo="3.18" data-name="护理学 nursing nus 医学健康">
+<td><span class="cn">护理学</span><span class="ce">Nursing</span></td>
+<td><span class="uni-badge">NUS</span></td>
+<td><span class="ctag">🩺 医学健康</span></td>
+<td><span class="sc-al">CCD/C – ABB/B</span></td>
+<td><span class="sc-gpa">3.18–3.77</span></td>
+<td><span class="sc-atar">≈83</span></td>
+</tr>
+<tr data-uni="nus" data-cluster="医学健康" data-glo="3.73" data-name="药学 pharmacy nus 医学健康">
+<td><span class="cn">药学</span><span class="ce">Pharmacy</span></td>
+<td><span class="uni-badge">NUS</span></td>
+<td><span class="ctag">🩺 医学健康</span></td>
+<td><span class="sc-al">AAA/C – AAA/A</span></td>
+<td><span class="sc-gpa">3.73–3.97</span></td>
+<td><span class="sc-atar">≈99</span></td>
+</tr>
+<tr data-uni="nus" data-cluster="理学" data-glo="3.93" data-name="药剂科学 pharmaceutical science nus 理学">
+<td><span class="cn">药剂科学</span><span class="ce">Pharmaceutical Science</span></td>
+<td><span class="uni-badge">NUS</span></td>
+<td><span class="ctag">🧪 理学</span></td>
+<td><span class="sc-al">AAA/A – AAA/A</span></td>
+<td><span class="sc-gpa">3.93–4.00</span></td>
+<td><span class="sc-atar">≈99</span></td>
+</tr>
+<tr data-uni="nus" data-cluster="工程" data-glo="3.57" data-name="工程（大类） engineering nus 工程">
+<td><span class="cn">工程（大类）</span><span class="ce">Engineering</span></td>
+<td><span class="uni-badge">NUS</span></td>
+<td><span class="ctag">⚙️ 工程</span></td>
+<td><span class="sc-al">BBB/C – AAA/A</span></td>
+<td><span class="sc-gpa">3.57–3.94</span></td>
+<td><span class="sc-atar">≈92</span></td>
+</tr>
+<tr data-uni="nus" data-cluster="工程" data-glo="3.81" data-name="计算机工程 computer engineering nus 工程">
+<td><span class="cn">计算机工程</span><span class="ce">Computer Engineering</span></td>
+<td><span class="uni-badge">NUS</span></td>
+<td><span class="ctag">⚙️ 工程</span></td>
+<td><span class="sc-al">AAA/A – AAA/A</span></td>
+<td><span class="sc-gpa">3.81–3.99</span></td>
+<td><span class="sc-atar">≈99</span></td>
+</tr>
+<tr data-uni="nus" data-cluster="设计建筑" data-glo="3.56" data-name="工业设计 industrial design nus 设计建筑">
+<td><span class="cn">工业设计</span><span class="ce">Industrial Design</span></td>
+<td><span class="uni-badge">NUS</span></td>
+<td><span class="ctag">🏛️ 设计建筑</span></td>
+<td><span class="sc-al">BBC/B – AAA/A</span></td>
+<td><span class="sc-gpa">3.56–3.90</span></td>
+<td><span class="sc-atar">≈90</span></td>
+</tr>
+<tr data-uni="nus" data-cluster="设计建筑" data-glo="3.27" data-name="建筑学 architecture nus 设计建筑">
+<td><span class="cn">建筑学</span><span class="ce">Architecture</span></td>
+<td><span class="uni-badge">NUS</span></td>
+<td><span class="ctag">🏛️ 设计建筑</span></td>
+<td><span class="sc-al">CCC/C – AAB/B</span></td>
+<td><span class="sc-gpa">3.27–3.88</span></td>
+<td><span class="sc-atar">≈85</span></td>
+</tr>
+<tr data-uni="nus" data-cluster="设计建筑" data-glo="3.37" data-name="景观建筑 landscape architecture nus 设计建筑">
+<td><span class="cn">景观建筑</span><span class="ce">Landscape Architecture</span></td>
+<td><span class="uni-badge">NUS</span></td>
+<td><span class="ctag">🏛️ 设计建筑</span></td>
+<td><span class="sc-al">CCC/B – AAB/C</span></td>
+<td><span class="sc-gpa">3.37–3.81</span></td>
+<td><span class="sc-atar">≈85</span></td>
+</tr>
+<tr data-uni="nus" data-cluster="计算机" data-glo="3.81" data-name="计算机科学（大类） common computer science programmes nus 计算机">
+<td><span class="cn">计算机科学（大类）</span><span class="ce">Common Computer Science Programmes</span></td>
+<td><span class="uni-badge">NUS</span></td>
+<td><span class="ctag">💻 计算机</span></td>
+<td><span class="sc-al">AAA/A – AAA/A</span></td>
+<td><span class="sc-gpa">3.81–3.98</span></td>
+<td><span class="sc-atar">≈99</span></td>
+</tr>
+<tr data-uni="nus" data-cluster="计算机" data-glo="3.88" data-name="信息安全 information security nus 计算机">
+<td><span class="cn">信息安全</span><span class="ce">Information Security</span></td>
+<td><span class="uni-badge">NUS</span></td>
+<td><span class="ctag">💻 计算机</span></td>
+<td><span class="sc-al">AAA/B – AAA/A</span></td>
+<td><span class="sc-gpa">3.88–3.98</span></td>
+<td><span class="sc-atar">≈99</span></td>
+</tr>
+<tr data-uni="nus" data-cluster="计算机" data-glo="3.75" data-name="商业分析 business analytics nus 计算机">
+<td><span class="cn">商业分析</span><span class="ce">Business Analytics</span></td>
+<td><span class="uni-badge">NUS</span></td>
+<td><span class="ctag">💻 计算机</span></td>
+<td><span class="sc-al">AAA/A – AAA/A</span></td>
+<td><span class="sc-gpa">3.75–3.98</span></td>
+<td><span class="sc-atar">≈99</span></td>
+</tr>
+<tr data-uni="nus" data-cluster="计算机" data-glo="3.71" data-name="商业人工智能系统 business artificial intelligence systems nus 计算机">
+<td><span class="cn">商业人工智能系统</span><span class="ce">Business Artificial Intelligence Systems</span></td>
+<td><span class="uni-badge">NUS</span></td>
+<td><span class="ctag">💻 计算机</span></td>
+<td><span class="sc-al">AAA/B – AAA/A</span></td>
+<td><span class="sc-gpa">3.71–3.90</span></td>
+<td><span class="sc-atar">≈99</span></td>
+</tr>
+<tr data-uni="nus" data-cluster="计算机" data-glo="0" data-name="数据科学与经济 data science and economics nus 计算机">
+<td><span class="cn">数据科学与经济</span><span class="ce">Data Science and Economics</span></td>
+<td><span class="uni-badge">NUS</span></td>
+<td><span class="ctag">💻 计算机</span></td>
+<td><span class="sc-al">AAA/A – AAA/A</span></td>
+<td><span class="sc-na">样本少</span></td>
+<td><span class="sc-atar">≈99</span></td>
+</tr>
+<tr data-uni="nus" data-cluster="商科" data-glo="3.61" data-name="工商管理 business administration nus 商科">
+<td><span class="cn">工商管理</span><span class="ce">Business Administration</span></td>
+<td><span class="uni-badge">NUS</span></td>
+<td><span class="ctag">📊 商科</span></td>
+<td><span class="sc-al">AAA/C – AAA/A</span></td>
+<td><span class="sc-gpa">3.61–3.94</span></td>
+<td><span class="sc-atar">≈99</span></td>
+</tr>
+<tr data-uni="nus" data-cluster="理学" data-glo="3.67" data-name="环境研究 environmental studies nus 理学">
+<td><span class="cn">环境研究</span><span class="ce">Environmental Studies</span></td>
+<td><span class="uni-badge">NUS</span></td>
+<td><span class="ctag">🧪 理学</span></td>
+<td><span class="sc-al">AAA/B – AAA/A</span></td>
+<td><span class="sc-gpa">3.67–3.94</span></td>
+<td><span class="sc-atar">≈99</span></td>
+</tr>
+<tr data-uni="nus" data-cluster="理学" data-glo="3.64" data-name="食品科学与技术 food science and technology nus 理学">
+<td><span class="cn">食品科学与技术</span><span class="ce">Food Science and Technology</span></td>
+<td><span class="uni-badge">NUS</span></td>
+<td><span class="ctag">🧪 理学</span></td>
+<td><span class="sc-al">AAA/C – AAA/A</span></td>
+<td><span class="sc-gpa">3.64–3.91</span></td>
+<td><span class="sc-atar">≈99</span></td>
+</tr>
+<tr data-uni="nus" data-cluster="人文社科" data-glo="3.63" data-name="人文与科学 humanities and sciences nus 人文社科">
+<td><span class="cn">人文与科学</span><span class="ce">Humanities and Sciences</span></td>
+<td><span class="uni-badge">NUS</span></td>
+<td><span class="ctag">📚 人文社科</span></td>
+<td><span class="sc-al">ABB/C – AAA/A</span></td>
+<td><span class="sc-gpa">3.63–3.92</span></td>
+<td><span class="sc-atar">≈95</span></td>
+</tr>
+<tr data-uni="nus" data-cluster="人文社科" data-glo="0" data-name="哲学政治经济（ppe） philosophy, politics, and economics nus 人文社科">
+<td><span class="cn">哲学政治经济（PPE）</span><span class="ce">Philosophy, Politics, and Economics</span></td>
+<td><span class="uni-badge">NUS</span></td>
+<td><span class="ctag">📚 人文社科</span></td>
+<td><span class="sc-al">AAA/A – AAA/A</span></td>
+<td><span class="sc-na">样本少</span></td>
+<td><span class="sc-atar">≈99</span></td>
+</tr></tbody>
+    </table>
+  </div>
+  <p class="udb-note">A-Level 档与理工 GPA 为 NUS 官方 AY2025/26 IGP（10–90 百分位）；WACE ATAR 为按最低录取 A-Level 估算的参考值。"样本少"指官方因人数过少未公布 GPA。</p>
+
+  <section class="udb-sec">
+    <h2>🎨 新加坡艺术大学 UAS（作品集 / 试演录取）</h2>
+    <p class="lead">UAS（由 NAFA 与 LASALLE 组成）是艺术类大学，<b>不看分数线</b>——A-Level / WACE 达学术门槛即可，录取主要看<b>作品集或试演</b>。以下为代表专业与要求（以 NAFA / LASALLE 官方为准）。</p>
+    <div style="overflow-x:auto"><table class="uas-table">
+      <thead><tr><th>专业</th><th>学院</th><th>学术门槛</th><th>录取方式</th><th>作品集 / 试演要求</th></tr></thead>
+      <tbody><tr><td><span class="cn">纯艺术</span><span class="ce">Fine Arts</span></td>
+<td>NAFA / LASALLE</td><td>A-Level / 高中毕业 / 同等学历</td>
+<td><span class="req-port">作品集</span></td><td>15–20 件原创作品（素描、绘画、立体等）+ 面试</td></tr><tr><td><span class="cn">视觉传达设计</span><span class="ce">Design Communication</span></td>
+<td>LASALLE</td><td>A-Level / 同等学历</td>
+<td><span class="req-port">作品集</span></td><td>设计/插画作品集 + 创意测试 + 面试</td></tr><tr><td><span class="cn">动画艺术</span><span class="ce">Animation Art</span></td>
+<td>NAFA</td><td>A-Level / 同等学历</td>
+<td><span class="req-port">作品集</span></td><td>速写、角色设计、动画样片 + 面试</td></tr><tr><td><span class="cn">电影</span><span class="ce">Film</span></td>
+<td>LASALLE</td><td>A-Level / 同等学历</td>
+<td><span class="req-port">作品集</span></td><td>短片 / 影像样片 + 创作陈述 + 面试</td></tr><tr><td><span class="cn">音乐（表演/作曲）</span><span class="ce">Music</span></td>
+<td>NAFA / LASALLE</td><td>A-Level / 同等学历</td>
+<td><span class="req-aud">试演</span></td><td>现场或录制试演 + 乐理测试</td></tr><tr><td><span class="cn">舞蹈</span><span class="ce">Dance</span></td>
+<td>NAFA / LASALLE</td><td>A-Level / 同等学历</td>
+<td><span class="req-aud">试演</span></td><td>现场试演（技巧 + 即兴）</td></tr><tr><td><span class="cn">戏剧表演</span><span class="ce">Acting / Theatre</span></td>
+<td>LASALLE</td><td>A-Level / 同等学历</td>
+<td><span class="req-aud">试演</span></td><td>独白试演 + 面试 + 工作坊</td></tr><tr><td><span class="cn">艺术管理</span><span class="ce">Arts Management</span></td>
+<td>LASALLE</td><td>A-Level / 同等学历（侧重学术）</td>
+<td><span class="req-int">面试</span></td><td>个人陈述 + 面试（无需作品集）</td></tr></tbody>
+    </table></div>
+  </section>
+
+  <section class="udb-sec" style="padding-top:0">
+    <p class="lead" style="font-size:.86rem">本页为<b>样板</b>，用于确认「A-Level + WACE + 理工 GPA」三通道 + UAS 作品集的展示格式。确认后将扩展到 <b>NUS / NTU / SMU / SUTD / SIT / SUSS 六所公立 + UAS 全量专业</b>，并补 gostudy 式大学目录页与各校录取门槛。想要一对一选校建议可<a href="/contact/" style="color:#1f4e9c;font-weight:700">免费咨询</a>。</p>
+  </section>
+
+<script>
+(function(){
+  var body=document.getElementById('ubody');
+  var rows=[].slice.call(body.querySelectorAll('tr'));
+  var q=document.getElementById('uq'),gpa=document.getElementById('ugpa'),only=document.getElementById('uonly');
+  var show=document.getElementById('ushow'),hint=document.getElementById('uhint');
+  var fC={};
+  function act(o){return Object.keys(o).filter(function(k){return o[k]})}
+  function apply(){
+    var term=(q.value||'').trim().toLowerCase();
+    var g=parseFloat(gpa.value); var onlyMe=only.checked&&!isNaN(g);
+    var aC=act(fC),n=0;
+    rows.forEach(function(tr){
+      var ok=true;
+      if(term&&tr.getAttribute('data-name').indexOf(term)<0)ok=false;
+      if(ok&&aC.length&&aC.indexOf(tr.getAttribute('data-cluster'))<0)ok=false;
+      var glo=parseFloat(tr.getAttribute('data-glo'));
+      if(ok&&onlyMe&&(glo===0||g<glo))ok=false;
+      tr.classList.toggle('dim',!ok); if(ok)n++;
+    });
+    show.textContent=n;
+    hint.textContent=(!isNaN(g))?('· GPA '+g.toFixed(2)+' 够得着的专业（你的 GPA ≥ 该专业最低录取 GPA）'):'';
+  }
+  q.addEventListener('input',apply);gpa.addEventListener('input',apply);only.addEventListener('change',apply);
+  document.querySelectorAll('.udb-chip').forEach(function(c){c.addEventListener('click',function(){c.classList.toggle('on');fC[c.getAttribute('data-v')]=c.classList.contains('on');apply();});});
+})();
+</script></main>
+<footer class="site-footer">
+      <div>
+        <strong>SEDA 新加坡择校网</strong>
+        <p>中文新加坡升学资讯与选校内容平台。</p>
+        <p style="margin-top:.5rem;font-size:.85rem;opacity:.7">由 Singapore Educational Development Association Ltd. 监管</p>
+        <p class="icp-record" style="margin-top:.5rem;font-size:.85rem;opacity:.7"><a href="https://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">沪ICP备2022009720号-9</a></p>
+      </div>
+      <div>
+        <span>课程体系</span>
+        <p><a href="/wace/">WACE</a> · <a href="/o-level/">O-Level</a> · <a href="/a-level/">A-Level</a> · <a href="/ib/">IB</a> · <a href="/aeis/">AEIS</a> · <a href="/ap/">AP</a> · <a href="/foundation/">Foundation</a></p>
+      </div>
+      <div>
+        <span>升学路径</span>
+        <p><a href="/jc/">JC 初级学院</a> · <a href="/poly/">理工学院</a> · <a href="/university/">公立大学</a> · <a href="/private-university/">私立大学</a> · <a href="/hk-university/">香港升学</a> · <a href="/au-university/">澳洲升学</a> · <a href="/uk-university/">英国升学</a></p>
+      </div>
+      <div>
+        <span>留学指南</span>
+        <p><a href="/guides/student-pass/">学生准证</a> · <a href="/guides/cost/">留学费用</a> · <a href="/guides/accommodation/">住宿方案</a> · <a href="/guides/dependent-pass/">陪读准证</a> · <a href="/guides/timeline/">留学时间线</a> · <a href="/guides/scholarship/">奖学金</a></p>
+      </div>
+      <div>
+        <span>关于 SEDA</span>
+        <p><a href="/about/">关于我们</a> · <a href="/contact/">联系我们</a> · <a href="/news/">教育资讯</a> · <a href="/tools/">AI 升学工具</a> · <a href="/school-database/">学校数据库</a></p>
+      </div>
+    </footer>
+<script src="/seda-site.js?v=28"></script>
+</body>
+</html>

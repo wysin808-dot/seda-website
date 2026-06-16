@@ -235,6 +235,8 @@ BODY=f'''<div class="nx">
         <div class="nx-fcard"><div class="ic">🏘️</div><h3>住宿学院 + UTown</h3><p>13 所 Hall / Residential College 加现代化书院社区，跨学科住宿生活，社团与活动丰富。</p></div>
         <div class="nx-fcard"><div class="ic">🎓</div><h3>NUS College 荣誉书院</h3><p>整合原 USP 与 Yale-NUS，跨学科精英培养，小班研讨、全球游学。</p></div>
         <div class="nx-fcard"><div class="ic">🔁</div><h3>双学位 + 全球交换</h3><p>可修双学位 / 并行学位，并与全球顶尖大学广泛交换，国际化程度高。</p></div>
+        <div class="nx-fcard"><div class="ic">🚀</div><h3>创业生态</h3><p>NUS Enterprise 与 BLOCK71 孵化器组成完整创业链条，全球创业型大学排名前列，鼓励学生把想法变公司。</p></div>
+        <div class="nx-fcard"><div class="ic">🏃</div><h3>社团与校园生活</h3><p>上百个学生社团（CCA）、大学体育队、艺术与志愿活动，加上本科生科研（UROP）机会，校园生活多元充实。</p></div>
       </div>
     </section>
 

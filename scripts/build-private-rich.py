@@ -16,98 +16,98 @@ LEVELORDER={"证书":0,"文凭":1,"本科":2,"硕士":3}
 
 # ============ PSB ============
 PSB_PARTNERS=[
- ("cov","考文垂大学","Coventry University","英国","🇬🇧","课程最全、性价比高，QS 五星"),
- ("herts","赫特福德大学","University of Hertfordshire","英国","🇬🇧","工程、数据科学、医疗影像见长"),
- ("napier","爱丁堡龙比亚大学","Edinburgh Napier University","英国","🇬🇧","商科与体育科学 Top-up 专升本"),
- ("newc","纽卡斯尔大学","University of Newcastle","澳大利亚","🇦🇺","商科、生物医学、IT、传媒（QS 前 200）"),
- ("latrobe","拉筹伯大学","La Trobe University","澳大利亚","🇦🇺","生命科学、护理、商科见长"),
- ("ecu","埃迪斯科文大学","Edith Cowan University","澳大利亚","🇦🇺","体育与运动科学（全球领先）"),
- ("canberra","堪培拉大学","University of Canberra","澳大利亚","🇦🇺","工商管理博士 DBA"),
- ("massey","梅西大学","Massey University","新西兰","🇳🇿","商科、商业分析、信息科学"),
- ("psb","PSB 学院","PSB Academy","新加坡","🇸🇬","自颁文凭与基础课程，衔接合作大学本科"),
+ ("cov","考文垂大学","Coventry University","英国","🇬🇧","课程最全、性价比高","QS #558 · 五星院校"),
+ ("herts","赫特福德大学","University of Hertfordshire","英国","🇬🇧","工程、数据科学、医疗影像见长","QS #901"),
+ ("napier","爱丁堡龙比亚大学","Edinburgh Napier University","英国","🇬🇧","商科与体育科学 Top-up 专升本","英国应用型名校"),
+ ("newc","纽卡斯尔大学","University of Newcastle","澳大利亚","🇦🇺","商科、生物医学、IT、传媒","QS #227"),
+ ("latrobe","拉筹伯大学","La Trobe University","澳大利亚","🇦🇺","生命科学、护理、商科见长","QS #233"),
+ ("ecu","埃迪斯科文大学","Edith Cowan University","澳大利亚","🇦🇺","体育与运动科学全球前50","QS #487"),
+ ("canberra","堪培拉大学","University of Canberra","澳大利亚","🇦🇺","工商管理博士 DBA","QS #494"),
+ ("massey","梅西大学","Massey University","新西兰","🇳🇿","商科、商业分析、信息科学","QS #230"),
+ ("psb","PSB 学院","PSB Academy","新加坡","🇸🇬","自颁文凭与基础课程，衔接合作大学本科","新加坡本地学府"),
 ]
-# (英文专业名, 合作大学key, 层级, 方向)
+# (英文专业名, 合作大学key, 层级, 方向, 中文专业名)
 PSB_PROGS=[
  # 本科 Bachelor
- ("BA (Hons) Accounting and Finance for International Business (Top-up)","cov","本科","会计与金融"),
- ("BSc (Hons) Accounting and Finance","cov","本科","会计与金融"),
- ("BSc (Hons) Business and Finance","cov","本科","会计与金融"),
- ("Bachelor of Commerce","newc","本科","会计与金融"),
- ("BSc (Hons) Diagnostic Radiography and Imaging","herts","本科","医疗健康"),
- ("BSc (Hons) Paramedic Science (Top-Up)","cov","本科","医疗健康"),
- ("Bachelor of Business","massey","本科","数据与分析"),
- ("BSc (Hons) Data Science","herts","本科","数据与分析"),
- ("BA (Hons) Business Administration (Top-Up)","herts","本科","商科"),
- ("BA (Hons) Business Management with Logistics","herts","本科","商科"),
- ("BA Business Management (Top-up)","napier","本科","商科"),
- ("BA Business Management with Human Resource Management (Top-Up)","napier","本科","商科"),
- ("BA (Hons) Global Business (Top-up)","cov","本科","商科"),
- ("Bachelor of Business","newc","本科","商科"),
- ("Bachelor of Business (Management and International Business)","latrobe","本科","商科"),
- ("Bachelor of Business (Management and Marketing)","latrobe","本科","商科"),
- ("BA (Hons) Business and Marketing","cov","本科","市场营销"),
- ("BA (Hons) Digital Marketing","cov","本科","市场营销"),
- ("Bachelor of Business (Marketing and International Business)","latrobe","本科","市场营销"),
- ("BSc (Hons) Quantity Surveying and Commercial Management","cov","本科","工程"),
- ("BEng (Hons) Robotics and Artificial Intelligence","herts","本科","工程"),
- ("BEng (Hons) Electrical and Electronic Engineering","cov","本科","工程"),
- ("BEng (Hons) Electro-Mechanical Engineering","cov","本科","工程"),
- ("BEng (Hons) Mechanical Engineering","cov","本科","工程"),
- ("BSc (Hons) Cyber Security","cov","本科","网络安全"),
- ("Bachelor of Computer Science (Artificial Intelligence)","latrobe","本科","IT计算机"),
- ("Bachelor of Information Sciences (Computer Science & IT)","massey","本科","IT计算机"),
- ("Bachelor of Information Technology","newc","本科","IT计算机"),
- ("BSc (Hons) Artificial Intelligence (Top-Up)","cov","本科","IT计算机"),
- ("BSc (Hons) Computing Science","cov","本科","IT计算机"),
- ("Bachelor of Biomedical Science","newc","本科","生命科学"),
- ("Bachelor of Biomedical Science","latrobe","本科","生命科学"),
- ("Bachelor of Science (Applied Chemistry and Molecular Biology)","latrobe","本科","生命科学"),
- ("Bachelor of Science (Biotechnology and Molecular Biology)","latrobe","本科","生命科学"),
- ("Bachelor of Science (Molecular Biology and Pharmaceutical Science)","latrobe","本科","生命科学"),
- ("Bachelor of Nursing (Top-up)","latrobe","本科","护理"),
- ("BA (Hons) Digital Media","cov","本科","传媒"),
- ("BA (Hons) Media and Communications","cov","本科","传媒"),
- ("Bachelor of Communication","newc","本科","传媒"),
- ("BA (Hons) International Hospitality and Tourism Management","cov","本科","酒店旅游"),
- ("BA Hospitality and Tourism Management (Top-Up)","napier","本科","酒店旅游"),
- ("Bachelor of Science (Exercise and Sports Science)","ecu","本科","体育运动"),
- ("BSc Sport and Exercise Science (Top-up)","napier","本科","体育运动"),
+ ("BA (Hons) Accounting and Finance for International Business (Top-up)","cov","本科","会计与金融","国际商务会计与金融（荣誉文学士·专升本）"),
+ ("BSc (Hons) Accounting and Finance","cov","本科","会计与金融","会计与金融（荣誉理学士）"),
+ ("BSc (Hons) Business and Finance","cov","本科","会计与金融","商业与金融（荣誉理学士）"),
+ ("Bachelor of Commerce","newc","本科","会计与金融","商学学士"),
+ ("BSc (Hons) Diagnostic Radiography and Imaging","herts","本科","医疗健康","诊断放射与医学影像（荣誉理学士）"),
+ ("BSc (Hons) Paramedic Science (Top-Up)","cov","本科","医疗健康","院前急救科学（荣誉理学士·专升本）"),
+ ("Bachelor of Business","massey","本科","数据与分析","商学学士（商业分析）"),
+ ("BSc (Hons) Data Science","herts","本科","数据与分析","数据科学（荣誉理学士）"),
+ ("BA (Hons) Business Administration (Top-Up)","herts","本科","商科","工商管理（荣誉文学士·专升本）"),
+ ("BA (Hons) Business Management with Logistics","herts","本科","商科","商业管理与物流（荣誉文学士）"),
+ ("BA Business Management (Top-up)","napier","本科","商科","商业管理（文学士·专升本）"),
+ ("BA Business Management with Human Resource Management (Top-Up)","napier","本科","商科","商业管理与人力资源（文学士·专升本）"),
+ ("BA (Hons) Global Business (Top-up)","cov","本科","商科","全球商务（荣誉文学士·专升本）"),
+ ("Bachelor of Business","newc","本科","商科","商学学士"),
+ ("Bachelor of Business (Management and International Business)","latrobe","本科","商科","商学学士（管理与国际商务）"),
+ ("Bachelor of Business (Management and Marketing)","latrobe","本科","商科","商学学士（管理与市场营销）"),
+ ("BA (Hons) Business and Marketing","cov","本科","市场营销","商业与市场营销（荣誉文学士）"),
+ ("BA (Hons) Digital Marketing","cov","本科","市场营销","数字营销（荣誉文学士）"),
+ ("Bachelor of Business (Marketing and International Business)","latrobe","本科","市场营销","商学学士（市场营销与国际商务）"),
+ ("BSc (Hons) Quantity Surveying and Commercial Management","cov","本科","工程","工料测量与商业管理（荣誉理学士）"),
+ ("BEng (Hons) Robotics and Artificial Intelligence","herts","本科","工程","机器人与人工智能（荣誉工程学士）"),
+ ("BEng (Hons) Electrical and Electronic Engineering","cov","本科","工程","电气与电子工程（荣誉工程学士）"),
+ ("BEng (Hons) Electro-Mechanical Engineering","cov","本科","工程","机电工程（荣誉工程学士）"),
+ ("BEng (Hons) Mechanical Engineering","cov","本科","工程","机械工程（荣誉工程学士）"),
+ ("BSc (Hons) Cyber Security","cov","本科","网络安全","网络安全（荣誉理学士）"),
+ ("Bachelor of Computer Science (Artificial Intelligence)","latrobe","本科","IT计算机","计算机科学学士（人工智能）"),
+ ("Bachelor of Information Sciences (Computer Science & IT)","massey","本科","IT计算机","信息科学学士（计算机科学与信息技术双主修）"),
+ ("Bachelor of Information Technology","newc","本科","IT计算机","信息技术学士"),
+ ("BSc (Hons) Artificial Intelligence (Top-Up)","cov","本科","IT计算机","人工智能（荣誉理学士·专升本）"),
+ ("BSc (Hons) Computing Science","cov","本科","IT计算机","计算科学（荣誉理学士）"),
+ ("Bachelor of Biomedical Science","newc","本科","生命科学","生物医学学士"),
+ ("Bachelor of Biomedical Science","latrobe","本科","生命科学","生物医学学士"),
+ ("Bachelor of Science (Applied Chemistry and Molecular Biology)","latrobe","本科","生命科学","理学学士（应用化学与分子生物学）"),
+ ("Bachelor of Science (Biotechnology and Molecular Biology)","latrobe","本科","生命科学","理学学士（生物技术与分子生物学）"),
+ ("Bachelor of Science (Molecular Biology and Pharmaceutical Science)","latrobe","本科","生命科学","理学学士（分子生物学与制药科学）"),
+ ("Bachelor of Nursing (Top-up)","latrobe","本科","护理","护理学学士（专升本）"),
+ ("BA (Hons) Digital Media","cov","本科","传媒","数字媒体（荣誉文学士）"),
+ ("BA (Hons) Media and Communications","cov","本科","传媒","媒体与传播（荣誉文学士）"),
+ ("Bachelor of Communication","newc","本科","传媒","传播学学士"),
+ ("BA (Hons) International Hospitality and Tourism Management","cov","本科","酒店旅游","国际酒店与旅游管理（荣誉文学士）"),
+ ("BA Hospitality and Tourism Management (Top-Up)","napier","本科","酒店旅游","酒店与旅游管理（文学士·专升本）"),
+ ("Bachelor of Science (Exercise and Sports Science)","ecu","本科","体育运动","理学学士（运动与体育科学）"),
+ ("BSc Sport and Exercise Science (Top-up)","napier","本科","体育运动","体育与运动科学（理学士·专升本）"),
  # 硕士 Master
- ("MBA in Finance","cov","硕士","会计与金融"),
- ("MSc Data Science","herts","硕士","数据与分析"),
- ("Executive MBA","newc","硕士","商科"),
- ("MBA","herts","硕士","商科"),
- ("MBA","newc","硕士","商科"),
- ("MBA in Global Business","cov","硕士","商科"),
- ("Doctor of Business Administration (DBA)","canberra","硕士","商科"),
- ("MSc Cyber Security","cov","硕士","网络安全"),
- ("MSc Engineering Management","cov","硕士","工程"),
- ("MSc Renewable Energy Engineering","cov","硕士","工程"),
- ("Master of Biotechnology and Bioinformatics","latrobe","硕士","生命科学"),
- ("Master of Nursing (Leadership)","latrobe","硕士","护理"),
- ("MA Media Studies","massey","硕士","传媒"),
+ ("MBA in Finance","cov","硕士","会计与金融","金融工商管理硕士（MBA）"),
+ ("MSc Data Science","herts","硕士","数据与分析","数据科学理学硕士"),
+ ("Executive MBA","newc","硕士","商科","高级工商管理硕士（EMBA）"),
+ ("MBA","herts","硕士","商科","工商管理硕士（MBA）"),
+ ("MBA","newc","硕士","商科","工商管理硕士（MBA）"),
+ ("MBA in Global Business","cov","硕士","商科","全球商务工商管理硕士（MBA）"),
+ ("Doctor of Business Administration (DBA)","canberra","硕士","商科","工商管理博士（DBA）"),
+ ("MSc Cyber Security","cov","硕士","网络安全","网络安全理学硕士"),
+ ("MSc Engineering Management","cov","硕士","工程","工程管理理学硕士"),
+ ("MSc Renewable Energy Engineering","cov","硕士","工程","可再生能源工程理学硕士"),
+ ("Master of Biotechnology and Bioinformatics","latrobe","硕士","生命科学","生物技术与生物信息学硕士"),
+ ("Master of Nursing (Leadership)","latrobe","硕士","护理","护理学硕士（领导力）"),
+ ("MA Media Studies","massey","硕士","传媒","媒体研究文学硕士"),
  # 文凭 Diploma (PSB 自颁)
- ("Diploma in Business Administration (Accounting and Finance)","psb","文凭","会计与金融"),
- ("Diploma in Business Analytics","psb","文凭","数据与分析"),
- ("Diploma in Business Administration","psb","文凭","商科"),
- ("Diploma in Business Administration (Digital Marketing)","psb","文凭","市场营销"),
- ("Diploma in Business Administration (Human Resource Management)","psb","文凭","商科"),
- ("Diploma in Cyber Security","psb","文凭","网络安全"),
- ("Diploma in Electrical Engineering Technology","psb","文凭","工程"),
- ("Diploma in Electrical Engineering with Robotics","psb","文凭","工程"),
- ("Diploma in Mechanical Engineering Technology","psb","文凭","工程"),
- ("Diploma in InfoComm Technology","psb","文凭","IT计算机"),
- ("Diploma in Global Supply Chain Management","psb","文凭","物流供应链"),
- ("Diploma in Tourism and Hospitality Management","psb","文凭","酒店旅游"),
- ("Diploma in Graphic Design and Media","psb","文凭","设计"),
- ("Diploma in Media and Communications","psb","文凭","传媒"),
- ("Diploma in Sport and Exercise Sciences","psb","文凭","体育运动"),
- ("Diploma in Paramedicine","psb","文凭","医疗健康"),
- ("Foundation Diploma in Life Sciences","psb","文凭","生命科学"),
+ ("Diploma in Business Administration (Accounting and Finance)","psb","文凭","会计与金融","工商管理大专（会计与金融）"),
+ ("Diploma in Business Analytics","psb","文凭","数据与分析","商业分析大专"),
+ ("Diploma in Business Administration","psb","文凭","商科","工商管理大专"),
+ ("Diploma in Business Administration (Digital Marketing)","psb","文凭","市场营销","工商管理大专（数字营销）"),
+ ("Diploma in Business Administration (Human Resource Management)","psb","文凭","商科","工商管理大专（人力资源管理）"),
+ ("Diploma in Cyber Security","psb","文凭","网络安全","网络安全大专"),
+ ("Diploma in Electrical Engineering Technology","psb","文凭","工程","电气工程技术大专"),
+ ("Diploma in Electrical Engineering with Robotics","psb","文凭","工程","电气工程与机器人大专"),
+ ("Diploma in Mechanical Engineering Technology","psb","文凭","工程","机械工程技术大专"),
+ ("Diploma in InfoComm Technology","psb","文凭","IT计算机","信息通信技术大专"),
+ ("Diploma in Global Supply Chain Management","psb","文凭","物流供应链","全球供应链管理大专"),
+ ("Diploma in Tourism and Hospitality Management","psb","文凭","酒店旅游","旅游与酒店管理大专"),
+ ("Diploma in Graphic Design and Media","psb","文凭","设计","平面设计与媒体大专"),
+ ("Diploma in Media and Communications","psb","文凭","传媒","媒体与传播大专"),
+ ("Diploma in Sport and Exercise Sciences","psb","文凭","体育运动","体育与运动科学大专"),
+ ("Diploma in Paramedicine","psb","文凭","医疗健康","院前急救大专"),
+ ("Foundation Diploma in Life Sciences","psb","文凭","生命科学","生命科学基础大专"),
 ]
 
 RICH={"psb":{
- "abbr":"PSB","zh":"PSB 学院","en":"PSB Academy","color":"#e35205","founded":1964,
+ "abbr":"PSB","zh":"PSB 学院","en":"PSB Academy","color":"#f37021","founded":1964,
  "tagline":"亚洲未来学院 · 理工与商科并重",
  "sig":"新加坡领先私立学府，与英、澳、新西兰 8 所大学合作，提供从语言、文凭到本科、硕士的完整升学路径；3 大市中心校区，EduTrust 认证，工程与生命科学是特色。",
  "fee":"S$28,000–48,000","fee_note":"本科总学费按合作大学与专业不同；以官方为准。私立大学不提供 MOE 政府津贴。",
@@ -149,6 +149,7 @@ CSS=r'''
 .prc-pc{border:1px solid var(--prc-line);border-radius:14px;padding:18px;background:#fff;transition:.16s}
 .prc-pc:hover{transform:translateY(-3px);box-shadow:0 12px 28px rgba(20,30,60,.1)}
 .prc-pc .ctry{font-size:.8rem;color:var(--prc-muted);font-weight:700}
+.prc-pc .ctry .qs{display:inline-block;margin-left:6px;background:var(--acc);color:#fff;font-size:.68rem;font-weight:800;padding:2px 8px;border-radius:999px;vertical-align:middle}
 .prc-pc h3{margin:.3rem 0 .1rem;font-size:1.08rem}
 .prc-pc .en{color:var(--prc-muted);font-size:.78rem;margin-bottom:.6rem}
 .prc-pc .note{font-size:.88rem;color:#3a4150;line-height:1.55;margin:0 0 .8rem}
@@ -176,6 +177,7 @@ CSS=r'''
 .prc-prog{border:1px solid var(--prc-line);border-left:4px solid var(--acc);border-radius:12px;padding:14px 16px;background:#fff}
 .prc-prog.hide{display:none}
 .prc-prog .nm{font-weight:700;font-size:.96rem;line-height:1.35;color:var(--prc-ink)}
+.prc-prog .ens{color:var(--prc-muted);font-size:.76rem;margin-top:3px;line-height:1.4}
 .prc-prog .meta{display:flex;flex-wrap:wrap;gap:6px;margin-top:9px}
 .prc-prog .t{font-size:.73rem;font-weight:700;padding:2px 9px;border-radius:999px}
 .prc-prog .t.lv{background:#efe7f5;color:#7a3da0}
@@ -241,7 +243,7 @@ def build(slug):
     acc=d["color"]; accgrad=f"linear-gradient(135deg,{acc},{acc}bb)"
     pmap={p[0]:p for p in partners}  # key -> tuple
     fields=[]
-    for _,_,_,f in progs:
+    for _,_,_,f,_ in progs:
         if f not in fields: fields.append(f)
     levels=sorted({p[2] for p in progs},key=lambda x:LEVELORDER.get(x,9))
     n_b=sum(1 for p in progs if p[2]=="本科"); n_m=sum(1 for p in progs if p[2]=="硕士"); n_d=sum(1 for p in progs if p[2]=="文凭")
@@ -252,19 +254,20 @@ def build(slug):
     desc=f"{d['zh']}（{d['en']}）深度指南：与 {len(partners)-1} 所英澳新大学合作，{len(progs)}+ 个专业（本科 {n_b}、硕士 {n_m}、文凭 {n_d}）可筛选数据库；合作大学、升学路径、入学要求、学费与中留服认证。"
     # partner cards
     pcards=""
-    for key,zh,en,ctry,flag,note in partners:
+    for key,zh,en,ctry,flag,note,qs in partners:
         if key=="psb":
             cnt=f'<span>{n_d} 个文凭</span>'
         else:
             b=pcount(key,"本科"); m=pcount(key,"硕士")
             cnt="".join([f'<span>{b} 本科专业</span>' if b else '',f'<span>{m} 硕士专业</span>' if m else ''])
-        pcards+=f'<div class="prc-pc"><div class="ctry">{flag} {esc(ctry)}</div><h3>{esc(zh)}</h3><div class="en">{esc(en)}</div><p class="note">{esc(note)}</p><div class="cnt">{cnt}</div></div>'
+        pcards+=f'<div class="prc-pc"><div class="ctry">{flag} {esc(ctry)} <span class="qs">{esc(qs)}</span></div><h3>{esc(zh)}</h3><div class="en">{esc(en)}</div><p class="note">{esc(note)}</p><div class="cnt">{cnt}</div></div>'
     # database
     def prog_card(p):
-        en,key,lv,fl=p; pz=pmap[key][1]
-        nm=(en+" "+pz+" "+fl+" "+lv).lower()
+        en,key,lv,fl,zh=p; pz=pmap[key][1]
+        nm=(zh+" "+en+" "+pz+" "+fl+" "+lv).lower()
         return f'''<div class="prc-prog" data-pt="{key}" data-lv="{lv}" data-fl="{esc(fl)}" data-name="{esc(nm)}">
-  <div class="nm">{esc(en)}</div>
+  <div class="nm">{esc(zh)}</div>
+  <div class="ens">{esc(en)}</div>
   <div class="meta"><span class="t lv {lv}">{lv}</span><span class="t fl">{FIELDICON.get(fl,"")} {esc(fl)}</span><span class="t pn">{esc(pz)}</span></div>
 </div>'''
     order=sorted(progs,key=lambda p:(LEVELORDER.get(p[2],9),p[3],p[0]))

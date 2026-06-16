@@ -40,6 +40,7 @@
 .prc-pc{border:1px solid var(--prc-line);border-radius:14px;padding:18px;background:#fff;transition:.16s}
 .prc-pc:hover{transform:translateY(-3px);box-shadow:0 12px 28px rgba(20,30,60,.1)}
 .prc-pc .ctry{font-size:.8rem;color:var(--prc-muted);font-weight:700}
+.prc-pc .ctry .qs{display:inline-block;margin-left:6px;background:var(--acc);color:#fff;font-size:.68rem;font-weight:800;padding:2px 8px;border-radius:999px;vertical-align:middle}
 .prc-pc h3{margin:.3rem 0 .1rem;font-size:1.08rem}
 .prc-pc .en{color:var(--prc-muted);font-size:.78rem;margin-bottom:.6rem}
 .prc-pc .note{font-size:.88rem;color:#3a4150;line-height:1.55;margin:0 0 .8rem}
@@ -67,6 +68,7 @@
 .prc-prog{border:1px solid var(--prc-line);border-left:4px solid var(--acc);border-radius:12px;padding:14px 16px;background:#fff}
 .prc-prog.hide{display:none}
 .prc-prog .nm{font-weight:700;font-size:.96rem;line-height:1.35;color:var(--prc-ink)}
+.prc-prog .ens{color:var(--prc-muted);font-size:.76rem;margin-top:3px;line-height:1.4}
 .prc-prog .meta{display:flex;flex-wrap:wrap;gap:6px;margin-top:9px}
 .prc-prog .t{font-size:.73rem;font-weight:700;padding:2px 9px;border-radius:999px}
 .prc-prog .t.lv{background:#efe7f5;color:#7a3da0}
@@ -95,7 +97,7 @@
 .prc-rel a:hover{background:var(--acc);color:#fff}
 @media(max-width:600px){.prc-facts th{width:40%}.prc-progs{grid-template-columns:1fr}}
 
-.prc{--acc:#e35205;--accgrad:linear-gradient(135deg,#e35205,#e35205bb)}</style>
+.prc{--acc:#f37021;--accgrad:linear-gradient(135deg,#f37021,#f37021bb)}</style>
 </head>
 <body>
 <header class="site-header">
@@ -137,7 +139,7 @@
       </div>
     </header>
 <main class="prc">
-  <section class="prc-hero" style="background:linear-gradient(135deg,#e35205,#e35205bb)"><div class="in">
+  <section class="prc-hero" style="background:linear-gradient(135deg,#f37021,#f37021bb)"><div class="in">
     <div class="prc-dlogo"><img src="/assets/logo-psb.svg?v=1" alt="PSB 学院 校徽"></div>
     <h1>PSB 学院 <span style="opacity:.7;font-size:.6em">PSB</span></h1>
     <p class="tag">PSB Academy · 亚洲未来学院 · 理工与商科并重</p>
@@ -155,7 +157,7 @@
 
   <section class="prc-sec tight"><h2>合作大学 · 8 所</h2>
     <p class="lead">学位由以下大学颁发，与其本校区一致。点专业数据库可看各校具体专业。</p>
-    <div class="prc-partners"><div class="prc-pc"><div class="ctry">🇬🇧 英国</div><h3>考文垂大学</h3><div class="en">Coventry University</div><p class="note">课程最全、性价比高，QS 五星</p><div class="cnt"><span>17 本科专业</span><span>5 硕士专业</span></div></div><div class="prc-pc"><div class="ctry">🇬🇧 英国</div><h3>赫特福德大学</h3><div class="en">University of Hertfordshire</div><p class="note">工程、数据科学、医疗影像见长</p><div class="cnt"><span>5 本科专业</span><span>2 硕士专业</span></div></div><div class="prc-pc"><div class="ctry">🇬🇧 英国</div><h3>爱丁堡龙比亚大学</h3><div class="en">Edinburgh Napier University</div><p class="note">商科与体育科学 Top-up 专升本</p><div class="cnt"><span>4 本科专业</span></div></div><div class="prc-pc"><div class="ctry">🇦🇺 澳大利亚</div><h3>纽卡斯尔大学</h3><div class="en">University of Newcastle</div><p class="note">商科、生物医学、IT、传媒（QS 前 200）</p><div class="cnt"><span>5 本科专业</span><span>2 硕士专业</span></div></div><div class="prc-pc"><div class="ctry">🇦🇺 澳大利亚</div><h3>拉筹伯大学</h3><div class="en">La Trobe University</div><p class="note">生命科学、护理、商科见长</p><div class="cnt"><span>9 本科专业</span><span>2 硕士专业</span></div></div><div class="prc-pc"><div class="ctry">🇦🇺 澳大利亚</div><h3>埃迪斯科文大学</h3><div class="en">Edith Cowan University</div><p class="note">体育与运动科学（全球领先）</p><div class="cnt"><span>1 本科专业</span></div></div><div class="prc-pc"><div class="ctry">🇦🇺 澳大利亚</div><h3>堪培拉大学</h3><div class="en">University of Canberra</div><p class="note">工商管理博士 DBA</p><div class="cnt"><span>1 硕士专业</span></div></div><div class="prc-pc"><div class="ctry">🇳🇿 新西兰</div><h3>梅西大学</h3><div class="en">Massey University</div><p class="note">商科、商业分析、信息科学</p><div class="cnt"><span>2 本科专业</span><span>1 硕士专业</span></div></div><div class="prc-pc"><div class="ctry">🇸🇬 新加坡</div><h3>PSB 学院</h3><div class="en">PSB Academy</div><p class="note">自颁文凭与基础课程，衔接合作大学本科</p><div class="cnt"><span>17 个文凭</span></div></div></div></section>
+    <div class="prc-partners"><div class="prc-pc"><div class="ctry">🇬🇧 英国 <span class="qs">QS #558 · 五星院校</span></div><h3>考文垂大学</h3><div class="en">Coventry University</div><p class="note">课程最全、性价比高</p><div class="cnt"><span>17 本科专业</span><span>5 硕士专业</span></div></div><div class="prc-pc"><div class="ctry">🇬🇧 英国 <span class="qs">QS #901</span></div><h3>赫特福德大学</h3><div class="en">University of Hertfordshire</div><p class="note">工程、数据科学、医疗影像见长</p><div class="cnt"><span>5 本科专业</span><span>2 硕士专业</span></div></div><div class="prc-pc"><div class="ctry">🇬🇧 英国 <span class="qs">英国应用型名校</span></div><h3>爱丁堡龙比亚大学</h3><div class="en">Edinburgh Napier University</div><p class="note">商科与体育科学 Top-up 专升本</p><div class="cnt"><span>4 本科专业</span></div></div><div class="prc-pc"><div class="ctry">🇦🇺 澳大利亚 <span class="qs">QS #227</span></div><h3>纽卡斯尔大学</h3><div class="en">University of Newcastle</div><p class="note">商科、生物医学、IT、传媒</p><div class="cnt"><span>5 本科专业</span><span>2 硕士专业</span></div></div><div class="prc-pc"><div class="ctry">🇦🇺 澳大利亚 <span class="qs">QS #233</span></div><h3>拉筹伯大学</h3><div class="en">La Trobe University</div><p class="note">生命科学、护理、商科见长</p><div class="cnt"><span>9 本科专业</span><span>2 硕士专业</span></div></div><div class="prc-pc"><div class="ctry">🇦🇺 澳大利亚 <span class="qs">QS #487</span></div><h3>埃迪斯科文大学</h3><div class="en">Edith Cowan University</div><p class="note">体育与运动科学全球前50</p><div class="cnt"><span>1 本科专业</span></div></div><div class="prc-pc"><div class="ctry">🇦🇺 澳大利亚 <span class="qs">QS #494</span></div><h3>堪培拉大学</h3><div class="en">University of Canberra</div><p class="note">工商管理博士 DBA</p><div class="cnt"><span>1 硕士专业</span></div></div><div class="prc-pc"><div class="ctry">🇳🇿 新西兰 <span class="qs">QS #230</span></div><h3>梅西大学</h3><div class="en">Massey University</div><p class="note">商科、商业分析、信息科学</p><div class="cnt"><span>2 本科专业</span><span>1 硕士专业</span></div></div><div class="prc-pc"><div class="ctry">🇸🇬 新加坡 <span class="qs">新加坡本地学府</span></div><h3>PSB 学院</h3><div class="en">PSB Academy</div><p class="note">自颁文凭与基础课程，衔接合作大学本科</p><div class="cnt"><span>17 个文凭</span></div></div></div></section>
 
   <section class="prc-sec tight"><h2>升学路径</h2>
     <p class="lead">中国学生典型路线：语言 → 证书/预科 → 文凭 → 本科（直入大二）→ 硕士。学历达标可跳过前段。</p>
@@ -163,7 +165,7 @@
 
   <div class="prc-db">
     <div class="prc-tools">
-      <h2 style="font-size:clamp(21px,2.8vw,29px);margin:6px 0 4px;font-weight:830">专业数据库 · <span style="color:#e35205">73 个</span></h2>
+      <h2 style="font-size:clamp(21px,2.8vw,29px);margin:6px 0 4px;font-weight:830">专业数据库 · <span style="color:#f37021">73 个</span></h2>
       <p style="color:var(--prc-muted);margin:0 0 16px;line-height:1.7">本科 43 · 硕士 13 · 文凭 17。可按<b>方向、合作大学、层级</b>筛选；专业名为官方授予名称，学位由对应合作大学颁发。</p>
       <div class="prc-find">🔎<input type="search" id="prcq" placeholder="搜专业，如 商科、AI、护理、Coventry"></div>
       <div class="prc-frow"><span class="prc-flb">方向</span><span class="prc-chip" data-f="fl" data-v="会计与金融">📊 会计与金融（6）</span><span class="prc-chip" data-f="fl" data-v="医疗健康">🩺 医疗健康（3）</span><span class="prc-chip" data-f="fl" data-v="数据与分析">📈 数据与分析（4）</span><span class="prc-chip" data-f="fl" data-v="商科">💼 商科（15）</span><span class="prc-chip" data-f="fl" data-v="市场营销">📣 市场营销（4）</span><span class="prc-chip" data-f="fl" data-v="工程">⚙️ 工程（10）</span><span class="prc-chip" data-f="fl" data-v="网络安全">🔐 网络安全（3）</span><span class="prc-chip" data-f="fl" data-v="IT计算机">💻 IT计算机（6）</span><span class="prc-chip" data-f="fl" data-v="生命科学">🧬 生命科学（7）</span><span class="prc-chip" data-f="fl" data-v="护理">❤️ 护理（2）</span><span class="prc-chip" data-f="fl" data-v="传媒">🎬 传媒（5）</span><span class="prc-chip" data-f="fl" data-v="酒店旅游">🏨 酒店旅游（3）</span><span class="prc-chip" data-f="fl" data-v="体育运动">🏅 体育运动（3）</span><span class="prc-chip" data-f="fl" data-v="物流供应链">🚚 物流供应链（1）</span><span class="prc-chip" data-f="fl" data-v="设计">🎨 设计（1）</span></div>
@@ -171,224 +173,297 @@
       <div class="prc-frow"><span class="prc-flb">层级</span><span class="prc-chip" data-f="lv" data-v="文凭">文凭（17）</span><span class="prc-chip" data-f="lv" data-v="本科">本科（43）</span><span class="prc-chip" data-f="lv" data-v="硕士">硕士（13）</span></div>
     </div>
     <div class="prc-count">显示 <b id="prcshow">73</b> / 73 个专业</div>
-    <div class="prc-progs" id="prcprogs"><div class="prc-prog" data-pt="psb" data-lv="文凭" data-fl="IT计算机" data-name="diploma in infocomm technology psb 学院 it计算机 文凭">
-  <div class="nm">Diploma in InfoComm Technology</div>
+    <div class="prc-progs" id="prcprogs"><div class="prc-prog" data-pt="psb" data-lv="文凭" data-fl="IT计算机" data-name="信息通信技术大专 diploma in infocomm technology psb 学院 it计算机 文凭">
+  <div class="nm">信息通信技术大专</div>
+  <div class="ens">Diploma in InfoComm Technology</div>
   <div class="meta"><span class="t lv 文凭">文凭</span><span class="t fl">💻 IT计算机</span><span class="t pn">PSB 学院</span></div>
-</div><div class="prc-prog" data-pt="psb" data-lv="文凭" data-fl="会计与金融" data-name="diploma in business administration (accounting and finance) psb 学院 会计与金融 文凭">
-  <div class="nm">Diploma in Business Administration (Accounting and Finance)</div>
+</div><div class="prc-prog" data-pt="psb" data-lv="文凭" data-fl="会计与金融" data-name="工商管理大专（会计与金融） diploma in business administration (accounting and finance) psb 学院 会计与金融 文凭">
+  <div class="nm">工商管理大专（会计与金融）</div>
+  <div class="ens">Diploma in Business Administration (Accounting and Finance)</div>
   <div class="meta"><span class="t lv 文凭">文凭</span><span class="t fl">📊 会计与金融</span><span class="t pn">PSB 学院</span></div>
-</div><div class="prc-prog" data-pt="psb" data-lv="文凭" data-fl="传媒" data-name="diploma in media and communications psb 学院 传媒 文凭">
-  <div class="nm">Diploma in Media and Communications</div>
+</div><div class="prc-prog" data-pt="psb" data-lv="文凭" data-fl="传媒" data-name="媒体与传播大专 diploma in media and communications psb 学院 传媒 文凭">
+  <div class="nm">媒体与传播大专</div>
+  <div class="ens">Diploma in Media and Communications</div>
   <div class="meta"><span class="t lv 文凭">文凭</span><span class="t fl">🎬 传媒</span><span class="t pn">PSB 学院</span></div>
-</div><div class="prc-prog" data-pt="psb" data-lv="文凭" data-fl="体育运动" data-name="diploma in sport and exercise sciences psb 学院 体育运动 文凭">
-  <div class="nm">Diploma in Sport and Exercise Sciences</div>
+</div><div class="prc-prog" data-pt="psb" data-lv="文凭" data-fl="体育运动" data-name="体育与运动科学大专 diploma in sport and exercise sciences psb 学院 体育运动 文凭">
+  <div class="nm">体育与运动科学大专</div>
+  <div class="ens">Diploma in Sport and Exercise Sciences</div>
   <div class="meta"><span class="t lv 文凭">文凭</span><span class="t fl">🏅 体育运动</span><span class="t pn">PSB 学院</span></div>
-</div><div class="prc-prog" data-pt="psb" data-lv="文凭" data-fl="医疗健康" data-name="diploma in paramedicine psb 学院 医疗健康 文凭">
-  <div class="nm">Diploma in Paramedicine</div>
+</div><div class="prc-prog" data-pt="psb" data-lv="文凭" data-fl="医疗健康" data-name="院前急救大专 diploma in paramedicine psb 学院 医疗健康 文凭">
+  <div class="nm">院前急救大专</div>
+  <div class="ens">Diploma in Paramedicine</div>
   <div class="meta"><span class="t lv 文凭">文凭</span><span class="t fl">🩺 医疗健康</span><span class="t pn">PSB 学院</span></div>
-</div><div class="prc-prog" data-pt="psb" data-lv="文凭" data-fl="商科" data-name="diploma in business administration psb 学院 商科 文凭">
-  <div class="nm">Diploma in Business Administration</div>
+</div><div class="prc-prog" data-pt="psb" data-lv="文凭" data-fl="商科" data-name="工商管理大专 diploma in business administration psb 学院 商科 文凭">
+  <div class="nm">工商管理大专</div>
+  <div class="ens">Diploma in Business Administration</div>
   <div class="meta"><span class="t lv 文凭">文凭</span><span class="t fl">💼 商科</span><span class="t pn">PSB 学院</span></div>
-</div><div class="prc-prog" data-pt="psb" data-lv="文凭" data-fl="商科" data-name="diploma in business administration (human resource management) psb 学院 商科 文凭">
-  <div class="nm">Diploma in Business Administration (Human Resource Management)</div>
+</div><div class="prc-prog" data-pt="psb" data-lv="文凭" data-fl="商科" data-name="工商管理大专（人力资源管理） diploma in business administration (human resource management) psb 学院 商科 文凭">
+  <div class="nm">工商管理大专（人力资源管理）</div>
+  <div class="ens">Diploma in Business Administration (Human Resource Management)</div>
   <div class="meta"><span class="t lv 文凭">文凭</span><span class="t fl">💼 商科</span><span class="t pn">PSB 学院</span></div>
-</div><div class="prc-prog" data-pt="psb" data-lv="文凭" data-fl="工程" data-name="diploma in electrical engineering technology psb 学院 工程 文凭">
-  <div class="nm">Diploma in Electrical Engineering Technology</div>
+</div><div class="prc-prog" data-pt="psb" data-lv="文凭" data-fl="工程" data-name="电气工程技术大专 diploma in electrical engineering technology psb 学院 工程 文凭">
+  <div class="nm">电气工程技术大专</div>
+  <div class="ens">Diploma in Electrical Engineering Technology</div>
   <div class="meta"><span class="t lv 文凭">文凭</span><span class="t fl">⚙️ 工程</span><span class="t pn">PSB 学院</span></div>
-</div><div class="prc-prog" data-pt="psb" data-lv="文凭" data-fl="工程" data-name="diploma in electrical engineering with robotics psb 学院 工程 文凭">
-  <div class="nm">Diploma in Electrical Engineering with Robotics</div>
+</div><div class="prc-prog" data-pt="psb" data-lv="文凭" data-fl="工程" data-name="电气工程与机器人大专 diploma in electrical engineering with robotics psb 学院 工程 文凭">
+  <div class="nm">电气工程与机器人大专</div>
+  <div class="ens">Diploma in Electrical Engineering with Robotics</div>
   <div class="meta"><span class="t lv 文凭">文凭</span><span class="t fl">⚙️ 工程</span><span class="t pn">PSB 学院</span></div>
-</div><div class="prc-prog" data-pt="psb" data-lv="文凭" data-fl="工程" data-name="diploma in mechanical engineering technology psb 学院 工程 文凭">
-  <div class="nm">Diploma in Mechanical Engineering Technology</div>
+</div><div class="prc-prog" data-pt="psb" data-lv="文凭" data-fl="工程" data-name="机械工程技术大专 diploma in mechanical engineering technology psb 学院 工程 文凭">
+  <div class="nm">机械工程技术大专</div>
+  <div class="ens">Diploma in Mechanical Engineering Technology</div>
   <div class="meta"><span class="t lv 文凭">文凭</span><span class="t fl">⚙️ 工程</span><span class="t pn">PSB 学院</span></div>
-</div><div class="prc-prog" data-pt="psb" data-lv="文凭" data-fl="市场营销" data-name="diploma in business administration (digital marketing) psb 学院 市场营销 文凭">
-  <div class="nm">Diploma in Business Administration (Digital Marketing)</div>
+</div><div class="prc-prog" data-pt="psb" data-lv="文凭" data-fl="市场营销" data-name="工商管理大专（数字营销） diploma in business administration (digital marketing) psb 学院 市场营销 文凭">
+  <div class="nm">工商管理大专（数字营销）</div>
+  <div class="ens">Diploma in Business Administration (Digital Marketing)</div>
   <div class="meta"><span class="t lv 文凭">文凭</span><span class="t fl">📣 市场营销</span><span class="t pn">PSB 学院</span></div>
-</div><div class="prc-prog" data-pt="psb" data-lv="文凭" data-fl="数据与分析" data-name="diploma in business analytics psb 学院 数据与分析 文凭">
-  <div class="nm">Diploma in Business Analytics</div>
+</div><div class="prc-prog" data-pt="psb" data-lv="文凭" data-fl="数据与分析" data-name="商业分析大专 diploma in business analytics psb 学院 数据与分析 文凭">
+  <div class="nm">商业分析大专</div>
+  <div class="ens">Diploma in Business Analytics</div>
   <div class="meta"><span class="t lv 文凭">文凭</span><span class="t fl">📈 数据与分析</span><span class="t pn">PSB 学院</span></div>
-</div><div class="prc-prog" data-pt="psb" data-lv="文凭" data-fl="物流供应链" data-name="diploma in global supply chain management psb 学院 物流供应链 文凭">
-  <div class="nm">Diploma in Global Supply Chain Management</div>
+</div><div class="prc-prog" data-pt="psb" data-lv="文凭" data-fl="物流供应链" data-name="全球供应链管理大专 diploma in global supply chain management psb 学院 物流供应链 文凭">
+  <div class="nm">全球供应链管理大专</div>
+  <div class="ens">Diploma in Global Supply Chain Management</div>
   <div class="meta"><span class="t lv 文凭">文凭</span><span class="t fl">🚚 物流供应链</span><span class="t pn">PSB 学院</span></div>
-</div><div class="prc-prog" data-pt="psb" data-lv="文凭" data-fl="生命科学" data-name="foundation diploma in life sciences psb 学院 生命科学 文凭">
-  <div class="nm">Foundation Diploma in Life Sciences</div>
+</div><div class="prc-prog" data-pt="psb" data-lv="文凭" data-fl="生命科学" data-name="生命科学基础大专 foundation diploma in life sciences psb 学院 生命科学 文凭">
+  <div class="nm">生命科学基础大专</div>
+  <div class="ens">Foundation Diploma in Life Sciences</div>
   <div class="meta"><span class="t lv 文凭">文凭</span><span class="t fl">🧬 生命科学</span><span class="t pn">PSB 学院</span></div>
-</div><div class="prc-prog" data-pt="psb" data-lv="文凭" data-fl="网络安全" data-name="diploma in cyber security psb 学院 网络安全 文凭">
-  <div class="nm">Diploma in Cyber Security</div>
+</div><div class="prc-prog" data-pt="psb" data-lv="文凭" data-fl="网络安全" data-name="网络安全大专 diploma in cyber security psb 学院 网络安全 文凭">
+  <div class="nm">网络安全大专</div>
+  <div class="ens">Diploma in Cyber Security</div>
   <div class="meta"><span class="t lv 文凭">文凭</span><span class="t fl">🔐 网络安全</span><span class="t pn">PSB 学院</span></div>
-</div><div class="prc-prog" data-pt="psb" data-lv="文凭" data-fl="设计" data-name="diploma in graphic design and media psb 学院 设计 文凭">
-  <div class="nm">Diploma in Graphic Design and Media</div>
+</div><div class="prc-prog" data-pt="psb" data-lv="文凭" data-fl="设计" data-name="平面设计与媒体大专 diploma in graphic design and media psb 学院 设计 文凭">
+  <div class="nm">平面设计与媒体大专</div>
+  <div class="ens">Diploma in Graphic Design and Media</div>
   <div class="meta"><span class="t lv 文凭">文凭</span><span class="t fl">🎨 设计</span><span class="t pn">PSB 学院</span></div>
-</div><div class="prc-prog" data-pt="psb" data-lv="文凭" data-fl="酒店旅游" data-name="diploma in tourism and hospitality management psb 学院 酒店旅游 文凭">
-  <div class="nm">Diploma in Tourism and Hospitality Management</div>
+</div><div class="prc-prog" data-pt="psb" data-lv="文凭" data-fl="酒店旅游" data-name="旅游与酒店管理大专 diploma in tourism and hospitality management psb 学院 酒店旅游 文凭">
+  <div class="nm">旅游与酒店管理大专</div>
+  <div class="ens">Diploma in Tourism and Hospitality Management</div>
   <div class="meta"><span class="t lv 文凭">文凭</span><span class="t fl">🏨 酒店旅游</span><span class="t pn">PSB 学院</span></div>
-</div><div class="prc-prog" data-pt="cov" data-lv="本科" data-fl="IT计算机" data-name="bsc (hons) artificial intelligence (top-up) 考文垂大学 it计算机 本科">
-  <div class="nm">BSc (Hons) Artificial Intelligence (Top-Up)</div>
+</div><div class="prc-prog" data-pt="cov" data-lv="本科" data-fl="IT计算机" data-name="人工智能（荣誉理学士·专升本） bsc (hons) artificial intelligence (top-up) 考文垂大学 it计算机 本科">
+  <div class="nm">人工智能（荣誉理学士·专升本）</div>
+  <div class="ens">BSc (Hons) Artificial Intelligence (Top-Up)</div>
   <div class="meta"><span class="t lv 本科">本科</span><span class="t fl">💻 IT计算机</span><span class="t pn">考文垂大学</span></div>
-</div><div class="prc-prog" data-pt="cov" data-lv="本科" data-fl="IT计算机" data-name="bsc (hons) computing science 考文垂大学 it计算机 本科">
-  <div class="nm">BSc (Hons) Computing Science</div>
+</div><div class="prc-prog" data-pt="cov" data-lv="本科" data-fl="IT计算机" data-name="计算科学（荣誉理学士） bsc (hons) computing science 考文垂大学 it计算机 本科">
+  <div class="nm">计算科学（荣誉理学士）</div>
+  <div class="ens">BSc (Hons) Computing Science</div>
   <div class="meta"><span class="t lv 本科">本科</span><span class="t fl">💻 IT计算机</span><span class="t pn">考文垂大学</span></div>
-</div><div class="prc-prog" data-pt="latrobe" data-lv="本科" data-fl="IT计算机" data-name="bachelor of computer science (artificial intelligence) 拉筹伯大学 it计算机 本科">
-  <div class="nm">Bachelor of Computer Science (Artificial Intelligence)</div>
+</div><div class="prc-prog" data-pt="latrobe" data-lv="本科" data-fl="IT计算机" data-name="计算机科学学士（人工智能） bachelor of computer science (artificial intelligence) 拉筹伯大学 it计算机 本科">
+  <div class="nm">计算机科学学士（人工智能）</div>
+  <div class="ens">Bachelor of Computer Science (Artificial Intelligence)</div>
   <div class="meta"><span class="t lv 本科">本科</span><span class="t fl">💻 IT计算机</span><span class="t pn">拉筹伯大学</span></div>
-</div><div class="prc-prog" data-pt="massey" data-lv="本科" data-fl="IT计算机" data-name="bachelor of information sciences (computer science &amp; it) 梅西大学 it计算机 本科">
-  <div class="nm">Bachelor of Information Sciences (Computer Science &amp; IT)</div>
+</div><div class="prc-prog" data-pt="massey" data-lv="本科" data-fl="IT计算机" data-name="信息科学学士（计算机科学与信息技术双主修） bachelor of information sciences (computer science &amp; it) 梅西大学 it计算机 本科">
+  <div class="nm">信息科学学士（计算机科学与信息技术双主修）</div>
+  <div class="ens">Bachelor of Information Sciences (Computer Science &amp; IT)</div>
   <div class="meta"><span class="t lv 本科">本科</span><span class="t fl">💻 IT计算机</span><span class="t pn">梅西大学</span></div>
-</div><div class="prc-prog" data-pt="newc" data-lv="本科" data-fl="IT计算机" data-name="bachelor of information technology 纽卡斯尔大学 it计算机 本科">
-  <div class="nm">Bachelor of Information Technology</div>
+</div><div class="prc-prog" data-pt="newc" data-lv="本科" data-fl="IT计算机" data-name="信息技术学士 bachelor of information technology 纽卡斯尔大学 it计算机 本科">
+  <div class="nm">信息技术学士</div>
+  <div class="ens">Bachelor of Information Technology</div>
   <div class="meta"><span class="t lv 本科">本科</span><span class="t fl">💻 IT计算机</span><span class="t pn">纽卡斯尔大学</span></div>
-</div><div class="prc-prog" data-pt="cov" data-lv="本科" data-fl="会计与金融" data-name="ba (hons) accounting and finance for international business (top-up) 考文垂大学 会计与金融 本科">
-  <div class="nm">BA (Hons) Accounting and Finance for International Business (Top-up)</div>
+</div><div class="prc-prog" data-pt="cov" data-lv="本科" data-fl="会计与金融" data-name="国际商务会计与金融（荣誉文学士·专升本） ba (hons) accounting and finance for international business (top-up) 考文垂大学 会计与金融 本科">
+  <div class="nm">国际商务会计与金融（荣誉文学士·专升本）</div>
+  <div class="ens">BA (Hons) Accounting and Finance for International Business (Top-up)</div>
   <div class="meta"><span class="t lv 本科">本科</span><span class="t fl">📊 会计与金融</span><span class="t pn">考文垂大学</span></div>
-</div><div class="prc-prog" data-pt="cov" data-lv="本科" data-fl="会计与金融" data-name="bsc (hons) accounting and finance 考文垂大学 会计与金融 本科">
-  <div class="nm">BSc (Hons) Accounting and Finance</div>
+</div><div class="prc-prog" data-pt="cov" data-lv="本科" data-fl="会计与金融" data-name="会计与金融（荣誉理学士） bsc (hons) accounting and finance 考文垂大学 会计与金融 本科">
+  <div class="nm">会计与金融（荣誉理学士）</div>
+  <div class="ens">BSc (Hons) Accounting and Finance</div>
   <div class="meta"><span class="t lv 本科">本科</span><span class="t fl">📊 会计与金融</span><span class="t pn">考文垂大学</span></div>
-</div><div class="prc-prog" data-pt="cov" data-lv="本科" data-fl="会计与金融" data-name="bsc (hons) business and finance 考文垂大学 会计与金融 本科">
-  <div class="nm">BSc (Hons) Business and Finance</div>
+</div><div class="prc-prog" data-pt="cov" data-lv="本科" data-fl="会计与金融" data-name="商业与金融（荣誉理学士） bsc (hons) business and finance 考文垂大学 会计与金融 本科">
+  <div class="nm">商业与金融（荣誉理学士）</div>
+  <div class="ens">BSc (Hons) Business and Finance</div>
   <div class="meta"><span class="t lv 本科">本科</span><span class="t fl">📊 会计与金融</span><span class="t pn">考文垂大学</span></div>
-</div><div class="prc-prog" data-pt="newc" data-lv="本科" data-fl="会计与金融" data-name="bachelor of commerce 纽卡斯尔大学 会计与金融 本科">
-  <div class="nm">Bachelor of Commerce</div>
+</div><div class="prc-prog" data-pt="newc" data-lv="本科" data-fl="会计与金融" data-name="商学学士 bachelor of commerce 纽卡斯尔大学 会计与金融 本科">
+  <div class="nm">商学学士</div>
+  <div class="ens">Bachelor of Commerce</div>
   <div class="meta"><span class="t lv 本科">本科</span><span class="t fl">📊 会计与金融</span><span class="t pn">纽卡斯尔大学</span></div>
-</div><div class="prc-prog" data-pt="cov" data-lv="本科" data-fl="传媒" data-name="ba (hons) digital media 考文垂大学 传媒 本科">
-  <div class="nm">BA (Hons) Digital Media</div>
+</div><div class="prc-prog" data-pt="cov" data-lv="本科" data-fl="传媒" data-name="数字媒体（荣誉文学士） ba (hons) digital media 考文垂大学 传媒 本科">
+  <div class="nm">数字媒体（荣誉文学士）</div>
+  <div class="ens">BA (Hons) Digital Media</div>
   <div class="meta"><span class="t lv 本科">本科</span><span class="t fl">🎬 传媒</span><span class="t pn">考文垂大学</span></div>
-</div><div class="prc-prog" data-pt="cov" data-lv="本科" data-fl="传媒" data-name="ba (hons) media and communications 考文垂大学 传媒 本科">
-  <div class="nm">BA (Hons) Media and Communications</div>
+</div><div class="prc-prog" data-pt="cov" data-lv="本科" data-fl="传媒" data-name="媒体与传播（荣誉文学士） ba (hons) media and communications 考文垂大学 传媒 本科">
+  <div class="nm">媒体与传播（荣誉文学士）</div>
+  <div class="ens">BA (Hons) Media and Communications</div>
   <div class="meta"><span class="t lv 本科">本科</span><span class="t fl">🎬 传媒</span><span class="t pn">考文垂大学</span></div>
-</div><div class="prc-prog" data-pt="newc" data-lv="本科" data-fl="传媒" data-name="bachelor of communication 纽卡斯尔大学 传媒 本科">
-  <div class="nm">Bachelor of Communication</div>
+</div><div class="prc-prog" data-pt="newc" data-lv="本科" data-fl="传媒" data-name="传播学学士 bachelor of communication 纽卡斯尔大学 传媒 本科">
+  <div class="nm">传播学学士</div>
+  <div class="ens">Bachelor of Communication</div>
   <div class="meta"><span class="t lv 本科">本科</span><span class="t fl">🎬 传媒</span><span class="t pn">纽卡斯尔大学</span></div>
-</div><div class="prc-prog" data-pt="napier" data-lv="本科" data-fl="体育运动" data-name="bsc sport and exercise science (top-up) 爱丁堡龙比亚大学 体育运动 本科">
-  <div class="nm">BSc Sport and Exercise Science (Top-up)</div>
+</div><div class="prc-prog" data-pt="napier" data-lv="本科" data-fl="体育运动" data-name="体育与运动科学（理学士·专升本） bsc sport and exercise science (top-up) 爱丁堡龙比亚大学 体育运动 本科">
+  <div class="nm">体育与运动科学（理学士·专升本）</div>
+  <div class="ens">BSc Sport and Exercise Science (Top-up)</div>
   <div class="meta"><span class="t lv 本科">本科</span><span class="t fl">🏅 体育运动</span><span class="t pn">爱丁堡龙比亚大学</span></div>
-</div><div class="prc-prog" data-pt="ecu" data-lv="本科" data-fl="体育运动" data-name="bachelor of science (exercise and sports science) 埃迪斯科文大学 体育运动 本科">
-  <div class="nm">Bachelor of Science (Exercise and Sports Science)</div>
+</div><div class="prc-prog" data-pt="ecu" data-lv="本科" data-fl="体育运动" data-name="理学学士（运动与体育科学） bachelor of science (exercise and sports science) 埃迪斯科文大学 体育运动 本科">
+  <div class="nm">理学学士（运动与体育科学）</div>
+  <div class="ens">Bachelor of Science (Exercise and Sports Science)</div>
   <div class="meta"><span class="t lv 本科">本科</span><span class="t fl">🏅 体育运动</span><span class="t pn">埃迪斯科文大学</span></div>
-</div><div class="prc-prog" data-pt="herts" data-lv="本科" data-fl="医疗健康" data-name="bsc (hons) diagnostic radiography and imaging 赫特福德大学 医疗健康 本科">
-  <div class="nm">BSc (Hons) Diagnostic Radiography and Imaging</div>
+</div><div class="prc-prog" data-pt="herts" data-lv="本科" data-fl="医疗健康" data-name="诊断放射与医学影像（荣誉理学士） bsc (hons) diagnostic radiography and imaging 赫特福德大学 医疗健康 本科">
+  <div class="nm">诊断放射与医学影像（荣誉理学士）</div>
+  <div class="ens">BSc (Hons) Diagnostic Radiography and Imaging</div>
   <div class="meta"><span class="t lv 本科">本科</span><span class="t fl">🩺 医疗健康</span><span class="t pn">赫特福德大学</span></div>
-</div><div class="prc-prog" data-pt="cov" data-lv="本科" data-fl="医疗健康" data-name="bsc (hons) paramedic science (top-up) 考文垂大学 医疗健康 本科">
-  <div class="nm">BSc (Hons) Paramedic Science (Top-Up)</div>
+</div><div class="prc-prog" data-pt="cov" data-lv="本科" data-fl="医疗健康" data-name="院前急救科学（荣誉理学士·专升本） bsc (hons) paramedic science (top-up) 考文垂大学 医疗健康 本科">
+  <div class="nm">院前急救科学（荣誉理学士·专升本）</div>
+  <div class="ens">BSc (Hons) Paramedic Science (Top-Up)</div>
   <div class="meta"><span class="t lv 本科">本科</span><span class="t fl">🩺 医疗健康</span><span class="t pn">考文垂大学</span></div>
-</div><div class="prc-prog" data-pt="herts" data-lv="本科" data-fl="商科" data-name="ba (hons) business administration (top-up) 赫特福德大学 商科 本科">
-  <div class="nm">BA (Hons) Business Administration (Top-Up)</div>
+</div><div class="prc-prog" data-pt="herts" data-lv="本科" data-fl="商科" data-name="工商管理（荣誉文学士·专升本） ba (hons) business administration (top-up) 赫特福德大学 商科 本科">
+  <div class="nm">工商管理（荣誉文学士·专升本）</div>
+  <div class="ens">BA (Hons) Business Administration (Top-Up)</div>
   <div class="meta"><span class="t lv 本科">本科</span><span class="t fl">💼 商科</span><span class="t pn">赫特福德大学</span></div>
-</div><div class="prc-prog" data-pt="herts" data-lv="本科" data-fl="商科" data-name="ba (hons) business management with logistics 赫特福德大学 商科 本科">
-  <div class="nm">BA (Hons) Business Management with Logistics</div>
+</div><div class="prc-prog" data-pt="herts" data-lv="本科" data-fl="商科" data-name="商业管理与物流（荣誉文学士） ba (hons) business management with logistics 赫特福德大学 商科 本科">
+  <div class="nm">商业管理与物流（荣誉文学士）</div>
+  <div class="ens">BA (Hons) Business Management with Logistics</div>
   <div class="meta"><span class="t lv 本科">本科</span><span class="t fl">💼 商科</span><span class="t pn">赫特福德大学</span></div>
-</div><div class="prc-prog" data-pt="cov" data-lv="本科" data-fl="商科" data-name="ba (hons) global business (top-up) 考文垂大学 商科 本科">
-  <div class="nm">BA (Hons) Global Business (Top-up)</div>
+</div><div class="prc-prog" data-pt="cov" data-lv="本科" data-fl="商科" data-name="全球商务（荣誉文学士·专升本） ba (hons) global business (top-up) 考文垂大学 商科 本科">
+  <div class="nm">全球商务（荣誉文学士·专升本）</div>
+  <div class="ens">BA (Hons) Global Business (Top-up)</div>
   <div class="meta"><span class="t lv 本科">本科</span><span class="t fl">💼 商科</span><span class="t pn">考文垂大学</span></div>
-</div><div class="prc-prog" data-pt="napier" data-lv="本科" data-fl="商科" data-name="ba business management (top-up) 爱丁堡龙比亚大学 商科 本科">
-  <div class="nm">BA Business Management (Top-up)</div>
+</div><div class="prc-prog" data-pt="napier" data-lv="本科" data-fl="商科" data-name="商业管理（文学士·专升本） ba business management (top-up) 爱丁堡龙比亚大学 商科 本科">
+  <div class="nm">商业管理（文学士·专升本）</div>
+  <div class="ens">BA Business Management (Top-up)</div>
   <div class="meta"><span class="t lv 本科">本科</span><span class="t fl">💼 商科</span><span class="t pn">爱丁堡龙比亚大学</span></div>
-</div><div class="prc-prog" data-pt="napier" data-lv="本科" data-fl="商科" data-name="ba business management with human resource management (top-up) 爱丁堡龙比亚大学 商科 本科">
-  <div class="nm">BA Business Management with Human Resource Management (Top-Up)</div>
+</div><div class="prc-prog" data-pt="napier" data-lv="本科" data-fl="商科" data-name="商业管理与人力资源（文学士·专升本） ba business management with human resource management (top-up) 爱丁堡龙比亚大学 商科 本科">
+  <div class="nm">商业管理与人力资源（文学士·专升本）</div>
+  <div class="ens">BA Business Management with Human Resource Management (Top-Up)</div>
   <div class="meta"><span class="t lv 本科">本科</span><span class="t fl">💼 商科</span><span class="t pn">爱丁堡龙比亚大学</span></div>
-</div><div class="prc-prog" data-pt="newc" data-lv="本科" data-fl="商科" data-name="bachelor of business 纽卡斯尔大学 商科 本科">
-  <div class="nm">Bachelor of Business</div>
+</div><div class="prc-prog" data-pt="newc" data-lv="本科" data-fl="商科" data-name="商学学士 bachelor of business 纽卡斯尔大学 商科 本科">
+  <div class="nm">商学学士</div>
+  <div class="ens">Bachelor of Business</div>
   <div class="meta"><span class="t lv 本科">本科</span><span class="t fl">💼 商科</span><span class="t pn">纽卡斯尔大学</span></div>
-</div><div class="prc-prog" data-pt="latrobe" data-lv="本科" data-fl="商科" data-name="bachelor of business (management and international business) 拉筹伯大学 商科 本科">
-  <div class="nm">Bachelor of Business (Management and International Business)</div>
+</div><div class="prc-prog" data-pt="latrobe" data-lv="本科" data-fl="商科" data-name="商学学士（管理与国际商务） bachelor of business (management and international business) 拉筹伯大学 商科 本科">
+  <div class="nm">商学学士（管理与国际商务）</div>
+  <div class="ens">Bachelor of Business (Management and International Business)</div>
   <div class="meta"><span class="t lv 本科">本科</span><span class="t fl">💼 商科</span><span class="t pn">拉筹伯大学</span></div>
-</div><div class="prc-prog" data-pt="latrobe" data-lv="本科" data-fl="商科" data-name="bachelor of business (management and marketing) 拉筹伯大学 商科 本科">
-  <div class="nm">Bachelor of Business (Management and Marketing)</div>
+</div><div class="prc-prog" data-pt="latrobe" data-lv="本科" data-fl="商科" data-name="商学学士（管理与市场营销） bachelor of business (management and marketing) 拉筹伯大学 商科 本科">
+  <div class="nm">商学学士（管理与市场营销）</div>
+  <div class="ens">Bachelor of Business (Management and Marketing)</div>
   <div class="meta"><span class="t lv 本科">本科</span><span class="t fl">💼 商科</span><span class="t pn">拉筹伯大学</span></div>
-</div><div class="prc-prog" data-pt="cov" data-lv="本科" data-fl="工程" data-name="beng (hons) electrical and electronic engineering 考文垂大学 工程 本科">
-  <div class="nm">BEng (Hons) Electrical and Electronic Engineering</div>
+</div><div class="prc-prog" data-pt="cov" data-lv="本科" data-fl="工程" data-name="电气与电子工程（荣誉工程学士） beng (hons) electrical and electronic engineering 考文垂大学 工程 本科">
+  <div class="nm">电气与电子工程（荣誉工程学士）</div>
+  <div class="ens">BEng (Hons) Electrical and Electronic Engineering</div>
   <div class="meta"><span class="t lv 本科">本科</span><span class="t fl">⚙️ 工程</span><span class="t pn">考文垂大学</span></div>
-</div><div class="prc-prog" data-pt="cov" data-lv="本科" data-fl="工程" data-name="beng (hons) electro-mechanical engineering 考文垂大学 工程 本科">
-  <div class="nm">BEng (Hons) Electro-Mechanical Engineering</div>
+</div><div class="prc-prog" data-pt="cov" data-lv="本科" data-fl="工程" data-name="机电工程（荣誉工程学士） beng (hons) electro-mechanical engineering 考文垂大学 工程 本科">
+  <div class="nm">机电工程（荣誉工程学士）</div>
+  <div class="ens">BEng (Hons) Electro-Mechanical Engineering</div>
   <div class="meta"><span class="t lv 本科">本科</span><span class="t fl">⚙️ 工程</span><span class="t pn">考文垂大学</span></div>
-</div><div class="prc-prog" data-pt="cov" data-lv="本科" data-fl="工程" data-name="beng (hons) mechanical engineering 考文垂大学 工程 本科">
-  <div class="nm">BEng (Hons) Mechanical Engineering</div>
+</div><div class="prc-prog" data-pt="cov" data-lv="本科" data-fl="工程" data-name="机械工程（荣誉工程学士） beng (hons) mechanical engineering 考文垂大学 工程 本科">
+  <div class="nm">机械工程（荣誉工程学士）</div>
+  <div class="ens">BEng (Hons) Mechanical Engineering</div>
   <div class="meta"><span class="t lv 本科">本科</span><span class="t fl">⚙️ 工程</span><span class="t pn">考文垂大学</span></div>
-</div><div class="prc-prog" data-pt="herts" data-lv="本科" data-fl="工程" data-name="beng (hons) robotics and artificial intelligence 赫特福德大学 工程 本科">
-  <div class="nm">BEng (Hons) Robotics and Artificial Intelligence</div>
+</div><div class="prc-prog" data-pt="herts" data-lv="本科" data-fl="工程" data-name="机器人与人工智能（荣誉工程学士） beng (hons) robotics and artificial intelligence 赫特福德大学 工程 本科">
+  <div class="nm">机器人与人工智能（荣誉工程学士）</div>
+  <div class="ens">BEng (Hons) Robotics and Artificial Intelligence</div>
   <div class="meta"><span class="t lv 本科">本科</span><span class="t fl">⚙️ 工程</span><span class="t pn">赫特福德大学</span></div>
-</div><div class="prc-prog" data-pt="cov" data-lv="本科" data-fl="工程" data-name="bsc (hons) quantity surveying and commercial management 考文垂大学 工程 本科">
-  <div class="nm">BSc (Hons) Quantity Surveying and Commercial Management</div>
+</div><div class="prc-prog" data-pt="cov" data-lv="本科" data-fl="工程" data-name="工料测量与商业管理（荣誉理学士） bsc (hons) quantity surveying and commercial management 考文垂大学 工程 本科">
+  <div class="nm">工料测量与商业管理（荣誉理学士）</div>
+  <div class="ens">BSc (Hons) Quantity Surveying and Commercial Management</div>
   <div class="meta"><span class="t lv 本科">本科</span><span class="t fl">⚙️ 工程</span><span class="t pn">考文垂大学</span></div>
-</div><div class="prc-prog" data-pt="cov" data-lv="本科" data-fl="市场营销" data-name="ba (hons) business and marketing 考文垂大学 市场营销 本科">
-  <div class="nm">BA (Hons) Business and Marketing</div>
+</div><div class="prc-prog" data-pt="cov" data-lv="本科" data-fl="市场营销" data-name="商业与市场营销（荣誉文学士） ba (hons) business and marketing 考文垂大学 市场营销 本科">
+  <div class="nm">商业与市场营销（荣誉文学士）</div>
+  <div class="ens">BA (Hons) Business and Marketing</div>
   <div class="meta"><span class="t lv 本科">本科</span><span class="t fl">📣 市场营销</span><span class="t pn">考文垂大学</span></div>
-</div><div class="prc-prog" data-pt="cov" data-lv="本科" data-fl="市场营销" data-name="ba (hons) digital marketing 考文垂大学 市场营销 本科">
-  <div class="nm">BA (Hons) Digital Marketing</div>
+</div><div class="prc-prog" data-pt="cov" data-lv="本科" data-fl="市场营销" data-name="数字营销（荣誉文学士） ba (hons) digital marketing 考文垂大学 市场营销 本科">
+  <div class="nm">数字营销（荣誉文学士）</div>
+  <div class="ens">BA (Hons) Digital Marketing</div>
   <div class="meta"><span class="t lv 本科">本科</span><span class="t fl">📣 市场营销</span><span class="t pn">考文垂大学</span></div>
-</div><div class="prc-prog" data-pt="latrobe" data-lv="本科" data-fl="市场营销" data-name="bachelor of business (marketing and international business) 拉筹伯大学 市场营销 本科">
-  <div class="nm">Bachelor of Business (Marketing and International Business)</div>
+</div><div class="prc-prog" data-pt="latrobe" data-lv="本科" data-fl="市场营销" data-name="商学学士（市场营销与国际商务） bachelor of business (marketing and international business) 拉筹伯大学 市场营销 本科">
+  <div class="nm">商学学士（市场营销与国际商务）</div>
+  <div class="ens">Bachelor of Business (Marketing and International Business)</div>
   <div class="meta"><span class="t lv 本科">本科</span><span class="t fl">📣 市场营销</span><span class="t pn">拉筹伯大学</span></div>
-</div><div class="prc-prog" data-pt="latrobe" data-lv="本科" data-fl="护理" data-name="bachelor of nursing (top-up) 拉筹伯大学 护理 本科">
-  <div class="nm">Bachelor of Nursing (Top-up)</div>
+</div><div class="prc-prog" data-pt="latrobe" data-lv="本科" data-fl="护理" data-name="护理学学士（专升本） bachelor of nursing (top-up) 拉筹伯大学 护理 本科">
+  <div class="nm">护理学学士（专升本）</div>
+  <div class="ens">Bachelor of Nursing (Top-up)</div>
   <div class="meta"><span class="t lv 本科">本科</span><span class="t fl">❤️ 护理</span><span class="t pn">拉筹伯大学</span></div>
-</div><div class="prc-prog" data-pt="herts" data-lv="本科" data-fl="数据与分析" data-name="bsc (hons) data science 赫特福德大学 数据与分析 本科">
-  <div class="nm">BSc (Hons) Data Science</div>
+</div><div class="prc-prog" data-pt="herts" data-lv="本科" data-fl="数据与分析" data-name="数据科学（荣誉理学士） bsc (hons) data science 赫特福德大学 数据与分析 本科">
+  <div class="nm">数据科学（荣誉理学士）</div>
+  <div class="ens">BSc (Hons) Data Science</div>
   <div class="meta"><span class="t lv 本科">本科</span><span class="t fl">📈 数据与分析</span><span class="t pn">赫特福德大学</span></div>
-</div><div class="prc-prog" data-pt="massey" data-lv="本科" data-fl="数据与分析" data-name="bachelor of business 梅西大学 数据与分析 本科">
-  <div class="nm">Bachelor of Business</div>
+</div><div class="prc-prog" data-pt="massey" data-lv="本科" data-fl="数据与分析" data-name="商学学士（商业分析） bachelor of business 梅西大学 数据与分析 本科">
+  <div class="nm">商学学士（商业分析）</div>
+  <div class="ens">Bachelor of Business</div>
   <div class="meta"><span class="t lv 本科">本科</span><span class="t fl">📈 数据与分析</span><span class="t pn">梅西大学</span></div>
-</div><div class="prc-prog" data-pt="newc" data-lv="本科" data-fl="生命科学" data-name="bachelor of biomedical science 纽卡斯尔大学 生命科学 本科">
-  <div class="nm">Bachelor of Biomedical Science</div>
+</div><div class="prc-prog" data-pt="newc" data-lv="本科" data-fl="生命科学" data-name="生物医学学士 bachelor of biomedical science 纽卡斯尔大学 生命科学 本科">
+  <div class="nm">生物医学学士</div>
+  <div class="ens">Bachelor of Biomedical Science</div>
   <div class="meta"><span class="t lv 本科">本科</span><span class="t fl">🧬 生命科学</span><span class="t pn">纽卡斯尔大学</span></div>
-</div><div class="prc-prog" data-pt="latrobe" data-lv="本科" data-fl="生命科学" data-name="bachelor of biomedical science 拉筹伯大学 生命科学 本科">
-  <div class="nm">Bachelor of Biomedical Science</div>
+</div><div class="prc-prog" data-pt="latrobe" data-lv="本科" data-fl="生命科学" data-name="生物医学学士 bachelor of biomedical science 拉筹伯大学 生命科学 本科">
+  <div class="nm">生物医学学士</div>
+  <div class="ens">Bachelor of Biomedical Science</div>
   <div class="meta"><span class="t lv 本科">本科</span><span class="t fl">🧬 生命科学</span><span class="t pn">拉筹伯大学</span></div>
-</div><div class="prc-prog" data-pt="latrobe" data-lv="本科" data-fl="生命科学" data-name="bachelor of science (applied chemistry and molecular biology) 拉筹伯大学 生命科学 本科">
-  <div class="nm">Bachelor of Science (Applied Chemistry and Molecular Biology)</div>
+</div><div class="prc-prog" data-pt="latrobe" data-lv="本科" data-fl="生命科学" data-name="理学学士（应用化学与分子生物学） bachelor of science (applied chemistry and molecular biology) 拉筹伯大学 生命科学 本科">
+  <div class="nm">理学学士（应用化学与分子生物学）</div>
+  <div class="ens">Bachelor of Science (Applied Chemistry and Molecular Biology)</div>
   <div class="meta"><span class="t lv 本科">本科</span><span class="t fl">🧬 生命科学</span><span class="t pn">拉筹伯大学</span></div>
-</div><div class="prc-prog" data-pt="latrobe" data-lv="本科" data-fl="生命科学" data-name="bachelor of science (biotechnology and molecular biology) 拉筹伯大学 生命科学 本科">
-  <div class="nm">Bachelor of Science (Biotechnology and Molecular Biology)</div>
+</div><div class="prc-prog" data-pt="latrobe" data-lv="本科" data-fl="生命科学" data-name="理学学士（生物技术与分子生物学） bachelor of science (biotechnology and molecular biology) 拉筹伯大学 生命科学 本科">
+  <div class="nm">理学学士（生物技术与分子生物学）</div>
+  <div class="ens">Bachelor of Science (Biotechnology and Molecular Biology)</div>
   <div class="meta"><span class="t lv 本科">本科</span><span class="t fl">🧬 生命科学</span><span class="t pn">拉筹伯大学</span></div>
-</div><div class="prc-prog" data-pt="latrobe" data-lv="本科" data-fl="生命科学" data-name="bachelor of science (molecular biology and pharmaceutical science) 拉筹伯大学 生命科学 本科">
-  <div class="nm">Bachelor of Science (Molecular Biology and Pharmaceutical Science)</div>
+</div><div class="prc-prog" data-pt="latrobe" data-lv="本科" data-fl="生命科学" data-name="理学学士（分子生物学与制药科学） bachelor of science (molecular biology and pharmaceutical science) 拉筹伯大学 生命科学 本科">
+  <div class="nm">理学学士（分子生物学与制药科学）</div>
+  <div class="ens">Bachelor of Science (Molecular Biology and Pharmaceutical Science)</div>
   <div class="meta"><span class="t lv 本科">本科</span><span class="t fl">🧬 生命科学</span><span class="t pn">拉筹伯大学</span></div>
-</div><div class="prc-prog" data-pt="cov" data-lv="本科" data-fl="网络安全" data-name="bsc (hons) cyber security 考文垂大学 网络安全 本科">
-  <div class="nm">BSc (Hons) Cyber Security</div>
+</div><div class="prc-prog" data-pt="cov" data-lv="本科" data-fl="网络安全" data-name="网络安全（荣誉理学士） bsc (hons) cyber security 考文垂大学 网络安全 本科">
+  <div class="nm">网络安全（荣誉理学士）</div>
+  <div class="ens">BSc (Hons) Cyber Security</div>
   <div class="meta"><span class="t lv 本科">本科</span><span class="t fl">🔐 网络安全</span><span class="t pn">考文垂大学</span></div>
-</div><div class="prc-prog" data-pt="cov" data-lv="本科" data-fl="酒店旅游" data-name="ba (hons) international hospitality and tourism management 考文垂大学 酒店旅游 本科">
-  <div class="nm">BA (Hons) International Hospitality and Tourism Management</div>
+</div><div class="prc-prog" data-pt="cov" data-lv="本科" data-fl="酒店旅游" data-name="国际酒店与旅游管理（荣誉文学士） ba (hons) international hospitality and tourism management 考文垂大学 酒店旅游 本科">
+  <div class="nm">国际酒店与旅游管理（荣誉文学士）</div>
+  <div class="ens">BA (Hons) International Hospitality and Tourism Management</div>
   <div class="meta"><span class="t lv 本科">本科</span><span class="t fl">🏨 酒店旅游</span><span class="t pn">考文垂大学</span></div>
-</div><div class="prc-prog" data-pt="napier" data-lv="本科" data-fl="酒店旅游" data-name="ba hospitality and tourism management (top-up) 爱丁堡龙比亚大学 酒店旅游 本科">
-  <div class="nm">BA Hospitality and Tourism Management (Top-Up)</div>
+</div><div class="prc-prog" data-pt="napier" data-lv="本科" data-fl="酒店旅游" data-name="酒店与旅游管理（文学士·专升本） ba hospitality and tourism management (top-up) 爱丁堡龙比亚大学 酒店旅游 本科">
+  <div class="nm">酒店与旅游管理（文学士·专升本）</div>
+  <div class="ens">BA Hospitality and Tourism Management (Top-Up)</div>
   <div class="meta"><span class="t lv 本科">本科</span><span class="t fl">🏨 酒店旅游</span><span class="t pn">爱丁堡龙比亚大学</span></div>
-</div><div class="prc-prog" data-pt="cov" data-lv="硕士" data-fl="会计与金融" data-name="mba in finance 考文垂大学 会计与金融 硕士">
-  <div class="nm">MBA in Finance</div>
+</div><div class="prc-prog" data-pt="cov" data-lv="硕士" data-fl="会计与金融" data-name="金融工商管理硕士（mba） mba in finance 考文垂大学 会计与金融 硕士">
+  <div class="nm">金融工商管理硕士（MBA）</div>
+  <div class="ens">MBA in Finance</div>
   <div class="meta"><span class="t lv 硕士">硕士</span><span class="t fl">📊 会计与金融</span><span class="t pn">考文垂大学</span></div>
-</div><div class="prc-prog" data-pt="massey" data-lv="硕士" data-fl="传媒" data-name="ma media studies 梅西大学 传媒 硕士">
-  <div class="nm">MA Media Studies</div>
+</div><div class="prc-prog" data-pt="massey" data-lv="硕士" data-fl="传媒" data-name="媒体研究文学硕士 ma media studies 梅西大学 传媒 硕士">
+  <div class="nm">媒体研究文学硕士</div>
+  <div class="ens">MA Media Studies</div>
   <div class="meta"><span class="t lv 硕士">硕士</span><span class="t fl">🎬 传媒</span><span class="t pn">梅西大学</span></div>
-</div><div class="prc-prog" data-pt="canberra" data-lv="硕士" data-fl="商科" data-name="doctor of business administration (dba) 堪培拉大学 商科 硕士">
-  <div class="nm">Doctor of Business Administration (DBA)</div>
+</div><div class="prc-prog" data-pt="canberra" data-lv="硕士" data-fl="商科" data-name="工商管理博士（dba） doctor of business administration (dba) 堪培拉大学 商科 硕士">
+  <div class="nm">工商管理博士（DBA）</div>
+  <div class="ens">Doctor of Business Administration (DBA)</div>
   <div class="meta"><span class="t lv 硕士">硕士</span><span class="t fl">💼 商科</span><span class="t pn">堪培拉大学</span></div>
-</div><div class="prc-prog" data-pt="newc" data-lv="硕士" data-fl="商科" data-name="executive mba 纽卡斯尔大学 商科 硕士">
-  <div class="nm">Executive MBA</div>
+</div><div class="prc-prog" data-pt="newc" data-lv="硕士" data-fl="商科" data-name="高级工商管理硕士（emba） executive mba 纽卡斯尔大学 商科 硕士">
+  <div class="nm">高级工商管理硕士（EMBA）</div>
+  <div class="ens">Executive MBA</div>
   <div class="meta"><span class="t lv 硕士">硕士</span><span class="t fl">💼 商科</span><span class="t pn">纽卡斯尔大学</span></div>
-</div><div class="prc-prog" data-pt="herts" data-lv="硕士" data-fl="商科" data-name="mba 赫特福德大学 商科 硕士">
-  <div class="nm">MBA</div>
+</div><div class="prc-prog" data-pt="herts" data-lv="硕士" data-fl="商科" data-name="工商管理硕士（mba） mba 赫特福德大学 商科 硕士">
+  <div class="nm">工商管理硕士（MBA）</div>
+  <div class="ens">MBA</div>
   <div class="meta"><span class="t lv 硕士">硕士</span><span class="t fl">💼 商科</span><span class="t pn">赫特福德大学</span></div>
-</div><div class="prc-prog" data-pt="newc" data-lv="硕士" data-fl="商科" data-name="mba 纽卡斯尔大学 商科 硕士">
-  <div class="nm">MBA</div>
+</div><div class="prc-prog" data-pt="newc" data-lv="硕士" data-fl="商科" data-name="工商管理硕士（mba） mba 纽卡斯尔大学 商科 硕士">
+  <div class="nm">工商管理硕士（MBA）</div>
+  <div class="ens">MBA</div>
   <div class="meta"><span class="t lv 硕士">硕士</span><span class="t fl">💼 商科</span><span class="t pn">纽卡斯尔大学</span></div>
-</div><div class="prc-prog" data-pt="cov" data-lv="硕士" data-fl="商科" data-name="mba in global business 考文垂大学 商科 硕士">
-  <div class="nm">MBA in Global Business</div>
+</div><div class="prc-prog" data-pt="cov" data-lv="硕士" data-fl="商科" data-name="全球商务工商管理硕士（mba） mba in global business 考文垂大学 商科 硕士">
+  <div class="nm">全球商务工商管理硕士（MBA）</div>
+  <div class="ens">MBA in Global Business</div>
   <div class="meta"><span class="t lv 硕士">硕士</span><span class="t fl">💼 商科</span><span class="t pn">考文垂大学</span></div>
-</div><div class="prc-prog" data-pt="cov" data-lv="硕士" data-fl="工程" data-name="msc engineering management 考文垂大学 工程 硕士">
-  <div class="nm">MSc Engineering Management</div>
+</div><div class="prc-prog" data-pt="cov" data-lv="硕士" data-fl="工程" data-name="工程管理理学硕士 msc engineering management 考文垂大学 工程 硕士">
+  <div class="nm">工程管理理学硕士</div>
+  <div class="ens">MSc Engineering Management</div>
   <div class="meta"><span class="t lv 硕士">硕士</span><span class="t fl">⚙️ 工程</span><span class="t pn">考文垂大学</span></div>
-</div><div class="prc-prog" data-pt="cov" data-lv="硕士" data-fl="工程" data-name="msc renewable energy engineering 考文垂大学 工程 硕士">
-  <div class="nm">MSc Renewable Energy Engineering</div>
+</div><div class="prc-prog" data-pt="cov" data-lv="硕士" data-fl="工程" data-name="可再生能源工程理学硕士 msc renewable energy engineering 考文垂大学 工程 硕士">
+  <div class="nm">可再生能源工程理学硕士</div>
+  <div class="ens">MSc Renewable Energy Engineering</div>
   <div class="meta"><span class="t lv 硕士">硕士</span><span class="t fl">⚙️ 工程</span><span class="t pn">考文垂大学</span></div>
-</div><div class="prc-prog" data-pt="latrobe" data-lv="硕士" data-fl="护理" data-name="master of nursing (leadership) 拉筹伯大学 护理 硕士">
-  <div class="nm">Master of Nursing (Leadership)</div>
+</div><div class="prc-prog" data-pt="latrobe" data-lv="硕士" data-fl="护理" data-name="护理学硕士（领导力） master of nursing (leadership) 拉筹伯大学 护理 硕士">
+  <div class="nm">护理学硕士（领导力）</div>
+  <div class="ens">Master of Nursing (Leadership)</div>
   <div class="meta"><span class="t lv 硕士">硕士</span><span class="t fl">❤️ 护理</span><span class="t pn">拉筹伯大学</span></div>
-</div><div class="prc-prog" data-pt="herts" data-lv="硕士" data-fl="数据与分析" data-name="msc data science 赫特福德大学 数据与分析 硕士">
-  <div class="nm">MSc Data Science</div>
+</div><div class="prc-prog" data-pt="herts" data-lv="硕士" data-fl="数据与分析" data-name="数据科学理学硕士 msc data science 赫特福德大学 数据与分析 硕士">
+  <div class="nm">数据科学理学硕士</div>
+  <div class="ens">MSc Data Science</div>
   <div class="meta"><span class="t lv 硕士">硕士</span><span class="t fl">📈 数据与分析</span><span class="t pn">赫特福德大学</span></div>
-</div><div class="prc-prog" data-pt="latrobe" data-lv="硕士" data-fl="生命科学" data-name="master of biotechnology and bioinformatics 拉筹伯大学 生命科学 硕士">
-  <div class="nm">Master of Biotechnology and Bioinformatics</div>
+</div><div class="prc-prog" data-pt="latrobe" data-lv="硕士" data-fl="生命科学" data-name="生物技术与生物信息学硕士 master of biotechnology and bioinformatics 拉筹伯大学 生命科学 硕士">
+  <div class="nm">生物技术与生物信息学硕士</div>
+  <div class="ens">Master of Biotechnology and Bioinformatics</div>
   <div class="meta"><span class="t lv 硕士">硕士</span><span class="t fl">🧬 生命科学</span><span class="t pn">拉筹伯大学</span></div>
-</div><div class="prc-prog" data-pt="cov" data-lv="硕士" data-fl="网络安全" data-name="msc cyber security 考文垂大学 网络安全 硕士">
-  <div class="nm">MSc Cyber Security</div>
+</div><div class="prc-prog" data-pt="cov" data-lv="硕士" data-fl="网络安全" data-name="网络安全理学硕士 msc cyber security 考文垂大学 网络安全 硕士">
+  <div class="nm">网络安全理学硕士</div>
+  <div class="ens">MSc Cyber Security</div>
   <div class="meta"><span class="t lv 硕士">硕士</span><span class="t fl">🔐 网络安全</span><span class="t pn">考文垂大学</span></div>
 </div></div>
     <div class="prc-empty" id="prcempty">没有匹配的专业，试试减少筛选条件。</div>

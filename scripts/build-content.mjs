@@ -421,7 +421,7 @@ ${header}
   </article>
 </main>
 ${footer}
-<script src="/seda-site.js?v=27"></script>
+<script src="/seda-site.js?v=28"></script>
 </body>
 </html>`;
 }

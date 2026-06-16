@@ -161,6 +161,8 @@
 
   function injectConversionCta() {
     if (document.querySelector('.seda-conversion-cta')) return;
+    // Page already has its own lead-capture band (static .contact-section) — don't add a duplicate.
+    if (document.querySelector('.contact-section')) return;
     var target = document.querySelector('.content-main, article.content-main, main article, main');
     if (!target) return;
     if (isSchoolDetail(location.pathname)) {

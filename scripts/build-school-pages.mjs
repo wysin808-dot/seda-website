@@ -618,7 +618,7 @@ ${header}
   </div>
 </main>
 ${footer}
-<script src="/seda-site.js?v=27"></script>
+<script src="/seda-site.js?v=28"></script>
 </body>
 </html>`;
 }
@@ -717,7 +717,7 @@ ${cards}
   </section>
 </main>
 ${footer}
-<script src="/seda-site.js?v=27"></script>
+<script src="/seda-site.js?v=28"></script>
 </body>
 </html>`;
 }
@@ -826,7 +826,7 @@ ${cards}
   </section>
 </main>
 ${footer}
-<script src="/seda-site.js?v=27"></script>
+<script src="/seda-site.js?v=28"></script>
 </body>
 </html>`;
 }

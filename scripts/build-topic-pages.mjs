@@ -278,7 +278,7 @@ ${matched.length ? renderCards(matched) : topic.links.map(([label, href]) => `
   </section>
 </main>
 ${footer}
-<script src="/seda-site.js?v=26"></script>
+<script src="/seda-site.js?v=28"></script>
 </body>
 </html>`;
 }
@@ -325,7 +325,7 @@ ${header}
   </section>
 </main>
 ${footer}
-<script src="/seda-site.js?v=26"></script>
+<script src="/seda-site.js?v=28"></script>
 </body>
 </html>`;
 }

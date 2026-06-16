@@ -1,100 +1,126 @@
 # -*- coding: utf-8 -*-
-"""SAMPLE: /university/degrees/ — university degree IGP database (NUS + UAS only, to validate format).
-3 entry columns for 公立: A-Level IGP (official) | 理工 GPA IGP (official) | WACE 参考 ATAR (derived from A-Level, labelled).
-UAS shown separately (portfolio/audition requirements). Reuses site header/footer + poly-db visual system."""
-import os, json, re, html
+"""Build /university/ (gostudy-style directory) and /university/degrees/ (full IGP database)
+from content/university/uni-data.json. 6 autonomous unis + UAS. Static + client-side filter."""
+import os, json, html
 
 ROOT=os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CSSV="38"
+D=json.load(open(os.path.join(ROOT,"content/university/uni-data.json"),encoding="utf-8"))
 SP=open(os.path.join(ROOT,"poly/sp/index.html"),encoding="utf-8").read()
 HEADER=SP[SP.index('<header class="site-header">'):SP.index('</header>')+len('</header>')]
 FOOTER=SP[SP.index('<footer class="site-footer">'):SP.index('</footer>')+len('</footer>')]
 def esc(s): return html.escape(str(s),quote=True)
 
-# ---- NUS official IGP (AY2025/26) : name_en, name_zh, cluster, alevel_lo, alevel_hi, gpa_lo, gpa_hi (gpa None = small sample)
-NUS=[
-("Law","法学（法律）","法律","AAA/A","AAA/A",None,None),
-("Medicine","医学","医学健康","AAA/A","AAA/A",3.87,3.99),
-("Dentistry","牙医学","医学健康","AAA/A","AAA/A",None,None),
-("Nursing","护理学","医学健康","CCD/C","ABB/B",3.18,3.77),
-("Pharmacy","药学","医学健康","AAA/C","AAA/A",3.73,3.97),
-("Pharmaceutical Science","药剂科学","理学","AAA/A","AAA/A",3.93,4.00),
-("Engineering","工程（大类）","工程","BBB/C","AAA/A",3.57,3.94),
-("Computer Engineering","计算机工程","工程","AAA/A","AAA/A",3.81,3.99),
-("Industrial Design","工业设计","设计建筑","BBC/B","AAA/A",3.56,3.90),
-("Architecture","建筑学","设计建筑","CCC/C","AAB/B",3.27,3.88),
-("Landscape Architecture","景观建筑","设计建筑","CCC/B","AAB/C",3.37,3.81),
-("Common Computer Science Programmes","计算机科学（大类）","计算机","AAA/A","AAA/A",3.81,3.98),
-("Information Security","信息安全","计算机","AAA/B","AAA/A",3.88,3.98),
-("Business Analytics","商业分析","计算机","AAA/A","AAA/A",3.75,3.98),
-("Business Artificial Intelligence Systems","商业人工智能系统","计算机","AAA/B","AAA/A",3.71,3.90),
-("Data Science and Economics","数据科学与经济","计算机","AAA/A","AAA/A",None,None),
-("Business Administration","工商管理","商科","AAA/C","AAA/A",3.61,3.94),
-("Environmental Studies","环境研究","理学","AAA/B","AAA/A",3.67,3.94),
-("Food Science and Technology","食品科学与技术","理学","AAA/C","AAA/A",3.64,3.91),
-("Humanities and Sciences","人文与科学","人文社科","ABB/C","AAA/A",3.63,3.92),
-("Philosophy, Politics, and Economics","哲学政治经济（PPE）","人文社科","AAA/A","AAA/A",None,None),
-]
-UNIS={"nus":{"abbr":"NUS","zh":"新加坡国立大学","atar_floor":"≥90（热门专业 ~99）"}}
+UNIS={u["slug"]:u for u in D["unis"]}
+CLI=D["cli"]
+progs=D["programmes"]
+N=len(progs)
+GRADE=[p for p in progs if p["type"]=="grade"]
+APT=[p for p in progs if p["type"] in ("aptitude","holistic")]
+YEAR=D["year"]
+clusters=sorted({p["cluster"] for p in progs}, key=lambda c:-sum(1 for p in progs if p["cluster"]==c))
 
-# A-Level 3-letter (strip /X) -> ATAR estimate
-def atar_est(alevel_lo):
-    g=alevel_lo.split("/")[0]
-    val={"A":5,"B":4,"C":3,"D":2,"E":1}
-    s=sum(val.get(c,0) for c in g[:3])
-    table={15:"≈99",14:"≈97",13:"≈95",12:"≈92",11:"≈90",10:"≈88",9:"≈85",8:"≈83",7:"≈80"}
-    return table.get(s,"≈80")
+CSS=r'''
+.udb-hero{padding:38px clamp(20px,6vw,80px);background:linear-gradient(135deg,#0f2a5c,#1f4e9c)}
+.udb-hero,.udb-hero *{color:#fff}
+.udb-hero .in{max-width:1180px;margin:0 auto}
+.udb-ey{display:inline-block;margin-bottom:14px;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.3);padding:6px 14px;border-radius:999px;font-size:.82rem;font-weight:700}
+.udb-hero h1{font-size:clamp(26px,3.6vw,42px);margin:0 0 12px;font-weight:850;line-height:1.16}
+.udb-hero p.s{margin:0 0 22px;color:rgba(255,255,255,.9);font-size:clamp(15px,1.6vw,17px);line-height:1.7;max-width:780px}
+.udb-search{display:flex;gap:10px;max-width:640px;background:#fff;border-radius:13px;padding:7px;box-shadow:0 18px 44px rgba(0,0,0,.24)}
+.udb-search input{flex:1;border:0;outline:0;padding:0 14px;font-size:1rem;color:var(--ink);min-width:0;background:transparent}
+.udb-search button{border:0;background:#1f4e9c;color:#fff;font-weight:800;padding:0 22px;border-radius:9px;cursor:pointer;height:44px}
+.udb-statsband{background:#fff;border-bottom:1px solid var(--line)}
+.udb-stats{max-width:1180px;margin:0 auto;padding:24px clamp(20px,6vw,80px);display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:16px;text-align:center}
+.udb-stat .n{font-size:clamp(24px,3vw,34px);font-weight:850;color:#1f4e9c;line-height:1}
+.udb-stat .l{font-size:.82rem;color:var(--muted);margin-top:5px}
+.usec{max-width:1180px;margin:0 auto;padding:42px clamp(20px,6vw,80px)}
+.usec h2{font-size:clamp(22px,3vw,30px);margin:0 0 6px;color:var(--ink);font-weight:820}
+.usec .lead{color:var(--muted);margin:0 0 24px;line-height:1.7}
+.ucards{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px}
+.ucard{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:16px;padding:20px;background:#fff;box-shadow:0 2px 10px rgba(20,20,40,.04);transition:transform .2s,box-shadow .2s;text-decoration:none}
+.ucard:hover{transform:translateY(-4px);box-shadow:var(--shadow-md)}
+.ucard .top{display:flex;align-items:center;gap:12px;margin-bottom:10px}
+.ucard .abbr{font-size:.92rem;font-weight:800;color:#fff;background:#1f4e9c;padding:5px 11px;border-radius:9px;letter-spacing:.03em}
+.ucard.arts .abbr{background:#b5179e}
+.ucard .qs{font-size:.74rem;color:var(--muted);background:#eef2f8;padding:3px 9px;border-radius:999px}
+.ucard h3{margin:0;font-size:1.12rem;color:var(--ink)}
+.ucard .en{color:var(--muted);font-size:.8rem;margin:.1rem 0 .6rem}
+.ucard .sig{font-size:.88rem;color:var(--ink);line-height:1.6;margin:0 0 .7rem}
+.ucard .meta{display:flex;flex-wrap:wrap;gap:5px 12px;font-size:.8rem;color:var(--muted);margin-bottom:.7rem}
+.ucard .adm{font-size:.74rem;font-weight:700;padding:3px 9px;border-radius:999px;display:inline-block;margin-bottom:.7rem}
+.adm-grade{background:#eaf0fb;color:#1f4e9c}.adm-apt{background:#fff4e6;color:#b45309}.adm-port{background:#fbf0fa;color:#b5179e}
+.ucard .foot{margin-top:auto;display:flex;justify-content:space-between;border-top:1px dashed var(--line);padding-top:.7rem;font-size:.84rem}
+.ucard .foot .c{color:var(--muted)}.ucard .foot .c b{color:#1f4e9c;font-size:1.05rem}
+.ucard .foot .go{color:#1f4e9c;font-weight:800}
+.uclusters{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:11px}
+.uclcard{display:flex;flex-direction:column;gap:3px;border:1px solid var(--line);border-radius:13px;padding:14px 15px;background:#fff;text-decoration:none;transition:.15s}
+.uclcard:hover{transform:translateY(-3px);box-shadow:var(--shadow-md);border-color:#bcd0f0}
+.uclcard .ic{font-size:1.45rem}.uclcard .nm{font-weight:800;color:var(--ink)}.uclcard .ct{color:var(--muted);font-size:.8rem}.uclcard .ct b{color:#1f4e9c}
+.uteaser{background:linear-gradient(135deg,#eef4fc,#fff 60%);border:1px solid #cdddf5;border-radius:18px;padding:28px clamp(20px,4vw,38px)}
+.uteaser h2{margin:0 0 10px}.uteaser p{color:var(--muted);line-height:1.7;margin:0 0 16px}
+.uteaser .btn{display:inline-flex;gap:8px;background:#1f4e9c;color:#fff;font-weight:800;padding:12px 22px;border-radius:11px;text-decoration:none}
+.upath{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+.upstep{background:#fff;border:1px solid var(--line);border-radius:13px;padding:15px;text-align:center}
+.upstep .n{font-size:.72rem;color:#1f4e9c;font-weight:800}.upstep .t{font-weight:800;color:var(--ink);margin:5px 0 4px}.upstep .d{font-size:.8rem;color:var(--muted);line-height:1.5}
+.ufaq details{background:#fff;border:1px solid var(--line);border-radius:12px;margin-bottom:10px;overflow:hidden}
+.ufaq summary{cursor:pointer;padding:15px 18px;font-weight:700;color:var(--ink);list-style:none;display:flex;justify-content:space-between;gap:12px}
+.ufaq summary::-webkit-details-marker{display:none}
+.ufaq summary::after{content:"+";color:#1f4e9c;font-weight:800;font-size:1.2rem}
+.ufaq details[open] summary::after{content:"\2212"}
+.ufaq .a{padding:14px 18px;color:var(--muted);line-height:1.75;font-size:.94rem}
+/* database */
+.udb-tools{position:sticky;top:0;z-index:20;background:#fff;border-bottom:1px solid var(--line);box-shadow:0 4px 14px rgba(20,20,40,.05)}
+.udb-tools .in{max-width:1180px;margin:0 auto;padding:15px clamp(20px,6vw,80px)}
+.urow{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:9px}
+.ufind{display:flex;align-items:center;gap:8px;flex:1;min-width:220px;border:1px solid var(--line);border-radius:10px;padding:9px 13px;background:#fafafa}
+.ufind input{border:0;outline:0;background:transparent;flex:1;font-size:.95rem;min-width:0}
+.ugpa{display:flex;align-items:center;gap:8px;border:1px solid var(--line);border-radius:10px;padding:7px 12px;background:#fafafa;font-size:.88rem;white-space:nowrap}
+.ugpa input{width:60px;border:1px solid var(--line);border-radius:7px;padding:5px 8px;text-align:center;outline:0}
+.uchips{display:flex;flex-wrap:wrap;gap:7px}
+.uchip{font-size:.83rem;border:1px solid var(--line);background:#fff;color:var(--muted);padding:6px 12px;border-radius:999px;cursor:pointer;user-select:none}
+.uchip.on{background:#1f4e9c;border-color:#1f4e9c;color:#fff}
+.uchiplb{font-size:.78rem;color:var(--muted);font-weight:700;align-self:center;margin-right:3px}
+.ucount{max-width:1180px;margin:13px auto 0;padding:0 clamp(20px,6vw,80px);font-size:.86rem;color:var(--muted)}
+.ucount b{color:#1f4e9c}
+.uwrap{max-width:1180px;margin:8px auto 0;padding:0 clamp(20px,6vw,80px) 10px;overflow-x:auto}
+.utable{width:100%;border-collapse:collapse;font-size:.9rem;min-width:780px}
+.utable thead th{position:sticky;top:0;background:#f5f8fc;text-align:left;padding:11px 12px;font-weight:800;color:var(--ink);border-bottom:2px solid var(--line);white-space:nowrap}
+.utable td{padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:middle}
+.utable tbody tr:hover td{background:#f9fbfe}
+.utable tr.dim{display:none}
+.ubadge{display:inline-block;font-size:.72rem;font-weight:800;color:#fff;background:#1f4e9c;padding:2px 8px;border-radius:6px}
+.ubadge.apt{background:#b45309}
+.ucn{font-weight:700;color:var(--ink)}.uce{display:block;color:var(--muted);font-size:.75rem;font-weight:400}
+.utag{font-size:.73rem;background:#eef2f8;color:#33507e;padding:2px 8px;border-radius:999px;white-space:nowrap}
+.al{font-weight:700;color:#7a3b00;background:#fff4e6;padding:3px 8px;border-radius:7px;font-size:.8rem;white-space:nowrap}
+.gp{font-weight:800;color:#1f6e3a;background:#eaf7ee;padding:3px 8px;border-radius:7px;white-space:nowrap}
+.at{font-weight:800;color:#1f4e9c;background:#eaf0fb;padding:3px 8px;border-radius:7px;white-space:nowrap}
+.na{color:#aab;font-size:.8rem}
+.holi{color:#b45309;font-size:.78rem;font-weight:700}
+.atar-floor{max-width:1180px;margin:16px auto 0;padding:0 clamp(20px,6vw,80px)}
+.atar-floor .box{background:#eaf0fb;border:1px solid #c7d7f5;border-left:4px solid #1f4e9c;border-radius:12px;padding:14px 18px;font-size:.92rem;color:var(--ink);line-height:1.7}
+.uas-table{width:100%;border-collapse:collapse;font-size:.9rem;min-width:680px}
+.uas-table thead th{background:#fbf3fb;text-align:left;padding:10px 12px;font-weight:800;border-bottom:2px solid var(--line);white-space:nowrap}
+.uas-table td{padding:11px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+.req-作品集{font-size:.72rem;font-weight:800;color:#fff;background:#b5179e;padding:2px 8px;border-radius:999px;white-space:nowrap}
+.req-试演{font-size:.72rem;font-weight:800;color:#fff;background:#d97706;padding:2px 8px;border-radius:999px;white-space:nowrap}
+.req-面试{font-size:.72rem;font-weight:800;color:#fff;background:#2563eb;padding:2px 8px;border-radius:999px;white-space:nowrap}
+'''
 
-# cluster icons
-CLI={"法律":"⚖️","医学健康":"🩺","工程":"⚙️","计算机":"💻","商科":"📊","理学":"🧪","人文社科":"📚","设计建筑":"🏛️"}
-
-# ---- UAS sample programmes (NAFA/LASALLE) : name_zh, name_en, college, academic, requirement_type, requirement
-UAS=[
-("纯艺术","Fine Arts","NAFA / LASALLE","A-Level / 高中毕业 / 同等学历","作品集","15–20 件原创作品（素描、绘画、立体等）+ 面试"),
-("视觉传达设计","Design Communication","LASALLE","A-Level / 同等学历","作品集","设计/插画作品集 + 创意测试 + 面试"),
-("动画艺术","Animation Art","NAFA","A-Level / 同等学历","作品集","速写、角色设计、动画样片 + 面试"),
-("电影","Film","LASALLE","A-Level / 同等学历","作品集","短片 / 影像样片 + 创作陈述 + 面试"),
-("音乐（表演/作曲）","Music","NAFA / LASALLE","A-Level / 同等学历","试演","现场或录制试演 + 乐理测试"),
-("舞蹈","Dance","NAFA / LASALLE","A-Level / 同等学历","试演","现场试演（技巧 + 即兴）"),
-("戏剧表演","Acting / Theatre","LASALLE","A-Level / 同等学历","试演","独白试演 + 面试 + 工作坊"),
-("艺术管理","Arts Management","LASALLE","A-Level / 同等学历（侧重学术）","面试","个人陈述 + 面试（无需作品集）"),
-]
-
-def gpa_str(lo,hi): return "—" if lo is None else f"{lo:.2f}–{hi:.2f}"
-
-# build NUS rows
-rows=[]
-for name_en,name_zh,cl,alo,ahi,glo,ghi in NUS:
-    atar=atar_est(alo)
-    rows.append({"uni":"nus","name_en":name_en,"name_zh":name_zh,"cluster":cl,
-                 "alevel":f"{alo} – {ahi}","gpa":gpa_str(glo,ghi),"glo":glo,"atar":atar,
-                 "search":(name_zh+" "+name_en+" NUS "+cl).lower()})
-
-clusters=sorted({r["cluster"] for r in rows}, key=lambda c:-sum(1 for r in rows if r["cluster"]==c))
-N=len(rows)
-
-def head():
-    jsonld=[
-     {"@context":"https://schema.org","@type":"Dataset","name":"新加坡大学本科专业录取分数据库（样板：NUS）",
-      "description":"新加坡公立大学本科专业的 A-Level IGP 成绩档、理工 Diploma GPA 录取线与 WACE 参考 ATAR；含艺术大学 UAS 作品集要求。当前为 NUS + UAS 样板。",
-      "url":"https://sgeda.org.cn/university/degrees/","inLanguage":"zh-CN","isAccessibleForFree":True,
-      "creator":{"@type":"Organization","name":"SEDA 新加坡择校网"}},
-     {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
-       {"@type":"ListItem","position":1,"name":"首页","item":"https://sgeda.org.cn/"},
-       {"@type":"ListItem","position":2,"name":"新加坡大学","item":"https://sgeda.org.cn/university/"},
-       {"@type":"ListItem","position":3,"name":"专业录取分数据库"}]},
-    ]
+def head(title,desc,canon,jsonld,noindex=False):
     blocks="\n".join('<script type="application/ld+json">%s</script>'%json.dumps(j,ensure_ascii=False,separators=(",",":")) for j in jsonld)
+    robots="noindex,follow" if noindex else "index,follow,max-image-preview:large"
     return f'''<!doctype html>
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml"/>
-<title>新加坡大学本科专业录取分数据库：A-Level / WACE / 理工GPA 一表查询（样板）</title>
-<meta name="description" content="新加坡公立大学本科专业的 A-Level IGP 成绩档、理工 Diploma GPA 录取线与 WACE 参考 ATAR 一表查询，含艺术大学 UAS 作品集要求。当前为 NUS + UAS 样板页。"/>
-<meta name="robots" content="noindex,follow"/>
-<link rel="canonical" href="https://sgeda.org.cn/university/degrees/"/>
+<title>{esc(title)}</title>
+<meta name="description" content="{esc(desc)}"/>
+<meta name="robots" content="{robots}"/>
+<link rel="canonical" href="{canon}"/>
 <link rel="stylesheet" href="/seda-site.css?v={CSSV}"/>
 {blocks}
 <style>{CSS}</style>
@@ -102,155 +128,194 @@ def head():
 <body>
 {HEADER}
 <main>'''
-
 TAIL=f'''</main>
 {FOOTER}
 <script src="/seda-site.js?v=28"></script>
 </body>
 </html>'''
 
-CSS=r'''
-.udb-hero{padding:34px clamp(20px,6vw,80px);background:linear-gradient(135deg,#0f2a5c,#1f4e9c);color:#fff}
-.udb-hero .in{max-width:1180px;margin:0 auto}
-.udb-hero h1{font-size:clamp(24px,3.4vw,36px);margin:0 0 8px;font-weight:850}
-.udb-hero p{margin:0;color:rgba(255,255,255,.9);font-size:.98rem;line-height:1.6}
-.udb-sample{display:inline-block;margin-bottom:12px;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.3);padding:5px 13px;border-radius:999px;font-size:.82rem;font-weight:700}
-.udb-tools{position:sticky;top:0;z-index:20;background:#fff;border-bottom:1px solid var(--line);box-shadow:0 4px 14px rgba(20,20,40,.05)}
-.udb-tools .in{max-width:1180px;margin:0 auto;padding:16px clamp(20px,6vw,80px)}
-.udb-row{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:10px}
-.udb-find{display:flex;align-items:center;gap:8px;flex:1;min-width:220px;border:1px solid var(--line);border-radius:10px;padding:9px 13px;background:#fafafa}
-.udb-find input{border:0;outline:0;background:transparent;flex:1;font-size:.95rem;min-width:0}
-.udb-gpa{display:flex;align-items:center;gap:8px;border:1px solid var(--line);border-radius:10px;padding:7px 12px;background:#fafafa;font-size:.88rem;white-space:nowrap}
-.udb-gpa input{width:62px;border:1px solid var(--line);border-radius:7px;padding:5px 8px;text-align:center;outline:0}
-.udb-chips{display:flex;flex-wrap:wrap;gap:7px}
-.udb-chip{font-size:.84rem;border:1px solid var(--line);background:#fff;color:var(--muted);padding:6px 13px;border-radius:999px;cursor:pointer;user-select:none}
-.udb-chip.on{background:#1f4e9c;border-color:#1f4e9c;color:#fff}
-.udb-chiplabel{font-size:.78rem;color:var(--muted);font-weight:700;align-self:center;margin-right:4px}
-.udb-count{max-width:1180px;margin:14px auto 0;padding:0 clamp(20px,6vw,80px);font-size:.86rem;color:var(--muted)}
-.udb-count b{color:#1f4e9c}
-.udb-wrap{max-width:1180px;margin:8px auto 0;padding:0 clamp(20px,6vw,80px) 10px;overflow-x:auto}
-.udb-table{width:100%;border-collapse:collapse;font-size:.9rem;min-width:760px}
-.udb-table thead th{position:sticky;top:0;background:#f5f8fc;text-align:left;padding:11px 12px;font-weight:800;color:var(--ink);border-bottom:2px solid var(--line);white-space:nowrap}
-.udb-table td{padding:11px 12px;border-bottom:1px solid var(--line);vertical-align:middle}
-.udb-table tbody tr:hover td{background:#f9fbfe}
-.udb-table tr.dim{display:none}
-.uni-badge{display:inline-block;font-size:.72rem;font-weight:800;color:#fff;background:#1f4e9c;padding:2px 8px;border-radius:6px}
-.cn{font-weight:700;color:var(--ink)}.ce{display:block;color:var(--muted);font-size:.76rem;font-weight:400}
-.ctag{font-size:.74rem;background:#eef2f8;color:#33507e;padding:2px 9px;border-radius:999px;white-space:nowrap}
-.sc-al{font-weight:700;color:#7a3b00;background:#fff4e6;padding:3px 8px;border-radius:7px;font-size:.82rem;white-space:nowrap}
-.sc-gpa{font-weight:800;color:#1f6e3a;background:#eaf7ee;padding:3px 9px;border-radius:7px;white-space:nowrap}
-.sc-atar{font-weight:800;color:#1f4e9c;background:#eaf0fb;padding:3px 9px;border-radius:7px;white-space:nowrap}
-.sc-na{color:var(--muted)}
-.udb-note{max-width:1180px;margin:0 auto;padding:6px clamp(20px,6vw,80px) 0;font-size:.8rem;color:var(--muted)}
-.udb-sec{max-width:1180px;margin:0 auto;padding:30px clamp(20px,6vw,80px)}
-.udb-sec h2{font-size:clamp(22px,3vw,30px);margin:0 0 6px;color:var(--ink)}
-.udb-sec .lead{color:var(--muted);margin:0 0 20px;line-height:1.7}
-.uas-table{width:100%;border-collapse:collapse;font-size:.9rem;min-width:680px}
-.uas-table thead th{background:#fbf3fb;text-align:left;padding:10px 12px;font-weight:800;border-bottom:2px solid var(--line);white-space:nowrap}
-.uas-table td{padding:11px 12px;border-bottom:1px solid var(--line);vertical-align:top}
-.req-port{font-size:.72rem;font-weight:800;color:#fff;background:#b5179e;padding:2px 8px;border-radius:999px;white-space:nowrap}
-.req-aud{font-size:.72rem;font-weight:800;color:#fff;background:#d97706;padding:2px 8px;border-radius:999px;white-space:nowrap}
-.req-int{font-size:.72rem;font-weight:800;color:#fff;background:#2563eb;padding:2px 8px;border-radius:999px;white-space:nowrap}
-.atar-floor{max-width:1180px;margin:18px auto 0;padding:14px clamp(20px,6vw,80px)}
-.atar-floor .box{background:#eaf0fb;border:1px solid #c7d7f5;border-left:4px solid #1f4e9c;border-radius:12px;padding:14px 18px;font-size:.92rem;color:var(--ink);line-height:1.7}
-'''
-
-# rows html
-def reqcls(t): return {"作品集":"req-port","试演":"req-aud","面试":"req-int"}.get(t,"req-int")
-rowhtml="\n".join(
- f'''<tr data-uni="{r['uni']}" data-cluster="{esc(r['cluster'])}" data-glo="{r['glo'] if r['glo'] else 0}" data-name="{esc(r['search'])}">
-<td><span class="cn">{esc(r['name_zh'])}</span><span class="ce">{esc(r['name_en'])}</span></td>
-<td><span class="uni-badge">{UNIS[r['uni']]['abbr']}</span></td>
-<td><span class="ctag">{CLI.get(r['cluster'],'')} {esc(r['cluster'])}</span></td>
-<td><span class="sc-al">{esc(r['alevel'])}</span></td>
-<td>{('<span class="sc-gpa">'+esc(r['gpa'])+'</span>') if r['glo'] else '<span class="sc-na">样本少</span>'}</td>
-<td><span class="sc-atar">{esc(r['atar'])}</span></td>
-</tr>''' for r in rows)
-
-clchips="".join(f'<span class="udb-chip" data-f="cluster" data-v="{esc(c)}">{CLI.get(c,"")} {esc(c)}</span>' for c in clusters)
-
-uasrows="".join(
- f'''<tr><td><span class="cn">{esc(z)}</span><span class="ce">{esc(e)}</span></td>
-<td>{esc(col)}</td><td>{esc(ac)}</td>
-<td><span class="{reqcls(rt)}">{esc(rt)}</span></td><td>{esc(req)}</td></tr>'''
- for z,e,col,ac,rt,req in UAS)
-
-BODY=f'''
+# ============ DATABASE ============
+def build_db():
+    canon="https://sgeda.org.cn/university/degrees/"
+    rows=[]
+    order=sorted(progs,key=lambda p:(0 if p["type"]=="grade" else 1, p["uni"], -p["glo"]))
+    for p in order:
+        u=UNIS[p["uni"]]
+        grade=p["type"]=="grade"
+        al=f'<span class="al">{esc(p["alevel"])}</span>' if grade else f'<span class="holi">{esc(u["atar"])}</span>'
+        gp=(f'<span class="gp">{esc(p["gpa"])}</span>' if (grade and "-" in p["gpa"]) else ('<span class="na">样本少</span>' if grade else '<span class="na">—</span>'))
+        at=f'<span class="at">{esc(p["atar"])}</span>' if grade else '<span class="na">综合</span>'
+        rows.append(f'''<tr data-uni="{p['uni']}" data-cluster="{esc(p['cluster'])}" data-grade="{1 if grade else 0}" data-glo="{p['glo']}" data-name="{esc((p['name_zh']+' '+p['name_en']+' '+u['abbr']+' '+p['cluster']).lower())}">
+<td><span class="ucn">{esc(p['name_zh'])}</span><span class="uce">{esc(p['name_en'])}</span></td>
+<td><span class="ubadge{'' if grade else ' apt'}">{esc(u['abbr'])}</span></td>
+<td><span class="utag">{CLI.get(p['cluster'],'')} {esc(p['cluster'])}</span></td>
+<td>{al}</td><td>{gp}</td><td>{at}</td></tr>''')
+    rowhtml="\n".join(rows)
+    unichips="".join(f'<span class="uchip" data-f="uni" data-v="{u["slug"]}">{esc(u["abbr"])}</span>' for u in D["unis"] if u["slug"]!="uas")
+    clchips="".join(f'<span class="uchip" data-f="cluster" data-v="{esc(c)}">{CLI.get(c,"")} {esc(c)}</span>' for c in clusters)
+    uasrows="".join(f'''<tr><td><span class="ucn">{esc(x["zh"])}</span><span class="uce">{esc(x["en"])}</span></td><td>{esc(x["college"])}</td><td><span class="req-{x["rtype"]}">{esc(x["rtype"])}</span></td><td>{esc(x["req"])}</td></tr>''' for x in D["uas"])
+    jsonld=[
+     {"@context":"https://schema.org","@type":"Dataset","name":"新加坡大学本科专业录取分数据库（%s）"%YEAR,
+      "description":"新加坡 6 所公立大学（NUS/NTU/SMU/SUTD/SIT/SUSS）共 %d 个本科专业的 A-Level IGP 成绩档、理工 Diploma GPA 录取线、WACE 参考 ATAR；含艺术大学 UAS 作品集要求。"%(N),
+      "url":canon,"inLanguage":"zh-CN","isAccessibleForFree":True,"keywords":"IGP,A-Level,ATAR,WACE,理工GPA,新加坡大学,录取分数",
+      "creator":{"@type":"Organization","name":"SEDA 新加坡择校网"}},
+     {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+       {"@type":"ListItem","position":1,"name":"首页","item":"https://sgeda.org.cn/"},
+       {"@type":"ListItem","position":2,"name":"新加坡大学","item":"https://sgeda.org.cn/university/"},
+       {"@type":"ListItem","position":3,"name":"专业录取分数据库"}]},
+    ]
+    title="新加坡大学本科专业录取分数据库：A-Level / WACE / 理工GPA 一表查询（%s）"%YEAR
+    desc="新加坡 6 所公立大学 %d 个本科专业的 A-Level IGP 成绩档、理工 GPA 录取线与 WACE 参考 ATAR 一表查询，可按学校、方向、GPA 筛选；含艺术大学 UAS 作品集要求。"%N
+    body=f'''
   <section class="udb-hero"><div class="in">
-    <span class="udb-sample">⚙️ 样板页 · 当前仅含 NUS + UAS，确认格式后扩展到 6 公立全量</span>
-    <h1>新加坡大学本科专业录取分数据库</h1>
-    <p>每个专业三条录取通道一表看清：<b>A-Level 成绩档（IGP 官方）</b> · <b>理工 Diploma GPA（IGP 官方）</b> · <b>WACE 参考 ATAR</b>。艺术大学 UAS 按作品集/试演要求单列。</p>
+    <span class="udb-ey">🎓 6 公立大学 + 艺术大学 · {N} 个本科专业 · {YEAR}</span>
+    <h1>新加坡大学专业录取分数据库</h1>
+    <p class="s">每个专业三条录取通道一表看清：<b>A-Level 成绩档（IGP 官方）</b> · <b>理工 Diploma GPA（IGP 官方）</b> · <b>WACE 参考 ATAR</b>。能力本位录取的 SIT/SUTD/SUSS 与作品集录取的艺术大学 UAS 另列说明。</p>
   </div></section>
-
-  <div class="atar-floor"><div class="box">
-    🎓 <b>WACE / 澳洲学历申请须知</b>：新加坡公立大学对 WACE/澳洲 Year 12 按 <b>ATAR</b> 整体评估（如 NTU 官方门槛 ATAR ≥90）。下表「WACE 参考 ATAR」是按各专业<b>最低录取 A-Level 档换算的估算值</b>，用于判断专业竞争度，达校级门槛后按此竞争——具体以各校官方为准。
-  </div></div>
+  <div class="atar-floor"><div class="box">🎓 <b>WACE / 澳洲学历须知</b>：新加坡公立大学对 WACE/澳洲 Year 12 按 <b>ATAR</b> 整体评估（如 NTU 官方门槛 ATAR ≥90）。表中「WACE 参考 ATAR」是按各专业最低录取 A-Level 档<b>换算的估算</b>，达校级门槛后按此判断竞争度，<b>具体以各校官方为准</b>。</div></div>
 
   <div class="udb-tools"><div class="in">
-    <div class="udb-row">
-      <div class="udb-find">🔎<input type="search" id="uq" placeholder="搜专业 / 方向，如 计算机、护理、商科"></div>
-      <div class="udb-gpa"><span>我的理工 GPA</span><input type="number" id="ugpa" min="0" max="4" step="0.01" placeholder="如 3.7"><label><input type="checkbox" id="uonly"> 只看我够得着</label></div>
+    <div class="urow">
+      <div class="ufind">🔎<input type="search" id="uq" placeholder="搜专业 / 学校 / 方向，如 计算机、护理、NTU"></div>
+      <div class="ugpa"><span>我的理工 GPA</span><input type="number" id="ugpa" min="0" max="4" step="0.01" placeholder="如 3.7"><label><input type="checkbox" id="uonly"> 只看我够得着</label></div>
     </div>
-    <div class="udb-row"><span class="udb-chiplabel">方向</span><div class="udb-chips">{clchips}</div></div>
+    <div class="urow"><span class="uchiplb">学校</span><div class="uchips">{unichips}</div></div>
+    <div class="urow"><span class="uchiplb">方向</span><div class="uchips">{clchips}</div></div>
   </div></div>
-  <div class="udb-count">显示 <b id="ushow">{N}</b> / {N} 个专业（NUS 样板）　<span id="uhint" style="color:var(--muted)"></span></div>
+  <div class="ucount">显示 <b id="ushow">{N}</b> / {N} 个专业　<span id="uhint" style="color:var(--muted)"></span></div>
+  <div class="uwrap"><table class="utable" id="utable"><thead><tr>
+    <th>专业</th><th>大学</th><th>方向</th>
+    <th>A-Level 档<br><small style="font-weight:400;color:#999">IGP 官方</small></th>
+    <th>理工 GPA<br><small style="font-weight:400;color:#999">IGP 官方</small></th>
+    <th>WACE ATAR<br><small style="font-weight:400;color:#999">估算</small></th>
+  </tr></thead><tbody id="ubody">{rowhtml}</tbody></table></div>
+  <p class="usec" style="padding-top:6px;padding-bottom:0;font-size:.8rem;color:var(--muted)">说明：NUS/NTU/SMU 为成绩录取，A-Level 与理工 GPA 取官方 IGP（10–90 百分位）。<b>SIT / SUTD / SUSS 为能力本位/综合评估录取，无硬性截分</b>（表中该列显示其录取方式）。"样本少"为官方因人数少未公布。</p>
 
-  <div class="udb-wrap">
-    <table class="udb-table" id="utable">
-      <thead><tr>
-        <th>专业</th><th>大学</th><th>方向</th>
-        <th>A-Level 档<br><small style="font-weight:400;color:#999">官方 IGP</small></th>
-        <th>理工 GPA<br><small style="font-weight:400;color:#999">官方 IGP</small></th>
-        <th>WACE 参考 ATAR<br><small style="font-weight:400;color:#999">估算</small></th>
-      </tr></thead>
-      <tbody id="ubody">{rowhtml}</tbody>
-    </table>
-  </div>
-  <p class="udb-note">A-Level 档与理工 GPA 为 NUS 官方 AY2025/26 IGP（10–90 百分位）；WACE ATAR 为按最低录取 A-Level 估算的参考值。"样本少"指官方因人数过少未公布 GPA。</p>
-
-  <section class="udb-sec">
+  <section class="usec">
     <h2>🎨 新加坡艺术大学 UAS（作品集 / 试演录取）</h2>
-    <p class="lead">UAS（由 NAFA 与 LASALLE 组成）是艺术类大学，<b>不看分数线</b>——A-Level / WACE 达学术门槛即可，录取主要看<b>作品集或试演</b>。以下为代表专业与要求（以 NAFA / LASALLE 官方为准）。</p>
-    <div style="overflow-x:auto"><table class="uas-table">
-      <thead><tr><th>专业</th><th>学院</th><th>学术门槛</th><th>录取方式</th><th>作品集 / 试演要求</th></tr></thead>
-      <tbody>{uasrows}</tbody>
-    </table></div>
+    <p class="lead">UAS（NAFA + LASALLE）<b>不看分数线</b>——A-Level / WACE 达学术门槛即可，录取看<b>作品集或试演</b>。代表专业与要求如下（以 NAFA / LASALLE 官方为准）。</p>
+    <div style="overflow-x:auto"><table class="uas-table"><thead><tr><th>专业</th><th>学院</th><th>录取方式</th><th>作品集 / 试演要求</th></tr></thead><tbody>{uasrows}</tbody></table></div>
   </section>
 
-  <section class="udb-sec" style="padding-top:0">
-    <p class="lead" style="font-size:.86rem">本页为<b>样板</b>，用于确认「A-Level + WACE + 理工 GPA」三通道 + UAS 作品集的展示格式。确认后将扩展到 <b>NUS / NTU / SMU / SUTD / SIT / SUSS 六所公立 + UAS 全量专业</b>，并补 gostudy 式大学目录页与各校录取门槛。想要一对一选校建议可<a href="/contact/" style="color:#1f4e9c;font-weight:700">免费咨询</a>。</p>
+  <section class="usec ufaq" style="padding-top:0">
+    <h2>常见问题</h2>
+    <div style="margin-top:6px">
+    <details><summary>IGP（录取成绩档）是什么？</summary><div class="a">IGP 是各大学公布的上一届被录取学生的成绩分布，用 10–90 百分位表示。A-Level 用成绩档（如 BBB/C – AAA/A），理工生用 GPA 区间（如 3.6–3.9，满分 4.0）。它是参考，不是预定截分，每年浮动。</div></details>
+    <details><summary>我的理工 GPA 能进哪些大学专业？</summary><div class="a">在上方输入 GPA 并勾选「只看我够得着」，表格会筛出你的 GPA ≥ 该专业最低录取 GPA 的专业。注意这是 NUS/NTU/SMU 的逻辑；SIT/SUTD/SUSS 是综合评估，GPA 只是其一。</div></details>
+    <details><summary>WACE / ATAR 学生怎么用这张表？</summary><div class="a">先确认达到各校 ATAR 门槛（如 NTU ≥90），再用「WACE 参考 ATAR」列判断各专业竞争度——该列按专业最低录取 A-Level 档换算，仅供参考，最终以各校官方评估为准。</div></details>
+    <details><summary>SIT、SUTD、SUSS 为什么没有分数线？</summary><div class="a">这三所是能力本位/综合评估录取：SIT 看学术 + 非学术表现、不设硬性截分；SUTD 整体评估（含作品/面试）；SUSS 有笔试、认知测试、面试多轮。成绩达标后更看综合素质。</div></details>
+    <details><summary>艺术想读 UAS 要准备什么？</summary><div class="a">UAS（NAFA/LASALLE）学术达标即可，关键是作品集或试演：纯艺/设计要 portfolio（15–20 件作品），音乐/舞蹈/戏剧要现场试演，艺术管理重面试。提前 1 年准备作品集最稳。</div></details>
+    </div>
   </section>
+  <section class="usec" style="padding-top:0"><p class="lead" style="font-size:.86rem">数据来源：NUS 官方 IGP、NTU/SMU IGP（聚合整理）、SIT/SUSS 招生页，{YEAR} 学年，仅供参考。想要一对一选校建议可<a href="/contact/" style="color:#1f4e9c;font-weight:700">免费咨询</a>。</p></section>
 '''
-
-JS=r'''
-<script>
-(function(){
-  var body=document.getElementById('ubody');
-  var rows=[].slice.call(body.querySelectorAll('tr'));
+    js=r'''
+<script>(function(){
+  var body=document.getElementById('ubody'),rows=[].slice.call(body.querySelectorAll('tr'));
   var q=document.getElementById('uq'),gpa=document.getElementById('ugpa'),only=document.getElementById('uonly');
   var show=document.getElementById('ushow'),hint=document.getElementById('uhint');
-  var fC={};
+  var fU={},fC={};
   function act(o){return Object.keys(o).filter(function(k){return o[k]})}
   function apply(){
-    var term=(q.value||'').trim().toLowerCase();
-    var g=parseFloat(gpa.value); var onlyMe=only.checked&&!isNaN(g);
-    var aC=act(fC),n=0;
+    var term=(q.value||'').trim().toLowerCase(),g=parseFloat(gpa.value),onlyMe=only.checked&&!isNaN(g);
+    var aU=act(fU),aC=act(fC),n=0;
     rows.forEach(function(tr){
       var ok=true;
       if(term&&tr.getAttribute('data-name').indexOf(term)<0)ok=false;
+      if(ok&&aU.length&&aU.indexOf(tr.getAttribute('data-uni'))<0)ok=false;
       if(ok&&aC.length&&aC.indexOf(tr.getAttribute('data-cluster'))<0)ok=false;
-      var glo=parseFloat(tr.getAttribute('data-glo'));
-      if(ok&&onlyMe&&(glo===0||g<glo))ok=false;
-      tr.classList.toggle('dim',!ok); if(ok)n++;
+      if(ok&&onlyMe&&tr.getAttribute('data-grade')==='1'){var glo=parseFloat(tr.getAttribute('data-glo'));if(glo===0||g<glo)ok=false;}
+      tr.classList.toggle('dim',!ok);if(ok)n++;
     });
     show.textContent=n;
-    hint.textContent=(!isNaN(g))?('· GPA '+g.toFixed(2)+' 够得着的专业（你的 GPA ≥ 该专业最低录取 GPA）'):'';
+    hint.textContent=(!isNaN(g))?('· GPA '+g.toFixed(2)+' 够得着的成绩录取专业；SIT/SUTD/SUSS 为综合评估':'');
   }
   q.addEventListener('input',apply);gpa.addEventListener('input',apply);only.addEventListener('change',apply);
-  document.querySelectorAll('.udb-chip').forEach(function(c){c.addEventListener('click',function(){c.classList.toggle('on');fC[c.getAttribute('data-v')]=c.classList.contains('on');apply();});});
-})();
-</script>'''
+  document.querySelectorAll('.uchip').forEach(function(c){c.addEventListener('click',function(){c.classList.toggle('on');var f=c.getAttribute('data-f'),v=c.getAttribute('data-v');(f==='uni'?fU:fC)[v]=c.classList.contains('on');apply();});});
+  var sp=new URLSearchParams(location.search);
+  if(sp.get('q')){q.value=sp.get('q');}
+  var cl=sp.get('cluster');if(cl){document.querySelectorAll('.uchip[data-f="cluster"]').forEach(function(c){if(c.getAttribute('data-v')===cl){c.classList.add('on');fC[cl]=true;}});}
+  var un=sp.get('uni');if(un){document.querySelectorAll('.uchip[data-f="uni"]').forEach(function(c){if(c.getAttribute('data-v')===un){c.classList.add('on');fU[un]=true;}});}
+  apply();
+})();</script>'''
+    return head(title,desc,canon,jsonld)+body+js+TAIL
+
+# ============ DIRECTORY LANDING ============
+def build_landing():
+    canon="https://sgeda.org.cn/university/"
+    counts={u["slug"]:sum(1 for p in progs if p["uni"]==u["slug"]) for u in D["unis"]}
+    counts["uas"]=len(D["uas"])
+    cl_counts={c:sum(1 for p in progs if p["cluster"]==c) for c in clusters}
+    admtag={"grade":("adm-grade","成绩录取 · IGP"),"aptitude":("adm-apt","能力本位录取"),"holistic":("adm-apt","综合评估录取"),"portfolio":("adm-port","作品集 / 试演")}
+    cards=[]
+    for u in D["unis"]:
+        a,lbl=admtag[u["type"]]
+        arts=" arts" if u["type"]=="portfolio" else ""
+        cards.append(f'''<a class="ucard{arts}" href="/university/{u['slug']}/">
+  <div class="top"><span class="abbr">{esc(u['abbr'])}</span><span class="qs">{esc(u['qs'])}</span></div>
+  <h3>{esc(u['zh'])}</h3><p class="en">{esc(u['en'])}</p>
+  <p class="sig">{esc(u['sig'])}</p>
+  <div class="meta"><span>📅 {u['founded']}</span><span>🎓 {counts[u['slug']]} 专业</span></div>
+  <span class="adm {a}">{lbl}</span>
+  <div class="foot"><span class="c"><b>{counts[u['slug']]}</b> 个本科专业</span><span class="go">查看详情 →</span></div>
+</a>''')
+    clcards="".join(f'<a class="uclcard" href="/university/degrees/?cluster={esc(c)}"><span class="ic">{CLI.get(c,"🎓")}</span><span class="nm">{esc(c)}</span><span class="ct"><b>{cl_counts[c]}</b> 专业</span></a>' for c in clusters)
+    stats=[("6","所公立大学"),("1","所艺术大学"),(str(N),"个本科专业"),(str(len(clusters)),"个专业方向"),("A-Level·WACE·GPA","三通道录取分")]
+    statshtml="".join(f'<div class="udb-stat"><div class="n">{esc(n)}</div><div class="l">{esc(l)}</div></div>' for n,l in stats)
+    faqs=[
+     ("新加坡有几所公立大学？","6 所自治（公立）大学：NUS、NTU、SMU、SUTD、SIT、SUSS；外加 2024 年新成立的艺术大学 UAS（政府支持、NAFA+LASALLE 组成）。学位全球认可。"),
+     ("中国学生能申请新加坡公立大学吗？","能。可凭 A-Level、IB、WACE/ATAR 等国际学历，或新加坡理工 Diploma（GPA）申请。中国高考成绩部分大学也接受，个案评估。语言一般要求雅思/托福或同等。"),
+     ("WACE / ATAR 申请新加坡大学的门槛？","按 ATAR 整体评估，如 NTU 官方门槛 ATAR ≥90；热门专业更高。具体专业竞争度可参考数据库的「WACE 参考 ATAR」列。"),
+     ("理工 Diploma 能升哪些大学？","6 所公立都收理工生（看 GPA）：NUS/NTU/SMU 看 IGP GPA 区间；SIT 最欢迎理工生、应用型；SUSS/SUTD 综合评估。打开数据库输入 GPA 即可看能进哪些。"),
+    ]
+    faqhtml="".join(f'<details><summary>{esc(q)}</summary><div class="a">{esc(a)}</div></details>' for q,a in faqs)
+    jsonld=[
+     {"@context":"https://schema.org","@type":"CollectionPage","name":"新加坡大学完全指南：6公立+艺术大学与专业录取分数据库","url":canon,
+      "description":"新加坡 6 所公立大学 + 艺术大学 UAS 完整对比，%d 个本科专业的 A-Level / WACE / 理工 GPA 录取分数据库。"%N,"inLanguage":"zh-CN"},
+     {"@context":"https://schema.org","@type":"ItemList","itemListElement":[{"@type":"ListItem","position":i+1,"name":u["zh"],"url":"https://sgeda.org.cn/university/%s/"%u["slug"]} for i,u in enumerate(D["unis"])]},
+     {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首页","item":"https://sgeda.org.cn/"},{"@type":"ListItem","position":2,"name":"新加坡大学"}]},
+     {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":q,"acceptedAnswer":{"@type":"Answer","text":a}} for q,a in faqs]},
+    ]
+    title="新加坡大学完全指南：6所公立大学+艺术大学对比 + %d个专业录取分数据库（A-Level/WACE/理工GPA）"%N
+    desc="新加坡 6 所公立大学（NUS/NTU/SMU/SUTD/SIT/SUSS）+ 艺术大学 UAS 一站对比：QS 排名、录取方式、王牌专业，以及 %d 个本科专业的 A-Level / WACE ATAR / 理工 GPA 录取分数据库。"%N
+    body=f'''
+  <section class="udb-hero"><div class="in">
+    <span class="udb-ey">🎓 6 公立大学 + 艺术大学 · {N} 个专业 · A-Level / WACE / 理工 GPA</span>
+    <h1>新加坡大学完全指南</h1>
+    <p class="s">NUS · NTU · SMU · SUTD · SIT · SUSS 六所公立 + 艺术大学 UAS 一站对比。{N} 个本科专业的录取成绩（A-Level IGP / WACE ATAR / 理工 GPA）全部收录，按你的分数即可查能进哪些。</p>
+    <form class="udb-search" action="/university/degrees/" method="get"><input type="search" name="q" placeholder="搜专业 / 学校，如 计算机、商科、护理、NUS"><button type="submit">搜专业</button></form>
+  </div></section>
+  <div class="udb-statsband"><div class="udb-stats">{statshtml}</div></div>
+
+  <section class="usec"><h2>6 公立大学 + 1 艺术大学</h2>
+    <p class="lead">新加坡 6 所政府资助的自治大学，加上 2024 年新成立的艺术大学 UAS，学位全球认可。注意录取方式不同：NUS/NTU/SMU 看成绩（IGP），SIT/SUTD/SUSS 能力本位/综合评估，UAS 看作品集。</p>
+    <div class="ucards">{''.join(cards)}</div></section>
+
+  <section class="usec" style="padding-top:0"><h2>按专业方向浏览</h2>
+    <p class="lead">{N} 个本科专业按 {len(clusters)} 个方向归类，点一下进数据库看该方向所有专业的录取分。</p>
+    <div class="uclusters">{clcards}</div></section>
+
+  <section class="usec" style="padding-top:0"><div class="uteaser">
+    <h2>📊 专业录取分数据库</h2>
+    <p>把 6 所公立的 {N} 个本科专业、A-Level 成绩档 + 理工 GPA + WACE 参考 ATAR 放进一张可筛选的表。输入你的 GPA 或对照 A-Level/ATAR，立刻看到能进哪些专业。</p>
+    <a class="btn" href="/university/degrees/">打开完整数据库 →</a>
+  </div></section>
+
+  <section class="usec" style="padding-top:0"><h2>升学路径 → 大学</h2>
+    <p class="lead">三条主流通道进新加坡大学，数据库三列正好一一对应。</p>
+    <div class="upath">
+      <div class="upstep"><div class="n">路线 A</div><div class="t">A-Level</div><div class="d">JC 两年 A-Level，按 IGP 成绩档竞争</div></div>
+      <div class="upstep"><div class="n">路线 B</div><div class="t">WACE / ATAR</div><div class="d">WACE 国际学历，按 ATAR 评估（≥90）</div></div>
+      <div class="upstep"><div class="n">路线 C</div><div class="t">理工 Diploma</div><div class="d">理工毕业凭 GPA 升大学，可学分减免</div></div>
+      <div class="upstep"><div class="n">艺术</div><div class="t">作品集 / 试演</div><div class="d">UAS：学术达标 + 作品集/试演</div></div>
+    </div></section>
+
+  <section class="usec ufaq" style="padding-top:0"><h2>常见问题</h2><div style="margin-top:6px">{faqhtml}</div></section>
+'''
+    return head(title,desc,canon,jsonld)+body+TAIL
 
 os.makedirs(os.path.join(ROOT,"university/degrees"),exist_ok=True)
-open(os.path.join(ROOT,"university/degrees/index.html"),"w",encoding="utf-8").write(head()+BODY+JS+TAIL)
-print("wrote university/degrees/index.html | NUS programmes:",N,"| UAS:",len(UAS))
+open(os.path.join(ROOT,"university/degrees/index.html"),"w",encoding="utf-8").write(build_db())
+open(os.path.join(ROOT,"university/index.html"),"w",encoding="utf-8").write(build_landing())
+print("wrote university/index.html + university/degrees/index.html")
+print("programmes:",N,"| grade:",len(GRADE),"| aptitude/holistic:",len(APT),"| UAS:",len(D["uas"]))

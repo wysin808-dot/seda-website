@@ -241,7 +241,7 @@
 
 <!-- ══ 页眉（与主页完全一致） ══ -->
 <header class="site-header" id="site-header">
-  <div class="header-inner">
+  <div class="header-main">
     <a href="/" class="brand" aria-label="SEDA 新加坡择校网 首页">
       <img src="/assets/seda-wordmark.svg" alt="SEDA 新加坡择校网" class="brand-logo" width="140" height="36">
     </a>
@@ -859,65 +859,35 @@
 
 <!-- ══ 页脚（与主页完全一致） ══ -->
 <footer class="site-footer">
-  <div class="footer-inner">
-    <div class="footer-brand">
-      <a href="/" class="footer-logo"><img src="/assets/seda-wordmark.svg" alt="SEDA 新加坡择校网" width="120" height="32"></a>
-      <p class="footer-tagline">中国家庭的新加坡升学参谋</p>
-    </div>
-    <nav class="footer-nav" aria-label="页脚导航">
-      <div class="footer-col">
+      <div>
+        <strong>SEDA 新加坡择校网</strong>
+        <p>中文新加坡升学资讯与选校内容平台。</p>
+        <p style="margin-top:.5rem;font-size:.85rem;opacity:.7">由 Singapore Educational Development Association Ltd. 监管</p>
+        <p class="icp-record" style="margin-top:.5rem;font-size:.85rem;opacity:.7"><a href="https://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">沪ICP备2022009720号-9</a></p>
+      </div>
+      <div>
         <span>课程体系</span>
-        <a href="/wace/">WACE</a>
-        <a href="/o-level/">O-Level</a>
-        <a href="/a-level/">A-Level</a>
-        <a href="/international-alevel/">国际 A-Level</a>
-        <a href="/ib/">IB</a>
-        <a href="/aeis/">AEIS</a>
-        <a href="/ap/">AP</a>
-        <a href="/foundation/">Foundation</a>
+        <p><a href="/wace/">WACE</a> · <a href="/o-level/">O-Level</a> · <a href="/a-level/">A-Level</a> · <a href="/international-alevel/">国际 A-Level</a> · <a href="/ib/">IB</a> · <a href="/aeis/">AEIS</a> · <a href="/ap/">AP</a> · <a href="/foundation/">Foundation</a></p>
       </div>
-      <div class="footer-col">
+      <div>
         <span>升学路径</span>
-        <a href="/jc/">JC 初级学院</a>
-        <a href="/poly/">理工学院</a>
-        <a href="/university/">公立大学</a>
-        <a href="/private-university/">私立大学</a>
-        <a href="/hk-university/">香港升学</a>
-        <a href="/au-university/">澳洲升学</a>
-        <a href="/uk-university/">英国升学</a>
+        <p><a href="/jc/">JC 初级学院</a> · <a href="/poly/">理工学院</a> · <a href="/university/">公立大学</a> · <a href="/private-university/">私立大学</a> · <a href="/hk-university/">香港升学</a> · <a href="/au-university/">澳洲升学</a> · <a href="/uk-university/">英国升学</a></p>
       </div>
-      <div class="footer-col">
+      <div>
         <span>留学指南</span>
-        <a href="/guides/student-pass/">学生准证</a>
-        <a href="/guides/cost/">留学费用</a>
-        <a href="/guides/accommodation/">住宿方案</a>
-        <a href="/guides/dependent-pass/">陪读准证</a>
-        <a href="/guides/timeline/">留学时间线</a>
-        <a href="/guides/scholarship/">奖学金</a>
+        <p><a href="/guides/student-pass/">学生准证</a> · <a href="/guides/cost/">留学费用</a> · <a href="/guides/accommodation/">住宿方案</a> · <a href="/guides/dependent-pass/">陪读准证</a> · <a href="/guides/timeline/">留学时间线</a> · <a href="/guides/scholarship/">奖学金</a></p>
       </div>
-      <div class="footer-col">
-        <span>关于</span>
-        <a href="/about/">关于我们</a>
-        <a href="/contact/">联系我们</a>
-        <a href="/news/">教育资讯</a>
-        <a href="/tools/">AI 升学工具</a>
-        <a href="/school-database/">学校数据库</a>
+      <div>
+        <span>关于 SEDA</span>
+        <p><a href="/about/">关于我们</a> · <a href="/contact/">联系我们</a> · <a href="/news/">教育资讯</a> · <a href="/tools/">AI 升学工具</a> · <a href="/school-database/">学校数据库</a></p>
       </div>
-    </nav>
-  </div>
-  <div class="footer-bottom">
-    <span>© 2025 SEDA 新加坡择校网</span>
-    <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener">沪ICP备2022009720号-9</a>
-  </div>
-</footer>
+    </footer>
 
-<!-- 微信悬浮按钮 -->
-<button class="wechat-fab" aria-label="微信咨询" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
-  <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8.5 11.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm7 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm0 18c-4.418 0-8-3.582-8-8s3.582-8 8-3.582 8-8 8 8-3.582 8-8 8z"/></svg>
-  微信咨询
+<button class="wechat-float" type="button" aria-label="微信咨询">
+  <svg viewBox="0 0 24 24"><path d="M8.691 2.188C3.891 2.188 0 5.476 0 9.53c0 2.212 1.17 4.203 3.002 5.55a.59.59 0 0 1 .213.665l-.39 1.48c-.019.07-.048.141-.048.213 0 .163.13.295.29.295a.326.326 0 0 0 .167-.054l1.903-1.114a.864.864 0 0 1 .717-.098 10.16 10.16 0 0 0 2.837.403c.276 0 .543-.027.811-.05-.857-2.578.157-4.972 1.932-6.446 1.703-1.415 3.882-1.98 5.853-1.838-.576-3.583-4.196-6.348-8.596-6.348zM5.785 5.991c.642 0 1.162.529 1.162 1.18a1.17 1.17 0 0 1-1.162 1.178A1.17 1.17 0 0 1 4.623 7.17c0-.651.52-1.18 1.162-1.18zm5.813 0c.642 0 1.162.529 1.162 1.18a1.17 1.17 0 0 1-1.162 1.178 1.17 1.17 0 0 1-1.162-1.178c0-.651.52-1.18 1.162-1.18zm3.825 4.15c-2.19 0-4.166.88-5.481 2.255-1.208 1.262-1.942 2.94-1.942 4.773 0 3.708 3.286 6.643 7.423 6.643.826 0 1.622-.12 2.361-.336a.722.722 0 0 1 .598.082l1.584.926a.272.272 0 0 0 .14.045c.133 0 .241-.11.241-.245 0-.06-.024-.12-.04-.178l-.326-1.233a.49.49 0 0 1 .177-.554C21.886 21.065 23 19.18 23 17.17c0-3.832-3.339-7.028-7.577-7.028zm-2.57 3.198c.535 0 .969.44.969.983a.976.976 0 0 1-.969.983.976.976 0 0 1-.969-.983c0-.543.434-.983.97-.983zm5.14 0c.535 0 .969.44.969.983a.976.976 0 0 1-.97.983.976.976 0 0 1-.968-.983c0-.543.434-.983.969-.983z"/></svg>
+  <span>微信咨询</span>
 </button>
-
-<script src="/seda-site.js" defer></script>
+<script src="/seda-site.js?v=28"></script>
 <script>
 // ── 滚动 reveal 动画 ──
 (function(){

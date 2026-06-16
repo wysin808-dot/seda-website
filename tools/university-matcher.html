@@ -270,6 +270,8 @@
     .priv-type { font-size: .68rem; font-weight: 700; color: var(--muted); background: var(--wash); padding: 2px 7px; border-radius: 999px; }
     .priv-cn { font-size: .9rem; color: var(--ink); font-weight: 600; margin: .35rem 0 .2rem; }
     .priv-str { font-size: .8rem; color: var(--muted); line-height: 1.5; }
+    .priv-card.is-match { border-color: #b3243b; background: #fdf2f4; order: -1; }
+    .priv-match { display: inline-block; margin-top: .3rem; font-size: .78rem; font-weight: 700; color: #b3243b; background: #fbe2e7; padding: 3px 9px; border-radius: 999px; }
     .priv-more { display: inline-block; margin-top: 14px; font-weight: 800; color: #b3243b; text-decoration: none; font-size: .92rem; }
     .priv-more:hover { text-decoration: underline; }
     .result-uni {
@@ -1649,23 +1651,42 @@
 
   /* ── 私立大学（门槛更友好的方案，单独一栏；不与公立混排）── */
   const PRIV=[
-    {slug:'jcu',name:'JCU',cn:'詹姆斯库克大学',type:'澳洲直属校区',str:'心理 / 环境 / 商科 / IT，最快 2 年'},
-    {slug:'curtin',name:'Curtin',cn:'科廷大学',type:'澳洲直属校区',str:'商科 / 会计金融 / 传媒'},
-    {slug:'sim',name:'SIM',cn:'新加坡管理学院',type:'合作名校学位',str:'伦敦大学等，商科 / 金融 / 计算机'},
-    {slug:'kaplan',name:'Kaplan',cn:'楷博高等教育',type:'合作名校学位',str:'12 所合作，商科 / IT / 会计'},
-    {slug:'psb',name:'PSB',cn:'PSB 学院',type:'合作名校学位',str:'工程 / 生命科学 / 商科'},
-    {slug:'mdis',name:'MDIS',cn:'管理发展学院',type:'合作名校学位',str:'工程 / 时尚 / 传媒 / 心理'},
-    {slug:'lsbf',name:'LSBF',cn:'伦敦商业金融学院',type:'合作名校学位',str:'财会 / 金融 / ACCA'},
-    {slug:'amity',name:'Amity',cn:'Amity 全球教育',type:'合作名校学位',str:'商科 / AI 数据 / 酒店'},
-    {slug:'shrm',name:'SHRM',cn:'SHRM 学院',type:'合作名校学位',str:'酒店与旅游管理专精'},
-    {slug:'tmc',name:'TMC',cn:'TMC 学院',type:'合作名校学位',str:'商科 / 心理 / 传媒'}
+    {slug:'jcu',name:'JCU',cn:'詹姆斯库克大学',type:'澳洲直属校区',str:'心理 / 环境 / 商科 / IT，最快 2 年',fields:['心理','商科','IT','生科','环境','酒店','教育']},
+    {slug:'curtin',name:'Curtin',cn:'科廷大学',type:'澳洲直属校区',str:'商科 / 会计金融 / 传媒',fields:['商科','会计金融','传媒','网络安全','IT','护理']},
+    {slug:'sim',name:'SIM',cn:'新加坡管理学院',type:'合作名校学位',str:'伦敦大学等，商科 / 金融 / 计算机',fields:['商科','会计金融','IT','传媒','经济','社科','法律']},
+    {slug:'kaplan',name:'Kaplan',cn:'楷博高等教育',type:'合作名校学位',str:'12 所合作，商科 / IT / 会计',fields:['商科','会计金融','IT','网络安全','传媒','酒店','物流','法律','设计']},
+    {slug:'psb',name:'PSB',cn:'PSB 学院',type:'合作名校学位',str:'工程 / 生命科学 / 商科',fields:['工程','生科','商科','IT','传媒','网络安全','物流','护理']},
+    {slug:'mdis',name:'MDIS',cn:'管理发展学院',type:'合作名校学位',str:'工程 / 时尚 / 传媒 / 心理',fields:['工程','生科','设计','传媒','心理','护理','IT','商科','会计金融']},
+    {slug:'lsbf',name:'LSBF',cn:'伦敦商业金融学院',type:'合作名校学位',str:'财会 / 金融 / ACCA',fields:['商科','会计金融','酒店','物流','网络安全']},
+    {slug:'amity',name:'Amity',cn:'Amity 全球教育',type:'合作名校学位',str:'商科 / AI 数据 / 酒店',fields:['商科','酒店','传媒','IT','会计金融','物流','教育']},
+    {slug:'shrm',name:'SHRM',cn:'SHRM 学院',type:'合作名校学位',str:'酒店与旅游管理专精',fields:['酒店','商科']},
+    {slug:'tmc',name:'TMC',cn:'TMC 学院',type:'合作名校学位',str:'商科 / 心理 / 传媒',fields:['商科','心理','传媒','酒店','IT','会计金融','物流']}
   ];
-  function renderPrivate(bestPct){
+  const FIELD_LABEL={'IT':'计算机 / IT','商科':'商科','会计金融':'会计金融','工程':'工程','心理':'心理学','传媒':'传媒','酒店':'酒店旅游','生科':'生命科学','网络安全':'网络安全','物流':'物流供应链','设计':'设计','法律':'法律','护理':'护理','环境':'环境科学','教育':'教育','经济':'经济','社科':'社会科学'};
+  // 从所选专业文本识别方向（关键词 → 方向 token）
+  function detectFields(programs){
+    const txt=(programs||[]).map(p=>`${p.cn||''} ${p.program||''} ${p.faculty||''}`).join(' ').toLowerCase();
+    const set=new Set();
+    const R=[['网络安全',/网络安全|cyber/],['IT',/计算机|computing|信息技术|information tech|软件|software|人工智能|\bai\b|数据科学|data scien|infocomm/],['会计金融',/会计|account|金融|finance|银行|banking/],['工程',/工程|engineering/],['心理',/心理|psycholog/],['传媒',/传播|传媒|media|communicat|新闻|电影|film|broadcast/],['酒店',/酒店|旅游|hospitality|tourism|会展|event/],['生科',/生物|生命|biomed|life scien|制药|pharm|aquacult|水产/],['设计',/设计|design|建筑|architect|艺术|fashion|时尚|游戏|game/],['法律',/法律|\blaw\b/],['护理',/护理|nursing/],['教育',/教育|education/],['物流',/物流|supply chain|logistic/],['经济',/经济|economic/],['社科',/社会|sociolog|政治|politic|国际关系|international relation/],['商科',/商|business|管理|management|market|市场/]];
+    R.forEach(([tok,re])=>{ if(re.test(txt)) set.add(tok); });
+    return set;
+  }
+  function renderPrivate(bestPct,programs){
+    const want=detectFields(programs);
+    const scored=PRIV.map(p=>{
+      const matched=p.fields.filter(f=>want.has(f));
+      return {p,matched,score:matched.length};
+    }).sort((a,b)=>b.score-a.score);
+    const anyMatch=scored.some(s=>s.score>0);
     const lead = bestPct<55
       ? '公立大学竞争激烈、暂时把握不大？<b>私立大学是更稳妥的选择</b>——不看高分截分，高中毕业即可申请，可专升本快速拿英澳名校学位。'
-      : '想多一条路？<b>私立大学</b>门槛更友好：高中毕业即可申请、学制紧凑、可专升本拿英澳名校学位，是公立之外的灵活方案。';
-    const cards = PRIV.map(p=>`<a class="priv-card" href="/private-university/${p.slug}/"><div class="priv-top"><span class="priv-abbr">${p.name}</span><span class="priv-type">${p.type}</span></div><div class="priv-cn">${p.cn}</div><div class="priv-str">${p.str}</div></a>`).join('');
-    return `<div class="priv-head">🎓 私立大学方案（门槛更友好）</div>
+      : '想多一条路？<b>私立大学</b>门槛更友好：高中毕业即可申请、学制紧凑、可专升本拿英澳名校学位。';
+    const head = anyMatch ? '🎯 按你的方向，这些私立大学最对口' : '🎓 私立大学方案（门槛更友好）';
+    const cards = scored.map(({p,matched,score})=>{
+      const tag = score>0 ? `<span class="priv-match">🎯 对口：${matched.slice(0,3).map(f=>FIELD_LABEL[f]).join('、')}</span>` : '';
+      return `<a class="priv-card${score>0?' is-match':''}" href="/private-university/${p.slug}/"><div class="priv-top"><span class="priv-abbr">${p.name}</span><span class="priv-type">${p.type}</span></div><div class="priv-cn">${p.cn}</div>${tag||`<div class="priv-str">${p.str}</div>`}</a>`;
+    }).join('');
+    return `<div class="priv-head">${head}</div>
       <p class="priv-lead">${lead}</p>
       <div class="priv-grid">${cards}</div>
       <a class="priv-more" href="/private-university/courses/">查看 10 所私立大学 273 个专业数据库 →</a>`;
@@ -2053,7 +2074,7 @@
     document.getElementById('resultSub').innerHTML=`基于你的 <strong style="color:var(--ink)">${EXAM_LABEL[state.exam]}</strong> 科目成绩，AI 已匹配 <strong>${items.length}</strong> 个专业的录取概率。${selCount?'（仅显示你选择的专业）':'（显示全部专业，按匹配度排序）'}`;
     document.getElementById('resultGrid').innerHTML=items.map(i=>i.html).join('');
     const bestPct=items.filter(i=>!i.ineligible).reduce((m,i)=>Math.max(m,i.pct),0);
-    document.getElementById('resultPrivate').innerHTML=renderPrivate(bestPct);
+    document.getElementById('resultPrivate').innerHTML=renderPrivate(bestPct,targetPrograms);
     document.getElementById('result').classList.add('show');
     document.getElementById('result').scrollIntoView({behavior:'smooth',block:'start'});
   }

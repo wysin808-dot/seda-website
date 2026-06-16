@@ -82,6 +82,10 @@
 .fee-card.hl .price{color:var(--brand-strong)}
 .fee-card .note{font-size:.78rem;color:var(--muted);margin:6px 0 0}
 .fee-card .tag{position:absolute;top:-10px;left:50%;transform:translateX(-50%);background:var(--brand);color:#fff;font-size:.7rem;font-weight:700;padding:2px 10px;border-radius:999px;white-space:nowrap}
+
+/* Hero: logo 牌 + 校园图背景 */
+.school-hero .hero-logo{display:inline-block;background:#fff;border-radius:10px;padding:7px 14px;margin-bottom:14px;box-shadow:0 6px 18px rgba(0,0,0,.28)}
+.school-hero .hero-logo img{height:32px;width:auto;display:block}
 </style>
 <!-- SEDA_GA4_START -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-38WFES3WTH"></script>
@@ -129,7 +133,8 @@
     </header>
 <nav class="breadcrumb" aria-label="面包屑导航"><a href="/">首页</a> <span class="bc-sep">›</span> <a href="/poly/">理工学院</a> <span class="bc-sep">›</span> <span>淡马锡理工学院</span></nav>
 <main>
-  <section class="page-hero school-hero">
+  <section class="page-hero school-hero" style="background:linear-gradient(125deg,rgba(16,24,40,.84) 0%,rgba(16,24,40,.5) 100%),url('/assets/tp-campus.jpg') center 42%/cover">
+    <span class="hero-logo"><img src="/assets/tp-logo.png" alt="淡马锡理工学院 Temasek Polytechnic 校徽" height="32" loading="eager" decoding="async"></span>
     <p class="eyebrow">理工学院 · Temasek Polytechnic · 1990 年创办</p>
     <h1>淡马锡理工学院（TP）完整指南</h1>
     <p class="hero-subtitle">设计学院全国领先 · 兽医技术全国唯一 · 法律与管理少数开设 · 临湖校园</p>
@@ -138,7 +143,6 @@
     <article class="content-main">
 
       <div class="poly-id">
-        <img class="logo" src="/assets/tp-logo.png" alt="淡马锡理工学院 Temasek Polytechnic 官方标志" width="210" height="80" loading="lazy" decoding="async">
         <div class="txt">
           <p class="zh">淡马锡理工学院</p>
           <p class="en">Temasek Polytechnic（TP）</p>

@@ -129,6 +129,13 @@
 .nx-cc h3{margin:0 0 5px;font-size:1.05rem;color:var(--navy)}
 .nx-cc .en{font-size:.78rem;color:var(--mut);margin:0 0 8px}
 .nx-cc p{margin:0;font-size:.9rem;color:var(--mut);line-height:1.6}
+/* 统一交互反馈：悬停上浮 + 点击微反馈（卡片是信息块，给优雅反馈而非空白） */
+.nx-rcard,.nx-fee,.nx-cc{transition:box-shadow .2s,transform .2s,border-color .2s}
+.nx-rcard:hover,.nx-cc:hover{box-shadow:0 16px 38px rgba(13,34,64,.1);transform:translateY(-3px);border-color:#cdd9ea}
+.nx-rcard.lead:hover{box-shadow:0 20px 46px rgba(13,34,64,.3);transform:translateY(-3px)}
+.nx-fee:hover{box-shadow:0 16px 38px rgba(13,34,64,.1);transform:translateY(-3px)}
+.nx-fee.hl:hover{box-shadow:0 18px 44px rgba(200,162,74,.24)}
+.nx-fcard:active,.nx-pcard:active,.nx-rcard:active,.nx-fee:active,.nx-cc:active{transform:translateY(-1px) scale(.995)}
 @media(max-width:640px){.nx-fit{grid-template-columns:1fr}.nx-stat+.nx-stat::before{display:none}}
 </style>
 </head>

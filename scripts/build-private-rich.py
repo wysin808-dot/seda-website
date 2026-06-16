@@ -369,7 +369,66 @@ MDIS_PROGS=[
  ("Diploma in Tourism and Hospitality Management","mdis","文凭","酒店旅游","旅游与酒店管理大专"),
 ]
 
+# ============ Kaplan ============
+KAPLAN_PARTNERS=[
+ ("ucd","都柏林大学","University College Dublin","爱尔兰","🇮🇪","BBS 商学多方向，爱尔兰顶尖","QS #126"),
+ ("rhul","皇家霍洛威（伦敦大学）","Royal Holloway, University of London","英国","🇬🇧","管理学多方向，伦敦大学体系","伦敦大学体系"),
+ ("essex","埃塞克斯大学","University of Essex","英国","🇬🇧","会计与金融","英国研究型大学"),
+ ("northumbria","诺桑比亚大学","Northumbria University","英国","🇬🇧","商科与旅游管理","英国应用型大学"),
+ ("portsmouth","朴茨茅斯大学","University of Portsmouth","英国","🇬🇧","会计与 IT / 网络安全（含 CEH）","英国应用型大学"),
+ ("murdoch","莫道克大学","Murdoch University","澳大利亚","🇦🇺","商科 / 传媒 / IT / 游戏设计","澳洲应用型大学"),
+ ("kaplan","楷博高等教育","Kaplan Higher Education","新加坡","🇸🇬","自颁文凭与基础课程，衔接合作大学本科","新加坡本地学府"),
+]
+KAPLAN_PROGS=[
+ ("Bachelor of Business Studies (Banking and Wealth Management)","ucd","本科","会计与金融","商学学士（银行与财富管理）"),
+ ("Bachelor of Business Studies (Finance)","ucd","本科","会计与金融","商学学士（金融）"),
+ ("Bachelor of Business Studies (Business with Law)","ucd","本科","法律","商学学士（商业与法律）"),
+ ("Bachelor of Business Studies (Digital Business)","ucd","本科","商科","商学学士（数字商业）"),
+ ("Bachelor of Business Studies (Human Resource Management)","ucd","本科","商科","商学学士（人力资源管理）"),
+ ("Bachelor of Business Studies (Management)","ucd","本科","商科","商学学士（管理）"),
+ ("Bachelor of Business Studies (Marketing)","ucd","本科","市场营销","商学学士（市场营销）"),
+ ("Bachelor of Business Studies (Logistics and Supply Chain Management)","ucd","本科","物流供应链","商学学士（物流与供应链管理）"),
+ ("Bachelor of Business Studies (Project Management)","ucd","本科","商科","商学学士（项目管理）"),
+ ("BSc Business and Management","rhul","本科","商科","商业与管理（理学士）"),
+ ("BSc Management with Accounting","rhul","本科","会计与金融","管理与会计（理学士）"),
+ ("BSc Management with International Business","rhul","本科","商科","管理与国际商务（理学士）"),
+ ("BSc Management with Marketing","rhul","本科","市场营销","管理与市场营销（理学士）"),
+ ("BA (Hons) Business with International Management","northumbria","本科","商科","商业与国际管理（荣誉文学士）"),
+ ("BA (Hons) Business with Tourism Management","northumbria","本科","酒店旅游","商业与旅游管理（荣誉文学士）"),
+ ("BA (Hons) Accountancy and Financial Management","portsmouth","本科","会计与金融","会计与财务管理（荣誉文学士）"),
+ ("BSc (Hons) Cyber Security and Forensic Computing","portsmouth","本科","网络安全","网络安全与取证计算（荣誉理学士·含 CEH）"),
+ ("Bachelor of Business","murdoch","本科","商科","商学学士"),
+ ("Bachelor of Communication and Media","murdoch","本科","传媒","传播与媒体学士"),
+ ("Bachelor of Information Technology","murdoch","本科","IT计算机","信息技术学士"),
+ ("Bachelor of Cyber Security and Forensics","murdoch","本科","网络安全","网络安全与取证学士"),
+ ("Bachelor of Games Art and Design","murdoch","本科","设计","游戏艺术与设计学士"),
+ ("BSc (Hons) Banking and Finance","essex","本科","会计与金融","银行与金融（荣誉理学士）"),
+ ("BA (Hons) Accounting and Finance","essex","本科","会计与金融","会计与金融（荣誉文学士）"),
+ ("Master of Business Administration","murdoch","硕士","商科","工商管理硕士（MBA）"),
+ ("MSc Finance","essex","硕士","会计与金融","金融理学硕士"),
+ ("MSc International Management","northumbria","硕士","商科","国际管理理学硕士"),
+]
+
 RICH={
+"kaplan":{
+ "abbr":"Kaplan","zh":"楷博高等教育（新加坡）","en":"Kaplan Higher Education Singapore","color":"#003a70","founded":2005,
+ "tagline":"全球教育集团 Kaplan 旗下 · 专业最广",
+ "sig":"全球教育集团 Kaplan 旗下，新加坡<b>专业最广、开课最灵活</b>的私立学府之一；合作 <b>12 所</b>英、澳、爱名校（UCD、Royal Holloway、Northumbria、Murdoch、Essex、Portsmouth 等）授予学位，商科、会计金融、IT、网络安全、传媒、酒店等齐全。EduTrust 认证。",
+ "fee":"S$28,000–48,000","fee_note":"本科总学费按合作大学与专业不同；以官方为准。私立大学不提供 MOE 政府津贴。",
+ "intake":"每年多次开学","edutrust":"EduTrust 认证",
+ "china":"取决于合作大学是否在中留服名单（如都柏林大学、皇家霍洛威等）；申请前请在中留服官网核实具体学位。",
+ "overview":[
+   "Kaplan 新加坡隶属<b>全球教育集团 Kaplan</b>，是本地<b>专业最广、开课最灵活</b>的私立学府之一，市中心校区、转专业与衔接灵活，持 EduTrust 认证。",
+   "合作 <b>12 所</b>大学（UCD、Royal Holloway、Northumbria、Murdoch、Essex、Portsmouth、Griffith、Monash、RMIT、Swinburne、Birmingham City、南澳大学）授予学位。<b>都柏林大学（UCD）的商学学士（BBS）多方向</b>最热门，会计金融、IT/网络安全、传媒、游戏设计等同样齐全。",
+   "本科多可专升本（Top-up）或文凭衔接，硕士约 12 个月，适合想要英澳爱名校学位、专业选择多的学生。",
+ ],
+ "highlights":[("专业最广","12 所合作大学、方向最全"),("开课灵活","多次开学、转专业灵活"),("市中心","衔接快、生活便利")],
+ "pathway":[("文凭 / 基础课程","Kaplan 文凭，按学历入读，衔接合作大学本科。"),
+   ("本科学位","凭文凭直入 / 专升本（Top-up），合作大学颁发学位。"),
+   ("硕士学位","MBA / MSc，约 12 个月，合作大学颁发。")],
+ "finder":"https://www.kaplan.com.sg/","coverage":"以下为 Kaplan 各主要合作大学的代表学位专业；Kaplan 合作 12 所大学、开设更多专业，完整清单见官方课程页。",
+ "partners":KAPLAN_PARTNERS,"progs":KAPLAN_PROGS,
+},
 "mdis":{
  "abbr":"MDIS","zh":"新加坡管理发展学院","en":"Management Development Institute of Singapore (MDIS)","color":"#c81432","founded":1956,
  "tagline":"新加坡历史最悠久的私立学府（1956）",
@@ -761,7 +820,7 @@ def build(slug):
      {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":q,"acceptedAnswer":{"@type":"Answer","text":html.unescape(a.replace("<b>","").replace("</b>",""))}} for q,a in faqs]},
     ]
     lg=logo_path(slug)
-    WHITE_LOGO_RICH={"psb"}  # 白色 logo → 直接放彩色 hero（透明牌），不用白底
+    WHITE_LOGO_RICH={"psb","kaplan"}  # 白色 logo → 直接放彩色 hero（透明牌），不用白底
     if lg and slug in WHITE_LOGO_RICH:
         logohtml=f'<div class="prc-dlogo" style="background:transparent;box-shadow:none;padding:0;margin-bottom:14px"><img src="{lg}?v=1" style="height:46px" alt="{esc(d["zh"])} 校徽"></div>'
     elif lg:

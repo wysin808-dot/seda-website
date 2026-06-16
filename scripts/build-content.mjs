@@ -783,6 +783,8 @@ ${topics.map((topic) => `- [${topic.title}](/topics/${topic.slug}/): ${topic.des
 
 - [新加坡公立大学总览](/university/): NUS、NTU、SMU、SUTD、SIT、SUSS 六所公立大学 + UAS 艺术大学目录，含预估录取分。
 - [大学专业录取分数据库](/university/degrees/): 137 个本科专业的 IGP 录取分（A-Level / 理工 GPA / 预估 ATAR）可筛选数据库。
+- [新加坡私立大学](/private-university/): 10 所主流私立大学（SIM、Kaplan、PSB、JCU、MDIS、Curtin、LSBF、Amity、SHRM、TMC）总览，含合作大学、学费与中留服认证。
+- [私立大学专业数据库](/private-university/courses/): 10 所私立大学 273 个本科 / 硕士 / 文凭专业可筛选数据库（按学校、方向、层级、合作大学）。
 - [NUS 新加坡国立大学](/university/nus/): NUS 完整指南——学科实力、录取路径（含高考）、学费、就业。
 - [NTU 南洋理工大学](/university/ntu/): NTU 完整指南——材料/工程强项、录取路径、学费、就业。
 - [SMU 新加坡管理大学](/university/smu/): SMU 完整指南——商科/研讨式教学、录取路径、学费。

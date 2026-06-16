@@ -302,7 +302,7 @@ def build_landing():
         a,lbl=admtag[u["type"]]
         arts=" arts" if u["type"]=="portfolio" else ""
         ext="png" if u["slug"]=="suss" else "svg"
-        cover=f'<div class="cover logo"><img src="/assets/uni-{u["slug"]}-logo.{ext}" alt="{esc(u["zh"])} 校徽" loading="lazy" decoding="async"></div>'
+        cover=f'<div class="cover logo"><img src="/assets/uni-{u["slug"]}-logo.{ext}" alt="{esc(u["zh"])} 校徽" loading="eager" decoding="async"></div>'
         cards.append(f'''<a class="ucard{arts}" href="/university/{u['slug']}/">
   {cover}
   <div class="body">

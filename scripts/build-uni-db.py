@@ -273,7 +273,7 @@ def build_landing():
   <div class="body">
     <h3>{esc(u['zh'])}</h3><p class="en">{esc(u['en'])}</p>
     <p class="sig">{esc(u['sig'])}</p>
-    <div class="meta"><span>📅 {u['founded']}</span><span>🎓 {counts[u['slug']]} 专业</span></div>
+    <div class="meta"><span>📅 {u['founded']}</span><span>🎓 {counts[u['slug']]} 专业</span><span>🎯 {esc(u.get('atar_est') or u['atar'])}{' ATAR 估' if u.get('atar_est') else ''}</span></div>
     <span class="adm {a}">{lbl}</span>
     <div class="foot"><span class="c"><b>{counts[u['slug']]}</b> 个本科专业</span><span class="go">查看详情 →</span></div>
   </div>

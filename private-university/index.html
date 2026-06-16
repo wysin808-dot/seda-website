@@ -15,7 +15,7 @@
 <style>
 :root{--pv-ink:#1f2430;--pv-line:#e7ebf1;--pv-muted:#6a7383;--pv-brand:#c0392b}
 .pv *{box-sizing:border-box}
-.pv-hero{padding:46px clamp(20px,6vw,80px) 40px;background:linear-gradient(135deg,#10243f,#1f3a5f)}
+.pv-hero{padding:46px clamp(20px,6vw,80px) 40px;background:linear-gradient(135deg,#241a1e,#7e2d3a)}
 .pv-hero,.pv-hero *{color:#fff}
 .pv-hero .in{max-width:1160px;margin:0 auto}
 .pv-ey{display:inline-block;margin-bottom:13px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);padding:6px 14px;border-radius:999px;font-size:.82rem;font-weight:700}
@@ -29,20 +29,22 @@
 .pv-flb{font-size:.78rem;color:var(--pv-muted);font-weight:800;margin-right:3px}
 .pv-chip{font-size:.83rem;border:1px solid var(--pv-line);background:#fff;color:var(--pv-muted);padding:6px 12px;border-radius:999px;cursor:pointer;user-select:none;transition:.13s}
 .pv-chip:hover{border-color:#9fb3cc}
-.pv-chip.on{background:#1f3a5f;border-color:#1f3a5f;color:#fff}
+.pv-chip.on{background:#7e2d3a;border-color:#7e2d3a;color:#fff}
 .pv-count{max-width:1160px;margin:0 auto;padding:12px clamp(20px,6vw,80px) 0;font-size:.92rem;color:var(--pv-muted)}
-.pv-count b{color:#1f3a5f;font-size:1.05rem}
+.pv-count b{color:#7e2d3a;font-size:1.05rem}
 .pv-cards{max-width:1160px;margin:0 auto;padding:14px clamp(20px,6vw,80px) 30px;display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:18px}
 .pv-card{display:flex;flex-direction:column;border:1px solid var(--pv-line);border-radius:16px;overflow:hidden;background:#fff;box-shadow:0 2px 10px rgba(20,20,40,.04);transition:transform .18s,box-shadow .18s}
 .pv-card.hide{display:none}
 .pv-card:hover{transform:translateY(-4px);box-shadow:0 16px 36px rgba(20,30,60,.12)}
-.pv-top{display:flex;align-items:center;gap:14px;padding:18px 18px 12px}
-.pv-mono{flex:0 0 auto;width:58px;height:58px;border-radius:14px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:850;font-size:1rem;letter-spacing:.02em;box-shadow:0 6px 16px rgba(0,0,0,.14)}
-.pv-tt h3{margin:0;font-size:1.12rem;color:var(--pv-ink);line-height:1.25}
-.pv-tt .en{color:var(--pv-muted);font-size:.76rem;margin-top:.15rem}
+.pv-logobar{height:84px;display:flex;align-items:center;justify-content:center;background:#fff;border-bottom:1px solid var(--pv-line);padding:14px 18px}
+.pv-logobar img{max-height:50px;max-width:74%;width:auto;object-fit:contain}
+.pv-logobar.mono{color:#fff;font-weight:850;font-size:1.7rem;letter-spacing:.03em}
+.pv-head{padding:14px 18px 4px}
+.pv-head h3{margin:0;font-size:1.1rem;color:var(--pv-ink);line-height:1.25}
+.pv-head .en{color:var(--pv-muted);font-size:.76rem;margin-top:.15rem}
 .pv-badges{display:flex;flex-wrap:wrap;gap:6px;padding:0 18px 12px}
 .pv-b{font-size:.72rem;font-weight:800;padding:3px 9px;border-radius:999px}
-.pv-b.t-直属{background:#e6f7f6;color:#0e7a6b}.pv-b.t-合作{background:#eef2fb;color:#2c5c9a}
+.pv-b.t-直属{background:#e6f7f6;color:#0e7a6b}.pv-b.t-合作{background:#f3ece9;color:#8a4a2d}
 .pv-b.et{background:#fff4e6;color:#b45309}
 .pv-body{padding:0 18px 14px;display:flex;flex-direction:column;flex:1}
 .pv-row{font-size:.85rem;color:var(--pv-ink);line-height:1.6;margin:0 0 8px}
@@ -51,28 +53,30 @@
 .pv-tag{font-size:.74rem;background:#f3f5f9;color:#475067;padding:3px 9px;border-radius:7px}
 .pv-foot{margin-top:auto;display:flex;justify-content:space-between;align-items:center;border-top:1px dashed var(--pv-line);padding-top:12px}
 .pv-foot .fee{font-size:.85rem;color:var(--pv-muted)}.pv-foot .fee b{color:var(--pv-ink)}
-.pv-foot .go{color:#1f3a5f;font-weight:800;text-decoration:none;font-size:.9rem}
+.pv-foot .go{color:#7e2d3a;font-weight:800;text-decoration:none;font-size:.9rem}
 .pv-sec{max-width:1160px;margin:0 auto;padding:30px clamp(20px,6vw,80px)}
 .pv-sec h2{font-size:clamp(21px,2.8vw,29px);margin:0 0 6px;font-weight:830}
 .pv-sec .lead{color:var(--pv-muted);margin:0 0 20px;line-height:1.7}
 .pv-cmp-wrap{overflow-x:auto}
 .pv-cmp{width:100%;border-collapse:collapse;font-size:.9rem;min-width:760px}
 .pv-cmp th,.pv-cmp td{padding:11px 13px;text-align:left;border-bottom:1px solid var(--pv-line);vertical-align:top}
-.pv-cmp thead th{background:#1f3a5f;color:#fff;font-weight:800;white-space:nowrap}
+.pv-cmp thead th{background:#7e2d3a;color:#fff;font-weight:800;white-space:nowrap}
 .pv-cmp tbody td:first-child{font-weight:800;color:var(--pv-ink)}
 .pv-cmp tr:hover td{background:#f7f9fc}
 .pv-faq details{border:1px solid var(--pv-line);border-radius:12px;padding:2px 16px;margin-bottom:9px;background:#fff}
 .pv-faq summary{cursor:pointer;font-weight:700;padding:13px 0;list-style:none}
 .pv-faq summary::-webkit-details-marker{display:none}
-.pv-faq summary::after{content:"+";float:right;color:#1f3a5f;font-weight:800}
+.pv-faq summary::after{content:"+";float:right;color:#7e2d3a;font-weight:800}
 .pv-faq details[open] summary::after{content:"–"}
 .pv-faq .a{padding:0 0 14px;color:#48505f;line-height:1.74}
-.pv-cta{background:linear-gradient(135deg,#10243f,#1f3a5f);border-radius:18px;padding:26px 28px;text-align:center;margin:8px 0}
+.pv-cta{background:linear-gradient(135deg,#241a1e,#7e2d3a);border-radius:18px;padding:26px 28px;text-align:center;margin:8px 0}
 .pv-cta,.pv-cta *{color:#fff}.pv-cta h3{margin:0 0 8px;font-size:1.3rem}
 .pv-cta a{display:inline-block;margin-top:14px;background:var(--pv-brand);color:#fff;font-weight:800;padding:11px 28px;border-radius:10px;text-decoration:none}
 /* detail */
 .pv-dhero{padding:42px clamp(20px,6vw,80px) 34px;color:#fff}
 .pv-dhero .in{max-width:1000px;margin:0 auto}
+.pv-dlogo{display:inline-flex;align-items:center;justify-content:center;background:#fff;border-radius:12px;padding:10px 18px;margin-bottom:16px;box-shadow:0 8px 22px rgba(0,0,0,.18)}
+.pv-dlogo img{height:40px;max-width:230px;width:auto;object-fit:contain}
 .pv-dbadges{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
 .pv-dbadges span{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.32);padding:5px 12px;border-radius:999px;font-size:.8rem;font-weight:700}
 .pv-dhero h1{font-size:clamp(25px,3.6vw,40px);margin:0 0 6px;font-weight:850;line-height:1.18}
@@ -95,8 +99,8 @@
 .pv-fit li::before{content:"✓";position:absolute;left:15px;color:#2e8b57;font-weight:800}
 .pv-note{background:#fff8ef;border:1px solid #f3e0c4;border-left:4px solid #d98b2b;border-radius:12px;padding:15px 18px;font-size:.9rem;color:#5a4a32;line-height:1.7}
 .pv-rel{display:flex;flex-wrap:wrap;gap:10px}
-.pv-rel a{border:1px solid var(--pv-line);border-radius:999px;padding:9px 17px;text-decoration:none;color:#1f3a5f;font-weight:700;font-size:.92rem;transition:.13s}
-.pv-rel a:hover{background:#1f3a5f;color:#fff;border-color:#1f3a5f}
+.pv-rel a{border:1px solid var(--pv-line);border-radius:999px;padding:9px 17px;text-decoration:none;color:#7e2d3a;font-weight:700;font-size:.92rem;transition:.13s}
+.pv-rel a:hover{background:#7e2d3a;color:#fff;border-color:#7e2d3a}
 @media(max-width:600px){.pv-facts th{width:42%}.pv-cards{grid-template-columns:1fr}}
 </style>
 </head>
@@ -140,7 +144,7 @@
       </div>
     </header>
 <main class="pv">
-  <section class="pv-hero" style="background:linear-gradient(135deg,#10243f,#1f3a5f)"><div class="in">
+  <section class="pv-hero" style="background:linear-gradient(135deg,#241a1e,#7e2d3a)"><div class="in">
     <span class="pv-ey">🎓 10 所主流私立大学 · 合作名校 / 海外直属校区</span>
     <h1>新加坡私立大学</h1>
     <p class="s">公立大学之外的灵活升学路径：<b>海外大学直属校区</b>（JCU、Curtin）与<b>合作名校学位</b>（SIM、Kaplan、PSB、MDIS、LSBF、Amity、SHRM、TMC）。高中毕业可直申、学制紧凑、专业灵活——下面按类型与专业方向对比 10 所，均持 <b>EduTrust 认证</b>。</p>
@@ -152,8 +156,8 @@
   </div>
   <div class="pv-count">显示 <b id="pvshow">10</b> / 10 所私立大学</div>
   <div class="pv-cards" id="pvcards"><div class="pv-card" data-type="直属" data-fields="商科 计算机/IT 心理学 教育 环境科学 酒店旅游" data-name="詹姆斯库克大学（新加坡） james cook university singapore jcu 商科 计算机/it 心理学 教育 环境科学 酒店旅游">
-  <div class="pv-top"><div class="pv-mono" style="background:linear-gradient(135deg,#009ca6,#009ca6cc)">JCU</div>
-    <div class="pv-tt"><h3>詹姆斯库克大学（新加坡）</h3><div class="en">James Cook University Singapore</div></div></div>
+  <div class="pv-logobar mono" style="background:linear-gradient(135deg,#009ca6,#009ca6cc)">JCU</div>
+  <div class="pv-head"><h3>詹姆斯库克大学（新加坡）</h3><div class="en">James Cook University Singapore</div></div>
   <div class="pv-badges"><span class="pv-b t-直属">海外大学直属校区</span><span class="pv-b et">🎖 EduTrust 认证</span></div>
   <div class="pv-body">
     <p class="pv-row"><span class="k">合作 / 学位</span>澳洲本部直属，颁同质学位</p>
@@ -161,8 +165,8 @@
     <div class="pv-foot"><span class="fee">本科学费 <b>S$55,000–72,000</b></span><a class="go" href="/private-university/jcu/">查看详情 →</a></div>
   </div>
 </div><div class="pv-card" data-type="直属" data-fields="商科 会计金融 传媒 健康科学" data-name="科廷大学（新加坡） curtin university singapore curtin 商科 会计金融 传媒 健康科学">
-  <div class="pv-top"><div class="pv-mono" style="background:linear-gradient(135deg,#b9982b,#b9982bcc)">Curtin</div>
-    <div class="pv-tt"><h3>科廷大学（新加坡）</h3><div class="en">Curtin University Singapore</div></div></div>
+  <div class="pv-logobar" style="background:#fff"><img src="/assets/logo-curtin.svg?v=1" alt="科廷大学（新加坡） 校徽" loading="lazy" decoding="async"></div>
+  <div class="pv-head"><h3>科廷大学（新加坡）</h3><div class="en">Curtin University Singapore</div></div>
   <div class="pv-badges"><span class="pv-b t-直属">海外大学直属校区</span><span class="pv-b et">🎖 EduTrust 认证</span></div>
   <div class="pv-body">
     <p class="pv-row"><span class="k">合作 / 学位</span>澳洲本部直属，颁同质学位</p>
@@ -170,8 +174,8 @@
     <div class="pv-foot"><span class="fee">本科学费 <b>S$55,000–70,000</b></span><a class="go" href="/private-university/curtin/">查看详情 →</a></div>
   </div>
 </div><div class="pv-card" data-type="合作" data-fields="商科 会计金融 计算机/IT 传媒 心理学" data-name="新加坡管理学院 singapore institute of management (sim) sim 商科 会计金融 计算机/it 传媒 心理学">
-  <div class="pv-top"><div class="pv-mono" style="background:linear-gradient(135deg,#c8102e,#c8102ecc)">SIM</div>
-    <div class="pv-tt"><h3>新加坡管理学院</h3><div class="en">Singapore Institute of Management (SIM)</div></div></div>
+  <div class="pv-logobar" style="background:#fff"><img src="/assets/logo-sim.svg?v=1" alt="新加坡管理学院 校徽" loading="lazy" decoding="async"></div>
+  <div class="pv-head"><h3>新加坡管理学院</h3><div class="en">Singapore Institute of Management (SIM)</div></div>
   <div class="pv-badges"><span class="pv-b t-合作">合作名校学位</span><span class="pv-b et">🎖 EduTrust 认证</span></div>
   <div class="pv-body">
     <p class="pv-row"><span class="k">合作 / 学位</span>伦敦大学、伯明翰大学、皇家墨尔本理工</p>
@@ -179,8 +183,8 @@
     <div class="pv-foot"><span class="fee">本科学费 <b>S$30,000–50,000</b></span><a class="go" href="/private-university/sim/">查看详情 →</a></div>
   </div>
 </div><div class="pv-card" data-type="合作" data-fields="商科 会计金融 计算机/IT 酒店旅游 传媒" data-name="楷博高等教育（新加坡） kaplan higher education singapore kaplan 商科 会计金融 计算机/it 酒店旅游 传媒">
-  <div class="pv-top"><div class="pv-mono" style="background:linear-gradient(135deg,#003a70,#003a70cc)">Kaplan</div>
-    <div class="pv-tt"><h3>楷博高等教育（新加坡）</h3><div class="en">Kaplan Higher Education Singapore</div></div></div>
+  <div class="pv-logobar" style="background:#fff"><img src="/assets/logo-kaplan.svg?v=1" alt="楷博高等教育（新加坡） 校徽" loading="lazy" decoding="async"></div>
+  <div class="pv-head"><h3>楷博高等教育（新加坡）</h3><div class="en">Kaplan Higher Education Singapore</div></div>
   <div class="pv-badges"><span class="pv-b t-合作">合作名校学位</span><span class="pv-b et">🎖 EduTrust 认证</span></div>
   <div class="pv-body">
     <p class="pv-row"><span class="k">合作 / 学位</span>莫道克大学、都柏林大学、诺桑比亚大学</p>
@@ -188,8 +192,8 @@
     <div class="pv-foot"><span class="fee">本科学费 <b>S$28,000–48,000</b></span><a class="go" href="/private-university/kaplan/">查看详情 →</a></div>
   </div>
 </div><div class="pv-card" data-type="合作" data-fields="商科 工程 生命科学 计算机/IT 传媒" data-name="psb 学院 psb academy psb 商科 工程 生命科学 计算机/it 传媒">
-  <div class="pv-top"><div class="pv-mono" style="background:linear-gradient(135deg,#e35205,#e35205cc)">PSB</div>
-    <div class="pv-tt"><h3>PSB 学院</h3><div class="en">PSB Academy</div></div></div>
+  <div class="pv-logobar" style="background:#e35205"><img src="/assets/logo-psb.svg?v=1" alt="PSB 学院 校徽" loading="lazy" decoding="async"></div>
+  <div class="pv-head"><h3>PSB 学院</h3><div class="en">PSB Academy</div></div>
   <div class="pv-badges"><span class="pv-b t-合作">合作名校学位</span><span class="pv-b et">🎖 EduTrust 认证</span></div>
   <div class="pv-body">
     <p class="pv-row"><span class="k">合作 / 学位</span>纽卡斯尔大学（澳）University、考文垂大学、爱丁堡龙比亚大学</p>
@@ -197,8 +201,8 @@
     <div class="pv-foot"><span class="fee">本科学费 <b>S$28,000–48,000</b></span><a class="go" href="/private-university/psb/">查看详情 →</a></div>
   </div>
 </div><div class="pv-card" data-type="合作" data-fields="商科 工程 生命科学 时尚设计 传媒 心理学" data-name="新加坡管理发展学院 management development institute of singapore (mdis) mdis 商科 工程 生命科学 时尚设计 传媒 心理学">
-  <div class="pv-top"><div class="pv-mono" style="background:linear-gradient(135deg,#005baa,#005baacc)">MDIS</div>
-    <div class="pv-tt"><h3>新加坡管理发展学院</h3><div class="en">Management Development Institute of Singapore (MDIS)</div></div></div>
+  <div class="pv-logobar" style="background:#fff"><img src="/assets/logo-mdis.png?v=1" alt="新加坡管理发展学院 校徽" loading="lazy" decoding="async"></div>
+  <div class="pv-head"><h3>新加坡管理发展学院</h3><div class="en">Management Development Institute of Singapore (MDIS)</div></div>
   <div class="pv-badges"><span class="pv-b t-合作">合作名校学位</span><span class="pv-b et">🎖 EduTrust 认证</span></div>
   <div class="pv-body">
     <p class="pv-row"><span class="k">合作 / 学位</span>班戈大学、蒂赛德大学、桑德兰大学</p>
@@ -206,8 +210,8 @@
     <div class="pv-foot"><span class="fee">本科学费 <b>S$28,000–48,000</b></span><a class="go" href="/private-university/mdis/">查看详情 →</a></div>
   </div>
 </div><div class="pv-card" data-type="合作" data-fields="商科 会计金融 酒店旅游 法律" data-name="伦敦商业金融学院（新加坡） london school of business and finance singapore lsbf 商科 会计金融 酒店旅游 法律">
-  <div class="pv-top"><div class="pv-mono" style="background:linear-gradient(135deg,#1a2a6c,#1a2a6ccc)">LSBF</div>
-    <div class="pv-tt"><h3>伦敦商业金融学院（新加坡）</h3><div class="en">London School of Business and Finance Singapore</div></div></div>
+  <div class="pv-logobar" style="background:#fff"><img src="/assets/logo-lsbf.png?v=1" alt="伦敦商业金融学院（新加坡） 校徽" loading="lazy" decoding="async"></div>
+  <div class="pv-head"><h3>伦敦商业金融学院（新加坡）</h3><div class="en">London School of Business and Finance Singapore</div></div>
   <div class="pv-badges"><span class="pv-b t-合作">合作名校学位</span><span class="pv-b et">🎖 EduTrust 4 年认证</span></div>
   <div class="pv-body">
     <p class="pv-row"><span class="k">合作 / 学位</span>格林威治大学、康考迪亚大学（芝加哥）Concordia、格勒诺布尔高商</p>
@@ -215,8 +219,8 @@
     <div class="pv-foot"><span class="fee">本科学费 <b>S$28,000–46,000</b></span><a class="go" href="/private-university/lsbf/">查看详情 →</a></div>
   </div>
 </div><div class="pv-card" data-type="合作" data-fields="商科 酒店旅游 传媒 计算机/IT" data-name="amity 全球教育学院（新加坡） amity global institute singapore amity 商科 酒店旅游 传媒 计算机/it">
-  <div class="pv-top"><div class="pv-mono" style="background:linear-gradient(135deg,#5a2d82,#5a2d82cc)">Amity</div>
-    <div class="pv-tt"><h3>Amity 全球教育学院（新加坡）</h3><div class="en">Amity Global Institute Singapore</div></div></div>
+  <div class="pv-logobar" style="background:#fff"><img src="/assets/logo-amity.png?v=1" alt="Amity 全球教育学院（新加坡） 校徽" loading="lazy" decoding="async"></div>
+  <div class="pv-head"><h3>Amity 全球教育学院（新加坡）</h3><div class="en">Amity Global Institute Singapore</div></div>
   <div class="pv-badges"><span class="pv-b t-合作">合作名校学位</span><span class="pv-b et">🎖 EduTrust 4 年认证</span></div>
   <div class="pv-body">
     <p class="pv-row"><span class="k">合作 / 学位</span>东英吉利大学、伦敦大学、北安普顿大学</p>
@@ -224,8 +228,8 @@
     <div class="pv-foot"><span class="fee">本科学费 <b>S$28,000–45,000</b></span><a class="go" href="/private-university/amity/">查看详情 →</a></div>
   </div>
 </div><div class="pv-card" data-type="合作" data-fields="酒店旅游 商科" data-name="shrm 学院 shrm college singapore shrm 酒店旅游 商科">
-  <div class="pv-top"><div class="pv-mono" style="background:linear-gradient(135deg,#0e7a6b,#0e7a6bcc)">SHRM</div>
-    <div class="pv-tt"><h3>SHRM 学院</h3><div class="en">SHRM College Singapore</div></div></div>
+  <div class="pv-logobar" style="background:#fff"><img src="/assets/logo-shrm.png?v=1" alt="SHRM 学院 校徽" loading="lazy" decoding="async"></div>
+  <div class="pv-head"><h3>SHRM 学院</h3><div class="en">SHRM College Singapore</div></div>
   <div class="pv-badges"><span class="pv-b t-合作">合作名校学位</span><span class="pv-b et">🎖 EduTrust 4 年认证</span></div>
   <div class="pv-body">
     <p class="pv-row"><span class="k">合作 / 学位</span>雷克瑟姆大学、坎布里亚大学</p>
@@ -233,8 +237,8 @@
     <div class="pv-foot"><span class="fee">本科学费 <b>S$30,000–45,000</b></span><a class="go" href="/private-university/shrm/">查看详情 →</a></div>
   </div>
 </div><div class="pv-card" data-type="合作" data-fields="商科 计算机/IT 心理学 酒店旅游 法律 传媒" data-name="tmc 学院 tmc academy tmc 商科 计算机/it 心理学 酒店旅游 法律 传媒">
-  <div class="pv-top"><div class="pv-mono" style="background:linear-gradient(135deg,#c2185b,#c2185bcc)">TMC</div>
-    <div class="pv-tt"><h3>TMC 学院</h3><div class="en">TMC Academy</div></div></div>
+  <div class="pv-logobar" style="background:#fff"><img src="/assets/logo-tmc.png?v=1" alt="TMC 学院 校徽" loading="lazy" decoding="async"></div>
+  <div class="pv-head"><h3>TMC 学院</h3><div class="en">TMC Academy</div></div>
   <div class="pv-badges"><span class="pv-b t-合作">合作名校学位</span><span class="pv-b et">🎖 EduTrust 4 年认证</span></div>
   <div class="pv-body">
     <p class="pv-row"><span class="k">合作 / 学位</span>格洛斯特郡大学、利物浦约翰摩尔斯大学、北安普顿大学</p>

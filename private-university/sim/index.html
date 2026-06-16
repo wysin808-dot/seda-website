@@ -15,7 +15,7 @@
 <style>
 :root{--pv-ink:#1f2430;--pv-line:#e7ebf1;--pv-muted:#6a7383;--pv-brand:#c0392b}
 .pv *{box-sizing:border-box}
-.pv-hero{padding:46px clamp(20px,6vw,80px) 40px;background:linear-gradient(135deg,#10243f,#1f3a5f)}
+.pv-hero{padding:46px clamp(20px,6vw,80px) 40px;background:linear-gradient(135deg,#241a1e,#7e2d3a)}
 .pv-hero,.pv-hero *{color:#fff}
 .pv-hero .in{max-width:1160px;margin:0 auto}
 .pv-ey{display:inline-block;margin-bottom:13px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);padding:6px 14px;border-radius:999px;font-size:.82rem;font-weight:700}
@@ -29,20 +29,22 @@
 .pv-flb{font-size:.78rem;color:var(--pv-muted);font-weight:800;margin-right:3px}
 .pv-chip{font-size:.83rem;border:1px solid var(--pv-line);background:#fff;color:var(--pv-muted);padding:6px 12px;border-radius:999px;cursor:pointer;user-select:none;transition:.13s}
 .pv-chip:hover{border-color:#9fb3cc}
-.pv-chip.on{background:#1f3a5f;border-color:#1f3a5f;color:#fff}
+.pv-chip.on{background:#7e2d3a;border-color:#7e2d3a;color:#fff}
 .pv-count{max-width:1160px;margin:0 auto;padding:12px clamp(20px,6vw,80px) 0;font-size:.92rem;color:var(--pv-muted)}
-.pv-count b{color:#1f3a5f;font-size:1.05rem}
+.pv-count b{color:#7e2d3a;font-size:1.05rem}
 .pv-cards{max-width:1160px;margin:0 auto;padding:14px clamp(20px,6vw,80px) 30px;display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:18px}
 .pv-card{display:flex;flex-direction:column;border:1px solid var(--pv-line);border-radius:16px;overflow:hidden;background:#fff;box-shadow:0 2px 10px rgba(20,20,40,.04);transition:transform .18s,box-shadow .18s}
 .pv-card.hide{display:none}
 .pv-card:hover{transform:translateY(-4px);box-shadow:0 16px 36px rgba(20,30,60,.12)}
-.pv-top{display:flex;align-items:center;gap:14px;padding:18px 18px 12px}
-.pv-mono{flex:0 0 auto;width:58px;height:58px;border-radius:14px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:850;font-size:1rem;letter-spacing:.02em;box-shadow:0 6px 16px rgba(0,0,0,.14)}
-.pv-tt h3{margin:0;font-size:1.12rem;color:var(--pv-ink);line-height:1.25}
-.pv-tt .en{color:var(--pv-muted);font-size:.76rem;margin-top:.15rem}
+.pv-logobar{height:84px;display:flex;align-items:center;justify-content:center;background:#fff;border-bottom:1px solid var(--pv-line);padding:14px 18px}
+.pv-logobar img{max-height:50px;max-width:74%;width:auto;object-fit:contain}
+.pv-logobar.mono{color:#fff;font-weight:850;font-size:1.7rem;letter-spacing:.03em}
+.pv-head{padding:14px 18px 4px}
+.pv-head h3{margin:0;font-size:1.1rem;color:var(--pv-ink);line-height:1.25}
+.pv-head .en{color:var(--pv-muted);font-size:.76rem;margin-top:.15rem}
 .pv-badges{display:flex;flex-wrap:wrap;gap:6px;padding:0 18px 12px}
 .pv-b{font-size:.72rem;font-weight:800;padding:3px 9px;border-radius:999px}
-.pv-b.t-直属{background:#e6f7f6;color:#0e7a6b}.pv-b.t-合作{background:#eef2fb;color:#2c5c9a}
+.pv-b.t-直属{background:#e6f7f6;color:#0e7a6b}.pv-b.t-合作{background:#f3ece9;color:#8a4a2d}
 .pv-b.et{background:#fff4e6;color:#b45309}
 .pv-body{padding:0 18px 14px;display:flex;flex-direction:column;flex:1}
 .pv-row{font-size:.85rem;color:var(--pv-ink);line-height:1.6;margin:0 0 8px}
@@ -51,28 +53,30 @@
 .pv-tag{font-size:.74rem;background:#f3f5f9;color:#475067;padding:3px 9px;border-radius:7px}
 .pv-foot{margin-top:auto;display:flex;justify-content:space-between;align-items:center;border-top:1px dashed var(--pv-line);padding-top:12px}
 .pv-foot .fee{font-size:.85rem;color:var(--pv-muted)}.pv-foot .fee b{color:var(--pv-ink)}
-.pv-foot .go{color:#1f3a5f;font-weight:800;text-decoration:none;font-size:.9rem}
+.pv-foot .go{color:#7e2d3a;font-weight:800;text-decoration:none;font-size:.9rem}
 .pv-sec{max-width:1160px;margin:0 auto;padding:30px clamp(20px,6vw,80px)}
 .pv-sec h2{font-size:clamp(21px,2.8vw,29px);margin:0 0 6px;font-weight:830}
 .pv-sec .lead{color:var(--pv-muted);margin:0 0 20px;line-height:1.7}
 .pv-cmp-wrap{overflow-x:auto}
 .pv-cmp{width:100%;border-collapse:collapse;font-size:.9rem;min-width:760px}
 .pv-cmp th,.pv-cmp td{padding:11px 13px;text-align:left;border-bottom:1px solid var(--pv-line);vertical-align:top}
-.pv-cmp thead th{background:#1f3a5f;color:#fff;font-weight:800;white-space:nowrap}
+.pv-cmp thead th{background:#7e2d3a;color:#fff;font-weight:800;white-space:nowrap}
 .pv-cmp tbody td:first-child{font-weight:800;color:var(--pv-ink)}
 .pv-cmp tr:hover td{background:#f7f9fc}
 .pv-faq details{border:1px solid var(--pv-line);border-radius:12px;padding:2px 16px;margin-bottom:9px;background:#fff}
 .pv-faq summary{cursor:pointer;font-weight:700;padding:13px 0;list-style:none}
 .pv-faq summary::-webkit-details-marker{display:none}
-.pv-faq summary::after{content:"+";float:right;color:#1f3a5f;font-weight:800}
+.pv-faq summary::after{content:"+";float:right;color:#7e2d3a;font-weight:800}
 .pv-faq details[open] summary::after{content:"–"}
 .pv-faq .a{padding:0 0 14px;color:#48505f;line-height:1.74}
-.pv-cta{background:linear-gradient(135deg,#10243f,#1f3a5f);border-radius:18px;padding:26px 28px;text-align:center;margin:8px 0}
+.pv-cta{background:linear-gradient(135deg,#241a1e,#7e2d3a);border-radius:18px;padding:26px 28px;text-align:center;margin:8px 0}
 .pv-cta,.pv-cta *{color:#fff}.pv-cta h3{margin:0 0 8px;font-size:1.3rem}
 .pv-cta a{display:inline-block;margin-top:14px;background:var(--pv-brand);color:#fff;font-weight:800;padding:11px 28px;border-radius:10px;text-decoration:none}
 /* detail */
 .pv-dhero{padding:42px clamp(20px,6vw,80px) 34px;color:#fff}
 .pv-dhero .in{max-width:1000px;margin:0 auto}
+.pv-dlogo{display:inline-flex;align-items:center;justify-content:center;background:#fff;border-radius:12px;padding:10px 18px;margin-bottom:16px;box-shadow:0 8px 22px rgba(0,0,0,.18)}
+.pv-dlogo img{height:40px;max-width:230px;width:auto;object-fit:contain}
 .pv-dbadges{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
 .pv-dbadges span{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.32);padding:5px 12px;border-radius:999px;font-size:.8rem;font-weight:700}
 .pv-dhero h1{font-size:clamp(25px,3.6vw,40px);margin:0 0 6px;font-weight:850;line-height:1.18}
@@ -95,8 +99,8 @@
 .pv-fit li::before{content:"✓";position:absolute;left:15px;color:#2e8b57;font-weight:800}
 .pv-note{background:#fff8ef;border:1px solid #f3e0c4;border-left:4px solid #d98b2b;border-radius:12px;padding:15px 18px;font-size:.9rem;color:#5a4a32;line-height:1.7}
 .pv-rel{display:flex;flex-wrap:wrap;gap:10px}
-.pv-rel a{border:1px solid var(--pv-line);border-radius:999px;padding:9px 17px;text-decoration:none;color:#1f3a5f;font-weight:700;font-size:.92rem;transition:.13s}
-.pv-rel a:hover{background:#1f3a5f;color:#fff;border-color:#1f3a5f}
+.pv-rel a{border:1px solid var(--pv-line);border-radius:999px;padding:9px 17px;text-decoration:none;color:#7e2d3a;font-weight:700;font-size:.92rem;transition:.13s}
+.pv-rel a:hover{background:#7e2d3a;color:#fff;border-color:#7e2d3a}
 @media(max-width:600px){.pv-facts th{width:42%}.pv-cards{grid-template-columns:1fr}}
 </style>
 </head>
@@ -141,6 +145,7 @@
     </header>
 <main class="pv">
   <section class="pv-dhero" style="background:linear-gradient(135deg,#c8102e,#c8102ebb)"><div class="in">
+    <div class="pv-dlogo"><img src="/assets/logo-sim.svg?v=1" alt="新加坡管理学院 校徽"></div>
     <div class="pv-dbadges"><span>合作名校学位</span><span>🎖 EduTrust 认证</span><span>📅 1964 年创办</span></div>
     <h1>新加坡管理学院 <span style="opacity:.7;font-size:.6em">SIM</span></h1>
     <p class="en">Singapore Institute of Management (SIM)</p>

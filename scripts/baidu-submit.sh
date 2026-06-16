@@ -61,26 +61,47 @@ if [ -z "$SITE_DIR" ] || [ -z "$ALL_URLS" ] || [ "$TOTAL" -lt 1 ]; then
   exit 1
 fi
 
-# 读取上次偏移量
+# 读取上次 sitemap 偏移量
 OFFSET=0
 [ -f "$STATE_FILE" ] && OFFSET=$(cat "$STATE_FILE")
+NEXT_OFFSET=$OFFSET
 
-# 取本次要提交的 URL（循环轮换）
-BATCH=$(echo "$ALL_URLS" | tail -n +$((OFFSET + 1)) | head -n $BATCH_SIZE)
-BATCH_COUNT=$(echo "$BATCH" | grep -c '^')
-
-# 如果到了末尾不足 20 条，补上开头的
-if [ "$BATCH_COUNT" -lt "$BATCH_SIZE" ]; then
-  REMAINING=$((BATCH_SIZE - BATCH_COUNT))
-  EXTRA=$(echo "$ALL_URLS" | head -n $REMAINING)
-  BATCH=$(printf "%s\n%s" "$BATCH" "$EXTRA")
-  NEXT_OFFSET=$REMAINING
-else
-  NEXT_OFFSET=$((OFFSET + BATCH_SIZE))
-  [ "$NEXT_OFFSET" -ge "$TOTAL" ] && NEXT_OFFSET=0
+# === 优先推送：先推「更新页面」清单，推完再继续 sitemap 轮换 ===
+PRIORITY_FILE="${PRIORITY_FILE:-$SITE_DIR/data/seo/priority-urls.txt}"
+PRIORITY_STATE="${PRIORITY_STATE:-$SITE_DIR/.baidu-priority-offset}"
+USE_PRIORITY=0
+PRIORITY_TOTAL=0
+POFFSET=0
+if [ -f "$PRIORITY_FILE" ]; then
+  PRIORITY_URLS=$(grep -E '^https?://' "$PRIORITY_FILE")
+  PRIORITY_TOTAL=$(echo "$PRIORITY_URLS" | grep -c '^')
+  [ -f "$PRIORITY_STATE" ] && POFFSET=$(cat "$PRIORITY_STATE")
+  [ "$PRIORITY_TOTAL" -gt 0 ] && [ "$POFFSET" -lt "$PRIORITY_TOTAL" ] && USE_PRIORITY=1
 fi
 
-log "提交第 $((OFFSET + 1))-$((OFFSET + BATCH_SIZE)) / $TOTAL 页"
+if [ "$USE_PRIORITY" = "1" ]; then
+  # 优先阶段：从优先清单取下一批，sitemap 偏移保持不动
+  BATCH=$(echo "$PRIORITY_URLS" | tail -n +$((POFFSET + 1)) | head -n $BATCH_SIZE)
+  BATCH_COUNT=$(echo "$BATCH" | grep -c '^')
+  log "优先推送 第 $((POFFSET + 1))-$((POFFSET + BATCH_COUNT)) / $PRIORITY_TOTAL 个更新页面（sitemap 轮换暂停）"
+else
+  # 取本次要提交的 URL（循环轮换）
+  BATCH=$(echo "$ALL_URLS" | tail -n +$((OFFSET + 1)) | head -n $BATCH_SIZE)
+  BATCH_COUNT=$(echo "$BATCH" | grep -c '^')
+
+  # 如果到了末尾不足一批，补上开头的
+  if [ "$BATCH_COUNT" -lt "$BATCH_SIZE" ]; then
+    REMAINING=$((BATCH_SIZE - BATCH_COUNT))
+    EXTRA=$(echo "$ALL_URLS" | head -n $REMAINING)
+    BATCH=$(printf "%s\n%s" "$BATCH" "$EXTRA")
+    NEXT_OFFSET=$REMAINING
+  else
+    NEXT_OFFSET=$((OFFSET + BATCH_SIZE))
+    [ "$NEXT_OFFSET" -ge "$TOTAL" ] && NEXT_OFFSET=0
+  fi
+
+  log "提交第 $((OFFSET + 1))-$((OFFSET + BATCH_SIZE)) / $TOTAL 页"
+fi
 
 # 提交到百度
 RESPONSE=$(curl -s -X POST \
@@ -96,6 +117,10 @@ record_submission "baidu" "$BATCH_COUNT" "$BAIDU_STATUS" "200" "$RESPONSE"
 
 # 记录新偏移量
 echo "$NEXT_OFFSET" > "$STATE_FILE"
+# 优先阶段：仅在百度推送成功时推进优先进度（失败/超配额则下次重试同一批）
+if [ "$USE_PRIORITY" = "1" ] && [ "$BAIDU_STATUS" = "success" ]; then
+  echo "$((POFFSET + BATCH_COUNT))" > "$PRIORITY_STATE"
+fi
 
 # 同时推送到 IndexNow (Bing)
 INDEXNOW_KEY="212f14d5aa77d65865cd1c7bc9719fba"

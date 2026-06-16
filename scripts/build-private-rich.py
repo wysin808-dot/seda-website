@@ -107,7 +107,7 @@ PSB_PROGS=[
 ]
 
 RICH={"psb":{
- "abbr":"PSB","zh":"PSB 学院","en":"PSB Academy","color":"#f37021","founded":1964,
+ "abbr":"PSB","zh":"PSB 学院","en":"PSB Academy","color":"#b30537","founded":1964,
  "tagline":"亚洲未来学院 · 理工与商科并重",
  "sig":"新加坡领先私立学府，与英、澳、新西兰 8 所大学合作，提供从语言、文凭到本科、硕士的完整升学路径；3 大市中心校区，EduTrust 认证，工程与生命科学是特色。",
  "fee":"S$28,000–48,000","fee_note":"本科总学费按合作大学与专业不同；以官方为准。私立大学不提供 MOE 政府津贴。",
@@ -303,7 +303,13 @@ def build(slug):
      {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":q,"acceptedAnswer":{"@type":"Answer","text":html.unescape(a.replace("<b>","").replace("</b>",""))}} for q,a in faqs]},
     ]
     lg=logo_path(slug)
-    logohtml=f'<div class="prc-dlogo"><img src="{lg}?v=1" alt="{esc(d["zh"])} 校徽"></div>' if lg else ''
+    WHITE_LOGO_RICH={"psb"}  # 白色 logo → 直接放彩色 hero（透明牌），不用白底
+    if lg and slug in WHITE_LOGO_RICH:
+        logohtml=f'<div class="prc-dlogo" style="background:transparent;box-shadow:none;padding:0;margin-bottom:14px"><img src="{lg}?v=1" style="height:46px" alt="{esc(d["zh"])} 校徽"></div>'
+    elif lg:
+        logohtml=f'<div class="prc-dlogo"><img src="{lg}?v=1" alt="{esc(d["zh"])} 校徽"></div>'
+    else:
+        logohtml=''
     rel="".join(f'<a href="/private-university/{o}/">{o.upper()}</a>' for o in ["sim","kaplan","jcu","mdis"] if o!=slug)
     body=f'''
   <section class="prc-hero" style="background:{accgrad}"><div class="in">

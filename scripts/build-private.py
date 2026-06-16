@@ -52,7 +52,7 @@ SCHOOLS=[
  "edutrust":"EduTrust 认证","china":"取决于合作大学是否在中留服名单（如莫道克、UCD 等）；申请前请在中留服核实。",
  "overview":["Kaplan 新加坡隶属全球教育集团 Kaplan，是本地<b>专业最广、开课最灵活</b>的私立学府之一，合作多所英、澳、爱尔兰大学。","合作大学含<b>莫道克、都柏林大学（UCD）、诺桑比亚、朴茨茅斯</b>等，商科、会计金融、IT、传媒、酒店等方向齐全，市中心校区、转专业灵活。"],
  "fit":["想要专业选择多、开课时间灵活","目标商科 / 会计 / IT / 传媒方向","希望市中心就读、衔接快"]},
-{"slug":"psb","abbr":"PSB","zh":"PSB 学院","en":"PSB Academy","type":"合作","founded":1964,"color":"#e35205",
+{"slug":"psb","abbr":"PSB","zh":"PSB 学院","en":"PSB Academy","type":"合作","founded":1964,"color":"#b30537",
  "sig":"理工与商科并重，合作英澳大学，工程与生命科学是特色。",
  "partners":["纽卡斯尔大学（澳）University of Newcastle","考文垂大学 Coventry University","爱丁堡龙比亚大学 Edinburgh Napier","拉筹伯大学 La Trobe University"],
  "fields":["商科","工程","生命科学","计算机/IT","传媒"],

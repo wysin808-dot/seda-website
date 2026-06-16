@@ -996,7 +996,7 @@ def build_aggregate():
     <p style="max-width:1080px;margin:0 auto;padding:0 clamp(20px,6vw,80px) 36px;font-size:.82rem;color:var(--prc-muted)">数据汇总自各校官网；大校（SIM/Kaplan 等）收录主要专业，完整清单见各校详情页与官方查找器。专业每年略有调整、精确学费学制以官方为准。</p>
   </div>
   <section class="prc-sec tight"><div class="prc-cta"><h3>不知道选哪所 / 哪个专业？</h3><p>告诉我们你的成绩、预算与目标方向，免费匹配最合适的私立大学与专业。</p><a href="/contact/">免费咨询选校 →</a></div></section>
-  <section class="prc-sec tight"><h2>返回</h2><div class="prc-rel"><a href="/private-university/">← 私立大学总览（10 所）</a><a href="/university/degrees/">公立大学专业数据库</a><a href="/poly/courses/">理工专业数据库</a></div></section>
+  <section class="prc-sec tight"><h2>返回</h2><div class="prc-rel"><a href="/private-university/">← 私立大学总览（10 所）</a></div></section>
 '''
     js=r'''
 <script>(function(){

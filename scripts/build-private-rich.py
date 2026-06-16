@@ -262,7 +262,56 @@ LSBF_PROGS=[
  ("Preparatory Course for ACCA","lsbf","文凭","会计与金融","ACCA 特许会计师备考课程"),
 ]
 
+# ============ Amity ============
+AMITY_PARTNERS=[
+ ("uea","东英吉利大学","University of East Anglia","英国","🇬🇧","英国研究型名校（全英前 25）","英国研究型名校"),
+ ("uol","伦敦大学","University of London","英国","🇬🇧","MBA 由伦敦玛丽女王大学学术指导","伦敦大学体系"),
+ ("teesside","蒂赛德大学","Teesside University","英国","🇬🇧","AI、数据科学与商科见长","英国应用型大学"),
+ ("northampton","北安普顿大学","University of Northampton","英国","🇬🇧","商科与商业分析","英国应用型大学"),
+ ("amity","Amity 全球教育学院","Amity Global Institute","新加坡","🇸🇬","印度 Amity 集团旗下，自颁文凭与预科","新加坡本地学府"),
+]
+AMITY_PROGS=[
+ ("BA (Hons) Global Business Management (Top-up)","northampton","本科","商科","全球商业管理（荣誉文学士·专升本）"),
+ ("BSc (Hons) Computer Science (Top-up)","northampton","本科","IT计算机","计算机科学（荣誉理学士·专升本）"),
+ ("BA (Hons) Global Communication with Business Management (Top-up)","uea","本科","传媒","全球传播与商业管理（荣誉文学士·专升本）"),
+ ("BSc (Hons) Computing Science with Software Development (Top-up)","uea","本科","IT计算机","计算科学与软件开发（荣誉理学士·专升本）"),
+ ("BSc Business Administration","uol","本科","商科","工商管理（理学士）"),
+ ("BSc Accounting and Finance","uol","本科","会计与金融","会计与金融（理学士）"),
+ ("Master of Business Administration","uol","硕士","商科","工商管理硕士（MBA·玛丽女王学术指导）"),
+ ("MSc Supply Chain Management and Global Logistics","uol","硕士","物流供应链","供应链管理与全球物流硕士"),
+ ("Master of Business Administration","northampton","硕士","商科","工商管理硕士（MBA）"),
+ ("MSc Logistics and Supply Chain Management","northampton","硕士","物流供应链","物流与供应链管理硕士"),
+ ("MSc Business Analytics","northampton","硕士","数据与分析","商业分析硕士"),
+ ("Master of Business Administration","teesside","硕士","商科","工商管理硕士（MBA）"),
+ ("MSc International Management","teesside","硕士","商科","国际管理硕士"),
+ ("MSc Accounting and Finance","teesside","硕士","会计与金融","会计与金融硕士"),
+ ("MSc Digital Marketing","teesside","硕士","市场营销","数字营销硕士"),
+ ("MSc Applied Artificial Intelligence","teesside","硕士","IT计算机","应用人工智能硕士"),
+ ("MSc Applied Data Science","teesside","硕士","数据与分析","应用数据科学硕士"),
+ ("MA in Education","teesside","硕士","教育","教育学硕士"),
+]
+
 RICH={
+"amity":{
+ "abbr":"Amity","zh":"Amity 全球教育学院（新加坡）","en":"Amity Global Institute Singapore","color":"#00325a","founded":2007,
+ "tagline":"印度 Amity 教育集团旗下 · 国际化",
+ "sig":"印度 Amity 教育集团旗下的新加坡校区，学生来自 45+ 国家；合作英国 <b>UEA、伦敦大学、Teesside、Northampton</b> 授予学位，<b>商科、人工智能 / 数据科学、物流与酒店旅游</b>见长。EduTrust 4 年认证。",
+ "fee":"S$28,000–45,000","fee_note":"本科 / 硕士总学费按合作大学与专业不同；以官方为准。私立大学不提供 MOE 政府津贴。",
+ "intake":"每年多次开学","edutrust":"EduTrust 4 年认证",
+ "china":"取决于合作大学（如伦敦大学、UEA）是否在中留服名单；申请前请在中留服官网核实具体学位。",
+ "overview":[
+   "Amity 全球教育学院新加坡校区隶属<b>印度 Amity 教育集团</b>，学生来自 45 个以上国家，国际化氛围浓，持 EduTrust 4 年认证。",
+   "合作<b>英国东英吉利（UEA）、伦敦大学（MBA 由伦敦玛丽女王大学学术指导）、蒂赛德、北安普顿</b>授予学位。近年在 <b>人工智能、数据科学</b>方向（Teesside）开设多个硕士，商科、物流供应链、数字营销同样齐全。",
+   "本科多为 Top-up（专升本），硕士约 12 个月，适合想要英国大学学位、走商科 / 数据 / 物流方向的学生。",
+ ],
+ "highlights":[("英国学位","UEA / 伦敦大学 / Teesside / Northampton"),("AI·数据强","Teesside 多个 AI / 数据硕士"),("国际化","学生来自 45+ 国家")],
+ "pathway":[("预科 / 文凭","Amity 预科或文凭，按学历入读，达标衔接本科。"),
+   ("本科学位（Top-up）","凭文凭专升本，拿英国大学学位。"),
+   ("硕士学位","MBA / MSc（商科、AI、数据、物流等），约 12 个月。")],
+ "finder":"https://www.amitysingapore.sg/programmes",
+ "coverage":"以下为 Amity 主要学位专业；Amity 另有更多文凭、预科与专业资格课程，完整清单见官方课程页。",
+ "partners":AMITY_PARTNERS,"progs":AMITY_PROGS,
+},
 "lsbf":{
  "abbr":"LSBF","zh":"伦敦商业金融学院（新加坡）","en":"London School of Business and Finance Singapore","color":"#16306b","founded":2007,
  "tagline":"专注商科、财会与金融",

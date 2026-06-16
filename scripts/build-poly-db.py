@@ -327,6 +327,20 @@ def build_database():
     polychips="".join(f'<span class="pdb-chip" data-f="poly" data-v="{s}">{esc(abbr[s])}</span>' for s in ["sp","np","nyp","tp","rp"])
     clchips="".join(f'<span class="pdb-chip" data-f="cluster" data-v="{esc(cl)}">{esc(cl)} {cl_counts[cl]}</span>' for cl in CL_ORDER if cl_counts.get(cl))
 
+    # per-poly summary (for prose + structured headings)
+    psum=[]
+    for s in ["sp","np","nyp","tp","rp"]:
+        cs=[c for c in courses if c["poly"]==s]
+        hardest=min(cs,key=lambda c:c["lo"])
+        cls_here=sorted({c["cluster"] for c in cs})
+        psum.append((s,polys[s],len(cs),hardest,cls_here))
+
+    cfaqs=[
+     ("理工学院的 ELR2B2 录取分怎么看？","表里每个专业显示的是 %s 年 JAE 实际录取学生的净 ELR2B2 区间，例如「5-12」表示分数最好的被录取者 5 分、分数最低的被录取者 12 分。ELR2B2 越低越好（英文+2 相关科+2 最佳科共 5 科之和，可减 CCA 加分）。你的分数只要不高于某专业区间的高端（最低录取分），通常就有机会被录取。"%YEAR),
+     ("我的 O-Level 分数能进哪些理工专业？","在上方「我的 ELR2B2」输入你的净分并勾选「只看我能进的」，表格会只留下你分数够得着的专业（你的分数 ≤ 该专业最低录取分）。例如 18 分大约对应 60 多个专业、12 分对应 150 多个。再叠加学校或专业方向筛选即可缩小范围。"),
+     ("5 所理工学院哪所最好进？","没有绝对答案——同一方向在不同理工分数差别很大。整体上越新的校区/越冷门的方向分数越友好（RP 多数专业区间偏高、相对好进），而护理、生物医学、视光、设计等热门专业在各校都偏难。用方向筛选横向对比同类专业最直观。"),
+    ]
+
     jsonld=[
       {"@context":"https://schema.org","@type":"Dataset","name":"新加坡理工学院 Diploma 专业 ELR2B2 录取分数据库（%s）"%YEAR,
        "description":"新加坡 5 所公立理工学院（SP/NP/NYP/TP/RP）共 %d 个全日制 Diploma 专业的 %s 年 JAE 净 ELR2B2 录取分数区间，含专业方向分类。"%(N,YEAR),
@@ -336,6 +350,8 @@ def build_database():
          {"@type":"ListItem","position":1,"name":"首页","item":"https://sgeda.org.cn/"},
          {"@type":"ListItem","position":2,"name":"理工学院数据库","item":"https://sgeda.org.cn/poly/"},
          {"@type":"ListItem","position":3,"name":"专业录取分数据库"}]},
+      {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+         {"@type":"Question","name":q,"acceptedAnswer":{"@type":"Answer","text":a}} for q,a in cfaqs]},
     ]
     title="新加坡理工学院专业数据库：%d个Diploma课程ELR2B2录取分查询（%s JAE）"%(N,YEAR)
     desc="新加坡 5 所理工学院 %d 个 Diploma 专业的 %s 年 JAE ELR2B2 录取分一表查询，可按专业方向、学校和你的 O-Level 分数筛选，看自己能进哪些专业。"%(N,YEAR)
@@ -378,10 +394,41 @@ def build_database():
     <div class="pdb-empty" id="pdbempty">没有符合条件的专业，试着放宽筛选条件。</div>
   </div>
 
-  <section class="pdb-sec" style="padding-top:10px">
-    <p class="lead" style="font-size:.86rem">数据为 {YEAR} 年 JAE 各专业净 ELR2B2 录取区间（最高分–最低分），来源 MOE 及各理工官方招生页，仅供参考，实际截分每届浮动。想要一对一选专业建议，可<a href="/contact/" style="color:var(--brand-strong);font-weight:700">免费咨询顾问</a>。</p>
+  <section class="pdb-sec" style="padding-top:24px">
+    <h2>如何看懂理工学院录取分（ELR2B2）</h2>
+    <p class="lead">ELR2B2 是新加坡 O-Level 升理工学院（JAE 联合招生）的核心分数：<b>英文（EL）+ 2 门相关科目（R2）+ 2 门最佳科目（B2）</b>，共 5 科成绩之和，可减去 CCA 等加分，<b>分数越低越好</b>。大部分专业要求净分不超过 26，护理类（ELR2B2-C）放宽到 28。</p>
+    <p class="lead">本数据库每个专业显示的是 {YEAR} 年 JAE 实际录取学生的<b>净 ELR2B2 区间</b>——例如「5–12」表示分数最好的被录取者 5 分、分数最低的被录取者 12 分。区间右端（最低录取分）可粗略当作该专业的「门槛」：你的分数只要不高于它，通常就有竞争机会。颜色越红代表越难进。这是历史参考，实际截分每届会随考生成绩和报考热度浮动。</p>
+    <h3>怎么用这张表选专业</h3>
+    <p class="lead">① 在「我的 ELR2B2」输入你的净分，勾选「只看我能进的」，立刻筛掉够不着的专业；② 用「方向」横向对比同一专业在 5 所理工的分数差异；③ 用「学校」锁定某一所；④ 点表头「ELR2B2」在难→易 / 易→难之间切换排序。</p>
+  </section>
+
+  <section class="pdb-sec" style="padding-top:0">
+    <h2>5 所理工学院专业分布</h2>
+    <p class="lead">{N} 个 Diploma 专业在 5 所公立理工的分布与各校最难进的招牌专业一览：</p>
+    {{polysummary}}
+  </section>
+
+  <section class="pdb-sec pdb-faq" style="padding-top:0">
+    <h2>常见问题</h2>
+    <div style="margin-top:6px">{{cfaqhtml}}</div>
+  </section>
+
+  <section class="pdb-sec" style="padding-top:0">
+    <p class="lead" style="font-size:.86rem">数据为 {YEAR} 年 JAE 各专业净 ELR2B2 录取区间（最高分–最低分），来源 MOE（data.gov.sg）及各理工学院官方招生页，仅供参考，实际截分每届浮动。想要一对一选专业建议，可<a href="/contact/" style="color:var(--brand-strong);font-weight:700">免费咨询顾问</a>。</p>
   </section>
 '''
+    # build per-poly summary + faq html
+    psummary="".join(
+      f'''<div class="pdb-pcard" style="flex-direction:row;align-items:center;gap:14px;padding:14px 16px;margin-bottom:10px">
+  <span class="pdb-pbadge" style="font-size:.95rem"><img src="{polys[s]["logo"]}" alt="" style="height:22px">{esc(p["abbr"])}</span>
+  <div style="flex:1;min-width:0">
+    <a href="/poly/{s}/" style="font-weight:800;color:var(--ink)">{esc(p["name_zh"])}</a>
+    <div style="font-size:.84rem;color:var(--muted);margin-top:2px">共 <b style="color:var(--brand)">{n}</b> 个专业 · 覆盖 {len(cls)} 个方向 · 最难进：{esc(hard["name_zh"])}（<b>{esc(hard["elr2b2"])}</b>）</div>
+  </div>
+  <a href="/poly/courses/?poly={s}" class="pdb-chip" style="white-space:nowrap">看 {esc(p["abbr"])} 全部 →</a>
+</div>''' for (s,p,n,hard,cls) in psum)
+    cfaqhtml="".join(f'<details><summary>{esc(q)}</summary><div class="a">{esc(a)}</div></details>' for q,a in cfaqs)
+    body=body.replace("{polysummary}",psummary).replace("{cfaqhtml}",cfaqhtml)
     js=r'''
 <script>
 (function(){
@@ -444,6 +491,8 @@ def build_database():
   if(sp.get('q')){q.value=sp.get('q');}
   var cl=sp.get('cluster');
   if(cl){document.querySelectorAll('.pdb-chip[data-f="cluster"]').forEach(function(ch){if(ch.getAttribute('data-v')===cl){ch.classList.add('on');fCluster[cl]=true;}});}
+  var pl=sp.get('poly');
+  if(pl){document.querySelectorAll('.pdb-chip[data-f="poly"]').forEach(function(ch){if(ch.getAttribute('data-v')===pl){ch.classList.add('on');fPoly[pl]=true;}});}
   apply();
 })();
 </script>'''

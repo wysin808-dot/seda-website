@@ -11,7 +11,7 @@ HEADER=SP[SP.index('<header class="site-header">'):SP.index('</header>')+len('</
 FOOTER=SP[SP.index('<footer class="site-footer">'):SP.index('</footer>')+len('</footer>')]
 def esc(s): return html.escape(str(s),quote=True)
 
-FIELDICON={"商科":"💼","会计与金融":"📊","市场营销":"📣","数据与分析":"📈","IT计算机":"💻","工程":"⚙️","网络安全":"🔐","生命科学":"🧬","医疗健康":"🩺","护理":"❤️","传媒":"🎬","酒店旅游":"🏨","体育运动":"🏅","物流供应链":"🚚","设计":"🎨","经济":"💹","社会科学":"🌐","心理学":"🧠","环境科学":"🌿","教育":"🎓","预科":"📘","商业心理":"🧩"}
+FIELDICON={"商科":"💼","会计与金融":"📊","市场营销":"📣","数据与分析":"📈","IT计算机":"💻","工程":"⚙️","网络安全":"🔐","生命科学":"🧬","医疗健康":"🩺","护理":"❤️","传媒":"🎬","酒店旅游":"🏨","体育运动":"🏅","物流供应链":"🚚","设计":"🎨","经济":"💹","社会科学":"🌐","心理学":"🧠","环境科学":"🌿","教育":"🎓","预科":"📘","商业心理":"🧩","健康科学":"⚕️"}
 LEVELORDER={"证书":0,"文凭":1,"本科":2,"硕士":3}
 
 # ============ PSB ============
@@ -188,6 +188,31 @@ SIM_PROGS=[
  ("MSc in Management","grenoble","硕士","商科","管理学理学硕士"),
 ]
 
+# ============ Curtin（澳洲直属校区）============
+CURTIN_PARTNERS=[("curtin","科廷大学（新加坡）","Curtin University Singapore","新加坡","🇸🇬","澳洲科廷直属校区","QS #183")]
+CURTIN_PROGS=[
+ ("Pathway Diploma","curtin","文凭","预科","大学预科文凭"),
+ ("Bachelor of Commerce (Accounting)","curtin","本科","会计与金融","商务学士（会计）"),
+ ("Bachelor of Commerce (Accounting and Finance)","curtin","本科","会计与金融","商务学士（会计与金融）"),
+ ("Bachelor of Commerce (Finance)","curtin","本科","会计与金融","商务学士（金融）"),
+ ("Bachelor of Commerce (Management)","curtin","本科","商科","商务学士（管理）"),
+ ("Bachelor of Commerce (Marketing)","curtin","本科","市场营销","商务学士（市场营销）"),
+ ("Bachelor of Commerce (Management and Marketing)","curtin","本科","商科","商务学士（管理与市场营销）"),
+ ("Bachelor of Communications (Top-up)","curtin","本科","传媒","传播学学士（专升本）"),
+ ("Bachelor of Information Technology","curtin","本科","IT计算机","信息技术学士"),
+ ("Bachelor of Computing (Cyber Security)","curtin","本科","网络安全","计算学士（网络安全）"),
+ ("Bachelor of Science (Nursing) Conversion (Top-up)","curtin","本科","护理","护理学学士（注册护士转换·专升本）"),
+ ("Master of Business Administration (MBA)","curtin","硕士","商科","工商管理硕士（MBA）"),
+ ("Master of International Business","curtin","硕士","商科","国际商务硕士"),
+ ("Master of Supply Chain Management (Professional)","curtin","硕士","物流供应链","供应链管理硕士（专业）"),
+ ("Master of Computing","curtin","硕士","IT计算机","计算硕士"),
+ ("Master of Artificial Intelligence","curtin","硕士","IT计算机","人工智能硕士"),
+ ("Master of Cyber Security","curtin","硕士","网络安全","网络安全硕士"),
+ ("Master of Predictive Analytics (Data Science)","curtin","硕士","数据与分析","预测分析硕士（数据科学）"),
+ ("Master of Advanced Practice","curtin","硕士","健康科学","高级实践硕士（护理）"),
+ ("Graduate Certificate in Clinical Leadership","curtin","硕士","健康科学","临床领导力研究生证书"),
+]
+
 # ============ JCU（澳洲直属校区）============
 JCU_PARTNERS=[("jcu","詹姆斯库克大学（新加坡）","James Cook University Singapore","新加坡","🇸🇬","澳洲 JCU 直属校区","QS #440")]
 JCU_PROGS=[
@@ -215,6 +240,36 @@ JCU_PROGS=[
 ]
 
 RICH={
+"curtin":{
+ "abbr":"Curtin","zh":"科廷大学（新加坡）","en":"Curtin University Singapore","color":"#1a1a1a","founded":2008,
+ "direct":True,"qs":"#183",
+ "tagline":"澳洲科廷大学直属校区",
+ "sig":"澳洲科廷大学（QS 世界 #183）的新加坡直属校区，颁发与本部<b>完全一致</b>的学位；商科、会计金融、传媒与信息科技见长，学制紧凑、可加速完成。",
+ "fee":"S$55,000–70,000","fee_note":"本科总学费（直属校区较高），按专业不同；以官方为准。私立大学不提供 MOE 政府津贴。",
+ "intake":"2 / 6 / 10 月（每年多次开学）","edutrust":"EduTrust 认证",
+ "china":"直属海外校区学位，中留服认证相对稳妥（以当年名单为准）。",
+ "overview":[
+   "Curtin 新加坡是澳洲科廷大学（QS 世界 #183，澳洲八大之外的实力派）的<b>直属校区</b>，2008 年设立，颁发与本部<b>完全一致</b>的学位、全球认可。",
+   "<b>商科与会计金融</b>是招牌（会计 / 金融 QS 学科全球前 200），<b>传媒、大众传播、广告</b>同样见长，信息技术、网络安全、人工智能与护理方向齐全；学制紧凑、可加速完成。",
+   "适合想要澳洲正规商科 / 传媒学位、快速衔接就业、中留服认证稳的中国学生。",
+ ],
+ "highlights":[("同款学位","与澳洲本部一致，QS #183"),("商科 + 传媒","双强项见长"),("加速完成","学制紧凑、省时省钱")],
+ "why":[
+   ("🎓","澳洲同款学位","与澳洲科廷本部完全相同的学位，QS #183、全球认可。"),
+   ("💼","商科招牌","会计、金融、管理、市场营销等商科方向强、就业广。"),
+   ("🎙️","传媒强项","传播、大众传媒、广告等创意产业方向见长。"),
+   ("💻","IT 与网络安全","信息技术、网络安全、人工智能、数据科学齐全。"),
+   ("⏩","学制紧凑","加速完成，省时省钱，与本部同质。"),
+   ("🇨🇳","高中即可申请","预科衔接本科，无需高考，中留服认证稳。"),
+ ],
+ "pathway":[("预科 / 英语","Pathway Diploma 或英语课程，按学历入读，达标直入本科。"),
+   ("本科学位","商务 / 传媒 / IT 等，科廷自授、与澳洲本部一致。"),
+   ("研究生 / 硕士","MBA、国际商务、计算、AI、网络安全、护理等硕士。"),
+   ("博士研究","研究型高级学位（Higher Degree by Research）。")],
+ "finder":"https://www.curtin.edu.sg/courses/",
+ "coverage":"以下为 Curtin 新加坡主要学位专业（取自官方课程页）；完整清单见官方课程页。",
+ "partners":CURTIN_PARTNERS,"progs":CURTIN_PROGS,
+},
 "jcu":{
  "abbr":"JCU","zh":"詹姆斯库克大学（新加坡）","en":"James Cook University Singapore","color":"#009ca6","founded":2003,
  "direct":True,"qs":"#440",

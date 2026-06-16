@@ -229,7 +229,7 @@ BODY=f'''<div class="nx">
         <div class="nx-pcard"><div class="t"><span class="ic">💼</span><h3>工商管理 Business</h3></div><p>NUS Business School，亚洲商学院第一梯队。</p><div class="cop">A-Level <b>AAA/C–AAA/A</b> · GPA <b>3.61–3.94</b></div></div>
         <div class="nx-pcard"><div class="t"><span class="ic">⚙️</span><h3>工程（大类）</h3></div><p>含机械、电子、生物医学等，名额多、相对友好。</p><div class="cop">A-Level <b>BBB/C–AAA/A</b> · GPA <b>3.57–3.94</b></div></div>
       </div>
-      <figure class="nx-figure"><img src="/assets/nus-utown.jpg" alt="NUS University Town 教育资源中心" loading="lazy" decoding="async" width="1200"><figcaption>University Town（UTown）教育资源中心 —— NUS 现代化书院与学习社区</figcaption></figure>
+      <figure class="nx-figure"><img src="/assets/nus-campus2.jpg" alt="NUS 计算机学院 COMPUTING COM2 大楼" loading="lazy" decoding="async" width="1200"><figcaption>NUS 计算机学院（School of Computing）COM2 大楼 —— 楼上「COMPUTING COM2」标识，全亚洲顶尖</figcaption></figure>
     </section>
 
     <section class="nx-sec">
@@ -266,6 +266,7 @@ BODY=f'''<div class="nx">
           <div class="s" style="display:block;color:rgba(255,255,255,.9);line-height:1.7">毕业生广泛进入<b style="color:#ffe9b8">政府部门、金融机构、科技巨头、咨询与跨国企业</b>；NUS 也是新加坡政商学界领袖的重要摇篮——多位总理、部长、大法官与商界领袖出自 NUS 及其前身新加坡大学。</div>
         </div>
       </div>
+      <figure class="nx-figure"><img src="/assets/nus-career.jpg" alt="NUS 毕业生就业指导中心 Centre for Future-ready Graduates" loading="lazy" decoding="async" width="1200"><figcaption>NUS 毕业生就业指导中心（Centre for Future-ready Graduates）—— 墙上标语「Be future-ready」</figcaption></figure>
     </section>
 
     <section class="nx-sec">
@@ -289,7 +290,6 @@ BODY=f'''<div class="nx">
         <div class="nx-fee"><p class="who">住宿 + 生活费</p><p class="price">另算</p><p class="note">Kent Ridge / UTown 宿舍</p></div>
       </div>
       <p class="nx-lead" style="margin-top:16px;font-size:.9rem">不申请津贴则更高；津贴需签毕业后在新加坡工作 3 年的服务协议。以 NUS / MOE 当年收费为准。</p>
-      <figure class="nx-figure"><img src="/assets/nus-campus3.jpg" alt="NUS 理学院" loading="lazy" decoding="async" width="1200"><figcaption>NUS 理学院（Faculty of Science），肯特岗主校区</figcaption></figure>
     </section>
 
     <section class="nx-sec">

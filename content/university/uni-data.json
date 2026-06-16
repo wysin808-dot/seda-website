@@ -45,6 +45,7 @@
    "founded": 2009,
    "type": "holistic",
    "atar": "综合评估",
+   "atar_est": "≈88–95",
    "campus": null,
    "sig": "科技与设计交叉，含作品/面试整体评估"
   },
@@ -57,6 +58,7 @@
    "founded": 2009,
    "type": "aptitude",
    "atar": "能力本位·无硬性截分",
+   "atar_est": "≈80–90",
    "campus": "/assets/sit-campus.jpg",
    "sig": "应用型大学，与海外名校联合学位、行业实战"
   },
@@ -69,6 +71,7 @@
    "founded": 2017,
    "type": "aptitude",
    "atar": "多轮评估（笔试+面试）",
+   "atar_est": "≈75–88",
    "campus": null,
    "sig": "社会科学、商科、心理与社工见长"
   },

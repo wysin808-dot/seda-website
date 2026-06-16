@@ -146,7 +146,10 @@ def build_db():
         grade=p["type"]=="grade"
         al=f'<span class="al">{esc(p["alevel"])}</span>' if grade else f'<span class="holi">{esc(u["atar"])}</span>'
         gp=(f'<span class="gp">{esc(p["gpa"])}</span>' if (grade and "-" in p["gpa"]) else ('<span class="na">样本少</span>' if grade else '<span class="na">—</span>'))
-        at=f'<span class="at">{esc(p["atar"])}</span>' if grade else '<span class="na">综合</span>'
+        if grade: at=f'<span class="at">{esc(p["atar"])}</span>'
+        else:
+            est=u.get("atar_est")
+            at=(f'<span class="at" style="opacity:.9" title="校级估算">{esc(est)} <small>估</small></span>' if est else '<span class="na">综合</span>')
         rows.append(f'''<tr data-uni="{p['uni']}" data-cluster="{esc(p['cluster'])}" data-grade="{1 if grade else 0}" data-glo="{p['glo']}" data-name="{esc((p['name_zh']+' '+p['name_en']+' '+u['abbr']+' '+p['cluster']).lower())}">
 <td><span class="ucn">{esc(p['name_zh'])}</span><span class="uce">{esc(p['name_en'])}</span></td>
 <td><span class="ubadge{'' if grade else ' apt'}">{esc(u['abbr'])}</span></td>
@@ -174,7 +177,10 @@ def build_db():
     <h1>新加坡大学专业录取分数据库</h1>
     <p class="s">每个专业三条录取通道一表看清：<b>A-Level 成绩档（IGP 官方）</b> · <b>理工 Diploma GPA（IGP 官方）</b> · <b>WACE 参考 ATAR</b>。能力本位录取的 SIT/SUTD/SUSS 与作品集录取的艺术大学 UAS 另列说明。</p>
   </div></section>
-  <div class="atar-floor"><div class="box">🎓 <b>WACE / 澳洲学历须知</b>：6 所公立中<b>只有 NTU 公布固定 ATAR 门槛（≥90）</b>；NUS、SMU、SUTD、SIT、SUSS 对 WACE/澳洲 Year 12 为<b>综合评估、未公布固定 ATAR</b>。表中「WACE 参考 ATAR」是按 NUS/NTU/SMU 各专业最低录取 A-Level 档<b>换算的估算值</b>，仅用于判断专业竞争度，<b>最终以各校官方评估为准</b>。</div></div>
+  <div class="atar-floor"><div class="box">
+    🎓 <b>WACE / 国际 A-Level 申请须知</b>：本表「新加坡 A-Level」列是各校官方 IGP（仅适用<b>新加坡-剑桥 A-Level</b>考生）。<b>国际 A-Level（CIE/Edexcel）与 WACE 考生</b>按等同学历 / ATAR 评估，请看「WACE / ATAR」列。<br>
+    其中：NUS/NTU/SMU 的 ATAR 由各专业最低录取 A-Level 档换算（逐专业估算）；<b>SIT/SUTD/SUSS 为能力本位录取、不公布成绩档，给出的是校级预估 ATAR 区间（标「估」）</b>。6 所中仅 NTU 公布固定门槛 ATAR ≥90，均<b>以各校官方评估为准</b>。
+  </div></div>
 
   <div class="udb-tools"><div class="in">
     <div class="urow">
@@ -187,9 +193,9 @@ def build_db():
   <div class="ucount">显示 <b id="ushow">{N}</b> / {N} 个专业　<span id="uhint" style="color:var(--muted)"></span></div>
   <div class="uwrap"><table class="utable" id="utable"><thead><tr>
     <th>专业</th><th>大学</th><th>方向</th>
-    <th>A-Level 档<br><small style="font-weight:400;color:#999">IGP 官方</small></th>
+    <th>新加坡 A-Level<br><small style="font-weight:400;color:#999">IGP 官方</small></th>
     <th>理工 GPA<br><small style="font-weight:400;color:#999">IGP 官方</small></th>
-    <th>WACE ATAR<br><small style="font-weight:400;color:#999">估算</small></th>
+    <th>WACE / ATAR<br><small style="font-weight:400;color:#999">估算</small></th>
   </tr></thead><tbody id="ubody">{rowhtml}</tbody></table></div>
   <p class="usec" style="padding-top:6px;padding-bottom:0;font-size:.8rem;color:var(--muted)">说明：NUS/NTU/SMU 为成绩录取，A-Level 与理工 GPA 取官方 IGP（10–90 百分位）。<b>SIT / SUTD / SUSS 为能力本位/综合评估录取，无硬性截分</b>（表中该列显示其录取方式）。"样本少"为官方因人数少未公布。</p>
 

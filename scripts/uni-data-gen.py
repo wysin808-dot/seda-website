@@ -13,9 +13,9 @@ UNIS=[
  {"slug":"nus","abbr":"NUS","zh":"新加坡国立大学","en":"National University of Singapore","qs":"QS #8","founded":1905,"type":"grade","atar":"WACE 综合评估","campus":"/assets/nus-campus.jpg","sig":"综合排名全国第一，文理工医法全覆盖"},
  {"slug":"ntu","abbr":"NTU","zh":"南洋理工大学","en":"Nanyang Technological University","qs":"QS #12","founded":1991,"type":"grade","atar":"ATAR ≥90","campus":"/assets/ntu-campus.jpg","sig":"工程与计算机全球顶尖，理工强校"},
  {"slug":"smu","abbr":"SMU","zh":"新加坡管理大学","en":"Singapore Management University","qs":"商科顶尖","founded":2000,"type":"grade","atar":"WACE 综合评估","campus":None,"sig":"商科/会计/法律/计算机，研讨式小班教学"},
- {"slug":"sutd","abbr":"SUTD","zh":"新加坡科技设计大学","en":"Singapore Univ. of Technology & Design","qs":"科技+设计","founded":2009,"type":"holistic","atar":"综合评估","campus":None,"sig":"科技与设计交叉，含作品/面试整体评估"},
- {"slug":"sit","abbr":"SIT","zh":"新加坡理工大学","en":"Singapore Institute of Technology","qs":"应用型","founded":2009,"type":"aptitude","atar":"能力本位·无硬性截分","campus":"/assets/sit-campus.jpg","sig":"应用型大学，与海外名校联合学位、行业实战"},
- {"slug":"suss","abbr":"SUSS","zh":"新跃社科大学","en":"Singapore Univ. of Social Sciences","qs":"社科见长","founded":2017,"type":"aptitude","atar":"多轮评估（笔试+面试）","campus":None,"sig":"社会科学、商科、心理与社工见长"},
+ {"slug":"sutd","abbr":"SUTD","zh":"新加坡科技设计大学","en":"Singapore Univ. of Technology & Design","qs":"科技+设计","founded":2009,"type":"holistic","atar":"综合评估","atar_est":"≈88–95","campus":None,"sig":"科技与设计交叉，含作品/面试整体评估"},
+ {"slug":"sit","abbr":"SIT","zh":"新加坡理工大学","en":"Singapore Institute of Technology","qs":"应用型","founded":2009,"type":"aptitude","atar":"能力本位·无硬性截分","atar_est":"≈80–90","campus":"/assets/sit-campus.jpg","sig":"应用型大学，与海外名校联合学位、行业实战"},
+ {"slug":"suss","abbr":"SUSS","zh":"新跃社科大学","en":"Singapore Univ. of Social Sciences","qs":"社科见长","founded":2017,"type":"aptitude","atar":"多轮评估（笔试+面试）","atar_est":"≈75–88","campus":None,"sig":"社会科学、商科、心理与社工见长"},
  {"slug":"uas","abbr":"UAS","zh":"新加坡艺术大学","en":"University of the Arts Singapore","qs":"艺术","founded":2024,"type":"portfolio","atar":"作品集/试演","campus":None,"sig":"NAFA+LASALLE 组成，艺术设计表演类"},
 ]
 

@@ -11,7 +11,7 @@ HEADER=SP[SP.index('<header class="site-header">'):SP.index('</header>')+len('</
 FOOTER=SP[SP.index('<footer class="site-footer">'):SP.index('</footer>')+len('</footer>')]
 def esc(s): return html.escape(str(s),quote=True)
 
-FIELDICON={"商科":"💼","会计与金融":"📊","市场营销":"📣","数据与分析":"📈","IT计算机":"💻","工程":"⚙️","网络安全":"🔐","生命科学":"🧬","医疗健康":"🩺","护理":"❤️","传媒":"🎬","酒店旅游":"🏨","体育运动":"🏅","物流供应链":"🚚","设计":"🎨","经济":"💹","社会科学":"🌐","心理学":"🧠"}
+FIELDICON={"商科":"💼","会计与金融":"📊","市场营销":"📣","数据与分析":"📈","IT计算机":"💻","工程":"⚙️","网络安全":"🔐","生命科学":"🧬","医疗健康":"🩺","护理":"❤️","传媒":"🎬","酒店旅游":"🏨","体育运动":"🏅","物流供应链":"🚚","设计":"🎨","经济":"💹","社会科学":"🌐","心理学":"🧠","环境科学":"🌿","教育":"🎓","预科":"📘","商业心理":"🧩"}
 LEVELORDER={"证书":0,"文凭":1,"本科":2,"硕士":3}
 
 # ============ PSB ============
@@ -188,7 +188,63 @@ SIM_PROGS=[
  ("MSc in Management","grenoble","硕士","商科","管理学理学硕士"),
 ]
 
+# ============ JCU（澳洲直属校区）============
+JCU_PARTNERS=[("jcu","詹姆斯库克大学（新加坡）","James Cook University Singapore","新加坡","🇸🇬","澳洲 JCU 直属校区","QS #440")]
+JCU_PROGS=[
+ ("Foundation Program","jcu","文凭","预科","大学预科课程"),
+ ("Diploma of Higher Education","jcu","文凭","预科","高等教育文凭"),
+ ("Bachelor of Business","jcu","本科","商科","商学学士"),
+ ("Bachelor of Commerce","jcu","本科","会计与金融","商务学士"),
+ ("Bachelor of Information Technology","jcu","本科","IT计算机","信息技术学士"),
+ ("Bachelor of Cybersecurity","jcu","本科","网络安全","网络安全学士"),
+ ("Bachelor of Psychological Science","jcu","本科","心理学","心理科学学士"),
+ ("Bachelor of Business and Environmental Science","jcu","本科","环境科学","商务与环境科学（双学士）"),
+ ("Bachelor of Science (Environmental Science)","jcu","本科","环境科学","理学学士（环境科学）"),
+ ("Bachelor of Science (Aquaculture)","jcu","本科","生命科学","理学学士（水产养殖）"),
+ ("Bachelor of Games Design","jcu","本科","设计","游戏设计学士"),
+ ("Bachelor of Tourism, Hospitality and Events","jcu","本科","酒店旅游","旅游、酒店与会展学士"),
+ ("Bachelor of Education (Early Childhood Education)","jcu","本科","教育","教育学学士（幼儿教育）"),
+ ("Master of Business Administration (MBA)","jcu","硕士","商科","工商管理硕士（MBA）"),
+ ("Master of Professional Accounting","jcu","硕士","会计与金融","专业会计硕士"),
+ ("Master of International Tourism and Hospitality Management","jcu","硕士","酒店旅游","国际旅游与酒店管理硕士"),
+ ("Master of Information Technology","jcu","硕士","IT计算机","信息技术硕士"),
+ ("Master of Data Science","jcu","硕士","数据与分析","数据科学硕士"),
+ ("Master of Guidance and Counselling","jcu","硕士","心理学","指导与咨询硕士"),
+ ("Master of Education","jcu","硕士","教育","教育学硕士"),
+ ("Master of Conflict Management and Resolution","jcu","硕士","社会科学","冲突管理与化解硕士"),
+]
+
 RICH={
+"jcu":{
+ "abbr":"JCU","zh":"詹姆斯库克大学（新加坡）","en":"James Cook University Singapore","color":"#009ca6","founded":2003,
+ "direct":True,"qs":"#440",
+ "tagline":"澳洲詹姆斯库克大学直属校区",
+ "sig":"澳洲詹姆斯库克大学（QS 世界 #440）的新加坡直属校区，颁发与本部<b>完全相同</b>的学位；一年 3 学期、最快约 2 年读完本科。海洋与环境科学、心理学、商科、IT、酒店旅游见长。",
+ "fee":"S$55,000–72,000","fee_note":"本科总学费（直属校区较高），按专业不同；以官方为准。私立大学不提供 MOE 政府津贴。",
+ "intake":"3 / 7 / 11 月（每年 3 次开学）","edutrust":"EduTrust 认证",
+ "china":"直属海外校区学位，中留服认证相对稳妥（以当年名单为准）。",
+ "overview":[
+   "JCU 新加坡是澳洲詹姆斯库克大学（QS 世界 #440）的<b>直属校区</b>，2003 年设立，颁发与澳洲本部<b>完全相同</b>的学位，全球认可。",
+   "采用<b>一年 3 学期</b>的加速学制，最快约 <b>2 年</b>读完本科，比常规省时省钱。海洋生物学全球领先，<b>环境科学、水产养殖、心理学</b>是招牌，商科、IT、网络安全、酒店旅游、教育同样齐全。",
+   "适合想要正规海外大学学位、中留服认证稳、又看重时间与性价比的中国学生。",
+ ],
+ "highlights":[("同款学位","与澳洲本部完全一致，全球认可"),("最快 2 年","一年 3 学期加速完成"),("海洋与心理","环境/水产/心理学是招牌")],
+ "why":[
+   ("🎓","澳洲同款学位","与澳洲 JCU 本部完全相同的学位，全球认可、中留服认证稳。"),
+   ("⏩","最快 2 年本科","一年 3 学期、加速完成，省时省钱。"),
+   ("🌊","海洋与环境强项","JCU 海洋生物学全球领先，环境科学、水产养殖特色鲜明。"),
+   ("🧠","心理学招牌","心理学、商业心理、指导与咨询是 JCU 强项。"),
+   ("💼","商科 IT 齐全","商务、会计、IT、网络安全、酒店旅游等就业方向广。"),
+   ("🇨🇳","高中即可申请","预科 / 大专衔接本科，无需高考，约 2 年拿学位。"),
+ ],
+ "pathway":[("预科 / 大专","Foundation 或高等教育文凭，按学历入读；达标可直入本科。"),
+   ("本科学位","约 2 年（一年 3 学期加速），JCU 自授、与澳洲本部一致。"),
+   ("荣誉 / 硕士","可读荣誉学位年或衔接 JCU 硕士（MBA、IT、心理、教育等）。"),
+   ("博士研究","提供研究型高级学位（Higher Degrees by Research）。")],
+ "finder":"https://www.jcu.edu.sg/courses-and-study/courses",
+ "coverage":"以下为 JCU 新加坡主要学位专业；完整清单（含细分方向与博士）见 JCU 官方课程页。",
+ "partners":JCU_PARTNERS,"progs":JCU_PROGS,
+},
 "psb":{
  "abbr":"PSB","zh":"PSB 学院","en":"PSB Academy","color":"#b30537","founded":1964,
  "tagline":"亚洲未来学院 · 理工与商科并重",
@@ -353,6 +409,8 @@ def logo_path(slug):
 def build(slug):
     d=RICH[slug]; progs=d["progs"]; partners=d["partners"]
     acc=d["color"]; accgrad=f"linear-gradient(135deg,{acc},{acc}bb)"
+    direct=d.get("direct",False)  # 直属校区（如 JCU/Curtin）：自授学位、无多合作大学
+    npartners=len([p for p in partners if p[0]!=slug])  # 合作大学数（排除自身）
     pmap={p[0]:p for p in partners}  # key -> tuple
     fields=[]
     for _,_,_,f,_ in progs:
@@ -362,8 +420,12 @@ def build(slug):
     # partner counts
     def pcount(key,lv): return sum(1 for p in progs if p[1]==key and p[2]==lv)
     canon=f"https://sgeda.org.cn/private-university/{slug}/"
-    title=f"{d['zh']}（{d['abbr']}）完整指南：{len(partners)-1} 所合作大学、{len(progs)}+ 专业数据库、升学路径与学费 | SEDA"
-    desc=f"{d['zh']}（{d['en']}）深度指南：与 {len(partners)-1} 所英澳新大学合作，{len(progs)}+ 个专业（本科 {n_b}、硕士 {n_m}、文凭 {n_d}）可筛选数据库；合作大学、升学路径、入学要求、学费与中留服认证。"
+    if direct:
+        title=f"{d['zh']}（{d['abbr']}）完整指南：澳洲直属校区、{len(progs)}+ 专业数据库、升学路径与学费 | SEDA"
+        desc=f"{d['zh']}（{d['en']}）深度指南：澳洲大学直属校区，自授与本部一致的学位；{len(progs)}+ 个专业（本科 {n_b}、硕士 {n_m}）可筛选数据库；学科方向、升学路径、入学要求、学费与中留服认证。"
+    else:
+        title=f"{d['zh']}（{d['abbr']}）完整指南：{npartners} 所合作大学、{len(progs)}+ 专业数据库、升学路径与学费 | SEDA"
+        desc=f"{d['zh']}（{d['en']}）深度指南：与 {npartners} 所英澳新大学合作，{len(progs)}+ 个专业（本科 {n_b}、硕士 {n_m}、文凭 {n_d}）可筛选数据库；合作大学、升学路径、入学要求、学费与中留服认证。"
     # partner cards
     pcards=""
     for key,zh,en,ctry,flag,note,qs in partners:
@@ -378,26 +440,31 @@ def build(slug):
     def prog_card(p):
         en,key,lv,fl,zh=p; pz=pmap[key][1]
         nm=(zh+" "+en+" "+pz+" "+fl+" "+lv).lower()
+        pntag='' if direct else f'<span class="t pn">{esc(pz)}</span>'
         return f'''<div class="prc-prog" data-pt="{key}" data-lv="{lv}" data-fl="{esc(fl)}" data-name="{esc(nm)}">
   <div class="nm">{esc(zh)}</div>
   <div class="ens">{esc(en)}</div>
-  <div class="meta"><span class="t lv {lv}">{lv}</span><span class="t fl">{FIELDICON.get(fl,"")} {esc(fl)}</span><span class="t pn">{esc(pz)}</span></div>
+  <div class="meta"><span class="t lv {lv}">{lv}</span><span class="t fl">{FIELDICON.get(fl,"")} {esc(fl)}</span>{pntag}</div>
 </div>'''
     order=sorted(progs,key=lambda p:(LEVELORDER.get(p[2],9),p[3],p[0]))
     progcards="".join(prog_card(p) for p in order)
     fieldchips="".join(f'<span class="prc-chip" data-f="fl" data-v="{esc(f)}">{FIELDICON.get(f,"")} {esc(f)}（{sum(1 for p in progs if p[3]==f)}）</span>' for f in fields)
-    ptchips="".join(f'<span class="prc-chip" data-f="pt" data-v="{k}">{esc(z)}</span>' for k,z,*_ in partners if any(p[1]==k for p in progs))
+    ptchips="" if direct else "".join(f'<span class="prc-chip" data-f="pt" data-v="{k}">{esc(z)}</span>' for k,z,*_ in partners if any(p[1]==k for p in progs))
+    ptrow=f'<div class="prc-frow"><span class="prc-flb">合作大学</span>{ptchips}</div>' if ptchips else ''
     lvchips="".join(f'<span class="prc-chip" data-f="lv" data-v="{lv}">{lv}（{sum(1 for p in progs if p[2]==lv)}）</span>' for lv in levels)
     hl="".join(f'<div class="prc-hlc"><b>{esc(t)}</b><span>{esc(x)}</span></div>' for t,x in d["highlights"])
     ov="".join(f'<p class="ov">{p}</p>' for p in d["overview"])
     pathhtml="".join(f'<div class="prc-step"><div class="no">{i+1}</div><b>{esc(t)}</b><span>{x}</span></div>' for i,(t,x) in enumerate(d["pathway"]))
-    pnames="、".join(z for k,z,*_ in partners if k not in ("psb","sim"))
-    faqs=[
-     (f"{d['abbr']} 和哪些大学合作？",f"{d['zh']}与 {len(partners)-1} 所大学合作：{pnames}。学位由合作大学颁发，与其本校区一致。"),
-     (f"{d['abbr']} 有多少专业？",f"本页收录约 {len(progs)} 个主要专业（本科 {n_b}、硕士 {n_m}、文凭 {n_d}），覆盖 {len(fields)} 大方向，可按方向、合作大学、层级筛选；完整清单见学校官方课程查找器。"),
+    pnames="、".join(z for k,z,*_ in partners if k!=slug)
+    if direct:
+        faq1=(f"{d['abbr']} 和澳洲本部是什么关系？",f"{d['zh']}是澳洲詹姆斯库克大学的<b>直属校区</b>，颁发与澳洲本部<b>完全相同</b>的学位、全球认可；学制更紧凑，最快约 2 年读完本科。")
+    else:
+        faq1=(f"{d['abbr']} 和哪些大学合作？",f"{d['zh']}与 {npartners} 所大学合作：{pnames}。学位由合作大学颁发，与其本校区一致。")
+    faqs=[faq1,
+     (f"{d['abbr']} 有多少专业？",f"本页收录约 {len(progs)} 个主要专业（本科 {n_b}、硕士 {n_m}{('、文凭 '+str(n_d)) if n_d else ''}），覆盖 {len(fields)} 大方向，可按方向{('' if direct else '、合作大学')}、层级筛选；完整清单见学校官方课程页。"),
      (f"{d['abbr']} 的学位中留服认可吗？",d["china"]),
-     ("中国学生没有高考能申请吗？","可以。接受高中毕业证 + 成绩单，按学历从证书 / 文凭 / 预科起读；英语雅思约 5.5（本科段 6.0–6.5），不达标可先读语言 / 预科课程。"),
-     (f"{d['abbr']} 学费多少？",f"本科总学费约 {d['fee']}，按合作大学与专业不同。{d['fee_note']} 学费通常可按学期分期。"),
+     ("中国学生没有高考能申请吗？","可以。接受高中毕业证 + 成绩单，按学历从预科 / 文凭起读；英语雅思约 5.5（本科段 6.0–6.5），不达标可先读语言 / 预科课程。"),
+     (f"{d['abbr']} 学费多少？",f"本科总学费约 {d['fee']}。{d['fee_note']} 学费通常可按学期分期。"),
     ]
     faq="".join(f'<details><summary>{esc(q)}</summary><div class="a">{a}</div></details>' for q,a in faqs)
     jsonld=[
@@ -420,6 +487,30 @@ def build(slug):
     else:
         logohtml=''
     rel="".join(f'<a href="/private-university/{o}/">{o.upper()}</a>' for o in ["sim","kaplan","jcu","mdis"] if o!=slug)
+    # 直属校区 vs 合作办学：中段与统计条
+    if direct:
+        whyhtml="".join(f'<div class="prc-hlc"><b>{ic} {esc(t)}</b><span>{esc(x)}</span></div>' for ic,t,x in d.get("why",[]))
+        midsec=f'''<section class="prc-sec tight"><h2>为什么选 {esc(d['abbr'])}<span style="color:{acc}"> · 直属校区</span></h2>
+    <p class="lead">澳洲大学的新加坡直属校区，自授与本部完全一致的学位。</p>
+    <div class="prc-hl">{whyhtml}</div></section>'''
+        stat1=f'<div class="prc-stat"><div class="n">直属</div><div class="l">澳洲本部校区</div></div>'
+        statqs=f'<div class="prc-stat"><div class="n">{esc(d.get("qs","—"))}</div><div class="l">QS 世界排名</div></div>'
+        factrows=f'<tr><th>办学类型</th><td>澳洲大学直属校区（私立学府）</td></tr><tr><th>学位授予</th><td>{esc(d["en"])}（与澳洲本部同款学位）</td></tr><tr><th>本科学制</th><td>最快约 2 年（一年 3 学期，加速完成）</td></tr>'
+        dbfilterword="方向、层级"
+    else:
+        midsec=f'''<section class="prc-sec tight"><h2>合作大学 · {npartners} 所</h2>
+    <p class="lead">学位由以下大学颁发，与其本校区一致。点专业数据库可看各校具体专业。</p>
+    <div class="prc-partners">{pcards}</div></section>'''
+        stat1=f'<div class="prc-stat"><div class="n">{npartners} 所</div><div class="l">合作大学</div></div>'
+        statqs=''
+        factrows=f'<tr><th>办学类型</th><td>合作名校学位（私立学府）</td></tr><tr><th>合作大学</th><td>{esc("、".join(z for k,z,*_ in partners if k!=slug))}</td></tr><tr><th>本科学制</th><td>直入大二最快约 16 个月 / Top-up 最快约 8 个月</td></tr>'
+        dbfilterword="方向、合作大学、层级"
+    statshtml=f'''{stat1}
+      <div class="prc-stat"><div class="n">{len(progs)}+</div><div class="l">专业 / 课程</div></div>
+      <div class="prc-stat"><div class="n">{len(fields)} 大</div><div class="l">专业方向</div></div>
+      {statqs}
+      <div class="prc-stat"><div class="n">{d['founded']}</div><div class="l">创办</div></div>
+      <div class="prc-stat"><div class="n">🎖</div><div class="l">{esc(d['edutrust'])}</div></div>'''
     body=f'''
   <section class="prc-hero" style="background:{accgrad}"><div class="in">
     {logohtml}
@@ -427,31 +518,25 @@ def build(slug):
     <p class="tag">{esc(d['en'])} · {esc(d['tagline'])}</p>
     <p class="sig">{esc(d['sig'])}</p>
     <div class="prc-stats">
-      <div class="prc-stat"><div class="n">{len(partners)-1} 所</div><div class="l">合作大学</div></div>
-      <div class="prc-stat"><div class="n">{len(progs)}+</div><div class="l">专业 / 课程</div></div>
-      <div class="prc-stat"><div class="n">{len(fields)} 大</div><div class="l">专业方向</div></div>
-      <div class="prc-stat"><div class="n">{d['founded']}</div><div class="l">创办</div></div>
-      <div class="prc-stat"><div class="n">🎖</div><div class="l">{esc(d['edutrust'])}</div></div>
+      {statshtml}
     </div>
   </div></section>
 
   <section class="prc-sec"><h2>学校概况</h2>{ov}<div class="prc-hl">{hl}</div></section>
 
-  <section class="prc-sec tight"><h2>合作大学 · {len(partners)-1} 所</h2>
-    <p class="lead">学位由以下大学颁发，与其本校区一致。点专业数据库可看各校具体专业。</p>
-    <div class="prc-partners">{pcards}</div></section>
+  {midsec}
 
   <section class="prc-sec tight"><h2>升学路径</h2>
-    <p class="lead">中国学生典型路线：语言 → 证书/预科 → 文凭 → 本科（直入大二）→ 硕士。学历达标可跳过前段。</p>
+    <p class="lead">中国学生典型路线：按学历从预科 / 文凭 / 本科对应阶段入读，学历达标可跳过前段。</p>
     <div class="prc-path">{pathhtml}</div></section>
 
   <div class="prc-db">
     <div class="prc-tools">
       <h2 style="font-size:clamp(21px,2.8vw,29px);margin:6px 0 4px;font-weight:830">专业数据库 · <span style="color:{acc}">{len(progs)} 个</span></h2>
-      <p style="color:var(--prc-muted);margin:0 0 16px;line-height:1.7">本科 {n_b} · 硕士 {n_m} · 文凭 {n_d}。可按<b>方向、合作大学、层级</b>筛选；专业名为官方授予名称，学位由对应合作大学颁发。</p>
-      <div class="prc-find">🔎<input type="search" id="prcq" placeholder="搜专业，如 商科、AI、护理、Coventry"></div>
+      <p style="color:var(--prc-muted);margin:0 0 16px;line-height:1.7">本科 {n_b} · 硕士 {n_m}{(' · 文凭 '+str(n_d)) if n_d else ''}。可按<b>{dbfilterword}</b>筛选；专业名为官方授予名称{('，由 '+esc(d['abbr'])+' 颁授' if direct else '，学位由对应合作大学颁发')}。</p>
+      <div class="prc-find">🔎<input type="search" id="prcq" placeholder="搜专业，如 商科、心理、IT、护理"></div>
       <div class="prc-frow"><span class="prc-flb">方向</span>{fieldchips}</div>
-      <div class="prc-frow"><span class="prc-flb">合作大学</span>{ptchips}</div>
+      {ptrow}
       <div class="prc-frow"><span class="prc-flb">层级</span>{lvchips}</div>
     </div>
     <div class="prc-count">显示 <b id="prcshow">{len(progs)}</b> / {len(progs)} 个专业</div>
@@ -462,9 +547,7 @@ def build(slug):
 
   <section class="prc-sec"><h2>关键信息</h2>
     <div class="prc-facts"><table>
-      <tr><th>办学类型</th><td>合作名校学位（私立学府）</td></tr>
-      <tr><th>合作大学</th><td>{esc("、".join(z for k,z,*_ in partners if k!="psb"))}</td></tr>
-      <tr><th>本科学制</th><td>直入大二最快约 16 个月 / Top-up 最快约 8 个月</td></tr>
+      {factrows}
       <tr><th>开学时间</th><td>{esc(d['intake'])}</td></tr>
       <tr><th>本科学费</th><td>{esc(d['fee'])}<br><small style="color:#888">{esc(d['fee_note'])}</small></td></tr>
       <tr><th>EduTrust</th><td>🎖 {esc(d['edutrust'])}</td></tr>

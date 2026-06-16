@@ -155,7 +155,7 @@ jsonld="\n".join('<script type="application/ld+json">%s</script>'%json.dumps(j,e
 faqhtml="".join(f'<details><summary>{esc(q)}</summary><div class="a">{a}</div></details>' for q,a in faqs)
 
 BODY=f'''<div class="nx">
-  <section class="nx-hero" style="background-image:url('/assets/nus-hero.jpg?v=3')"><div class="in">
+  <section class="nx-hero" style="background-image:url('/assets/nus-hero.jpg?v=4')"><div class="in">
     <div class="nx-kicker"><span class="au">🏆 QS 世界排名 #8</span><span>🇸🇬 新加坡综合第一</span><span>📅 1905 年创办</span></div>
     <div class="rule"></div>
     <h1>新加坡国立大学 NUS</h1>

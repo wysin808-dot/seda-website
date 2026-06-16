@@ -23,3 +23,14 @@ https://sgeda.org.cn/aeis/
 https://sgeda.org.cn/a-level/
 https://sgeda.org.cn/international-alevel/
 https://sgeda.org.cn/wace/
+https://sgeda.org.cn/private-university/
+https://sgeda.org.cn/private-university/jcu/
+https://sgeda.org.cn/private-university/curtin/
+https://sgeda.org.cn/private-university/sim/
+https://sgeda.org.cn/private-university/kaplan/
+https://sgeda.org.cn/private-university/psb/
+https://sgeda.org.cn/private-university/mdis/
+https://sgeda.org.cn/private-university/lsbf/
+https://sgeda.org.cn/private-university/amity/
+https://sgeda.org.cn/private-university/shrm/
+https://sgeda.org.cn/private-university/tmc/

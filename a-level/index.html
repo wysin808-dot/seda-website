@@ -171,6 +171,75 @@
   .al-cta-qr img{width:248px;max-width:100%;height:auto;display:block;border-radius:14px;box-shadow:0 16px 40px rgba(0,0,0,.30)}
   @media(max-width:980px){.al-two-col,.al-rp-grid,.al-cta-card,.al-compare-grid{grid-template-columns:1fr}.al-uni-grid,.al-related-grid{grid-template-columns:repeat(2,1fr)}.al-fit-grid,.al-adv-grid{grid-template-columns:repeat(2,1fr)}.al-hlevel-grid{grid-template-columns:1fr}}
   @media(max-width:680px){.al-hero{min-height:auto}.al-hero-content{padding:48px 16px 44px}.al-hero-stat{width:50%;margin:0 0 18px;padding-right:20px}.al-section{padding:44px 0}.al-uni-grid,.al-related-grid,.al-fit-grid,.al-adv-grid,.al-year-grid,.al-gp-grid{grid-template-columns:1fr}.al-cta-card{padding:34px 26px;text-align:center}.al-cta-points{justify-content:center}.al-cta-qr{justify-self:center}.al-cta-left p{margin-inline:auto}}
+
+  /* ===== 动画系统 ===== */
+  @keyframes al-fade-up{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+  @keyframes al-fade-in{from{opacity:0}to{opacity:1}}
+  @keyframes al-slide-right{from{opacity:0;transform:translateX(-24px)}to{opacity:1;transform:translateX(0)}}
+  @keyframes al-scale-in{from{opacity:0;transform:scale(.94)}to{opacity:1;transform:scale(1)}}
+  @keyframes al-stripe-grow{from{width:0}to{width:100%}}
+  @keyframes al-hero-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+  @keyframes al-count-pulse{0%{transform:scale(1)}50%{transform:scale(1.12)}100%{transform:scale(1)}}
+  @keyframes al-shimmer{0%{background-position:-200% 0}100%{background-position:200% 0}}
+  @keyframes al-bar-grow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+
+  /* Hero 入场动画 */
+  .al-hero-label{animation:al-fade-in .7s ease both}
+  .al-hero h1{animation:al-fade-up .75s .15s ease both}
+  .al-hero-subhead{animation:al-fade-up .75s .28s ease both}
+  .al-hero p{animation:al-fade-up .75s .38s ease both}
+  .al-hero-actions{animation:al-fade-up .75s .48s ease both}
+  .al-hero-stats{animation:al-fade-up .75s .6s ease both}
+  .al-hero-stat strong{display:block;transition:transform .2s ease}
+  .al-hero-stat:hover strong{animation:al-count-pulse .4s ease}
+
+  /* 滚动入场基础类 */
+  .al-reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
+  .al-reveal.al-visible{opacity:1;transform:translateY(0)}
+  .al-reveal-left{opacity:0;transform:translateX(-24px);transition:opacity .6s ease,transform .6s ease}
+  .al-reveal-left.al-visible{opacity:1;transform:translateX(0)}
+  .al-reveal-scale{opacity:0;transform:scale(.95);transition:opacity .55s ease,transform .55s ease}
+  .al-reveal-scale.al-visible{opacity:1;transform:scale(1)}
+
+  /* 卡片悬停动画增强 */
+  .al-adv-card{transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease}
+  .al-adv-card:hover{transform:translateY(-5px);box-shadow:0 12px 28px rgba(26,58,107,.12);border-color:var(--al-red-border)}
+  .al-adv-card .icon{transition:transform .3s ease}
+  .al-adv-card:hover .icon{transform:scale(1.2) rotate(-5deg)}
+  .al-hlevel-card{transition:transform .25s ease,box-shadow .25s ease}
+  .al-hlevel-card:hover{transform:translateY(-4px);box-shadow:0 12px 28px rgba(26,58,107,.1)}
+  .al-gp-card{transition:transform .22s ease,box-shadow .22s ease}
+  .al-gp-card:hover{transform:translateY(-4px);box-shadow:0 10px 24px rgba(26,58,107,.1)}
+  .al-fit-card{transition:transform .22s ease,box-shadow .22s ease}
+  .al-fit-card:hover{transform:translateY(-3px);box-shadow:0 8px 20px rgba(0,0,0,.08)}
+  .al-year-card{transition:transform .25s ease,box-shadow .25s ease}
+  .al-year-card:hover{transform:translateY(-4px);box-shadow:0 12px 28px rgba(26,58,107,.1)}
+  .al-compare-card{transition:transform .25s ease,box-shadow .25s ease}
+  .al-compare-card:hover{transform:translateY(-4px);box-shadow:0 12px 28px rgba(26,58,107,.1)}
+
+  /* 表格行动画 */
+  .al-table tbody tr{transition:background .18s ease}
+  .al-table tbody tr:hover{background:#f5f8fd}
+  .al-subj-table tbody tr{transition:background .18s ease}
+  .al-subj-table tbody tr:hover{background:#f5f8fd}
+
+  /* FAQ 动画 */
+  .al-faq details{transition:box-shadow .2s ease}
+  .al-faq details[open]{box-shadow:0 4px 16px rgba(26,58,107,.08)}
+  .al-faq summary{transition:color .18s ease}
+  .al-faq details[open] summary{color:var(--al-red)}
+
+  /* RP 进度条动画 */
+  .al-rp-bar{transform-origin:left;animation:al-bar-grow .8s .3s ease both}
+
+  /* section label 竖线动画 */
+  .al-label::before{transition:height .3s ease}
+  .al-section:hover .al-label::before{height:26px}
+
+  /* CTA 卡片光效果 */
+  .al-cta-card::after{content:"";position:absolute;top:0;left:-100%;width:60%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.06),transparent);animation:al-shimmer 3.5s 1.5s infinite linear}
+
+  @media(prefers-reduced-motion:reduce){.al-hero-label,.al-hero h1,.al-hero-subhead,.al-hero p,.al-hero-actions,.al-hero-stats{animation:none}.al-reveal,.al-reveal-left,.al-reveal-scale{opacity:1;transform:none;transition:none}.al-cta-card::after{animation:none}}
 </style>
   </head>
   <body>
@@ -240,7 +309,7 @@
   </section>
 
   <section class="al-section" id="overview">
-    <div class="al-container al-two-col">
+    <div class="al-container al-two-col al-reveal">
       <article class="al-copy">
         <div class="al-label"><span>课程概述</span></div>
         <h2>新加坡 A-Level 是什么？</h2>
@@ -249,15 +318,15 @@
         <p>与英国本土 A-Level 相比，新加坡版本在科目体系、必修要求和评分机制上均有<strong>显著的本地化调整</strong>，是一套独立的、更全面的高中课程体系。</p>
         <div class="al-note"><strong>核心路径</strong><span>O-Level / AEIS 通过 → 进入 JC → JC1 + JC2 两年学习 → A-Level 大考 → 获得 Rank Points → 申请新加坡/全球大学</span></div>
       </article>
-      <figure class="al-image-card"><img src="/assets/sg-px-14694917.jpg" alt="新加坡 CBD 金融区，A-Level 毕业生的就业目标" loading="lazy" /></figure>
+      <figure class="al-image-card al-reveal-scale"><img src="/assets/sg-px-14694917.jpg" alt="新加坡 CBD 金融区，A-Level 毕业生的就业目标" loading="lazy" /></figure>
     </div>
   </section>
 
   <section class="al-section soft" id="difference">
     <div class="al-container">
-      <div class="al-label"><span>核心区别</span></div>
+      <div class="al-label al-reveal"><span>核心区别</span></div>
       <h2>新加坡 A-Level vs 英国/国际 A-Level：8 大核心区别</h2>
-      <p class="al-lead">很多家长以为"A-Level 就是 A-Level"，其实新加坡版本和英国版本在课程结构、必修要求、评分体系上有根本性差异。了解这些区别，才能做出正确的升学选择。</p>
+            <p class="al-lead al-reveal">很多家长以为“A-Level 就是 A-Level”，其实新加坡版本和英国版本在课程结构、必修要求、评分体系上有根本性差异。了解这些区别，才能做出正确的升学选择。</p>
       <div class="al-table-wrap">
         <table class="al-table">
           <thead><tr><th>对比维度</th><th class="sg-col">新加坡 A-Level（GCE A-Level）</th><th>英国 / 国际 A-Level</th></tr></thead>
@@ -282,7 +351,7 @@
 
   <section class="al-section" id="subjects">
     <div class="al-container">
-      <div class="al-label"><span>科目体系</span></div>
+      <div class="al-label al-reveal"><span>科目体系</span></div>
       <h2>H1 / H2 / H3：新加坡 A-Level 独有的三级科目体系</h2>
       <p class="al-lead">这是新加坡 A-Level 区别于全球其他 A-Level 体系最显著的特征。理解 H1/H2/H3 的分层逻辑，是选课和备考的基础。</p>
       <div class="al-hlevel-grid">
@@ -313,7 +382,7 @@
 
   <section class="al-section soft" id="gp">
     <div class="al-container">
-      <div class="al-label"><span>GP 通识论文</span></div>
+      <div class="al-label al-reveal"><span>GP 通识论文</span></div>
       <h2>GP（General Paper）：中国学生最难跨越的一关</h2>
       <p class="al-lead">GP 是新加坡 A-Level 独有的必修科目，英国 A-Level 没有对应科目。它考察的不是某一学科知识，而是<strong>批判性思维、时事认知和英文表达能力</strong>的综合水平，是中国学生备考 A-Level 最需要重视的科目。</p>
       <div class="al-gp-grid">
@@ -326,7 +395,7 @@
 
   <section class="al-section" id="rankpoints">
     <div class="al-container">
-      <div class="al-label"><span>Rank Points 计算</span></div>
+      <div class="al-label al-reveal"><span>Rank Points 计算</span></div>
       <h2>Rank Points（RP）是怎么计算的？</h2>
       <p class="al-lead">新加坡大学不直接看 A-Level 等级，而是将成绩转化为 Rank Points（RP）进行排名录取。满分 90 分，理解这个体系才能制定正确的备考策略。</p>
       <div class="al-rp-grid">
@@ -354,7 +423,7 @@
 
   <section class="al-section soft" id="universities">
     <div class="al-container">
-      <div class="al-label"><span>大学申请参考 2026</span></div>
+      <div class="al-label al-reveal"><span>大学申请参考 2026</span></div>
       <h2>主要大学 Rank Points 参考门槛</h2>
       <p class="al-lead">以下数据为参考区间，每年略有浮动，最终以各校官网当年公布为准。</p>
       <div class="al-uni-region">
@@ -389,7 +458,7 @@
 
   <section class="al-section" id="timeline">
     <div class="al-container">
-      <div class="al-label"><span>学习安排</span></div>
+      <div class="al-label al-reveal"><span>学习安排</span></div>
       <h2>JC 两年：每一年做什么？</h2>
       <p class="al-lead">JC 两年的分工非常明确——JC1 是打基础、选科、完成 PW 的关键年；JC2 是全力冲刺 A-Level 大考的决战年。</p>
       <div class="al-year-grid">
@@ -401,7 +470,7 @@
 
   <section class="al-section soft" id="advantages">
     <div class="al-container">
-      <div class="al-label"><span>核心优势</span></div>
+      <div class="al-label al-reveal"><span>核心优势</span></div>
       <h2>选择新加坡 A-Level 的 6 大理由</h2>
       <p class="al-lead">与英国 A-Level、IB、WACE 相比，新加坡 A-Level 对特定类型的学生有独特的竞争优势。</p>
       <div class="al-adv-grid">
@@ -417,7 +486,7 @@
 
   <section class="al-section" id="fit">
     <div class="al-container">
-      <div class="al-label"><span>适合人群</span></div>
+      <div class="al-label al-reveal"><span>适合人群</span></div>
       <h2>A-Level 适合哪些中国学生？</h2>
       <p class="al-lead">A-Level 不是适合所有人的路径。以下是 SEDA 顾问根据大量案例总结的适合与不适合画像，供参考。</p>
       <p style="font-size:1.02rem;font-weight:700;margin:8px 0 14px;display:flex;align-items:center;gap:8px;color:#2e7d32">✅ 这些学生选 A-Level 往往事半功倍</p>
@@ -441,7 +510,7 @@
 
   <section class="al-section soft" id="faq">
     <div class="al-container">
-      <div class="al-label"><span>FAQ</span></div>
+      <div class="al-label al-reveal"><span>FAQ</span></div>
       <h2>家长最常问的 10 个问题</h2>
       <div class="al-faq">
         <details open><summary>新加坡 A-Level 和英国 A-Level 有什么区别？</summary><p>新加坡 A-Level 由 MOE 与剑桥联合颁发，增加了英国没有的 GP（通识论文）和 PW（课题研究）两门必修科目，采用 H1/H2/H3 三级科目体系，成绩以 Rank Points（RP）计算用于本地大学申请。英国 A-Level 由各考试局独立颁发，不含 GP，成绩以 A*/A/B/C/D/E 等级直接用于 UCAS 申请。两者都被全球大学广泛认可，但新加坡版本在本地大学申请中认可度更高。</p></details>
@@ -460,7 +529,7 @@
 
   <section class="al-section">
     <div class="al-container">
-      <div class="al-label"><span>相关阅读</span></div>
+      <div class="al-label al-reveal"><span>相关阅读</span></div>
       <h2>继续了解 A-Level 路线</h2>
       <div class="al-related-grid">
         <a class="al-related-card" href="/wace-vs-a-level/"><h3>WACE vs A-Level</h3><p>深度对比两条路径的课程难度、英文要求和认可度。</p></a>
@@ -473,7 +542,7 @@
 
   <section class="al-section al-contact" id="contact">
     <div class="al-container">
-      <div class="al-cta-card">
+      <div class="al-cta-card al-reveal-scale">
         <div class="al-cta-left">
           <span class="al-cta-eyebrow">免费 1 对 1 咨询</span>
           <h2>不确定孩子是否适合 A-Level？</h2>
@@ -515,6 +584,93 @@
         <p><a href="/about/">关于我们</a> · <a href="/contact/">联系我们</a> · <a href="/news/">教育资讯</a> · <a href="/tools/">AI 升学工具</a> · <a href="/school-database/">学校数据库</a></p>
       </div>
     </footer>
+    <script>
+    // ===== 滚动入场动画 =====
+    (function(){
+      var els = document.querySelectorAll('.al-reveal,.al-reveal-left,.al-reveal-scale');
+      if(!els.length) return;
+      var io = new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting){
+            var el = e.target;
+            var delay = el.dataset.delay || 0;
+            setTimeout(function(){ el.classList.add('al-visible'); }, delay);
+            io.unobserve(el);
+          }
+        });
+      },{threshold:0.12});
+      els.forEach(function(el,i){
+        // 同一父元素内的子元素递增延迟
+        var siblings = el.parentElement ? el.parentElement.querySelectorAll('.al-reveal,.al-reveal-left,.al-reveal-scale') : [];
+        var idx = Array.from(siblings).indexOf(el);
+        if(idx > 0) el.dataset.delay = idx * 80;
+        io.observe(el);
+      });
+    })();
+
+    // ===== 卡片逐个入场动画 =====
+    (function(){
+      var grids = document.querySelectorAll('.al-adv-grid,.al-hlevel-grid,.al-gp-grid,.al-fit-grid,.al-year-grid,.al-uni-grid,.al-related-grid,.al-compare-grid');
+      var io2 = new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting){
+            var cards = e.target.children;
+            Array.from(cards).forEach(function(card,i){
+              card.style.opacity='0';
+              card.style.transform='translateY(20px)';
+              card.style.transition='opacity .5s ease,transform .5s ease';
+              setTimeout(function(){
+                card.style.opacity='1';
+                card.style.transform='translateY(0)';
+              }, i * 90);
+            });
+            io2.unobserve(e.target);
+          }
+        });
+      },{threshold:0.1});
+      grids.forEach(function(g){ io2.observe(g); });
+    })();
+
+    // ===== 数字计数动画 =====
+    (function(){
+      var stats = document.querySelectorAll('.al-hero-stat strong');
+      var animated = false;
+      var io3 = new IntersectionObserver(function(entries){
+        if(animated) return;
+        entries.forEach(function(e){
+          if(e.isIntersecting){
+            animated = true;
+            stats.forEach(function(el){
+              var txt = el.textContent.trim();
+              var num = parseFloat(txt.replace(/[^0-9.]/g,''));
+              if(!isNaN(num) && num > 1){
+                var suffix = txt.replace(/[0-9.]/g,'');
+                var start = 0, dur = 1200, step = 16;
+                var timer = setInterval(function(){
+                  start += step;
+                  var pct = Math.min(start/dur,1);
+                  var ease = 1-Math.pow(1-pct,3);
+                  el.textContent = Math.round(num*ease) + suffix;
+                  if(pct>=1){ el.textContent = txt; clearInterval(timer); }
+                },step);
+              }
+            });
+          }
+        });
+      },{threshold:0.5});
+      if(stats.length) io3.observe(stats[0].closest('.al-hero-stats')||stats[0]);
+    })();
+
+    // ===== FAQ 平滑展开 =====
+    document.querySelectorAll('.al-faq details').forEach(function(d){
+      d.addEventListener('toggle',function(){
+        if(d.open){
+          var p = d.querySelector('p');
+          if(p){ p.style.animation='al-fade-up .3s ease both'; }
+        }
+      });
+    });
+    </script>
     <script src="/seda-site.js?v=27"></script>
   </body>
 </html>

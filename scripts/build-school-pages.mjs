@@ -851,10 +851,19 @@ export function buildSchoolPages() {
     fs.writeFileSync(path.join(indexDir, 'index.html'), renderInternationalSchoolIndex(internationalSchools, header, footer), 'utf8');
   }
   const privateSchools = schools.filter((school) => school.type === 'private');
-  if (privateSchools.length) {
+  {
+    // /private-schools/ 与 /private-university/ 同主题（私立大学 / PEI）。
+    // 直接镜像 private-university 目录，保持两页内容一致；其内 canonical 指向
+    // /private-university/，搜索引擎自动归一，避免重复内容。private-university/index.html
+    // 由 scripts/build-private.py 生成并提交。
+    const puPath = path.join(root, 'private-university', 'index.html');
     const indexDir = path.join(root, 'private-schools');
     fs.mkdirSync(indexDir, { recursive: true });
-    fs.writeFileSync(path.join(indexDir, 'index.html'), renderPrivateSchoolIndex(privateSchools, header, footer), 'utf8');
+    if (fs.existsSync(puPath)) {
+      fs.writeFileSync(path.join(indexDir, 'index.html'), fs.readFileSync(puPath, 'utf8'), 'utf8');
+    } else if (privateSchools.length) {
+      fs.writeFileSync(path.join(indexDir, 'index.html'), renderPrivateSchoolIndex(privateSchools, header, footer), 'utf8');
+    }
   }
   return schools.length;
 }

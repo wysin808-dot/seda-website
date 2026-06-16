@@ -279,7 +279,7 @@ def build_landing():
   </div>
 </a>''')
     clcards="".join(f'<a class="uclcard" href="/university/degrees/?cluster={esc(c)}"><span class="ic">{CLI.get(c,"🎓")}</span><span class="nm">{esc(c)}</span><span class="ct"><b>{cl_counts[c]}</b> 专业</span></a>' for c in clusters)
-    stats=[("6","所公立大学"),("1","所艺术大学"),(str(N),"个本科专业"),(str(len(clusters)),"个专业方向"),("A-Level·WACE·GPA","三通道录取分")]
+    stats=[("6","所公立大学"),("1","所艺术大学"),(str(N),"个本科专业"),(str(len(clusters)),"个专业方向"),("3","通道录取分 · A-Level/WACE/GPA")]
     statshtml="".join(f'<div class="udb-stat"><div class="n">{esc(n)}</div><div class="l">{esc(l)}</div></div>' for n,l in stats)
     faqs=[
      ("新加坡有几所公立大学？","6 所自治（公立）大学：NUS、NTU、SMU、SUTD、SIT、SUSS；外加 2024 年新成立的艺术大学 UAS（政府支持、NAFA+LASALLE 组成）。学位全球认可。"),

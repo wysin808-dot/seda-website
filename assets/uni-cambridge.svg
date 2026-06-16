@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 80" width="120" height="80">
+  <rect width="120" height="80" rx="8" fill="#A3C1AD"/>
+  <text x="60" y="28" 
+        font-family="Georgia, 'Times New Roman', serif" 
+        font-size="16" font-weight="700" 
+        fill="#003B5C" text-anchor="middle" dominant-baseline="middle">Cambridge</text>
+  <text x="60" y="52" 
+        font-family="Arial, Helvetica, sans-serif" 
+        font-size="7.5" fill="#003B5C" opacity="0.85" 
+        text-anchor="middle">University of</text>
+  <text x="60" y="63" 
+        font-family="Arial, Helvetica, sans-serif" 
+        font-size="7.5" fill="#003B5C" opacity="0.85" 
+        text-anchor="middle">Cambridge</text>
+</svg>

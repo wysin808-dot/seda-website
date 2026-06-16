@@ -103,6 +103,24 @@ CSS=r'''
 .nx-cta{margin-top:30px;background:linear-gradient(135deg,var(--navy),var(--navy2));border-radius:18px;padding:28px 30px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:18px}
 .nx-cta h3{margin:0 0 5px;color:#fff;font-size:1.3rem}.nx-cta p{margin:0;color:rgba(255,255,255,.8);font-size:.95rem}
 .nx-cta a{background:var(--gold);color:var(--navy);font-weight:800;padding:13px 26px;border-radius:11px;text-decoration:none;white-space:nowrap}
+.nx-prose p{color:#3a4658;font-size:1.05rem;line-height:1.95;margin:0 0 16px;max-width:820px}
+.nx-prose p b{color:var(--navy2)}
+.nx-rank{margin-top:24px;background:linear-gradient(135deg,var(--navy),var(--navy2));border-radius:18px;padding:28px clamp(20px,4vw,34px);color:#fff}
+.nx-rank .big{display:flex;flex-wrap:wrap;gap:28px;margin-bottom:18px}
+.nx-rank .big .it{flex:0 0 auto}
+.nx-rank .big .n{font-size:2.6rem;font-weight:850;color:var(--gold);line-height:1}
+.nx-rank .big .l{font-size:.86rem;color:rgba(255,255,255,.82);margin-top:4px}
+.nx-rank .subs{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:8px 18px;border-top:1px solid rgba(200,162,74,.35);padding-top:16px}
+.nx-rank .subs .s{font-size:.92rem;color:rgba(255,255,255,.92);display:flex;justify-content:space-between;gap:10px}
+.nx-rank .subs .s b{color:var(--gold);white-space:nowrap}
+.nx-chips{display:flex;flex-wrap:wrap;gap:9px;margin-top:22px}
+.nx-chips span{font-size:.9rem;color:var(--ink);background:#fff;border:1px solid var(--line);padding:9px 15px;border-radius:11px}
+.nx-chips span b{color:var(--navy2);font-weight:700}
+.nx-camp{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;margin-top:22px}
+.nx-cc{border:1px solid var(--line);border-radius:15px;padding:18px 20px;background:#fff;border-top:3px solid var(--navy2)}
+.nx-cc h3{margin:0 0 5px;font-size:1.05rem;color:var(--navy)}
+.nx-cc .en{font-size:.78rem;color:var(--mut);margin:0 0 8px}
+.nx-cc p{margin:0;font-size:.9rem;color:var(--mut);line-height:1.6}
 @media(max-width:640px){.nx-fit{grid-template-columns:1fr}.nx-stat+.nx-stat::before{display:none}}
 '''
 
@@ -144,6 +162,28 @@ BODY=f'''<div class="nx">
       <div class="nx-tldr"><span class="q">“</span><div>一句话看懂：<b>NUS 是新加坡的「清北」</b>——综合排名最高、QS 世界前 10，文理工商医法全面顶尖。中国学生可凭<b>高考、A-Level、IB、WACE 或理工 Diploma</b> 申请，门槛高、竞争激烈，是冲顶学霸的首选。</div></div>
     </section>
 
+    <section class="nx-sec nx-prose">
+      <h2 class="nx-h2">学校概况</h2>
+      <p>新加坡国立大学（National University of Singapore，NUS）是新加坡的<b>旗舰学府</b>，历史可追溯到 <b>1905 年</b>创办的海峡殖民地政府医学院；<b>1980 年 8 月</b>由新加坡大学与南洋大学合并，正式成立今天的 NUS。经过百余年发展，它已是新加坡<b>学科最齐全、综合排名最高</b>的研究型大学——QS 世界排名长期稳居前 10（2025 年第 8），常年位居亚洲第一梯队。</p>
+      <p>全校设 <b>16 个学院 / 学部</b>、开设 50 多个本科主修，分布在 <b>Kent Ridge（肯特岗主校区）、Bukit Timah（法学院与李光耀公共政策学院）、Outram（杜克-NUS 医学院）</b>三大校区，在校学生约 <b>3.8 万</b>。从法律、医学、计算机、商科，到工程、设计、人文社科，NUS 几乎在每一个领域都处于全国乃至亚洲顶尖。</p>
+      <p>对中国学生而言，NUS 是除清北复交之外<b>最具吸引力的亚洲名校之一</b>：接受高考直申、文凭全球认可、地处全英文环境又离家近、毕业生就业力位列全球前茅。</p>
+      <div class="nx-rank">
+        <div class="big">
+          <div class="it"><div class="n">28</div><div class="l">个学科全球前 10<br><span style="font-size:.75rem;opacity:.7">QS 2026 学科排名</span></div></div>
+          <div class="it"><div class="n">7</div><div class="l">个学科全球前 3</div></div>
+          <div class="it"><div class="n">#8</div><div class="l">QS 世界综合排名</div></div>
+        </div>
+        <div class="subs">
+          <div class="s"><span>艺术史 Art History</span><b>全球 #2</b></div>
+          <div class="s"><span>土木与结构工程</span><b>全球 #3</b></div>
+          <div class="s"><span>社会政策与管理</span><b>全球 #3</b></div>
+          <div class="s"><span>计算机科学与信息系统</span><b>全球 #4</b></div>
+          <div class="s"><span>电气与电子工程</span><b>全球 #4</b></div>
+          <div class="s"><span>化学工程</span><b>全球 #4</b></div>
+        </div>
+      </div>
+    </section>
+
     <section class="nx-sec">
       <h2 class="nx-h2">为什么是 NUS</h2>
       <p class="nx-lead">不是「之一」，而是新加坡综合实力的天花板。</p>
@@ -152,6 +192,14 @@ BODY=f'''<div class="nx">
         <div class="nx-fcard"><div class="ic">📚</div><h3>综合最强</h3><p>法律、医学、计算机、商业分析、商科、工程全部亚洲 / 全球顶尖，选择面最广。</p></div>
         <div class="nx-fcard"><div class="ic">🏛️</div><h3>书院制社区</h3><p>13 所 Hall / Residential College + 现代化 University Town（UTown），人脉与资源丰富。</p></div>
         <div class="nx-fcard"><div class="ic">🇨🇳</div><h3>接受高考</h3><p>高考生有专门申请通道，无需再考 A-Level 也能冲顶尖名校。</p></div>
+      </div>
+    </section>
+
+    <section class="nx-sec">
+      <h2 class="nx-h2">16 个学院 / 学部</h2>
+      <p class="nx-lead">NUS 学科覆盖几乎所有领域，主要学院 / 学部如下：</p>
+      <div class="nx-chips">
+        <span>📖 <b>文学暨社会科学院</b> FASS</span><span>💼 <b>商学院</b> NUS Business School</span><span>💻 <b>计算机学院</b> School of Computing</span><span>⚙️ <b>设计与工程学院</b> CDE</span><span>⚖️ <b>法学院</b> Faculty of Law</span><span>🩺 <b>杨潞龄医学院</b> YLL Medicine</span><span>🦷 <b>牙科学院</b> Dentistry</span><span>🧪 <b>理学院</b> Faculty of Science</span><span>🎼 <b>杨秀桃音乐学院</b> YST</span><span>🏛️ <b>李光耀公共政策学院</b> LKYSPP</span><span>🩹 <b>公共卫生学院</b> SSHSPH</span><span>🎓 <b>NUS College</b> 荣誉书院</span><span>🔬 <b>杜克-NUS 医学院</b>（研究生）</span><span>🌐 <b>持续教育学院</b> SCALE</span>
       </div>
     </section>
 
@@ -167,6 +215,25 @@ BODY=f'''<div class="nx">
         <div class="nx-pcard"><div class="t"><span class="ic">⚙️</span><h3>工程（大类）</h3></div><p>含机械、电子、生物医学等，名额多、相对友好。</p><div class="cop">A-Level <b>BBB/C–AAA/A</b> · GPA <b>3.57–3.94</b></div></div>
       </div>
       <figure class="nx-figure"><img src="/assets/nus-campus2.jpg" alt="NUS 计算机学院 COM2 大楼" loading="lazy" decoding="async" width="1200"><figcaption>NUS 计算机学院（School of Computing）—— 全亚洲顶尖</figcaption></figure>
+    </section>
+
+    <section class="nx-sec">
+      <h2 class="nx-h2">三大校区</h2>
+      <div class="nx-camp">
+        <div class="nx-cc"><h3>Kent Ridge 肯特岗</h3><p class="en">主校区</p><p>绝大多数学院所在地，以及 University Town（UTown）现代化书院社区；西部地铁 Kent Ridge 站可达。</p></div>
+        <div class="nx-cc"><h3>Bukit Timah 武吉知马</h3><p class="en">法学院 · 公共政策</p><p>历史校园，法学院与李光耀公共政策学院（LKYSPP）所在地，环境优雅。</p></div>
+        <div class="nx-cc"><h3>Outram 欧南</h3><p class="en">医学（研究生）</p><p>杜克-NUS 医学院所在地，临近新加坡中央医院与国家医学中心。</p></div>
+      </div>
+    </section>
+
+    <section class="nx-sec">
+      <h2 class="nx-h2">特色项目与校园生活</h2>
+      <div class="nx-feat">
+        <div class="nx-fcard"><div class="ic">🌏</div><h3>海外学院 NOC</h3><p>NUS Overseas Colleges 把学生派到硅谷、上海、深圳等创业枢纽，边在初创公司实习边修课，创业基因浓厚。</p></div>
+        <div class="nx-fcard"><div class="ic">🏘️</div><h3>住宿学院 + UTown</h3><p>13 所 Hall / Residential College 加现代化书院社区，跨学科住宿生活，社团与活动丰富。</p></div>
+        <div class="nx-fcard"><div class="ic">🎓</div><h3>NUS College 荣誉书院</h3><p>整合原 USP 与 Yale-NUS，跨学科精英培养，小班研讨、全球游学。</p></div>
+        <div class="nx-fcard"><div class="ic">🔁</div><h3>双学位 + 全球交换</h3><p>可修双学位 / 并行学位，并与全球顶尖大学广泛交换，国际化程度高。</p></div>
+      </div>
     </section>
 
     <section class="nx-sec">

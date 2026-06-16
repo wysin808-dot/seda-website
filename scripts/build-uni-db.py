@@ -334,10 +334,10 @@ def build_landing():
     desc="新加坡 6 所公立大学（NUS/NTU/SMU/SUTD/SIT/SUSS）+ 艺术大学 UAS 一站对比：QS 排名、录取方式、王牌专业，以及 %d 个本科专业的 A-Level / WACE ATAR / 理工 GPA 录取分数据库。"%N
     body=f'''
   <section class="udb-hero"><div class="in">
-    <span class="udb-ey">🎓 6 公立大学 + 艺术大学 · {N} 个专业 · A-Level / WACE / 理工 GPA</span>
-    <h1>新加坡大学完全指南</h1>
-    <p class="s">NUS · NTU · SMU · SUTD · SIT · SUSS 六所公立 + 艺术大学 UAS 一站对比。{N} 个本科专业的录取成绩（A-Level IGP / WACE ATAR / 理工 GPA）全部收录，按你的分数即可查能进哪些。</p>
-    <form class="udb-search" action="/university/degrees/" method="get"><input type="search" name="q" placeholder="搜专业 / 学校，如 计算机、商科、护理、NUS"><button type="submit">搜专业</button></form>
+    <span class="udb-ey">🎓 6 所公立大学 + 1 所艺术大学</span>
+    <h1>新加坡大学专业录取分<br>一站查询</h1>
+    <p class="s">NUS · NTU · SMU · SUTD · SIT · SUSS + 艺术大学 UAS，{N} 个本科专业的 A-Level / WACE / 理工 GPA 录取分全收录。</p>
+    <form class="udb-search" action="/university/degrees/" method="get"><input type="search" name="q" placeholder="搜专业 / 学校，如 计算机、护理、NUS"><button type="submit">搜专业</button></form>
   </div></section>
   <div class="udb-statsband"><div class="udb-stats">{statshtml}</div></div>
 
@@ -366,7 +366,13 @@ def build_landing():
 
   <section class="usec ufaq" style="padding-top:0"><h2>常见问题</h2><div style="margin-top:6px">{faqhtml}</div></section>
 '''
-    return head(title,desc,canon,jsonld)+'<div class="ud-page">'+body+'</div>'+TAIL
+    countup=r'''<script>
+(function(){var els=document.querySelectorAll('.ud-page .udb-stat .n');
+function run(el){var t=parseInt((el.textContent||'').replace(/[^0-9]/g,''),10);if(isNaN(t)){return;}var d=900,s=null;
+function step(ts){if(!s)s=ts;var p=Math.min((ts-s)/d,1),e=1-Math.pow(1-p,3);el.textContent=Math.round(e*t);if(p<1){requestAnimationFrame(step);}}requestAnimationFrame(step);}
+if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){run(en.target);io.unobserve(en.target);}});},{threshold:.5});els.forEach(function(el){io.observe(el);});}else{els.forEach(run);}})();
+</script>'''
+    return head(title,desc,canon,jsonld)+'<div class="ud-page">'+body+'</div>'+countup+TAIL
 
 os.makedirs(os.path.join(ROOT,"university/degrees"),exist_ok=True)
 open(os.path.join(ROOT,"university/degrees/index.html"),"w",encoding="utf-8").write(build_db())

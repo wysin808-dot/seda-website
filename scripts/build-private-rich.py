@@ -710,6 +710,9 @@ CSS=r'''
 .prc-cta{background:var(--accgrad);border-radius:18px;padding:26px 28px;text-align:center;margin:8px 0}
 .prc-cta,.prc-cta *{color:#fff}.prc-cta h3{margin:0 0 8px;font-size:1.3rem}
 .prc-cta a{display:inline-block;margin-top:14px;background:#fff;color:var(--acc);font-weight:800;padding:11px 28px;border-radius:10px;text-decoration:none}
+.prc-uniq{list-style:none;padding:0;margin:0;display:grid;gap:9px}
+.prc-uniq li{position:relative;padding:12px 16px 12px 40px;background:#faf7fa;border:1px solid var(--prc-line);border-radius:12px;line-height:1.65;color:#3a4150;font-size:.95rem}
+.prc-uniq li::before{content:"★";position:absolute;left:15px;top:12px;color:var(--acc);font-size:.95rem}
 .prc-rel{display:flex;flex-wrap:wrap;gap:10px}
 .prc-rel a{border:1px solid var(--prc-line);border-radius:999px;padding:9px 17px;text-decoration:none;color:var(--acc);font-weight:700;font-size:.92rem}
 .prc-rel a:hover{background:var(--acc);color:#fff}
@@ -741,6 +744,50 @@ TAIL=f'''</main>
 <script src="/seda-site.js?v=28"></script>
 </body>
 </html>'''
+
+# 各校「独有亮点」——真实、各不相同的差异化内容，进一步去模版
+UNIQUE={
+ "jcu":["<b>海洋生物学全球领先</b>：JCU 本部地处大堡礁，海洋与热带科学世界顶尖，新加坡校区是少数开设<b>水产养殖（Aquaculture）</b>学位的院校。",
+   "<b>心理学招牌</b>：从心理科学到临床/咨询硕士路径完整，是 JCU 在新加坡最受认可的方向之一。",
+   "<b>一年 3 学期加速制</b>：本科最快约 2 年完成，文凭与澳洲本部完全一致。",
+   "环境科学、信息技术与商科同样齐全，适合想走研究或专业路线的学生。"],
+ "curtin":["<b>采矿与矿物工程全球顶尖</b>：Curtin 本部的矿业与地球科学 QS 学科常年世界前列，是其王牌基因。",
+   "<b>商学院获 AACSB 认证</b>（全球约前 5% 商学院）；会计金融、传播与媒体 QS 学科进入全球前 200。",
+   "直属校区学制紧凑，可衔接澳洲本部交换与升学。",
+   "护理（注册护士转换）与信息科技、网络安全方向适合在职提升与转行。"],
+ "sim":["<b>规模最大、最成熟</b>：数万在校生、社团与学生生活完善，自有 Clementi 大型校园。",
+   "<b>伦敦大学（UoL）项目</b>学术方向由 LSE 等学院指导，文凭含金量在私立中最高之一。",
+   "合作英、澳、美、加、欧 12 所大学，转专业 / 转校路径最多。",
+   "商科、金融、计算机、传媒、心理学方向齐全，适合多数文商科学生。"],
+ "kaplan":["<b>合作大学最多（12 所）</b>，转专业、转校、衔接最灵活。",
+   "<b>都柏林大学（UCD）商学学士（BBS）多达 9 个细分方向</b>，商科选择极细。",
+   "全球 Kaplan 集团旗下，市中心 City Campus，通勤与实习便利。",
+   "每年多次开学，入学时间最灵活，适合错过常规申请季的学生。"],
+ "psb":["<b>少数「理工 + 商科」并重的私立</b>：工程与生命科学是它区别于其他私立的特色。",
+   "滨海湾科技校区配有工程、生命科学、运动科学等专业实验室。",
+   "<b>Trimester 制（一年 3 学期）</b>，比澳洲本校区可省约 1 年时间与费用。",
+   "合作考文垂、纽卡斯尔、拉筹伯等，应用型强、就业方向广。"],
+ "mdis":["<b>新加坡历史最悠久的私立学府</b>（1956 年创办、非营利）。",
+   "<b>专业覆盖最广</b>：工程、时尚设计、生命科学、护理、传媒、心理学一应俱全。",
+   "自有校园 + 学生宿舍（MDIS Residences），适合需要住宿的国际生。",
+   "8 所英国合作大学的部分专业获中国教育部（中留服）认证。"],
+ "lsbf":["<b>财会与 ACCA 深度衔接</b>：可走「ACCA 备考 → 应用会计学位」的专业路线。",
+   "合作格林威治大学，<b>酒店与休闲管理 QS 学科全球前 175</b>。",
+   "学习模式灵活（全日制 / 兼读 / 线上），适合在职或需弹性安排的学生。",
+   "Top-up 专升本最快约 8 个月拿英国学位。"],
+ "amity":["<b>印度 Amity 教育集团</b>旗下，学生来自 45+ 国家，国际化氛围浓。",
+   "与 <b>Teesside 大学合作开设多个人工智能 / 数据科学硕士</b>，紧跟产业热点。",
+   "伦敦大学 MBA（由伦敦玛丽女王大学学术指导）。",
+   "从预科、文凭到本科、硕士的完整衔接路径。"],
+ "shrm":["<b>酒店与旅游管理专精</b>：前身为 SHRM 酒店与度假村管理学院，专业聚焦。",
+   "课程<b>偏行业实操与实训</b>，对接酒店、旅游、会展就业。",
+   "高级大专可快速衔接英国本科（Wrexham / Cumbria）。",
+   "适合目标明确、立志酒店 / 旅游 / 服务业管理的学生。"],
+ "tmc":["<b>新加坡最早的私立学府之一</b>（1981 年创办），老牌稳健。",
+   "<b>心理学与咨询、商科、传媒</b>是其传统强项方向。",
+   "现主要合作英国 Anglia Ruskin 大学（ARU）授予学位。",
+   "专业面广、开课灵活，适合文商与心理方向学生。"],
+}
 
 def logo_path(slug):
     for ext in ("svg","png"):
@@ -846,6 +893,8 @@ def build(slug):
         statqs=''
         factrows=f'<tr><th>办学类型</th><td>合作名校学位（私立学府）</td></tr><tr><th>合作大学</th><td>{esc("、".join(z for k,z,*_ in partners if k!=slug))}</td></tr><tr><th>本科学制</th><td>直入大二最快约 16 个月 / Top-up 最快约 8 个月</td></tr>'
         dbfilterword="方向、合作大学、层级"
+    uq=UNIQUE.get(slug,[])
+    uniqsec=(f'<section class="prc-sec tight"><h2>🌟 {esc(d["abbr"])} 独有亮点</h2><ul class="prc-uniq">'+"".join(f"<li>{x}</li>" for x in uq)+'</ul></section>') if uq else ''
     statshtml=f'''{stat1}
       <div class="prc-stat"><div class="n">{len(progs)}+</div><div class="l">专业 / 课程</div></div>
       <div class="prc-stat"><div class="n">{len(fields)} 大</div><div class="l">专业方向</div></div>
@@ -864,7 +913,7 @@ def build(slug):
   </div></section>
 
   <section class="prc-sec"><h2>学校概况</h2>{ov}<div class="prc-hl">{hl}</div></section>
-
+  {uniqsec}
   {midsec}
 
   <section class="prc-sec tight"><h2>升学路径</h2>

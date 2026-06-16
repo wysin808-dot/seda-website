@@ -408,7 +408,8 @@
     "chinaStudentNotes": "中国学生如果习惯纯考试型学习，进入 RP 后需要适应讨论、展示和项目写作。英文表达和课堂参与会影响学习体验。",
     "sedaAdvice": "RP 不应只按排名判断，关键是学习方式是否适合孩子。若孩子喜欢实践、体育健康、酒店旅游或应用科技，可以认真比较 RP。",
     "officialSource": "MOE Polytechnic overview / Republic Polytechnic official information",
-    "sameAs": "https://www.rp.edu.sg/"
+    "sameAs": "https://www.rp.edu.sg/",
+    "customContent": true
   },
   {
     "type": "university",

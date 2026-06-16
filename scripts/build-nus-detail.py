@@ -146,7 +146,7 @@ faqs=[
  ("NUS 校园在哪？住宿怎么样？","主校区在 <b>Kent Ridge（肯特岗）</b>，西部地铁可达；法学院在 Bukit Timah。住宿有 13 所 Hall / Residential College，加上现代化的 University Town（UTown）书院制社区，校园生活丰富。"),
  ("NUS 有奖学金吗？","有。面向国际学生有 ASEAN 及各类入学奖学金，覆盖学费甚至生活费，竞争激烈、需单独申请，看成绩 + 综合表现。"),
  ("NUS 和 NTU 怎么选？","NUS 综合更全、文社科与医法更强、综合排名略高；NTU 工程与计算机全球顶尖、校园更大更新。法律/医学/商科/文社科偏 NUS，纯工程/材料/通信可重点看 NTU。两校都可用同一套高考/A-Level/GPA 申请。"),
- ("NUS 申请时间线是怎样的？","国际本科一般在每年 10 月–次年 2/3 月开放申请（高考生通常在出分后补交成绩），8 月入学。建议提前 1 年准备成绩、英文、文书与奖学金申请。"),
+ ("NUS 申请时间线是怎样的？","国际本科一般在每年 10 月–次年 2/3 月开放申请（高考生通常在出分后补交成绩），8 月入学。顶尖专业与奖学金竞争激烈，建议提前规划成绩、英文、文书与课外背景。"),
 ]
 faqld={"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":q,"acceptedAnswer":{"@type":"Answer","text":re.sub('<[^>]+>','',a)}} for q,a in faqs]}
 collegeld={"@context":"https://schema.org","@type":"CollegeOrUniversity","name":"新加坡国立大学","alternateName":"National University of Singapore","url":"https://sgeda.org.cn/university/nus/","sameAs":"https://www.nus.edu.sg/","foundingDate":"1905","address":{"@type":"PostalAddress","addressLocality":"Kent Ridge","addressCountry":"SG"},"description":"新加坡历史最久、综合排名最高的公立大学，QS 世界排名前 10。接受中国高考、A-Level、IB、WACE 及理工 Diploma 申请。","inLanguage":"zh-CN"}
@@ -274,11 +274,11 @@ BODY=f'''<div class="nx">
       <p class="nx-lead">NUS 对中国学生开放多条通道，按你手上的成绩类型选。</p>
       <div class="nx-routes">
         <div class="nx-rcard lead"><div class="h"><span class="fl">🇨🇳</span>高考 Gaokao<span class="badge">中国学生主路</span></div><p>NUS 接受高考成绩，通常要求<b>远超一本线 / 特控线</b>，热门专业更高，看英文单科；英文不够需雅思 / 托福。</p></div>
-        <div class="nx-rcard"><div class="h"><span class="fl">📘</span>A-Level / 国际 A-Level</div><p>按 IGP 成绩档竞争，多数专业 <b>AAA</b> 起；国际 A-Level（CIE/Edexcel）按等同评估。</p></div>
-        <div class="nx-rcard"><div class="h"><span class="fl">🌐</span>IB 文凭</div><p>高分录取，热门专业一般 40+/45。</p></div>
+        <div class="nx-rcard"><div class="h"><span class="fl">📘</span>A-Level / 国际 A-Level</div><p>按 IGP 成绩档竞争，多数专业 <b>AAA</b> 起；国际 A-Level（CIE/Edexcel）等同折算后竞争。</p></div>
+        <div class="nx-rcard"><div class="h"><span class="fl">🌐</span>IB 文凭</div><p>高分录取，医学 / 法律 / 商科等热门一般 41+/45。</p></div>
         <div class="nx-rcard"><div class="h"><span class="fl">🇦🇺</span>WACE / ATAR</div><p>按 ATAR 综合评估，顶尖专业近满分；以官方为准。</p></div>
         <div class="nx-rcard"><div class="h"><span class="fl">🎓</span>理工 Diploma</div><p>凭 GPA 升学，多数专业 IGP GPA <b>3.6–3.9</b>。</p></div>
-        <div class="nx-rcard"><div class="h"><span class="fl">🗣️</span>语言要求</div><p>英文非母语者一般需<b>雅思 / 托福</b>或同等成绩。</p></div>
+        <div class="nx-rcard"><div class="h"><span class="fl">🗣️</span>语言要求</div><p>全英文授课；英文非母语者需<b>雅思 / 托福</b>，文社科与法律对英文要求尤高。</p></div>
       </div>
     </section>
 
@@ -289,7 +289,7 @@ BODY=f'''<div class="nx">
         <div class="nx-fee"><p class="who">医学 / 牙医</p><p class="price">更高</p><p class="note">专业学费另计</p></div>
         <div class="nx-fee"><p class="who">住宿 + 生活费</p><p class="price">另算</p><p class="note">Kent Ridge / UTown 宿舍</p></div>
       </div>
-      <p class="nx-lead" style="margin-top:16px;font-size:.9rem">不申请津贴则更高；津贴需签毕业后在新加坡工作 3 年的服务协议。以 NUS / MOE 当年收费为准。</p>
+      <p class="nx-lead" style="margin-top:16px;font-size:.9rem">医学 / 牙医等专业学费另计；申请 MOE 津贴须签毕业后在新工作 3 年的服务协议，不申请则学费高出许多。以 NUS / MOE 当年公布为准。</p>
     </section>
 
     <section class="nx-sec">

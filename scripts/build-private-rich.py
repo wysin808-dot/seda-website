@@ -291,7 +291,89 @@ AMITY_PROGS=[
  ("MA in Education","teesside","硕士","教育","教育学硕士"),
 ]
 
+# ============ SHRM ============
+SHRM_PARTNERS=[
+ ("wrexham","雷克瑟姆大学","Wrexham University","英国","🇬🇧","SHRM 主要学位伙伴（酒店 / 商科 / MBA）","英国应用型大学"),
+ ("cumbria","坎布里亚大学","University of Cumbria","英国","🇬🇧","MBA 授予","英国应用型大学"),
+ ("shrm","SHRM 学院","SHRM College","新加坡","🇸🇬","酒店与旅游专精，自颁高级大专","新加坡本地学府"),
+]
+SHRM_PROGS=[
+ ("Diploma in Business Management","shrm","文凭","商科","工商管理大专"),
+ ("Diploma in Hospitality and Tourism Management","shrm","文凭","酒店旅游","酒店与旅游管理大专"),
+ ("Advanced Diploma in Business Management","shrm","文凭","商科","工商管理高级大专"),
+ ("Advanced Diploma in Hospitality and Tourism Management","shrm","文凭","酒店旅游","酒店与旅游管理高级大专"),
+ ("BA (Hons) International Tourism and Hospitality Management (Top-up)","wrexham","本科","酒店旅游","国际旅游与酒店管理（荣誉文学士·专升本）"),
+ ("BA (Hons) Hospitality, Tourism and Event Management (Top-up)","wrexham","本科","酒店旅游","酒店、旅游与会展管理（荣誉文学士·专升本）"),
+ ("BA (Hons) International Business (Top-up)","wrexham","本科","商科","国际商务（荣誉文学士·专升本）"),
+ ("BA (Hons) Business (Top-up)","wrexham","本科","商科","商学（荣誉文学士·专升本）"),
+ ("Master of Business Administration (MBA)","wrexham","硕士","商科","工商管理硕士（MBA·Wrexham）"),
+ ("Master of Business Administration (MBA)","cumbria","硕士","商科","工商管理硕士（MBA·Cumbria）"),
+]
+
+# ============ TMC ============
+TMC_PARTNERS=[
+ ("aru","安格利亚鲁斯金大学","Anglia Ruskin University","英国","🇬🇧","TMC 现主要学位伙伴","英国应用型大学"),
+ ("northampton","北安普顿大学","University of Northampton","英国","🇬🇧","传统合作（招生至 2026 年 7 月）","英国应用型大学"),
+ ("tmc","TMC 学院","TMC Academy","新加坡","🇸🇬","新加坡最早私立学府之一，自颁文凭","新加坡本地学府"),
+]
+TMC_PROGS=[
+ ("BSc (Hons) Business with Marketing","aru","本科","市场营销","商业与市场营销（荣誉理学士）"),
+ ("BSc (Hons) International Business Management","aru","本科","商科","国际商业管理（荣誉理学士）"),
+ ("BSc (Hons) Supply Chain Management","aru","本科","物流供应链","供应链管理（荣誉理学士）"),
+ ("BSc (Hons) Business with Tourism Management","aru","本科","酒店旅游","商业与旅游管理（荣誉理学士）"),
+ ("Master of Business Administration (MBA)","aru","硕士","商科","工商管理硕士（MBA）"),
+ ("BA (Hons) Business and Management (Top-up)","northampton","本科","商科","商业与管理（荣誉文学士·专升本）"),
+ ("BA (Hons) Marketing Management (Top-up)","northampton","本科","市场营销","市场营销管理（荣誉文学士·专升本）"),
+ ("BSc (Hons) Accounting and Finance","northampton","本科","会计与金融","会计与金融（荣誉理学士）"),
+ ("BA (Hons) International Tourism and Hospitality Management (Top-up)","northampton","本科","酒店旅游","国际旅游与酒店管理（荣誉文学士·专升本）"),
+ ("BA (Hons) International Logistics and Trade Finance (Top-up)","northampton","本科","物流供应链","国际物流与贸易金融（荣誉文学士·专升本）"),
+ ("BSc (Hons) Psychology (Top-up)","northampton","本科","心理学","心理学（荣誉理学士·专升本）"),
+ ("BSc (Hons) Psychology and Counselling","northampton","本科","心理学","心理学与咨询（荣誉理学士）"),
+ ("BSc (Hons) Software Engineering (Top-up)","northampton","本科","IT计算机","软件工程（荣誉理学士·专升本）"),
+ ("BA (Hons) Creative Film, Television and Digital Media Production (Top-up)","northampton","本科","传媒","创意影视与数字媒体制作（荣誉文学士·专升本）"),
+ ("MBA (Top-up)","northampton","硕士","商科","工商管理硕士（MBA·专升本）"),
+ ("Executive MBA (Top-up)","northampton","硕士","商科","高级工商管理硕士（EMBA·专升本）"),
+]
+
 RICH={
+"shrm":{
+ "abbr":"SHRM","zh":"SHRM 学院","en":"SHRM College Singapore","color":"#8a6d1f","founded":2007,
+ "tagline":"酒店与旅游管理专精",
+ "sig":"<b>酒店与旅游管理专精</b>的私立学院（2007 年创办，前身 SHRM 酒店与度假村管理学院）；合作英国 <b>Wrexham、Cumbria</b> 授予学位，课程偏实操与行业实训。EduTrust 4 年认证。",
+ "fee":"S$30,000–45,000","fee_note":"本科总学费按专业与学制不同；以官方为准。私立大学不提供 MOE 政府津贴。",
+ "intake":"每年多次开学","edutrust":"EduTrust 4 年认证",
+ "china":"取决于合作大学是否在中留服名单；申请前请在中留服官网核实具体学位。",
+ "overview":[
+   "SHRM 学院 2007 年创办（前身为 SHRM 酒店与度假村管理学院），是新加坡<b>酒店与旅游管理专精</b>的私立学院，持 EduTrust 4 年认证。",
+   "合作<b>英国雷克瑟姆大学（Wrexham）、坎布里亚大学（Cumbria）</b>，提供国际旅游与酒店管理、酒店与会展管理、国际商业的<b>专升本（Top-up）</b>学位及 MBA；课程<b>偏实操与行业实训</b>。",
+   "适合立志酒店 / 旅游 / 服务业管理、想用高级大专快速衔接英国学位的学生。",
+ ],
+ "highlights":[("酒店专精","行业实训、实操导向"),("英国学位","Wrexham / Cumbria 授予"),("专升本快","高级大专衔接本科")],
+ "pathway":[("文凭 / 高级大专","SHRM 自颁，按学历入读，衔接英国本科。"),
+   ("本科学位（Top-up）","Wrexham 专升本，拿英国学位。"),
+   ("硕士 MBA","Wrexham 或 Cumbria 的 MBA。")],
+ "finder":"https://shrm.edu.sg/","coverage":"以下为 SHRM 主要学位与高级大专专业；完整清单见官方课程页。",
+ "partners":SHRM_PARTNERS,"progs":SHRM_PROGS,
+},
+"tmc":{
+ "abbr":"TMC","zh":"TMC 学院","en":"TMC Academy","color":"#b3243b","founded":1981,
+ "tagline":"新加坡最早的私立学府之一（1981）",
+ "sig":"<b>新加坡最早的私立学府之一</b>（1981 年创办），专业面广——商科、IT、<b>心理学</b>、酒店旅游、传媒等；现主要合作英国 <b>Anglia Ruskin</b> 授予学位。EduTrust 4 年认证。",
+ "fee":"S$28,000–45,000","fee_note":"本科总学费按合作大学与专业不同；以官方为准。私立大学不提供 MOE 政府津贴。",
+ "intake":"每年多次开学","edutrust":"EduTrust 4 年认证",
+ "china":"取决于合作大学是否在中留服名单；申请前请在中留服官网核实具体学位。",
+ "overview":[
+   "TMC 学院 1981 年创办，是<b>新加坡最早的私立学府之一</b>，专业面广、老牌稳健，持 EduTrust 4 年认证。",
+   "现主要合作<b>英国 Anglia Ruskin 大学（ARU）</b>授予商科学位；另与<b>北安普顿大学</b>合作的多个专业（商科、会计、心理、酒店、传媒、软件等）<b>招生至 2026 年 7 月</b>。商科、心理学、酒店旅游是其传统强项。",
+   "本科多为 Top-up（专升本），适合想要英国大学学位、走商科 / 心理 / 酒店方向的学生。",
+ ],
+ "highlights":[("老牌资历","1981 创办，新加坡最早之一"),("专业面广","商科 / 心理 / 酒店 / 传媒 / IT"),("英国学位","Anglia Ruskin 等授予")],
+ "pathway":[("文凭 / 高级文凭","TMC 自颁，按学历入读，衔接英国本科。"),
+   ("本科学位（Top-up）","凭文凭专升本，拿英国大学学位。"),
+   ("硕士 MBA","MBA / Executive MBA。")],
+ "finder":"https://www.tmc.edu.sg/","coverage":"以下为 TMC 主要学位专业；北安普顿合作专业招生至 2026 年 7 月，完整与最新清单见官方课程页。",
+ "partners":TMC_PARTNERS,"progs":TMC_PROGS,
+},
 "amity":{
  "abbr":"Amity","zh":"Amity 全球教育学院（新加坡）","en":"Amity Global Institute Singapore","color":"#00325a","founded":2007,
  "tagline":"印度 Amity 教育集团旗下 · 国际化",

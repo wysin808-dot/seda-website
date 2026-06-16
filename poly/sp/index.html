@@ -76,6 +76,17 @@
 .cop-lvl{font-size:.78rem;font-weight:700;white-space:nowrap}
 .cop-lvl.hard{color:#c0392b}.cop-lvl.mid{color:#b45309}.cop-lvl.easy{color:#2e7d32}
 @media(max-width:560px){.cop-table .col-lvl{display:none}}
+
+/* 学费可视化卡片 */
+.fee-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin:6px 0 4px}
+.fee-card{position:relative;border:1px solid var(--line);border-radius:14px;padding:20px 16px 16px;text-align:center;background:#fff}
+.fee-card.hl{border:2px solid var(--brand);background:var(--brand-light)}
+.fee-card .ic{font-size:1.7rem}
+.fee-card .who{font-size:.84rem;color:var(--muted);margin:6px 0 2px}
+.fee-card .price{font-size:1.45rem;font-weight:800;color:var(--ink);margin:0}
+.fee-card.hl .price{color:var(--brand-strong)}
+.fee-card .note{font-size:.78rem;color:var(--muted);margin:6px 0 0}
+.fee-card .tag{position:absolute;top:-10px;left:50%;transform:translateX(-50%);background:var(--brand);color:#fff;font-size:.7rem;font-weight:700;padding:2px 10px;border-radius:999px;white-space:nowrap}
 </style>
 <!-- SEDA_GA4_START -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-38WFES3WTH"></script>
@@ -214,15 +225,10 @@
       <p class="source-note">关键门槛是<strong>英文</strong>——全英文授课，课堂表达、汇报、报告都需要扎实英文，建议提前 2–3 年规划。</p>
 
       <h2 id="fees">💰 学费参考（每年）</h2>
-      <div class="table-wrap">
-        <table>
-          <thead><tr><th>身份</th><th>学费</th><th>备注</th></tr></thead>
-          <tbody>
-            <tr><td>新加坡公民</td><td>约 S$3,000</td><td>高额补贴</td></tr>
-            <tr><td>永久居民 PR</td><td>约 S$6,000–6,500</td><td>含 MOE 补贴</td></tr>
-            <tr><td>国际学生（申请津贴后）</td><td>约 S$11,000</td><td>需签 3 年服务协议</td></tr>
-          </tbody>
-        </table>
+            <div class="fee-grid">
+        <div class="fee-card"><span class="ic">🇸🇬</span><p class="who">新加坡公民</p><p class="price">S$3,000</p><p class="note">政府高额补贴</p></div>
+        <div class="fee-card"><span class="ic">🪪</span><p class="who">永久居民 PR</p><p class="price">S$6,000–6,500</p><p class="note">含 MOE 补贴</p></div>
+        <div class="fee-card hl"><span class="tag">中国学生看这档</span><span class="ic">✈️</span><p class="who">国际学生（申请津贴后）</p><p class="price">S$11,000</p><p class="note">需签 3 年服务协议</p></div>
       </div>
       <p class="source-note">另需算生活费、住宿、保险；以 SP / MOE 当年收费为准。</p>
 

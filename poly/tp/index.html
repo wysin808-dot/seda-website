@@ -55,6 +55,33 @@
 .poly-qnav a{font-size:.86rem;color:var(--brand-strong);background:var(--brand-light);border:1px solid #f3c6c6;padding:5px 12px;border-radius:999px;text-decoration:none}
 .poly-qnav a:hover{background:var(--brand);color:#fff}
 @media(max-width:600px){.poly-id{padding:16px}.poly-id .logo{width:160px}.fit2{grid-template-columns:1fr}}
+
+/* 录取分数可视化表格 */
+.cop-table{width:100%;border-collapse:collapse;font-size:.92rem}
+.cop-table th{text-align:left;padding:10px 12px;background:#faf7f5;font-weight:700;color:var(--ink);border-bottom:2px solid var(--line);white-space:nowrap}
+.cop-table td{padding:11px 12px;border-bottom:1px solid var(--line);vertical-align:middle}
+.cop-table tr:last-child td{border-bottom:none}
+.cop-table tr:hover td{background:#fcfaf9}
+.cop-score{display:inline-flex;align-items:center;justify-content:center;min-width:40px;height:30px;padding:0 8px;border-radius:8px;font-weight:800;font-size:1rem;color:#fff}
+.cop-score.hard{background:#c0392b}.cop-score.mid{background:#d97706}.cop-score.easy{background:#2e7d32}
+.cop-barwrap{display:flex;align-items:center;gap:10px}
+.cop-bar{height:8px;border-radius:4px;background:#ececec;overflow:hidden;flex:1;min-width:80px}
+.cop-bar i{display:block;height:100%;border-radius:4px}
+.cop-bar i.hard{background:#c0392b}.cop-bar i.mid{background:#d97706}.cop-bar i.easy{background:#2e7d32}
+.cop-lvl{font-size:.78rem;font-weight:700;white-space:nowrap}
+.cop-lvl.hard{color:#c0392b}.cop-lvl.mid{color:#b45309}.cop-lvl.easy{color:#2e7d32}
+@media(max-width:560px){.cop-table .col-lvl{display:none}}
+
+/* 学费可视化卡片 */
+.fee-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin:6px 0 4px}
+.fee-card{position:relative;border:1px solid var(--line);border-radius:14px;padding:20px 16px 16px;text-align:center;background:#fff}
+.fee-card.hl{border:2px solid var(--brand);background:var(--brand-light)}
+.fee-card .ic{font-size:1.7rem}
+.fee-card .who{font-size:.84rem;color:var(--muted);margin:6px 0 2px}
+.fee-card .price{font-size:1.45rem;font-weight:800;color:var(--ink);margin:0}
+.fee-card.hl .price{color:var(--brand-strong)}
+.fee-card .note{font-size:.78rem;color:var(--muted);margin:6px 0 0}
+.fee-card .tag{position:absolute;top:-10px;left:50%;transform:translateX(-50%);background:var(--brand);color:#fff;font-size:.7rem;font-weight:700;padding:2px 10px;border-radius:999px;white-space:nowrap}
 </style>
 <!-- SEDA_GA4_START -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-38WFES3WTH"></script>
@@ -161,15 +188,15 @@
       <h2 id="cop">📊 录取分数（ELR2B2 越低越好）</h2>
       <p>JAE 按 O-Level 的 <strong>ELR2B2</strong>（英文+2相关+2最佳，共 6 科之和，约 4–26 分）录取。</p>
       <div class="table-wrap">
-        <table>
-          <thead><tr><th>专业方向</th><th>2025 参考</th><th>备注</th></tr></thead>
+        <table class="cop-table">
+          <thead><tr><th>专业方向</th><th>2025 ELR2B2</th><th class="col-lvl">竞争激烈度（分数越低越难进）</th></tr></thead>
           <tbody>
-            <tr><td>兽医技术 / 法律与管理 / 心理学</td><td>≈ 9</td><td>独家/热门，竞争激烈</td></tr>
-            <tr><td>会计 / IT / 网络安全</td><td>≈ 10</td><td>商科与科技</td></tr>
-            <tr><td>应用科学</td><td>≈ 9–11</td><td>理科对口</td></tr>
-            <tr><td>商科 Business</td><td>≈ 11</td><td>名额较多</td></tr>
-            <tr><td>设计类</td><td>≈ 11–13</td><td>需作品集 + 面试</td></tr>
-            <tr><td>工程类</td><td>≈ 16</td><td>工科大类，门槛友好</td></tr>
+            <tr><td>兽医技术 / 法律与管理 / 心理学</td><td><span class="cop-score hard">≈9</span></td><td class="col-lvl"><div class="cop-barwrap"><span class="cop-bar"><i class="hard" style="width:77%"></i></span><span class="cop-lvl hard">很难 · 独家/热门，竞争激烈</span></div></td></tr>
+            <tr><td>会计 / IT / 网络安全</td><td><span class="cop-score hard">≈10</span></td><td class="col-lvl"><div class="cop-barwrap"><span class="cop-bar"><i class="hard" style="width:73%"></i></span><span class="cop-lvl hard">很难 · 商科与科技</span></div></td></tr>
+            <tr><td>应用科学</td><td><span class="cop-score hard">≈9–11</span></td><td class="col-lvl"><div class="cop-barwrap"><span class="cop-bar"><i class="hard" style="width:77%"></i></span><span class="cop-lvl hard">很难 · 理科对口</span></div></td></tr>
+            <tr><td>商科 Business</td><td><span class="cop-score mid">≈11</span></td><td class="col-lvl"><div class="cop-barwrap"><span class="cop-bar"><i class="mid" style="width:68%"></i></span><span class="cop-lvl mid">较难 · 名额较多</span></div></td></tr>
+            <tr><td>设计类</td><td><span class="cop-score mid">≈11–13</span></td><td class="col-lvl"><div class="cop-barwrap"><span class="cop-bar"><i class="mid" style="width:68%"></i></span><span class="cop-lvl mid">较难 · 需作品集 + 面试</span></div></td></tr>
+            <tr><td>工程类</td><td><span class="cop-score easy">≈16</span></td><td class="col-lvl"><div class="cop-barwrap"><span class="cop-bar"><i class="easy" style="width:45%"></i></span><span class="cop-lvl easy">相对友好 · 工科大类，门槛友好</span></div></td></tr>
           </tbody>
         </table>
       </div>
@@ -184,15 +211,10 @@
       <p class="source-note">设计类尤其看<strong>作品集与创意表达</strong>，兽医技术名额少、热度高，建议尽早规划。</p>
 
       <h2 id="fees">💰 学费参考（每年）</h2>
-      <div class="table-wrap">
-        <table>
-          <thead><tr><th>身份</th><th>学费</th><th>备注</th></tr></thead>
-          <tbody>
-            <tr><td>新加坡公民</td><td>约 S$3,000</td><td>高额补贴</td></tr>
-            <tr><td>永久居民 PR</td><td>约 S$6,000–6,500</td><td>含 MOE 补贴</td></tr>
-            <tr><td>国际学生（申请津贴后）</td><td>约 S$11,000</td><td>需签 3 年服务协议</td></tr>
-          </tbody>
-        </table>
+            <div class="fee-grid">
+        <div class="fee-card"><span class="ic">🇸🇬</span><p class="who">新加坡公民</p><p class="price">S$3,000</p><p class="note">政府高额补贴</p></div>
+        <div class="fee-card"><span class="ic">🪪</span><p class="who">永久居民 PR</p><p class="price">S$6,000–6,500</p><p class="note">含 MOE 补贴</p></div>
+        <div class="fee-card hl"><span class="tag">中国学生看这档</span><span class="ic">✈️</span><p class="who">国际学生（申请津贴后）</p><p class="price">S$11,000</p><p class="note">需签 3 年服务协议</p></div>
       </div>
       <p class="source-note">另需算生活费、住宿、保险；以 TP / MOE 当年收费为准。</p>
 

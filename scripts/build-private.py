@@ -237,7 +237,7 @@ for s in SCHOOLS:
     for f in s["fields"]:
         if f not in ALLFIELDS: ALLFIELDS.append(f)
 
-WHITE_LOGO={"psb"}  # 白色 logo → 放品牌色底
+WHITE_LOGO={"psb","kaplan"}  # 白色 logo → 放品牌色底
 def logo_of(slug):
     for ext in ("svg","png"):
         if os.path.exists(os.path.join(ROOT,"assets",f"logo-{slug}.{ext}")): return f"/assets/logo-{slug}.{ext}"

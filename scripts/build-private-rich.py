@@ -927,7 +927,110 @@ def build(slug):
 })();</script>'''
     return head(title,desc,canon,jsonld,acc,accgrad)+body+js+TAIL
 
+def build_aggregate():
+    # 汇总 10 所私立大学全部专业 → 一个总数据库
+    ORDER=["psb","kaplan","sim","mdis","jcu","curtin","amity","tmc","lsbf","shrm"]
+    rows=[]
+    for slug in ORDER:
+        if slug not in RICH: continue
+        d=RICH[slug]; pmap={p[0]:p for p in d["partners"]}
+        for en,key,lv,fl,zh in d["progs"]:
+            pz=pmap[key][1] if key in pmap else ""
+            rows.append((zh,en,slug,d["abbr"],d["color"],pz,lv,fl,d.get("direct",False)))
+    N=len(rows)
+    fields=[]
+    for r in rows:
+        if r[7] not in fields: fields.append(r[7])
+    fields=sorted(fields,key=lambda f:-sum(1 for r in rows if r[7]==f))
+    levels=sorted({r[6] for r in rows},key=lambda x:LEVELORDER.get(x,9))
+    acc="#7e2d3a"; accgrad="linear-gradient(135deg,#241a1e,#7e2d3a)"
+    canon="https://sgeda.org.cn/private-university/courses/"
+    title="新加坡私立大学专业数据库：10 所私立大学 %d 个专业一站查询（合作大学 / 方向 / 层级）| SEDA"%N
+    desc="新加坡 10 所主流私立大学（SIM/Kaplan/PSB/JCU/MDIS/Curtin/LSBF/Amity/SHRM/TMC）共 %d 个本科、硕士与文凭专业的可筛选数据库，按学校、专业方向、层级与合作大学查询，含官方英文名与中文名。"%N
+    def card(r):
+        zh,en,slug,abbr,color,pz,lv,fl,direct=r
+        nm=(zh+" "+en+" "+abbr+" "+pz+" "+fl+" "+lv).lower()
+        pntag='' if direct else (f'<span class="t pn">{esc(pz)}</span>' if pz else '')
+        return f'''<div class="prc-prog" data-school="{slug}" data-lv="{lv}" data-fl="{esc(fl)}" data-name="{esc(nm)}">
+  <div class="nm">{esc(zh)}</div><div class="ens">{esc(en)}</div>
+  <div class="meta"><a class="t sch" href="/private-university/{slug}/" style="background:{color}">{esc(abbr)}</a><span class="t lv {lv}">{lv}</span><span class="t fl">{FIELDICON.get(fl,"")} {esc(fl)}</span>{pntag}</div>
+</div>'''
+    cards="".join(card(r) for r in rows)
+    schoolchips="".join(f'<span class="prc-chip" data-f="school" data-v="{slug}" style="--c:{RICH[slug]["color"]}">{esc(RICH[slug]["abbr"])}（{sum(1 for r in rows if r[2]==slug)}）</span>' for slug in ORDER if slug in RICH)
+    fieldchips="".join(f'<span class="prc-chip" data-f="fl" data-v="{esc(f)}">{FIELDICON.get(f,"")} {esc(f)}（{sum(1 for r in rows if r[7]==f)}）</span>' for f in fields)
+    lvchips="".join(f'<span class="prc-chip" data-f="lv" data-v="{lv}">{lv}（{sum(1 for r in rows if r[6]==lv)}）</span>' for lv in levels)
+    nb=sum(1 for r in rows if r[6]=="本科"); nm_=sum(1 for r in rows if r[6]=="硕士"); nd=sum(1 for r in rows if r[6]=="文凭")
+    jsonld=[
+     {"@context":"https://schema.org","@type":"Dataset","name":"新加坡私立大学专业数据库",
+      "description":desc,"url":canon,"inLanguage":"zh-CN","isAccessibleForFree":True,
+      "keywords":"新加坡私立大学,专业,SIM,Kaplan,PSB,MDIS,JCU,Curtin,合作大学,本科,硕士","creator":{"@type":"Organization","name":"SEDA 新加坡择校网"}},
+     {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+       {"@type":"ListItem","position":1,"name":"首页","item":"https://sgeda.org.cn/"},
+       {"@type":"ListItem","position":2,"name":"新加坡私立大学","item":"https://sgeda.org.cn/private-university/"},
+       {"@type":"ListItem","position":3,"name":"专业数据库"}]},
+    ]
+    body=f'''
+  <section class="prc-hero" style="background:{accgrad}"><div class="in">
+    <div class="prc-dlogo" style="background:transparent;box-shadow:none;padding:0;margin-bottom:12px"><span style="color:#fff;font-weight:800;font-size:.9rem;letter-spacing:.05em">🎓 私立大学专业总库</span></div>
+    <h1>新加坡私立大学专业数据库</h1>
+    <p class="tag">10 所私立大学 · {N} 个专业 · 一站查询</p>
+    <p class="sig">SIM、Kaplan、PSB、JCU、MDIS、Curtin、LSBF、Amity、SHRM、TMC 的全部本科 / 硕士 / 文凭专业汇总，可按<b>学校、专业方向、层级</b>筛选；专业名含官方英文名与中文名，点学校标签进各校详情页。</p>
+    <div class="prc-stats">
+      <div class="prc-stat"><div class="n">{N}</div><div class="l">专业总数</div></div>
+      <div class="prc-stat"><div class="n">10 所</div><div class="l">私立大学</div></div>
+      <div class="prc-stat"><div class="n">{nb}</div><div class="l">本科</div></div>
+      <div class="prc-stat"><div class="n">{nm_}</div><div class="l">硕士</div></div>
+      <div class="prc-stat"><div class="n">{nd}</div><div class="l">文凭</div></div>
+    </div>
+  </div></section>
+  <div class="prc-db" style="border-top:0">
+    <div class="prc-tools">
+      <div class="prc-find">🔎<input type="search" id="prcq" placeholder="搜专业 / 学校 / 合作大学，如 会计、AI、护理、Murdoch"></div>
+      <div class="prc-frow"><span class="prc-flb">学校</span>{schoolchips}</div>
+      <div class="prc-frow"><span class="prc-flb">方向</span>{fieldchips}</div>
+      <div class="prc-frow"><span class="prc-flb">层级</span>{lvchips}</div>
+    </div>
+    <div class="prc-count">显示 <b id="prcshow">{N}</b> / {N} 个专业</div>
+    <div class="prc-progs" id="prcprogs">{cards}</div>
+    <div class="prc-empty" id="prcempty">没有匹配的专业，试试减少筛选条件。</div>
+    <p style="max-width:1080px;margin:0 auto;padding:0 clamp(20px,6vw,80px) 36px;font-size:.82rem;color:var(--prc-muted)">数据汇总自各校官网；大校（SIM/Kaplan 等）收录主要专业，完整清单见各校详情页与官方查找器。专业每年略有调整、精确学费学制以官方为准。</p>
+  </div>
+  <section class="prc-sec tight"><div class="prc-cta"><h3>不知道选哪所 / 哪个专业？</h3><p>告诉我们你的成绩、预算与目标方向，免费匹配最合适的私立大学与专业。</p><a href="/contact/">免费咨询选校 →</a></div></section>
+  <section class="prc-sec tight"><h2>返回</h2><div class="prc-rel"><a href="/private-university/">← 私立大学总览（10 所）</a><a href="/university/degrees/">公立大学专业数据库</a><a href="/poly/courses/">理工专业数据库</a></div></section>
+'''
+    js=r'''
+<script>(function(){
+  var grid=document.getElementById('prcprogs'),cards=[].slice.call(grid.querySelectorAll('.prc-prog'));
+  var q=document.getElementById('prcq'),show=document.getElementById('prcshow'),empty=document.getElementById('prcempty');
+  var F={school:{},fl:{},lv:{}};
+  function act(o){return Object.keys(o).filter(function(k){return o[k]})}
+  function apply(){
+    var term=(q.value||'').trim().toLowerCase(),aS=act(F.school),aFl=act(F.fl),aLv=act(F.lv),n=0;
+    cards.forEach(function(c){
+      var ok=true;
+      if(term&&c.getAttribute('data-name').indexOf(term)<0)ok=false;
+      if(ok&&aS.length&&aS.indexOf(c.getAttribute('data-school'))<0)ok=false;
+      if(ok&&aFl.length&&aFl.indexOf(c.getAttribute('data-fl'))<0)ok=false;
+      if(ok&&aLv.length&&aLv.indexOf(c.getAttribute('data-lv'))<0)ok=false;
+      c.classList.toggle('hide',!ok);if(ok)n++;
+    });
+    show.textContent=n;empty.style.display=n?'none':'block';
+  }
+  q.addEventListener('input',apply);
+  document.querySelectorAll('.prc-chip').forEach(function(c){c.addEventListener('click',function(){
+    c.classList.toggle('on');var f=c.getAttribute('data-f'),v=c.getAttribute('data-v');
+    F[f][v]=c.classList.contains('on');apply();});});
+  var sp=new URLSearchParams(location.search);var s0=sp.get('school');
+  if(s0){document.querySelectorAll('.prc-chip[data-f="school"]').forEach(function(c){if(c.getAttribute('data-v')===s0){c.classList.add('on');F.school[s0]=true;}});}
+  apply();
+})();</script>'''
+    extra="<style>.prc-prog .t.sch{color:#fff;text-decoration:none;font-weight:800}.prc-chip[data-f=school].on{background:var(--c,#7e2d3a);border-color:var(--c,#7e2d3a)}</style>"
+    out=os.path.join(ROOT,"private-university","courses"); os.makedirs(out,exist_ok=True)
+    open(os.path.join(out,"index.html"),"w",encoding="utf-8").write(head(title,desc,canon,jsonld,acc,accgrad)+extra+body+js+TAIL)
+    print(f"wrote private-university/courses/index.html | {N} programmes aggregated")
+
 for slug in RICH:
     out=os.path.join(ROOT,"private-university",slug); os.makedirs(out,exist_ok=True)
     open(os.path.join(out,"index.html"),"w",encoding="utf-8").write(build(slug))
     print(f"wrote private-university/{slug}/index.html | {len(RICH[slug]['progs'])} programmes")
+build_aggregate()

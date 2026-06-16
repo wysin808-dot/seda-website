@@ -193,10 +193,9 @@ def build_db():
     rowhtml="\n".join(rows)
     unichips="".join(f'<span class="uchip" data-f="uni" data-v="{u["slug"]}">{esc(u["abbr"])}</span>' for u in D["unis"] if u["slug"]!="uas")
     clchips="".join(f'<span class="uchip" data-f="cluster" data-v="{esc(c)}">{CLI.get(c,"")} {esc(c)}</span>' for c in clusters)
-    uasrows="".join(f'''<tr><td><span class="ucn">{esc(x["zh"])}</span><span class="uce">{esc(x["en"])}</span></td><td>{esc(x["college"])}</td><td><span class="req-{x["rtype"]}">{esc(x["rtype"])}</span></td><td>{esc(x["req"])}</td></tr>''' for x in D["uas"])
     jsonld=[
      {"@context":"https://schema.org","@type":"Dataset","name":"新加坡大学本科专业录取分数据库（%s）"%YEAR,
-      "description":"新加坡 6 所公立大学（NUS/NTU/SMU/SUTD/SIT/SUSS）共 %d 个本科专业的 A-Level IGP 成绩档、理工 Diploma GPA 录取线、WACE 参考 ATAR；含艺术大学 UAS 作品集要求。"%(N),
+      "description":"新加坡 6 所公立大学（NUS/NTU/SMU/SUTD/SIT/SUSS）共 %d 个本科专业的 A-Level IGP 成绩档、理工 Diploma GPA 录取线、WACE 参考 ATAR。"%(N),
       "url":canon,"inLanguage":"zh-CN","isAccessibleForFree":True,"keywords":"IGP,A-Level,ATAR,WACE,理工GPA,新加坡大学,录取分数",
       "creator":{"@type":"Organization","name":"SEDA 新加坡择校网"}},
      {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
@@ -205,12 +204,12 @@ def build_db():
        {"@type":"ListItem","position":3,"name":"专业录取分数据库"}]},
     ]
     title="新加坡大学本科专业录取分数据库：A-Level / WACE / 理工GPA 一表查询（%s）"%YEAR
-    desc="新加坡 6 所公立大学 %d 个本科专业的 A-Level IGP 成绩档、理工 GPA 录取线与 WACE 参考 ATAR 一表查询，可按学校、方向、GPA 筛选；含艺术大学 UAS 作品集要求。"%N
+    desc="新加坡 6 所公立大学 %d 个本科专业的 A-Level IGP 成绩档、理工 GPA 录取线与 WACE 参考 ATAR 一表查询，可按学校、方向、GPA 筛选。"%N
     body=f'''
   <section class="udb-hero"><div class="in">
-    <span class="udb-ey">🎓 6 公立大学 + 艺术大学 · {N} 个本科专业 · {YEAR}</span>
+    <span class="udb-ey">🎓 6 所公立大学 · {N} 个本科专业 · {YEAR}</span>
     <h1>新加坡大学专业录取分数据库</h1>
-    <p class="s">每个专业三条录取通道一表看清：<b>A-Level 成绩档（IGP 官方）</b> · <b>理工 Diploma GPA（IGP 官方）</b> · <b>WACE 参考 ATAR</b>。能力本位录取的 SIT/SUTD/SUSS 与作品集录取的艺术大学 UAS 另列说明。</p>
+    <p class="s">每个专业三条录取通道一表看清：<b>A-Level 成绩档（IGP 官方）</b> · <b>理工 Diploma GPA（IGP 官方）</b> · <b>WACE 参考 ATAR</b>。能力本位录取的 SIT/SUTD/SUSS 单独说明；艺术大学 UAS（作品集 / 试镜录取）另有<a href="/university/uas/" style="color:#fff;text-decoration:underline">专属专业目录</a>。</p>
   </div></section>
   <div class="atar-floor"><div class="box">
     🎓 <b>WACE / 国际 A-Level 申请须知</b>：本表「新加坡 A-Level」列是各校官方 IGP（仅适用<b>新加坡-剑桥 A-Level</b>考生）。<b>国际 A-Level（CIE/Edexcel）与 WACE 考生</b>按等同学历 / ATAR 评估，请看「WACE / ATAR」列。<br>
@@ -235,9 +234,10 @@ def build_db():
   <p class="usec" style="padding-top:6px;padding-bottom:0;font-size:.8rem;color:var(--muted)">说明：NUS/NTU/SMU 为成绩录取，A-Level 与理工 GPA 取官方 IGP（10–90 百分位）。<b>SIT / SUTD / SUSS 为能力本位/综合评估录取，无硬性截分</b>（表中该列显示其录取方式）。"样本少"为官方因人数少未公布。</p>
 
   <section class="usec">
-    <h2>🎨 新加坡艺术大学 UAS（作品集 / 试演录取）</h2>
-    <p class="lead">UAS（NAFA + LASALLE）<b>不看分数线</b>——A-Level / WACE 达学术门槛即可，录取看<b>作品集或试演</b>。代表专业与要求如下（以 NAFA / LASALLE 官方为准）。</p>
-    <div style="overflow-x:auto"><table class="uas-table"><thead><tr><th>专业</th><th>学院</th><th>录取方式</th><th>作品集 / 试演要求</th></tr></thead><tbody>{uasrows}</tbody></table></div>
+    <a href="/university/uas/" style="display:block;background:linear-gradient(135deg,#fbf0fa,#fff 60%);border:1px solid #ecd0ea;border-left:4px solid #b5179e;border-radius:14px;padding:18px 22px;text-decoration:none">
+      <span style="font-weight:800;color:#b5179e;font-size:1.05rem">🎨 想读艺术 / 设计 / 表演？→ 新加坡艺术大学 UAS 专业目录</span>
+      <span style="display:block;margin-top:6px;color:#5a6478;font-size:.92rem;line-height:1.6">UAS（LASALLE + NAFA）不看分数线，按<b>作品集 / 试镜</b>录取，有自己的 <b>35 个学位专业</b>目录数据库（可按学院、学科、层级、入学方式筛选），单独成页。</span>
+    </a>
   </section>
 
   <section class="usec" style="padding-top:0">
@@ -254,7 +254,7 @@ def build_db():
     <details><summary>我的理工 GPA 能进哪些大学专业？</summary><div class="a">在上方输入 GPA 并勾选「只看我够得着」，表格会筛出你的 GPA ≥ 该专业最低录取 GPA 的专业。注意这是 NUS/NTU/SMU 的逻辑；SIT/SUTD/SUSS 是综合评估，GPA 只是其一。</div></details>
     <details><summary>WACE / ATAR 学生怎么用这张表？</summary><div class="a">先确认达到各校 ATAR 门槛（如 NTU ≥90），再用「WACE 参考 ATAR」列判断各专业竞争度——该列按专业最低录取 A-Level 档换算，仅供参考，最终以各校官方评估为准。</div></details>
     <details><summary>SIT、SUTD、SUSS 为什么没有分数线？</summary><div class="a">这三所是能力本位/综合评估录取：SIT 看学术 + 非学术表现、不设硬性截分；SUTD 整体评估（含作品/面试）；SUSS 有笔试、认知测试、面试多轮。成绩达标后更看综合素质。</div></details>
-    <details><summary>艺术想读 UAS 要准备什么？</summary><div class="a">UAS（NAFA/LASALLE）学术达标即可，关键是作品集或试演：纯艺/设计要 portfolio（15–20 件作品），音乐/舞蹈/戏剧要现场试演，艺术管理重面试。提前 1 年准备作品集最稳。</div></details>
+    <details><summary>艺术想读 UAS 怎么申请？</summary><div class="a">UAS（LASALLE + NAFA）不看分数线，按作品集 / 试镜录取，学术达标即可。它有 35 个学位专业（纯艺术、设计、媒体、表演、音乐、艺术管理），详见<a href="/university/uas/">新加坡艺术大学 UAS 专业目录</a>。</div></details>
     </div>
   </section>
   <section class="usec" style="padding-top:0"><p class="lead" style="font-size:.86rem">数据来源：NUS 官方 IGP、NTU/SMU IGP（聚合整理）、SIT/SUSS 招生页，{YEAR} 学年，仅供参考。想要一对一选校建议可<a href="/contact/" style="color:#1f4e9c;font-weight:700">免费咨询</a>。</p></section>

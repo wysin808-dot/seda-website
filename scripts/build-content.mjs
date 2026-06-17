@@ -264,8 +264,8 @@ function renderGeoSummary(article, faqItems) {
     questions.length ? `常见追问：${questions.join('；')}` : '',
   ].filter(Boolean);
   return `<section class="geo-summary" aria-labelledby="geo-summary-title">
-      <p class="eyebrow">AI 摘要</p>
-      <h2 id="geo-summary-title">本文适合 AI 与搜索引擎快速理解的要点</h2>
+      <p class="eyebrow">本文要点</p>
+      <h2 id="geo-summary-title">快速了解本文要点</h2>
       <ul>${list.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}</ul>
     </section>`;
 }

@@ -1923,7 +1923,7 @@ async function handleChat(req, res) {
   if (question.length > 500) return json(res, 400, { error: '问题请控制在500字以内' });
 
   const apiKey = process.env.DEEPSEEK_API_KEY;
-  if (!apiKey) return json(res, 500, { error: 'AI服务未配置，请联系管理员' });
+  if (!apiKey) return json(res, 500, { error: '助手服务未配置，请联系管理员' });
 
   try {
     const aiRes = await fetch(DEEPSEEK_API_URL, {
@@ -1937,7 +1937,7 @@ async function handleChat(req, res) {
       }),
     });
     if (!aiRes.ok) {
-      const msg = aiRes.status === 401 ? 'AI服务配置有误' : `AI服务异常（${aiRes.status}）`;
+      const msg = aiRes.status === 401 ? '助手服务配置有误' : `助手服务异常（${aiRes.status}）`;
       return json(res, 502, { error: msg });
     }
     const data = await aiRes.json();
@@ -1945,7 +1945,7 @@ async function handleChat(req, res) {
     const answer = raw ? (raw.includes(CONSULTATION_SUFFIX) ? raw : `${raw}\n\n${CONSULTATION_SUFFIX}`) : CONSULTATION_SUFFIX;
     json(res, 200, { answer });
   } catch {
-    json(res, 500, { error: 'AI服务暂时无法连接' });
+    json(res, 500, { error: '助手服务暂时无法连接' });
   }
 }
 

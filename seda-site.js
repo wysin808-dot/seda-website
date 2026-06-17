@@ -182,7 +182,7 @@
     target.insertAdjacentHTML('beforeend',
       '<section class="seda-ai-wechat-cta" data-wechat-placement="ai_tool_bottom">' +
         '<h2>需要人工顾问帮助？</h2>' +
-        '<p>AI 结果适合作为初步参考，具体学校选择、申请材料和时间线建议让 Amy 再帮你人工确认。</p>' +
+        '<p>回答结果适合作为初步参考，具体学校选择、申请材料和时间线建议让 Amy 再帮你人工确认。</p>' +
         qrCard('seda-wechat-card-inline', { subtitle: '扫码添加 Amy，继续人工咨询' }) +
       '</section>');
   }
@@ -438,7 +438,7 @@ if (!document.querySelector(".wechat-float")) {
     'AEIS怎么备考', 'WACE是什么', 'O-Level和WACE怎么选',
     '新加坡留学费用', 'A-Level难度', '国际学校怎么选'
   ];
-  var WELCOME = '您好！我是 SEDA AI 升学助手 👋\n\n可以帮您解答 WACE、AEIS、O-Level、国际学校、新加坡大学申请等问题。\n\n请直接输入您的问题。';
+  var WELCOME = '您好！我是 SEDA 升学助手 👋\n\n可以帮您解答 WACE、AEIS、O-Level、国际学校、新加坡大学申请等问题。\n\n请直接输入您的问题。';
 
   var cfg = Object.assign({ wechatId: 'SEDAGUIDE', wechatQrUrl: '/assets/wechat-amy-seda-guide.jpg' }, window.SEDA_CONTACT || {});
   var isOpen = false, isLoading = false, panel = null, messagesEl = null, inputEl = null, sendBtn = null;
@@ -447,7 +447,7 @@ if (!document.querySelector(".wechat-float")) {
   var trigger = document.createElement('button');
   trigger.className = 'ai-chat-trigger';
   trigger.setAttribute('aria-label', 'AI升学助手');
-  trigger.innerHTML = '🤖<span class="ai-trigger-badge">AI</span>';
+  trigger.innerHTML = '🤖<span class="ai-trigger-badge">问</span>';
   trigger.addEventListener('click', toggle);
   document.body.appendChild(trigger);
 
@@ -470,7 +470,7 @@ if (!document.querySelector(".wechat-float")) {
     panel.innerHTML =
       '<div class="ai-panel-header">' +
         '<div class="ai-avatar">🤖</div>' +
-        '<div class="ai-info"><div class="ai-name">AI 升学助手</div><div class="ai-status"><span class="ai-dot"></span>在线解答</div></div>' +
+        '<div class="ai-info"><div class="ai-name">升学助手</div><div class="ai-status"><span class="ai-dot"></span>在线解答</div></div>' +
         '<button class="ai-panel-close" aria-label="关闭">×</button>' +
       '</div>' +
       '<div class="ai-quick-btns">' +

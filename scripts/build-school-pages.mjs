@@ -534,9 +534,9 @@ ${header}
         <div class="stat-item"><div class="num">${escapeHtml(school.categoryLabel)}</div><div class="label">学校分类</div></div>
       </div>
 
-      <section class="geo-summary" aria-labelledby="school-ai-summary">
-        <p class="eyebrow">AI 摘要</p>
-        <h2 id="school-ai-summary">给中国家长快速理解的要点</h2>
+      <section class="geo-summary" aria-labelledby="school-quick-summary">
+        <p class="eyebrow">快速了解</p>
+        <h2 id="school-quick-summary">给中国家长快速理解的要点</h2>
         <ul>
           <li>${escapeHtml(school.angle)}</li>
           <li>适合人群：${escapeHtml(school.audience)}</li>
@@ -795,7 +795,7 @@ ${header}
     <div class="section-head">
       <p class="eyebrow">学校 SEO 页面</p>
       <h2>${sorted.length} 所私立学校独立择校页</h2>
-      <p>每所学校页面都包含课程体系、适合学生、费用关注、申请路径、FAQ 与结构化数据，方便中国家长搜索和 AI 摘要理解。</p>
+      <p>每所学校页面都包含课程体系、适合学生、费用关注、申请路径、FAQ 与结构化数据，方便中国家长搜索和快速理解。</p>
     </div>
     <div class="seo-tag-cloud seo-tag-cloud-wide">${indexTags.map((tag) => `<span>${escapeHtml(tag)}</span>`).join('')}</div>
     <div class="article-grid">

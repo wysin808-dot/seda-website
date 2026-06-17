@@ -8,6 +8,7 @@ slug: wace-atar-calculation
 date: 2026-06-17
 tags: WACE 课程,ATAR,新加坡留学,大学申请
 draft: false
+custom: true
 ---
 
 ![WACE ATAR 成绩与大学申请](/assets/articles/wace-atar-calculation-hero.png)

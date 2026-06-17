@@ -1001,7 +1001,7 @@ const drafts = allArticles.filter((article) => article.meta.draft);
 const schoolPageCount = buildSchoolPages();
 const topicPageCount = buildTopicPages(articles, header, footer);
 const enhancedKeyPageCount = enhanceKeySeoPages();
-articles.forEach(writeArticle);
+articles.filter(a => !a.meta.custom).forEach(writeArticle);
 drafts.forEach(removeDraftArticlePage);
 writeReviewPage(allArticles);
 updateNewsIndex(articles);

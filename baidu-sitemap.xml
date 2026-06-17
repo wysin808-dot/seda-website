@@ -65,6 +65,7 @@
   <url><loc>https://sgeda.org.cn/hk-university/planner/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://sgeda.org.cn/hk-university/polyu/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://sgeda.org.cn/ib/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://sgeda.org.cn/international-alevel/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://sgeda.org.cn/international-school/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://sgeda.org.cn/jc/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://sgeda.org.cn/news/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
@@ -141,6 +142,7 @@
   <url><loc>https://sgeda.org.cn/university/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://sgeda.org.cn/university/admission/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://sgeda.org.cn/university/ntu/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://sgeda.org.cn/university/degrees/</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
   <url><loc>https://sgeda.org.cn/university/nus-undergraduate-application-chinese-students/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://sgeda.org.cn/university/nus/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://sgeda.org.cn/university/sit/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
@@ -167,4 +169,5 @@
   <url><loc>https://sgeda.org.cn/poly/nyp/</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
   <url><loc>https://sgeda.org.cn/poly/sp/</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
   <url><loc>https://sgeda.org.cn/poly/tp/</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://sgeda.org.cn/poly/courses/</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
 </urlset>

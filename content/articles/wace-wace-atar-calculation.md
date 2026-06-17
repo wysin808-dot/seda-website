@@ -10,7 +10,7 @@ tags: WACE 课程,ATAR,新加坡留学,大学申请
 draft: false
 ---
 
-<img src="/assets/articles/wace-atar-calculation-hero.png" alt="WACE ATAR 成绩与大学申请" class="article-hero">
+![WACE ATAR 成绩与大学申请](/assets/articles/wace-atar-calculation-hero.png)
 
 ATAR（Australian Tertiary Admission Rank）是西澳 WACE 课程体系中最核心的大学入学评估指标。绝大多数中国家长对 ATAR 的理解停留在"它是一个分数"，但更准确的理解是——**ATAR 是一个排名，不是分数**。ATAR 80 的含义是"成绩超过了全州 80% 的考生"，而不是"考了 80 分"。这一认知差异会直接影响家长对孩子成绩的判断和大学申请策略。
 
@@ -52,7 +52,7 @@ ATAR 的范围为 0 至 99.95，以 0.05 为增量，基于整个西澳州所有
 
 ## 主要大学 ATAR 门槛参考
 
-<img src="/assets/articles/wace-atar-scale-hero.png" alt="ATAR 排名与大学录取对照" class="article-hero">
+![ATAR 排名与大学录取对照](/assets/articles/wace-atar-scale-hero.png)
 
 | 目标院校/专业 | 参考 ATAR 区间 |
 |-------------|--------------|

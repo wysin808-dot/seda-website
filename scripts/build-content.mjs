@@ -311,9 +311,10 @@ function renderArticle(article, articles) {
     publisher: {
       '@type': 'Organization',
       name: 'SEDA 新加坡择校网',
-      legalName: 'Singapore Educational Development Association Ltd.',
       url: `${domain}/`,
       logo: `${domain}/assets/seda-wordmark.svg`,
+      email: 'admin@seda.org.cn',
+      telephone: '+65 8084 7715',
     },
     mainEntityOfPage: `${domain}${url}`,
     inLanguage: 'zh-CN',
@@ -823,7 +824,10 @@ ${topics.map((topic) => `- [${topic.title}](/topics/${topic.slug}/): ${topic.des
 ## Brand and Contact
 
 - Brand: SEDA 新加坡择校网
-- Legal entity: Singapore Educational Development Association Ltd.
+- Singapore office: 75 Bukit Timah Road, #05-24, Singapore 229833
+- China office: 上海市杨浦区平凉路2241弄17栋805室
+- Phone: +65 8084 7715
+- Email: admin@seda.org.cn
 - Website: https://sgeda.org.cn/
 - Language: Simplified Chinese (zh-CN)
 - Audience: Chinese students and parents researching Singapore education pathways

@@ -640,6 +640,8 @@
 .school-chip.gov:hover   { border-color: #22c55e; }
 .school-chip.private { border-color: #fef9c3; }
 .school-chip.private:hover { border-color: #eab308; }
+.school-chip.uni { border-color: #e0e7ff; }
+.school-chip.uni:hover { border-color: #1d3c78; }
 .school-abbr {
   width: 40px;
   height: 40px;
@@ -655,6 +657,17 @@
 .school-chip.intl   .school-abbr { background: #3b82f6; }
 .school-chip.gov    .school-abbr { background: #22c55e; }
 .school-chip.private .school-abbr { background: #eab308; }
+.school-chip.uni .school-abbr { background: #1d3c78; }
+.school-logo {
+  width: 46px;
+  height: 46px;
+  border-radius: 8px;
+  object-fit: contain;
+  flex-shrink: 0;
+  background: #fff;
+  padding: 4px;
+  border: 1px solid #eef0f4;
+}
 .school-name {
   font-size: .85rem;
   font-weight: 700;

@@ -1,7 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { buildSchoolPages } from './build-school-pages.mjs';
-import { buildTopicPages, topics } from './build-topic-pages.mjs';
 import { enhanceKeySeoPages } from './enhance-key-seo-pages.mjs';
 import { optimizeArticle } from './seo-optimizer.mjs';
 
@@ -313,7 +312,7 @@ function renderArticle(article, articles) {
       name: 'SEDA 新加坡择校网',
       url: `${domain}/`,
       logo: `${domain}/assets/seda-wordmark.svg`,
-      email: 'admin@seda.org.cn',
+      email: 'admin@seda.org.sg',
       telephone: '+65 8084 7715',
     },
     mainEntityOfPage: `${domain}${url}`,
@@ -776,11 +775,6 @@ ${latest || '- 最新 SEO 文章正在更新。'}
 - [国际学校](/international-school/): 新加坡国际学校与课程体系。
 - [私立学校](/private-schools/): 新加坡私立学校与升学路径。
 
-## Topic Hubs
-
-- [SEDA 专题中心](/topics/): 新加坡教育 SEO/GEO 专题入口。
-${topics.map((topic) => `- [${topic.title}](/topics/${topic.slug}/): ${topic.description}`).join('\n')}
-
 ## University Pathways
 
 - [新加坡公立大学总览](/university/): NUS、NTU、SMU、SUTD、SIT、SUSS 六所公立大学 + UAS 艺术大学目录，含预估录取分。
@@ -827,7 +821,7 @@ ${topics.map((topic) => `- [${topic.title}](/topics/${topic.slug}/): ${topic.des
 - Singapore office: 75 Bukit Timah Road, #05-24, Singapore 229833
 - China office: 上海市杨浦区平凉路2241弄17栋805室
 - Phone: +65 8084 7715
-- Email: admin@seda.org.cn
+- Email: admin@seda.org.sg
 - Website: https://sgeda.org.cn/
 - Language: Simplified Chinese (zh-CN)
 - Audience: Chinese students and parents researching Singapore education pathways
@@ -1003,7 +997,6 @@ const allArticles = loadArticles();
 const articles = allArticles.filter((article) => !article.meta.draft);
 const drafts = allArticles.filter((article) => article.meta.draft);
 const schoolPageCount = buildSchoolPages();
-const topicPageCount = buildTopicPages(articles, header, footer);
 const enhancedKeyPageCount = enhanceKeySeoPages();
 articles.filter(a => !a.meta.custom).forEach(writeArticle);
 drafts.forEach(removeDraftArticlePage);
@@ -1018,7 +1011,6 @@ const enhancedRobotsCount = enhanceGlobalRobotsMeta();
 const urlCount = updateSitemap(drafts);
 console.log(`Built ${articles.length} content articles.`);
 console.log(`Built ${schoolPageCount} school SEO pages.`);
-console.log(`Built ${topicPageCount} topic hub pages.`);
 console.log(`Enhanced ${enhancedKeyPageCount} key SEO pages.`);
 console.log(`Enhanced ${enhancedUtilitySchemaCount} utility pages with schema.`);
 console.log(`Enhanced ${enhancedGoogleAnalyticsCount} pages with GA4 tags.`);

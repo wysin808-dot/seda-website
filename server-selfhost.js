@@ -1504,13 +1504,28 @@ function handleAnalyticsReport(req, res, url) {
     return json(res, 403, { error: 'Invalid token' });
   }
   const dateStr = url.searchParams.get('date') || yesterdayDate();
-  const events = readAnalyticsEvents(2).filter((event) => (event.eventType || 'pageview') === 'pageview');
-  const dayEvents = events.filter((event) => String(event.ts || '').startsWith(dateStr));
+  const allEvents = readAnalyticsEvents(2);
+  const pageviews = allEvents.filter((event) => (event.eventType || 'pageview') === 'pageview');
+  const dayEvents = pageviews.filter((event) => String(event.ts || '').startsWith(dateStr));
   const visitors = new Set(dayEvents.map((event) => event.visitor)).size;
+  // WeChat conversion events
+  const wechatEvents = allEvents.filter((event) => 
+    (event.event_category === 'wechat_conversion' || String(event.eventType || '').startsWith('wechat_')) &&
+    String(event.ts || '').startsWith(dateStr)
+  );
+  const wechatClicks = wechatEvents.filter(e => e.eventType === 'wechat_click').length;
+  const wechatCopies = wechatEvents.filter(e => e.eventType === 'wechat_copy').length;
+  const wechatExposures = wechatEvents.filter(e => e.eventType === 'wechat_exposure').length;
   json(res, 200, {
     date: dateStr,
     pageviews: dayEvents.length,
     visitors,
+    wechat: {
+      total: wechatEvents.length,
+      clicks: wechatClicks,
+      copies: wechatCopies,
+      exposures: wechatExposures,
+    },
     topPages: topCounts(dayEvents, 'path', 15),
     topSources: topCounts(dayEvents, 'source', 8),
     topRegions: topCounts(dayEvents, 'region', 8),

@@ -310,10 +310,13 @@ function renderArticle(article, articles) {
     publisher: {
       '@type': 'Organization',
       name: 'SEDA 新加坡择校网',
+      legalName: 'Singapore Educational Development Association',
+      alternateName: ['新加坡教育发展协会', 'SEDA'],
       url: `${domain}/`,
       logo: `${domain}/assets/seda-wordmark.svg`,
       email: 'admin@seda.org.sg',
       telephone: '+65 8084 7715',
+      sameAs: ['https://baike.baidu.com/item/%E6%96%B0%E5%8A%A0%E5%9D%A1%E6%95%99%E8%82%B2%E5%8F%91%E5%B1%95%E5%8D%8F%E4%BC%9A'],
     },
     mainEntityOfPage: `${domain}${url}`,
     inLanguage: 'zh-CN',

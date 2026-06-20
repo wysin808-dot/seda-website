@@ -915,7 +915,32 @@ function googleAnalyticsSnippet() {
   gtag('js', new Date());
   gtag('config', '${defaultGoogleAnalyticsId}');
 </script>
-<!-- SEDA_GA4_END -->`;
+<!-- SEDA_GA4_END -->
+<!-- SEDA_BAIDU_TONGJI -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?af60e7bad22922a4493d76d92f76a3fa";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<!-- SEDA_BAIDU_TONGJI_END -->`;
+}
+
+function baiduTongjiSnippet() {
+  return `<!-- SEDA_BAIDU_TONGJI -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?af60e7bad22922a4493d76d92f76a3fa";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<!-- SEDA_BAIDU_TONGJI_END -->`;
 }
 
 function enhanceGlobalGoogleAnalytics() {
@@ -929,6 +954,23 @@ function enhanceGlobalGoogleAnalytics() {
     const cleaned = html.replace(existingSnippetPattern, '\n');
     const next = cleaned.replace('</head>', `${snippet}\n</head>`);
     if (next === html) continue;
+    fs.writeFileSync(file, next, 'utf8');
+    count += 1;
+  }
+  return count;
+}
+
+function enhanceBaiduTongji() {
+  let count = 0;
+  const files = walk(root).filter(isSitemapPage);
+  const snippet = baiduTongjiSnippet();
+  const pattern = /\n?<!-- SEDA_BAIDU_TONGJI -->[\s\S]*?<!-- SEDA_BAIDU_TONGJI_END -->\n?/;
+  for (const file of files) {
+    const html = fs.readFileSync(file, 'utf8');
+    if (!html.includes('</head>')) continue;
+    const cleaned = html.replace(pattern, '\n');
+    const next = cleaned.replace('</head>', `${snippet}\n</head>`);
+    if (next === cleaned) continue;
     fs.writeFileSync(file, next, 'utf8');
     count += 1;
   }
@@ -1010,6 +1052,7 @@ writeFeeds(articles);
 updateLlms(articles);
 const enhancedUtilitySchemaCount = enhanceUtilityPageSchema();
 const enhancedGoogleAnalyticsCount = enhanceGlobalGoogleAnalytics();
+const enhancedBaiduTongjiCount = enhanceBaiduTongji();
 const enhancedRobotsCount = enhanceGlobalRobotsMeta();
 const urlCount = updateSitemap(drafts);
 console.log(`Built ${articles.length} content articles.`);
@@ -1017,6 +1060,7 @@ console.log(`Built ${schoolPageCount} school SEO pages.`);
 console.log(`Enhanced ${enhancedKeyPageCount} key SEO pages.`);
 console.log(`Enhanced ${enhancedUtilitySchemaCount} utility pages with schema.`);
 console.log(`Enhanced ${enhancedGoogleAnalyticsCount} pages with GA4 tags.`);
+console.log(`Enhanced ${enhancedBaiduTongjiCount} pages with Baidu Tongji.`);
 console.log(`Enhanced ${enhancedRobotsCount} pages with robots meta.`);
 console.log(`Prepared ${drafts.length} draft articles for review.`);
 console.log(`Updated sitemap.xml with ${urlCount} URLs.`);

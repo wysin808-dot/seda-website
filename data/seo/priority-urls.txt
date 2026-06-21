@@ -1,56 +1,6 @@
-# 百度/IndexNow 优先推送清单（最近更新的重点页面）
-# baidu-submit.sh 会先推这里的页面（每天 5 条），推完再回到全站 sitemap 轮换。
-# 进度记录在 $SITE_DIR/.baidu-priority-offset（非仓库文件，部署不会重置）。
+# 百度/IndexNow 优先推送清单
+# 集中火力：考察期只攻 2 个页面（首页 + AEIS），让百度先收 1-2 个建立信任。
+# baidu-submit.sh 会循环反复推这个清单（不再跳去全站 sitemap 轮换）。
 # 以 http(s):// 开头的行才会被推送，# 开头为注释。
 https://sgeda.org.cn/
-https://sgeda.org.cn/university/
-https://sgeda.org.cn/university/degrees/
-https://sgeda.org.cn/university/nus/
-https://sgeda.org.cn/university/ntu/
-https://sgeda.org.cn/university/smu/
-https://sgeda.org.cn/university/sutd/
-https://sgeda.org.cn/university/sit/
-https://sgeda.org.cn/university/suss/
-https://sgeda.org.cn/university/uas/
-https://sgeda.org.cn/poly/
-https://sgeda.org.cn/poly/courses/
-https://sgeda.org.cn/poly/sp/
-https://sgeda.org.cn/poly/np/
-https://sgeda.org.cn/poly/nyp/
-https://sgeda.org.cn/poly/tp/
-https://sgeda.org.cn/poly/rp/
 https://sgeda.org.cn/aeis/
-https://sgeda.org.cn/a-level/
-https://sgeda.org.cn/international-alevel/
-https://sgeda.org.cn/wace/
-https://sgeda.org.cn/private-university/
-https://sgeda.org.cn/private-university/jcu/
-https://sgeda.org.cn/private-university/curtin/
-https://sgeda.org.cn/private-university/sim/
-https://sgeda.org.cn/private-university/kaplan/
-https://sgeda.org.cn/private-university/psb/
-https://sgeda.org.cn/private-university/mdis/
-https://sgeda.org.cn/private-university/lsbf/
-https://sgeda.org.cn/private-university/amity/
-https://sgeda.org.cn/private-university/shrm/
-https://sgeda.org.cn/private-university/tmc/
-https://sgeda.org.cn/private-university/psb/
-https://sgeda.org.cn/private-university/kaplan/
-https://sgeda.org.cn/private-university/sim/
-https://sgeda.org.cn/private-university/mdis/
-https://sgeda.org.cn/private-university/jcu/
-https://sgeda.org.cn/private-university/curtin/
-https://sgeda.org.cn/private-university/lsbf/
-https://sgeda.org.cn/private-university/amity/
-https://sgeda.org.cn/private-university/shrm/
-https://sgeda.org.cn/private-university/tmc/
-https://sgeda.org.cn/tools/private-university-matcher.html
-# 最近更新的重点页面（再次推送加强收录：6 所公立大学详情页 + UAS + 国际 A-Level）
-https://sgeda.org.cn/university/nus/
-https://sgeda.org.cn/university/ntu/
-https://sgeda.org.cn/university/smu/
-https://sgeda.org.cn/university/sutd/
-https://sgeda.org.cn/university/sit/
-https://sgeda.org.cn/university/suss/
-https://sgeda.org.cn/university/uas/
-https://sgeda.org.cn/international-alevel/

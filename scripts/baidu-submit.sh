@@ -76,14 +76,15 @@ if [ -f "$PRIORITY_FILE" ]; then
   PRIORITY_URLS=$(grep -E '^https?://' "$PRIORITY_FILE")
   PRIORITY_TOTAL=$(echo "$PRIORITY_URLS" | grep -c '^')
   [ -f "$PRIORITY_STATE" ] && POFFSET=$(cat "$PRIORITY_STATE")
-  [ "$PRIORITY_TOTAL" -gt 0 ] && [ "$POFFSET" -lt "$PRIORITY_TOTAL" ] && USE_PRIORITY=1
+  # 集中模式：优先清单非空就一直循环推它，不再跳去 sitemap 全站轮换
+  [ "$PRIORITY_TOTAL" -gt 0 ] && USE_PRIORITY=1
 fi
 
 if [ "$USE_PRIORITY" = "1" ]; then
-  # 优先阶段：从优先清单取下一批，sitemap 偏移保持不动
-  BATCH=$(echo "$PRIORITY_URLS" | tail -n +$((POFFSET + 1)) | head -n $BATCH_SIZE)
+  # 集中模式：每次都推优先清单的前 BATCH_SIZE 条（清单很短时即全部），反复推
+  BATCH=$(echo "$PRIORITY_URLS" | head -n $BATCH_SIZE)
   BATCH_COUNT=$(echo "$BATCH" | grep -c '^')
-  log "优先推送 第 $((POFFSET + 1))-$((POFFSET + BATCH_COUNT)) / $PRIORITY_TOTAL 个更新页面（sitemap 轮换暂停）"
+  log "集中推送 $BATCH_COUNT 个重点页面（全站轮换暂停）"
 else
   # 取本次要提交的 URL（循环轮换）
   BATCH=$(echo "$ALL_URLS" | tail -n +$((OFFSET + 1)) | head -n $BATCH_SIZE)

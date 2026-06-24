@@ -268,7 +268,8 @@
     }
 
     /* ===== Breadcrumb ===== */
-    .breadcrumb {
+    nav.breadcrumb {
+      display: block;
       background: var(--bg-light);
       border-bottom: 1px solid var(--border);
       padding: 12px 0;
@@ -1805,9 +1806,11 @@
 
 <!-- ===== BREADCRUMB ===== -->
 <nav class="breadcrumb" aria-label="面包屑导航">
-  <a href="/">首页</a> <span>›</span>
-  <a href="/guides/">留学指南</a> <span>›</span>
-  <span>学生准证</span>
+  <div class="container">
+    <a href="/">首页</a> <span>›</span>
+    <a href="/guides/">留学指南</a> <span>›</span>
+    <span>学生准证</span>
+  </div>
 </nav>
 
 <!-- ===== HERO ===== -->

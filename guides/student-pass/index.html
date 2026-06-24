@@ -283,6 +283,9 @@
     /* ===== Hero Section ===== */
     .hero {
       position: relative;
+      display: block; /* 覆盖全局 seda-site.css 的两栏 grid（那是首页 hero 用的），本页用全幅背景+居中内容 */
+      grid-template-columns: none;
+      min-height: 0;
       background: linear-gradient(135deg, #1a0a0a 0%, #3d0c0c 40%, #c0392b 100%);
       color: white;
       padding: 52px 0 40px;

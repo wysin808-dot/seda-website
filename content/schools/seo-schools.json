@@ -496,7 +496,8 @@
     "chinaStudentNotes": "中国学生申请 NTU，需要把专业选择和申请材料放在一起准备。工程、计算机、商科等热门方向竞争激烈，建议提前准备英文成绩、竞赛、项目和备选专业。",
     "sedaAdvice": "如果孩子理工科能力强，NTU 应作为重点目标；但申请时不要只盯热门专业，可结合成绩和职业方向设置专业梯度。",
     "officialSource": "MOE Autonomous Universities overview / NTU official admissions information",
-    "sameAs": "https://www.ntu.edu.sg/"
+    "sameAs": "https://www.ntu.edu.sg/",
+    "customContent": true
   },
   {
     "type": "university",
@@ -537,7 +538,8 @@
     "chinaStudentNotes": "中国学生申请 SMU，除了成绩，还要重视面试表达、活动经历、商业理解和英文沟通。内向但学术强的学生也可以申请，但要提前适应研讨式课堂。",
     "sedaAdvice": "如果孩子目标金融、会计、商业、法律或信息系统，SMU 值得重点研究。家长要关注孩子是否适合高互动课堂和城市校园节奏。",
     "officialSource": "MOE Autonomous Universities overview / SMU official admissions information",
-    "sameAs": "https://www.smu.edu.sg/"
+    "sameAs": "https://www.smu.edu.sg/",
+    "customContent": true
   },
   {
     "type": "university",
@@ -577,7 +579,8 @@
     "chinaStudentNotes": "中国学生申请 SUTD，不应只问排名，而要看是否适合项目制学习。数学、物理、编程、设计作品或工程项目都会帮助展示匹配度。",
     "sedaAdvice": "如果孩子喜欢工程和设计交叉方向，SUTD 可能比传统综合大学更匹配。建议提前准备作品、项目和英文表达。",
     "officialSource": "MOE Autonomous Universities overview / SUTD official admissions information",
-    "sameAs": "https://www.sutd.edu.sg/"
+    "sameAs": "https://www.sutd.edu.sg/",
+    "customContent": true
   },
   {
     "type": "university",
@@ -616,7 +619,8 @@
     "chinaStudentNotes": "中国学生如果计划 O-Level 后先读 Poly，再升新加坡大学，SIT 是必须重点研究的目标之一。专业相关性和 GPA 会非常关键。",
     "sedaAdvice": "如果孩子更适合应用学习而不是纯学术研究，SIT 可能是非常现实的大学路径。建议从 Poly 选专业时就倒推 SIT 的录取要求。",
     "officialSource": "MOE Autonomous Universities overview / SIT official admissions information",
-    "sameAs": "https://www.singaporetech.edu.sg/"
+    "sameAs": "https://www.singaporetech.edu.sg/",
+    "customContent": true
   },
   {
     "type": "university",
@@ -657,7 +661,8 @@
     "chinaStudentNotes": "中国学生选择 SUSS，要看专业是否匹配长期就业和身份规划。它不是单纯追求排名的选择，而是看职业方向和个人特质。",
     "sedaAdvice": "如果孩子目标不是医学、工程或传统商科，而是教育、社科、管理、社会服务等方向，SUSS 可以作为务实选择。",
     "officialSource": "MOE Autonomous Universities overview / SUSS official admissions information",
-    "sameAs": "https://www.suss.edu.sg/"
+    "sameAs": "https://www.suss.edu.sg/",
+    "customContent": true
   },
   {
     "type": "artsUniversity",
@@ -701,7 +706,8 @@
     "chinaStudentNotes": "中国艺术生申请 UAS，要提前 6-12 个月准备作品集。不同专业对作品、试镜、面试和英文要求不同，家长要把时间线放在第一位。",
     "sedaAdvice": "如果孩子有明确艺术或设计方向，UAS 值得重点研究；如果只是因为文化课压力大才临时转艺术，则要先做专业测评和作品集规划。",
     "officialSource": "University of the Arts Singapore official programmes and FAQ / LASALLE and NAFA official information",
-    "sameAs": "https://uas.edu.sg/"
+    "sameAs": "https://uas.edu.sg/",
+    "customContent": true
   },
   {
     "type": "international",
@@ -6207,7 +6213,8 @@
     "positioning": "SIM 在新加坡私立教育体系里更像一个大型合作课程平台，家长需要把它和具体合作大学课程一起看。",
     "chinaStudentNotes": "中国学生选择 SIM 时，要重点确认高中成绩、英文要求、目标合作大学、课程长度和毕业后继续读研或就业的路径。",
     "sedaAdvice": "建议家长不要只问“SIM 排名”，而要按专业方向比较合作大学、课程费用、学习周期和毕业证书来源。",
-    "officialSource": "SIM 官方网站"
+    "officialSource": "SIM 官方网站",
+    "customContent": true
   },
   {
     "type": "private",
@@ -6245,7 +6252,8 @@
     "positioning": "Kaplan 属于新加坡主流私立教育机构之一，适合和 SIM、PSB、MDIS 等一起比较。",
     "chinaStudentNotes": "中国学生申请 Kaplan 时，要确认课程是否满足后续读研、回国认证、就业方向和家庭预算。",
     "sedaAdvice": "建议把 Kaplan 当作“具体专业路径”来评估，而不是只用机构名判断。",
-    "officialSource": "Kaplan Singapore 官方网站"
+    "officialSource": "Kaplan Singapore 官方网站",
+    "customContent": true
   },
   {
     "type": "private",
@@ -6322,7 +6330,8 @@
     "positioning": "MDIS 的优势在于课程覆盖较广，判断时应落到具体合作大学和课程出口。",
     "chinaStudentNotes": "中国学生要重点看专业是否适合、课程授权是否清楚、住宿和生活安排是否便利。",
     "sedaAdvice": "MDIS 可以作为私立大学路径中的稳妥备选之一，但必须和具体专业目标一起评估。",
-    "officialSource": "MDIS 官方网站"
+    "officialSource": "MDIS 官方网站",
+    "customContent": true
   },
   {
     "type": "private",

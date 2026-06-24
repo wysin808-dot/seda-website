@@ -15,7 +15,8 @@ SEDA 新加坡择校网提供中文的新加坡教育信息，重点覆盖 WACE�
 - [O-Level 申请 JC](/o-level-jc/): O-Level 成绩进入新加坡初级学院的路径和注意事项。
 - [O-Level 申请 Poly](/o-level-poly/): O-Level 进入新加坡理工学院的路径、专业选择和申请建议。
 - [AEIS 考试](/aeis/): 国际学生进入新加坡政府中小学的 AEIS 考试说明。
-- [A-Level](/a-level/): 新加坡 A-Level 与大学申请路径说明。
+- [新加坡 A-Level](/a-level/): 新加坡本地 A-Level（剑桥-SEAB 联办）与大学申请路径说明。
+- [国际 A-Level](/international-alevel/): 剑桥国际 A-Level（CAIE）的体系、与新加坡 A-Level 的区别和大学申请路径。
 - [IB 课程](/ib/): IB 课程体系、适合学生和升学路径。
 
 ## Latest SEO Articles
@@ -38,7 +39,8 @@ SEDA 新加坡择校网提供中文的新加坡教育信息，重点覆盖 WACE�
 - [政府小学数据库](/primary-schools/): 新加坡政府小学信息。
 - [政府中学数据库](/secondary-schools/): 新加坡政府中学信息。
 - [JC 初级学院](/jc/): 新加坡初级学院介绍。
-- [Poly 理工学院](/poly/): 新加坡五所理工学院与申请路径。
+- [Poly 理工学院](/poly/): 新加坡五所理工学院目录与申请路径。
+- [Poly 专业 ELR2B2 数据库](/poly/courses/): 195 个理工学院 Diploma 专业的 ELR2B2 截分（O-Level 升 Poly）可筛选数据库。
 - [国际学校](/international-school/): 新加坡国际学校与课程体系。
 - [私立学校](/private-schools/): 新加坡私立学校与升学路径。
 
@@ -55,10 +57,15 @@ SEDA 新加坡择校网提供中文的新加坡教育信息，重点覆盖 WACE�
 
 ## University Pathways
 
-- [新加坡公立大学](/university/): NUS、NTU、SMU、SUTD、SIT、SUSS 等公立大学总览。
-- [NUS 新加坡国立大学](/university/nus/): NUS 申请与课程方向。
-- [NTU 南洋理工大学](/university/ntu/): NTU 申请与课程方向。
-- [SMU 新加坡管理大学](/university/smu/): SMU 申请与课程方向。
+- [新加坡公立大学总览](/university/): NUS、NTU、SMU、SUTD、SIT、SUSS 六所公立大学 + UAS 艺术大学目录，含预估录取分。
+- [大学专业录取分数据库](/university/degrees/): 137 个本科专业的 IGP 录取分（A-Level / 理工 GPA / 预估 ATAR）可筛选数据库。
+- [NUS 新加坡国立大学](/university/nus/): NUS 完整指南——学科实力、录取路径（含高考）、学费、就业。
+- [NTU 南洋理工大学](/university/ntu/): NTU 完整指南——材料/工程强项、录取路径、学费、就业。
+- [SMU 新加坡管理大学](/university/smu/): SMU 完整指南——商科/研讨式教学、录取路径、学费。
+- [SUTD 新加坡科技设计大学](/university/sutd/): SUTD 完整指南——MIT 合作、跨学科设计、整体评估录取。
+- [SIT 新加坡理工大学](/university/sit/): SIT 完整指南——应用型、IWSP 带薪实习、海外联合学位、能力本位录取。
+- [SUSS 新跃社科大学](/university/suss/): SUSS 完整指南——社会科学见长、多轮评估录取（笔试+面试）。
+- [UAS 新加坡艺术大学](/university/uas/): UAS 指南——作品集/试镜录取、艺术与设计专业方向。
 - [香港升学](/hk-university/): 香港高校申请路径。
 - [澳洲升学](/au-university/): 澳洲大学与 WACE/ATAR 申请路径。
 - [英国升学](/uk-university/): 英国大学申请路径。

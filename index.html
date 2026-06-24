@@ -33,10 +33,37 @@
         "@context": "https://schema.org",
         "@type": "EducationalOrganization",
         "name": "SEDA 新加坡择校网",
-        "legalName": "Singapore Educational Development Association Ltd.",
+        "legalName": "Singapore Educational Development Association",
+        "alternateName": ["新加坡教育发展协会", "SEDA"],
         "url": "https://sgeda.org.cn/",
+        "sameAs": ["https://baike.baidu.com/item/%E6%96%B0%E5%8A%A0%E5%9D%A1%E6%95%99%E8%82%B2%E5%8F%91%E5%B1%95%E5%8D%8F%E4%BC%9A"],
         "description": "中文新加坡升学资讯与选校内容平台，覆盖 WACE、O-Level、A-Level、AEIS、IB 考试体系，政府学校、私立学校、国际学校选校指南，以及升学路径与留学攻略。",
         "areaServed": ["China", "Singapore"],
+        "email": "admin@seda.org.sg",
+        "telephone": "+65 8084 7715",
+        "address": [
+          {
+            "@type": "PostalAddress",
+            "streetAddress": "75 Bukit Timah Road, #05-24",
+            "addressLocality": "Singapore",
+            "postalCode": "229833",
+            "addressCountry": "SG"
+          },
+          {
+            "@type": "PostalAddress",
+            "streetAddress": "杨浦区平凉路2241弄17栋805室",
+            "addressLocality": "上海市",
+            "addressCountry": "CN"
+          }
+        ],
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+65 8084 7715",
+          "email": "admin@seda.org.sg",
+          "contactType": "customer service",
+          "areaServed": ["CN", "SG"],
+          "availableLanguage": ["zh-CN"]
+        },
         "inLanguage": "zh-CN"
       }
     </script>
@@ -324,7 +351,7 @@
         <span class="section-label light">为什么选择我们</span>
         <h2>不卖课，不收佣金<br>只帮你做对的决定</h2>
         <p>
-          SEDA 是一个独立的中文新加坡教育资讯平台，由 Singapore Educational Development Association Ltd. 监管。
+          SEDA 是一个独立的中文新加坡教育资讯平台。
           我们不代理任何学校，不收取学校佣金，
           给出的建议只基于孩子的实际情况和数据。
         </p>
@@ -371,7 +398,7 @@
     <div class="section-header">
       <span class="section-label">深度攻略</span>
       <h2>每篇都是 3,000 字以上的真实指南</h2>
-      <p class="section-desc">不是 AI 摘要，是顾问团队根据真实咨询案例整理的完整解析。</p>
+      <p class="section-desc">不是机器生成内容，是顾问团队根据真实咨询案例整理的完整解析。</p>
     </div>
     <div class="guides-layout">
       <!-- 精选大图 -->
@@ -432,57 +459,50 @@
        ══════════════════════════════════ -->
   <section class="school-showcase" aria-label="精选学校">
     <div class="section-header">
-      <span class="section-label">精选学校</span>
-      <h2>新加坡热门学校一览</h2>
-      <p class="section-desc">覆盖政府中学、私立学校、国际学校，满足不同年龄与目标的升学需求</p>
+      <span class="section-label">精选大学</span>
+      <h2>新加坡名校一览</h2>
+      <p class="section-desc">6 所公立大学 + 公立艺术大学 UAS + 顶尖私立 SIM，点击查看录取要求、专业方向与申请路径</p>
     </div>
     <div class="school-grid">
-      <a href="/international-school/uwcsea/" class="school-chip intl">
-        <span class="school-abbr">UWC</span>
-        <div><span class="school-name">UWCSEA 世界联合书院</span><br><span class="school-type">国际学校 · IB</span></div>
+      <a href="/university/nus/" class="school-chip uni">
+        <img class="school-logo" src="/wace/images/logos/nus.png" alt="新加坡国立大学 校徽" loading="lazy" decoding="async">
+        <div><span class="school-name">新加坡国立大学</span><br><span class="school-type">公立大学 · 综合研究型</span></div>
       </a>
-      <a href="/international-school/tanglin-trust/" class="school-chip intl">
-        <span class="school-abbr">TTS</span>
-        <div><span class="school-name">Tanglin Trust School</span><br><span class="school-type">国际学校 · IGCSE</span></div>
+      <a href="/university/ntu/" class="school-chip uni">
+        <img class="school-logo" src="/wace/images/logos/ntu.png" alt="南洋理工大学 校徽" loading="lazy" decoding="async">
+        <div><span class="school-name">南洋理工大学</span><br><span class="school-type">公立大学 · 理工见长</span></div>
       </a>
-      <a href="/international-school/acs-international/" class="school-chip intl">
-        <span class="school-abbr">ACS</span>
-        <div><span class="school-name">ACS International</span><br><span class="school-type">国际学校 · IB/IGCSE</span></div>
+      <a href="/university/smu/" class="school-chip uni">
+        <img class="school-logo" src="/wace/images/logos/smu.png" alt="新加坡管理大学 校徽" loading="lazy" decoding="async">
+        <div><span class="school-name">新加坡管理大学</span><br><span class="school-type">公立大学 · 商科顶尖</span></div>
       </a>
-      <a href="/international-school/stamford-american/" class="school-chip intl">
-        <span class="school-abbr">SAS</span>
-        <div><span class="school-name">Stamford American</span><br><span class="school-type">国际学校 · AP/IB</span></div>
+      <a href="/university/sutd/" class="school-chip uni">
+        <img class="school-logo" src="/wace/images/logos/sutd.png" alt="新加坡科技设计大学 校徽" loading="lazy" decoding="async">
+        <div><span class="school-name">新加坡科技设计大学</span><br><span class="school-type">公立大学 · 科技与设计</span></div>
       </a>
-      <a href="/international-school/dulwich/" class="school-chip intl">
-        <span class="school-abbr">DC</span>
-        <div><span class="school-name">Dulwich College</span><br><span class="school-type">国际学校 · IGCSE/IB</span></div>
+      <a href="/university/sit/" class="school-chip uni">
+        <img class="school-logo" src="/wace/images/logos/sit.png" alt="新加坡理工大学 校徽" loading="lazy" decoding="async">
+        <div><span class="school-name">新加坡理工大学</span><br><span class="school-type">公立大学 · 应用科技</span></div>
       </a>
-      <a href="/secondary-schools/raffles-institution/" class="school-chip gov">
-        <span class="school-abbr">RI</span>
-        <div><span class="school-name">莱佛士书院</span><br><span class="school-type">政府学校 · IP</span></div>
+      <a href="/university/suss/" class="school-chip uni">
+        <img class="school-logo" src="/wace/images/logos/suss.png" alt="新加坡社科大学 校徽" loading="lazy" decoding="async">
+        <div><span class="school-name">新加坡社科大学</span><br><span class="school-type">公立大学 · 社会科学</span></div>
       </a>
-      <a href="/secondary-schools/hwa-chong-institution/" class="school-chip gov">
-        <span class="school-abbr">华中</span>
-        <div><span class="school-name">华侨中学</span><br><span class="school-type">政府学校 · IP/SAP</span></div>
+      <a href="/university/uas/" class="school-chip uni">
+        <img class="school-logo" src="/wace/images/logos/uas.png" alt="新加坡艺术大学 校徽" loading="lazy" decoding="async">
+        <div><span class="school-name">新加坡艺术大学</span><br><span class="school-type">公立艺术大学 · 拉萨尔/南艺</span></div>
       </a>
-      <a href="/secondary-schools/nanyang-girls/" class="school-chip gov">
-        <span class="school-abbr">南中</span>
-        <div><span class="school-name">南洋女子中学</span><br><span class="school-type">政府学校 · IP/SAP</span></div>
-      </a>
-      <a href="/secondary-schools/singapore-chinese-girls/" class="school-chip gov">
-        <span class="school-abbr">SCGS</span>
-        <div><span class="school-name">新加坡华人女校</span><br><span class="school-type">政府学校 · IP/SAP</span></div>
-      </a>
-      <a href="/private-schools/" class="school-chip private">
-        <span class="school-abbr">BCI</span>
-        <div><span class="school-name">BCI 私立学校</span><br><span class="school-type">私立 · WACE / EduTrust</span></div>
+      <a href="/private-university/sim/" class="school-chip private">
+        <img class="school-logo" src="/wace/images/logos/sim.jpg" alt="新加坡管理学院 校徽" loading="lazy" decoding="async">
+        <div><span class="school-name">新加坡管理学院 SIM</span><br><span class="school-type">私立名校 · 海外名校学位</span></div>
       </a>
     </div>
     <div class="showcase-footer">
-      <a href="/secondary-schools/" class="outline-btn">查看全部 146 所中学 →</a>
-      <a href="/international-school/" class="outline-btn">查看全部国际学校 →</a>
-      <a href="/poly/courses/" class="outline-btn">理工学院专业录取分数据库 →</a>
+      <a href="/university/" class="outline-btn">新加坡公立大学总览 →</a>
+      <a href="/private-university/" class="outline-btn">新加坡私立大学总览 →</a>
       <a href="/university/degrees/" class="outline-btn">大学专业录取分数据库 →</a>
+      <a href="/private-university/#database" class="outline-btn">私立大学专业数据库（10 所）→</a>
+      <a href="/poly/courses/" class="outline-btn">理工学院专业录取分数据库 →</a>
       <a href="/school-database/" class="outline-btn">进入完整学校数据库 →</a>
     </div>
   </section>
@@ -500,7 +520,7 @@
       <details class="faq-item">
         <summary>SEDA 是什么机构？收费吗？</summary>
         <p>
-          SEDA（新加坡国际教育平台）是一个独立的中文新加坡留学资讯平台，由 Singapore Educational Development Association Ltd. 监管。我们不代理学校、不收取佣金，提供的所有资讯和初步咨询均免费。
+          SEDA（新加坡国际教育平台）是一个独立的中文新加坡留学资讯平台。我们不代理学校、不收取佣金，提供的所有资讯和初步咨询均免费。
         </p>
       </details>
       <details class="faq-item">
@@ -579,7 +599,12 @@
       <div>
         <strong>SEDA 新加坡择校网</strong>
         <p>中文新加坡升学资讯与选校内容平台。</p>
-        <p style="margin-top:.5rem;font-size:.85rem;opacity:.7">由 Singapore Educational Development Association Ltd. 监管</p>
+        <p style="margin-top:.6rem;font-size:.85rem;line-height:1.8;opacity:.85">
+          新加坡：75 Bukit Timah Road, #05-24, Singapore 229833<br>
+          上海：杨浦区平凉路 2241 弄 17 栋 805 室<br>
+          电话：<a href="tel:+6580847715">+65 8084 7715</a>　微信：SEDAGUIDE<br>
+          邮箱：<a href="mailto:admin@seda.org.sg">admin@seda.org.sg</a>
+        </p>
         <p class="icp-record" style="margin-top:.5rem;font-size:.85rem;opacity:.7"><a href="https://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">沪ICP备2022009720号-9</a></p>
       </div>
       <div>
@@ -600,11 +625,6 @@
       </div>
     </footer>
 
-    <button class="wechat-float" type="button" aria-label="微信咨询">
-      <svg viewBox="0 0 24 24"><path d="M8.691 2.188C3.891 2.188 0 5.476 0 9.53c0 2.212 1.17 4.203 3.002 5.55a.59.59 0 0 1 .213.665l-.39 1.48c-.019.07-.048.141-.048.213 0 .163.13.295.29.295a.326.326 0 0 0 .167-.054l1.903-1.114a.864.864 0 0 1 .717-.098 10.16 10.16 0 0 0 2.837.403c.276 0 .543-.027.811-.05-.857-2.578.157-4.972 1.932-6.446 1.703-1.415 3.882-1.98 5.853-1.838-.576-3.583-4.196-6.348-8.596-6.348zM5.785 5.991c.642 0 1.162.529 1.162 1.18a1.17 1.17 0 0 1-1.162 1.178A1.17 1.17 0 0 1 4.623 7.17c0-.651.52-1.18 1.162-1.18zm5.813 0c.642 0 1.162.529 1.162 1.18a1.17 1.17 0 0 1-1.162 1.178 1.17 1.17 0 0 1-1.162-1.178c0-.651.52-1.18 1.162-1.18zm3.825 4.15c-2.19 0-4.166.88-5.481 2.255-1.208 1.262-1.942 2.94-1.942 4.773 0 3.708 3.286 6.643 7.423 6.643.826 0 1.622-.12 2.361-.336a.722.722 0 0 1 .598.082l1.584.926a.272.272 0 0 0 .14.045c.133 0 .241-.11.241-.245 0-.06-.024-.12-.04-.178l-.326-1.233a.49.49 0 0 1 .177-.554C21.886 21.065 23 19.18 23 17.17c0-3.832-3.339-7.028-7.577-7.028zm-2.57 3.198c.535 0 .969.44.969.983a.976.976 0 0 1-.969.983.976.976 0 0 1-.969-.983c0-.543.434-.983.97-.983zm5.14 0c.535 0 .969.44.969.983a.976.976 0 0 1-.97.983.976.976 0 0 1-.968-.983c0-.543.434-.983.969-.983z"/></svg>
-      <span>微信咨询</span>
-    </button>
-
-    <script src="/seda-site.js?v=28"></script>
+    <script src="/seda-site.js?v=29"></script>
   </body>
 </html>

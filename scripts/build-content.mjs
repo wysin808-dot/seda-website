@@ -1,7 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { buildSchoolPages } from './build-school-pages.mjs';
-import { buildTopicPages, topics } from './build-topic-pages.mjs';
 import { enhanceKeySeoPages } from './enhance-key-seo-pages.mjs';
 import { optimizeArticle } from './seo-optimizer.mjs';
 
@@ -86,6 +85,7 @@ function escapeXml(value = '') {
 
 function inline(md) {
   return escapeHtml(md)
+    .replace(/!\[([^\]]*)\]\(([^)]+)\)/g, '<img src="$2" alt="$1">')
     .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
     .replace(/`(.+?)`/g, '<code>$1</code>')
     .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2">$1</a>');
@@ -264,8 +264,8 @@ function renderGeoSummary(article, faqItems) {
     questions.length ? `常见追问：${questions.join('；')}` : '',
   ].filter(Boolean);
   return `<section class="geo-summary" aria-labelledby="geo-summary-title">
-      <p class="eyebrow">AI 摘要</p>
-      <h2 id="geo-summary-title">本文适合 AI 与搜索引擎快速理解的要点</h2>
+      <p class="eyebrow">本文要点</p>
+      <h2 id="geo-summary-title">快速了解本文要点</h2>
       <ul>${list.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}</ul>
     </section>`;
 }
@@ -310,9 +310,13 @@ function renderArticle(article, articles) {
     publisher: {
       '@type': 'Organization',
       name: 'SEDA 新加坡择校网',
-      legalName: 'Singapore Educational Development Association Ltd.',
+      legalName: 'Singapore Educational Development Association',
+      alternateName: ['新加坡教育发展协会', 'SEDA'],
       url: `${domain}/`,
       logo: `${domain}/assets/seda-wordmark.svg`,
+      email: 'admin@seda.org.sg',
+      telephone: '+65 8084 7715',
+      sameAs: ['https://baike.baidu.com/item/%E6%96%B0%E5%8A%A0%E5%9D%A1%E6%95%99%E8%82%B2%E5%8F%91%E5%B1%95%E5%8D%8F%E4%BC%9A'],
     },
     mainEntityOfPage: `${domain}${url}`,
     inLanguage: 'zh-CN',
@@ -421,7 +425,7 @@ ${header}
   </article>
 </main>
 ${footer}
-<script src="/seda-site.js?v=28"></script>
+<script src="/seda-site.js?v=29"></script>
 </body>
 </html>`;
 }
@@ -755,7 +759,8 @@ SEDA 新加坡择校网提供中文的新加坡教育信息，重点覆盖 WACE�
 - [O-Level 申请 JC](/o-level-jc/): O-Level 成绩进入新加坡初级学院的路径和注意事项。
 - [O-Level 申请 Poly](/o-level-poly/): O-Level 进入新加坡理工学院的路径、专业选择和申请建议。
 - [AEIS 考试](/aeis/): 国际学生进入新加坡政府中小学的 AEIS 考试说明。
-- [A-Level](/a-level/): 新加坡 A-Level 与大学申请路径说明。
+- [新加坡 A-Level](/a-level/): 新加坡本地 A-Level（剑桥-SEAB 联办）与大学申请路径说明。
+- [国际 A-Level](/international-alevel/): 剑桥国际 A-Level（CAIE）的体系、与新加坡 A-Level 的区别和大学申请路径。
 - [IB 课程](/ib/): IB 课程体系、适合学生和升学路径。
 
 ## Latest SEO Articles
@@ -768,21 +773,24 @@ ${latest || '- 最新 SEO 文章正在更新。'}
 - [政府小学数据库](/primary-schools/): 新加坡政府小学信息。
 - [政府中学数据库](/secondary-schools/): 新加坡政府中学信息。
 - [JC 初级学院](/jc/): 新加坡初级学院介绍。
-- [Poly 理工学院](/poly/): 新加坡五所理工学院与申请路径。
+- [Poly 理工学院](/poly/): 新加坡五所理工学院目录与申请路径。
+- [Poly 专业 ELR2B2 数据库](/poly/courses/): 195 个理工学院 Diploma 专业的 ELR2B2 截分（O-Level 升 Poly）可筛选数据库。
 - [国际学校](/international-school/): 新加坡国际学校与课程体系。
 - [私立学校](/private-schools/): 新加坡私立学校与升学路径。
 
-## Topic Hubs
-
-- [SEDA 专题中心](/topics/): 新加坡教育 SEO/GEO 专题入口。
-${topics.map((topic) => `- [${topic.title}](/topics/${topic.slug}/): ${topic.description}`).join('\n')}
-
 ## University Pathways
 
-- [新加坡公立大学](/university/): NUS、NTU、SMU、SUTD、SIT、SUSS 等公立大学总览。
-- [NUS 新加坡国立大学](/university/nus/): NUS 申请与课程方向。
-- [NTU 南洋理工大学](/university/ntu/): NTU 申请与课程方向。
-- [SMU 新加坡管理大学](/university/smu/): SMU 申请与课程方向。
+- [新加坡公立大学总览](/university/): NUS、NTU、SMU、SUTD、SIT、SUSS 六所公立大学 + UAS 艺术大学目录，含预估录取分。
+- [大学专业录取分数据库](/university/degrees/): 137 个本科专业的 IGP 录取分（A-Level / 理工 GPA / 预估 ATAR）可筛选数据库。
+- [新加坡私立大学](/private-university/): 10 所主流私立大学（SIM、Kaplan、PSB、JCU、MDIS、Curtin、LSBF、Amity、SHRM、TMC）总览，含合作大学、学费与中留服认证。
+- [私立大学专业数据库](/private-university/#database): 10 所私立大学 273 个本科 / 硕士 / 文凭专业可筛选数据库（按学校、方向、层级、合作大学），已并入私立大学总览页。
+- [NUS 新加坡国立大学](/university/nus/): NUS 完整指南——学科实力、录取路径（含高考）、学费、就业。
+- [NTU 南洋理工大学](/university/ntu/): NTU 完整指南——材料/工程强项、录取路径、学费、就业。
+- [SMU 新加坡管理大学](/university/smu/): SMU 完整指南——商科/研讨式教学、录取路径、学费。
+- [SUTD 新加坡科技设计大学](/university/sutd/): SUTD 完整指南——MIT 合作、跨学科设计、整体评估录取。
+- [SIT 新加坡理工大学](/university/sit/): SIT 完整指南——应用型、IWSP 带薪实习、海外联合学位、能力本位录取。
+- [SUSS 新跃社科大学](/university/suss/): SUSS 完整指南——社会科学见长、多轮评估录取（笔试+面试）。
+- [UAS 新加坡艺术大学](/university/uas/): UAS 指南——作品集/试镜录取、艺术与设计专业方向。
 - [香港升学](/hk-university/): 香港高校申请路径。
 - [澳洲升学](/au-university/): 澳洲大学与 WACE/ATAR 申请路径。
 - [英国升学](/uk-university/): 英国大学申请路径。
@@ -813,7 +821,10 @@ ${topics.map((topic) => `- [${topic.title}](/topics/${topic.slug}/): ${topic.des
 ## Brand and Contact
 
 - Brand: SEDA 新加坡择校网
-- Legal entity: Singapore Educational Development Association Ltd.
+- Singapore office: 75 Bukit Timah Road, #05-24, Singapore 229833
+- China office: 上海市杨浦区平凉路2241弄17栋805室
+- Phone: +65 8084 7715
+- Email: admin@seda.org.sg
 - Website: https://sgeda.org.cn/
 - Language: Simplified Chinese (zh-CN)
 - Audience: Chinese students and parents researching Singapore education pathways
@@ -904,7 +915,32 @@ function googleAnalyticsSnippet() {
   gtag('js', new Date());
   gtag('config', '${defaultGoogleAnalyticsId}');
 </script>
-<!-- SEDA_GA4_END -->`;
+<!-- SEDA_GA4_END -->
+<!-- SEDA_BAIDU_TONGJI -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?af60e7bad22922a4493d76d92f76a3fa";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<!-- SEDA_BAIDU_TONGJI_END -->`;
+}
+
+function baiduTongjiSnippet() {
+  return `<!-- SEDA_BAIDU_TONGJI -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?af60e7bad22922a4493d76d92f76a3fa";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<!-- SEDA_BAIDU_TONGJI_END -->`;
 }
 
 function enhanceGlobalGoogleAnalytics() {
@@ -918,6 +954,23 @@ function enhanceGlobalGoogleAnalytics() {
     const cleaned = html.replace(existingSnippetPattern, '\n');
     const next = cleaned.replace('</head>', `${snippet}\n</head>`);
     if (next === html) continue;
+    fs.writeFileSync(file, next, 'utf8');
+    count += 1;
+  }
+  return count;
+}
+
+function enhanceBaiduTongji() {
+  let count = 0;
+  const files = walk(root).filter(isSitemapPage);
+  const snippet = baiduTongjiSnippet();
+  const pattern = /\n?<!-- SEDA_BAIDU_TONGJI -->[\s\S]*?<!-- SEDA_BAIDU_TONGJI_END -->\n?/;
+  for (const file of files) {
+    const html = fs.readFileSync(file, 'utf8');
+    if (!html.includes('</head>')) continue;
+    const cleaned = html.replace(pattern, '\n');
+    const next = cleaned.replace('</head>', `${snippet}\n</head>`);
+    if (next === cleaned) continue;
     fs.writeFileSync(file, next, 'utf8');
     count += 1;
   }
@@ -989,9 +1042,8 @@ const allArticles = loadArticles();
 const articles = allArticles.filter((article) => !article.meta.draft);
 const drafts = allArticles.filter((article) => article.meta.draft);
 const schoolPageCount = buildSchoolPages();
-const topicPageCount = buildTopicPages(articles, header, footer);
 const enhancedKeyPageCount = enhanceKeySeoPages();
-articles.forEach(writeArticle);
+articles.filter(a => !a.meta.custom).forEach(writeArticle);
 drafts.forEach(removeDraftArticlePage);
 writeReviewPage(allArticles);
 updateNewsIndex(articles);
@@ -1000,14 +1052,15 @@ writeFeeds(articles);
 updateLlms(articles);
 const enhancedUtilitySchemaCount = enhanceUtilityPageSchema();
 const enhancedGoogleAnalyticsCount = enhanceGlobalGoogleAnalytics();
+const enhancedBaiduTongjiCount = enhanceBaiduTongji();
 const enhancedRobotsCount = enhanceGlobalRobotsMeta();
 const urlCount = updateSitemap(drafts);
 console.log(`Built ${articles.length} content articles.`);
 console.log(`Built ${schoolPageCount} school SEO pages.`);
-console.log(`Built ${topicPageCount} topic hub pages.`);
 console.log(`Enhanced ${enhancedKeyPageCount} key SEO pages.`);
 console.log(`Enhanced ${enhancedUtilitySchemaCount} utility pages with schema.`);
 console.log(`Enhanced ${enhancedGoogleAnalyticsCount} pages with GA4 tags.`);
+console.log(`Enhanced ${enhancedBaiduTongjiCount} pages with Baidu Tongji.`);
 console.log(`Enhanced ${enhancedRobotsCount} pages with robots meta.`);
 console.log(`Prepared ${drafts.length} draft articles for review.`);
 console.log(`Updated sitemap.xml with ${urlCount} URLs.`);

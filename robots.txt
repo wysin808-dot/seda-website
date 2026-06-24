@@ -16,6 +16,8 @@ Allow: /poly/np/
 Allow: /poly/nyp/
 Allow: /poly/tp/
 Allow: /poly/rp/
+# Poly directory + ELR2B2 programme database (unique data tables)
+Allow: /poly/courses/
 # Junior Colleges with unique, hand-written content (16 pages)
 Allow: /jc/hwa-chong-institution/
 Allow: /jc/raffles-institution/

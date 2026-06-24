@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
+  <title>AI 私立大学匹配 — 新加坡 10 所私立大学 | SEDA 新加坡择校网 顾问工具</title>
+  <meta name="description" content="输入你的学历、想读的方向和偏好（中留服认证 / 预算 / 最快毕业），AI 为你匹配新加坡 10 所私立大学（SIM、Kaplan、PSB、JCU、MDIS、Curtin、LSBF、Amity、SHRM、TMC）中最对口的学校与升学路径。" />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+  <link rel="canonical" href="https://sgeda.org.cn/tools/private-university-matcher.html" />
+  <link rel="stylesheet" href="/seda-site.css?v=38" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"AI 私立大学匹配","applicationCategory":"EducationApplication","operatingSystem":"Web","url":"https://sgeda.org.cn/tools/private-university-matcher.html","inLanguage":"zh-CN","offers":{"@type":"Offer","price":"0","priceCurrency":"SGD"},"description":"按学历、方向与偏好匹配新加坡 10 所私立大学与升学路径。","publisher":{"@type":"Organization","name":"SEDA 新加坡择校网"}}</script>
+  <style>
+    :root{--pm:#7e2d3a;--pm2:#b3243b;--line:#e7ebf1;--ink:#1f2430;--muted:#6a7383}
+    .pm-wrap{max-width:1000px;margin:0 auto;padding:0 clamp(16px,5vw,32px)}
+    .pm-hero{background:linear-gradient(135deg,#241a1e,#7e2d3a);color:#fff;padding:40px clamp(16px,5vw,32px) 34px}
+    .pm-hero .in{max-width:1000px;margin:0 auto}
+    .pm-hero h1{font-size:clamp(24px,3.4vw,38px);margin:0 0 10px;font-weight:850}
+    .pm-hero p{margin:0;color:rgba(255,255,255,.9);line-height:1.7;max-width:740px}
+    .pm-card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:24px clamp(16px,4vw,30px);margin:22px auto;box-shadow:0 4px 18px rgba(20,30,60,.05)}
+    .pm-step{margin-bottom:22px}
+    .pm-step h3{font-size:1.02rem;margin:0 0 12px;color:var(--ink);font-weight:800}
+    .pm-step h3 small{font-weight:600;color:var(--muted);font-size:.82rem;margin-left:6px}
+    .pm-opts{display:flex;flex-wrap:wrap;gap:9px}
+    .pm-opt{font-size:.92rem;border:1.5px solid var(--line);background:#fff;color:var(--ink);padding:9px 16px;border-radius:10px;cursor:pointer;user-select:none;transition:.13s}
+    .pm-opt:hover{border-color:#cba}
+    .pm-opt.on{background:var(--pm);border-color:var(--pm);color:#fff}
+    .pm-chip{font-size:.88rem;border:1.5px solid var(--line);background:#fff;color:var(--muted);padding:7px 13px;border-radius:999px;cursor:pointer;user-select:none;transition:.13s}
+    .pm-chip:hover{border-color:#cba}
+    .pm-chip.on{background:var(--pm2);border-color:var(--pm2);color:#fff}
+    .pm-go{margin-top:6px;background:var(--pm2);color:#fff;border:0;font-weight:800;font-size:1.02rem;padding:13px 32px;border-radius:11px;cursor:pointer;width:100%}
+    .pm-go:disabled{opacity:.45;cursor:not-allowed}
+    .pm-res{margin:22px auto;display:none}
+    .pm-res.show{display:block}
+    .pm-res-sub{color:var(--muted);font-size:.92rem;margin:0 0 16px;line-height:1.7}
+    .pm-uni{border:1.5px solid var(--line);border-radius:14px;padding:18px 20px;margin-bottom:13px;background:#fff;transition:.15s}
+    .pm-uni.top{border-color:var(--pm2);background:#fdf2f4}
+    .pm-uni-head{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+    .pm-abbr{font-weight:850;color:#fff;font-size:.92rem;padding:4px 11px;border-radius:8px}
+    .pm-uni-cn{font-weight:800;color:var(--ink);font-size:1.08rem}
+    .pm-type{font-size:.72rem;font-weight:700;color:var(--muted);background:var(--wash,#f5f6f8);padding:3px 9px;border-radius:999px}
+    .pm-fit{margin-left:auto;font-size:.78rem;font-weight:800;color:var(--pm2);background:#fbe2e7;padding:4px 10px;border-radius:999px}
+    .pm-row{font-size:.9rem;color:#3a4150;line-height:1.6;margin:.6rem 0 0}
+    .pm-row b{color:var(--ink)}
+    .pm-row .k{color:var(--muted);font-weight:700;margin-right:5px}
+    .pm-uni-foot{display:flex;flex-wrap:wrap;gap:8px;margin-top:.9rem}
+    .pm-uni-foot a{font-size:.85rem;font-weight:700;text-decoration:none;border:1px solid var(--line);border-radius:999px;padding:7px 14px;color:var(--pm)}
+    .pm-uni-foot a:hover{background:var(--pm);color:#fff;border-color:var(--pm)}
+    .pm-cta{background:linear-gradient(135deg,#241a1e,#7e2d3a);border-radius:14px;padding:24px;text-align:center;margin-top:18px}
+    .pm-cta,.pm-cta *{color:#fff}.pm-cta h3{margin:0 0 8px}
+    .pm-cta a{display:inline-block;margin-top:12px;background:#fff;color:var(--pm);font-weight:800;padding:11px 26px;border-radius:10px;text-decoration:none}
+    .pm-note{font-size:.8rem;color:var(--muted);line-height:1.6;margin-top:14px}
+  </style>
+  <!-- SEDA_GA4_START -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-38WFES3WTH"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-38WFES3WTH');</script>
+  <!-- SEDA_GA4_END -->
+</head>
+<body>
+  <header class="present-header">
+  <div class="present-header-inner">
+    <div class="present-brand">
+      <img class="present-brand-logo" src="/assets/seda-wordmark.svg" alt="SEDA" height="28">
+      <span class="present-brand-sub">SEDA 新加坡择校网</span>
+    </div>
+    <a href="/tools/" class="present-back">← 全部工具</a>
+  </div>
+</header>
+
+  <section class="pm-hero"><div class="in">
+    <h1>🎓 AI 私立大学匹配</h1>
+    <p>成绩够不到公立大学？私立大学不看高分截分、高中毕业即可申请。选好你的<b>学历、方向与偏好</b>，AI 为你从 10 所私立大学（SIM、Kaplan、PSB、JCU、MDIS、Curtin、LSBF、Amity、SHRM、TMC）匹配最对口的学校与升学路径。</p>
+  </div></section>
+
+  <div class="pm-wrap">
+    <div class="pm-card">
+      <div class="pm-step">
+        <h3>① 你目前的学历？</h3>
+        <div class="pm-opts" id="pmQual">
+          <span class="pm-opt" data-v="hs">高中在读 / 高中毕业</span>
+          <span class="pm-opt" data-v="dip">理工 Diploma / 大专</span>
+          <span class="pm-opt" data-v="deg">本科在读 / 肄业</span>
+        </div>
+      </div>
+      <div class="pm-step">
+        <h3>② 想读什么方向？<small>可多选</small></h3>
+        <div class="pm-opts" id="pmField"></div>
+      </div>
+      <div class="pm-step">
+        <h3>③ 偏好<small>可多选，可不选</small></h3>
+        <div class="pm-opts" id="pmPref">
+          <span class="pm-chip" data-v="china">回国就业，要中留服认证</span>
+          <span class="pm-chip" data-v="fast">想最快毕业</span>
+          <span class="pm-chip" data-v="budget">预算有限</span>
+        </div>
+      </div>
+      <button class="pm-go" id="pmGo" disabled>开始匹配 →</button>
+    </div>
+
+    <div class="pm-res" id="pmRes">
+      <div class="pm-card">
+        <div class="pm-res-sub" id="pmResSub"></div>
+        <div id="pmResList"></div>
+        <div class="pm-cta"><h3>想确认录取与学费方案？</h3><p>顾问可帮你对接学校、核实中留服认证、规划专升本路径——全程免费。</p><a href="/contact/">免费咨询选校 →</a></div>
+        <p class="pm-note">说明：私立大学多为高中即可申请、专升本（Top-up）灵活；中留服认证取决于具体合作大学与专业，<b>直属校区（JCU/Curtin）相对稳妥</b>，申请前请在中留服官网核实。完整专业见 <a href="/private-university/#database">私立大学专业数据库（273 个）</a>。</p>
+      </div>
+    </div>
+  </div>
+
+  <footer class="present-footer">
+  <p><strong>SEDA 新加坡择校网</strong>&nbsp;|&nbsp; <a href="/tools/">返回工具列表</a></p>
+  <p>中文新加坡升学资讯与选校内容平台。</p>
+  <p style="margin-top:.6rem;font-size:.85rem;line-height:1.8;opacity:.85">
+          新加坡：75 Bukit Timah Road, #05-24, Singapore 229833<br>
+          上海：杨浦区平凉路 2241 弄 17 栋 805 室<br>
+          电话：<a href="tel:+6580847715">+65 8084 7715</a>　微信：SEDAGUIDE<br>
+          邮箱：<a href="mailto:admin@seda.org.sg">admin@seda.org.sg</a>
+        </p>
+  <p class="icp-record"><a href="https://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">沪ICP备2022009720号-9</a></p>
+</footer>
+
+<script>
+(function(){
+  const FIELDS=[['商科','💼 商科'],['会计金融','📊 会计金融'],['IT','💻 计算机 / IT'],['工程','⚙️ 工程'],['心理','🧠 心理学'],['酒店','🏨 酒店旅游'],['传媒','🎬 传媒'],['生科','🧬 生命科学'],['设计','🎨 设计'],['护理','❤️ 护理'],['法律','⚖️ 法律'],['环境','🌿 环境科学']];
+  const FL={'商科':'商科','会计金融':'会计金融','IT':'计算机/IT','工程':'工程','心理':'心理学','酒店':'酒店旅游','传媒':'传媒','生科':'生命科学','设计':'设计','护理':'护理','法律':'法律','环境':'环境科学','物流':'物流供应链','经济':'经济','社科':'社会科学','教育':'教育','网络安全':'网络安全'};
+  const UNIS=[
+    {slug:'jcu',abbr:'JCU',cn:'詹姆斯库克大学',type:'澳洲直属校区',color:'#009ca6',fee:'S$55,000–72,000',direct:true,fields:['心理','商科','IT','生科','环境','酒店','教育'],str:'心理学 / 海洋环境 / 商科，最快 2 年',china:'直属校区，中留服认证相对稳妥'},
+    {slug:'curtin',abbr:'Curtin',cn:'科廷大学',type:'澳洲直属校区',color:'#1a1a1a',fee:'S$55,000–70,000',direct:true,fields:['商科','会计金融','传媒','网络安全','IT','护理'],str:'商科 / 传媒 / 会计金融，QS #183',china:'直属校区，中留服认证相对稳妥'},
+    {slug:'sim',abbr:'SIM',cn:'新加坡管理学院',type:'合作名校学位',color:'#e4002b',fee:'S$30,000–50,000',direct:false,fields:['商科','会计金融','IT','传媒','经济','社科','法律'],str:'伦敦大学等名校，规模最大、专业多',china:'伦敦大学、伯明翰等部分可中留服认证'},
+    {slug:'kaplan',abbr:'Kaplan',cn:'楷博高等教育',type:'合作名校学位',color:'#003a70',fee:'S$28,000–48,000',direct:false,fields:['商科','会计金融','IT','网络安全','传媒','酒店','物流','法律','设计'],str:'12 所合作大学，专业最广、开课灵活',china:'取决于合作大学，申请前核实'},
+    {slug:'psb',abbr:'PSB',cn:'PSB 学院',type:'合作名校学位',color:'#b30537',fee:'S$28,000–48,000',direct:false,fields:['工程','生科','商科','IT','传媒','网络安全','物流','护理'],str:'工程 / 生命科学是特色',china:'取决于合作大学，申请前核实'},
+    {slug:'mdis',abbr:'MDIS',cn:'管理发展学院',type:'合作名校学位',color:'#c81432',fee:'S$28,000–48,000',direct:false,fields:['工程','生科','设计','传媒','心理','护理','IT','商科','会计金融'],str:'专业最广，1956 老牌',china:'8 所英国合作大学部分专业获认证'},
+    {slug:'lsbf',abbr:'LSBF',cn:'伦敦商业金融学院',type:'合作名校学位',color:'#16306b',fee:'S$28,000–46,000',direct:false,fields:['商科','会计金融','酒店','物流','网络安全'],str:'财会 / 金融 / ACCA',china:'取决于合作大学，申请前核实'},
+    {slug:'amity',abbr:'Amity',cn:'Amity 全球教育',type:'合作名校学位',color:'#00325a',fee:'S$28,000–45,000',direct:false,fields:['商科','酒店','传媒','IT','会计金融','物流','教育'],str:'商科 / AI 数据 / 酒店，国际化',china:'伦敦大学、UEA 等部分可认证'},
+    {slug:'shrm',abbr:'SHRM',cn:'SHRM 学院',type:'合作名校学位',color:'#8a6d1f',fee:'S$30,000–45,000',direct:false,fields:['酒店','商科'],str:'酒店与旅游管理专精',china:'取决于合作大学，申请前核实'},
+    {slug:'tmc',abbr:'TMC',cn:'TMC 学院',type:'合作名校学位',color:'#b3243b',fee:'S$28,000–45,000',direct:false,fields:['商科','心理','传媒','酒店','IT','会计金融','物流'],str:'老牌，心理学 / 商科 / 传媒',china:'取决于合作大学，申请前核实'}
+  ];
+  const state={qual:null,fields:new Set(),pref:new Set()};
+
+  // 渲染方向 chips
+  const fc=document.getElementById('pmField');
+  FIELDS.forEach(([tok,lbl])=>{const s=document.createElement('span');s.className='pm-chip';s.dataset.v=tok;s.textContent=lbl;fc.appendChild(s);});
+
+  function bind(id,key,multi){
+    document.getElementById(id).addEventListener('click',function(e){
+      const el=e.target.closest('[data-v]');if(!el)return;
+      const v=el.dataset.v;
+      if(multi){ if(state[key].has(v)){state[key].delete(v);el.classList.remove('on');}else{state[key].add(v);el.classList.add('on');} }
+      else{ [...this.children].forEach(c=>c.classList.remove('on')); el.classList.add('on'); state[key]=v; }
+      updateGo();
+    });
+  }
+  bind('pmQual','qual',false); bind('pmField','fields',true); bind('pmPref','pref',true);
+  function updateGo(){ document.getElementById('pmGo').disabled = !(state.qual && state.fields.size); }
+
+  function pathway(u){
+    if(u.direct){
+      if(state.qual==='hs') return '高中 → 大学预科（Foundation）→ 本科，最快约 2 年拿学位';
+      if(state.qual==='dip') return '凭理工 Diploma / 大专 → 直入本科（学分减免），加速完成';
+      return '本科在读 / 肄业 → 凭已修学分转入，缩短学制';
+    } else {
+      if(state.qual==='hs') return '高中 → 学院文凭 / 预科 → 合作大学本科（专升本 / 直入）';
+      if(state.qual==='dip') return '凭理工 Diploma / 大专 → Top-up 专升本，最快约 8–12 个月拿英澳学位';
+      return '本科在读 / 肄业 → Top-up 专升本或转学分';
+    }
+  }
+  function score(u){
+    let s=0;const matched=u.fields.filter(f=>state.fields.has(f));s+=matched.length*3;
+    if(state.pref.has('china')){ if(u.direct)s+=4; else if(u.slug==='sim'||u.slug==='amity')s+=2; }
+    if(state.pref.has('fast')){ if(u.direct)s+=2; else s+=1; }
+    if(state.pref.has('budget')){ if(u.direct)s-=2; else s+=1; }
+    return {s,matched};
+  }
+  function fmt(u){
+    const {s,matched}=score(u);
+    const fit = matched.length ? `<span class="pm-fit">🎯 对口：${matched.slice(0,3).map(f=>FL[f]).join('、')}</span>` : '';
+    const chinaPref = state.pref.has('china');
+    return {s,html:`<div class="pm-uni${matched.length?' top':''}">
+      <div class="pm-uni-head"><span class="pm-abbr" style="background:${u.color}">${u.abbr}</span><span class="pm-uni-cn">${u.cn}</span><span class="pm-type">${u.type}</span>${fit}</div>
+      <p class="pm-row"><span class="k">升学路径</span>${pathway(u)}</p>
+      <p class="pm-row"><span class="k">本科学费</span><b>${u.fee}</b>　<span class="k" style="margin-left:6px">中留服</span>${u.china}${chinaPref&&u.direct?' ✅':''}</p>
+      <p class="pm-row"><span class="k">特色</span>${u.str}</p>
+      <div class="pm-uni-foot"><a href="/private-university/${u.slug}/">查看 ${u.abbr} 详情 →</a><a href="/private-university/?school=${u.slug}#database">看 ${u.abbr} 专业</a></div>
+    </div>`};
+  }
+  document.getElementById('pmGo').addEventListener('click',function(){
+    const ranked=UNIS.map(fmt).sort((a,b)=>b.s-a.s);
+    const fieldNames=[...state.fields].map(f=>FL[f]).join('、');
+    const qualName={hs:'高中',dip:'理工 Diploma / 大专',deg:'本科在读 / 肄业'}[state.qual];
+    let sub=`基于你的学历 <b style="color:var(--ink)">${qualName}</b> 和方向 <b style="color:var(--ink)">${fieldNames}</b>`;
+    if(state.pref.has('china')) sub+='，并优先<b>中留服认证</b>';
+    sub+='，为你排序如下（🎯 标记为对口学校）：';
+    document.getElementById('pmResSub').innerHTML=sub;
+    document.getElementById('pmResList').innerHTML=ranked.map(r=>r.html).join('');
+    document.getElementById('pmRes').classList.add('show');
+    document.getElementById('pmRes').scrollIntoView({behavior:'smooth',block:'start'});
+  });
+})();
+</script>
+</body>
+</html>

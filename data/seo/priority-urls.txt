@@ -1,0 +1,6 @@
+# 百度/IndexNow 优先推送清单
+# 集中火力：考察期只攻 2 个页面（首页 + AEIS），让百度先收 1-2 个建立信任。
+# baidu-submit.sh 会循环反复推这个清单（不再跳去全站 sitemap 轮换）。
+# 以 http(s):// 开头的行才会被推送，# 开头为注释。
+https://sgeda.org.cn/
+https://sgeda.org.cn/aeis/

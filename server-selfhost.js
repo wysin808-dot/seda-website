@@ -1497,6 +1497,48 @@ function handleCmsAnalytics(req, res, url) {
   });
 }
 
+// Public daily analytics report — token-protected, no CMS auth needed
+function handleAnalyticsReport(req, res, url) {
+  const token = (process.env.ANALYTICS_REPORT_TOKEN || 'seda-report-2026');
+  if (url.searchParams.get('token') !== token) {
+    return json(res, 403, { error: 'Invalid token' });
+  }
+  const dateStr = url.searchParams.get('date') || yesterdayDate();
+  const allEvents = readAnalyticsEvents(2);
+  const pageviews = allEvents.filter((event) => (event.eventType || 'pageview') === 'pageview');
+  const dayEvents = pageviews.filter((event) => String(event.ts || '').startsWith(dateStr));
+  const visitors = new Set(dayEvents.map((event) => event.visitor)).size;
+  // WeChat conversion events
+  const wechatEvents = allEvents.filter((event) => 
+    (event.event_category === 'wechat_conversion' || String(event.eventType || '').startsWith('wechat_')) &&
+    String(event.ts || '').startsWith(dateStr)
+  );
+  const wechatClicks = wechatEvents.filter(e => e.eventType === 'wechat_click').length;
+  const wechatCopies = wechatEvents.filter(e => e.eventType === 'wechat_copy').length;
+  const wechatExposures = wechatEvents.filter(e => e.eventType === 'wechat_exposure').length;
+  json(res, 200, {
+    date: dateStr,
+    pageviews: dayEvents.length,
+    visitors,
+    wechat: {
+      total: wechatEvents.length,
+      clicks: wechatClicks,
+      copies: wechatCopies,
+      exposures: wechatExposures,
+    },
+    topPages: topCounts(dayEvents, 'path', 15),
+    topSources: topCounts(dayEvents, 'source', 8),
+    topRegions: topCounts(dayEvents, 'region', 8),
+    devices: topCounts(dayEvents, 'device', 4),
+  });
+}
+
+function yesterdayDate() {
+  const d = new Date();
+  d.setDate(d.getDate() - 1);
+  return d.toISOString().slice(0, 10);
+}
+
 function handleCmsOverview(req, res) {
   if (!requireCmsAuth(req, res)) return;
   const today = todayDate();
@@ -1923,7 +1965,7 @@ async function handleChat(req, res) {
   if (question.length > 500) return json(res, 400, { error: '问题请控制在500字以内' });
 
   const apiKey = process.env.DEEPSEEK_API_KEY;
-  if (!apiKey) return json(res, 500, { error: 'AI服务未配置，请联系管理员' });
+  if (!apiKey) return json(res, 500, { error: '助手服务未配置，请联系管理员' });
 
   try {
     const aiRes = await fetch(DEEPSEEK_API_URL, {
@@ -1937,7 +1979,7 @@ async function handleChat(req, res) {
       }),
     });
     if (!aiRes.ok) {
-      const msg = aiRes.status === 401 ? 'AI服务配置有误' : `AI服务异常（${aiRes.status}）`;
+      const msg = aiRes.status === 401 ? '助手服务配置有误' : `助手服务异常（${aiRes.status}）`;
       return json(res, 502, { error: msg });
     }
     const data = await aiRes.json();
@@ -1945,7 +1987,7 @@ async function handleChat(req, res) {
     const answer = raw ? (raw.includes(CONSULTATION_SUFFIX) ? raw : `${raw}\n\n${CONSULTATION_SUFFIX}`) : CONSULTATION_SUFFIX;
     json(res, 200, { answer });
   } catch {
-    json(res, 500, { error: 'AI服务暂时无法连接' });
+    json(res, 500, { error: '助手服务暂时无法连接' });
   }
 }
 
@@ -2382,6 +2424,7 @@ const server = createServer(async (req, res) => {
   if (req.method === 'GET' && url.pathname === '/api/cms/overview') return handleCmsOverview(req, res);
   if (req.method === 'GET' && url.pathname === '/api/cms/status') return cmsStats(req, res);
   if (req.method === 'GET' && url.pathname === '/api/cms/analytics') return handleCmsAnalytics(req, res, url);
+  if (req.method === 'GET' && url.pathname === '/api/analytics/report') return handleAnalyticsReport(req, res, url);
   if (req.method === 'GET' && url.pathname === '/api/cms/seo') return handleCmsSeo(req, res, url);
   if (req.method === 'POST' && url.pathname === '/api/cms/seo') return handleCmsSeoSave(req, res);
   if (req.method === 'GET' && url.pathname === '/api/cms/leads') return handleCmsLeads(req, res, url);

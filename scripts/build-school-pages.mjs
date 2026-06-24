@@ -534,9 +534,9 @@ ${header}
         <div class="stat-item"><div class="num">${escapeHtml(school.categoryLabel)}</div><div class="label">学校分类</div></div>
       </div>
 
-      <section class="geo-summary" aria-labelledby="school-ai-summary">
-        <p class="eyebrow">AI 摘要</p>
-        <h2 id="school-ai-summary">给中国家长快速理解的要点</h2>
+      <section class="geo-summary" aria-labelledby="school-quick-summary">
+        <p class="eyebrow">快速了解</p>
+        <h2 id="school-quick-summary">给中国家长快速理解的要点</h2>
         <ul>
           <li>${escapeHtml(school.angle)}</li>
           <li>适合人群：${escapeHtml(school.audience)}</li>
@@ -618,7 +618,7 @@ ${header}
   </div>
 </main>
 ${footer}
-<script src="/seda-site.js?v=28"></script>
+<script src="/seda-site.js?v=29"></script>
 </body>
 </html>`;
 }
@@ -717,7 +717,7 @@ ${cards}
   </section>
 </main>
 ${footer}
-<script src="/seda-site.js?v=28"></script>
+<script src="/seda-site.js?v=29"></script>
 </body>
 </html>`;
 }
@@ -795,7 +795,7 @@ ${header}
     <div class="section-head">
       <p class="eyebrow">学校 SEO 页面</p>
       <h2>${sorted.length} 所私立学校独立择校页</h2>
-      <p>每所学校页面都包含课程体系、适合学生、费用关注、申请路径、FAQ 与结构化数据，方便中国家长搜索和 AI 摘要理解。</p>
+      <p>每所学校页面都包含课程体系、适合学生、费用关注、申请路径、FAQ 与结构化数据，方便中国家长搜索和快速理解。</p>
     </div>
     <div class="seo-tag-cloud seo-tag-cloud-wide">${indexTags.map((tag) => `<span>${escapeHtml(tag)}</span>`).join('')}</div>
     <div class="article-grid">
@@ -826,7 +826,7 @@ ${cards}
   </section>
 </main>
 ${footer}
-<script src="/seda-site.js?v=28"></script>
+<script src="/seda-site.js?v=29"></script>
 </body>
 </html>`;
 }
@@ -851,10 +851,19 @@ export function buildSchoolPages() {
     fs.writeFileSync(path.join(indexDir, 'index.html'), renderInternationalSchoolIndex(internationalSchools, header, footer), 'utf8');
   }
   const privateSchools = schools.filter((school) => school.type === 'private');
-  if (privateSchools.length) {
+  {
+    // /private-schools/ 与 /private-university/ 同主题（私立大学 / PEI）。
+    // 直接镜像 private-university 目录，保持两页内容一致；其内 canonical 指向
+    // /private-university/，搜索引擎自动归一，避免重复内容。private-university/index.html
+    // 由 scripts/build-private.py 生成并提交。
+    const puPath = path.join(root, 'private-university', 'index.html');
     const indexDir = path.join(root, 'private-schools');
     fs.mkdirSync(indexDir, { recursive: true });
-    fs.writeFileSync(path.join(indexDir, 'index.html'), renderPrivateSchoolIndex(privateSchools, header, footer), 'utf8');
+    if (fs.existsSync(puPath)) {
+      fs.writeFileSync(path.join(indexDir, 'index.html'), fs.readFileSync(puPath, 'utf8'), 'utf8');
+    } else if (privateSchools.length) {
+      fs.writeFileSync(path.join(indexDir, 'index.html'), renderPrivateSchoolIndex(privateSchools, header, footer), 'utf8');
+    }
   }
   return schools.length;
 }

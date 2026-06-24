@@ -452,8 +452,14 @@ function loadArticles() {
 
 function writeArticle(article) {
   const dir = path.join(root, article.url);
+  const outFile = path.join(dir, 'index.html');
+  // SEDA_CUSTOM_PAGE protection: if the existing file contains this marker,
+  // it is a hand-built custom page and must NOT be overwritten by the build.
+  if (fs.existsSync(outFile) && fs.readFileSync(outFile, 'utf8').includes('<!-- SEDA_CUSTOM_PAGE -->')) {
+    return;
+  }
   fs.mkdirSync(dir, { recursive: true });
-  fs.writeFileSync(path.join(dir, 'index.html'), renderArticle(article, articles), 'utf8');
+  fs.writeFileSync(outFile, renderArticle(article, articles), 'utf8');
 }
 
 function removeDraftArticlePage(article) {

@@ -8,6 +8,7 @@ slug: student-pass-application-singapore
 date: 2026-06-02
 tags: 学生准证,Student Pass,新加坡留学签证,留学材料
 draft: false
+custom: true
 ---
 
 很多家长第一次准备孩子去新加坡读书时，都会把“学生准证”简单理解成学生签证。

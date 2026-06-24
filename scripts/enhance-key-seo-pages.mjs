@@ -460,30 +460,11 @@ const pages = [
       { q: '选校应该先看排名吗？', a: '不建议只看排名，应结合课程、孩子能力、交通、预算、出口和申请难度综合判断。' },
     ],
   },
-  {
-    path: '/guides/student-pass/',
-    file: 'guides/student-pass/index.html',
-    title: '新加坡学生准证申请指南',
-    description: '新加坡 Student Pass 学生准证中文指南，覆盖申请流程、材料、时间线、常见拒签原因和中国学生家长注意事项。',
-    about: ['新加坡学生准证', 'Student Pass', 'ICA', '留学签证', '中国学生申请', '陪读准证', '入境新加坡'],
-    summary: [
-      '学生准证是中国学生在新加坡合法全日制学习的重要文件，通常需要学校录取后进入申请流程。',
-      '家长应提前准备护照、录取文件、出生证明、资金和家庭资料，避免因材料不一致拖慢进度。',
-      '本页应连接陪读准证、住宿、费用、入学路径和联系咨询页面，承接签证类长尾搜索。',
-    ],
-    links: [
-      { name: '陪读准证', url: '/guides/dependent-pass/' },
-      { name: '留学费用', url: '/guides/cost/' },
-      { name: '住宿方案', url: '/guides/accommodation/' },
-      { name: '升学路径总览', url: '/pathway/' },
-      { name: '联系我们', url: '/contact/' },
-    ],
-    faq: [
-      { q: '新加坡学生准证什么时候申请？', a: '通常在获得学校录取后申请，具体时间要看学校、课程开学日期和 ICA 审核进度。' },
-      { q: '学生准证容易被拒吗？', a: '材料不完整、信息不一致、学校或课程不匹配、资金和家庭资料问题都可能影响审核。' },
-      { q: '家长可以陪读吗？', a: '部分低龄学生家庭可考虑陪读准证，但需要符合新加坡相关条件和申请要求。' },
-    ],
-  },
+  // NOTE: /guides/student-pass/ excluded — now a fully hand-built static page
+  // redesigned with rich content, SEO/GEO structured data, and custom layout.
+  // Must NOT be enhanced by this script (avoids overwriting the custom HTML).
+  // NOTE: /guides/accommodation/ excluded — same reason, fully hand-built page
+  // with SEDA-managed apartment showcase, comparison tables, and FAQ.
 ];
 
 export function enhanceKeySeoPages() {

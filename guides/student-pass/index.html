@@ -11,6 +11,8 @@
   <meta name="author" content="SEDA 新加坡择校网">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://sgeda.org.cn/guides/student-pass/">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="/seda-site.css?v=36" />
 
   <!-- Open Graph / Social Media -->
   <meta property="og:type" content="article">
@@ -1753,15 +1755,48 @@
 <!-- Back to Top -->
 <button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="返回顶部">↑</button>
 
+<!-- ===== SITE HEADER ===== -->
+<header class="site-header">
+  <div class="header-main">
+    <a class="brand" href="/" aria-label="SEDA 新加坡择校网 首页">
+      <img class="brand-logo" src="/assets/seda-wordmark.svg" alt="SEDA 新加坡择校网" height="38">
+    </a>
+    <nav class="main-nav" aria-label="主导航">
+      <a href="/" class="nav-link"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg><span>首页</span></a>
+      <div class="nav-group"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg><span class="nav-label">课程体系 <svg class="nav-arrow" viewBox="0 0 10 6"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none"/></svg></span>
+        <div class="mega-dropdown">
+          <div class="mega-col"><a href="/wace/">WACE 西澳课程</a><a href="/o-level/">O-Level 课程</a><a href="/a-level/">A-Level 课程</a><a href="/international-alevel/">国际 A-Level</a><a href="/ib/">IB 课程</a><a href="/aeis/">AEIS 预备课程</a><a href="/ap/">AP 课程</a><a href="/foundation/">Foundation 预科</a></div>
+        </div>
+      </div>
+      <div class="nav-group"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 16 16 12 12 8"/><line x1="8" y1="12" x2="16" y2="12"/></svg><span class="nav-label">升学路径 <svg class="nav-arrow" viewBox="0 0 10 6"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none"/></svg></span>
+        <div class="mega-dropdown"><a href="/jc/">JC 初级学院</a><a href="/poly/">Poly 理工学院</a><a href="/university/">新加坡公立大学</a><a href="/private-university/">新加坡私立大学</a><a href="/international-school/">国际学校</a><a href="/hk-university/">香港升学</a><a href="/au-university/">澳洲升学</a><a href="/uk-university/">英国升学</a></div>
+      </div>
+      <div class="nav-group"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg><span class="nav-label">学校库 <svg class="nav-arrow" viewBox="0 0 10 6"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none"/></svg></span>
+        <div class="mega-dropdown"><a href="/primary-schools/">小学数据库（179 所）</a><a href="/secondary-schools/">中学数据库（146 所）</a><a href="/jc/">初级学院（16 所）</a><a href="/international-school/">国际学校</a><a href="/private-schools/">私立学校</a><a href="/school-database/">全部学校总览</a></div>
+      </div>
+      <div class="nav-group"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg><span class="nav-label">留学指南 <svg class="nav-arrow" viewBox="0 0 10 6"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none"/></svg></span>
+        <div class="mega-dropdown"><a href="/guides/student-pass/">学生准证申请</a><a href="/guides/cost/">留学费用</a><a href="/guides/accommodation/">住宿方案</a><a href="/guides/dependent-pass/">陪读准证</a><a href="/guides/timeline/">留学时间线</a><a href="/guides/parents-faq/">家长 FAQ</a><a href="/guides/scholarship/">奖学金</a></div>
+      </div>
+      <a href="/news/" class="nav-link"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg><span>教育资讯</span></a>
+      <a href="/tools/" class="nav-link"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><span>AI升学工具</span></a>
+    </nav>
+    <a class="nav-cta" href="#contact">免费咨询</a>
+  </div>
+  <div class="trending-bar" aria-label="热门搜索">
+    <span>热门搜索：</span>
+    <a href="/wace/">WACE</a>
+    <a href="/o-level/">O-Level</a>
+    <a href="/aeis/">AEIS</a>
+    <a href="/international-school/">国际学校</a>
+    <a href="/guides/cost/">留学费用</a>
+  </div>
+</header>
+
 <!-- ===== BREADCRUMB ===== -->
 <nav class="breadcrumb" aria-label="面包屑导航">
-  <div class="container">
-    <a href="https://sgeda.org.cn/">首页</a>
-    <span>›</span>
-    <a href="https://sgeda.org.cn/guides/">留学指南</a>
-    <span>›</span>
-    <span>学生准证</span>
-  </div>
+  <a href="/">首页</a> <span>›</span>
+  <a href="/guides/">留学指南</a> <span>›</span>
+  <span>学生准证</span>
 </nav>
 
 <!-- ===== HERO ===== -->
@@ -2699,54 +2734,33 @@
 </section>
 
 <!-- ===== FOOTER ===== -->
-<footer style="background:#1a1a2e; color:rgba(255,255,255,0.7); padding:40px 0; font-size:13px;">
-  <div class="container">
-    <div class="footer-grid" style="display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:32px; margin-bottom:32px;">
-      <div>
-        <div style="font-size:20px; font-weight:800; color:white; margin-bottom:12px;">SEDA 新加坡择校网</div>
-        <p style="line-height:1.7; max-width:280px;">中文新加坡升学资讯与选校内容平台，为中国家庭提供专业的新加坡留学指导服务。</p>
-        <div style="margin-top:16px; display:flex; flex-direction:column; gap:6px;">
-          <span>📍 新加坡：75 Bukit Timah Road, #05-24, Singapore 229833</span>
-          <span>📍 上海：杨浦区平凉路 2241 弄 17 栋 805 室</span>
-          <span>📞 <a href="tel:+6580847715" style="color:rgba(255,255,255,0.7);">+65 8084 7715</a> &nbsp; 微信：SEDAGUIDE</span>
-          <span>✉️ <a href="mailto:admin@seda.org.sg" style="color:rgba(255,255,255,0.7);">admin@seda.org.sg</a></span>
-        </div>
-      </div>
-      <div>
-        <div style="font-weight:700; color:white; margin-bottom:12px;">课程体系</div>
-        <div style="display:flex; flex-direction:column; gap:6px;">
-          <a href="https://sgeda.org.cn/wace/" style="color:rgba(255,255,255,0.7);">WACE</a>
-          <a href="https://sgeda.org.cn/o-level/" style="color:rgba(255,255,255,0.7);">O-Level</a>
-          <a href="https://sgeda.org.cn/a-level/" style="color:rgba(255,255,255,0.7);">A-Level</a>
-          <a href="https://sgeda.org.cn/ib/" style="color:rgba(255,255,255,0.7);">IB</a>
-          <a href="https://sgeda.org.cn/aeis/" style="color:rgba(255,255,255,0.7);">AEIS</a>
-        </div>
-      </div>
-      <div>
-        <div style="font-weight:700; color:white; margin-bottom:12px;">留学指南</div>
-        <div style="display:flex; flex-direction:column; gap:6px;">
-          <a href="https://sgeda.org.cn/guides/student-pass/" style="color:rgba(255,255,255,0.7);">学生准证</a>
-          <a href="https://sgeda.org.cn/guides/cost/" style="color:rgba(255,255,255,0.7);">留学费用</a>
-          <a href="https://sgeda.org.cn/guides/accommodation/" style="color:rgba(255,255,255,0.7);">住宿方案</a>
-          <a href="https://sgeda.org.cn/guides/dependant-pass/" style="color:rgba(255,255,255,0.7);">陪读准证</a>
-          <a href="https://sgeda.org.cn/guides/timeline/" style="color:rgba(255,255,255,0.7);">留学时间线</a>
-        </div>
-      </div>
-      <div>
-        <div style="font-weight:700; color:white; margin-bottom:12px;">关于 SEDA</div>
-        <div style="display:flex; flex-direction:column; gap:6px;">
-          <a href="https://sgeda.org.cn/about/" style="color:rgba(255,255,255,0.7);">关于我们</a>
-          <a href="https://sgeda.org.cn/contact/" style="color:rgba(255,255,255,0.7);">联系我们</a>
-          <a href="https://sgeda.org.cn/news/" style="color:rgba(255,255,255,0.7);">教育资讯</a>
-          <a href="https://sgeda.org.cn/tools/" style="color:rgba(255,255,255,0.7);">AI 升学工具</a>
-          <a href="https://sgeda.org.cn/school-database/" style="color:rgba(255,255,255,0.7);">学校数据库</a>
-        </div>
-      </div>
-    </div>
-    <div style="border-top:1px solid rgba(255,255,255,0.1); padding-top:20px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;">
-      <span>© 2025 SEDA 新加坡择校网. All rights reserved.</span>
-      <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener" style="color:rgba(255,255,255,0.5);">沪ICP备2022009720号-9</a>
-    </div>
+<footer class="site-footer">
+  <div>
+    <strong>SEDA 新加坡择校网</strong>
+    <p>中文新加坡升学资讯与选校内容平台。</p>
+    <p style="margin-top:.6rem;font-size:.85rem;line-height:1.8;opacity:.85">
+      新加坡：75 Bukit Timah Road, #05-24, Singapore 229833<br>
+      上海：杨浦区平凉路 2241 弄 17 栋 805 室<br>
+      电话：<a href="tel:+6580847715">+65 8084 7715</a>　微信：SEDAGUIDE<br>
+      邮箱：<a href="mailto:admin@seda.org.sg">admin@seda.org.sg</a>
+    </p>
+    <p class="icp-record" style="margin-top:.5rem;font-size:.85rem;opacity:.7"><a href="https://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">沪ICP备2022009720号-9</a></p>
+  </div>
+  <div>
+    <span>课程体系</span>
+    <p><a href="/wace/">WACE</a> · <a href="/o-level/">O-Level</a> · <a href="/a-level/">A-Level</a> · <a href="/international-alevel/">国际 A-Level</a> · <a href="/ib/">IB</a> · <a href="/aeis/">AEIS</a> · <a href="/ap/">AP</a> · <a href="/foundation/">Foundation</a></p>
+  </div>
+  <div>
+    <span>升学路径</span>
+    <p><a href="/jc/">JC 初级学院</a> · <a href="/poly/">理工学院</a> · <a href="/university/">公立大学</a> · <a href="/private-university/">私立大学</a> · <a href="/hk-university/">香港升学</a> · <a href="/au-university/">澳洲升学</a> · <a href="/uk-university/">英国升学</a></p>
+  </div>
+  <div>
+    <span>留学指南</span>
+    <p><a href="/guides/student-pass/">学生准证</a> · <a href="/guides/cost/">留学费用</a> · <a href="/guides/accommodation/">住宿方案</a> · <a href="/guides/dependent-pass/">陪读准证</a> · <a href="/guides/timeline/">留学时间线</a> · <a href="/guides/scholarship/">奖学金</a></p>
+  </div>
+  <div>
+    <span>关于 SEDA</span>
+    <p><a href="/about/">关于我们</a> · <a href="/contact/">联系我们</a> · <a href="/news/">教育资讯</a> · <a href="/tools/">AI 升学工具</a> · <a href="/school-database/">学校数据库</a></p>
   </div>
 </footer>
 
@@ -2806,5 +2820,6 @@
   });
 </script>
 
+<script src="/seda-site.js?v=29"></script>
 </body>
 </html>

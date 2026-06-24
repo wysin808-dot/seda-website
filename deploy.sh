@@ -12,8 +12,24 @@ echo "=== SGEDA 部署脚本 ==="
 
 if [ "$1" == "update" ]; then
   # ── 更新代码 ──
-  echo "[1/3] 拉取最新代码..."
+  echo "[1/4] 拉取最新代码..."
   cd $SITE_DIR && git pull origin main
+
+  # 如果存在独立的 git 仓库目录，同步静态文件到 Nginx 服务目录
+  if [ -d "/var/www/seda-website" ] && [ "/var/www/seda-website" != "$SITE_DIR" ]; then
+    echo "[1.5/4] 同步 git 仓库内容到网站目录..."
+    cd /var/www/seda-website && git pull origin main 2>/dev/null || true
+    rsync -av --delete \
+      --exclude='.git' \
+      --exclude='.env' \
+      --exclude='node_modules' \
+      --exclude='server-selfhost.js' \
+      --exclude='deploy.sh' \
+      --exclude='nginx.conf' \
+      --exclude='scripts/' \
+      /var/www/seda-website/ $SITE_DIR/
+    echo "✅ 文件同步完成"
+  fi
   if [ ! -f "$SITE_DIR/.env" ]; then
     touch "$SITE_DIR/.env"
   fi
@@ -31,9 +47,9 @@ if [ "$1" == "update" ]; then
     CMS_SECRET=$(node -e "console.log(require('crypto').randomBytes(24).toString('hex'))")
     echo "CMS_SESSION_SECRET=$CMS_SECRET" >> "$SITE_DIR/.env"
   fi
-  echo "[2/3] 重启 API 服务..."
+  echo "[2/4] 重启 API 服务..."
   pm2 restart seda-api
-  echo "[3/3] 重载 Nginx..."
+  echo "[3/4] 重载 Nginx..."
   nginx -t && systemctl reload nginx
   echo "✅ 更新完成！"
   exit 0

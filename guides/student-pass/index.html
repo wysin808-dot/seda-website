@@ -1121,10 +1121,17 @@
     /* ===== Dependant Pass Section ===== */
     .dep-pass-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 40px;
-      align-items: center;
+      grid-template-columns: 0.9fr 1.1fr;
+      grid-template-areas:
+        "img content"
+        "note content";
+      grid-template-rows: auto 1fr;
+      gap: 20px 40px;
+      align-items: start;
     }
+    .dep-pass-image { grid-area: img; }
+    .dep-pass-content { grid-area: content; }
+    .dep-pass-note { grid-area: note; align-self: start; }
 
     .dep-pass-image {
       border-radius: var(--radius);
@@ -1516,7 +1523,7 @@
       .fees-visual { grid-template-columns: repeat(2, 1fr); }
       .renewal-grid { grid-template-columns: 1fr; }
       .rejection-grid { grid-template-columns: 1fr; }
-      .dep-pass-grid { grid-template-columns: 1fr; }
+      .dep-pass-grid { grid-template-columns: 1fr; grid-template-areas: "img" "content" "note"; }
       .related-grid { grid-template-columns: 1fr; }
       .sidebar { grid-template-columns: 1fr; }
       .section { padding: 40px 0; }
@@ -2427,7 +2434,7 @@
             <div class="dep-pass-image">
               <img src="/guides/student-pass/assets/school-life.jpg" alt="新加坡学校校园生活" loading="lazy" width="480" height="260" style="border-radius:12px; width:100%; height:auto; object-fit:cover;">
             </div>
-            <div>
+            <div class="dep-pass-content">
               <p style="font-size:15px; line-height:1.8; margin-bottom:20px;">对于低龄留学生的家庭，新加坡提供了一种特殊安排——<strong>陪读准证（Long-Term Visit Pass, LTVP）</strong>，允许母亲、祖母或外祖母陪同 16 岁以下的学生在新加坡生活。</p>
 
               <ul class="dep-conditions">
@@ -2452,13 +2459,12 @@
                   <div>续签与学生的<strong>学业表现和出勤率</strong>直接相关</div>
                 </li>
               </ul>
-
-              <div class="alert alert-info" style="margin-top:20px;">
-                <span class="alert-icon">ℹ️</span>
-                <div>
-                  <strong>陪读准证申请提示</strong>
-                  <p>陪读准证的续签与学生的学业表现和出勤率直接相关。如果学生的出勤率或成绩不达标，陪读准证的续签也会受到影响。建议家长在申请前充分了解相关政策。</p>
-                </div>
+            </div>
+            <div class="alert alert-info dep-pass-note">
+              <span class="alert-icon">ℹ️</span>
+              <div>
+                <strong>陪读准证申请提示</strong>
+                <p>陪读准证的续签与学生的学业表现和出勤率直接相关。如果学生的出勤率或成绩不达标，陪读准证的续签也会受到影响。建议家长在申请前充分了解相关政策。</p>
               </div>
             </div>
           </div>

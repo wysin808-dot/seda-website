@@ -279,6 +279,9 @@
     .breadcrumb a { color: var(--text-muted); }
     .breadcrumb a:hover { color: var(--red); }
     .breadcrumb span { margin: 0 3px; }
+    /* 隐藏全局 .breadcrumb::before 红色装饰条——本页面包屑内容包在 .container 里，
+       该伪元素会孤立漂在 nav 最左端 x=0，形成脱离文字的红点 */
+    .breadcrumb::before { content: none !important; display: none !important; }
 
     /* ===== Hero Section ===== */
     .hero {

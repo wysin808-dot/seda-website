@@ -24,7 +24,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version: "24"
 
       - name: Run SEO Daily Bot
         env:
@@ -32,7 +32,7 @@ jobs:
           BAIDU_SITE: https://sgeda.org.cn
           BAIDU_TOKEN: ${{ secrets.BAIDU_TOKEN }}
           SUBMIT_TO_BAIDU: ${{ github.event.inputs.submit_to_baidu || 'true' }}
-          BAIDU_SUBMIT_LIMIT: "20"
+          BAIDU_SUBMIT_LIMIT: "5"
           LIVE_CHECK_LIMIT: "30"
           FAIL_ON_CRITICAL: "false"
         run: |
@@ -47,4 +47,3 @@ jobs:
             reports/seo-daily-report.md
             seo-daily-output.log
           if-no-files-found: error
-

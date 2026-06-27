@@ -1,0 +1,50 @@
+name: SEDA SEO Daily Bot
+
+on:
+  schedule:
+    # 09:00 Singapore time.
+    - cron: "0 1 * * *"
+  workflow_dispatch:
+    inputs:
+      submit_to_baidu:
+        description: "Submit priority URLs to Baidu when BAIDU_TOKEN is configured"
+        required: false
+        default: "true"
+
+permissions:
+  contents: read
+
+jobs:
+  seo-daily:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Run SEO Daily Bot
+        env:
+          SITE: https://sgeda.org.cn
+          BAIDU_SITE: https://sgeda.org.cn
+          BAIDU_TOKEN: ${{ secrets.BAIDU_TOKEN }}
+          SUBMIT_TO_BAIDU: ${{ github.event.inputs.submit_to_baidu || 'true' }}
+          BAIDU_SUBMIT_LIMIT: "20"
+          LIVE_CHECK_LIMIT: "30"
+          FAIL_ON_CRITICAL: "false"
+        run: |
+          node scripts/seo-daily-bot.mjs > seo-daily-output.log
+          cat reports/seo-daily-report.md >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload SEO report
+        uses: actions/upload-artifact@v4
+        with:
+          name: seo-daily-report
+          path: |
+            reports/seo-daily-report.md
+            seo-daily-output.log
+          if-no-files-found: error
+

@@ -748,7 +748,10 @@
         <section class="analytics-panel">
           <div style="display:flex;justify-content:space-between;gap:12px;align-items:center;margin-bottom:14px">
             <h2 style="margin:0">最近客户留资</h2>
-            <a id="exportLeadsButton" class="cms-button secondary" href="/api/cms/leads/export">导出 CSV</a>
+            <div style="display:flex;gap:10px;align-items:center">
+              <a class="cms-button secondary" href="https://sgoa.ai" target="_blank" rel="noopener">打开 CRM ↗</a>
+              <a id="exportLeadsButton" class="cms-button secondary" href="/api/cms/leads/export">导出 CSV</a>
+            </div>
           </div>
           <div id="leadList"></div>
         </section>

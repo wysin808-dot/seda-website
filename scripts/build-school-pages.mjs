@@ -275,8 +275,8 @@ function knowsAboutForSchool(school, tags) {
 function renderSeoTagBlock(school, tags) {
   return `<section class="seo-tags" aria-labelledby="seo-tags-title">
         <p class="eyebrow">选校标签</p>
-        <h2 id="seo-tags-title">${escapeHtml(school.nameZh)}的 SEO/GEO 关键信息</h2>
-        <p>这些标签用于帮助家长快速判断学校定位，也帮助搜索引擎和 AI 搜索理解本页主题。</p>
+        <h2 id="seo-tags-title">${escapeHtml(school.nameZh)}的选校关键信息</h2>
+        <p>这些标签用于帮助家长快速判断学校定位、课程路径、申请重点和适合人群。</p>
         <div class="seo-tag-cloud">${tags.map((tag) => `<span>${escapeHtml(tag)}</span>`).join('')}</div>
       </section>`;
 }
@@ -345,7 +345,7 @@ function renderHigherEducationBlocks(school) {
   const source = school.officialSource ? `<p class="source-note">信息参考：${escapeHtml(school.officialSource)}。课程、费用和申请要求可能更新，正式申请前请以学校官网和 MOE 官方页面为准。</p>` : '';
   return `
       <section class="geo-summary" aria-labelledby="seo-answer-${escapeHtml(school.slug)}">
-        <p class="eyebrow">GEO 可读答案</p>
+        <p class="eyebrow">核心结论</p>
         <h2 id="seo-answer-${escapeHtml(school.slug)}">${escapeHtml(school.nameZh)}适合什么学生？</h2>
         <p>${escapeHtml(school.geoAnswer || school.angle)}</p>
       </section>
@@ -724,8 +724,8 @@ ${footer}
 
 function renderPrivateSchoolIndex(schools, header, footer) {
   const sorted = [...schools].sort((a, b) => a.nameEn.localeCompare(b.nameEn));
-  const title = '新加坡主流私立学校名单：SIM、Kaplan、PSB、MDIS、JCU 与私立大学路径';
-  const description = `SEDA 新加坡择校网整理 ${sorted.length} 所新加坡主流私立学校、私立教育机构和海外大学新加坡校区，覆盖 Foundation、Diploma、本科衔接、O-Level/A-Level 预备与合作大学课程。`;
+  const title = '新加坡私立学校名单：O-Level、A-Level、Foundation 与大学衔接路径';
+  const description = `SEDA 新加坡择校网整理 ${sorted.length} 所新加坡私立学校、私立教育机构与国际课程学校，重点区分 O-Level/A-Level 预备、Foundation、Diploma、本科衔接、WACE 与海外大学合作课程，帮助家长判断哪类路径更适合孩子当前年级、英文基础和升学目标。`;
   const indexTags = unique(sorted.flatMap((school) => seoTagsForSchool(school))).slice(0, 40);
   const schema = {
     '@context': 'https://schema.org',
@@ -766,7 +766,7 @@ function renderPrivateSchoolIndex(schools, header, footer) {
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml"/>
 <title>${escapeHtml(title)} | SEDA 新加坡择校网</title>
 <meta name="description" content="${escapeHtml(description)}"/>
-<meta name="keywords" content="新加坡私立学校,新加坡私立大学,SIM新加坡,Kaplan新加坡,PSB Academy,MDIS,JCU Singapore,新加坡私立学校排名"/>
+<meta name="keywords" content="新加坡私立学校,新加坡私立学校名单,O-Level预备,A-Level预备,Foundation课程,Diploma课程,新加坡国际课程学校"/>
 <meta name="robots" content="index,follow,max-image-preview:large"/>
 <link rel="canonical" href="${domain}/private-schools/"/>
 <link rel="stylesheet" href="/seda-site.css?v=36"/>
@@ -851,19 +851,10 @@ export function buildSchoolPages() {
     fs.writeFileSync(path.join(indexDir, 'index.html'), renderInternationalSchoolIndex(internationalSchools, header, footer), 'utf8');
   }
   const privateSchools = schools.filter((school) => school.type === 'private');
-  {
-    // /private-schools/ 与 /private-university/ 同主题（私立大学 / PEI）。
-    // 直接镜像 private-university 目录，保持两页内容一致；其内 canonical 指向
-    // /private-university/，搜索引擎自动归一，避免重复内容。private-university/index.html
-    // 由 scripts/build-private.py 生成并提交。
-    const puPath = path.join(root, 'private-university', 'index.html');
+  if (privateSchools.length) {
     const indexDir = path.join(root, 'private-schools');
     fs.mkdirSync(indexDir, { recursive: true });
-    if (fs.existsSync(puPath)) {
-      fs.writeFileSync(path.join(indexDir, 'index.html'), fs.readFileSync(puPath, 'utf8'), 'utf8');
-    } else if (privateSchools.length) {
-      fs.writeFileSync(path.join(indexDir, 'index.html'), renderPrivateSchoolIndex(privateSchools, header, footer), 'utf8');
-    }
+    fs.writeFileSync(path.join(indexDir, 'index.html'), renderPrivateSchoolIndex(privateSchools, header, footer), 'utf8');
   }
   return schools.length;
 }

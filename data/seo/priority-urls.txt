@@ -4,3 +4,5 @@
 # 以 http(s):// 开头的行才会被推送，# 开头为注释。
 https://sgeda.org.cn/
 https://sgeda.org.cn/aeis/
+https://sgeda.org.cn/private-schools/
+https://sgeda.org.cn/private-university/

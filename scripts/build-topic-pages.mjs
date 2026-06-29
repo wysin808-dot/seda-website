@@ -229,7 +229,7 @@ ${header}
 <nav class="breadcrumb" aria-label="面包屑导航"><a href="/">首页</a> <span class="bc-sep">›</span> <a href="/topics/">专题</a> <span class="bc-sep">›</span> <span>${escapeHtml(topic.title)}</span></nav>
 <main>
   <section class="page-hero school-hero">
-    <p class="eyebrow">SEO/GEO 专题</p>
+    <p class="eyebrow">主题专题</p>
     <h1>${escapeHtml(topic.h1)}</h1>
     <p class="hero-subtitle">${escapeHtml(topic.description)}</p>
   </section>
@@ -256,7 +256,7 @@ ${header}
       <aside class="sidebar">
         <div class="sidebar-card">
           <h3>专题定位</h3>
-          <p>本页用于聚合 SEDA 关于 ${escapeHtml(topic.title)} 的核心解释、学校页面和长尾文章，帮助搜索引擎和 AI 搜索理解主题关系。</p>
+          <p>本页用于聚合 SEDA 关于 ${escapeHtml(topic.title)} 的核心解释、学校页面和长尾文章，帮助搜索引擎和 搜索理解主题关系。</p>
         </div>
       </aside>
     </div>
@@ -315,7 +315,7 @@ ${header}
 <main>
   <section class="page-hero school-hero">
     <p class="eyebrow">SEDA 专题中心</p>
-    <h1>新加坡教育 SEO/GEO 专题</h1>
+    <h1>新加坡教育 主题专题</h1>
     <p class="hero-subtitle">把分散的学校页面、升学攻略和家长问题聚合成主题入口，方便中国家长快速理解新加坡教育路径。</p>
   </section>
   <section class="section">

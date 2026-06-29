@@ -268,7 +268,7 @@ def card(s):
 
 def build_directory():
     canon="https://sgeda.org.cn/private-university/"
-    title="新加坡私立大学完全指南：SIM/Kaplan/PSB/JCU/MDIS/Curtin/LSBF/Amity/SHRM/TMC 对比与选校 | SEDA"
+    title="新加坡私立大学指南：SIM、Kaplan、PSB、JCU、MDIS 对比 | SEDA"
     desc="新加坡 10 所主流私立大学一站对比：SIM、Kaplan、PSB、JCU、MDIS、Curtin、LSBF、Amity、SHRM、TMC。合作名校学位、海外直属校区、学费、EduTrust 认证与中留服认证、热门专业与中国学生选校建议。"
     typechips="".join(f'<span class="pv-chip" data-f="type" data-v="{t}">{TYPELABEL[t]}</span>' for t in ["直属","合作"])
     fieldchips="".join(f'<span class="pv-chip" data-f="field" data-v="{esc(f)}">{FIELDICON.get(f,"")} {esc(f)}</span>' for f in ALLFIELDS)

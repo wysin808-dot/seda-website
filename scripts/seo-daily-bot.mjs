@@ -38,8 +38,22 @@ function stripHtml(value = '') {
 }
 
 function getAttr(tag, name) {
-  const match = tag.match(new RegExp(`${name}\\s*=\\s*["']([^"']+)["']`, 'i'));
-  return match ? match[1].trim() : '';
+  const match = tag.match(new RegExp(`${name}\\s*=\\s*(["'])([\\s\\S]*?)\\1`, 'i'));
+  return match ? match[2].trim() : '';
+}
+
+function getTagWithAttr(html, tagName, attrName, attrValue) {
+  const tags = html.match(new RegExp(`<${tagName}\\b[^>]*>`, 'gi')) || [];
+  return tags.find((tag) => getAttr(tag, attrName).toLowerCase() === attrValue.toLowerCase()) || '';
+}
+
+function getLinkRel(html, relValue) {
+  const tags = html.match(/<link\b[^>]*>/gi) || [];
+  return tags.find((tag) => getAttr(tag, 'rel').toLowerCase() === relValue.toLowerCase()) || '';
+}
+
+function getMetaName(html, nameValue) {
+  return getTagWithAttr(html, 'meta', 'name', nameValue);
 }
 
 function parseSitemap() {
@@ -83,12 +97,12 @@ function walkHtmlFiles(dir = root, files = []) {
 function analyzeHtml(file, url) {
   const html = readText(file);
   const title = stripHtml((html.match(/<title[^>]*>([\s\S]*?)<\/title>/i) || [])[1] || '');
-  const descTag = (html.match(/<meta[^>]+name=["']description["'][^>]*>/i) || [])[0] || '';
+  const descTag = getMetaName(html, 'description');
   const description = getAttr(descTag, 'content');
   const h1 = stripHtml((html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i) || [])[1] || '');
-  const canonicalTag = (html.match(/<link[^>]+rel=["']canonical["'][^>]*>/i) || [])[0] || '';
+  const canonicalTag = getLinkRel(html, 'canonical');
   const canonical = getAttr(canonicalTag, 'href');
-  const robotsTag = (html.match(/<meta[^>]+name=["']robots["'][^>]*>/i) || [])[0] || '';
+  const robotsTag = getMetaName(html, 'robots');
   const robots = getAttr(robotsTag, 'content').toLowerCase();
   const body = stripHtml((html.match(/<body[^>]*>([\s\S]*?)<\/body>/i) || [])[1] || html);
   const imageCount = (html.match(/<img\b/gi) || []).length;

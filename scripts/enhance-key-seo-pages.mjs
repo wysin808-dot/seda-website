@@ -125,7 +125,7 @@ function buildBodyBlock(page) {
   // removed — visible tag clouds triggered a Baidu quality penalty. Only the
   // readable GEO summary is injected now.
   const content = `<section class="geo-summary core-geo-summary" aria-labelledby="geo-summary-${id}">
-        <p class="eyebrow">GEO 可读答案</p>
+        <p class="eyebrow">核心结论</p>
         <h2 id="geo-summary-${id}">${escapeHtml(page.geoTitle || `${page.title}核心结论`)}</h2>
         <ul>
 ${page.summary.map((item) => `          <li>${escapeHtml(item)}</li>`).join('\n')}
@@ -143,7 +143,7 @@ ${bodyMarkerEnd}`;
 
 function enhancePageHtml(page, html) {
   // Only inject head structured data (WebPage/ItemList/FAQ JSON-LD + robots meta).
-  // The visible body block (GEO 可读答案 / seo-tags) is no longer injected —
+  // The visible body block (核心结论 / seo-tags) is no longer injected —
   // it read as redundant/keyword-stuffing. stripExisting clears any previously
   // injected body block on the next deploy.
   const clean = stripExisting(html);
@@ -461,7 +461,7 @@ const pages = [
     ],
   },
   // NOTE: /guides/student-pass/ excluded — now a fully hand-built static page
-  // redesigned with rich content, SEO/GEO structured data, and custom layout.
+  // redesigned with rich content, structured data, and custom layout.
   // Must NOT be enhanced by this script (avoids overwriting the custom HTML).
   // NOTE: /guides/accommodation/ excluded — same reason, fully hand-built page
   // with SEDA-managed apartment showcase, comparison tables, and FAQ.

@@ -190,7 +190,7 @@ export function optimizeArticle({ meta = {}, body = '', html = '', inSitemap = f
   if (!images.length) suggestions.push(`补首图：${imagePlan.heroFilename}，alt="${imagePlan.heroAlt}"`);
   suggestions.push(`信息图建议：${imagePlan.infographicAlt}`);
   if (missingCoreLinks.length) suggestions.push(`优先补内链：${missingCoreLinks.slice(0, 4).join('、')}`);
-  if (faqCount < 5) suggestions.push('发布前把 FAQ 扩展到 5-8 个问题，方便百度和 AI 搜索摘取。');
+  if (faqCount < 5) suggestions.push('发布前把 FAQ 扩展到 5-8 个问题，方便读者快速找到重点。');
 
   const penalty = issues.reduce((sum, issue) => sum + (issue.severity === 'error' ? 24 : 7), 0);
   const score = Math.max(0, 100 - penalty);

@@ -1648,7 +1648,7 @@
           <td>${row.abnormalUrlCount || 0}</td>
           <td>${esc(row.notes || '')}</td>
         </tr>`).join('')}</tbody>
-      </table>` : '<div class="cms-empty" style="padding:24px">暂无 SEO/GEO 记录。</div>';
+      </table>` : '<div class="cms-empty" style="padding:24px">暂无 SEO 记录。</div>';
       els.seoSubmitRecent.innerHTML = `${renderSubmitPipeline(data.pipeline || {}, providers)}
         ${submissions.records?.length ? `<div class="quality-metrics" style="margin-bottom:12px">
           <span>百度：${providers.baidu?.submitted || 0} URL</span>
@@ -1692,7 +1692,7 @@
             notes: els.seoNotesInput.value,
           }),
         });
-        toast('SEO/GEO 记录已保存');
+        toast('SEO 记录已保存');
         renderSeo();
       } finally {
         els.saveSeoButton.disabled = false;

@@ -46,7 +46,7 @@ SEDA 新加坡择校网提供中文的新加坡教育信息，重点覆盖 WACE�
 
 ## Topic Hubs
 
-- [SEDA 专题中心](/topics/): 新加坡教育 SEO/GEO 专题入口。
+- [SEDA 专题中心](/topics/): 新加坡教育 主题专题入口。
 - [AEIS 新加坡政府学校插班专题](/topics/aeis/): 面向中国家长的 AEIS / S-AEIS 备考专题，覆盖年龄要求、英文数学准备、政府小学和政府中学插班路径、失败后的备选方案。
 - [O-Level 新加坡中学升学专题](/topics/o-level/): 整理新加坡 O-Level 课程、科目选择、考试难度、JC 与 Poly 升学路径，帮助中国学生和家长判断中学阶段规划。
 - [WACE 国际高中与 ATAR 升学专题](/topics/wace/): 聚合 WACE 课程、ATAR 分数、选课策略、WACE vs A-Level、NUS/NTU 和海外大学申请内容，适合关注国际高中路径的家庭。

@@ -46,6 +46,8 @@ O-Level 英文不采用百分制，而是 A1 到 F9 的等级制。对大部分�
 | 阅读速度（英文） | 150–200 wpm | 80–120 wpm | Paper 2 阅读量约 2,500 词，速度不足导致做不完 |
 | 学术词汇掌握 | 课堂高频接触 | 需专项补强 | 议论文、摘要写作的用词准确度是关键差异 |
 
+![O-Level英文阅读理解模拟试卷](/assets/articles/o-level-english-difficulty-chinese-students-mid.png)
+
 ### 各模块难度拆解
 
 O-Level 英文（1128）共四张试卷，权重和难度分布如下：

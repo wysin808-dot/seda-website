@@ -23,6 +23,23 @@
         color: #667085;
         font-size: 16px;
       }
+      .search-intro {
+        display: grid;
+        grid-template-columns: minmax(0, 1.05fr) minmax(260px, .75fr);
+        gap: 28px;
+        align-items: center;
+        margin-bottom: 28px;
+      }
+      .search-intro p {
+        line-height: 1.9;
+      }
+      .search-intro img {
+        width: 100%;
+        aspect-ratio: 4 / 3;
+        object-fit: cover;
+        border-radius: 8px;
+        box-shadow: 0 18px 42px rgba(15, 23, 42, .12);
+      }
       .site-search-form {
         display: flex;
         gap: 10px;
@@ -89,7 +106,56 @@
         color: #667085;
         background: #fafbfc;
       }
+      .search-section {
+        margin-top: 34px;
+      }
+      .search-section h2 {
+        margin: 0 0 14px;
+        color: #121826;
+        font-size: 22px;
+      }
+      .search-shortcuts {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 14px;
+      }
+      .shortcut-card {
+        display: block;
+        min-height: 132px;
+        border: 1px solid #edf0f4;
+        border-radius: 8px;
+        padding: 16px;
+        background: #fff;
+        color: inherit;
+      }
+      .shortcut-card:hover {
+        border-color: rgba(198, 40, 40, .35);
+        box-shadow: 0 10px 24px rgba(15, 23, 42, .08);
+      }
+      .shortcut-card strong {
+        display: block;
+        margin-bottom: 8px;
+        color: #121826;
+        font-size: 16px;
+      }
+      .shortcut-card span {
+        display: block;
+        color: #667085;
+        font-size: 14px;
+        line-height: 1.7;
+      }
+      .search-note {
+        border-left: 4px solid var(--brand);
+        padding: 14px 18px;
+        background: #fff7f7;
+        color: #4b5565;
+        line-height: 1.9;
+      }
       @media (max-width: 680px) {
+        .search-intro,
+        .search-shortcuts {
+          grid-template-columns: 1fr;
+        }
         .site-search-form {
           flex-direction: column;
         }
@@ -125,13 +191,55 @@
   <body>
     <main class="search-page">
       <h1>站内搜索</h1>
-      <p>搜索 WACE、O-Level、AEIS、国际学校、学校数据库与升学攻略。</p>
+      <div class="search-intro">
+        <div>
+          <p>这里可以快速查找 SEDA 新加坡择校网的课程、学校和升学攻略内容。常见关键词包括 WACE、西澳课程、O-Level、O Level、SEC、AEIS、S-AEIS、国际学校、政府中小学、JC、Poly、新加坡公立大学、私立大学、学生准证和留学费用。</p>
+          <p>如果你正在规划 2027 年入学，可以先搜索目标考试或课程名称，再从结果中进入对应专题页。每个专题会继续链接到报名时间、科目选择、费用预算、学校类型和后续升学路径，方便家长和学生按阶段做判断。</p>
+          <p>建议用具体问题来搜索，例如“AEIS 年级”“O-Level 重考”“WACE 选课”“Poly 专业”“新加坡住宿费用”。这样更容易直接找到报名、备考、择校和申请相关页面。</p>
+        </div>
+        <img src="/assets/hero-mbs-day3.jpg" alt="新加坡城市与升学规划场景">
+      </div>
       <form class="site-search-form" action="/search/" method="get" role="search">
         <input id="searchInput" type="search" name="q" placeholder="输入关键词，如 WACE、O-Level、NUS" autocomplete="off">
         <button type="submit">搜索</button>
       </form>
       <div id="searchMeta" class="search-meta">请输入关键词开始搜索。</div>
       <div id="searchResults" class="search-results"></div>
+
+      <section class="search-section" aria-labelledby="popular-searches">
+        <h2 id="popular-searches">常用入口</h2>
+        <div class="search-shortcuts">
+          <a class="shortcut-card" href="/wace/">
+            <strong>WACE 西澳课程</strong>
+            <span>适合关注澳洲 ATAR、国际高中课程和大学申请路径的家庭。</span>
+          </a>
+          <a class="shortcut-card" href="/o-level/">
+            <strong>O-Level / SEC</strong>
+            <span>了解新加坡中学毕业考试、2027 年备考节奏、JC 与 Poly 升学方向。</span>
+          </a>
+          <a class="shortcut-card" href="/aeis/">
+            <strong>AEIS 与 S-AEIS</strong>
+            <span>查询政府中小学国际学生入学考试、报名时间、年级匹配和备考建议。</span>
+          </a>
+          <a class="shortcut-card" href="/international-school/">
+            <strong>新加坡国际学校</strong>
+            <span>对比 IB、IGCSE、A-Level、WACE 等课程体系和学校选择。</span>
+          </a>
+          <a class="shortcut-card" href="/school-database/">
+            <strong>学校数据库</strong>
+            <span>按小学、中学、初级学院、理工学院、国际学校和私立学校查看资料。</span>
+          </a>
+          <a class="shortcut-card" href="/guides/cost/">
+            <strong>留学费用</strong>
+            <span>整理学费、住宿、生活费、考试费和家庭预算中的常见支出。</span>
+          </a>
+        </div>
+      </section>
+
+      <section class="search-section" aria-labelledby="search-tips">
+        <h2 id="search-tips">搜索建议</h2>
+        <p class="search-note">英文课程名可以用不同写法搜索，例如 O-Level、O Level、O水准、SEC，系统会尽量匹配到同一类内容。学校名称建议同时尝试英文缩写和中文译名，例如 NUS、新加坡国立大学、NTU、南洋理工大学。若没有结果，可以先进入上方专题入口，再通过页面内的相关链接继续浏览。</p>
+      </section>
     </main>
 
     <footer class="site-footer">

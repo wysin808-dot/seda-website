@@ -1,8 +1,5 @@
 # 百度/IndexNow 优先推送清单
-# 集中火力：考察期只攻 2 个页面（首页 + AEIS），让百度先收 1-2 个建立信任。
-# baidu-submit.sh 会循环反复推这个清单（不再跳去全站 sitemap 轮换）。
-# 以 http(s):// 开头的行才会被推送，# 开头为注释。
-https://sgeda.org.cn/
-https://sgeda.org.cn/aeis/
-https://sgeda.org.cn/private-schools/
-https://sgeda.org.cn/private-university/
+# 2026-08 起切换回全站轮换模式：清单留空，baidu-submit.sh 自动回落到
+# baidu-sitemap.xml 轮换推送（每天5条，全量约34天一轮）。
+# 破冰阶段(集中推首页+/aeis/)已完成使命：索引量1→28、蜘蛛每日到访。
+# 需要再集中时，把 https:// 开头的 URL 每行一条加回来即可。

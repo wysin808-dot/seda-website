@@ -274,6 +274,40 @@
       .trending-bar { display: none; }
     }
 
+      /* ── 2026-08 视觉升级：品牌化 hero / 章节标题 / 表格 / 卡片微交互 ── */
+      .page-hero{position:relative;background:linear-gradient(135deg,#1a0a0a 0%,#3d0c0c 45%,#c0392b 100%);border-radius:16px;padding:2.6rem 2.4rem 2.4rem;margin:1.2rem auto 0;max-width:1200px;overflow:hidden}
+      .page-hero::after{content:"";position:absolute;right:-60px;top:-60px;width:280px;height:280px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.08),transparent 70%)}
+      .page-hero .eyebrow{display:inline-block;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.28);color:#fff;font-size:.78rem;font-weight:700;letter-spacing:.08em;padding:.35rem .9rem;border-radius:100px;margin-bottom:1rem}
+      .page-hero h1{color:#fff;font-size:clamp(1.6rem,3vw,2.3rem);line-height:1.25;margin:.2rem 0 .8rem;letter-spacing:-.02em}
+      .page-hero .hero-subtitle{color:rgba(255,255,255,.85);max-width:760px;line-height:1.75;font-size:.98rem}
+      @media (max-width:768px){.page-hero{border-radius:0;margin-top:0;padding:2rem 1.2rem}}
+
+      .stats-bar{background:#fff;border:1px solid #eceef2;box-shadow:0 2px 12px rgba(15,23,42,.05);gap:1rem;padding:1rem}
+      .stat-item{background:#fbfbfc;border:1px solid #f0f1f4;border-radius:10px;padding:1rem .6rem;position:relative;overflow:hidden;transition:transform .2s,box-shadow .2s}
+      .stat-item::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#c62828,#e74c3c)}
+      .stat-item:hover{transform:translateY(-2px);box-shadow:0 6px 16px rgba(198,40,40,.10)}
+      .stat-item .num{color:#c62828}
+
+      .content-main h2{position:relative;padding-left:.85rem;margin-top:2.6rem;font-size:1.35rem;letter-spacing:-.01em}
+      .content-main h2::before{content:"";position:absolute;left:0;top:.18em;bottom:.18em;width:4px;border-radius:2px;background:linear-gradient(180deg,#c62828,#e74c3c)}
+      .content-main h3{margin-top:1.6rem;font-size:1.06rem}
+      .content-main h3::before{content:"";display:inline-block;width:8px;height:8px;border-radius:2px;background:#c62828;margin-right:.5rem;vertical-align:2px}
+
+      .content-main table{width:100%;border-collapse:separate;border-spacing:0;font-size:.9rem;border:1px solid #e8eaef;border-radius:10px;overflow:hidden;box-shadow:0 1px 6px rgba(15,23,42,.04);margin:1rem 0 1.4rem}
+      .content-main thead th{background:linear-gradient(135deg,#b71c1c,#c62828);color:#fff;font-weight:700;padding:.7rem .9rem;text-align:left;font-size:.85rem;letter-spacing:.02em}
+      .content-main tbody td{padding:.65rem .9rem;border-top:1px solid #f0f1f4;vertical-align:top}
+      .content-main tbody tr:nth-child(even){background:#fafbfc}
+      .content-main tbody tr:hover{background:#fdf6f6}
+
+      .school-card{box-shadow:0 1px 4px rgba(15,23,42,.04)}
+      .school-card:hover{transform:translateY(-3px);box-shadow:0 10px 28px rgba(15,23,42,.12)}
+      .school-card{transition:transform .22s,box-shadow .22s,border-color .22s}
+
+      .filter-bar{background:#fff;border:1px solid #eceef2;box-shadow:0 2px 12px rgba(15,23,42,.05)}
+
+      .faq-section details{box-shadow:0 1px 4px rgba(15,23,42,.03);transition:box-shadow .2s}
+      .faq-section details[open]{box-shadow:0 4px 14px rgba(198,40,40,.08);border-color:#e8b4b4}
+      .faq-section summary:hover{background:#fdf6f6}
   </style>
     <meta property="og:type" content="website" />
   <meta property="og:locale" content="zh_CN" />

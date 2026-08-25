@@ -11,37 +11,88 @@
     <link rel="canonical" href="https://sgeda.org.cn/poly/dae/" />
     <link rel="stylesheet" href="/seda-site.css?v=36" />
     <style>
-    /* ===== DAE 专页定制视觉（与 /poly/ 深红体系同源） ===== */
-    .dae-hero{position:relative;padding:56px clamp(20px,6vw,80px) 48px;background:linear-gradient(135deg,#7f1d1d 0%,#b32020 48%,#c62828 100%);color:#fff;overflow:hidden}
-    .dae-hero::after{content:"";position:absolute;inset:0;background:radial-gradient(900px 360px at 88% -10%,rgba(255,255,255,.14),transparent 60%);pointer-events:none}
-    .dae-hero .in{position:relative;max-width:1180px;margin:0 auto}
-    .dae-eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.28);padding:6px 14px;border-radius:999px;font-size:.82rem;font-weight:700;margin-bottom:16px;letter-spacing:.05em}
-    .dae-hero h1{font-size:clamp(28px,4.4vw,44px);line-height:1.16;margin:0 0 14px;font-weight:850}
-    .dae-hero p.sub{font-size:clamp(15px,1.7vw,17.5px);color:rgba(255,255,255,.92);max-width:780px;margin:0;line-height:1.75}
-    .dae-statsband{background:#fff;border-bottom:1px solid #eee;box-shadow:0 6px 18px rgba(20,20,40,.04)}
-    .dae-stats{max-width:1180px;margin:0 auto;padding:24px clamp(20px,6vw,80px);display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:18px;text-align:center}
-    .dae-stat .n{font-size:clamp(24px,3.2vw,36px);font-weight:850;color:#b32020;line-height:1.1}
-    .dae-stat .l{font-size:.84rem;color:#6b7280;margin-top:6px}
-    .content-main h2{position:relative;padding-left:16px;margin-top:2.6rem}
-    .content-main h2::before{content:"";position:absolute;left:0;top:.18em;bottom:.18em;width:5px;border-radius:4px;background:linear-gradient(180deg,#c62828,#7f1d1d)}
-    .content-main .data-table thead th{background:linear-gradient(135deg,#8f1f1f,#c62828);color:#fff;border:0}
-    .content-main .data-table tbody tr:nth-child(even){background:#faf6f5}
-    .content-main .data-table tbody tr:hover{background:#f6ecea}
-    .content-main .table-wrap{border:1px solid #eee;border-radius:14px;overflow:auto;box-shadow:0 2px 10px rgba(20,20,40,.05);margin:1.1rem 0 1.6rem}
-    .content-main .data-table{margin:0}
-    .dae-steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:1.2rem 0 1.6rem;counter-reset:daestep}
-    .dae-step{position:relative;background:#fff;border:1px solid #f0dedb;border-radius:14px;padding:16px 14px 14px;box-shadow:0 2px 10px rgba(20,20,40,.04);counter-increment:daestep}
-    .dae-step::before{content:counter(daestep);position:absolute;top:-12px;left:14px;width:26px;height:26px;border-radius:50%;background:linear-gradient(135deg,#b32020,#c62828);color:#fff;font-weight:800;font-size:.85rem;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 10px rgba(198,40,40,.35)}
-    .dae-step b{display:block;color:#1f2937;font-size:.95rem;margin-bottom:.25rem}
-    .dae-step span{display:block;color:#6b7280;font-size:.82rem;line-height:1.55}
-    .dae-step em{display:inline-block;font-style:normal;color:#b32020;font-weight:700;font-size:.8rem;margin-bottom:.3rem}
-    .content-main .info-box{border-radius:14px;box-shadow:0 2px 10px rgba(20,20,40,.05)}
-    .faq-section details{border:1px solid #eee;border-radius:12px;padding:.9rem 1.1rem;margin-bottom:.7rem;background:#fff;transition:box-shadow .2s}
-    .faq-section details[open]{border-color:#e8c8c4;box-shadow:0 6px 18px rgba(198,40,40,.08);background:#fffdfc}
-    .faq-section summary{font-weight:700;color:#1f2937;cursor:pointer}
-    .faq-section details[open] summary{color:#b32020}
+    /* ============================================================
+       DAE 专页 · "一年一班机" 登机牌设计语言
+       ============================================================ */
+    :root{--dae-ink:#1a1418;--dae-red:#c62828;--dae-deep:#7f1d1d;--dae-paper:#faf6f2;--dae-line:#eee4de;--dae-muted:#8a7f7b}
     nav.breadcrumb{display:block}
     .breadcrumb::before{content:none!important;display:none!important}
+
+    /* ---- HERO：出发大屏 ---- */
+    .dae-hero{position:relative;background:radial-gradient(1200px 500px at 85% -20%,rgba(198,40,40,.28),transparent 55%),linear-gradient(160deg,#221418 0%,#2d151a 55%,#3a181c 100%);color:#fff;padding:64px clamp(20px,6vw,80px) 72px;overflow:hidden}
+    .dae-hero::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);background-size:44px 44px;mask-image:radial-gradient(700px 420px at 30% 40%,#000 30%,transparent 75%)}
+    .dae-hero .in{position:relative;max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1.25fr .9fr;gap:48px;align-items:center}
+    .dae-kicker{display:inline-flex;align-items:center;gap:10px;font-size:.8rem;font-weight:700;letter-spacing:.28em;color:#e8b4ac;text-transform:uppercase;margin-bottom:18px}
+    .dae-kicker::before{content:"";width:34px;height:1px;background:#e8b4ac}
+    .dae-hero h1{font-size:clamp(30px,4.6vw,50px);line-height:1.12;margin:0 0 18px;font-weight:850;letter-spacing:.01em}
+    .dae-hero h1 em{font-style:normal;color:#f4a9a0}
+    .dae-hero p.sub{font-size:clamp(15px,1.6vw,17px);color:rgba(255,255,255,.78);max-width:560px;line-height:1.85;margin:0}
+
+    /* ---- 登机牌 ---- */
+    .dae-ticket{position:relative;background:#fffdf9;color:var(--dae-ink);border-radius:18px;box-shadow:0 30px 60px rgba(0,0,0,.45);transform:rotate(1.6deg);overflow:hidden}
+    .dae-ticket::before{content:"";position:absolute;top:0;bottom:0;right:86px;border-left:2px dashed #d9cfc9}
+    .dae-ticket::after{content:"";position:absolute;right:78px;top:-9px;width:18px;height:18px;border-radius:50%;background:#2d151a;box-shadow:0 calc(100% + 460px) 0 #2d151a}
+    .dae-ticket .t-head{display:flex;justify-content:space-between;align-items:center;background:linear-gradient(90deg,var(--dae-deep),var(--dae-red));color:#fff;padding:12px 100px 12px 20px;font-weight:800;font-size:.85rem;letter-spacing:.12em}
+    .dae-ticket .t-body{padding:18px 100px 20px 20px;display:grid;grid-template-columns:1fr 1fr;gap:14px 10px}
+    .dae-ticket .t-cell b{display:block;font-size:.68rem;letter-spacing:.14em;color:var(--dae-muted);font-weight:700;margin-bottom:2px}
+    .dae-ticket .t-cell span{font-size:1.02rem;font-weight:800;color:var(--dae-ink)}
+    .dae-ticket .t-route{grid-column:1/-1;display:flex;align-items:center;gap:12px;padding:6px 0 2px;font-weight:850;font-size:1.5rem}
+    .dae-ticket .t-route .dots{flex:1;height:2px;background:repeating-linear-gradient(90deg,#d9cfc9 0 8px,transparent 8px 16px);position:relative}
+    .dae-ticket .t-route .dots::after{content:"✈";position:absolute;top:-13px;left:50%;transform:translateX(-50%);color:var(--dae-red);font-size:1rem}
+    .dae-ticket .t-route small{display:block;font-size:.68rem;letter-spacing:.1em;color:var(--dae-muted);font-weight:700}
+    .dae-ticket .t-stub{position:absolute;right:0;top:0;bottom:0;width:78px;display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:14px 0}
+    .dae-ticket .t-stub .code{writing-mode:vertical-rl;font-size:.66rem;letter-spacing:.3em;font-weight:800;color:var(--dae-muted)}
+    .dae-ticket .t-stub .bars{width:44px;height:130px;background:repeating-linear-gradient(180deg,#241c20 0 3px,transparent 3px 6px,#241c20 6px 8px,transparent 8px 12px,#241c20 12px 13px,transparent 13px 17px)}
+
+    /* ---- 出发信息屏（翻牌风） ---- */
+    .dae-board{background:#17121a;padding:0 clamp(20px,6vw,80px)}
+    .dae-board .in{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:1px;background:#2a2230;border-left:1px solid #2a2230;border-right:1px solid #2a2230;transform:translateY(-34px);box-shadow:0 24px 50px rgba(0,0,0,.35);border-radius:12px;overflow:hidden}
+    .dae-board .cell{background:#1e1822;padding:16px 18px}
+    .dae-board .cell b{display:block;font-size:.66rem;letter-spacing:.24em;color:#8d7f92;font-weight:700;margin-bottom:6px}
+    .dae-board .cell span{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:1.14rem;font-weight:700;color:#ffd9a8;letter-spacing:.06em}
+    .dae-board .cell.go span{color:#9fe3b0}
+
+    /* ---- 章节骨架：巨型幽灵编号 ---- */
+    .content-main{counter-reset:daesec}
+    .content-main h2{position:relative;counter-increment:daesec;margin-top:3.4rem;padding:0 0 .6rem;border-bottom:2px solid var(--dae-ink);font-weight:850;letter-spacing:.01em}
+    .content-main h2::before{content:counter(daesec,decimal-leading-zero);position:absolute;right:0;top:-1.55em;font-size:3.4em;font-weight:850;color:transparent;-webkit-text-stroke:1.5px #e9d8d2;letter-spacing:0;line-height:1;pointer-events:none}
+    .content-main h3{margin-top:1.8rem;font-weight:800}
+    .content-main h3::before{content:"◆ ";color:var(--dae-red);font-size:.8em}
+
+    /* ---- 表格：票据风 ---- */
+    .content-main .table-wrap{border:1.5px solid var(--dae-ink);border-radius:0;overflow:auto;margin:1.2rem 0 1.8rem;box-shadow:6px 6px 0 #f0e2dc}
+    .content-main .data-table{margin:0;border-collapse:collapse}
+    .content-main .data-table thead th{background:var(--dae-ink);color:#fff;border:0;font-weight:800;letter-spacing:.04em}
+    .content-main .data-table tbody tr{border-bottom:1px dashed var(--dae-line)}
+    .content-main .data-table tbody tr:hover{background:var(--dae-paper)}
+    .content-main .data-table td{border:0}
+
+    /* ---- 航线时间轴 ---- */
+    .dae-steps{position:relative;display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:14px;margin:1.4rem 0 1.8rem;counter-reset:daestep;padding-top:10px}
+    .dae-step{position:relative;background:#fff;border:1.5px solid var(--dae-ink);padding:18px 14px 14px;counter-increment:daestep;box-shadow:5px 5px 0 #f0e2dc;transition:transform .15s,box-shadow .15s}
+    .dae-step:hover{transform:translate(-2px,-2px);box-shadow:8px 8px 0 #ecd2c9}
+    .dae-step::before{content:"STOP " counter(daestep,decimal-leading-zero);position:absolute;top:-11px;left:12px;background:var(--dae-red);color:#fff;font-weight:800;font-size:.66rem;letter-spacing:.18em;padding:3px 9px}
+    .dae-step b{display:block;color:var(--dae-ink);font-size:.98rem;margin:.35rem 0 .3rem;font-weight:800}
+    .dae-step span{display:block;color:#6f6560;font-size:.82rem;line-height:1.6}
+    .dae-step em{display:inline-block;font-style:normal;color:var(--dae-red);font-weight:800;font-size:.78rem;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.05em}
+
+    /* ---- info-box：舱内广播风 ---- */
+    .content-main .info-box{border:1.5px solid var(--dae-ink);border-left-width:10px;border-radius:0;box-shadow:5px 5px 0 #f0e2dc;background:#fffdf9}
+    .content-main .info-box strong{letter-spacing:.02em}
+
+    /* ---- FAQ ---- */
+    .faq-section details{border:1.5px solid var(--dae-ink);padding:.95rem 1.15rem;margin-bottom:.75rem;background:#fff;box-shadow:4px 4px 0 #f0e2dc;transition:box-shadow .15s,transform .15s}
+    .faq-section details[open]{background:var(--dae-paper);transform:translate(-1px,-1px);box-shadow:6px 6px 0 #ecd2c9}
+    .faq-section summary{font-weight:800;color:var(--dae-ink);cursor:pointer}
+    .faq-section summary::marker{color:var(--dae-red)}
+    .faq-section details[open] summary{color:var(--dae-red)}
+
+    @media (max-width:880px){
+      .dae-hero .in{grid-template-columns:1fr;gap:34px}
+      .dae-ticket{transform:rotate(0);max-width:480px}
+      .dae-board .in{transform:translateY(-20px)}
+      .content-main h2::before{font-size:2.4em;top:-1.2em}
+    }
     </style>
     <script type="application/ld+json">
       {
@@ -172,14 +223,36 @@ var _hmt = _hmt || [];
     <main>
       <section class="dae-hero">
         <div class="in">
-          <span class="dae-eyebrow">DIRECT ADMISSIONS EXERCISE · 直接招生</span>
-          <h1>Poly DAE 直接招生完全解读</h1>
-          <p class="sub">DAE 是国际学生进入新加坡五所公立理工学院的正式通道：不需要 O-Level，凭高考或高中在读成绩直接申请。一年只开一次的窗口、五校独立申请、一场五校通用的统一入学考试——这一页把 DAE 的机制、时间线、策略和坑全部讲透。</p>
+          <div>
+            <span class="dae-kicker">Direct Admissions Exercise</span>
+            <h1>DAE 直接招生：<br>每年只有 <em>一班机</em> 的 Poly 航线</h1>
+            <p class="sub">不需要 O-Level，凭高考或高中在读成绩直接申请新加坡五所公立理工学院。10 月登机口开放约 10 天，1 月一场五校通用的入学考试，4 月落地开学——这一页是你的完整航图。</p>
+          </div>
+          <aside class="dae-ticket" aria-label="DAE 关键信息登机牌">
+            <div class="t-head"><span>BOARDING PASS</span><span>DAE·SG</span></div>
+            <div class="t-body">
+              <div class="t-cell t-route">
+                <span>CHN<small>中国 高中/高考</small></span>
+                <span class="dots"></span>
+                <span>POLY<small>新加坡 五大理工</small></span>
+              </div>
+              <div class="t-cell"><b>GATE OPEN 申请窗口</b><span>10月20-31日</span></div>
+              <div class="t-cell"><b>FLIGHT 班次</b><span>每年 1 班</span></div>
+              <div class="t-cell"><b>CHECK-IN 入学考试</b><span>次年 1 月下旬</span></div>
+              <div class="t-cell"><b>ARRIVAL 入学</b><span>4 月</span></div>
+            </div>
+            <div class="t-stub"><span class="code">SGEDA·DAE</span><span class="bars"></span><span class="code">2027 INTAKE</span></div>
+          </aside>
         </div>
       </section>
 
-      <div class="dae-statsband"><div class="dae-stats">
-        <div class="dae-stat"><div class="n">1 轮/年</div><div class="l">10 月窗口 · 4 月入学</div></div>
+      <div class="dae-board"><div class="in">
+        <div class="cell"><b>REQUIRED 学历</b><span>高考 / 高二在读</span></div>
+        <div class="cell"><b>O-LEVEL</b><span class="go">不需要</span></div>
+        <div class="cell"><b>APPLY 申请</b><span>5 校独立</span></div>
+        <div class="cell"><b>TEST 考试</b><span>1 场通用</span></div>
+        <div class="cell"><b>ENGLISH 英语</b><span>IELTS 6.0+</span></div>
+      </div></div>
         <div class="dae-stat"><div class="n">~10 天</div><div class="l">申请窗口时长</div></div>
         <div class="dae-stat"><div class="n">5 校</div><div class="l">独立申请 · 互不冲突</div></div>
         <div class="dae-stat"><div class="n">1 场考试</div><div class="l">成绩五校通用</div></div>

@@ -10,6 +10,39 @@
     <meta name="keywords" content="DAE,Poly DAE,新加坡理工学院直接招生,Direct Admissions Exercise,理工学院入学考试,新加坡Poly申请,高考申请新加坡" />
     <link rel="canonical" href="https://sgeda.org.cn/poly/dae/" />
     <link rel="stylesheet" href="/seda-site.css?v=36" />
+    <style>
+    /* ===== DAE 专页定制视觉（与 /poly/ 深红体系同源） ===== */
+    .dae-hero{position:relative;padding:56px clamp(20px,6vw,80px) 48px;background:linear-gradient(135deg,#7f1d1d 0%,#b32020 48%,#c62828 100%);color:#fff;overflow:hidden}
+    .dae-hero::after{content:"";position:absolute;inset:0;background:radial-gradient(900px 360px at 88% -10%,rgba(255,255,255,.14),transparent 60%);pointer-events:none}
+    .dae-hero .in{position:relative;max-width:1180px;margin:0 auto}
+    .dae-eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.28);padding:6px 14px;border-radius:999px;font-size:.82rem;font-weight:700;margin-bottom:16px;letter-spacing:.05em}
+    .dae-hero h1{font-size:clamp(28px,4.4vw,44px);line-height:1.16;margin:0 0 14px;font-weight:850}
+    .dae-hero p.sub{font-size:clamp(15px,1.7vw,17.5px);color:rgba(255,255,255,.92);max-width:780px;margin:0;line-height:1.75}
+    .dae-statsband{background:#fff;border-bottom:1px solid #eee;box-shadow:0 6px 18px rgba(20,20,40,.04)}
+    .dae-stats{max-width:1180px;margin:0 auto;padding:24px clamp(20px,6vw,80px);display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:18px;text-align:center}
+    .dae-stat .n{font-size:clamp(24px,3.2vw,36px);font-weight:850;color:#b32020;line-height:1.1}
+    .dae-stat .l{font-size:.84rem;color:#6b7280;margin-top:6px}
+    .content-main h2{position:relative;padding-left:16px;margin-top:2.6rem}
+    .content-main h2::before{content:"";position:absolute;left:0;top:.18em;bottom:.18em;width:5px;border-radius:4px;background:linear-gradient(180deg,#c62828,#7f1d1d)}
+    .content-main .data-table thead th{background:linear-gradient(135deg,#8f1f1f,#c62828);color:#fff;border:0}
+    .content-main .data-table tbody tr:nth-child(even){background:#faf6f5}
+    .content-main .data-table tbody tr:hover{background:#f6ecea}
+    .content-main .table-wrap{border:1px solid #eee;border-radius:14px;overflow:auto;box-shadow:0 2px 10px rgba(20,20,40,.05);margin:1.1rem 0 1.6rem}
+    .content-main .data-table{margin:0}
+    .dae-steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:1.2rem 0 1.6rem;counter-reset:daestep}
+    .dae-step{position:relative;background:#fff;border:1px solid #f0dedb;border-radius:14px;padding:16px 14px 14px;box-shadow:0 2px 10px rgba(20,20,40,.04);counter-increment:daestep}
+    .dae-step::before{content:counter(daestep);position:absolute;top:-12px;left:14px;width:26px;height:26px;border-radius:50%;background:linear-gradient(135deg,#b32020,#c62828);color:#fff;font-weight:800;font-size:.85rem;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 10px rgba(198,40,40,.35)}
+    .dae-step b{display:block;color:#1f2937;font-size:.95rem;margin-bottom:.25rem}
+    .dae-step span{display:block;color:#6b7280;font-size:.82rem;line-height:1.55}
+    .dae-step em{display:inline-block;font-style:normal;color:#b32020;font-weight:700;font-size:.8rem;margin-bottom:.3rem}
+    .content-main .info-box{border-radius:14px;box-shadow:0 2px 10px rgba(20,20,40,.05)}
+    .faq-section details{border:1px solid #eee;border-radius:12px;padding:.9rem 1.1rem;margin-bottom:.7rem;background:#fff;transition:box-shadow .2s}
+    .faq-section details[open]{border-color:#e8c8c4;box-shadow:0 6px 18px rgba(198,40,40,.08);background:#fffdfc}
+    .faq-section summary{font-weight:700;color:#1f2937;cursor:pointer}
+    .faq-section details[open] summary{color:#b32020}
+    nav.breadcrumb{display:block}
+    .breadcrumb::before{content:none!important;display:none!important}
+    </style>
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -137,11 +170,21 @@ var _hmt = _hmt || [];
     </nav>
 
     <main>
-      <section class="page-hero content-hero hero-pathway">
-        <p class="eyebrow">Direct Admissions Exercise</p>
-        <h1>Poly DAE 直接招生完全解读</h1>
-        <p class="hero-subtitle">DAE 是国际学生进入新加坡五所理工学院的正式通道：一年只开放一次的申请窗口、五校独立申请、一场五校通用的统一入学考试。这一页把 DAE 的机制、时间线和策略讲透。</p>
+      <section class="dae-hero">
+        <div class="in">
+          <span class="dae-eyebrow">DIRECT ADMISSIONS EXERCISE · 直接招生</span>
+          <h1>Poly DAE 直接招生完全解读</h1>
+          <p class="sub">DAE 是国际学生进入新加坡五所公立理工学院的正式通道：不需要 O-Level，凭高考或高中在读成绩直接申请。一年只开一次的窗口、五校独立申请、一场五校通用的统一入学考试——这一页把 DAE 的机制、时间线、策略和坑全部讲透。</p>
+        </div>
       </section>
+
+      <div class="dae-statsband"><div class="dae-stats">
+        <div class="dae-stat"><div class="n">1 轮/年</div><div class="l">10 月窗口 · 4 月入学</div></div>
+        <div class="dae-stat"><div class="n">~10 天</div><div class="l">申请窗口时长</div></div>
+        <div class="dae-stat"><div class="n">5 校</div><div class="l">独立申请 · 互不冲突</div></div>
+        <div class="dae-stat"><div class="n">1 场考试</div><div class="l">成绩五校通用</div></div>
+        <div class="dae-stat"><div class="n">0</div><div class="l">无需 O-Level 成绩</div></div>
+      </div></div>
 
       <div class="content-layout">
         <article class="content-main">
@@ -168,24 +211,58 @@ var _hmt = _hmt || [];
             <p>很多家庭误以为进 Poly 必须先花一两年考 O-Level。DAE 的存在正是为了让国际学历学生<strong>直接申请</strong>——高二读完即可启动，路径比 O-Level 路线短一年以上。</p>
           </div>
 
-          <h2 id="timeline">二、DAE 时间线：一年只有一班车</h2>
-          <p>DAE 对应每年 4 月入学，申请窗口在<strong>前一年 10 月下旬</strong>，通常只开放 10 天左右。完整节奏如下：</p>
-
+          <h3>DAE 路线 vs O-Level 路线：哪条更适合你</h3>
           <div class="table-wrap">
             <table class="data-table">
               <thead>
-                <tr><th>时间</th><th>节点</th><th>要点</th></tr>
+                <tr><th>维度</th><th>DAE 直接申请</th><th>先考 O-Level 再进 Poly（JAE）</th></tr>
               </thead>
               <tbody>
-                <tr><td>7-9 月</td><td>准备期</td><td>成绩单公证翻译、考出 IELTS/TOEFL、确定志愿专业</td></tr>
-                <tr><td><strong>10 月 20-31 日</strong></td><td><strong>申请窗口</strong></td><td>五校门户分别提交，每校可填 1-3 个专业志愿</td></tr>
-                <tr><td>11 月</td><td>材料审核</td><td>留意邮箱，可能被要求补件</td></tr>
-                <tr><td>12 月初</td><td>考试邀请</td><td>通过初审者收到入学考试通知</td></tr>
-                <tr><td>1 月下旬</td><td>统一入学考试</td><td>英文 + 数学（部分专业加考科学）</td></tr>
-                <tr><td>3 月底</td><td>放榜</td><td>录取通知一般要求 1-2 天内确认接受</td></tr>
-                <tr><td>4 月</td><td>入学</td><td>办理学生准证、报到注册</td></tr>
+                <tr><td><strong>前置时间</strong></td><td>0 年（高二读完即可申请）</td><td>1-2 年 O-Level 预备课程</td></tr>
+                <tr><td><strong>前置花费</strong></td><td>公证翻译 + 英语考试费</td><td>预备课程学费 + 生活费（一年通常 20 万人民币级）</td></tr>
+                <tr><td><strong>入学关卡</strong></td><td>统一入学考试（英文+数学）</td><td>O-Level 考出达标的 ELR2B2 分数</td></tr>
+                <tr><td><strong>专业选择权</strong></td><td>受志愿与考试表现影响</td><td>ELR2B2 分数好可冲热门专业，选择面更可控</td></tr>
+                <tr><td><strong>风险点</strong></td><td>窗口一年一次；英文不过关直接出局</td><td>时间金钱成本高；O-Level 本身有难度</td></tr>
+                <tr><td><strong>适合人群</strong></td><td>英语基础较好、想省时间省钱的高中生</td><td>年龄较小（15-17）、英文需爬坡、目标热门专业</td></tr>
               </tbody>
             </table>
+          </div>
+          <p>一句话：<strong>英语行、赶时间 → DAE；英语弱、年龄小 → 先读 <a href="/o-level/">O-Level</a> 或 <a href="/wace/">WACE</a> 打底</strong>。两条路线的详细对比另见 <a href="/o-level-poly/">O-Level 升 Poly 专题</a>。</p>
+
+          <h2 id="eligibility">二、谁能申请：学历资格对照</h2>
+          <div class="table-wrap">
+            <table class="data-table">
+              <thead>
+                <tr><th>你手上的学历</th><th>能否走 DAE</th><th>是否需要入学考试</th><th>备注</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><strong>高考成绩</strong></td><td>✅ 可以</td><td>需要</td><td>2020 年后成绩有效，建议达当地二本线、各科 60%+</td></tr>
+                <tr><td><strong>高中在读成绩（高二起）</strong></td><td>✅ 可以</td><td>需要</td><td>用高二第二学期成绩单，比等高考提前一年</td></tr>
+                <tr><td>IGCSE / 国际学校成绩</td><td>✅ 可以</td><td>视成绩而定</td><td>部分成绩达标者可获免试评估，以各校审核为准</td></tr>
+                <tr><td>IB / 国际 A-Level</td><td>✅ 可以</td><td>视成绩而定</td><td>同上，成绩优秀者通常直接评估录取</td></tr>
+                <tr><td>中专 / 职高</td><td>⚠️ 个案评估</td><td>需要</td><td>取决于课程与成绩，建议先做学历预评估</td></tr>
+                <tr><td>新加坡 O-Level</td><td>—</td><td>—</td><td>不走 DAE，走 <a href="/o-level-poly/">JAE 通道</a>看 ELR2B2</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="info-box">
+            <strong>规律一句话</strong>
+            <p><strong>中国体制内学历 = 必考入学考试；部分国际学历 = 有机会免试。</strong>这也是为什么一些家庭会先转入国际课程（如 <a href="/wace/">WACE</a>）再申请——用国际成绩单换免试资格和更大的选择面。</p>
+          </div>
+
+          <h2 id="timeline">三、DAE 时间线：一年只有一班车</h2>
+          <p>DAE 对应每年 4 月入学，申请窗口在<strong>前一年 10 月下旬</strong>，通常只开放 10 天左右。九步全流程：</p>
+
+          <div class="dae-steps">
+            <div class="dae-step"><em>7-9 月</em><b>准备材料</b><span>成绩公证翻译、考出 IELTS/TOEFL、研究志愿专业</span></div>
+            <div class="dae-step"><em>10/20-31</em><b>提交申请</b><span>五校门户分别提交，每校 1-3 个志愿</span></div>
+            <div class="dae-step"><em>11 月</em><b>材料审核</b><span>盯紧邮箱，可能要求补件</span></div>
+            <div class="dae-step"><em>12 月初</em><b>考试邀请</b><span>初审通过者收到考试通知</span></div>
+            <div class="dae-step"><em>1 月下旬</em><b>入学考试</b><span>英文+数学（部分专业加科学）</span></div>
+            <div class="dae-step"><em>3 月底</em><b>放榜</b><span>录取通知 1-2 天内须确认</span></div>
+            <div class="dae-step"><em>录取后</em><b>签助学金</b><span>MOE Tuition Grant，需两名担保人</span></div>
+            <div class="dae-step"><em>录取后</em><b>学生准证</b><span>学校经 SOLAR+ 注册，纯电子签</span></div>
+            <div class="dae-step"><em>4 月</em><b>报到入学</b><span>安排住宿、注册开学</span></div>
           </div>
 
           <div class="info-box" style="border-left-color:#e74c3c">
@@ -193,27 +270,27 @@ var _hmt = _hmt || [];
             <p>DAE 没有"晚申请"或"补录"一说，错过 10 月窗口就是再等一年。倒推安排：<strong>7 月启动材料、9 月前考出英语成绩、10 月准时提交</strong>。</p>
           </div>
 
-          <h2 id="five-polys">三、五所理工学院概况</h2>
+          <h2 id="five-polys">四、五所理工学院概况</h2>
           <p>五所 Poly 均为政府公立、文凭同级，差异在专业强项与校园位置。DAE 需要<strong>在各校门户分别提交申请</strong>，五校互不冲突：</p>
 
           <div class="table-wrap">
             <table class="data-table">
               <thead>
-                <tr><th>学校</th><th>中文名</th><th>传统强项领域</th></tr>
+                <tr><th>学校</th><th>中文名</th><th>创办</th><th>校区位置</th><th>传统强项领域</th></tr>
               </thead>
               <tbody>
-                <tr><td><a href="/poly/sp/">Singapore Polytechnic (SP)</a></td><td>新加坡理工学院</td><td>工程、化工、海事，历史最悠久</td></tr>
-                <tr><td><a href="/poly/np/">Ngee Ann Polytechnic (NP)</a></td><td>义安理工学院</td><td>商科、传媒、健康科学</td></tr>
-                <tr><td><a href="/poly/tp/">Temasek Polytechnic (TP)</a></td><td>淡马锡理工学院</td><td>设计、应用科学、金融科技</td></tr>
-                <tr><td><a href="/poly/nyp/">Nanyang Polytechnic (NYP)</a></td><td>南洋理工学院</td><td>信息科技、工程、护理</td></tr>
-                <tr><td><a href="/poly/rp/">Republic Polytechnic (RP)</a></td><td>共和理工学院</td><td>问题导向教学，体育科学、酒店管理</td></tr>
+                <tr><td><a href="/poly/sp/">Singapore Polytechnic (SP)</a></td><td>新加坡理工学院</td><td>1954</td><td>Dover（西部，地铁直达）</td><td>工程、化工、海事（全国唯一）、视光</td></tr>
+                <tr><td><a href="/poly/np/">Ngee Ann Polytechnic (NP)</a></td><td>义安理工学院</td><td>1963</td><td>Clementi（西部）</td><td>商科、传媒/电影、健康科学</td></tr>
+                <tr><td><a href="/poly/tp/">Temasek Polytechnic (TP)</a></td><td>淡马锡理工学院</td><td>1990</td><td>Tampines（东部，临湖校园）</td><td>设计、兽医技术（全国唯一）、金融科技</td></tr>
+                <tr><td><a href="/poly/nyp/">Nanyang Polytechnic (NYP)</a></td><td>南洋理工学院</td><td>1992</td><td>Ang Mo Kio（中北部）</td><td>护理/健康科学最强、信息科技、教学工厂</td></tr>
+                <tr><td><a href="/poly/rp/">Republic Polytechnic (RP)</a></td><td>共和理工学院</td><td>2002</td><td>Woodlands（北部）</td><td>问题导向教学 PBL，体育科学、酒店、航空</td></tr>
               </tbody>
             </table>
           </div>
 
           <p>各专业的竞争热度可以参考本站整理的 <a href="/poly/courses/">理工学院专业录取分数据库（ELR2B2）</a>——分数线越低的专业越热门，DAE 的录取难度趋势与之一致。</p>
 
-          <h2 id="strategy">四、志愿策略：怎么报最稳</h2>
+          <h2 id="strategy">五、志愿策略：怎么报最稳</h2>
           <ul>
             <li><strong>五校全申：</strong>申请门户独立、考试成绩通用，多申一所就多一分录取概率，没有理由只申一所</li>
             <li><strong>每校 1-3 个志愿拉开梯度：</strong>参考 <a href="/poly/courses/">ELR2B2 数据</a>做"冲一冲、稳一稳、保一保"的组合，避免全部押注热门专业（如护理、信息安全、商业管理）</li>
@@ -221,7 +298,7 @@ var _hmt = _hmt || [];
             <li><strong>想清楚升学出口：</strong>Poly 毕业后凭 GPA 可申请新加坡公立大学（详见 <a href="/poly/">理工学院总览</a>中的升学路径），如果目标是大学，选 GPA 更容易做高、且与目标大学专业衔接的课程</li>
           </ul>
 
-          <h2 id="test">五、统一入学考试（Harmonised Entrance Test）</h2>
+          <h2 id="test">六、统一入学考试（Harmonised Entrance Test）</h2>
           <p>持中国学历的申请者<strong>一律需要参加</strong>五校联合组织的统一入学考试，一次成绩五校通用：</p>
 
           <div class="table-wrap">
@@ -242,7 +319,42 @@ var _hmt = _hmt || [];
             <p>这是中国家庭最常见的误解：<strong>无论高考分数多高，中国学历都需要参加入学考试</strong>。免试待遇只适用于部分国际学历（如 IGCSE、IB）。备考重心应放在英文——数学对中国学生几乎是送分项。</p>
           </div>
 
-          <h2 id="documents">六、申请材料清单</h2>
+          <h3>倒排备考计划（以 10 月申请、1 月考试为锚点）</h3>
+          <div class="table-wrap">
+            <table class="data-table">
+              <thead>
+                <tr><th>距离考试</th><th>阶段目标</th><th>具体动作</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>12-6 个月</td><td>英语打底</td><td>系统提升词汇与语法，目标 IELTS 5.5→6.0；同步保持校内数学不掉队</td></tr>
+                <tr><td>6-3 个月</td><td>出分 + 材料</td><td>考出 IELTS 6.0+/TOEFL 78+；完成成绩单公证翻译；用 <a href="/poly/courses/">ELR2B2 数据库</a>定志愿组合</td></tr>
+                <tr><td>3-1 个月</td><td>真题节奏</td><td>10 月按时提交五校申请；每周 2-3 套英文阅读+写作限时训练，数学过一遍高中知识框架</td></tr>
+                <tr><td>考前 2 周</td><td>冲刺模考</td><td>全真限时模拟；重点打磨英文写作模板与常见图表题表达</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h2 id="cost">七、费用全景：走 DAE 要花多少钱</h2>
+          <div class="table-wrap">
+            <table class="data-table">
+              <thead>
+                <tr><th>阶段</th><th>项目</th><th>说明</th></tr>
+              </thead>
+              <tbody>
+                <tr><td rowspan="3">申请阶段</td><td>各校报名费</td><td>金额以各校当年公告为准（五校分别收取）</td></tr>
+                <tr><td>成绩单公证翻译</td><td>国内公证处办理，按份计费</td></tr>
+                <tr><td>IELTS / TOEFL 考试费</td><td>约 2,000+ 人民币/次</td></tr>
+                <tr><td rowspan="2">就读阶段</td><td>学费（MOE 助学金后）</td><td>约 S$11,000/年 左右，绑定毕业后在新工作 3 年的服务协议</td></tr>
+                <tr><td>住宿与生活费</td><td>另计，参见<a href="/guides/cost/">留学费用指南</a>与<a href="/guides/accommodation/">住宿方案</a></td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="info-box" style="border-left-color:#27ae60">
+            <strong>性价比的关键：MOE 助学金</strong>
+            <p>不申请助学金的全额学费高出数倍。绝大多数中国学生都会申请助学金 + 接受 3 年工作绑定——毕业起薪配合服务期，通常能覆盖留学成本，这是 Poly 路线区别于英美澳的核心性价比来源。细节见<a href="/poly/admission/">申请攻略</a>。</p>
+          </div>
+
+          <h2 id="documents">八、申请材料清单</h2>
           <ul>
             <li>护照个人信息页</li>
             <li>高考成绩单 <strong>或</strong> 高中在读成绩单（高二第二学期起），需<strong>英文公证翻译件</strong></li>
@@ -252,7 +364,23 @@ var _hmt = _hmt || [];
             <li>少量报名费（金额以各校当年公告为准）</li>
           </ul>
 
-          <h2 id="pitfalls">七、常见误区盘点</h2>
+          <h2 id="fit">九、DAE 适合我家孩子吗：30 秒自测</h2>
+          <div class="table-wrap">
+            <table class="data-table">
+              <thead>
+                <tr><th>情况</th><th>建议</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>高二/高三在读或已高考，英语中上（能冲 IELTS 6.0）</td><td>✅ <strong>DAE 主力人群</strong>，按本页时间线直接准备</td></tr>
+                <tr><td>成绩不错但英语明显偏弱</td><td>⚠️ 先花 6-12 个月主攻英语再申，或转 <a href="/wace/">WACE</a> 路线边读边爬坡</td></tr>
+                <tr><td>初中毕业 / 15-16 岁</td><td>年龄还早，走 <a href="/o-level/">O-Level</a> 或 <a href="/aeis/">AEIS</a> 路线空间更大</td></tr>
+                <tr><td>目标就是 NUS/NTU 本科</td><td>Poly 是"曲线进大学"的稳路（GPA 升学），但直接路线可对比 <a href="/pathway/gaokao/">高考直申</a> 与 <a href="/a-level/">A-Level</a></td></tr>
+                <tr><td>想读护理/信息安全等热门专业</td><td>竞争激烈，志愿务必拉开梯度，参考 <a href="/poly/courses/">ELR2B2 热度</a></td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h2 id="pitfalls">十、常见误区盘点</h2>
           <div class="table-wrap">
             <table class="data-table">
               <thead>
@@ -268,7 +396,7 @@ var _hmt = _hmt || [];
             </table>
           </div>
 
-          <h2 id="next">八、录取之后 & 相关阅读</h2>
+          <h2 id="next">十一、录取之后 & 相关阅读</h2>
           <p>拿到录取后还有三件事：申请 MOE 助学金（学费大幅减免，绑定毕业后在新工作三年）、办理学生准证、安排住宿。这部分的完整操作在 <a href="/poly/admission/">中国学生申请理工学院完全攻略</a> 中有逐步说明。</p>
           <ul>
             <li><a href="/poly/">新加坡理工学院总览：五校介绍与升学路径</a></li>
@@ -277,7 +405,7 @@ var _hmt = _hmt || [];
             <li><a href="/o-level-poly/">O-Level 路线进 Poly 对比</a></li>
           </ul>
 
-          <h2 id="faq">九、常见问题 FAQ</h2>
+          <h2 id="faq">十二、常见问题 FAQ</h2>
           <div class="faq-section">
             <details>
               <summary>DAE 一年可以申请几次？</summary>

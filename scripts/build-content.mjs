@@ -953,7 +953,7 @@ function enhanceGlobalGoogleAnalytics() {
   let count = 0;
   const files = walk(root).filter(isSitemapPage);
   const snippet = googleAnalyticsSnippet();
-  const existingSnippetPattern = /\n?<!-- SEDA_GA4_START -->[\s\S]*?<!-- SEDA_GA4_END -->\n?/;
+  const existingSnippetPattern = /\n?<!-- SEDA_GA4_START -->[\s\S]*?<!-- SEDA_GA4_END -->\n?/g;
   for (const file of files) {
     const html = fs.readFileSync(file, 'utf8');
     if (!html.includes('</head>')) continue;
@@ -970,7 +970,7 @@ function enhanceBaiduTongji() {
   let count = 0;
   const files = walk(root).filter(isSitemapPage);
   const snippet = baiduTongjiSnippet();
-  const pattern = /\n?<!-- SEDA_BAIDU_TONGJI -->[\s\S]*?<!-- SEDA_BAIDU_TONGJI_END -->\n?/;
+  const pattern = /\n?<!-- SEDA_BAIDU_TONGJI -->[\s\S]*?<!-- SEDA_BAIDU_TONGJI_END -->\n?/g;
   for (const file of files) {
     const html = fs.readFileSync(file, 'utf8');
     if (!html.includes('</head>')) continue;

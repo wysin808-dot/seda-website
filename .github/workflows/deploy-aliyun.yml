@@ -69,6 +69,10 @@ jobs:
             echo "=== TLS cert emergency renew ==="
             {
               date
+              echo "--- step0: kill zombie certbot & clear locks ---"
+              (pkill -9 -f certbot 2>/dev/null || sudo -n pkill -9 -f certbot 2>/dev/null || true); sleep 2
+              (rm -f /var/lib/letsencrypt/.certbot.lock /etc/letsencrypt/.certbot.lock /var/log/letsencrypt/.certbot.lock 2>/dev/null || sudo -n rm -f /var/lib/letsencrypt/.certbot.lock /etc/letsencrypt/.certbot.lock /var/log/letsencrypt/.certbot.lock 2>/dev/null || true)
+              echo "locks cleared"
               echo "--- step1: clear stale temp_checkpoint ---"
               (rm -rf /var/lib/letsencrypt/temp_checkpoint 2>/dev/null || sudo -n rm -rf /var/lib/letsencrypt/temp_checkpoint 2>/dev/null) && echo "checkpoint cleared" || echo "checkpoint clear failed or absent"
               echo "--- step2: renew sgeda.org.cn ---"

@@ -75,8 +75,15 @@ jobs:
               echo "locks cleared"
               echo "--- step1: clear stale temp_checkpoint ---"
               (rm -rf /var/lib/letsencrypt/temp_checkpoint 2>/dev/null || sudo -n rm -rf /var/lib/letsencrypt/temp_checkpoint 2>/dev/null) && echo "checkpoint cleared" || echo "checkpoint clear failed or absent"
-              echo "--- step2: renew sgeda.org.cn ---"
-              (timeout 180 certbot renew --cert-name sgeda.org.cn --non-interactive 2>&1 || timeout 180 sudo -n certbot renew --cert-name sgeda.org.cn --non-interactive 2>&1 || echo "SGEDA_RENEW_FAILED")
+              echo "--- step2: renew sgeda.org.cn (3 attempts, LE DNS timeouts are transient) ---"
+              SGEDA_OK=0
+              for i in 1 2 3; do
+                echo "attempt $i"
+                if timeout 240 certbot renew --cert-name sgeda.org.cn --non-interactive 2>&1; then SGEDA_OK=1; echo "SGEDA_RENEWED"; break; fi
+                rm -rf /var/lib/letsencrypt/temp_checkpoint 2>/dev/null || true
+                sleep 45
+              done
+              [ "$SGEDA_OK" = "1" ] || echo "SGEDA_RENEW_FAILED_AFTER_3"
               echo "--- step3: renew sgoa.ai via nginx authenticator (webroot is broken) ---"
               (timeout 180 certbot renew --cert-name sgoa.ai --nginx --non-interactive 2>&1 || timeout 180 sudo -n certbot renew --cert-name sgoa.ai --nginx --non-interactive 2>&1 || timeout 180 certbot certonly --nginx --cert-name sgoa.ai -d sgoa.ai -d www.sgoa.ai --non-interactive 2>&1 || echo "SGOA_RENEW_FAILED")
               echo "--- step4: reload nginx ---"

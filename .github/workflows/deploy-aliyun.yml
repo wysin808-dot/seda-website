@@ -64,3 +64,15 @@ jobs:
             bash scripts/install-seo-submit-cron.sh
             pm2 restart seda-api --update-env
             pm2 list
+
+            echo "=== TLS cert renew check ==="
+            {
+              date
+              (certbot renew --non-interactive 2>&1 || sudo -n certbot renew --non-interactive 2>&1 || echo "CERTBOT_RENEW_FAILED")
+              (nginx -s reload 2>/dev/null || sudo -n systemctl reload nginx 2>/dev/null || sudo -n nginx -s reload 2>/dev/null || echo "NGINX_RELOAD_FAILED")
+              echo "--- current cert on 443 ---"
+              echo | openssl s_client -connect 127.0.0.1:443 -servername sgeda.org.cn 2>/dev/null | openssl x509 -noout -enddate
+              echo "--- certbot timer status ---"
+              (systemctl status certbot.timer 2>&1 | head -5 || true)
+              (crontab -l 2>/dev/null | grep -i certbot || echo "no certbot crontab entry")
+            } | tail -60 | tee /var/www/sgeda/cert-renew-latest.txt || true

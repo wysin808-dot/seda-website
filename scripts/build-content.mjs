@@ -3,6 +3,8 @@ import path from 'node:path';
 import { buildSchoolPages } from './build-school-pages.mjs';
 import { enhanceKeySeoPages } from './enhance-key-seo-pages.mjs';
 import { optimizeArticle } from './seo-optimizer.mjs';
+import { partitionArticles, prepareArticleHtml } from './content-validation.mjs';
+import { baiduAllowed, inspectPage, parseSitemap, sitemapXml } from './seo-pages.mjs';
 
 const root = process.cwd();
 const domain = 'https://sgeda.org.cn';
@@ -117,7 +119,7 @@ function markdownToHtml(markdown) {
       .map((row) => row.split('|').map((cell) => cell.trim()).filter(Boolean));
     if (rows.length) {
       const [head, ...body] = rows;
-      out.push('<table><thead><tr>' + head.map((cell) => `<th>${inline(cell)}</th>`).join('') + '</tr></thead><tbody>' + body.map((row) => '<tr>' + row.map((cell) => `<td>${inline(cell)}</td>`).join('') + '</tr>').join('') + '</tbody></table>');
+      out.push('<div class="article-table" role="region" aria-label="数据对比" tabindex="0"><table><thead><tr>' + head.map((cell) => `<th>${inline(cell)}</th>`).join('') + '</tr></thead><tbody>' + body.map((row) => '<tr>' + row.map((cell) => `<td>${inline(cell)}</td>`).join('') + '</tr>').join('') + '</tbody></table></div>');
     }
     table = [];
   }
@@ -316,7 +318,6 @@ function renderArticle(article, articles) {
       logo: `${domain}/assets/seda-wordmark.svg`,
       email: 'admin@seda.org.sg',
       telephone: '+65 8084 7715',
-      sameAs: ['https://baike.baidu.com/item/%E6%96%B0%E5%8A%A0%E5%9D%A1%E6%95%99%E8%82%B2%E5%8F%91%E5%B1%95%E5%8D%8F%E4%BC%9A'],
     },
     mainEntityOfPage: `${domain}${url}`,
     inLanguage: 'zh-CN',
@@ -374,10 +375,12 @@ function renderArticle(article, articles) {
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml"/>
 <title>${title} | SEDA 新加坡择校网</title>
 <meta name="description" content="${description}"/>
+<meta property="article:modified_time" content="${escapeHtml(meta.updated || meta.date || '')}"/>
 <meta name="keywords" content="${keywords}"/>
 <link rel="canonical" href="${domain}${url}"/>
 <link rel="alternate" type="application/rss+xml" title="SEDA 新加坡择校网最新文章" href="${domain}/feed.xml"/>
 <link rel="stylesheet" href="/seda-site.css?v=36"/>
+<style>.article-table{max-width:100%;overflow-x:auto;margin:24px 0}.article-table table{width:100%;min-width:560px;border-collapse:collapse;font-size:15px;line-height:1.65}.article-table th,.article-table td{padding:12px 14px;border:1px solid #dce1e7;text-align:left;vertical-align:top}.article-table th{background:#f3f5f7}.content-body{overflow-wrap:anywhere}.content-body img{max-width:100%;height:auto}</style>
 <script type="application/ld+json">${articleSchema}</script>
 <script type="application/ld+json">${webPageSchema}</script>
 <script type="application/ld+json">${breadcrumbSchema}</script>
@@ -850,7 +853,8 @@ function isSitemapPage(file) {
   if (rel.startsWith('cms/')) return false;
   if (rel === 'private-schools/bci/index.html') return false;
   if (rel.startsWith('news/') && rel !== 'news/index.html') return false;
-  if (['googlec871b41fdb15d90a.html'].includes(rel)) return false;
+  if (['googlec871b41fdb15d90a.html', 'verification.html'].includes(rel)) return false;
+  if (rel.split('/').some(part => part.endsWith('_backup'))) return false;
   return rel.endsWith('.html');
 }
 
@@ -873,6 +877,12 @@ function draftUrlPathSet(drafts) {
 
 function updateSitemap(drafts = []) {
   const draftPaths = draftUrlPathSet(drafts);
+  const previousFile = path.join(root, 'sitemap.xml');
+  const previous = new Map(fs.existsSync(previousFile) ? parseSitemap(read(previousFile)).map(item => [item.url, item.lastmod]) : []);
+  const stateFile = path.join(root, 'data', 'seo', 'page-updates.json');
+  const updates = fs.existsSync(stateFile) ? JSON.parse(read(stateFile)) : {};
+  const allowed = baiduAllowed(read(path.join(root, 'robots.txt')));
+  const articleDates = new Map(articles.map(a => [domain + a.url, a.meta.updated || a.meta.date]));
   const urls = walk(root)
     .filter(isSitemapPage)
     .filter((file) => {
@@ -884,16 +894,23 @@ function updateSitemap(drafts = []) {
       if (rel === 'index.html') rel = '';
       else if (rel.endsWith('/index.html')) rel = rel.slice(0, -'index.html'.length);
       const url = `${domain}/${rel}`;
-      const stat = fs.statSync(file);
-      const lastmod = stat.mtime.toISOString().slice(0, 10);
+      const page = inspectPage(read(file), url);
+      if (page.issues.includes('noindex')) return null;
+      const saved = updates[url];
+      const lastmod = articleDates.get(url) || (saved && saved.fingerprint !== page.fingerprint ? buildDate : saved?.lastmod || previous.get(url) || buildDate);
+      updates[url] = { fingerprint: page.fingerprint, lastmod };
       const trimmed = rel.endsWith('/') ? rel.slice(0, -1) : rel;
       const priority = rel === '' ? '1.0' : trimmed.includes('/') ? '0.6' : '0.8';
       const changefreq = rel === '' || rel === 'news/' ? 'daily' : 'weekly';
       return { url, lastmod, priority, changefreq };
     })
+    .filter(Boolean)
     .sort((a, b) => a.url.localeCompare(b.url));
   const body = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map((entry) => `  <url>\n    <loc>${entry.url}</loc>\n    <lastmod>${entry.lastmod}</lastmod>\n    <changefreq>${entry.changefreq}</changefreq>\n    <priority>${entry.priority}</priority>\n  </url>`).join('\n')}\n</urlset>\n`;
   fs.writeFileSync(path.join(root, 'sitemap.xml'), body, 'utf8');
+  fs.writeFileSync(path.join(root, 'baidu-sitemap.xml'), sitemapXml(urls.filter(item => allowed(item.url))), 'utf8');
+  fs.mkdirSync(path.dirname(stateFile), { recursive: true });
+  fs.writeFileSync(stateFile, JSON.stringify(updates, null, 2), 'utf8');
   return urls.length;
 }
 
@@ -909,6 +926,17 @@ function enhanceGlobalRobotsMeta() {
     count += 1;
   }
   return count;
+}
+
+function repairLegacyPageReferences() {
+  for (const file of walk(root).filter(isSitemapPage)) {
+    const html = read(file);
+    const next = html
+      .replace(/src=(["'])(?:\/?wechat-qr\.png|\/assets\/wechat-amy-qr\.png)\1/g, 'src="/assets/wechat-amy-seda-guide.jpg"')
+      .replaceAll('href="https://sgeda.org.cn/private-school/"', 'href="https://sgeda.org.cn/private-schools/"')
+      .replaceAll('href="/university/sim/"', 'href="/private-university/sim/"');
+    if (next !== html) fs.writeFileSync(file, next, 'utf8');
+  }
 }
 
 function googleAnalyticsSnippet() {
@@ -1045,11 +1073,17 @@ function enhanceUtilityPageSchema() {
 }
 
 const allArticles = loadArticles();
-const articles = allArticles.filter((article) => !article.meta.draft);
-const drafts = allArticles.filter((article) => article.meta.draft);
+const { published: articles, drafts } = partitionArticles(allArticles);
 const schoolPageCount = buildSchoolPages();
 const enhancedKeyPageCount = enhanceKeySeoPages();
-articles.filter(a => !a.meta.custom).forEach(writeArticle);
+const repairPolicy = JSON.parse(read(path.join(root, 'data', 'seo', 'legacy-content-repairs.json')));
+const contentErrors = [];
+for (const article of articles) {
+  try { article.html = prepareArticleHtml(article, allArticles, root, repairPolicy); }
+  catch (error) { contentErrors.push(error.message); }
+}
+if (contentErrors.length) throw new Error(contentErrors.join('\n'));
+articles.filter(a => !a.meta.custom || !fs.existsSync(path.join(root, a.url, 'index.html'))).forEach(writeArticle);
 drafts.forEach(removeDraftArticlePage);
 writeReviewPage(allArticles);
 updateNewsIndex(articles);
@@ -1060,6 +1094,7 @@ const enhancedUtilitySchemaCount = enhanceUtilityPageSchema();
 const enhancedGoogleAnalyticsCount = enhanceGlobalGoogleAnalytics();
 const enhancedBaiduTongjiCount = enhanceBaiduTongji();
 const enhancedRobotsCount = enhanceGlobalRobotsMeta();
+repairLegacyPageReferences();
 const urlCount = updateSitemap(drafts);
 console.log(`Built ${articles.length} content articles.`);
 console.log(`Built ${schoolPageCount} school SEO pages.`);

@@ -1,56 +1,45 @@
 # SEDA SEO Daily Bot
 
-这个自动任务用于每天检查 `sgeda.org.cn` 的基础 SEO 状态，并在配置百度 token 后自动提交重点 URL。
+## 检查与提交
 
-## 每天做什么
+GitHub Actions 的 `seo-daily.yml` 是百度提交的唯一执行入口。服务器上的 `seo:submit` 保留为兼容入口，只调用 IndexNow；CMS 发布的新页面通过更新的百度地图进入下一次百度日更队列。
 
-- 读取 `sitemap.xml`，确认 sitemap URL 都有本地页面。
-- 检查 title、description、h1、canonical、noindex、正文长度、图片数量和内链数量。
-- 找出重复 title / description，优先暴露模板化风险。
-- 检查重点页面线上是否能访问。
-- 如果设置了 `BAIDU_TOKEN`，每天向百度普通收录接口提交一批重点 URL。
-- 在 GitHub Actions Summary 和 artifact 里生成当天报告。
+每日读取生产站点的 `sitemap.xml`、`baidu-sitemap.xml` 和 `robots.txt`，检查所有允许百度抓取的 HTML、标题、描述、H1、canonical、noindex、重复标题和描述，以及真实 DOM 中的站内链接与图片。脚本字符串中的 HTML 不作为可见链接统计。每日 JSON 报告保留完整检查结果，Markdown 汇总列出问题和实际提交 URL。
 
-## GitHub Secrets
+`BAIDU_TOKEN` 仅从 GitHub Secrets 提供，不写入脚本。主动提交必须设置 `SUBMIT_TO_BAIDU=true`，本地默认只读。
 
-在 GitHub 仓库里进入 `Settings -> Secrets and variables -> Actions`，添加：
+每次最多提交 5 个健康页面：优先实质修改页、新页面，再到距成功提交已超过 30 天的页面。文章使用明确的修改日期；已接受且未变化的内容不会每天重复推送。优先清单仍支持手动排序，但不能绕过质量检查或重复提交限制。
 
-- `BAIDU_TOKEN`: 百度搜索资源平台给 `sgeda.org.cn` 的链接提交 token。
+状态保存在 `data/seo/baidu-state.json`，由 Actions cache 跨运行恢复。队列记录仅在百度确认整批接受后更新；失败、超配额、无法确定具体 URL 的部分成功均保留重试。缓存被平台清理时会重新发现页面，因此应保留原始运行报告用于追踪。
 
-脚本默认站点是 `https://sgeda.org.cn`。如果以后换域名，再改 workflow 里的 `SITE` / `BAIDU_SITE`。
+`remain=0, success=5` 表示 5 条成功且剩余额度为 0。它不同于 over quota 错误。提交记录不能证明索引量、展现或点击增长，这些指标仍以百度搜索资源平台为准。
 
-## 手动运行
+## 本地验证
 
 ```bash
-npm run seo:daily
-```
-
-只检查、不提交百度：
-
-```bash
+npm ci
+npm test
+npm run content:build
+npm run seo:check
 SUBMIT_TO_BAIDU=false npm run seo:daily
 ```
 
-本地生成的报告在：
+`seo:check` 检查生成文件与百度地图；`seo:daily` 检查线上生产内容。修改本地代码不会改变线上检查结果。
 
-```text
-reports/seo-daily-report.md
-```
+## 内容发布
 
-## 重点 URL
+同一 URL 有草稿和已发布文章时，草稿不删除正式页面；两个已发布文件使用相同 URL 时拒绝构建。已发布的自定义文章如果 HTML 尚不存在，会从文章内容首次生成；已存在的自定义页面保持保护。
 
-脚本会优先读取：
+历史修复清单位于 `data/seo/legacy-content-repairs.json`。已确认的 URL 别名指向正确文章，尚未发布的引用显示为普通文字，历史缺失配图不输出损坏的图片标签。新出现的未知死链和缺图会中止发布构建，不能以补几个 img 标签通过检查。
 
-```text
-data/seo/priority-urls.txt
-```
+每次构建同步生成百度地图，沿用现有 robots 屏蔽策略。验证文件、备份目录和 noindex 页面不进入地图。内容哈希与修改日期记录在服务器 `data/seo/page-updates.json`，避免仅因重建而每天刷新所有页面的 lastmod。
 
-这里放刚改版、最想让百度重新抓的 URL。没有配置时，会自动使用首页、AEIS、SEC/O-Level、WACE、国际学校、学校库、大学、费用、学生准证等核心页面。
+生产部署在 CMS 备份与仓库修复之间执行三方合并，再安装依赖、测试、构建与校验。同一段内容冲突时停止并保留服务器备份，不自动覆盖团队修改。
 
-## 注意
+## 报告位置
 
-这个 Bot 不能保证百度立刻收录，但它能稳定解决三件事：
+- `reports/seo-daily-report.md`
+- `reports/seo-daily-report.json`
+- GitHub Actions Summary 和 `seo-daily-report` artifact
 
-- 百度每天能收到更新 URL。
-- 我们每天知道站点有没有技术性拦截或重复模板风险。
-- 页面改版后有固定流程，不再靠手动记。
+检测到问题或百度提交失败时任务失败，但仍上传诊断报告。生产监测只能排除技术性障碍，不能保证百度收录或搜索排名。

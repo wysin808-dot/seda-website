@@ -11,3 +11,7 @@ data/analytics/*.jsonl
 data/leads/*.jsonl
 data/seo/*.jsonl
 data/content-production-log.jsonl
+data/seo/page-updates.json
+data/seo/baidu-state.json
+reports/
+seo-daily-output.log

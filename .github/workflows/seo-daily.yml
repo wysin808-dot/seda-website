@@ -14,6 +14,10 @@ on:
 permissions:
   contents: read
 
+concurrency:
+  group: seda-baidu-submit
+  cancel-in-progress: false
+
 jobs:
   seo-daily:
     runs-on: ubuntu-latest
@@ -26,6 +30,16 @@ jobs:
         with:
           node-version: "24"
 
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Restore accepted URL history
+        uses: actions/cache/restore@v4
+        with:
+          path: data/seo/baidu-state.json
+          key: baidu-state-v1-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: baidu-state-v1-
+
       - name: Run SEO Daily Bot
         env:
           SITE: https://sgeda.org.cn
@@ -33,17 +47,29 @@ jobs:
           BAIDU_TOKEN: ${{ secrets.BAIDU_TOKEN }}
           SUBMIT_TO_BAIDU: ${{ github.event.inputs.submit_to_baidu || 'true' }}
           BAIDU_SUBMIT_LIMIT: "5"
-          LIVE_CHECK_LIMIT: "30"
-          FAIL_ON_CRITICAL: "false"
+          FAIL_ON_CRITICAL: "true"
         run: |
           node scripts/seo-daily-bot.mjs > seo-daily-output.log
+
+      - name: Show SEO report
+        if: always()
+        run: |
           cat reports/seo-daily-report.md >> "$GITHUB_STEP_SUMMARY"
 
+      - name: Save accepted URL history
+        if: always() && hashFiles('data/seo/baidu-state.json') != ''
+        uses: actions/cache/save@v4
+        with:
+          path: data/seo/baidu-state.json
+          key: baidu-state-v1-${{ github.run_id }}-${{ github.run_attempt }}
+
       - name: Upload SEO report
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: seo-daily-report
           path: |
             reports/seo-daily-report.md
+            reports/seo-daily-report.json
             seo-daily-output.log
           if-no-files-found: error

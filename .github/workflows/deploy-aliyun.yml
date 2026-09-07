@@ -26,6 +26,7 @@ jobs:
             set -e
             cd /var/www/sgeda
 
+            PREVIOUS_SHA="$(git rev-parse HEAD)"
             CMS_BACKUP="/tmp/sgeda-cms-content-$(date +%Y%m%d%H%M%S)"
             mkdir -p "$CMS_BACKUP"
             if [ -d content/articles ]; then
@@ -42,24 +43,12 @@ jobs:
             git rebase --abort || true
             git checkout -f main
             git reset --hard origin/main
-            git clean -fd \
-              -e .env \
-              -e .env.local \
-              -e data \
-              -e data/** \
-              -e .baidu-submit-offset \
-              -e .indexnow-submit-offset \
-              -e baidu-submit.log
+            node scripts/restore-cms-content.mjs "$CMS_BACKUP" "$PREVIOUS_SHA"
 
-            if [ -d "$CMS_BACKUP/content/articles" ]; then
-              mkdir -p content/articles
-              cp -a "$CMS_BACKUP/content/articles/." content/articles/
-            fi
-            if [ -f "$CMS_BACKUP/content/keyword-queue.csv" ]; then
-              cp -a "$CMS_BACKUP/content/keyword-queue.csv" content/keyword-queue.csv
-            fi
-
+            npm ci
+            npm test
             node scripts/build-content.mjs
+            node scripts/seo-check.mjs
             node scripts/indexnow-submit.mjs || true
             bash scripts/install-daily-drafts-cron.sh
             bash scripts/install-seo-submit-cron.sh

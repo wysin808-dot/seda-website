@@ -1,346 +1,156 @@
 #!/usr/bin/env node
 import fs from 'node:fs';
 import path from 'node:path';
+import { SITE, baiduAllowed, inspectPage, parseSitemap } from './seo-pages.mjs';
+import { selectBatch, recordAccepted } from './baidu-queue.mjs';
 
+const site = (process.env.SITE || SITE).replace(/\/$/, '');
 const root = process.env.SITE_DIR || process.cwd();
-const site = (process.env.BAIDU_SITE || process.env.SITE || 'https://sgeda.org.cn').replace(/\/$/, '');
-const sitemapFile = process.env.SITEMAP_FILE || path.join(root, 'sitemap.xml');
-const priorityFile = process.env.PRIORITY_URLS_FILE || path.join(root, 'data', 'seo', 'priority-urls.txt');
-const outputFile = process.env.SEO_DAILY_REPORT || path.join(root, 'reports', 'seo-daily-report.md');
-const submitLimit = clamp(Number(process.env.BAIDU_SUBMIT_LIMIT || 20), 1, 200);
-const checkLimit = clamp(Number(process.env.LIVE_CHECK_LIMIT || 30), 0, 100);
-const baiduToken = process.env.BAIDU_TOKEN || '';
-const submitToBaidu = parseBool(process.env.SUBMIT_TO_BAIDU, Boolean(baiduToken));
-const failOnCritical = parseBool(process.env.FAIL_ON_CRITICAL, false);
+const reportFile = process.env.SEO_DAILY_REPORT || path.join(root, 'reports/seo-daily-report.md');
+const stateFile = process.env.BAIDU_STATE_FILE || path.join(root, 'data/seo/baidu-state.json');
+const limit = Math.max(1, Math.min(5, Number(process.env.BAIDU_SUBMIT_LIMIT) || 5));
+const enabled = ['true', '1'].includes(process.env.SUBMIT_TO_BAIDU || 'false');
+const token = process.env.BAIDU_TOKEN;
 const now = new Date();
 
-function clamp(value, min, max) {
-  if (!Number.isFinite(value)) return min;
-  return Math.max(min, Math.min(max, value));
+async function request(url, method = 'GET') {
+  const start = Date.now();
+  try {
+    const response = await fetch(url, { method, redirect: 'manual', signal: AbortSignal.timeout(20000) });
+    const text = method === 'GET' ? await response.text() : '';
+    return { url, status: response.status, ms: Date.now() - start, text, type: response.headers.get('content-type') || '',
+      robots: response.headers.get('x-robots-tag') || '', location: response.headers.get('location') };
+  } catch { return { url, status: 0, ms: Date.now() - start, text: '', type: '', error: 'Request failed or timed out' }; }
 }
 
-function parseBool(value, fallback) {
-  if (value === undefined || value === '') return fallback;
-  return ['1', 'true', 'yes', 'on'].includes(String(value).toLowerCase());
+async function concurrent(items, fn) {
+  let cursor = 0;
+  const out = [];
+  await Promise.all(Array.from({ length: 5 }, async () => {
+    while (cursor < items.length) { const index = cursor++; out[index] = await fn(items[index]); }
+  }));
+  return out;
 }
 
-function readText(file) {
-  return fs.existsSync(file) ? fs.readFileSync(file, 'utf8') : '';
-}
-
-function stripHtml(value = '') {
-  return value
-    .replace(/<script[\s\S]*?<\/script>/gi, ' ')
-    .replace(/<style[\s\S]*?<\/style>/gi, ' ')
-    .replace(/<[^>]+>/g, ' ')
-    .replace(/\s+/g, ' ')
-    .trim();
-}
-
-function getAttr(tag, name) {
-  const match = tag.match(new RegExp(`${name}\\s*=\\s*(["'])([\\s\\S]*?)\\1`, 'i'));
-  return match ? match[2].trim() : '';
-}
-
-function getTagWithAttr(html, tagName, attrName, attrValue) {
-  const tags = html.match(new RegExp(`<${tagName}\\b[^>]*>`, 'gi')) || [];
-  return tags.find((tag) => getAttr(tag, attrName).toLowerCase() === attrValue.toLowerCase()) || '';
-}
-
-function getLinkRel(html, relValue) {
-  const tags = html.match(/<link\b[^>]*>/gi) || [];
-  return tags.find((tag) => getAttr(tag, 'rel').toLowerCase() === relValue.toLowerCase()) || '';
-}
-
-function getMetaName(html, nameValue) {
-  return getTagWithAttr(html, 'meta', 'name', nameValue);
-}
-
-function parseSitemap() {
-  const raw = readText(sitemapFile);
-  if (!raw) return [];
-  return [...raw.matchAll(/<url>([\s\S]*?)<\/url>/g)].map((match) => {
-    const block = match[1];
-    return {
-      url: (block.match(/<loc>(.*?)<\/loc>/) || [])[1] || '',
-      lastmod: (block.match(/<lastmod>(.*?)<\/lastmod>/) || [])[1] || '',
-    };
-  }).filter((item) => item.url.startsWith(site));
-}
-
-function routeFromUrl(url) {
-  const parsed = new URL(url);
-  let pathname = decodeURIComponent(parsed.pathname);
-  if (!pathname.endsWith('/') && !pathname.endsWith('.html')) pathname += '/';
-  return pathname;
-}
-
-function htmlPathForRoute(route) {
-  if (route === '/') return path.join(root, 'index.html');
-  if (route.endsWith('.html')) return path.join(root, route.replace(/^\//, ''));
-  return path.join(root, route.replace(/^\//, ''), 'index.html');
-}
-
-function walkHtmlFiles(dir = root, files = []) {
-  const skip = new Set(['.git', '.github', 'assets', 'content', 'data', 'docs', 'node_modules', 'reports', 'scripts', 'wace']);
-  for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
-    const full = path.join(dir, entry.name);
-    if (entry.isDirectory()) {
-      if (!skip.has(entry.name)) walkHtmlFiles(full, files);
+async function checkReference(url) {
+  let current = url;
+  for (let n = 0; n < 4; n++) {
+    let result = await request(current, 'HEAD');
+    if (result.status === 405) result = await request(current);
+    if (result.status >= 300 && result.status < 400 && result.location) {
+      const next = new URL(result.location, current);
+      if (next.origin !== site) return { ...result, url, status: 0, error: 'Redirect leaves the site' };
+      current = next.href;
       continue;
     }
-    if (entry.isFile() && entry.name === 'index.html') files.push(full);
+    const { text, ...summary } = result;
+    return { ...summary, url };
   }
-  return files;
+  return { url, status: 0, error: 'Redirect loop' };
 }
 
-function analyzeHtml(file, url) {
-  const html = readText(file);
-  const title = stripHtml((html.match(/<title[^>]*>([\s\S]*?)<\/title>/i) || [])[1] || '');
-  const descTag = getMetaName(html, 'description');
-  const description = getAttr(descTag, 'content');
-  const h1 = stripHtml((html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i) || [])[1] || '');
-  const canonicalTag = getLinkRel(html, 'canonical');
-  const canonical = getAttr(canonicalTag, 'href');
-  const robotsTag = getMetaName(html, 'robots');
-  const robots = getAttr(robotsTag, 'content').toLowerCase();
-  const body = stripHtml((html.match(/<body[^>]*>([\s\S]*?)<\/body>/i) || [])[1] || html);
-  const imageCount = (html.match(/<img\b/gi) || []).length;
-  const paragraphCount = (html.match(/<p\b/gi) || []).length;
-  const internalLinks = (html.match(/href=["']\/(?!\/|#)/gi) || []).length;
-  const issues = [];
-
-  if (!title) issues.push('missing title');
-  if (title && (title.length < 12 || title.length > 70)) issues.push(`title length ${title.length}`);
-  if (!description) issues.push('missing description');
-  if (description && (description.length < 50 || description.length > 180)) issues.push(`description length ${description.length}`);
-  if (!h1) issues.push('missing h1');
-  if (!canonical) issues.push('missing canonical');
-  if (canonical && canonical !== url) issues.push('canonical mismatch');
-  if (robots.includes('noindex')) issues.push('noindex');
-  if (body.length < 900) issues.push(`thin text ${body.length}`);
-  if (imageCount === 0) issues.push('no images');
-  if (internalLinks < 3) issues.push(`low internal links ${internalLinks}`);
-
-  return {
-    url,
-    file,
-    title,
-    description,
-    h1,
-    canonical,
-    bodyLength: body.length,
-    imageCount,
-    paragraphCount,
-    internalLinks,
-    issues,
-  };
-}
-
-function findDuplicates(items, key) {
-  const grouped = new Map();
-  for (const item of items) {
-    const value = item[key];
-    if (!value) continue;
-    grouped.set(value, [...(grouped.get(value) || []), item.url]);
-  }
-  return [...grouped.entries()]
-    .filter(([, urls]) => urls.length > 1)
-    .map(([value, urls]) => ({ value, urls }))
-    .sort((a, b) => b.urls.length - a.urls.length);
-}
-
-function readPriorityUrls(sitemapUrls) {
-  const fromFile = readText(priorityFile)
-    .split(/\r?\n/)
-    .map((line) => line.trim())
-    .filter((line) => line.startsWith('http'));
-  const defaults = [
-    `${site}/`,
-    `${site}/aeis/`,
-    `${site}/o-level/`,
-    `${site}/wace/`,
-    `${site}/international-school/`,
-    `${site}/primary-schools/`,
-    `${site}/secondary-schools/`,
-    `${site}/university/`,
-    `${site}/guides/student-pass/`,
-    `${site}/guides/cost/`,
-  ];
-  return [...new Set([...fromFile, ...defaults, ...sitemapUrls.slice(0, 20)])].filter((url) => url.startsWith(site));
-}
-
-async function checkLive(urls) {
-  if (!checkLimit) return [];
-  const selected = urls.slice(0, checkLimit);
-  const results = [];
-  for (const url of selected) {
-    try {
-      const started = Date.now();
-      const res = await fetch(url, { method: 'GET', redirect: 'manual' });
-      await res.arrayBuffer();
-      results.push({ url, status: res.status, ms: Date.now() - started, ok: res.status >= 200 && res.status < 400 });
-    } catch (error) {
-      results.push({ url, status: 0, ms: 0, ok: false, error: error.message });
-    }
-  }
-  return results;
-}
-
-async function submitBaidu(urls) {
-  if (!submitToBaidu) return { skipped: true, reason: 'SUBMIT_TO_BAIDU is disabled or BAIDU_TOKEN is empty' };
-  if (!baiduToken) return { skipped: true, reason: 'BAIDU_TOKEN is empty' };
-  const endpoint = `http://data.zz.baidu.com/urls?site=${encodeURIComponent(new URL(site).host)}&token=${encodeURIComponent(baiduToken)}`;
-  const batch = urls.slice(0, submitLimit);
-  const res = await fetch(endpoint, {
-    method: 'POST',
-    headers: { 'Content-Type': 'text/plain' },
-    body: batch.join('\n'),
-  });
-  const text = await res.text();
-  let json = null;
-  try {
-    json = JSON.parse(text);
-  } catch {
-    json = { raw: text.slice(0, 500) };
-  }
-  return { skipped: false, status: res.status, ok: res.ok && !json.error, submitted: batch.length, response: json };
-}
-
-function markdownTable(rows, columns) {
+function table(rows, keys) {
   if (!rows.length) return '_无_';
-  const header = `| ${columns.map((column) => column.label).join(' | ')} |`;
-  const divider = `| ${columns.map(() => '---').join(' | ')} |`;
-  const body = rows.map((row) => `| ${columns.map((column) => String(column.value(row)).replace(/\n/g, ' ').replace(/\|/g, '\\|')).join(' | ')} |`);
-  return [header, divider, ...body].join('\n');
+  const cell = value => String(value ?? '').replace(/\|/g, '\\|').replace(/[\r\n]/g, ' ');
+  return [`| ${keys.join(' | ')} |`, `| ${keys.map(() => '---').join(' | ')} |`, ...rows.map(row => `| ${keys.map(k => cell(row[k])).join(' | ')} |`)].join('\n');
 }
 
-function buildReport({ sitemapItems, htmlItems, missingFiles, orphanFiles, duplicateTitles, duplicateDescriptions, liveResults, baiduResult }) {
-  const critical = [
-    ...missingFiles.map((url) => `sitemap URL missing local file: ${url}`),
-    ...htmlItems.filter((item) => item.issues.includes('noindex')).map((item) => `noindex: ${item.url}`),
-    ...liveResults.filter((item) => !item.ok).map((item) => `live check failed ${item.status}: ${item.url}`),
-  ];
-  const warnings = [
-    ...htmlItems.filter((item) => item.issues.length).map((item) => `${item.url}: ${item.issues.join(', ')}`),
-    ...duplicateTitles.slice(0, 20).map((item) => `duplicate title (${item.urls.length}): ${item.value}`),
-    ...duplicateDescriptions.slice(0, 20).map((item) => `duplicate description (${item.urls.length}): ${item.value}`),
-  ];
-  const weakPages = htmlItems
-    .filter((item) => item.issues.length)
-    .sort((a, b) => b.issues.length - a.issues.length)
-    .slice(0, 30);
-  const slowPages = liveResults
-    .filter((item) => item.ok)
-    .sort((a, b) => b.ms - a.ms)
-    .slice(0, 10);
+const errors = [];
+let pages = [], sitemapEntries = [], baiduEntries = [], references = [], batch = [], blocked = 0;
+let push = { skipped: true, reason: enabled ? 'No eligible URLs' : 'Read-only check; Baidu submission disabled' };
+try {
+  const [sitemap, robots, baiduSitemap] = await Promise.all(['sitemap.xml', 'robots.txt', 'baidu-sitemap.xml'].map(file => request(`${site}/${file}`)));
+  for (const entry of [sitemap, robots, baiduSitemap]) if (entry.status !== 200) throw new Error(`Required resource HTTP ${entry.status}: ${entry.url}`);
+  sitemapEntries = parseSitemap(sitemap.text);
+  baiduEntries = parseSitemap(baiduSitemap.text);
+  const allowed = baiduAllowed(robots.text, site);
+  const eligible = sitemapEntries.filter(entry => allowed(entry.url));
+  blocked = sitemapEntries.length - eligible.length;
+  const expected = new Set(eligible.map(e => e.url));
+  const baiduSet = new Set(baiduEntries.map(e => e.url));
+  for (const url of expected) if (!baiduSet.has(url)) errors.push(`Missing from Baidu sitemap: ${url}`);
+  for (const url of baiduSet) if (!expected.has(url)) errors.push(`Ineligible Baidu sitemap URL: ${url}`);
+  pages = await concurrent(eligible, async entry => {
+    const response = await request(entry.url);
+    if (response.status !== 200 || !response.type.includes('text/html')) return { ...entry, status: response.status, issues: [`HTTP ${response.status} or non-HTML page`], images: [], links: [] };
+    const page = inspectPage(response.text, entry.url);
+    if (/noindex|\bnone\b/i.test(response.robots)) page.issues.push('HTTP noindex');
+    return { ...entry, ...page, status: response.status, ms: response.ms };
+  });
+  for (const key of ['title', 'description']) {
+    const groups = new Map();
+    for (const page of pages) if (page[key]) groups.set(page[key], [...(groups.get(page[key]) || []), page]);
+    for (const group of groups.values()) if (group.length > 1) for (const page of group) page.issues.push(`duplicate ${key} (${group.length} pages)`);
+  }
+  const pageMap = new Map(pages.map(p => [p.url, p]));
+  const images = new Set(pages.flatMap(p => p.images));
+  const urls = [...new Set(pages.flatMap(p => [...p.links, ...p.images]))].filter(url => !new URL(url).pathname.startsWith('/api/'));
+  references = await concurrent(urls, async url => {
+    if (pageMap.has(url) && !images.has(url)) return { url, status: pageMap.get(url).status, type: 'text/html' };
+    return checkReference(url);
+  });
+  const invalid = new Set(references.filter(r => r.status !== 200 || (images.has(r.url) && !r.type?.startsWith('image/'))).map(r => r.url));
+  for (const page of pages) {
+    for (const url of page.images) if (invalid.has(url)) page.issues.push(`broken image: ${url}`);
+    for (const url of page.links) if (invalid.has(url)) page.issues.push(`broken link: ${url}`);
+  }
+  const state = fs.existsSync(stateFile) ? JSON.parse(fs.readFileSync(stateFile, 'utf8')) : {};
+  const priorityFile = path.join(root, 'data/seo/priority-urls.txt');
+  const priorities = fs.existsSync(priorityFile) ? fs.readFileSync(priorityFile, 'utf8').split(/\r?\n/).map(s => s.trim()).filter(s => s.startsWith(site + '/')) : [];
+  batch = selectBatch(pages.filter(p => baiduSet.has(p.url)), state, limit, priorities, now);
+  if (enabled && !token) { push = { skipped: true, reason: 'BAIDU_TOKEN is missing' }; errors.push(push.reason); }
+  else if (enabled && batch.length) {
+    try {
+      const endpoint = `http://data.zz.baidu.com/urls?site=${encodeURIComponent(site)}&token=${encodeURIComponent(token)}`;
+      const response = await fetch(endpoint, { method: 'POST', headers: { 'Content-Type': 'text/plain' }, body: batch.map(p => p.url).join('\n'), signal: AbortSignal.timeout(20000) });
+      const body = await response.json();
+      push = { skipped: false, status: response.status, ok: response.ok && !body.error, submitted: batch.length, response: body, urls: batch.map(p => p.url) };
+      if (recordAccepted(state, batch, push, now)) {
+        fs.mkdirSync(path.dirname(stateFile), { recursive: true });
+        fs.writeFileSync(stateFile + '.tmp', JSON.stringify(state, null, 2));
+        fs.renameSync(stateFile + '.tmp', stateFile);
+      } else errors.push('Baidu did not confirm full acceptance; queue retained for retry');
+    } catch { push = { skipped: false, ok: false, error: 'Baidu response unavailable or invalid; queue unchanged' }; errors.push(push.error); }
+  }
+} catch (error) { errors.push(error.message); }
 
-  return `# SEDA SEO Daily Bot
+const issues = [...errors, ...pages.flatMap(page => page.issues.map(issue => `${page.url}: ${issue}`))];
+const result = { generated: now.toISOString(), site, sitemapUrls: sitemapEntries.length, baiduSitemapUrls: baiduEntries.length,
+  checked: pages.length, robotsExcluded: blocked, issues, push, nextBatch: batch.map(p => p.url), pages, references };
+const report = `# SEDA SEO Daily Bot
 
-Generated: ${now.toISOString()}
+Generated: ${result.generated}
 Site: ${site}
 
 ## Summary
 
-- Sitemap URLs: ${sitemapItems.length}
-- Local HTML pages checked: ${htmlItems.length}
-- Missing local files from sitemap: ${missingFiles.length}
-- Local pages not in sitemap: ${orphanFiles.length}
-- Duplicate titles: ${duplicateTitles.length}
-- Duplicate descriptions: ${duplicateDescriptions.length}
-- Live URLs checked: ${liveResults.length}
-- Critical issues: ${critical.length}
-- Warnings: ${warnings.length}
+- Source: live production HTML, robots and sitemaps
+- Sitemap URLs: ${sitemapEntries.length}
+- Baidu sitemap URLs: ${baiduEntries.length}
+- Live HTML pages checked: ${pages.length}
+- Excluded by robots: ${blocked}
+- Unique internal references checked: ${references.length}
+- Critical issues: ${issues.length}
+- Indexing and search traffic: not measured by this bot; check Baidu Search Resource Platform
 
 ## Baidu Push
 
-${baiduResult.skipped ? `Skipped: ${baiduResult.reason}` : `Submitted: ${baiduResult.submitted}\n\nStatus: ${baiduResult.status}\n\nResponse:\n\n\`\`\`json\n${JSON.stringify(baiduResult.response, null, 2)}\n\`\`\``}
+${push.skipped ? `Skipped: ${push.reason}` : `Submitted: ${push.submitted || 0}\n\nStatus: ${push.status || 'unavailable'}\n\nResponse:\n\n\`\`\`json\n${JSON.stringify(push.response || { error: push.error }, null, 2)}\n\`\`\``}
+
+${table(batch.map(p => ({ URL: p.url, Updated: p.modified || p.lastmod || '-' })), ['URL', 'Updated'])}
+
+Accepted URLs are discovery submissions, not proof of Baidu indexing or ranking. A response with remain=0 and success=5 is success with no remaining quota; over quota is an API error.
 
 ## Priority Fix List
 
-${markdownTable(weakPages, [
-  { label: 'URL', value: (row) => row.url },
-  { label: 'Issues', value: (row) => row.issues.join(', ') },
-  { label: 'Text', value: (row) => row.bodyLength },
-  { label: 'Images', value: (row) => row.imageCount },
-  { label: 'Links', value: (row) => row.internalLinks },
-])}
-
-## Duplicate Titles
-
-${markdownTable(duplicateTitles.slice(0, 20), [
-  { label: 'Count', value: (row) => row.urls.length },
-  { label: 'Title', value: (row) => row.value },
-  { label: 'Example', value: (row) => row.urls.slice(0, 3).join(', ') },
-])}
-
-## Duplicate Descriptions
-
-${markdownTable(duplicateDescriptions.slice(0, 20), [
-  { label: 'Count', value: (row) => row.urls.length },
-  { label: 'Description', value: (row) => row.value },
-  { label: 'Example', value: (row) => row.urls.slice(0, 3).join(', ') },
-])}
+${table(issues.slice(0, 100).map(Issue => ({ Issue })), ['Issue'])}
 
 ## Live Check
 
-${markdownTable(liveResults, [
-  { label: 'URL', value: (row) => row.url },
-  { label: 'Status', value: (row) => row.status },
-  { label: 'Time', value: (row) => (row.ms ? `${row.ms}ms` : '-') },
-  { label: 'OK', value: (row) => row.ok ? 'yes' : 'no' },
-])}
-
-## Slowest Live Pages
-
-${markdownTable(slowPages, [
-  { label: 'URL', value: (row) => row.url },
-  { label: 'Status', value: (row) => row.status },
-  { label: 'Time', value: (row) => `${row.ms}ms` },
-])}
-
-## Critical Issues
-
-${critical.length ? critical.map((item) => `- ${item}`).join('\n') : '_无_'}
-
-## All Warnings
-
-${warnings.length ? warnings.slice(0, 200).map((item) => `- ${item}`).join('\n') : '_无_'}
+${table(pages.map(p => ({ URL: p.url, Status: p.status, Issues: p.issues.join('; ') || '-' })), ['URL', 'Status', 'Issues'])}
 `;
-}
-
-const sitemapItems = parseSitemap();
-const sitemapUrls = sitemapItems.map((item) => item.url);
-const sitemapSet = new Set(sitemapUrls);
-const htmlItems = [];
-const missingFiles = [];
-
-for (const item of sitemapItems) {
-  const file = htmlPathForRoute(routeFromUrl(item.url));
-  if (!fs.existsSync(file)) {
-    missingFiles.push(item.url);
-    continue;
-  }
-  htmlItems.push(analyzeHtml(file, item.url));
-}
-
-const localHtmlFiles = walkHtmlFiles();
-const orphanFiles = localHtmlFiles.filter((file) => {
-  const relative = path.relative(root, file);
-  const route = relative === 'index.html' ? '/' : `/${relative.replace(/\/index\.html$/, '/')}`;
-  return !sitemapSet.has(`${site}${route}`);
-});
-
-const duplicateTitles = findDuplicates(htmlItems, 'title');
-const duplicateDescriptions = findDuplicates(htmlItems, 'description');
-const priorityUrls = readPriorityUrls(sitemapUrls);
-const liveResults = await checkLive(priorityUrls);
-const baiduResult = await submitBaidu(priorityUrls);
-const report = buildReport({ sitemapItems, htmlItems, missingFiles, orphanFiles, duplicateTitles, duplicateDescriptions, liveResults, baiduResult });
-
-fs.mkdirSync(path.dirname(outputFile), { recursive: true });
-fs.writeFileSync(outputFile, report, 'utf8');
-console.log(report);
-
-const criticalCount = (report.match(/^- sitemap URL missing local file:|^- noindex:|^- live check failed/gm) || []).length;
-if (failOnCritical && criticalCount > 0) process.exit(1);
+fs.mkdirSync(path.dirname(reportFile), { recursive: true });
+fs.writeFileSync(reportFile, report);
+fs.writeFileSync(reportFile.replace(/\.md$/, '.json'), JSON.stringify(result, null, 2));
+console.log(`Checked ${pages.length} live pages; ${issues.length} issues. Report: ${reportFile}`);
+if (issues.length && process.env.FAIL_ON_CRITICAL !== 'false') process.exitCode = 1;

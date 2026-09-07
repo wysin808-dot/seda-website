@@ -7,10 +7,15 @@
     "schools:build": "node scripts/build-school-pages.mjs",
     "schools:private": "node scripts/import-private-school-data.mjs",
     "seo:daily": "node scripts/seo-daily-bot.mjs",
+    "seo:check": "node scripts/seo-check.mjs",
+    "test": "node --test tests/*.test.mjs",
     "seo:submit": "bash scripts/baidu-submit.sh",
     "seo:indexnow": "node scripts/indexnow-submit.mjs"
   },
   "dependencies": {
-    "ip2region": "^2.3.0"
+    "cheerio": "^1.2.0",
+    "fast-xml-parser": "^5.11.1",
+    "ip2region": "^2.3.0",
+    "robots-parser": "^3.0.1"
   }
 }

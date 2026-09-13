@@ -127,6 +127,6 @@ O-Level科学实验考试（Practical Exam）时长1小时45分钟，占总分�
 - [O-Level 科目怎么搭配——三门科学到六科组合的选科逻辑](/o-level/o-level-subject-combination/)
 - [AEIS考试难度——中国学生到底能考过吗](/aeis/aeis-difficulty/)
 - [新加坡留学一年总费用怎么估算](/guides/total-cost/)
-- [新加坡国际学校入学考试考什么](/international-school/international-school-entrance-exam/)
+- [新加坡国际学校怎么选——类型与入学要求全解析](/international-school/international-school-how-to-choose/)
 - [WACE 课程主页](/wace/)
 - [全国AEIS考试备考专题](/aeis/)

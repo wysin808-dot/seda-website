@@ -1,0 +1,2590 @@
+{
+  "https://sgeda.org.cn/a-level/": {
+    "fingerprint": "0624f4d3a28822c665dc6ba2a7990454fc42bbc4c39d3dc44a10c60c71022bb5",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/about/": {
+    "fingerprint": "a596474a23d906d72fd85fbedf27d0e44823b41be0af9c9ba6eec0b60355654e",
+    "lastmod": "2026-06-09"
+  },
+  "https://sgeda.org.cn/aeis/aeis-adapt-after-passing/": {
+    "fingerprint": "e8613372b3447cdd1cca5daaff93fab07397132efaa9a9759863fd346e373129",
+    "lastmod": "2026-08-26"
+  },
+  "https://sgeda.org.cn/aeis/aeis-age-requirements-chinese-students/": {
+    "fingerprint": "14bf6ca3999073742429561598ffe702fba4730b344a3994512f445a628e2f28",
+    "lastmod": "2026-06-04"
+  },
+  "https://sgeda.org.cn/aeis/aeis-difficulty/": {
+    "fingerprint": "6cc5e70c675c218bb58ed9ec1b2bc1a83c3dac3f8cd83ba9027a1306d723b203",
+    "lastmod": "2026-07-18"
+  },
+  "https://sgeda.org.cn/aeis/aeis-english-preparation/": {
+    "fingerprint": "ff74948ac890cdc918e8bbbdf50301c2a59e6dbf73392cb2e3fedfa7c260ad5f",
+    "lastmod": "2026-07-14"
+  },
+  "https://sgeda.org.cn/aeis/aeis-english-reading-comprehension-tips/": {
+    "fingerprint": "7f03bf799236f94fbec9f53a7e738e3d945a7126ddb696e94490ea901222da83",
+    "lastmod": "2026-08-21"
+  },
+  "https://sgeda.org.cn/aeis/aeis-english-writing/": {
+    "fingerprint": "5b2e6c3a895e9be4bc923f18721d47b44ed88f9dff9a5860995813bf30e43638",
+    "lastmod": "2026-09-07"
+  },
+  "https://sgeda.org.cn/aeis/aeis-exam-center-singapore-vs-overseas/": {
+    "fingerprint": "00f0147aa65887760ce0c04867124dd459c8086a3f78808c5291a419eebc1c05",
+    "lastmod": "2026-08-11"
+  },
+  "https://sgeda.org.cn/aeis/aeis-exam-day-guide/": {
+    "fingerprint": "aca7ec91b1bf810df943193a2fe73832b21f5ceea7e2686259d957906ef1e2b3",
+    "lastmod": "2026-07-24"
+  },
+  "https://sgeda.org.cn/aeis/aeis-exam-day-items-checklist/": {
+    "fingerprint": "ea2eca3db6466815113d16a4aa24a4ae8b1d01c4de9a16aff02ec7883d595eba",
+    "lastmod": "2026-08-22"
+  },
+  "https://sgeda.org.cn/aeis/aeis-exam-fees-registration/": {
+    "fingerprint": "0c5a460bd2fbb09bf40f55b033c775e2867952cfe97f7f0d8b407cb6c2e67f4a",
+    "lastmod": "2026-08-06"
+  },
+  "https://sgeda.org.cn/aeis/aeis-failed-what-to-do/": {
+    "fingerprint": "a86ca52aad5a9753763d6993848e6e4bdd9918a905500823bc1743cfd1ee7c53",
+    "lastmod": "2026-06-25"
+  },
+  "https://sgeda.org.cn/aeis/aeis-interview-preparation-chinese-students/": {
+    "fingerprint": "061c12c74187a7d26abeda07e3c9cfe3d80bd1c4d044899455502f868db3e8a6",
+    "lastmod": "2026-09-17"
+  },
+  "https://sgeda.org.cn/aeis/aeis-math-difficulty-china-grade/": {
+    "fingerprint": "6204e4dfc72ae6937a2263d779bdb6b76eb3ec1ee174837305d876558564a714",
+    "lastmod": "2026-06-29"
+  },
+  "https://sgeda.org.cn/aeis/aeis-math-english-vocabulary-chinese-students/": {
+    "fingerprint": "695f88839b825a01be4aa55bf7158f357786f28ccfffe4cdafe5cf752d7692a7",
+    "lastmod": "2026-09-03"
+  },
+  "https://sgeda.org.cn/aeis/aeis-math-preparation/": {
+    "fingerprint": "bd0fbd2778e35e73a157046e0f4747e09a7dc0f18e18b7fa68f98753cb3c689e",
+    "lastmod": "2026-06-02"
+  },
+  "https://sgeda.org.cn/aeis/aeis-math-vs-english-difficulty/": {
+    "fingerprint": "8a40ee8e7d1cb35fb2e999127918f341fd1391f0a60ea2fab3b331d18d6438e9",
+    "lastmod": "2026-08-03"
+  },
+  "https://sgeda.org.cn/aeis/aeis-preparation-timeline/": {
+    "fingerprint": "58b0694910f33b548ddc1b7b152a22de70d829bc7ccbc8f76108710faf2e16ce",
+    "lastmod": "2026-06-22"
+  },
+  "https://sgeda.org.cn/aeis/aeis-primary-vs-secondary-application/": {
+    "fingerprint": "2192f28e67c4177a5ae104827638029d23d1a29f752fa709caf9e466f1dbc895",
+    "lastmod": "2026-09-05"
+  },
+  "https://sgeda.org.cn/aeis/aeis-primary-vs-secondary-difficulty/": {
+    "fingerprint": "091596bb2476d09e11f216af9c1b56bf98dc2bc86cc26e01f0307fb8f547c1b4",
+    "lastmod": "2026-07-31"
+  },
+  "https://sgeda.org.cn/aeis/aeis-results-release-timeline/": {
+    "fingerprint": "75761e264018cc1494da10a807a611638ce1e4be9233f5af0c9956b2e5f0ddf4",
+    "lastmod": "2026-08-10"
+  },
+  "https://sgeda.org.cn/aeis/aeis-school-selection-after-passing/": {
+    "fingerprint": "f475d744deb2e477f5c6cb438ce29814cf71b0554c6155f18e890122ea0683fc",
+    "lastmod": "2026-07-28"
+  },
+  "https://sgeda.org.cn/aeis/aeis-school-transfer-after-passing/": {
+    "fingerprint": "0a1d4f461e0b1b41ebad259b30d82d3410475d77f6b77fbaef3161dc7206a70b",
+    "lastmod": "2026-08-15"
+  },
+  "https://sgeda.org.cn/aeis/aeis-science-gap-china-students/": {
+    "fingerprint": "5434bcb80383285d857a2e6de366a10cfc007cf74072ac692f9561f96a995feb",
+    "lastmod": "2026-09-13"
+  },
+  "https://sgeda.org.cn/aeis/aeis-secondary-subject-selection-guide/": {
+    "fingerprint": "c72f28fb29dddeef6ef79c7a1e14eb3c7b8ac61c5c12619ceb42651111dca1cc",
+    "lastmod": "2026-09-09"
+  },
+  "https://sgeda.org.cn/aeis/aeis-self-study-vs-tuition/": {
+    "fingerprint": "9e2830f5d75aad08f684d2bd79c6e5de0389f4211ebcc9f44f9b70e285025927",
+    "lastmod": "2026-08-30"
+  },
+  "https://sgeda.org.cn/aeis/age-requirements/": {
+    "fingerprint": "9558786968955adec663e940ac23853d10904604b31b9458da28a349b9cf7290",
+    "lastmod": "2026-06-09"
+  },
+  "https://sgeda.org.cn/aeis/english/": {
+    "fingerprint": "44b1c80061b1a44620aff580820355beabd7e114ab031c02f238be26a8a40cde",
+    "lastmod": "2026-06-09"
+  },
+  "https://sgeda.org.cn/aeis/government-primary-application/": {
+    "fingerprint": "2470a0bb1e5a97117d52ddec1a93806a25ce8b528d43279da155eeddcbe47b18",
+    "lastmod": "2026-07-20"
+  },
+  "https://sgeda.org.cn/aeis/grade-checker/": {
+    "fingerprint": "217287f0b2a4068fcc897e57e9e2614029022b4c5568e51d37f043a413fa60e0",
+    "lastmod": "2026-06-09"
+  },
+  "https://sgeda.org.cn/aeis/": {
+    "fingerprint": "aeeef1844d648c2394ededfb34d5a619417372c85238b3ede225824b711c7849",
+    "lastmod": "2026-09-17"
+  },
+  "https://sgeda.org.cn/aeis/math/": {
+    "fingerprint": "5d584aaf15625db36cf8dcac13104552156eeb9791da72f5ff56945fdb4bb6d2",
+    "lastmod": "2026-06-09"
+  },
+  "https://sgeda.org.cn/aeis/preparation/": {
+    "fingerprint": "eb32c14551dd6e612550e772f8136db6aea48df1bdbe866f661bfd9c478de6c2",
+    "lastmod": "2026-06-09"
+  },
+  "https://sgeda.org.cn/aeis/results/": {
+    "fingerprint": "bcf522d1e3365e99b44f17a1443c99b59e5f68429ca836011c2d46a708c89e63",
+    "lastmod": "2026-06-09"
+  },
+  "https://sgeda.org.cn/aeis/s-aeis/": {
+    "fingerprint": "e8147b18d2c1e0baeca2e2682849c12526c410d5cf29b8bc7430a3d0f9232e98",
+    "lastmod": "2026-06-09"
+  },
+  "https://sgeda.org.cn/aeis/s-aeis-vs-aeis/": {
+    "fingerprint": "26d7f23f0bd10ce6e2f00b13a90686c8775dbb045688c3eba92eebc588ffc262",
+    "lastmod": "2026-07-09"
+  },
+  "https://sgeda.org.cn/aeis/timeline/": {
+    "fingerprint": "512cada6578f3a117e5647a824134e7ae6fbba7ed16784f505962131b4f0e518",
+    "lastmod": "2026-06-09"
+  },
+  "https://sgeda.org.cn/ap/": {
+    "fingerprint": "9e12c1cfad0682d85fcb743885612b9da3a50dc53b1fe689a7d2326dbd04d75c",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/au-university/adelaide/": {
+    "fingerprint": "568977c6b00d4ad783c0788a9844e1ea9069f99e8c8dd70778e43674522daa48",
+    "lastmod": "2026-06-09"
+  },
+  "https://sgeda.org.cn/au-university/anu/": {
+    "fingerprint": "d0a81f2a73d4f7fc08d45937d3e53768478b28eb8ab88a9ec46100c8f299f8fb",
+    "lastmod": "2026-06-09"
+  },
+  "https://sgeda.org.cn/au-university/": {
+    "fingerprint": "fb9ffa4faa02b1d8575f28d9d72806c127c4e6efd7ec43f7335c0b931556ac26",
+    "lastmod": "2026-06-09"
+  },
+  "https://sgeda.org.cn/au-university/matcher/": {
+    "fingerprint": "0a2d3c51b2c4061f8b427d0b07158384f0e8265fe569a444d2305bdb804de501",
+    "lastmod": "2026-06-09"
+  },
+  "https://sgeda.org.cn/au-university/monash/": {
+    "fingerprint": "0befa5845f503214da3004e21cfef84f05739245c55f928583c7e2486000659a",
+    "lastmod": "2026-06-09"
+  },
+  "https://sgeda.org.cn/au-university/monash/indonesia/": {
+    "fingerprint": "20a5e9adbba44abfbbd703944762bc0f16a9d686c28ff1fb8e2954ac3a1a1531",
+    "lastmod": "2026-06-09"
+  },
+  "https://sgeda.org.cn/au-university/monash/malaysia/": {
+    "fingerprint": "572b5ceb8b9eeb6101549e2d576b0cfad113f53d52d0a65dc058b8facc945213",
+    "lastmod": "2026-06-09"
+  },
+  "https://sgeda.org.cn/au-university/overseas-campuses/": {
+    "fingerprint": "904d9790ea6c2bd5b681542ecde4961296e29738d5b957106646257aeb734a67",
+    "lastmod": "2026-06-09"
+  },
+  "https://sgeda.org.cn/au-university/planner/": {
+    "fingerprint": "350a0985d6bf08049c50677db93567850cef217f1ab62c83e5068f2a6e798ff2",
+    "lastmod": "2026-06-09"
+  },
+  "https://sgeda.org.cn/au-university/rmit/": {
+    "fingerprint": "f007d1a1b46e8c361fe2ab0957068635131d84ab9e2729d04a81cf9d35387d78",
+    "lastmod": "2026-06-09"
+  },
+  "https://sgeda.org.cn/au-university/unimelb/": {
+    "fingerprint": "4bd20efd7814be456f093ac990c185c57a483af11554a2624f6584a769c59f4c",
+    "lastmod": "2026-06-09"
+  },
+  "https://sgeda.org.cn/au-university/unsw/": {
+    "fingerprint": "6a74074544f60e27668e322257b17fafb05d9ca6ae6b594698135cc25b9d2003",
+    "lastmod": "2026-06-09"
+  },
+  "https://sgeda.org.cn/au-university/uq/": {
+    "fingerprint": "07a10f96419daf04d6008821f91cafd00c2fc568000efa16bb9b49a23f088666",
+    "lastmod": "2026-06-09"
+  },
+  "https://sgeda.org.cn/au-university/usyd/": {
+    "fingerprint": "e48d69b610aa451bce06a610d9b8cc2297f8b5bc84e102d0a56f498d9205ab91",
+    "lastmod": "2026-06-09"
+  },
+  "https://sgeda.org.cn/au-university/uts/": {
+    "fingerprint": "c0de1e010dd7447acbe451de5f67bedccbc076f4953f8e4f0bd2124dbeadce1a",
+    "lastmod": "2026-06-09"
+  },
+  "https://sgeda.org.cn/au-university/uwa/": {
+    "fingerprint": "bdf019dd7a3339b6e25dc0be245c26a97ea13b72880998109bc1e7cb135c4f32",
+    "lastmod": "2026-06-09"
+  },
+  "https://sgeda.org.cn/contact/": {
+    "fingerprint": "202f1264d6cf584c522df3ac48fb5a03d639855686a0dcc98bea194030c62c01",
+    "lastmod": "2026-06-09"
+  },
+  "https://sgeda.org.cn/entrance-exams/cat4/": {
+    "fingerprint": "8d2263d09762a6d550c34b6d8cd868664148a764ac8c4f0036082d0dd048aed1",
+    "lastmod": "2026-06-09"
+  },
+  "https://sgeda.org.cn/entrance-exams/": {
+    "fingerprint": "45fac01a7ca4f0a01f6a5f64fb8e9a28143ccd9a8ab8aff5b2561fd13df06b18",
+    "lastmod": "2026-06-09"
+  },
+  "https://sgeda.org.cn/entrance-exams/map-growth/": {
+    "fingerprint": "75192dff1b29b15071052d2fe4f415a86074f465ce4207754af423787c5eadfa",
+    "lastmod": "2026-06-09"
+  },
+  "https://sgeda.org.cn/foreign-university/chicago-booth/": {
+    "fingerprint": "866c2b24d25d722f95fdf28803607bb810d89935ed5d11352dfedb6be2a5731d",
+    "lastmod": "2026-06-09"
+  },
+  "https://sgeda.org.cn/foreign-university/essec/": {
+    "fingerprint": "63964bdf170191f27dca12566940980b9ce6ccd3a823cc242396030779641545",
+    "lastmod": "2026-06-09"
+  },
+  "https://sgeda.org.cn/foreign-university/": {
+    "fingerprint": "746eb376491b4392e6c4708a3de5b10198c356fe7e2728c7a86dd87804d391e5",
+    "lastmod": "2026-06-09"
+  },
+  "https://sgeda.org.cn/foreign-university/insead/": {
+    "fingerprint": "afdd3861b7afaf6b73645157a523e27a1a1bc56b63c7d05f7d817be8751ec1bc",
+    "lastmod": "2026-06-09"
+  },
+  "https://sgeda.org.cn/foreign-university/sp-jain/": {
+    "fingerprint": "79ce79ebfa17f01d9362f386b9b987a3f9bf155580823ccd11303e4ca4a0b69a",
+    "lastmod": "2026-06-09"
+  },
+  "https://sgeda.org.cn/foreign-university/tum-asia/": {
+    "fingerprint": "90456090ac986b91e0fcced4a04638c2b802ae8d12b425dc9bcab5f1ecc5d081",
+    "lastmod": "2026-06-09"
+  },
+  "https://sgeda.org.cn/foundation/": {
+    "fingerprint": "7d03e0cd093eeb99a68df0dd1596dd3883b5f5595db59ea35516d8b7ef807516",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/government-schools/": {
+    "fingerprint": "8b27de6a38368094cfbafa20d62911c14dce7b384ed310637fa9c00c7adbaf62",
+    "lastmod": "2026-06-09"
+  },
+  "https://sgeda.org.cn/guides/accommodation/": {
+    "fingerprint": "281bf9cb083b684447566087aed65e0dd6a02b5604d430121254d79c2d31858c",
+    "lastmod": "2026-06-09"
+  },
+  "https://sgeda.org.cn/guides/checklist/": {
+    "fingerprint": "c1e05b1a6a712e77643db273ad128e6644e4292ed7aafe16d14ef428574e603d",
+    "lastmod": "2026-06-09"
+  },
+  "https://sgeda.org.cn/guides/cost/": {
+    "fingerprint": "561d92921ab4bf6c663d14454ad375216ee288825bfe8b56db667334c3546098",
+    "lastmod": "2026-06-09"
+  },
+  "https://sgeda.org.cn/guides/dependent-pass/": {
+    "fingerprint": "b2c79a8a50899879b18c37a211614bc0e962fb1f4c7a5adb632142afb0f4a20a",
+    "lastmod": "2026-06-09"
+  },
+  "https://sgeda.org.cn/guides/": {
+    "fingerprint": "65eeeb8a384dee6a48e5f16d07335228eb2707db9857ee37cce00511b4dcaeb8",
+    "lastmod": "2026-06-09"
+  },
+  "https://sgeda.org.cn/guides/parents-faq/": {
+    "fingerprint": "fd5e1280bb72ec3b637c8af7c444d761293c1908139bd557f70bbd02cae050f5",
+    "lastmod": "2026-06-09"
+  },
+  "https://sgeda.org.cn/guides/scholarship/": {
+    "fingerprint": "d81ac982f211f8219bdb98084c8ec522abebc94708c60d8bfd4363fa3a4a1a81",
+    "lastmod": "2026-06-09"
+  },
+  "https://sgeda.org.cn/guides/student-pass/": {
+    "fingerprint": "885c8fe89ed23e64951a4f3cd265efe896076b44df2f802bea6a0dafddbf6bcb",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/guides/student-pass-application-singapore/": {
+    "fingerprint": "915f73753c20f2563891f85ed08b0d7c7d39b7401a7772cd6780ea30b122fbf1",
+    "lastmod": "2026-06-02"
+  },
+  "https://sgeda.org.cn/guides/timeline/": {
+    "fingerprint": "029a95a1bdcc91a0dd5e217bb7490a2398adf84f52db2c761083f3274e103e5f",
+    "lastmod": "2026-06-09"
+  },
+  "https://sgeda.org.cn/hk-university/cityu/": {
+    "fingerprint": "90f513b9a8b5271306c32294e5a4361111251902aab3d57c55bb07a0a36541af",
+    "lastmod": "2026-06-09"
+  },
+  "https://sgeda.org.cn/hk-university/cuhk/": {
+    "fingerprint": "41dd0a2630abde00b8cff905bbf8bf5162b8d8d52f920d956f7f48abd7cf0a35",
+    "lastmod": "2026-06-09"
+  },
+  "https://sgeda.org.cn/hk-university/eduhk/": {
+    "fingerprint": "c8c229dbd84a9de66d3a19ae8df8eaac30f0ec0ec5c36319cb2507d91f945048",
+    "lastmod": "2026-06-09"
+  },
+  "https://sgeda.org.cn/hk-university/hkbu/": {
+    "fingerprint": "0f0c34edb197cda1ec6afaf5470c667f98918cb5217a06dfd4708895368f914d",
+    "lastmod": "2026-06-09"
+  },
+  "https://sgeda.org.cn/hk-university/hku/": {
+    "fingerprint": "1880fc0aedd523438541a2be165cbb6b825313f8b477d741dcbe7cad43a2c62b",
+    "lastmod": "2026-06-09"
+  },
+  "https://sgeda.org.cn/hk-university/hkust/": {
+    "fingerprint": "8c4ce5fe22ffa1df086367d092df5be99a91a5d5992485cdfe6bce6c160704bb",
+    "lastmod": "2026-06-09"
+  },
+  "https://sgeda.org.cn/hk-university/": {
+    "fingerprint": "295531fd8b5fdf6aa52b07aed9e54af7e781b8f66b28d62c84c391d134bd7827",
+    "lastmod": "2026-06-09"
+  },
+  "https://sgeda.org.cn/hk-university/lingnan/": {
+    "fingerprint": "1500e14e7ebeb0cca549a79ff0f010fb2662da508aab268e5ee6eb1a8505b98b",
+    "lastmod": "2026-06-09"
+  },
+  "https://sgeda.org.cn/hk-university/matcher/": {
+    "fingerprint": "584c5290f676ec6a8ad3418af1ffc56b2420cb7032f80d426a6f6aebc86df268",
+    "lastmod": "2026-06-09"
+  },
+  "https://sgeda.org.cn/hk-university/planner/": {
+    "fingerprint": "a1e7c8cb34eb89df7cd220a1c50726211f2dd60e41827fab6b9dcd161ba1e4af",
+    "lastmod": "2026-06-09"
+  },
+  "https://sgeda.org.cn/hk-university/polyu/": {
+    "fingerprint": "1c0d7ee8a6ede8f5a580dc4288bf9a0c789f5e4c286c3c87bc490a8beaf51013",
+    "lastmod": "2026-06-09"
+  },
+  "https://sgeda.org.cn/ib/": {
+    "fingerprint": "27a12894233ba6825bc0e6f701a0beb1b49235e65612c65fd27a1d603cf06ab4",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/": {
+    "fingerprint": "da69454a713d1ef18164bdf715e40cd7c4b5f9e930f59a894fab05132e58f364",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/international-alevel/": {
+    "fingerprint": "680e880bb1e07411830a881f267f95097c1563000a7d8a4f6c79a4b6519c715d",
+    "lastmod": "2026-09-17"
+  },
+  "https://sgeda.org.cn/international-school/5-steps-academy/": {
+    "fingerprint": "82d50c91e00b05b30a13abce7271764fca3338a7ed3c8f1d9579d60a950a9654",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/international-school/acs-international/": {
+    "fingerprint": "f886cce430f4f9c39ea16a9c91f5b84d1e92dc55e4189eaead977335f5e29048",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/international-school/astor-international/": {
+    "fingerprint": "ef451aeea4b187578b5138e2a165d39ac94b783746efecf9012cfb36e005443c",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/international-school/australian-international/": {
+    "fingerprint": "a13c0463f7df458edb6459d5af8963fca1c22995593301d1f7dab0337531015e",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/international-school/brighton-college/": {
+    "fingerprint": "3350fcd8d48544ad3b60eebf418d47f9ea74debfb85f3e728c04d80260e9d273",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/international-school/canadian-international/": {
+    "fingerprint": "e1cdd3e1178ce0cde22cc369ea3448f67a6eba1da56a5bd210b7b262dce162ec",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/international-school/chatsworth/": {
+    "fingerprint": "effce02f2236200c397b79acd8124173e5150f59093a0f60470fb695b325cbbe",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/international-school/dimensions-international/": {
+    "fingerprint": "abbaf46319a0970b4b1afe7c81008d8d775f158f80d87ff021ae2012995694a6",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/international-school/dover-court/": {
+    "fingerprint": "8449f37527a2525844022ce534d633484b3f9458f98579fc67c46ded7f87a167",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/international-school/dps-international/": {
+    "fingerprint": "7862a5ba1b50b59bbe4bb54351d7f91522f9d0a401772822b1ff9b632edecdef",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/international-school/dulwich/": {
+    "fingerprint": "c2dd0fcd467bbae24e66902ee04356f9063dffbd545899c1989aa9b781b97322",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/international-school/etonhouse-international/": {
+    "fingerprint": "4655a9038d2c94313330a7a9a463d2fcf99bc061086b14d56a48a058d770d1e5",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/international-school/furen-international/": {
+    "fingerprint": "60387a8cbcc7fb9771f34ffeb367b606356ee32fca78a66c41a5e8cfd245d873",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/international-school/gems-world-academy/": {
+    "fingerprint": "c09d45d9ff6dadc7bbb2d8ac885342507f4986ece33e2981647b58aba02e76a0",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/international-school/gess/": {
+    "fingerprint": "b4e4dfaed3da5d5e7ced573add0cbe15853a2bc167075d2262441270d83fd4d0",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/international-school/global-indian/": {
+    "fingerprint": "2b21eca348c48be97bd84c381a425aca482bd46025c1680f23d778e69acffa8d",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/international-school/holland-international/": {
+    "fingerprint": "0425b0e994f7f4c34c98a232e7d69c38b296349299ab28588ad26a52027b4cb8",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/international-school/hwa-chong-international/": {
+    "fingerprint": "716f33d72d988d01e56414165d2d3f531a60bbf6c6cb97993a1443a2a253fb34",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/international-school/": {
+    "fingerprint": "3618a82752017b194d5ee1b5720da33605c275af1926f7acf47ea8afa3a37509",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/international-school/insworld-institute/": {
+    "fingerprint": "8249395f7e7dab559060c2f19ac7397ecf37c9d0df7dbf5ab9b7d722076dfa03",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/international-school/integrated-international/": {
+    "fingerprint": "66e007daae135f70bba9efb918aa27cebcdda808833ec05418c2ff62715eb35e",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/international-school/international-french-school/": {
+    "fingerprint": "86708866a3d30dae0ffee3cc54ae619b278ffb4842c315e7a89c2d8c3ed1117e",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/international-school/invictus/": {
+    "fingerprint": "862d8dcfa1ca72921d4de9d7a53f118ad9ed8161b745c508688c0c28b377eb68",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/international-school/iss/": {
+    "fingerprint": "8a7804066665bae6391b29e4d1dbfe1b44bd3d21ddd24ac9e63db629f5acd51b",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/international-school/knightsbridge-house/": {
+    "fingerprint": "dafc17546a0ea6ede9cc5b901409fb5aa1fae8474863ca5ee238b3ad183371b0",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/international-school/lotus-bridge/": {
+    "fingerprint": "cc7a12f7997e5a00597996902e40a7bed0d0b37f8439d07e18f8a9f5370ceae5",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/international-school/melbourne-specialist/": {
+    "fingerprint": "140f8351c60fefb1f6f18e18f2ade21ca597bd5a4ab78237a15131ff360add04",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/international-school/middleton-international/": {
+    "fingerprint": "c7ee27c900e5081940a89f04d8cac29c0b88a2fb502c5b4ba2eb5d4ec1ec075d",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/international-school/nexus/": {
+    "fingerprint": "bb0cf97ad2cc6777c8492020a56010542fe6f74b88b2e401a1f515d84c95a3b4",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/international-school/north-london-collegiate/": {
+    "fingerprint": "cc5191a0372b28e822020c8a3fdb5d39dbec2cbab36764d0fc6b55a90198ce27",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/international-school/nps-international/": {
+    "fingerprint": "c8b88a53e7e7e3fbe9fe1effb81debd966c60d56aa420f90d7be96451cf8f030",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/international-school/one-world/": {
+    "fingerprint": "b8f329c08a77421441ac686e8c4bba0600386839664e605377637e97f7fd9ff3",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/international-school/overseas-family-school/": {
+    "fingerprint": "bc2842eaa35874e0e765e13e6a5781c19fb2ac4e453efe7c709cd781bdbc88c0",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/international-school/perse-school/": {
+    "fingerprint": "7ad1a36cf949978172c3ae0fe8714f21f63326ddf7848a50f964a377a63ca088",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/international-school/raeburn-park/": {
+    "fingerprint": "c54eb65a36db42834c7db7acb6228831d29739eaa760463dfe15bbb69bad0af1",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/international-school/san-yu-adventist/": {
+    "fingerprint": "f05d931c74230ff795bfc8d92b161b07e6ba2278603ed134a4dd90edf8ffc394",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/international-school/schools/": {
+    "fingerprint": "ef82f39e7ade3165c315912bff144e95b225aeda5e9f883c074f59e1323236e7",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/international-school/singapore-american/": {
+    "fingerprint": "24008dc71702f2ec67a731c0b8078c78ec398bca587c05f241468b47b5903952",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/international-school/singapore-international-school-fees/": {
+    "fingerprint": "7c957d60129ba305ba503da532bf99d4ba5c121ad2a895b291c35fbb3a40bcc2",
+    "lastmod": "2026-06-02"
+  },
+  "https://sgeda.org.cn/international-school/singapore-korean-international/": {
+    "fingerprint": "2a41a37c7e307a4ac6b3ede412f6ef1c9b984d5a2fcb1ab3219eb13f4756ec8a",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/international-school/sir-manasseh-meyer/": {
+    "fingerprint": "841089b1f305804531eea6d7bf6b6d2ebb752d8586f6d551a0deada5924a8625",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/international-school/sji-international/": {
+    "fingerprint": "e7c8a9bf65959b40478be5602aa89104a868fa092c42fe29e913c04ec1ea6f81",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/international-school/st-francis-methodist/": {
+    "fingerprint": "002b3659f00fbbac34558df60875daae9ebdf1f2d52fea1aeb1951b38a46ac39",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/international-school/stamford-american/": {
+    "fingerprint": "11abdc14545da5ef03422f77cf50a8f52ba655fdabd3d28f2c98dd0cdbb3239c",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/international-school/swiss-school/": {
+    "fingerprint": "cff25434b9d74dd722cc7ef34528cec7a45c675ca9370a9a57eaef965032e311",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/international-school/tanglin-trust/": {
+    "fingerprint": "d9385f7bdd1bf14b2ac7ab034f00db50f2f214d5d24a30062820cfcfb9b68e31",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/international-school/the-grange-institution/": {
+    "fingerprint": "2bbbe9704049e7ab73a9e9947c9d66cd0138ad00191dee4c8889992f10363b72",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/international-school/uwcsea/": {
+    "fingerprint": "bc71216294bc091ae702ef64c2c72bab57786de7a7fdfa71b62130330bfc8ce4",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/international-school/waseda-shibuya/": {
+    "fingerprint": "908c62f9b6aff16da120745231d70092a66c5b2cbb97df6cbf040790042bc81e",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/international-school/winstedt/": {
+    "fingerprint": "52c0787f5d307ecde42bc7dea87e2fe4f6190a4a6102522d2946d785ed931a83",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/international-school/yuvabharathi/": {
+    "fingerprint": "5e3f6e4666cb7b6bbc178c3eb669b3449aee87c1a094c0e36f47aed89f2da1c0",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/jc/anderson-serangoon-jc/": {
+    "fingerprint": "9f11eea34c853d52f72fc917706f0379ff076d3689f8437c947f73ba800e13e8",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/jc/anglo-chinese-jc/": {
+    "fingerprint": "5c1995df44d7e4d45d8e7f0a9f3808e1d9fb1f4a265a48aeba1c9882020b9718",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/jc/catholic-jc/": {
+    "fingerprint": "6b6c04946f825582a2d80cd1be91d5ec339fb75a62200f03c1d1374a4bf5a4dc",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/jc/dunman-high/": {
+    "fingerprint": "77c59e1ca5e69cfa1b030b61667710d5b29b2bdcffe2e18330b8195622fe3efb",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/jc/eunoia-jc/": {
+    "fingerprint": "63cca0288b229948222467f4d0bda3db03ec93a24eba856bafbf475d2ddfea34",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/jc/hwa-chong-institution/": {
+    "fingerprint": "7b028c1ff102a9e9dd44657d939f26606c5b122ae9bb1388475fed7c9f7b41b6",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/jc/": {
+    "fingerprint": "5c6c02c61b5f8b3c5aa56e7806ee238ecd3312e1c5601ace0210e13959e0a81a",
+    "lastmod": "2026-06-09"
+  },
+  "https://sgeda.org.cn/jc/jurong-pioneer-jc/": {
+    "fingerprint": "d5bfe779b712b55a7901ee9ff84e17428df7b6b80a4ba1fbb029593f3557b59b",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/jc/nanyang-jc/": {
+    "fingerprint": "5c1012d7106bfde8dc8f80d840a1ee9e69e3fad99ccc723ba5578e671b80c6b0",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/jc/national-jc/": {
+    "fingerprint": "76c4bf521120f2e9ac2db57613323ba88da35fdc2973ff68c47267da1287ce54",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/jc/raffles-institution/": {
+    "fingerprint": "726dd38338d79da88cf85b8c5ef55c58917a58f5efc06121dc69d4cf1938436f",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/jc/river-valley-high/": {
+    "fingerprint": "0e5219abdf08f9cbea6180fc0ac1be8c9d9bac8587fdb873751627f1f8f14c53",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/jc/st-andrews-jc/": {
+    "fingerprint": "317e88c76ef89afedfee5cfa36791c5819a5c3787d2966309250cdc5394cf375",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/jc/tampines-meridian-jc/": {
+    "fingerprint": "3c68d2e6af890587927774c58ffd7255bcf23a92cfb76aa8a2ae81dea3e57182",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/jc/temasek-jc/": {
+    "fingerprint": "f73589f672297bd50dd46765abc352618609d08ab7b3a83fed6360d3cb4cbea6",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/jc/victoria-jc/": {
+    "fingerprint": "be90553fd43e0d11a5b31c153516b552f7728328b8e561574dab0997d33d02ab",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/jc/yishun-innova-jc/": {
+    "fingerprint": "190a2a425f40f4c248d3207df3a24c76397835fa8af63dc0f6649071c10e2bdb",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/mba/": {
+    "fingerprint": "dcdff4638b8cc5d99afa6ceee16592b3b014ff82f1f360cb6e35a058413f83a6",
+    "lastmod": "2026-09-17"
+  },
+  "https://sgeda.org.cn/news/": {
+    "fingerprint": "057b0f8ca92f6f6032a21f3222436a0a59908dc4eeec678ae4ccfe5eabb2b5cd",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/o-level/chinese-students/": {
+    "fingerprint": "7ad273d2132baeccc7d09bb103cc61492cbfb1c65e574e4af48a6e817ecf9686",
+    "lastmod": "2026-06-09"
+  },
+  "https://sgeda.org.cn/o-level/exam-format/": {
+    "fingerprint": "db217de2b5ae4a43a345726596d001e5837415069f13be231c8192e947b2b748",
+    "lastmod": "2026-06-09"
+  },
+  "https://sgeda.org.cn/o-level/": {
+    "fingerprint": "042e1854d32cde65e29b1d006b3c3291e0ec0c98e59fd95a4c4811474bd2048d",
+    "lastmod": "2026-09-17"
+  },
+  "https://sgeda.org.cn/o-level/o-level-apply-overseas-high-school/": {
+    "fingerprint": "eecffc86d6effa84bb1d5c8e26f017ada0de861d692e8708a771518d2ac6bfa2",
+    "lastmod": "2026-08-29"
+  },
+  "https://sgeda.org.cn/o-level/o-level-combined-science-vs-pure-science/": {
+    "fingerprint": "8e41a585ed1ebc0b51df1c3c166661c41190f9245ad12f657fdcd76ca069e482",
+    "lastmod": "2026-09-12"
+  },
+  "https://sgeda.org.cn/o-level/o-level-dsa-guide-chinese-students/": {
+    "fingerprint": "e31410e71c5bbbc6a78ef7641b10e03269dd858c720ed1600eb84b410ed44a6e",
+    "lastmod": "2026-09-15"
+  },
+  "https://sgeda.org.cn/o-level/o-level-easiest-subjects-chinese-students/": {
+    "fingerprint": "87bf10786fedc06866b6949931f504810ef2ef91fb137a4d1da966b2dad383ec",
+    "lastmod": "2026-07-27"
+  },
+  "https://sgeda.org.cn/o-level/o-level-english-composition-high-score/": {
+    "fingerprint": "149a5069b81055fe4343fab09e2cfe6f037c4b5433925945181f858b9c0449aa",
+    "lastmod": "2026-08-25"
+  },
+  "https://sgeda.org.cn/o-level/o-level-english-difficulty/": {
+    "fingerprint": "9c402ccfcd8b58d229120aea5d897fbcf2daca3b564765603060a4a764d35ab7",
+    "lastmod": "2026-06-02"
+  },
+  "https://sgeda.org.cn/o-level/o-level-english-difficulty-chinese-students/": {
+    "fingerprint": "1a537a629ad3042eb74f70645e5151694127bd85a81077007f763c870b753c0c",
+    "lastmod": "2026-07-05"
+  },
+  "https://sgeda.org.cn/o-level/o-level-english-passing-score/": {
+    "fingerprint": "58ca75105de0cf6faec65aa2680e36ed6d8a19e52a086e578d7bcb9de75f37d4",
+    "lastmod": "2026-08-08"
+  },
+  "https://sgeda.org.cn/o-level/o-level-higher-chinese-worth-it/": {
+    "fingerprint": "098438346104d45e412d7837ae6ad8440e8041bfb9859e764b36b1b1e08601ea",
+    "lastmod": "2026-07-17"
+  },
+  "https://sgeda.org.cn/o-level/o-level-international-students-registration/": {
+    "fingerprint": "e19cbb06acae6498a565191a223a92d46f2ff7a1690c8589558227cab6faa7b9",
+    "lastmod": "2026-07-12"
+  },
+  "https://sgeda.org.cn/o-level/o-level-jc-score/": {
+    "fingerprint": "639bb204c413225f3c5d07d553ff10d9a2f2145a1b537765d1403f95f15906ca",
+    "lastmod": "2026-06-18"
+  },
+  "https://sgeda.org.cn/o-level/o-level-low-score-poly/": {
+    "fingerprint": "ef98602b3701472f033bace4155d451f9a20ccc18643031319411509f5cb8026",
+    "lastmod": "2026-07-08"
+  },
+  "https://sgeda.org.cn/o-level/o-level-math-vs-china-middle-school/": {
+    "fingerprint": "73ad33043ec092a00149f231366b94b528e3b5efb3513d65dc05964771b0cd82",
+    "lastmod": "2026-08-04"
+  },
+  "https://sgeda.org.cn/o-level/o-level-oral-exam-preparation-chinese-students/": {
+    "fingerprint": "72fad56102688377f99f33e5ab56519fb8a9f00e04328c01c91145ab3e0adb0e",
+    "lastmod": "2026-09-08"
+  },
+  "https://sgeda.org.cn/o-level/o-level-poly-application-guide/": {
+    "fingerprint": "687c9e655e8e43fec3baa52a1281ca9bf6d8859164cdac9ee328f1e4b7c44f98",
+    "lastmod": "2026-06-04"
+  },
+  "https://sgeda.org.cn/o-level/o-level-poly-course-choice/": {
+    "fingerprint": "ba839d03e70c70010fe40c5b6009b69c6ef54726c4094bc47555f388bb303875",
+    "lastmod": "2026-06-24"
+  },
+  "https://sgeda.org.cn/o-level/o-level-poly-or-jc/": {
+    "fingerprint": "1d17613f194ce12f910f6f9cafb603ac99238f916feecf070f64185c31ebd2c8",
+    "lastmod": "2026-07-22"
+  },
+  "https://sgeda.org.cn/o-level/o-level-private-candidate-registration/": {
+    "fingerprint": "e066b59d71e5fb5d6a5e4ff4e40a22cd0616c28636d45a7cd595705442a72ae0",
+    "lastmod": "2026-08-02"
+  },
+  "https://sgeda.org.cn/o-level/o-level-results-release-timeline/": {
+    "fingerprint": "d0051d56b700b2b7d3a765c9cbfbca992af83d41e7d84d7bde884b8b7ecb156f",
+    "lastmod": "2026-08-19"
+  },
+  "https://sgeda.org.cn/o-level/o-level-retake-worth-it/": {
+    "fingerprint": "af5e2e97cf34b8f102435b6a0032f7058c4c29cf9ad83b278025229a6926c137",
+    "lastmod": "2026-07-15"
+  },
+  "https://sgeda.org.cn/o-level/o-level-science-practical-exam-preparation/": {
+    "fingerprint": "acfa50e5a3aa43d8d75ec395ac940e4b6a6455b253d1470a06d10cf7e7690083",
+    "lastmod": "2026-09-01"
+  },
+  "https://sgeda.org.cn/o-level/o-level-subject-combination/": {
+    "fingerprint": "c552355010eb828c668fc84fd453a762e3cca353f6bbe6cfbda9c411720debfc",
+    "lastmod": "2026-06-28"
+  },
+  "https://sgeda.org.cn/o-level/o-level-subject-combination-jc-admission/": {
+    "fingerprint": "ee8577aae02266c15b5d8cd8e35a77c38c3ad6871fc8476c0be3ff9cebc9618c",
+    "lastmod": "2026-08-13"
+  },
+  "https://sgeda.org.cn/o-level/preparation/": {
+    "fingerprint": "12923c94937add83570a06f2d89fb10c6feae548dd91e7b60b3c3142ba2a6a45",
+    "lastmod": "2026-06-09"
+  },
+  "https://sgeda.org.cn/o-level/private-school/": {
+    "fingerprint": "c9725773807ce337b58354549fce7025dcf34be83e0510ad93604802c04c9c3b",
+    "lastmod": "2026-06-09"
+  },
+  "https://sgeda.org.cn/o-level/registration/": {
+    "fingerprint": "e07310484fd301c4a0019fe470279d03b03941079c7f916cef83d991dbfb1ad5",
+    "lastmod": "2026-06-09"
+  },
+  "https://sgeda.org.cn/o-level/results-grading/": {
+    "fingerprint": "77b53f9aeb63dcc59c8a77974f8d33a1cb421fedc58285639c989ee174decf5b",
+    "lastmod": "2026-06-09"
+  },
+  "https://sgeda.org.cn/o-level/retake/": {
+    "fingerprint": "7a905ccfec99287d3b01b4056dd36fbe261c016496b29b47a56551b66c062145",
+    "lastmod": "2026-06-09"
+  },
+  "https://sgeda.org.cn/o-level/scoring/": {
+    "fingerprint": "8328d15693bfe7c19c87be82c773668788bc83a93ffb3b971296b4128428fe9f",
+    "lastmod": "2026-06-09"
+  },
+  "https://sgeda.org.cn/o-level/subjects/": {
+    "fingerprint": "df896efca5ad37f1f60602226b97a87c3f258fba4bb7a6124de95c6183e90bc9",
+    "lastmod": "2026-06-09"
+  },
+  "https://sgeda.org.cn/o-level/timeline/": {
+    "fingerprint": "42cc1361b7afe56031698b4232b104338777bb4edd32a81dfe1d1d091da565be",
+    "lastmod": "2026-06-09"
+  },
+  "https://sgeda.org.cn/o-level/tips-by-subject/": {
+    "fingerprint": "62f6f6b5f4ff08da8cbf7c3589639add59796c884836ef2d4b90c5fd6d5fd9af",
+    "lastmod": "2026-06-09"
+  },
+  "https://sgeda.org.cn/o-level/vs-igcse/": {
+    "fingerprint": "62e0f1bfb09c14459541ec1df7b9fa3dc9b973511f830ecf59c5968417de6956",
+    "lastmod": "2026-06-09"
+  },
+  "https://sgeda.org.cn/o-level-jc/": {
+    "fingerprint": "044a9b3823d4c1bb08dd8f97d4ac41613bf1f99d81e2aa5b7a0b6ed1708f9de9",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/o-level-poly/": {
+    "fingerprint": "46e2fe64af22d83b3ea7438c3f35bf69b6f20ec1e45c24bec552031619b86567",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/o-level-schools/": {
+    "fingerprint": "b1dcb0e46d67b29cab6e2df578350d9f5cbd566e868b44be75a3e18c97d283e9",
+    "lastmod": "2026-06-09"
+  },
+  "https://sgeda.org.cn/pathway/a-level-to-university/": {
+    "fingerprint": "5f1991fbd9031e16f3b2cff4620ec0261000442cad29d2d6eb7ad00e66a9bad6",
+    "lastmod": "2026-06-09"
+  },
+  "https://sgeda.org.cn/pathway/by-age/": {
+    "fingerprint": "bead8e60585abcd04a0fb8d47ba0a02077c13ead43348647bd95e2ecbf239f02",
+    "lastmod": "2026-06-09"
+  },
+  "https://sgeda.org.cn/pathway/chinese-students-singapore-pathway/": {
+    "fingerprint": "e104572f9134049ac2f7390ef3a825f5195d92581498fe3a91e1168f8f614a67",
+    "lastmod": "2026-06-04"
+  },
+  "https://sgeda.org.cn/pathway/gaokao/": {
+    "fingerprint": "6e23e0fefb1ad6a3571066d6ad7a41df09180833f4fca569456e4d1a7ff0eb21",
+    "lastmod": "2026-06-09"
+  },
+  "https://sgeda.org.cn/pathway/": {
+    "fingerprint": "938dc41a9f0bc4c119ae367969b053f2ed112cd484be257d94e2e02c0b05c0d4",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/pathway/ntu/": {
+    "fingerprint": "46de53b1361abe1f0080c2fd7effc2b7797f1c530505b3a2947c0002e1346801",
+    "lastmod": "2026-06-09"
+  },
+  "https://sgeda.org.cn/pathway/nus/": {
+    "fingerprint": "6a9eb3c50f0b1b9c56404630f08af5f6779cddf6278d13e5fd51be75c3c41323",
+    "lastmod": "2026-06-09"
+  },
+  "https://sgeda.org.cn/pathway/poly-matcher/": {
+    "fingerprint": "2de2a98b34ed13c8ac33e30c89d83623e8a875d6474e7dedb3a7b0bc46766d0c",
+    "lastmod": "2026-06-09"
+  },
+  "https://sgeda.org.cn/pathway/study-planner/": {
+    "fingerprint": "f5b88642a46830cd5c54783f7bb7e98f89e024476fe182ddc2ee3b8c75a1e977",
+    "lastmod": "2026-06-09"
+  },
+  "https://sgeda.org.cn/pathway/transfer-from-china/": {
+    "fingerprint": "b58480a7787a8c0a35ee26749cc20046a42e858f6ab42573ccb37bd92eed1990",
+    "lastmod": "2026-06-09"
+  },
+  "https://sgeda.org.cn/pathway/university-matcher/": {
+    "fingerprint": "0f7041ed5598d8b58d819401fd9ca40d611c3f289e894c5efc80e0c49ee5a9f4",
+    "lastmod": "2026-06-09"
+  },
+  "https://sgeda.org.cn/pathway/wace-to-uk/": {
+    "fingerprint": "0d52e1444b26dac08b9a03d4eefc9509e3c4cc72374126a0c45ebfef27be8e2d",
+    "lastmod": "2026-06-09"
+  },
+  "https://sgeda.org.cn/poly/admission/": {
+    "fingerprint": "079b0ecf1ff28276a8726afe749f806c17845a3881ca99a88e448939fe33afb1",
+    "lastmod": "2026-06-09"
+  },
+  "https://sgeda.org.cn/poly/courses/": {
+    "fingerprint": "67886601a7ade9cb26345f8c879cf55ad15bd0f269b2fde1764f5c3da973a035",
+    "lastmod": "2026-09-17"
+  },
+  "https://sgeda.org.cn/poly/dae/": {
+    "fingerprint": "95fdc7be81f7dc135b26fc7ae0ed6c321859930f7dfb5df1c4a30b9d67fca158",
+    "lastmod": "2026-09-17"
+  },
+  "https://sgeda.org.cn/poly/": {
+    "fingerprint": "72495f7baf7ad4ceb04fcf4865f5d6c5a1b53797679475b8545c9b94c35234b4",
+    "lastmod": "2026-06-10"
+  },
+  "https://sgeda.org.cn/poly/np/": {
+    "fingerprint": "617196c6c81325c32e24eb7f4b98064a4ea9d00ba70c99dce01efea6110a9f18",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/poly/nyp/": {
+    "fingerprint": "ac46095c7a6a63f7094c03badac8b5a21bb8d82ba4f4df7f0ffb691967070333",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/poly/rp/": {
+    "fingerprint": "e76f83c769d36dab7bd8953caba94f6aac5007d4bcf3a787e98fbc2803e23651",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/poly/sp/": {
+    "fingerprint": "c369182ed952eb8f6474e387b1809a8b9f14c6868beb744a545c53f61bb7fed7",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/poly/tp/": {
+    "fingerprint": "5bcd63c90c691bee65295a22abb232868f924cd5769bb76aa91dd73515b3025d",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/admiralty/": {
+    "fingerprint": "e648d07a63d15b725c8a351966527b99862f24e2e3d955c1cfef1eac14e28473",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/ahmad-ibrahim/": {
+    "fingerprint": "8eb8b913b3ba42b04e15665924a28ae9e5c03147b40c328245592c0fa556af59",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/ai-tong/": {
+    "fingerprint": "fe5c1ba05a89d6af438002fa29f96b5ee64c8f973e3345eb2300acd694cb8483",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/alexandra-primary/": {
+    "fingerprint": "eaf9266db40047d0ad2de7785450003bfa5fcb1510a3c63557754a3dc3e8031b",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/anchor-green/": {
+    "fingerprint": "216fa8dec9d9019d465e851c73ae3b1f61c5e566124aa825043d65233247568a",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/anderson-primary/": {
+    "fingerprint": "6993a42931bbe10146d258b6dd1b28645ef1e35c909b2466ed6721047e1ea1c6",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/ang-mo-kio/": {
+    "fingerprint": "a56731851af66ada833bc5eccd191ffbcff5e59c83a7e690115cbe8f0c58b758",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/anglo-chinese-primary/": {
+    "fingerprint": "79130fe01add6853f195cc110ba1dc6edd3041705a525db0003664699015b364",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/anglo-chinese-school-junior/": {
+    "fingerprint": "868beaa00ced6a7befaf3218a4c33d9d21052935954b90b56ccbaf7d2976f77f",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/angsana/": {
+    "fingerprint": "c02c29446c129a5fc9651fb68ea3c7337542783db2dc1a49492a6b71bfcc8743",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/beacon/": {
+    "fingerprint": "bea8e0e2acb0bd72e66c44292e37d3e1f66e49b95317d50d39a7e9051305ecda",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/bedok-green/": {
+    "fingerprint": "aaf6acc0c330b39109b190ff324f46e28d32ccd3341a0b1cfc3b7832d977570a",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/bendemeer/": {
+    "fingerprint": "c992c62e8b2b2a941d57b5b858dda91fed6f09d737f5119046020090c8062d70",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/blangah-rise/": {
+    "fingerprint": "a601034e8bf15c342c34a7e49480c50ebfef34078b47933401ab6db90b476c60",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/boon-lay-garden/": {
+    "fingerprint": "dbe1485eba5c70cd25c0259870094f097b46e614fa8dd6ffb8381c1eb2f13654",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/bukit-panjang/": {
+    "fingerprint": "8587fd25d3dc77263de194d9e2b24a70e1c08f1107ece446d570cb75a5f70301",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/bukit-timah-primary/": {
+    "fingerprint": "7a10e1ba9d0041ca8833412b450d3396260153fb99c0a3152099153709963f0a",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/bukit-view/": {
+    "fingerprint": "b3ed5a25c4e78921d0e21c09469464d35ee1022f6941e3d608dd336fd2674934",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/canberra/": {
+    "fingerprint": "2b5067974e4db3329841f0a52f759a25d1a87c6549e0dca669155c73ebaf38a5",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/canossa-primary/": {
+    "fingerprint": "f18d244969eb9d98142dd61ae3f12f34c61e521d928353f4a7d76aad3bec64ec",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/cantonment/": {
+    "fingerprint": "387481f611413b2fbbbbdc2f77951f71adb1b95d3382d214d46ea3157dce8974",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/casuarina/": {
+    "fingerprint": "0c74acb7c1205af60da3dc133a00bdea604973857438cb9ab9368a055c9aac5a",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/catholic-high-primary/": {
+    "fingerprint": "c2699e3c2fb68bf178e3fa06482ed91dad45ccc7552adb93f7314dd985c45d0c",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/cedar/": {
+    "fingerprint": "000d6e0c333b5a03b65f2adfd225d42e16eafdb7802db0aaf9f5a179bb9ad6ff",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/changkat/": {
+    "fingerprint": "4438e9da4d9109a332cafe520b3d8cf5de234760dcd66d113a006cd6302152c4",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/chij/": {
+    "fingerprint": "a463d8443c496a287610e01a29264c22d9bf4b360aa679f620ec99555d52f366",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/chij-kellock/": {
+    "fingerprint": "dc72adc381d7f07a830750fd2d1595cd17361ccdaaf630633171aefa016bb7e4",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/chij-our-lady-of-good-counsel/": {
+    "fingerprint": "c9e6b308f97db52e72ca83470a22b7b779794257ece25eb1182c8369ca24714b",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/chij-our-lady-of-the-nativity/": {
+    "fingerprint": "a7beed387b3aaf028cb2484daa103b56aceaf927d94c3b3649b753c4169aa3c7",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/chij-our-lady-queen-of-peace/": {
+    "fingerprint": "423bd9a3fd8769046ad881de7dc16834ae52f6ed23a4d1507f79962de728240c",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/chij-primary/": {
+    "fingerprint": "23faf12103d599afe59ed329ac8709553f447db9ec6c74b6ff4247ccfd5b3880",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/chij-st-nicholas-girls-school/": {
+    "fingerprint": "3498faf01a53bff5b1a42091b10d6a60a377dff5678b402ca4aa58faa288c833",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/chongfu/": {
+    "fingerprint": "54140823178dc9bee0516c23d58ace59229c9f7cb7278bbebdbde0f48fecbdc3",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/chongzheng/": {
+    "fingerprint": "cb94930f6a71f908fe4b35f9315f4a6b0400694c16a2e421db628096257eb98d",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/chua-chu-kang/": {
+    "fingerprint": "a1897999a43e1dbbc13be82e1fa47ab9245d31443d8f58218874059d4a3e6226",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/clementi/": {
+    "fingerprint": "534a359f3b4fae324824c38c19bc2c141e4ff319105d78af6779884a03bd2f1b",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/compassvale-primary/": {
+    "fingerprint": "2b8e8fc8313e8771cabb8dabdf9fa8bd222d36a1d211ad61782577cd0be49960",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/concord/": {
+    "fingerprint": "9c2eb66d9de83f19551fb46d6b93ce829ddb7bde4bee73132b51e32b8e3608ea",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/corporation/": {
+    "fingerprint": "d41fa761608ed06534168ca077fdf74415a21385ec1405b20a587ab51fab6557",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/dazhong/": {
+    "fingerprint": "0538efa5f6a236eac371c10f888be801d80452f0ccc1312effaa6bc2e1057c22",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/de-la-salle/": {
+    "fingerprint": "c9b447683d2586879830ce7ccfbd5c217309f67f45e1d7e867853997c1e0c66c",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/east-spring/": {
+    "fingerprint": "7be876097144f5427e980f8369344eba3edfdeeeea719ea5aae66049f57fc97d",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/edgefield/": {
+    "fingerprint": "2142621b94b6d0a8f2866f4b469ec349f0d2d4acba3f69af0f83c726f460c228",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/elias-park-primary/": {
+    "fingerprint": "7c23b885ec64218162e25f1c624219f7c0c1bb68e6c41768413e1be266332007",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/endeavour/": {
+    "fingerprint": "5d82e61ca4658f3de6d99ab0326c5c0666c7b033eb10ec9436bb8e1816e2ccde",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/evergreen/": {
+    "fingerprint": "c4b47ea9c7bb3835a9faf1e060460d6a72c30a1f0f87b7cf2d6b57df51f3599a",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/fairfield-methodist-primary/": {
+    "fingerprint": "f1201a11f327ecaa8807a8b73e9b91872e6e995920189bd0822c478ee22560ea",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/farrer-park/": {
+    "fingerprint": "6353a7ad215c79fceee1e0a9481ebd53aa461eeee85dca1eabe6c4047e35e300",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/fengshan/": {
+    "fingerprint": "a426168062fc81093988688233877b914ba0408136781b1cd475ab45b52e0069",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/fern-green/": {
+    "fingerprint": "ed094f43e9fbf2aa3697e3bea4ca44364154e9585404470878611f9d73e4fda4",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/fernvale/": {
+    "fingerprint": "6e1d016e253b282d339be6b9733f683e60dfac13d8214b5e244a1946d7b1160b",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/first-toa-payoh/": {
+    "fingerprint": "b507dde451ba1b950145b90ac43e791f6793043a736c7260af99e01fa6918126",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/frontier/": {
+    "fingerprint": "d70eac6dd764e3c49e4d27a76f06a12cd228f9fe5d6c6e92ced619a69d62b25f",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/fuchun/": {
+    "fingerprint": "f8ebc97121106fcdf3e4055f3809b25c67a9f9d77627ccafbee986a4d1025f3b",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/fuhua/": {
+    "fingerprint": "9dbf8fd990a1d622c8cd5add723d136768820914d2700e71326b17c76a1135eb",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/gan-eng-seng/": {
+    "fingerprint": "a80e5711ac94bfe03bddda62648d95b164705e0c8a3094c4997c6c9f30bfbe80",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/geylang-methodist-school/": {
+    "fingerprint": "da560ad7519e72699122c8e39caf2f6c8e123faee37a9fcb988dd7dd08c2c386",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/gongshang-primary/": {
+    "fingerprint": "6ed3c48888de88bb7ae0859cd58e4811675c8213cac7f0e91168bad6ddc10f2c",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/greendale-primary/": {
+    "fingerprint": "319170d6a9eae3012497b3bf52ced643e79e3d48003ab10a50523523753721d2",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/greenridge/": {
+    "fingerprint": "ef0204b37cc1c871caca09bf319f3a4385c8c994f817cee3e0306c06a247b1d1",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/greenwood/": {
+    "fingerprint": "326a7730511a76ca8aa06aac1d469e7f6b56144ebb39becbdf418a8e5057ac7b",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/haig-girls/": {
+    "fingerprint": "003a8326babc9aa4dc560ac8ba907d5f739e658bb1827533a197c0945c409271",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/henry-park/": {
+    "fingerprint": "c37e9ccc6915cba8fb0acee6dbfbc55c0a4d7d8a8751468cfaea2b7f9eba0245",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/holy-innocents-primary/": {
+    "fingerprint": "a91ae4d83d9b14fe80a3e585039f96eab368c668d6322e0727744512564982f5",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/hong-wen/": {
+    "fingerprint": "5aabbaf5b6e6f96a152c3aed74a9cf53c41131f6881d2d12eece08e246bc43ad",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/horizon/": {
+    "fingerprint": "b43cba27fdd2a477aebc0b0ecc1b46eaeda25fd2ed6286dbc7a3b274badc2625",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/hougang/": {
+    "fingerprint": "2261ee7f70c9bb8242016d755fd332f4030e590a76ecce0a578173fa4f2841c4",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/huamin/": {
+    "fingerprint": "4fd2cbcd3ab5b9192f2140b8366a504a4d825f114a713b52ba577a0eca9771bb",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/": {
+    "fingerprint": "964fd1b364e8f4fa0aa69d1200dcfd081d67a28434f3b352c3a7010dc43635b4",
+    "lastmod": "2026-06-09"
+  },
+  "https://sgeda.org.cn/primary-schools/innova/": {
+    "fingerprint": "0557c146c8c1a1f5f74b222551b12f9ac166b65584c45008026c2bef78fdd5f3",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/jiemin/": {
+    "fingerprint": "a98c2a1626268aa8ff9550edea18a2873b342e4882d81db92d4e7d1d33573365",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/jing-shan/": {
+    "fingerprint": "996a17335c35e0bc54bb063a8322599001dda45fc7cd2848ce868442c44ffdbf",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/junyuan/": {
+    "fingerprint": "e82521abb3a5404fe1812c338f0c97b844a0230b42c4ce349d0736b0f765a045",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/jurong-primary/": {
+    "fingerprint": "4539b6e0260577060f2d0779c3a5f8541c31c9592e4c89e1701984dfa5b83d22",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/jurong-west/": {
+    "fingerprint": "8ebe32783b7f150828f89632ee49138ab95d46ef80a949cdf18f50eb2ffc9510",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/keming/": {
+    "fingerprint": "011abcd47645582317b808bee5aef288175e83cf57423b91a2dcf8d357af1ea3",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/kheng-cheng/": {
+    "fingerprint": "14c07ea5427c757928c190463741facaef4dec8c8f3e0d68f00c9bf5541dcd70",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/kong-hwa/": {
+    "fingerprint": "19f03294d0c2ce0a22109d17ab504f86645764d8768a23e14b8e704ae50b6619",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/kuo-chuan-presbyterian/": {
+    "fingerprint": "6906a61297866ec6181f14f827bbfd2358e9f5e62790e7d7dcc6bcd5b84c27fd",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/lakeside/": {
+    "fingerprint": "042df6faa6676d4f1b677bbd7dd43ed8bfb1e4ad34e49854c61126033b3abb72",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/lianhua-primary/": {
+    "fingerprint": "d4f901190966183a95b6d6e2462d788ced0e568b583c3a938fc639c3903bb072",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/maha-bodhi/": {
+    "fingerprint": "834c89ce88876d4d49956876ca803785bddaf97557faa498c0c6d6f819e7a648",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/maris-stella-high-primary/": {
+    "fingerprint": "8f79538e0dc1e56416f9fc727124cd3cb07733ea549fd0f079e68349d7f3b155",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/marsiling/": {
+    "fingerprint": "ad184cadce0fe213b7d51f5795769addea538c4ed4a93c297dd2c8a0fd2a37cf",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/marymount-convent/": {
+    "fingerprint": "92633a70bc290e43624be92709e02841c64f1462b28c392bcb4ac677b69f112c",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/mayflower-primary/": {
+    "fingerprint": "6268cf6c80ea0d29a70c52aa608f244618013ce55cdad167452a3a10e412c73c",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/mee-toh/": {
+    "fingerprint": "dac04853b905656a837a9ac2f760a0c77ec42c8cceddf2a104c5cdf7fecf691d",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/meridian/": {
+    "fingerprint": "693ab52d8112368df222e5a78aef2a134c1eb68b47ba3556d2457b5bcd356886",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/methodist-girls-school/": {
+    "fingerprint": "5c84cf933b9a778a610ba1e2bc6319182217660fb2a8caad6b0d366e95618966",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/montfort-junior/": {
+    "fingerprint": "18a4c97f2d89bad2b4681f63a3b6ecd97d9cc29f1c99b6984fec852bed872845",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/nan-chiau/": {
+    "fingerprint": "b06a9eb41df5a0c3a307b6f24672faff41fb209b8058ad7df5b548960ddef550",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/nan-hua-primary/": {
+    "fingerprint": "b9afa88907e6bd637f5139f447946e4cb3c7ddf79c036d1ffc6a085cbc3326dc",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/nanyang-primary/": {
+    "fingerprint": "4d73aab080e277382d546f8823583be4d35703aa47f5a4d03eee125a49cefe69",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/naval-base/": {
+    "fingerprint": "124387afd9389a66715b0077e0d54b9289c3908958c40c3e3b480ecb6ed950fa",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/new-town/": {
+    "fingerprint": "71540f203bc18848efa338519f2ad192c02a8bba7c147624ac7792082654a4d2",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/ngee-ann/": {
+    "fingerprint": "8fa994e6db898b0cfa6b1657423a3fa2a79cfffe3a7f74d95293087c07106396",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/north-spring-primary/": {
+    "fingerprint": "7d98dbd86217e017b464b5a70f9b7321235e8a87a2bd01096f5938d1d6772852",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/north-view/": {
+    "fingerprint": "a8c336571625558870d916e102a53cb01b3f646a83348b8182543da15607afd6",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/north-vista/": {
+    "fingerprint": "07f21436472a1214ff9b94c20a7b5ebe0eb28db1acd816353f2e9724699681c7",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/northland/": {
+    "fingerprint": "341fa5eee135e8d7226facbfe63f1b0ee2059a13d47a474ac89b80a6fe586dd1",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/northoaks/": {
+    "fingerprint": "fc9514e7a85a0dc55442fecb1aa85d6091bbb8fb2a20a9dc670f7aa5e835fda2",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/northshore/": {
+    "fingerprint": "340707d9606283647f20b1e690097a6ccb4e2cc5a3d626e507b231e5bdc1572d",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/oasis/": {
+    "fingerprint": "07c26c3f57e7732bd59b0e5ff7b6965235b08469bef3e923c4478b0a230aec16",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/opera-estate/": {
+    "fingerprint": "3f7fd302b3dbff8f25b440ce18aa26f5e71b672d162ea551a38489b7fdbdf507",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/palm-view/": {
+    "fingerprint": "239d556bcf8bd3eb27f741d8b58493cbbea2d996155ec941c8d86584b56da450",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/park-view/": {
+    "fingerprint": "9c795d7fab0bf9cd2448e7a94569146710adc3ba0478fd34a1902bc782bdd3cd",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/pasir-ris/": {
+    "fingerprint": "6ccfe63151caf77a266a7dbff1894a71ace61aec077963dfe3a8033b485a4f4e",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/paya-lebar-methodist-girls-school/": {
+    "fingerprint": "fec1a3cd741dde1d97f10877236cf9db1ee1c697e712e1907fe2f2b4be5add30",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/pei-chun-public/": {
+    "fingerprint": "7ca5ca20dbc34632620b4e2858db26982dbd4e339e1f6aca59431cf0a595d4ed",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/pei-hwa-presbyterian/": {
+    "fingerprint": "8f57cf3ea4e919fce0622493207038a97bf0c7f64320283790a1d721581aedc6",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/pei-tong/": {
+    "fingerprint": "fbd3b7738d75e79847a74dbb82016bbe4ca30b135e1e001894c4d6eaa72f8a2f",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/peiying/": {
+    "fingerprint": "9aaff66289fd80272a03d71378730355ac63e9fefcf4f936affcdf7eacc55e0a",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/pioneer/": {
+    "fingerprint": "9251656b60308f9076243f78baa57a68d7649fb0844b1e9a0a8b5c3debb475e6",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/poi-ching/": {
+    "fingerprint": "3925455457f9a1eed3c1e00fc294087c12af4ec1cee2e5ceaf5aa322e2922b4b",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/princess-elizabeth-primary/": {
+    "fingerprint": "47aff53980f3f7ac904b98ad200d4c6152ae1ab3c818e6f413dd286e6cbd289a",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/punggol-cove/": {
+    "fingerprint": "300f8f65e678749468914d922f1b3e2ab7b2166bdb0a0adbb499e7b75f77b4bc",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/punggol-green/": {
+    "fingerprint": "dc78a937cad128dc76e10e591d78bc33995cb1a64f67efe45695dcd1de625739",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/punggol-primary/": {
+    "fingerprint": "df9d4ea1c4ee3013b41a93a2d8a0626a43a99183f33735f86e662483833f4069",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/punggol-view/": {
+    "fingerprint": "8e5277bc9fe113f3ec0e2af558613adf97bf3c27355c2e4cd934dc48e3e4e5ea",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/qifa/": {
+    "fingerprint": "0fd7e61f78a260e91130da2ca824182097dcc638c5981a483b76d10585e10d6b",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/qihua/": {
+    "fingerprint": "ce8c5a175d8f63cba90fd64a151f285d6404bdae7a25d10bc2eaf05fb264a88b",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/queenstown/": {
+    "fingerprint": "1811276d4835aab66556fa8a1a0c416cfcf92cb21ef0284a70747116e3228fdd",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/radin-mas/": {
+    "fingerprint": "e4914d85c07e38858a6179392ae35bdcfe4dc2b1c018a791244ee7952cad35a9",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/raffles-girls-primary/": {
+    "fingerprint": "a51507b2ecbf5c833f261c131da418915a9ca3505d77b138794b6aaa20a81ca6",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/red-swastika/": {
+    "fingerprint": "527244fb012c7aa4068d78564b18b6ad138815b2ecfff597d425ffd02d25d79c",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/river-valley-primary/": {
+    "fingerprint": "07127e4ab49df7d9093c434fc22f79f3920b6d1136595589e6bfcd6ea6fff484",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/riverside/": {
+    "fingerprint": "53a7c370dd40623c49b09e0e19dd41935ba44e03ad8f4b6fe5ffd6ebf5aee389",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/rivervale/": {
+    "fingerprint": "a8ddb0fd71133b4ecdb9857cdfa34ca77e4e867a1bad9fea131471105d6290e1",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/rosyth/": {
+    "fingerprint": "91001163fac7c1890329a3ec168706688e5423b6e9673f21c1678c0fe42be51a",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/rulang/": {
+    "fingerprint": "09b5adeeb9931be69d6a8f7db408af398309197585617adc1e1255df64487861",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/sembawang/": {
+    "fingerprint": "4648ed684d4644978a8620c2e3da830797307710835e69d02c38a7a6958e7e22",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/sengkang-green/": {
+    "fingerprint": "a26d011302f29b3cdf5d09c8f53bd65d688b68dcd45acf200a3854effa75f09b",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/sengkang-primary/": {
+    "fingerprint": "c5bed19b8fe5ce6c847f5b2c9792194eda8d64f58eabe935aafe5233b95980e5",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/shuqun/": {
+    "fingerprint": "a7ac3c72b5b331ed0b5f67ac0d088f230f25210d1b284c1323f9799d8c193c69",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/si-ling/": {
+    "fingerprint": "cb33fab4f2ab6a81a1735a733faf3bb0dcb421bd72fe63eb7b4785bd197bcff6",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/singapore-chinese-girls-school/": {
+    "fingerprint": "7917c2859d22a8fa4ad96f9c80d8b523df897f7d4842392d38f578a1c5ba42cd",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/south-view-primary/": {
+    "fingerprint": "aed93304405439a300cff9146753a854c8b92acdfb53a244fb92149e94cc3a00",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/springdale/": {
+    "fingerprint": "de30efdff685e0fc32da86e16b398d41061d0df0ab3d553b5280bf11a3183df6",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/st-andrew-s-junior/": {
+    "fingerprint": "3f3295973cb5e61db3fbab8951883d20fb3b63d4a13d64a458076992eb850bd6",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/st-anthony-s/": {
+    "fingerprint": "8dbc89bb6c6d622c4be312b2989aaaeb0f14e2fdf84821de84ce4accc394a876",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/st-anthony-s-canossian/": {
+    "fingerprint": "6053647763f9b2580b1ff14f225377f5fafe7bf6b86edeb46c172c3b640d67dc",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/st-gabriel-s/": {
+    "fingerprint": "554653db87c9c045a856901f3de9eb0b5d4cb632f3fd789cd2ffe3e10fea1a5a",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/st-hildas-primary/": {
+    "fingerprint": "3882b59b345bcd4078b7d83d6044b8f3266cbed0763d75818359c6504669752e",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/st-joseph-s-institution-junior/": {
+    "fingerprint": "e3c6a10c61a442e472d7b11a7221948a880e4eecb356c2cdd21c49bd5163730c",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/st-margarets-primary/": {
+    "fingerprint": "0f113aa1659c02607167ace5daeffa5bd24e0045fe44f71ce1cb0872eaad1269",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/st-stephen-s/": {
+    "fingerprint": "f8058faab5308b9af6dca8f1ce184bc167eec12fbec48c39021a2a20622409ce",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/tampines/": {
+    "fingerprint": "b37b6a8c5d675c8b32d0b4e3e66d57274193468ff509b23510c75ae7e8dc8192",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/tampines-north/": {
+    "fingerprint": "482269a368a9c714cbf21503ad60a98a0db574bdffea51ada26e982542f65b28",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/tanjong-katong-primary/": {
+    "fingerprint": "59a4646eea91e31c5d645e0b9f50efa1909f9be907dad664a594198ad0a7839e",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/tao-nan/": {
+    "fingerprint": "2ba637a7edd6b157a29b9ff61538abaca94c0732a1c54adcff9b5ea6a231c539",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/teck-ghee/": {
+    "fingerprint": "de6f1f08593217286c6ec36e78fd2c687ccdb67be51317c823083b03571421be",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/teck-whye/": {
+    "fingerprint": "f5b1485226d746762ecfde26f4c6a8614d8f89b8734c34556222b15aa3a1d474",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/telok-kurau/": {
+    "fingerprint": "4d7264689a406cf58a94d5ae21c048cc554c094450a58ec31a6415d5bf6e46a0",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/temasek-primary/": {
+    "fingerprint": "4dd4276bf4e58b9d5ca11cefd04cb4c87f89ccf88ba8df233efd25511cf44e0d",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/unity/": {
+    "fingerprint": "6db0c5b0b5a793fc1651cd423143b36d1f52bc7f4ec3bf8d27f21c3157dbed86",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/valour/": {
+    "fingerprint": "5c5da4d7fad23eb7ae508e3b89d38a25b6a7eef6ec980cfbfa15d74f600383fd",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/waterway/": {
+    "fingerprint": "bc6ed2b70a03922353c482f6e302931a948540c56886a8e454f5b7287230a7e6",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/wellington/": {
+    "fingerprint": "ffc4700d3e3a42a19dce0ad893a246c7f94737205bdc69f3db378f8cd741243e",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/west-grove/": {
+    "fingerprint": "25906f0ffe06899f0e6ebf9175e359d1e6969a5303935736a4e7b14714eeed22",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/west-spring-primary/": {
+    "fingerprint": "ba329f61733162c24f16a51cb0dc9c9ffccc57db944a9ea2292e66db1cb53093",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/west-view/": {
+    "fingerprint": "33eeb70474295f37e235fa9cfcc55c1602e1ebca7078e2b93aca8f40a1780ce4",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/westwood/": {
+    "fingerprint": "34ceb0c511af2b41932c714adcc0bf95a9e31885de18f806f82540fe100e488c",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/white-sands/": {
+    "fingerprint": "cb30aadec285b33697a63e0bd998c458165b50d368d81b4e9a372c384ea8412e",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/woodgrove/": {
+    "fingerprint": "5d93687f5a451dec3c57b152ef295d0da4a632601bcd5cb482d187e8551b1d40",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/woodlands-primary/": {
+    "fingerprint": "cb135936826e48a934f8720c67924c2d7374e9539a0c186f25727cd762cac5d2",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/woodlands-ring/": {
+    "fingerprint": "e4badc7581332dce82171a11f21769ec65d14232077c0226c68268a257d89cc5",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/xinghua-primary/": {
+    "fingerprint": "362beba255559318e0e8a9cf60c88434a355c01665d6a836f04531c26d3cd03c",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/xingnan/": {
+    "fingerprint": "2e8e80d11d04a15e4a50114d8bb883c898547ae2a12ff13797641042e7cb560f",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/xinmin-primary/": {
+    "fingerprint": "1fb06218a37412821312d5a0f90d960a387fcfab47253478a6a8b67bcd1c7922",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/xishan/": {
+    "fingerprint": "7e28d7c2f8c98f90a37d924fbb078674f64d24c9c1d382b9c7a10d9597048ffc",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/yangzheng/": {
+    "fingerprint": "e829c9b73e7e714a38934526205089096a568533a8df79261b79e8ab5a0ac6b8",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/yew-tee/": {
+    "fingerprint": "92ce5b3ad5753677a9cb6396596090023d45f34887e5d5aab687cf4c189a962b",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/yio-chu-kang/": {
+    "fingerprint": "7261a9235f6b2eacfd3f266cd7da0e00da3506e1825c93cbac8b98b85a06da41",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/yishun/": {
+    "fingerprint": "f051dbfb0de8b75282bce8f74b0324f7e6ffc541cda2f1eb996b3398db8c64a8",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/yu-neng/": {
+    "fingerprint": "700796ef57e95e584edce05142e119bb7d1d59a089f34426e5fec905438a1a10",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/yuhua/": {
+    "fingerprint": "cb26058c7b7b23e1c93eaf2f1088bf20f08280d23113ffa0cc676b14d9f1fe4c",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/yumin-primary/": {
+    "fingerprint": "6cb236064bb82a5e84c3c819e7f410f0db65464bcad60aac10c0b262984b0ca7",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/zhangde-primary/": {
+    "fingerprint": "da54292a17aee0ed14f596e587ee937eb59c170107fa84ef46baeac3e5af4a14",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/zhenghua/": {
+    "fingerprint": "6f3685885e5e53b5131cbd7720130d8cbf005ec7a19f8fdff976f02daa671b3e",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/primary-schools/zhonghua/": {
+    "fingerprint": "693cc1aa17f38e654eb97e6476111bf2deaec7f436f4fd8c6a5dd5da7d7ce934",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/private-schools/amity-global-institute/": {
+    "fingerprint": "5fd2e91b2701de559244b6ab7dff83a891e6116635b3c6fd4a730172e8b4c5de",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/private-schools/brentvale-college-international/": {
+    "fingerprint": "228c55f6aaf1da76b2bf315aab8ed99c5de7b37dfebedeeaf2bdbb7e5a5716f1",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/private-schools/curtin-singapore/": {
+    "fingerprint": "d8db4186deeabdf12b6354cb197cd943d54ef43924d00cafe6d43a6fd1df6acf",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/private-schools/dimensions-international/": {
+    "fingerprint": "55cf788bd9aa96029f385af660bd91b6dbf0c070c4633c716263c8a40c887104",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/private-schools/erc-institute/": {
+    "fingerprint": "21a00135ec2f1db25846236bf8934716d6789e31e4b24a34c5fb31c91cebb0ee",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/private-schools/furen-international/": {
+    "fingerprint": "d19082d365138309f1e1c40685fa0c68bee22b312499c66b061cb4c3c9778a93",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/private-schools/": {
+    "fingerprint": "b2a554d25461cd5dbbfad9ec66c6bee3759db8945cc6d676330a5b03cbebc9fc",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/private-schools/insworld-institute/": {
+    "fingerprint": "2ecfb67767e76e232044b94a84dbe67c4a2b209e6f1141775e1275714360bd35",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/private-schools/jcu-singapore/": {
+    "fingerprint": "d3f02ba328f60e498d28d53375a75686a834f046c79cde0a5709933c2b2de5c2",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/private-schools/kaplan/": {
+    "fingerprint": "163a29a59b364d59e470c0b8c639655017a029b4e2eb37aad6c0ed7a5703eaf2",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/private-schools/lsbf-singapore/": {
+    "fingerprint": "5c6b6c00349073bc932d7529ed8b64d98a94b8a0f0df8a240e175186506d1c60",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/private-schools/mdis/": {
+    "fingerprint": "e4f7fa6f9787b4a53f7b831a60b08e8b32d8647466087d4a45dbbdc721395945",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/private-schools/psb-academy/": {
+    "fingerprint": "eac8e2c62a49075a2293758638230c2e1d63ac0ca96407c50ca6ec70f0c3709b",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/private-schools/raffles-college-higher-education/": {
+    "fingerprint": "937bd84e2174f8f336aa20540984ce3e68ec521a8744c95b245f0e8f5ffc3368",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/private-schools/san-yu-adventist/": {
+    "fingerprint": "5b429729b57ba3f9e51aeac0db513ebc187007f359c56c5110ef0b55760b2b6f",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/private-schools/shelton-college/": {
+    "fingerprint": "9705f1356ebb5401710ddba28cd2e7fdc5f6f0d129c5e408b6549b9b0f0668bd",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/private-schools/sim/": {
+    "fingerprint": "b1e87244255694bcc8bf7f96e9bfb39a021c225b598c471293a878d992cac47e",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/private-schools/st-francis-methodist/": {
+    "fingerprint": "4888c02cbae604c214026ffe310942c423c16bcece2424f3b7256c41cad2da39",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/private-schools/tmc-academy/": {
+    "fingerprint": "af25cb89dfa03e94e52f95f7178f0085f87715cb65c7245adf9a362487b49187",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/private-university/amity/": {
+    "fingerprint": "553e0087842105dbd6f6fc598a250e4d3547796444482295edbc4e09330f2691",
+    "lastmod": "2026-09-17"
+  },
+  "https://sgeda.org.cn/private-university/curtin/": {
+    "fingerprint": "c482648bd775b819c7ff5cc17d4dbc782bf16f55c38d3db6288b3266c48baa94",
+    "lastmod": "2026-06-09"
+  },
+  "https://sgeda.org.cn/private-university/": {
+    "fingerprint": "c6b06444c7273df480025bc4813ae2fab01874c6ba8380e24b71a0890b2e0d73",
+    "lastmod": "2026-06-09"
+  },
+  "https://sgeda.org.cn/private-university/jcu/": {
+    "fingerprint": "97d93e7ad215c5da92ff71953672d5104802f9de8c0a5d9aed4f4c40d1ad5141",
+    "lastmod": "2026-06-09"
+  },
+  "https://sgeda.org.cn/private-university/kaplan/": {
+    "fingerprint": "b1a49b773d905538403dd356a5ced87cb852a2e20e05d3dd1fd47f766c229e64",
+    "lastmod": "2026-06-09"
+  },
+  "https://sgeda.org.cn/private-university/lsbf/": {
+    "fingerprint": "2b3d5e35af4dc179930f0abc2181d6f60bd3d280d21c687616aa2f5a83a6feac",
+    "lastmod": "2026-09-17"
+  },
+  "https://sgeda.org.cn/private-university/mdis/": {
+    "fingerprint": "2ee0accfda39e31934134e23654b449e072d9bb3e15cae6ae0e86ba3e796103f",
+    "lastmod": "2026-06-09"
+  },
+  "https://sgeda.org.cn/private-university/psb/": {
+    "fingerprint": "fc3b2a4e154c188d1150c0ef3f52bb39fb927e69155af387036939bacd39d39a",
+    "lastmod": "2026-06-09"
+  },
+  "https://sgeda.org.cn/private-university/shrm/": {
+    "fingerprint": "e9b1225be8c318af246eaa25064314926df4277e9d6d9d148a9f557ad04c5541",
+    "lastmod": "2026-09-17"
+  },
+  "https://sgeda.org.cn/private-university/sim/": {
+    "fingerprint": "e6d9b86c1bc98083700274cf93b8304b3d978bd8c0b74f8720dd258e9452187f",
+    "lastmod": "2026-06-09"
+  },
+  "https://sgeda.org.cn/private-university/tmc/": {
+    "fingerprint": "b964bf3284355d2361e2ad5d467814654219f5cc29e66719177c77638b0b9eda",
+    "lastmod": "2026-09-17"
+  },
+  "https://sgeda.org.cn/school-database/": {
+    "fingerprint": "e949bb05616092bcea3d1879027b461a5477394766fde3d34a049215a41a8915",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/search/": {
+    "fingerprint": "ba9589472891abfb20d1cf68b8a8dd8165f96d848513cd4b5da70a6762fcaf0e",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/secondary-schools/acs-barker-road/": {
+    "fingerprint": "47564440cbb267fcd06d27f044b49b3e9559f74c5f7d2586d243643e109fbad3",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/secondary-schools/admiralty/": {
+    "fingerprint": "66fe91450c60bf7dc45a4a65fb4f4b6bc7549615c6a929d9e78e270c129812b9",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/secondary-schools/ahmad-ibrahim/": {
+    "fingerprint": "acc6e87e10d2d6910a93d06c25c83eb3c09956277a731a9a4cf895cc4e81c1a1",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/secondary-schools/anderson/": {
+    "fingerprint": "2602e54e1d24c141d6698752f53352e1057c3bcfe1cfd5e2912b459830b32f57",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/secondary-schools/ang-mo-kio/": {
+    "fingerprint": "ae8b45782dfe4e8b78ae675c289b83648019434b18a8de7eeb286c2f4c4e258c",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/secondary-schools/anglican-high-school/": {
+    "fingerprint": "531450bd321efe43e37a59aeab7dd7446e83d9251b1c0885b2e9238564df3983",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/secondary-schools/anglo-chinese-independent/": {
+    "fingerprint": "2401b5a2a806451d70fd1b88993c391ca9dbe289f222d0cce9f03a494d23d804",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/secondary-schools/assumption-english/": {
+    "fingerprint": "ef39be006259ad6c6dc9686bd68f55187624de0a880c72ef24c98e22bff70ee7",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/secondary-schools/assumption-pathway/": {
+    "fingerprint": "bd8b3db927a8b03cb91e4d625b62a9bab726eafd5d8de124a03aef4166445d19",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/secondary-schools/bartley/": {
+    "fingerprint": "062d30bc9352a77fa97977bf901f42ac8afbcfd96e38c838941bb916559ab7b6",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/secondary-schools/beatty/": {
+    "fingerprint": "c8689dba170d8a69c8b93893165e50a57fbfca10c3710f90153e38a863157d07",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/secondary-schools/bedok-green/": {
+    "fingerprint": "48928dc71ac532b8f53cf4b01ae40620cc4096d57aecbd43cf062130cabc5771",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/secondary-schools/bedok-south/": {
+    "fingerprint": "d61315c21322ff5d758747c171b5693fd5b60e0b72ce9bc5c78403fb8023f8b6",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/secondary-schools/bedok-view/": {
+    "fingerprint": "859e89fc4a887f32ec8c8454d69c723698caa1a404691c99e72374d34cf24a29",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/secondary-schools/bendemeer/": {
+    "fingerprint": "0474efa007384a44091d9cdefd975db53d8b5fa60c746ad20e131764ce74ca46",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/secondary-schools/boon-lay/": {
+    "fingerprint": "e17f31f8a38be2f10bd15d245c01edd60aa9aa62608010ad19d757772be45d71",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/secondary-schools/bowen/": {
+    "fingerprint": "f7955af3c623b2ea86aabc2d004762da0857a890f4bb5719244def4d0a7da888",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/secondary-schools/broadrick/": {
+    "fingerprint": "00c73dad5fdf3edcc50515990cf583e6a270c0fb182a3d45d90cd1ca9ff5962e",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/secondary-schools/bukit-batok/": {
+    "fingerprint": "fde93580aae79475a7653a1b87ab6713a17813d300f14270af8f26a3da095a35",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/secondary-schools/bukit-merah/": {
+    "fingerprint": "af0547784965b172fa88e31f4e63afb7576f1c3cf681a0878034232d31d5a78e",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/secondary-schools/bukit-panjang-govt-high/": {
+    "fingerprint": "05c98836cd8900506ed18344f30948d191aef91aa51a53b43781df4e50ee1313",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/secondary-schools/bukit-view/": {
+    "fingerprint": "ac1dfdb7cf8c991325095e7158807a62b6dfe436f5710d5bcaa1ff608d524c3d",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/secondary-schools/canberra/": {
+    "fingerprint": "10c22a199fd7ea5551d97561371e9313698114078179515dbe0fbe96c4a4cded",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/secondary-schools/catholic-high/": {
+    "fingerprint": "2bf3ceb3e3a4c547e924ca8ad34d68cddc8d2840f667fd284c7a77ecefd12188",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/secondary-schools/cedar-girls/": {
+    "fingerprint": "7ac8cc314ecaabacb2413e175643bb47a1a38a3d7d09b239ea30626fdb39a8da",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/secondary-schools/changkat-changi/": {
+    "fingerprint": "98366e85d3e82913777213d8e9780297fe2ea48e6c3cca1341137a7216bfade0",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/secondary-schools/chij-katong-convent/": {
+    "fingerprint": "508d44b43a543f0434f1956ae8a51f81f5bbbd8fa1244b92d58b06a6b9ab467d",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/secondary-schools/chij-st-josephs-convent/": {
+    "fingerprint": "4357d1d0f168926cc6bb9d9cbc656aa039fcdbdfdba8491af2d8b2fdb1fd81bc",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/secondary-schools/chij-st-nicholas/": {
+    "fingerprint": "246799395a7f0c09c08d247a600bc947713d0818797c88d49a3d8f02c6063ad7",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/secondary-schools/chij-st-theresas-convent/": {
+    "fingerprint": "3b7dfe57f85e62b61f84f3526670535299ed8fc58869fae1800b70db10c2e522",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/secondary-schools/chij-toa-payoh/": {
+    "fingerprint": "6fd471f6d99e1bf86ef1c7c225236b1888c7444be3498f15c8b3686496c6f5e4",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/secondary-schools/christ-church/": {
+    "fingerprint": "d5e7e11055366da1a9974e832d326a7644d6658d6bd1fde19af1ffae9b61e47d",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/secondary-schools/chua-chu-kang/": {
+    "fingerprint": "6530e94f076dd7eed2077d51dff8ca002350263507bea7051b58bc55a7075400",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/secondary-schools/chung-cheng-high-main/": {
+    "fingerprint": "7236b3c8d73d6c2e5baf768fea4d1079a6961cc4119e4846f5d713ef5930622a",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/secondary-schools/chung-cheng-high-yishun/": {
+    "fingerprint": "6879ae49b8a24c146c79dcb3db08a146fd0ca9e32d4eb3cbeda863eeee01d5b4",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/secondary-schools/clementi-town/": {
+    "fingerprint": "1b3780f23c775019bd0fd7aa0440dbb89dcd66bed0ecb534de9ac9a5062e53b6",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/secondary-schools/commonwealth/": {
+    "fingerprint": "90753bde1eda186b9d86be138000df5f2ab45466158db9bb7678e8c70f183163",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/secondary-schools/compassvale/": {
+    "fingerprint": "fc13d1bd3b28a7559bc9a17ed4e1002733cfe3839a412549006604043ce83a03",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/secondary-schools/crescent-girls/": {
+    "fingerprint": "302c7f56389d2c7e4a3c928065d69507ae4f4817fc9e90e291717a5366fe21e6",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/secondary-schools/crest/": {
+    "fingerprint": "aa14360cde2a914174c72a27888ec2039ab7438e46f7cd33f92fe870585ee97c",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/secondary-schools/damai/": {
+    "fingerprint": "88550c605604132e02d94efecf69809d6fc079ca785bac549c82fb92eb59691c",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/secondary-schools/deyi/": {
+    "fingerprint": "2bc11fab471d6a8edc8aacec7cd25c8bc9f5fdf2603031159c88ab060edccdd3",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/secondary-schools/dunearn/": {
+    "fingerprint": "be9198e28195b538d846f4a5e1e80db5e88b9fdff0814edb6c6784f4e16eb820",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/secondary-schools/dunman/": {
+    "fingerprint": "52808b9d985d29d20cfb8be9b6435acbfee89d097a5aa2a15cc6bce0ef2f1b5a",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/secondary-schools/dunman-high/": {
+    "fingerprint": "7a9cb2d01e3e2e0756fe0e981204d2a717d68e59d061d1ccbbaceffa5bb16d9c",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/secondary-schools/east-spring/": {
+    "fingerprint": "e4dc2e0d6a3fee3e2f630243c1a235aa48d74dcc904c012dac21c668b0f4b52b",
+    "lastmod": "2026-06-09"
+  },
+  "https://sgeda.org.cn/secondary-schools/edgefield/": {
+    "fingerprint": "34fa22869bc2496a5e9e28ba6e6e674cdc58e306eff45336c94cbf549befbe6e",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/secondary-schools/evergreen/": {
+    "fingerprint": "1cdf93feffc7a25f4b197e2357f49ecb1057497194b635b9bea73f4aea3bb77b",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/secondary-schools/fairfield-methodist/": {
+    "fingerprint": "7ef08db8ff04d6d2e18f54d585b9010641a93640d60f8620d0f6e0618a196519",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/secondary-schools/fuhua/": {
+    "fingerprint": "0bab4b18bc122b140e15b23465b20cf04fccb023731e6c926ab6d92946da8c2e",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/secondary-schools/gan-eng-seng/": {
+    "fingerprint": "9de8803eaf8f22dbca3dcb9cd4c3eb69c082276f592feed5e0afb84bdcbdc04f",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/secondary-schools/geylang-methodist/": {
+    "fingerprint": "c06946ef4cf9f8c305223506d2d3ee131ddfca1f34f0f8e9f9851ec7ce2fb4e1",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/secondary-schools/greendale/": {
+    "fingerprint": "5e47fe2ba37fbd5f81bd4be749593d85e4374edeca9d9c086f26975ee5b34f90",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/secondary-schools/greenridge/": {
+    "fingerprint": "8ff0ed155204320c338417165083dc268bf0d4edcff3deac64fc2772d433e571",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/secondary-schools/guangyang/": {
+    "fingerprint": "5f957ec3812ea2281e3006df62d771117fc5d7ef7a31e6066876ee1c48986b9b",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/secondary-schools/hai-sing-catholic/": {
+    "fingerprint": "1fc5289a55e450f8275fc1d598f73b13a0f65eb662c65aa43b1aa970e6910846",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/secondary-schools/hillgrove/": {
+    "fingerprint": "3d82869042258c2e6432f93a43eaf1d1e7e65a77e2d17fd5c939404143670c1e",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/secondary-schools/holy-innocents-high/": {
+    "fingerprint": "67965d90f82d191347b9cf595d4a545751eb736339b3bd671412162c9dd1ff0a",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/secondary-schools/hougang/": {
+    "fingerprint": "9ef94354385003307e4449be5137bb88ea5268dc5ff3acb4251a75e4f80dd39e",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/secondary-schools/hua-yi/": {
+    "fingerprint": "4c11db4190a43f86c423572010dcfb2df1d666c0cbaf699d950b82059a1eedbf",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/secondary-schools/hwa-chong-institution/": {
+    "fingerprint": "c406340a61d409003bf1c9fc7edf875261dbb3b14fb16481b3dbc94da5d1e2e0",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/secondary-schools/": {
+    "fingerprint": "2299dfedec84ca1243a4a859eeaa0a8acfc5d099d7cbe702ffeddd9762152abe",
+    "lastmod": "2026-06-09"
+  },
+  "https://sgeda.org.cn/secondary-schools/junyuan/": {
+    "fingerprint": "29b9d0aff3efcb796cab5f8d8f44ccaa9085c1c35996d51def7e5bf7feb8142e",
+    "lastmod": "2026-06-09"
+  },
+  "https://sgeda.org.cn/secondary-schools/jurong/": {
+    "fingerprint": "8d4dcb9fc904a6c6b2fe7398bb065bba092baf1a9fac385578e48adf890b2ea5",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/secondary-schools/jurong-west/": {
+    "fingerprint": "8c4ef79db830331efb9a2443fefd8942af0da158ad5cb2f8a7bb41704d5ba7c8",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/secondary-schools/jurongville/": {
+    "fingerprint": "b53cf0a6a1e885c6958f18aed3aeaa27f7df4e956fa8b93139d0dca77d766e03",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/secondary-schools/juying/": {
+    "fingerprint": "dc9df7688c9829fcb8677aae6676b1eca36476cffab72068753b140763b27f83",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/secondary-schools/kent-ridge/": {
+    "fingerprint": "205405a780cb1b12a824252bca44f7e80dc7175f6448df0dcf86345dac07b04a",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/secondary-schools/kranji/": {
+    "fingerprint": "9c81078a3aa30778e571a1285db589788f1c1f3ed891ddf901e0dfa702611e5f",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/secondary-schools/kuo-chuan-presbyterian/": {
+    "fingerprint": "6c21a57446c5d22fb0a8dc271e2de6da9c86006649019b1d86ab7ce3ad00f1f9",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/secondary-schools/loyang-view/": {
+    "fingerprint": "bd3fa5d4441750b519e122bc395c7bf7a7b4863f09df679abfd42b1f2a42ce07",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/secondary-schools/manjusri/": {
+    "fingerprint": "bded52b82893fc12837662809ef9ecbd04bb8da7ef86cf7e3dc1f40a37341bad",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/secondary-schools/maris-stella-high/": {
+    "fingerprint": "11077d4db38291bf7f12747dadf8119ce3505932328b801ce02ecb7a73c83d3b",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/secondary-schools/marsiling/": {
+    "fingerprint": "b7880358c1bf0ea6464bc409c03d5270d87251105bfe7ce6f809b23dd7701b71",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/secondary-schools/mayflower/": {
+    "fingerprint": "15c0bd5e84bc0b67301b8d5132a549039fe5a44e51a2f74ba9e3e878c534edb9",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/secondary-schools/meridian/": {
+    "fingerprint": "2c7782f938a9f3ff5e3e8da05d5ad86b9e302ff5d457c786d42e7875ac73ea05",
+    "lastmod": "2026-06-09"
+  },
+  "https://sgeda.org.cn/secondary-schools/methodist-girls/": {
+    "fingerprint": "b89031ed299d22dc3c99bb42fa7fd661ef4fcf683e50fed814ce8cc1cb6b625b",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/secondary-schools/montfort/": {
+    "fingerprint": "7ac206f7ff0939fcf8c13df3f58807c1c8fc105cd04a56f1ee4538193dfccf87",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/secondary-schools/nan-chiau-high/": {
+    "fingerprint": "1d5e5a25f63aafd081e21289d2eb4c80ad48d69cafc31a1b1bd36c874f3ce0cf",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/secondary-schools/nan-hua-high/": {
+    "fingerprint": "3bfcee6b746391f2e926c3b20166f37be30e53ccb8ac5825eff11f0580ec9491",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/secondary-schools/nanyang-girls/": {
+    "fingerprint": "970606de010ba7a2e197459da2ab62e97132fd11f580ab42407b7d0929be17a1",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/secondary-schools/national-junior-college/": {
+    "fingerprint": "495ef5ffbd64ea19a3696f90ce2d37c2bdedc12686331764f9e30b63a250c8a5",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/secondary-schools/naval-base/": {
+    "fingerprint": "0d205147436f87988468f4ca023ade179483008a07f7f9ee8f869541ae270ec4",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/secondary-schools/new-town/": {
+    "fingerprint": "27a10e10480ac52db84543375c0f255f98c98e67d1db9194d8432d84f18b6ad8",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/secondary-schools/ngee-ann/": {
+    "fingerprint": "dabdfae2e7a11c6351ff437e181f5e239f64ac1e0f9561c3ff7e68cb9897ed92",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/secondary-schools/north-vista/": {
+    "fingerprint": "4939a0db38f14b8174a279e1b5559060ec8715fa00ad4a0c44a1e62f8dd3e03c",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/secondary-schools/northbrooks/": {
+    "fingerprint": "24ec097de0ce40bb464485751f945be32ab1144854496f189086bb1c9bf74996",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/secondary-schools/northland/": {
+    "fingerprint": "d38c79d0c822e68363c35c1fc60469830a05199cd79cb48196837b7d7d885168",
+    "lastmod": "2026-06-09"
+  },
+  "https://sgeda.org.cn/secondary-schools/nus-high/": {
+    "fingerprint": "9c7def8e170822005cfe89ddc4e2b0a19d40e5694d51ce20708edf160597e298",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/secondary-schools/orchid-park/": {
+    "fingerprint": "7e83284208a8693f73d1709e25693db6ae70966c490a91edff52a8f679bcd79a",
+    "lastmod": "2026-06-09"
+  },
+  "https://sgeda.org.cn/secondary-schools/outram/": {
+    "fingerprint": "14499c9e83dd482ada39b5192e5910836eb4d215ec361bda5d30fd8d230acfff",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/secondary-schools/pasir-ris/": {
+    "fingerprint": "5d99551160ab22d7ba44872be486a7d4764a0e268aa3faf4d709d8439b3bd3b9",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/secondary-schools/pasir-ris-crest/": {
+    "fingerprint": "6fea65af1bb89ac12b1cedd6841982a8f60f8527b6814048b1ea5f6b7436a29e",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/secondary-schools/paya-lebar-methodist/": {
+    "fingerprint": "1916579bfe705a12b39df8a7d63df5488adfa364f05cb7719afebda9757eb061",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/secondary-schools/pei-hwa/": {
+    "fingerprint": "f1cdb94f02faee643c73d28e8ab679cdd9ea72a743b5309e2f4740fa5d9fa13a",
+    "lastmod": "2026-06-09"
+  },
+  "https://sgeda.org.cn/secondary-schools/peicai/": {
+    "fingerprint": "c64618bcceb418ee67eb97fd2fb84ba358653527d8d8ce8d647aef70c68dad37",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/secondary-schools/peirce/": {
+    "fingerprint": "f42188644bdbdd9fdd94fde35ba1b8a9e9c172ed355034e82c98467485f64036",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/secondary-schools/presbyterian-high/": {
+    "fingerprint": "073a055c52ecffcb89a238adfe99bb60cc3e6b89c5c94cb4c1d1e6ddcfa71260",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/secondary-schools/punggol/": {
+    "fingerprint": "233e040036a55d8072cf35eb03ac5aeb9f42f95ff5f7169f3a3cf07006efd5c3",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/secondary-schools/queenstown/": {
+    "fingerprint": "76bd423cc174381ea6505bf9bef0f5802152622fd936ea41752a88a8768fa2f0",
+    "lastmod": "2026-06-09"
+  },
+  "https://sgeda.org.cn/secondary-schools/queensway/": {
+    "fingerprint": "3b90933aa61b6c5b9fb26b9393bd8518763539d98166da80f05e51595b94dbbb",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/secondary-schools/raffles-girls/": {
+    "fingerprint": "f85f250e3333dd0439e691776052cfe6e4f4122c478ed71b7b5657feefb6fb1b",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/secondary-schools/raffles-institution/": {
+    "fingerprint": "14e5336157d5f2abe4e944739c8d5da8b8cc50ffe61e9fec0c9ac8ea499cded1",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/secondary-schools/regent/": {
+    "fingerprint": "962504d181c6afd066524229aac44fafdb9db2609a4db88268ec715b4e442850",
+    "lastmod": "2026-06-09"
+  },
+  "https://sgeda.org.cn/secondary-schools/river-valley-high/": {
+    "fingerprint": "70b4566109a0f5d6f425b0be4702088eb684eed9d03e251fe4e483f4b58fcfac",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/secondary-schools/riverside/": {
+    "fingerprint": "d739d26a7b363794fbcaacd81981ddf968bfda8acacb4b1d36bdcf767221e8b9",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/secondary-schools/school-of-science-technology/": {
+    "fingerprint": "3e1986c247dd43a343df7a3dcb6c06d34d86668d306331122353b00be77fac70",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/secondary-schools/school-of-the-arts/": {
+    "fingerprint": "b5e85c6fcf4460aa8966ab438a2507e916bf0c0dcd834ff53046c8107d799dc1",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/secondary-schools/sembawang/": {
+    "fingerprint": "6ac986326de5e4bd4c79dcca6124ea29b8fed6fc78a55004333288933fc5a959",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/secondary-schools/seng-kang/": {
+    "fingerprint": "2babdbb1eaa8f74eb0d83a3282e0aca13a4b1fb7070be3cde6e6eb6fb0797de6",
+    "lastmod": "2026-06-09"
+  },
+  "https://sgeda.org.cn/secondary-schools/serangoon/": {
+    "fingerprint": "5679a47caae8c57a9346d4cee179df6a2324ba91b04edf0e1e0d22ff6d97e11c",
+    "lastmod": "2026-06-09"
+  },
+  "https://sgeda.org.cn/secondary-schools/serangoon-garden/": {
+    "fingerprint": "abff626cb34d0b79cf7e8e9f43d86be1338e6b8bfffd2aa0428b58e495800add",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/secondary-schools/singapore-chinese-girls/": {
+    "fingerprint": "2e94f9bdd445b7cd1b73f2d0ffe65c2c6c63a79888a5b290067efa9d9590e822",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/secondary-schools/singapore-sports-school/": {
+    "fingerprint": "5bfdb01e0a5f8e0be5e71b22db023bbc319045cb4718a30559141e4e5f6a40e7",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/secondary-schools/spectra/": {
+    "fingerprint": "0cf49bd348ac47a23740941658e6eca52d7a82e1f9994715024fd8456d734789",
+    "lastmod": "2026-06-09"
+  },
+  "https://sgeda.org.cn/secondary-schools/springfield/": {
+    "fingerprint": "3389c55dd5c12a9c35be3c71d0c5f5f28112183e456dd55c5e428aae38aa2d64",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/secondary-schools/st-andrews/": {
+    "fingerprint": "938ef605e8776b332a89302ec896272d21a99cb512c2398fd82330f01365e454",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/secondary-schools/st-anthonys-canossian/": {
+    "fingerprint": "b8371af1d881e149381f57dc208df8080893211bc8778b2f10f615ddd5b62fe2",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/secondary-schools/st-gabriels/": {
+    "fingerprint": "c70963f416bc5790084b88caaabc2a32b8f41d1fa8e689c0c627962b6381f628",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/secondary-schools/st-hildas/": {
+    "fingerprint": "8045a9c4f981f4e46a6c0524c8d77d09da41c0ea2d0bc875b4a5f3a04f18d421",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/secondary-schools/st-josephs-institution/": {
+    "fingerprint": "e2b4f27446f589b6065b2617972443f9918ff78a152677ca9c91cd82acf10a33",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/secondary-schools/st-margarets/": {
+    "fingerprint": "2c9df7c9cde0e571cfd3dea921b7ae51d57679573accbdb8051382526fcf117e",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/secondary-schools/st-patricks/": {
+    "fingerprint": "987ebb6e2afc55878f3450255065f235518b6df7a81db6e647365785f32c3c87",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/secondary-schools/swiss-cottage/": {
+    "fingerprint": "c1df2183af425f6339282c46864fd985903c20efd76b77e7085b61e80dbe32b1",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/secondary-schools/tampines/": {
+    "fingerprint": "ff8cab90869a91c3466a3b8d850302554d458aa37fbeac679721ff79ed749317",
+    "lastmod": "2026-06-09"
+  },
+  "https://sgeda.org.cn/secondary-schools/tanjong-katong/": {
+    "fingerprint": "93fe998041da9378fed134d42e3f6f6d8b08b41681aeeaf3b839381273772db0",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/secondary-schools/tanjong-katong-girls/": {
+    "fingerprint": "4cf4521a53475eae3535ad8645283dddce96ea34a1d99ea15a34bf4148102cb3",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/secondary-schools/temasek/": {
+    "fingerprint": "0353afad7f5dbe4384cb828dda919ae55aef3507645c290c9d9b8fdcd7349680",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/secondary-schools/temasek-junior-college/": {
+    "fingerprint": "c1880679fdeb5084d67eb72f47360679b8fe3dfe6627935c93e932ccb543fa93",
+    "lastmod": "2026-06-09"
+  },
+  "https://sgeda.org.cn/secondary-schools/unity/": {
+    "fingerprint": "135b555882296b971644d46547b4482af8d0accd22339a60f68e1bc2bce3c23d",
+    "lastmod": "2026-06-09"
+  },
+  "https://sgeda.org.cn/secondary-schools/victoria-school/": {
+    "fingerprint": "de5cc395e3a5378dc5701f5fdcd2871d687bb987d8d61cba9704862dfd0f1673",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/secondary-schools/west-spring/": {
+    "fingerprint": "b46293f296f2c935fbf556f8dc95c7b737d21efbb81eebef6af0dda49af44915",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/secondary-schools/westwood/": {
+    "fingerprint": "43cdd2db7857a0a57bd76948283b647517236e1019400cba9be27dfd9c935a48",
+    "lastmod": "2026-06-09"
+  },
+  "https://sgeda.org.cn/secondary-schools/whitley/": {
+    "fingerprint": "3cae4071c57edaf08808c8af2054dbae98d08a7e1e31e87b02e2d96b7c8bef26",
+    "lastmod": "2026-06-09"
+  },
+  "https://sgeda.org.cn/secondary-schools/woodgrove/": {
+    "fingerprint": "c1dec02d2a8b68aee82c003573be4a2359c0db6bd3d4a61661416d024e6aea03",
+    "lastmod": "2026-06-09"
+  },
+  "https://sgeda.org.cn/secondary-schools/woodlands/": {
+    "fingerprint": "43a47a5bbd620cfd8fb3294024a77813db74ba01a5f2e05f9e30b725bc3f01fc",
+    "lastmod": "2026-06-09"
+  },
+  "https://sgeda.org.cn/secondary-schools/woodlands-ring/": {
+    "fingerprint": "738f0fb50f3e8ffe0f7cff3eda5bd9d192f940cd9f78648f260cc81178d4a9e1",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/secondary-schools/xinmin/": {
+    "fingerprint": "1737e935f595947b4ef35fded8912aabd94cd76561366ab430fbdd891299ea49",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/secondary-schools/yio-chu-kang/": {
+    "fingerprint": "e9a57f3fb361c0078dca322dcfe298186da900ed1cebb06080f4eb22950105ea",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/secondary-schools/yishun/": {
+    "fingerprint": "33df04aa72ee31c436d04d185e0f9572c01dd8b8b4bf77569d02474578672230",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/secondary-schools/yishun-town/": {
+    "fingerprint": "3bbd7c477eb31bab62ff989161855121f6ff22faab8103f0f45a5184af696a05",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/secondary-schools/yuan-ching/": {
+    "fingerprint": "01d2ca217c5847c744759a712730b732695f35fc99698249c8a9280d8542f0bd",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/secondary-schools/yuhua/": {
+    "fingerprint": "6df353356342985f7702acb3c269efd25de04104f9346bc8d2d83a5964b1434c",
+    "lastmod": "2026-06-09"
+  },
+  "https://sgeda.org.cn/secondary-schools/yusof-ishak/": {
+    "fingerprint": "921eda5aacb032059850a564ee9193e7f7a83f2117daf32904b6deb3c753c80b",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/secondary-schools/yuying/": {
+    "fingerprint": "473b8950080a86c67607a231778d8b73d632d4409ef6cd86eae4b4a77016cb86",
+    "lastmod": "2026-06-09"
+  },
+  "https://sgeda.org.cn/secondary-schools/zhenghua/": {
+    "fingerprint": "cff623d3182d57e582c290c22548e640eb7cc6014837721877f1513cb80cb132",
+    "lastmod": "2026-06-09"
+  },
+  "https://sgeda.org.cn/secondary-schools/zhonghua/": {
+    "fingerprint": "f3c8a14297a9f95fca991c5c7c2dcb98f01453255e7fe99aee26a4031dfc2eb7",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/singapore-education/": {
+    "fingerprint": "0991724bc02ef8ba1889bfdd5038951c977d8033d1ae755f7f3b0b7437009cba",
+    "lastmod": "2026-06-09"
+  },
+  "https://sgeda.org.cn/singapore-education/junior-college/": {
+    "fingerprint": "8cc1e1c192c916341392a663d8e51954662a58dc6fcaedca120037aa448c8a04",
+    "lastmod": "2026-06-09"
+  },
+  "https://sgeda.org.cn/singapore-education/polytechnic/": {
+    "fingerprint": "4f12533d7af6b96f869ee900e25299ba87d7d77606e29d7613cbe87dcdc248f9",
+    "lastmod": "2026-06-09"
+  },
+  "https://sgeda.org.cn/singapore-education/primary/": {
+    "fingerprint": "e6f6c3c7d3023142258dd7dea7fdf8a8912c2dcad3b746ecd762153964c79827",
+    "lastmod": "2026-06-09"
+  },
+  "https://sgeda.org.cn/singapore-education/secondary/": {
+    "fingerprint": "8ef0a60d3ae1a4d566c6dbacf156a385f519cecdc680fc3474b9e616dcde775f",
+    "lastmod": "2026-06-09"
+  },
+  "https://sgeda.org.cn/singapore-education/university/": {
+    "fingerprint": "97d1b491e5694ad8db72662d3abc825df9e13d80e829da5569851249c38e6b0d",
+    "lastmod": "2026-06-09"
+  },
+  "https://sgeda.org.cn/singapore-education/vs-china/": {
+    "fingerprint": "2a9b32b64220497d9c55e1a591513fd6c5705305f4f756acda80a8877a3ca5ef",
+    "lastmod": "2026-06-09"
+  },
+  "https://sgeda.org.cn/tools/aeis-grade-checker.html": {
+    "fingerprint": "0f706685b549b0691418fa359841364113a41221170f76fb946195373c6d7c7c",
+    "lastmod": "2026-06-12"
+  },
+  "https://sgeda.org.cn/tools/au-matcher.html": {
+    "fingerprint": "5854676f64cdc2063e77e7d6382b5dbcaeeccc74b02d0a576e17228cd9ef3b0b",
+    "lastmod": "2026-06-12"
+  },
+  "https://sgeda.org.cn/tools/au-planner.html": {
+    "fingerprint": "209c5ba2c00a5ff0fb94ca84affcf8531a50cab8703616c2f0b6d75c1e56f9fd",
+    "lastmod": "2026-06-12"
+  },
+  "https://sgeda.org.cn/tools/hk-matcher.html": {
+    "fingerprint": "a31b9a4e427ad4feb57f7ec93d3ec73899f6cbf541c76b5b56e69f6b0cb7695d",
+    "lastmod": "2026-06-12"
+  },
+  "https://sgeda.org.cn/tools/hk-planner.html": {
+    "fingerprint": "2c8bf8917d7b1f136ba8d8b351f7294dc284908dad5627df5610f6889b909476",
+    "lastmod": "2026-06-12"
+  },
+  "https://sgeda.org.cn/tools/": {
+    "fingerprint": "41c57eddf0dd73b362e43057e20625f23073019f4c5b96f05c32a2ce365a3213",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/tools/poly-matcher.html": {
+    "fingerprint": "496accabe0e074fb3fd283a47c99a467141470d050a83bf53a3a1bfc490c2a1f",
+    "lastmod": "2026-06-12"
+  },
+  "https://sgeda.org.cn/tools/private-university-matcher.html": {
+    "fingerprint": "7fa44ef6957bcee4df87342a888cb9bbe3ecb6c851a430a7c9d977ac46804d25",
+    "lastmod": "2026-09-17"
+  },
+  "https://sgeda.org.cn/tools/sg-masters-matcher.html": {
+    "fingerprint": "0dbab995bcc0eea02f82433f33015326e5b7dc7d8535cf83ddf215767732f975",
+    "lastmod": "2026-06-12"
+  },
+  "https://sgeda.org.cn/tools/sg-masters-requirements.html": {
+    "fingerprint": "7926285ad9801ca4678b9470387b13914bd5c1f112183165d260288158866444",
+    "lastmod": "2026-06-12"
+  },
+  "https://sgeda.org.cn/tools/study-planner.html": {
+    "fingerprint": "45f36ffa314a211dc04c2f2d6b3e8e6c3d77be682953f976bcead55e67d87253",
+    "lastmod": "2026-06-12"
+  },
+  "https://sgeda.org.cn/tools/university-matcher.html": {
+    "fingerprint": "feacb81602b5bb377c457fef6773736e899211f8d97ee6cf4648e489bce2c161",
+    "lastmod": "2026-06-12"
+  },
+  "https://sgeda.org.cn/uk-university/": {
+    "fingerprint": "7a9ce443f2a223bdbd383306dec3b8d8993cb42799d546e36bbd1c3e42cf04d4",
+    "lastmod": "2026-06-09"
+  },
+  "https://sgeda.org.cn/university/admission/": {
+    "fingerprint": "24b098278d570194d7a9add20d2d946a41926a9560e39894c5eaee68d211380d",
+    "lastmod": "2026-06-09"
+  },
+  "https://sgeda.org.cn/university/degrees/": {
+    "fingerprint": "eb87e6eb424ca171a29f410230501e46b756540422df65c07edfad4ff4e1cad8",
+    "lastmod": "2026-09-17"
+  },
+  "https://sgeda.org.cn/university/": {
+    "fingerprint": "06bd16ed185bb990a787cbe04e6927f25cbf8251024b900d1c4ff88cfca835c4",
+    "lastmod": "2026-06-09"
+  },
+  "https://sgeda.org.cn/university/ntu/": {
+    "fingerprint": "603f8095a42b4bd082413d7f0b6bc2641bfafae9e81ab103863b92a76157b78b",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/university/nus/": {
+    "fingerprint": "ac6a4a390536b3993932593b0cc5a3e399a1864e0a5d253c2f18dfaf5bce208b",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/university/nus-undergraduate-application-chinese-students/": {
+    "fingerprint": "ebbfc4467791053ce685b671c41c1ce008e4214c752b36832bcf55c7e96fbf7f",
+    "lastmod": "2026-06-04"
+  },
+  "https://sgeda.org.cn/university/sit/": {
+    "fingerprint": "a24bf8354fa53193490d658d3ec24ad3b13e0e24509ced92e411b94105e2a5ab",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/university/smu/": {
+    "fingerprint": "8001769bf4618e2b398f5a738d78c15c6f83b60838e19a98fec1698e07aa9fd8",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/university/suss/": {
+    "fingerprint": "d6644c932e4be57da70ba54eee77c4ce4ccfa7ed72e7974b8d6605ede988453b",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/university/sutd/": {
+    "fingerprint": "236f428c25ae755e4d0eacbcbf1b8825369075c9b93c08b35c597fbca8b9bc89",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/university/uas/": {
+    "fingerprint": "1dcea7a0e39ec026159dba8b086cf2297acd44aeb114c87394d18094dbcd84b1",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/wace/australia/": {
+    "fingerprint": "33ece6325a08b34300bc851e9a1782e8f27f1a474e0e1a08277d1c7b6d7a09e7",
+    "lastmod": "2026-06-09"
+  },
+  "https://sgeda.org.cn/wace/chinese-students/": {
+    "fingerprint": "0e40c7aeee208dd50cff119c6878d75ffbfafbdb6b21e7cd481a6d961dbc10bf",
+    "lastmod": "2026-06-09"
+  },
+  "https://sgeda.org.cn/wace/": {
+    "fingerprint": "58099dc13c5ece61a3569730c733e8a374375df4e3573fb9e2da08fa7f058276",
+    "lastmod": "2026-09-17"
+  },
+  "https://sgeda.org.cn/wace/subjects/": {
+    "fingerprint": "1c41ee6c6237a491c061cc1abffb447432a47fb6c332ca28c297fa32bd452d76",
+    "lastmod": "2026-06-09"
+  },
+  "https://sgeda.org.cn/wace/university-recognition/": {
+    "fingerprint": "0b7c6a52c29e06e99af966580c6784aa5ed4fbc906683973c594fc0ebc4bf39e",
+    "lastmod": "2026-06-09"
+  },
+  "https://sgeda.org.cn/wace/vs-ib/": {
+    "fingerprint": "680213013cb8ebbddefc3e22d86136b6385a93e721946e3d191eadc19fdd04c2",
+    "lastmod": "2026-06-09"
+  },
+  "https://sgeda.org.cn/wace/wace-appeal-remark-process/": {
+    "fingerprint": "83c4622116c0d276135798aba4062ffcdbb0b5493c8671852c174f5c60e5a066",
+    "lastmod": "2026-09-07"
+  },
+  "https://sgeda.org.cn/wace/wace-apply-canada-university/": {
+    "fingerprint": "7e469ff46590cb80a484334658e25a062186104ce492e8372359cf50ff7462a9",
+    "lastmod": "2026-08-27"
+  },
+  "https://sgeda.org.cn/wace/wace-apply-hku/": {
+    "fingerprint": "673c8f22e22f16646018c43c77219ec366222b9ed002d6813f90684ca03d61f9",
+    "lastmod": "2026-07-21"
+  },
+  "https://sgeda.org.cn/wace/wace-apply-ntu-difficulty/": {
+    "fingerprint": "ef5b8a1a9a8427d2fd3b46bad5cb7792f51fcf6ce81eed4fd04dbab242577ed9",
+    "lastmod": "2026-06-02"
+  },
+  "https://sgeda.org.cn/wace/wace-apply-nus-requirements/": {
+    "fingerprint": "8c3e15818341b6730a4a71b956be3eebad71eb671ce64921221f5baeb3213303",
+    "lastmod": "2026-06-04"
+  },
+  "https://sgeda.org.cn/wace/wace-apply-uk-university/": {
+    "fingerprint": "3a02636d985f717000710d79f951ee14cf332cb8eb28435575f85cdbc4c0ab1f",
+    "lastmod": "2026-08-01"
+  },
+  "https://sgeda.org.cn/wace/wace-atar-85-university-options/": {
+    "fingerprint": "23684ccc7d6ab606ebdcba7f878e0443962f65dc82ca95f164496714103a55b0",
+    "lastmod": "2026-08-07"
+  },
+  "https://sgeda.org.cn/wace/wace-atar-calculation/": {
+    "fingerprint": "990c404f1d4841449abbda4b826f6e20860616f7a71dd0090103e5b60ee90a83",
+    "lastmod": "2026-06-17"
+  },
+  "https://sgeda.org.cn/wace/wace-best-schools-singapore/": {
+    "fingerprint": "050e246f9a004a980ac3638916d9c9c7fc0fd08cb65a692bd9359c6da64787eb",
+    "lastmod": "2026-07-29"
+  },
+  "https://sgeda.org.cn/wace/wace-difficult-subjects-chinese-students/": {
+    "fingerprint": "509fccb7f0d764a66d81b4330aadac77dbd1a67d9fbee09155e110327c9a807d",
+    "lastmod": "2026-07-26"
+  },
+  "https://sgeda.org.cn/wace/wace-eald-what-is/": {
+    "fingerprint": "4a1f201ce242a685a9cf3bd6a980aa91082effa70b8c7ec2c8d6c100baeb008d",
+    "lastmod": "2026-07-19"
+  },
+  "https://sgeda.org.cn/wace/wace-exam-permitted-items/": {
+    "fingerprint": "f178a6cefae9594ff5e89c9dadb1a3eb00432fedc0f6e860ed043ce6e83875b1",
+    "lastmod": "2026-09-11"
+  },
+  "https://sgeda.org.cn/wace/wace-ielts-requirement-australia-university/": {
+    "fingerprint": "38242137b07a855dcfbe1cc37ec383d3bce6b76b7a62ac27ea6a60a78c018468",
+    "lastmod": "2026-08-16"
+  },
+  "https://sgeda.org.cn/wace/wace-methods-chinese-students/": {
+    "fingerprint": "d7e414c1f40e6b696f8ec97ef64858d3ba1d9221e2878e6428172e4f7c5b4998",
+    "lastmod": "2026-06-30"
+  },
+  "https://sgeda.org.cn/wace/wace-methods-vs-specialist/": {
+    "fingerprint": "338f124323284c924a785bca0c00a6809cc9c74f484dff85306d91bf784f7e52",
+    "lastmod": "2026-06-23"
+  },
+  "https://sgeda.org.cn/wace/wace-physics-vs-chemistry-chinese-students/": {
+    "fingerprint": "82ee0dcd5b078ba5a39f1f3684a3d4eb01e4d7a94450a8b2282ff5e8707381aa",
+    "lastmod": "2026-08-04"
+  },
+  "https://sgeda.org.cn/wace/wace-school-assessment-vs-atar-weighting/": {
+    "fingerprint": "151f615d4bb3835beb69e532ee8d7e0a55ce3506b6d9865473a97900eac53782",
+    "lastmod": "2026-08-12"
+  },
+  "https://sgeda.org.cn/wace/wace-singapore-local-scholarship/": {
+    "fingerprint": "badd12c25912eaa09addf6564179685a616892d572213809ffcfb5e424eef9ab",
+    "lastmod": "2026-08-31"
+  },
+  "https://sgeda.org.cn/wace/wace-specialist-difficulty/": {
+    "fingerprint": "aedee65e93585aa9308f5c43326f8baa7d083d3d96bc609f25b60a83fd7d9540",
+    "lastmod": "2026-07-07"
+  },
+  "https://sgeda.org.cn/wace/wace-subject-scaling-guide/": {
+    "fingerprint": "4d6c47d77bf543d266aa3c8e5db4b18bd11726235407661d5c13bc29174ab700",
+    "lastmod": "2026-09-14"
+  },
+  "https://sgeda.org.cn/wace/wace-subject-selection/": {
+    "fingerprint": "eb6ed00eee676fee30bd3057399d99f43e47e124e9ce39d00e83218e0f9cf003",
+    "lastmod": "2026-07-11"
+  },
+  "https://sgeda.org.cn/wace/wace-suitable-for-chinese-students/": {
+    "fingerprint": "a00d271717006606e6380b8c045557c7651f2131c8ca5c6e116d13a14fc3abd5",
+    "lastmod": "2026-06-02"
+  },
+  "https://sgeda.org.cn/wace/wace-tuition-fees/": {
+    "fingerprint": "6fa536183d366a24009ba96ad904db680875d88e7dfbae3c787e8f7cb65e2b80",
+    "lastmod": "2026-06-27"
+  },
+  "https://sgeda.org.cn/wace/wace-vs-ib-chinese-students/": {
+    "fingerprint": "5bb72ab092e267c5ee1e4ddc24a71873954f912e32386f6f9cc743f8b1af9a31",
+    "lastmod": "2026-07-16"
+  },
+  "https://sgeda.org.cn/wace/wace-year-11-transfer/": {
+    "fingerprint": "6c8439b1a6fdd75481f99d16baa845c0f59360c65d24130da41280e755ca97fc",
+    "lastmod": "2026-08-10"
+  },
+  "https://sgeda.org.cn/wace/wace-year-12-transfer/": {
+    "fingerprint": "0cf82630e2b61ca53693cc34e4627ee239864974ce2ccece286daddc73239039",
+    "lastmod": "2026-08-23"
+  },
+  "https://sgeda.org.cn/wace/what-is/": {
+    "fingerprint": "238d7d0bc0193306bc885e419a26f8c781c8612a93f968e6909cb91edcde9a54",
+    "lastmod": "2026-06-09"
+  },
+  "https://sgeda.org.cn/wace-atar/": {
+    "fingerprint": "35eff50460c5890fc834272ae589efce545c4a6b5a7fb08d324b0bd09ec51976",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/wace-nus-ntu/": {
+    "fingerprint": "79048671435e89204593d6642576369ddc3eb03338bdad78ddf200a021efd8a5",
+    "lastmod": "2026-06-15"
+  },
+  "https://sgeda.org.cn/wace-vs-a-level/": {
+    "fingerprint": "1b2990392dfc1e1fac4d6bcbdb1e9b179530f8af35356fe1d0a7a6e6b27b6491",
+    "lastmod": "2026-06-15"
+  }
+}

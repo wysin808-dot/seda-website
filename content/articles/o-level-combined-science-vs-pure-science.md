@@ -9,7 +9,7 @@ date: 2026-09-12
 draft: false
 ---
 
-![O-Level Combined Science与Pure Science选择对比](/assets/articles/o-level-combined-science-vs-pure-science-hero.png)
+![O-Level Combined Science与Pure Science选择对比](/assets/articles/o-level-combined-science-vs-pure-science-hero.jpg)
 
 O-Level 科学选科是很多中国家长在 Year 3 分流时面对的第一个关键决策。选 Combined Science 还是 Pure Science，不仅影响接下来两年的学习强度，更直接决定了 JC 科学方向的申请资格和 Poly 理工类专业的录取门槛。本文从课程结构、计分规则和升学后果三个层面给出完整拆解。
 
@@ -66,7 +66,7 @@ JC 录取有两个关口：L1R5 总分和科目前置条件。Combined Science �
 
 注意：Combined Science 在 L1R5 中只计为 **1科**，而双 Pure 可计为 **2科**。这意味着选 Combined 的学生需要确保其他科目（人文、数学等）有足够多的 A1/A2 来填满 R5 的五个位置。
 
-![Combined Science与Pure Science升学路径对比](/assets/articles/o-level-combined-science-vs-pure-science-mid.png)
+![Combined Science与Pure Science升学路径对比](/assets/articles/o-level-combined-science-vs-pure-science-mid.jpg)
 
 ## Combined Science 对 Poly 升学路径的实际影响
 

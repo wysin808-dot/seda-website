@@ -9,7 +9,7 @@ date: 2026-09-08
 draft: false
 ---
 
-![O-Level英文口试备考场景](/assets/articles/o-level-oral-exam-preparation-chinese-students-hero.png)
+![O-Level英文口试备考场景](/assets/articles/o-level-oral-exam-preparation-chinese-students-hero.jpg)
 
 新加坡 O-Level 英文口试（Oral Communication）占英文科目总分的 **20%**，却是中国学生失分最集中的环节。根据历年考生反馈，口语部分平均得分率比笔试低 **15%-20%**——同一份卷子读写拿 A2、口语却拖到 C5 的情况十分常见。本文将系统拆解口试评分标准、中国学生最容易踩的坑，并提供 3 个月分阶段训练方案。
 
@@ -50,7 +50,7 @@ O-Level English Oral Examination（Paper 4）由两部分组成：朗读（Readi
 | 话题积累期 | 第 5-8 周 | 高频话题词汇、观点模板、看图说话框架 | 每天 1 篇朗读 + 1 个话题练习 | 每个常见话题能输出 2 分钟以上 |
 | 模拟冲刺期 | 第 9-12 周 | 计时模拟、对话拓展练习、临场应对 | 每 2 天 1 次全真模拟 + 纠错复盘 | 适应考试节奏，对话环节自然扩展 |
 
-![O-Level口试训练方法图解](/assets/articles/o-level-oral-exam-preparation-chinese-students-mid.png)
+![O-Level口试训练方法图解](/assets/articles/o-level-oral-exam-preparation-chinese-students-mid.jpg)
 
 ## 不同题型应对策略速查
 

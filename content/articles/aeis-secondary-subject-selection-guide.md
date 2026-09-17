@@ -9,7 +9,7 @@ date: 2026-09-09
 draft: false
 ---
 
-![新加坡中学课堂场景](/assets/articles/aeis-secondary-subject-selection-guide-hero.png)
+![新加坡中学课堂场景](/assets/articles/aeis-secondary-subject-selection-guide-hero.jpg)
 
 通过AEIS考试进入新加坡政府中学只是第一步，真正决定孩子未来升学方向的关键节点，是入学后面临的科目选择与Sec2分流。不同的科目组合直接关系到三年后能申请JC还是Poly、能选理科还是文科——选错一步，可能要用整个中学阶段来弥补。
 
@@ -82,7 +82,7 @@ Sec1阶段建议保持开放心态，到Sec2上半年应根据期中/期末成�
 | Poly工程/IT类 | English + E-Math + A-Math + Pure Physics + Combined Science + D&T/Computing | ELR2B2 ≤15分，数学和科学成绩权重高 | [O-Level 申请Poly怎么选专业](/o-level/o-level-poly-course-choice/) |
 | Poly商科/医疗类 | English + E-Math + Combined Science + POA + Combined Humanities | ELR2B2 ≤12分（热门专业），英文成绩占比高 | [O-Level 之后读Poly还是JC](/o-level/o-level-poly-or-jc/) |
 
-![新加坡中学课堂学习场景](/assets/articles/aeis-secondary-subject-selection-guide-mid.png)
+![新加坡中学课堂学习场景](/assets/articles/aeis-secondary-subject-selection-guide-mid.jpg)
 
 ## Sec2分流前的关键时间节点
 

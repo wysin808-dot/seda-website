@@ -9,7 +9,7 @@ date: 2026-09-13
 draft: false
 ---
 
-![AEIS通过后新加坡中学科学课堂场景](/assets/articles/aeis-science-gap-china-students-hero.png)
+![AEIS通过后新加坡中学科学课堂场景](/assets/articles/aeis-science-gap-china-students-hero.jpg)
 
 每年AEIS放榜后，顺利通过考试的中国学生面临的第一个学术焦虑不是英文，而是科学。国内初中物理、化学成绩不错的孩子，进了新加坡中学后第一次Science测验经常不及格——不是因为学不会，而是因为两个教育体系对"科学"的定义完全不同。
 
@@ -59,7 +59,7 @@ draft: false
 | 假设 | Hypothesis | 通用 | 极高 |
 | 结论 | Conclusion | 通用 | 极高 |
 
-![学生在新加坡科学实验室进行分组实验](/assets/articles/aeis-science-gap-china-students-mid.png)
+![学生在新加坡科学实验室进行分组实验](/assets/articles/aeis-science-gap-china-students-mid.jpg)
 
 ## Express / NA / NT 三种分流下的Science课程差异
 
@@ -127,6 +127,6 @@ O-Level科学实验考试（Practical Exam）时长1小时45分钟，占总分�
 - [O-Level 科目怎么搭配——三门科学到六科组合的选科逻辑](/o-level/o-level-subject-combination/)
 - [AEIS考试难度——中国学生到底能考过吗](/aeis/aeis-difficulty/)
 - [新加坡留学一年总费用怎么估算](/guides/total-cost/)
-- [新加坡国际学校怎么选——类型与入学要求全解析](/international-school/international-school-how-to-choose/)
+- [新加坡国际学校怎么选——类型与入学要求全解析](/international-school/)
 - [WACE 课程主页](/wace/)
 - [全国AEIS考试备考专题](/aeis/)

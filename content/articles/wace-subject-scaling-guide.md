@@ -9,7 +9,7 @@ date: 2026-09-14
 draft: false
 ---
 
-![WACE 科目 scaling 规则与 ATAR 加分机制](/assets/articles/wace-subject-scaling-guide-hero.png)
+![WACE 科目 scaling 规则与 ATAR 加分机制](/assets/articles/wace-subject-scaling-guide-hero.jpg)
 
 WACE 的 ATAR 排名并非直接用卷面分数计算——每一科的成绩都要经过 **scaling（标准化调整）** 后才纳入 ATAR。同一份 75 分的原始成绩，在 Specialist Mathematics 和 Health Studies 两门课里缩放后的贡献截然不同，差值可达 10 分以上。对于中国学生而言，理解哪些科目"天然加分"、哪些科目即使考得好也"缩水"，比单纯刷分数更决定最终的大学录取方向。
 
@@ -68,7 +68,7 @@ Scaling 不改变原始分数在科目内部的排名，但决定了该科目分
 
 > 考生 A 和考生 C 考了完全相同的原始均分，但 ATAR 相差约 21 分——这个差距足以让一个学生从 NUS 工程系滑落到私立大学录取线。关于各大学的具体 ATAR 门槛，可参阅 [WACE ATAR 85 能上什么大学](/wace/wace-atar-85-university-options/) 和 [WACE 申请澳洲八大 ATAR 要求](/wace/wace-apply-australia-go8-atar/)。
 
-![WACE 科目组合与 ATAR 产出对比示意图](/assets/articles/wace-subject-scaling-guide-mid.png)
+![WACE 科目组合与 ATAR 产出对比示意图](/assets/articles/wace-subject-scaling-guide-mid.jpg)
 
 ## 中国学生的选课优势——哪些科目 scaling 回报最高？
 

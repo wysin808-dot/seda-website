@@ -9,7 +9,7 @@ date: 2026-09-17
 draft: false
 ---
 
-![AEIS 面试环节准备指南](/assets/articles/aeis-interview-preparation-chinese-students-hero.png)
+![AEIS 面试环节准备指南](/assets/articles/aeis-interview-preparation-chinese-students-hero.jpg)
 
 AEIS 考试通过后，面试是决定能否最终入读新加坡政府学校的最后一道关卡。对于英语非母语的中国学生而言，面试环节不仅考察语言能力，更测试临场反应、逻辑表达和文化适应力。本文从面试适用场景、高频问题类型、常见失误到实战准备清单，系统梳理中国学生需要掌握的全部面试策略。
 
@@ -62,7 +62,7 @@ AEIS 面试通常持续 10-20 分钟，由学校英文教师或年级主任主�
 | 语法准确性 | 20% | 基本时态正确，不影响理解 | 第三人称单数忘加 s、时态混用 | 重点练习一般现在时、一般过去时和现在完成时三种时态 |
 | 互动能力 | 15% | 能主动回应，有眼神交流和礼貌表达 | 被动等待提问，缺乏互动感 | 练习主动询问："Would you like me to explain more?" |
 
-![AEIS 面试英语口语训练要点](/assets/articles/aeis-interview-preparation-chinese-students-mid.png)
+![AEIS 面试英语口语训练要点](/assets/articles/aeis-interview-preparation-chinese-students-mid.jpg)
 
 ## 面试前实战准备时间表
 

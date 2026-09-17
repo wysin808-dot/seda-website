@@ -9,7 +9,7 @@ date: 2026-09-11
 draft: false
 ---
 
-![WACE 考试允许携带物品与计算器使用规则](/assets/articles/wace-exam-permitted-items-hero.png)
+![WACE 考试允许携带物品与计算器使用规则](/assets/articles/wace-exam-permitted-items-hero.jpg)
 
 每年 10 月底至 11 月是西澳 WACE（Western Australian Certificate of Education）的 ATAR 笔试季。相比于国内的纸笔考试，WACE 对考场内"能带什么、不能带什么"有非常具体且严格的规定——尤其是计算器和公式表，带错型号、带错版本，轻则被没收，重则被记违规记录。本文基于西澳课程与标准局（SCSA）的官方考场规则整理，供中国考生和家长考前对照检查。
 
@@ -60,7 +60,7 @@ WACE 数学类科目的计算器要求最严格。**Methods 与 Specialist 允�
 
 通常，SCSA 的公式表版本与考试大纲同步更新，考前务必确认用的是**当年最新版**，避免记住旧版常数。
 
-![WACE 考试计算器型号对比整理](/assets/articles/wace-exam-permitted-items-mid.png)
+![WACE 考试计算器型号对比整理](/assets/articles/wace-exam-permitted-items-mid.jpg)
 
 ## 禁带物品与常见违规红线
 

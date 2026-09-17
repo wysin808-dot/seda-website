@@ -9,7 +9,7 @@ date: 2026-09-15
 draft: false
 ---
 
-![O-Level DSA直接收生计划全解析](/assets/articles/o-level-dsa-guide-chinese-students-hero.png)
+![O-Level DSA直接收生计划全解析](/assets/articles/o-level-dsa-guide-chinese-students-hero.jpg)
 
 DSA（Direct School Admission，直接收生计划）是新加坡JC和部分中学在O-Level成绩公布之前提前锁定学生的特殊通道。对于中国学生家庭而言，DSA的核心价值在于：**当O-Level成绩可能处于边缘线时，DSA offer可以提供额外的录取保障**。但并非所有DSA领域都对中国学生开放，也不是所有领域都值得投入时间准备。
 
@@ -55,7 +55,7 @@ DSA对国际学生的态度因领域和学校而异。核心判断标准是：**
 
 > 艺术类DSA（舞蹈、美术）的要求同样严格——**不是"学过"就行，需要比赛获奖或考级证书作为量化依据**。家长在决定走DSA路线前，须客观评估孩子在该领域的真实水平在竞争者中的位置。
 
-![O-Level DSA各领域竞争力对比与准备周期](/assets/articles/o-level-dsa-guide-chinese-students-mid.png)
+![O-Level DSA各领域竞争力对比与准备周期](/assets/articles/o-level-dsa-guide-chinese-students-mid.jpg)
 
 ## DSA申请全流程时间线
 
@@ -148,11 +148,11 @@ DSA对国际学生的态度因领域和学校而异。核心判断标准是：**
 - [O-Level英文口试怎么准备——中国学生常见失分点与训练方法](/o-level/o-level-oral-exam-preparation-chinese-students/)
 - [O-Level之后读Poly还是JC——两条路径的升学出口与适合人群对比](/o-level/o-level-poly-or-jc/)
 - [O-Level私立学校和政府学校路径对比——入学方式与升学影响](/o-level/o-level-private-candidate-or-school-route/)
-- [O-Level选科怎么搭配——中国学生科目组合策略](/o-level/o-level-o-level-subject-combination/)
+- [O-Level选科怎么搭配——中国学生科目组合策略](/o-level/o-level-subject-combination/)
 - [O-Level Combined Science和Pure Science怎么选](/o-level/o-level-combined-science-vs-pure-science/)
 - [O-Level成绩不好还能读Poly吗——低分路径与备选方案](/o-level/o-level-low-score-poly/)
 - [O-Level重考值得吗——retake决策分析与时间成本](/o-level/o-level-retake-worth-it/)
 - [O-Level高级华文值得考吗——中国学生的加分策略](/o-level/o-level-higher-chinese-worth-it/)
 - [O-Level考完多久出成绩——成绩公布时间线与后续安排](/o-level/o-level-results-release-timeline/)
-- [中国初中生去新加坡读书怎么选路径——政府/国际/私立对比](/pathway/pathway-secondary-student-pathway/)
-- [中国学生升学新加坡路径怎么选——五大路径完整对比](/pathway/pathway-how-to-choose/)
+- [中国初中生去新加坡读书怎么选路径——政府/国际/私立对比](/pathway/by-age/)
+- [中国学生升学新加坡路径怎么选——五大路径完整对比](/pathway/)

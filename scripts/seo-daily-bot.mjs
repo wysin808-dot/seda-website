@@ -2,15 +2,17 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { SITE, baiduAllowed, inspectPage, parseSitemap } from './seo-pages.mjs';
-import { selectBatch, recordAccepted } from './baidu-queue.mjs';
+import { selectBatch } from './baidu-queue.mjs';
 
 const site = (process.env.SITE || SITE).replace(/\/$/, '');
 const root = process.env.SITE_DIR || process.cwd();
 const reportFile = process.env.SEO_DAILY_REPORT || path.join(root, 'reports/seo-daily-report.md');
 const stateFile = process.env.BAIDU_STATE_FILE || path.join(root, 'data/seo/baidu-state.json');
 const limit = Math.max(1, Math.min(5, Number(process.env.BAIDU_SUBMIT_LIMIT) || 5));
-const enabled = ['true', '1'].includes(process.env.SUBMIT_TO_BAIDU || 'false');
-const token = process.env.BAIDU_TOKEN;
+// Do not consume Baidu's daily URL-push quota. Sitemap discovery remains on.
+// This is intentionally hard-coded so an inherited GitHub Actions secret or
+// environment variable cannot accidentally reactivate automatic submissions.
+const pushDisabledReason = 'Automatic Baidu URL submission is disabled; sitemap discovery remains enabled.';
 const now = new Date();
 
 async function request(url, method = 'GET') {
@@ -57,7 +59,7 @@ function table(rows, keys) {
 
 const errors = [];
 let pages = [], sitemapEntries = [], baiduEntries = [], references = [], batch = [], blocked = 0;
-let push = { skipped: true, reason: enabled ? 'No eligible URLs' : 'Read-only check; Baidu submission disabled' };
+let push = { skipped: true, reason: pushDisabledReason };
 try {
   const [sitemap, robots, baiduSitemap] = await Promise.all(['sitemap.xml', 'robots.txt', 'baidu-sitemap.xml'].map(file => request(`${site}/${file}`)));
   for (const entry of [sitemap, robots, baiduSitemap]) if (entry.status !== 200) throw new Error(`Required resource HTTP ${entry.status}: ${entry.url}`);
@@ -98,20 +100,6 @@ try {
   const priorityFile = path.join(root, 'data/seo/priority-urls.txt');
   const priorities = fs.existsSync(priorityFile) ? fs.readFileSync(priorityFile, 'utf8').split(/\r?\n/).map(s => s.trim()).filter(s => s.startsWith(site + '/')) : [];
   batch = selectBatch(pages.filter(p => baiduSet.has(p.url)), state, limit, priorities, now);
-  if (enabled && !token) { push = { skipped: true, reason: 'BAIDU_TOKEN is missing' }; errors.push(push.reason); }
-  else if (enabled && batch.length) {
-    try {
-      const endpoint = `http://data.zz.baidu.com/urls?site=${encodeURIComponent(site)}&token=${encodeURIComponent(token)}`;
-      const response = await fetch(endpoint, { method: 'POST', headers: { 'Content-Type': 'text/plain' }, body: batch.map(p => p.url).join('\n'), signal: AbortSignal.timeout(20000) });
-      const body = await response.json();
-      push = { skipped: false, status: response.status, ok: response.ok && !body.error, submitted: batch.length, response: body, urls: batch.map(p => p.url) };
-      if (recordAccepted(state, batch, push, now)) {
-        fs.mkdirSync(path.dirname(stateFile), { recursive: true });
-        fs.writeFileSync(stateFile + '.tmp', JSON.stringify(state, null, 2));
-        fs.renameSync(stateFile + '.tmp', stateFile);
-      } else errors.push('Baidu did not confirm full acceptance; queue retained for retry');
-    } catch { push = { skipped: false, ok: false, error: 'Baidu response unavailable or invalid; queue unchanged' }; errors.push(push.error); }
-  }
 } catch (error) { errors.push(error.message); }
 
 const issues = [...errors, ...pages.flatMap(page => page.issues.map(issue => `${page.url}: ${issue}`))];

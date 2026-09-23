@@ -49,7 +49,6 @@ Disallow: /jc/*/
 Disallow: /poly/*/
 Disallow: /international-school/*/
 Disallow: /private-schools/*/
-Disallow: /sitemap.xml
 
 Sitemap: https://sgeda.org.cn/sitemap.xml
 Sitemap: https://sgeda.org.cn/baidu-sitemap.xml

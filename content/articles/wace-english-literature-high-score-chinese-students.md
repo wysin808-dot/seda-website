@@ -9,7 +9,7 @@ date: 2026-09-19
 draft: false
 ---
 
-![WACE English/Literature 高分备考指南](/assets/articles/wace-english-literature-high-score-chinese-students-hero.png)
+![WACE English/Literature 高分备考指南](/assets/articles/wace-english-literature-high-score-chinese-students-hero.jpg)
 
 WACE English 和 Literature 是中国学生在西澳高中课程中面临的最大挑战之一。与数学、物理等理科科目不同，英文类科目没有"标准答案"——评分依赖论证深度、语言精准度和文体意识，而这三项恰恰是中文母语学生的天然短板。根据历年 WACE 数据，English 和 Literature 的 ATAR 平均分明显低于中国学生在 Methods 和 Specialist 中的表现，但这两门课又是 ATAR 计算的必选或强推荐科目，其 scaling 权重直接拖拽最终排名。本文从评分机制、写作策略、扣分雷区和选课对比四个维度拆解高分路径。
 
@@ -59,7 +59,7 @@ WACE English ATAR 的评分围绕四个核心维度展开，每个维度在总�
 
 对比 O-Level 英文写作，[O-Level 英文作文怎么写能拿高分](/o-level/o-level-english-composition-high-score/) 中的部分策略（如 PEEL 结构、语境词库）同样适用于 WACE，但 WACE 对论证深度和独立批判性思维的要求更高一个量级。
 
-![WACE English 写作策略与评分框架](/assets/articles/wace-english-literature-high-score-chinese-students-mid.png)
+![WACE English 写作策略与评分框架](/assets/articles/wace-english-literature-high-score-chinese-students-mid.jpg)
 
 ## WACE English 三种 Essay 类型与写作要点
 

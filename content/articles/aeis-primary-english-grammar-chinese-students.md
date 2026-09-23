@@ -9,7 +9,7 @@ date: 2026-09-19
 draft: false
 ---
 
-![AEIS 小学英文语法专项——中国学生最容易出错的语法点与纠错练习](/assets/articles/aeis-primary-english-grammar-chinese-students-hero.png)
+![AEIS 小学英文语法专项——中国学生最容易出错的语法点与纠错练习](/assets/articles/aeis-primary-english-grammar-chinese-students-hero.jpg)
 
 AEIS 小学组（P2-P5）英文考试中，语法是占比最高的模块之一。与词汇、阅读理解不同，语法错误往往成批出现——一个冠词遗漏、一处时态混淆，在阅卷中直接扣分。中国学生因中文母语中不存在冠词、时态变化、单复数等语法范畴，在 AEIS 语法题型中系统性吃亏。本文梳理六大高频失分点，提供纠错对照表和专项训练计划。
 
@@ -93,7 +93,7 @@ AEIS 小学组英文试卷分为两卷：Paper 1（写作）与 Paper 2（语言
 | **for** | 时间段（多久） | for two hours, for a week | 混淆 since：~~for 2020~~ |
 | **since** | 时间起点（自…以来） | since 2020, since Monday | 混淆 for：~~since two hours~~ |
 
-![AEIS 小学英文语法常见错误分类与占比](/assets/articles/aeis-primary-english-grammar-chinese-students-mid.png)
+![AEIS 小学英文语法常见错误分类与占比](/assets/articles/aeis-primary-english-grammar-chinese-students-mid.jpg)
 
 ## 30 天语法专项提升计划
 

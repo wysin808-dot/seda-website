@@ -9,7 +9,7 @@ date: 2026-09-20
 draft: false
 ---
 
-![O-Level POA会计原理科目选科指南](/assets/articles/o-level-poa-worth-it-chinese-students-hero.png)
+![O-Level POA会计原理科目选科指南](/assets/articles/o-level-poa-worth-it-chinese-students-hero.jpg)
 
 O-Level 选科是决定后续升学路径的关键节点。在人文/选修科目中，Principles of Accounts（POA，会计原理）是一门常被中国家长忽视但实际升学价值极高的科目。与国内初中阶段几乎不涉及会计不同，新加坡 O-Level POA 为后续 Polytechnic 商科类课程和 JC 经济/商业学习提供了直接的知识基础。本文从课程内容、难度、升学衔接和就业前景四个角度，为正在纠结选科的家庭提供完整的决策参考。
 
@@ -47,7 +47,7 @@ POA 全称 Principles of Accounts（会计原理），属于 O-Level 选修科�
 
 POA 的独特优势在于其**规则明确、评分客观**——有标准答案的科目对中国学生更友好，不像人文学科那样高度依赖英文论述能力和本地文化背景。
 
-![O-Level会计课堂学习场景](/assets/articles/o-level-poa-worth-it-chinese-students-mid.png)
+![O-Level会计课堂学习场景](/assets/articles/o-level-poa-worth-it-chinese-students-mid.jpg)
 
 ## POA 对 Polytechnic 商科升学的实际价值
 
@@ -63,7 +63,7 @@ POA 的独特优势在于其**规则明确、评分客观**——有标准答案
 | Nanyang Poly | 会计与金融（Accountancy & Finance） | 7-15 | 面试环节展示专业知识，录取竞争力+ |
 | Republic Poly | 商业管理（Business Management） | 10-20 | 问题导向学习（PBL）中对财务数据的敏感度 |
 
-对于分数在 15-20 分区间、考虑 O-Level 后直接读 Poly 的学生，POA 是少数能将"考试成绩"转化为"大学第一年实际优势"的科目。更多关于 Poly 专业选择的策略，可参考 [O-Level申请Poly怎么选专业](/o-level/o-level-o-level-poly-course-choice/)。
+对于分数在 15-20 分区间、考虑 O-Level 后直接读 Poly 的学生，POA 是少数能将"考试成绩"转化为"大学第一年实际优势"的科目。更多关于 Poly 专业选择的策略，可参考 [O-Level申请Poly怎么选专业](/o-level/o-level-poly-course-choice/)。
 
 ## POA 对 JC 升学路径的影响
 
@@ -78,7 +78,7 @@ POA 的独特优势在于其**规则明确、评分客观**——有标准答案
 | HELM（历史/经济/文学/数学） | ⭐⭐⭐ | POA的财务分析能力有助于经济试题中的数据解读部分 |
 | PMEG（物理/数学/经济/地理） | ⭐⭐⭐⭐ | 经济部分有概念优势，但整体组合更适合理科背景 |
 
-需注意：POA 本身不是 L1R5 的计算科目（除非学校将其计入 Humanities basket），因此选 POA 时需确保其他 Humanities 或 Science 科目的成绩能撑起 L1R5 总分。关于 JC 录取分的完整说明，参见 [O-Level申请JC需要多少分](/o-level/o-level-o-level-jc-score/)。
+需注意：POA 本身不是 L1R5 的计算科目（除非学校将其计入 Humanities basket），因此选 POA 时需确保其他 Humanities 或 Science 科目的成绩能撑起 L1R5 总分。关于 JC 录取分的完整说明，参见 [O-Level申请JC需要多少分](/o-level/o-level-jc-score/)。
 
 ### L1R5 计算中 POA 的定位
 
@@ -104,7 +104,7 @@ POA 的独特优势在于其**规则明确、评分客观**——有标准答案
 | 竞争环境 | 报考人数少（约1.2万/年），相对赛道不拥挤 | 学校开设POA的班级数量有限，可能排课冲突 | 目标学校已开设POA课程 |
 | 长期价值 | 财务素养是终身技能，大学/职场均有用 | JC阶段若放弃商科方向，POA知识可能闲置 | 大学考虑商科/经济/管理方向的学生 |
 
-关于更广泛的选科策略，可参考 [O-Level科目怎么搭配](/o-level/o-level-o-level-subject-combination/) 和 [O-Level选科对JC升学有什么影响](/o-level/o-level-subject-combination-jc-admission/)。
+关于更广泛的选科策略，可参考 [O-Level科目怎么搭配](/o-level/o-level-subject-combination/) 和 [O-Level选科对JC升学有什么影响](/o-level/o-level-subject-combination-jc-admission/)。
 
 ## 常见问题
 
@@ -118,7 +118,7 @@ POA 的独特优势在于其**规则明确、评分客观**——有标准答案
 
 ### POA 成绩不好会影响 JC 申请吗？
 
-POA 不在 L1R5 的强制性计分科目中（L1 必须是语言，R2 必须是数学/科学），因此 POA 成绩即使不理想也不会直接影响 JC 录取资格。它只能计入 R1（人文篮子，部分学校认可）、R3、R4 或 R5 中的最佳科目位置。如果 POA 成绩排在 6 科中较后的位置，L1R5 取前 6 门时会被自动排除。关于分数不够的替代路径，可参考 [O-Level成绩不好还能读Poly吗](/o-level/o-level-o-level-low-score-poly/)。
+POA 不在 L1R5 的强制性计分科目中（L1 必须是语言，R2 必须是数学/科学），因此 POA 成绩即使不理想也不会直接影响 JC 录取资格。它只能计入 R1（人文篮子，部分学校认可）、R3、R4 或 R5 中的最佳科目位置。如果 POA 成绩排在 6 科中较后的位置，L1R5 取前 6 门时会被自动排除。关于分数不够的替代路径，可参考 [O-Level成绩不好还能读Poly吗](/o-level/o-level-low-score-poly/)。
 
 ### 选 POA 后还能改选其他科目吗？
 
@@ -137,14 +137,14 @@ POA 不在 L1R5 的强制性计分科目中（L1 必须是语言，R2 必须是�
 这是两个完全不同的科目方向。A-Math（高级数学）侧重抽象数学推理（微积分、向量、三角函数），POA 侧重商业逻辑和规范操作。从中国学生群体反馈来看：A-Math 的"理解门槛"更高（需要较强的数学悟性），但 POA 的"记忆量"更大（术语、格式规范）。在得分稳定性上，POA 的规律性操作更多，A-Math 的开放性难题更多——因此 POA 对中间分数段（C5-B3）的学生更友好，A-Math 的分数分布两极分化更严重。
 
 [相关阅读]
-- [O-Level 选科怎么搭配——中国学生各科目难度与选科策略](/o-level/o-level-o-level-subject-combination/)
-- [O-Level 申请 Poly 怎么选专业——五大Poly优势专业与录取分数线](/o-level/o-level-o-level-poly-course-choice/)
+- [O-Level 选科怎么搭配——中国学生各科目难度与选科策略](/o-level/o-level-subject-combination/)
+- [O-Level 申请 Poly 怎么选专业——五大Poly优势专业与录取分数线](/o-level/o-level-poly-course-choice/)
 - [O-Level 之后读 Poly 还是 JC——两条升学路径的全面对比](/o-level/o-level-poly-or-jc/)
 - [O-Level 英文难度对中国学生高吗——听说读写各模块分析与高分策略](/o-level/o-level-english-difficulty-chinese-students/)
-- [O-Level 成绩不好还能读 Poly 吗——低分逆袭路径与备选方案](/o-level/o-level-o-level-low-score-poly/)
+- [O-Level 成绩不好还能读 Poly 吗——低分逆袭路径与备选方案](/o-level/o-level-low-score-poly/)
 - [O-Level 中国学生最容易拿 A1 的科目——各科A1率排名与投入产出比对比](/o-level/o-level-easiest-subjects-chinese-students/)
 - [O-Level 选科对 JC 升学有什么影响——科目组合与 L1R5 计算规则](/o-level/o-level-subject-combination-jc-admission/)
-- [O-Level 申请 JC 需要多少分——各JC录取分数线与选校策略](/o-level/o-level-o-level-jc-score/)
+- [O-Level 申请 JC 需要多少分——各JC录取分数线与选校策略](/o-level/o-level-jc-score/)
 - [O-Level 考试结束后如何度过等待期——成绩公布前的关键时间节点与准备清单](/o-level/o-level-results-release-timeline/)
-- [O-Level 重考值得吗——私考生重考策略与大学申请影响分析](/o-level/o-level-o-level-retake-worth-it/)
+- [O-Level 重考值得吗——私考生重考策略与大学申请影响分析](/o-level/o-level-retake-worth-it/)
 - [新加坡 O-Level 考试全指南——中国学生备考与升学路径](/o-level/)

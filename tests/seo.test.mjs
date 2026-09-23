@@ -51,6 +51,11 @@ test('robots honors approved exceptions without opening blocked school pages', (
   assert.equal(allow(SITE + '/jc/blocked/'), false);
   assert.equal(allow('https://other.example/jc/'), false);
 });
+test('robots keeps declared sitemap resources crawlable', () => {
+  const allow = baiduAllowed('User-agent: *\nAllow: /\n\nUser-agent: Baiduspider\nAllow: /\n');
+  assert.equal(allow(SITE + '/sitemap.xml'), true);
+  assert.equal(allow(SITE + '/baidu-sitemap.xml'), true);
+});
 test('sitemap parser supports one entry, empty lists and XML entities', () => {
   const entries = [{ url: SITE + '/test/?a=1&b=2', lastmod: '2026-09-07' }];
   assert.deepEqual(parseSitemap(sitemapXml(entries)), entries);

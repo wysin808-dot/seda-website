@@ -9,13 +9,13 @@ date: 2026-09-22
 draft: false
 ---
 
-![WACE学生申请新加坡私立大学路径概览](/assets/articles/wace-apply-singapore-private-university-hero.png)
+![WACE学生申请新加坡私立大学路径概览](/assets/articles/wace-apply-singapore-private-university-hero.jpg)
 
 WACE 毕业生在申请大学时，绝大多数家庭的目光聚焦在澳洲八大和新加坡公立大学（NUS/NTU/SMU）上。但 ATAR 成绩未达公立大学门槛、或希望以更灵活方式获取英澳名校学位的中国学生，往往忽略了一条"高性价比"的路径——通过 WACE 成绩直接申请新加坡私立大学（SIM、PSB Academy、Kaplan 等），在新加坡完成英国或澳洲合作大学的本科课程。本文将系统梳理各校 ATAR 门槛、合作大学含金量、费用结构与申请流程。
 
 ## 新加坡私立大学 vs 公立大学——WACE 申请的核心差异
 
-持有 WACE 成绩的中国学生对新加坡公立大学（[NUS/NTU/SMU](/wace/wace-wace-apply-ntu-difficulty/)）的申请流程较为熟悉，但私立大学的录取逻辑完全不同。公立大学以择优录取为核心，热门专业 ATAR 门槛通常在 85-95 分区间；而私立大学以"资格审核"为主——达到最低门槛即可获得录取，不存在激烈的席位竞争。
+持有 WACE 成绩的中国学生对新加坡公立大学（[NUS/NTU/SMU](/wace/wace-apply-ntu-difficulty/)）的申请流程较为熟悉，但私立大学的录取逻辑完全不同。公立大学以择优录取为核心，热门专业 ATAR 门槛通常在 85-95 分区间；而私立大学以"资格审核"为主——达到最低门槛即可获得录取，不存在激烈的席位竞争。
 
 | 对比维度 | 新加坡公立大学 | 新加坡私立大学 |
 |---------|-------------|-------------|
@@ -39,7 +39,7 @@ WACE 毕业生在申请大学时，绝大多数家庭的目光聚焦在澳洲八
 | MDIS | 桑德兰大学、班戈大学、提赛德大学 | ATAR 50-60 | 门槛最低，适合 ATAR 偏低的学生 |
 | Curtin Singapore | 科廷大学（澳洲直属校区） | ATAR 70 | 澳洲科廷大学的新加坡直属校区 |
 
-需要注意的是，上表中的"最低要求"是以澳洲 ATAR 为基准。WACE 成绩直接使用 ATAR 排名分，无需额外转换——这与 [WACE 申请澳洲八大](/wace/wace-wace-apply-australia-go8-atar/) 的逻辑完全一致。
+需要注意的是，上表中的"最低要求"是以澳洲 ATAR 为基准。WACE 成绩直接使用 ATAR 排名分，无需额外转换——这与 [WACE 申请澳洲八大](/wace/wace-apply-australia-go8-atar/) 的逻辑完全一致。
 
 ## 合作大学学位含金量——回国认证与全球认可
 
@@ -62,7 +62,7 @@ WACE 毕业生在申请大学时，绝大多数家庭的目光聚焦在澳洲八
 
 中国学生在新加坡私立大学中最常选择的专业集中在商科、工程、IT 与传媒四大方向。不同院校有各自的优势学科。
 
-![新加坡私立大学热门专业方向选择](/assets/articles/wace-apply-singapore-private-university-mid.png)
+![新加坡私立大学热门专业方向选择](/assets/articles/wace-apply-singapore-private-university-mid.jpg)
 
 | 专业方向 | 推荐院校 | 代表课程 | 学制 | 预估总学费（S$） |
 |---------|---------|---------|------|----------------|
@@ -73,11 +73,11 @@ WACE 毕业生在申请大学时，绝大多数家庭的目光聚焦在澳洲八
 | 传媒与传播 | MDIS（桑德兰） | BA Media & Communication | 2年 | 25,000-35,000 |
 | 心理学 | SIM（RMIT） | BSc Psychology | 3年 | 38,000-48,000 |
 
-对于 WACE 阶段选择了 [Specialist 数学](/wace/wace-wace-methods-vs-specialist/) 的学生，工程和计算机专业有天然优势——纽卡斯尔大学的工程学位明确要求数学达到一定水平。而 [WACE 选课偏文科](/wace/wace-wace-subject-selection/) 的学生，商科和传媒是更匹配的方向。
+对于 WACE 阶段选择了 [Specialist 数学](/wace/wace-methods-vs-specialist/) 的学生，工程和计算机专业有天然优势——纽卡斯尔大学的工程学位明确要求数学达到一定水平。而 [WACE 选课偏文科](/wace/wace-subject-selection/) 的学生，商科和传媒是更匹配的方向。
 
 ## 申请流程与关键时间节点
 
-WACE 成绩通常在每年 12 月下旬公布（[ATAR 成绩公布时间](/wace/wace-wace-atar-calculation/)可参考链接）。私立大学的入学时间比公立大学灵活得多，多数院校一年有 3-4 个入学窗口。
+WACE 成绩通常在每年 12 月下旬公布（[ATAR 成绩公布时间](/wace/wace-atar-calculation/)可参考链接）。私立大学的入学时间比公立大学灵活得多，多数院校一年有 3-4 个入学窗口。
 
 | 时间节点 | 行动事项 | 备注 |
 |---------|---------|------|
@@ -104,7 +104,7 @@ WACE 成绩通常在每年 12 月下旬公布（[ATAR 成绩公布时间](/wace/
 | 生活费（饮食交通通讯） | 600-1,000/月 | 中等消费水平 |
 | **两年总计估算** | **S$48,000-85,000** | 约人民币 25-45 万 |
 
-对比 [WACE 阶段私立学校学费](/wace/wace-wace-tuition-fees/)，大学阶段的费用结构更为透明。需要注意的是，部分私立大学的合作课程提供加速路径（如 Kaplan 的 UCD 商科最快 18 个月完成），总费用显著低于标准 3 年制课程。
+对比 [WACE 阶段私立学校学费](/wace/wace-tuition-fees/)，大学阶段的费用结构更为透明。需要注意的是，部分私立大学的合作课程提供加速路径（如 Kaplan 的 UCD 商科最快 18 个月完成），总费用显著低于标准 3 年制课程。
 
 ## 常见问题
 
@@ -122,7 +122,7 @@ WACE 成绩通常在每年 12 月下旬公布（[ATAR 成绩公布时间](/wace/
 
 ### WACE 申请私立大学需要雅思吗？
 
-大多数情况需要，但部分院校接受 WACE EALD 成绩替代雅思。WACE EALD 达到 C 级或以上通常等同于雅思 6.0-6.5。关于 EALD 的具体作用，可参阅 [WACE EALD 详解](/wace/wace-wace-eald-what-is/)。如果 EALD 成绩偏低，建议额外准备雅思考试。
+大多数情况需要，但部分院校接受 WACE EALD 成绩替代雅思。WACE EALD 达到 C 级或以上通常等同于雅思 6.0-6.5。关于 EALD 的具体作用，可参阅 [WACE EALD 详解](/wace/wace-eald-what-is/)。如果 EALD 成绩偏低，建议额外准备雅思考试。
 
 ### PSB 和 Kaplan 哪个更好？
 
@@ -137,13 +137,13 @@ WACE 成绩通常在每年 12 月下旬公布（[ATAR 成绩公布时间](/wace/
 有，但数量和金额远低于公立大学。SIM 提供 SIM Global Education Scholarship（减免 50%-100% 学费），PSB 设有 Merit Award（减免 S$2,000-5,000），Kaplan 提供 Academic Excellence Scholarship。WACE ATAR 80+ 的学生申请成功率较高。关于奖学金的完整盘点，可参考 [WACE 申请新加坡本地奖学金](/wace/wace-singapore-local-scholarship/)。
 
 [相关阅读]
-- [WACE ATAR 怎么算——从单科成绩到 ATAR 排名的完整解析](/wace/wace-wace-atar-calculation/)
-- [WACE 申请澳洲八大需要多少 ATAR](/wace/wace-wace-apply-australia-go8-atar/)
+- [WACE ATAR 怎么算——从单科成绩到 ATAR 排名的完整解析](/wace/wace-atar-calculation/)
+- [WACE 申请澳洲八大需要多少 ATAR](/wace/wace-apply-australia-go8-atar/)
 - [WACE ATAR 85 能上什么大学——澳洲、新加坡、香港三地对比](/wace/wace-atar-85-university-options/)
-- [WACE 适合中国学生吗——优劣势全面对比](/wace/wace-wace-suitable-for-chinese-students/)
+- [WACE 适合中国学生吗——优劣势全面对比](/wace/wace-suitable-for-chinese-students/)
 - [WACE 新加坡哪所学校好——开设 WACE 课程的院校盘点](/wace/wace-best-schools-singapore/)
-- [WACE EALD 是什么——中国学生英文豁免路径详解](/wace/wace-wace-eald-what-is/)
+- [WACE EALD 是什么——中国学生英文豁免路径详解](/wace/wace-eald-what-is/)
 - [WACE 科目 scaling 规则——哪些科目天然加分多](/wace/wace-subject-scaling-guide/)
-- [WACE 申请 NTU/NUS 难在哪里——中国学生真实门槛](/wace/wace-wace-apply-ntu-difficulty/)
-- [WACE 申请英国大学——UCAS 流程与录取要求](/wace/wace-wace-apply-uk-university/)
+- [WACE 申请 NTU/NUS 难在哪里——中国学生真实门槛](/wace/wace-apply-ntu-difficulty/)
+- [WACE 申请英国大学——UCAS 流程与录取要求](/wace/wace-apply-uk-university/)
 - [O-Level 后读 Poly 还是 JC——不同路径的升学结果对比](/o-level/o-level-poly-or-jc/)

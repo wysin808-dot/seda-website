@@ -5,11 +5,11 @@ keywords: O-Level成绩复议,O-Level appeal流程,O-Level review of results,O-L
 category: o-level
 categoryLabel: O-Level 升学
 slug: o-level-appeal-review-of-results-guide
-date: 2026-09-24
+date: 2026-09-23
 draft: false
 ---
 
-![O-Level 成绩复议场景示意图](/assets/articles/o-level-appeal-review-of-results-guide-hero.png)
+![O-Level 成绩复议场景示意图](/assets/articles/o-level-appeal-review-of-results-guide-hero.jpg)
 
 新加坡 O-Level 成绩公布后，如果实际分数与预期差距较大，可以通过 SEAB（新加坡考试与评鉴局）的正式渠道申请成绩复核。中国家长需要了解：复议不是"重新改卷"，而是核对计分和评级流程是否有技术性错误——这决定了复议的方向和预期。
 
@@ -75,7 +75,7 @@ SEAB 不公开发布复议成功率统计，但根据新加坡教育界一线反
 
 ## 操作步骤清单
 
-![O-Level 复议申请流程时间线](/assets/articles/o-level-appeal-review-of-results-guide-mid.png)
+![O-Level 复议申请流程时间线](/assets/articles/o-level-appeal-review-of-results-guide-mid.jpg)
 
 | 步骤 | 操作内容 | 负责人 | 时间 |
 |-----|---------|-------|------|

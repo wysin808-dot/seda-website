@@ -3,6 +3,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { SITE, baiduAllowed, inspectPage, parseSitemap } from './seo-pages.mjs';
 import { selectBatch } from './baidu-queue.mjs';
+import { observationSummary } from './search-observations.mjs';
 
 const site = (process.env.SITE || SITE).replace(/\/$/, '');
 const root = process.env.SITE_DIR || process.cwd();
@@ -103,8 +104,10 @@ try {
 } catch (error) { errors.push(error.message); }
 
 const issues = [...errors, ...pages.flatMap(page => page.issues.map(issue => `${page.url}: ${issue}`))];
+const observations = observationSummary(path.join(root, 'data/seo/search-observations.jsonl'));
 const result = { generated: now.toISOString(), site, sitemapUrls: sitemapEntries.length, baiduSitemapUrls: baiduEntries.length,
-  checked: pages.length, robotsExcluded: blocked, issues, push, nextBatch: batch.map(p => p.url), pages, references };
+  checked: pages.length, robotsExcluded: blocked, issues, push, observations,
+  tokenStatus: 'not_tested', serverSubmissionStatus: 'not_observed', nextBatch: batch.map(p => p.url), pages, references };
 const report = `# SEDA SEO Daily Bot
 
 Generated: ${result.generated}
@@ -132,6 +135,18 @@ Accepted URLs are discovery submissions, not proof of Baidu indexing or ranking.
 ## Priority Fix List
 
 ${table(issues.slice(0, 100).map(Issue => ({ Issue })), ['Issue'])}
+
+## Measurement Coverage
+
+- BAIDU_TOKEN: not tested; automatic push is disabled.
+- Server submission ledger: not observed by this GitHub run. Check CMS separately.
+- Search / AI observations: ${observations.status}; ${observations.records} recorded observations; ${observations.invalid} invalid records.
+- Missing observations are unknown, not zero traffic or zero indexing.
+- Technical checks do not verify factual accuracy or real AI citations.
+
+${table(observations.search.map(row => ({ Platform: row.platform, Period: `${row.periodStart}..${row.periodEnd}`, Observed: row.date, Indexed: row.indexed ?? 'unknown', Impressions: row.impressions ?? 'unknown', Clicks: row.clicks ?? 'unknown' })), ['Platform', 'Period', 'Observed', 'Indexed', 'Impressions', 'Clicks'])}
+
+${table(observations.citations.map(row => ({ Platform: row.platform, Tested: row.tested, Cited: row.tested ? row.cited : 'unknown', Latest: row.latest || 'not tested' })), ['Platform', 'Tested', 'Cited', 'Latest'])}
 
 ## Live Check
 

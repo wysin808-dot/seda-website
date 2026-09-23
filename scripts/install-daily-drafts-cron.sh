@@ -2,7 +2,7 @@
 set -euo pipefail
 
 SITE_DIR="${SITE_DIR:-/var/www/sgeda}"
-COUNT="${CONTENT_DRAFT_COUNT:-5}"
+COUNT="${CONTENT_DRAFT_COUNT:-1}"
 LOG_DIR="$SITE_DIR/data/logs"
 LOG_FILE="$LOG_DIR/daily-drafts.log"
 CRON_FILE="/etc/cron.d/sgeda-daily-drafts"
@@ -13,8 +13,8 @@ cat > "$CRON_FILE" <<EOF
 SHELL=/bin/bash
 PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 
-# Generate SEDA SEO drafts every day at 09:00 Singapore/China time.
-0 9 * * * root cd $SITE_DIR && npm run content:drafts -- --count=$COUNT >> $LOG_FILE 2>&1 && npm run content:build >> $LOG_FILE 2>&1 && pm2 restart seda-api --update-env >> $LOG_FILE 2>&1
+# Generate one research brief on Monday/Wednesday/Friday, never auto-publish.
+0 9 * * 1,3,5 root cd $SITE_DIR && npm run content:drafts -- --count=$COUNT >> $LOG_FILE 2>&1 && npm run content:build >> $LOG_FILE 2>&1 && pm2 restart seda-api --update-env >> $LOG_FILE 2>&1
 EOF
 
 chmod 644 "$CRON_FILE"

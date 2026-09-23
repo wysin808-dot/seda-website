@@ -52,10 +52,10 @@ npm run content:build
 
 每日选题可先放在 `content/keyword-queue.csv`。
 
-自动生成 5 篇待审核 SEO 草稿：
+生成 1 个待核实的研究提纲（不是可直接发布的文章）：
 
 ```bash
-npm run content:drafts -- --count=5
+npm run content:drafts -- --count=1
 npm run content:build
 ```
 
@@ -65,10 +65,10 @@ npm run content:build
 - 草稿会进入 `/cms/` 的“待审核”
 - 审核通过后才会生成正式文章页、更新首页、资讯页和 sitemap
 
-服务器定时任务建议每天早上 9 点执行：
+默认定时任务调整为每周一、三、五早上 9 点，各生成 1 个提纲；执行时间沿用服务器时区。手动执行：
 
 ```bash
-cd /var/www/sgeda && npm run content:drafts -- --count=5 && npm run content:build && pm2 restart seda-api --update-env
+cd /var/www/sgeda && npm run content:drafts -- --count=1 && npm run content:build && pm2 restart seda-api --update-env
 ```
 
 部署到 ECS 后，也可以直接安装定时任务：

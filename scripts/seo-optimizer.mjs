@@ -1,3 +1,5 @@
+import { editorialIssues, sourceLinks } from './editorial-policy.mjs';
+
 const categoryImageThemes = {
   wace: {
     filenamePrefix: 'wace',
@@ -127,7 +129,7 @@ export function imagePlanForArticle(meta = {}) {
   const keyword = cleanKeyword(meta.primaryKeyword || meta.title || meta.slug || '新加坡升学');
   const slug = safeSlugPart(`${theme.filenamePrefix}-${meta.slug || keyword}`);
   return {
-    required: true,
+    required: false,
     count: 2,
     heroFilename: `${slug}-cover.webp`,
     heroAlt: `${keyword}：${theme.altSuffix}`,
@@ -174,10 +176,10 @@ export function optimizeArticle({ meta = {}, body = '', html = '', inSitemap = f
   else if (description.length < 55) pushIssue(issues, 'warning', 'description 偏短，建议 55-110 字');
   else if (description.length > 125) pushIssue(issues, 'warning', 'description 偏长，建议控制在 125 字内');
 
-  if (length < 1500) pushIssue(issues, 'warning', `正文偏短（约 ${length} 字），建议 1500 字以上`);
-  if (h2Count < 5) pushIssue(issues, 'warning', 'H2 小标题偏少，建议至少 5 个结构段落');
-  if (!hasFaq) pushIssue(issues, 'warning', '缺少 FAQ/常见问题段落');
-  if (faqCount < 5) pushIssue(issues, 'warning', `FAQ 问题偏少（${faqCount} 个），建议 5-8 个`);
+  const reviewIssues = editorialIssues(meta, body);
+  for (const message of reviewIssues) pushIssue(issues, 'warning', message);
+  const reviewed = Boolean(meta.reviewedBy && meta.factCheckedAt);
+  if (!reviewed) pushIssue(issues, 'warning', '尚无事实复核人或复核日期，自动分数不代表事实正确');
   if (internalLinks.length < 3) pushIssue(issues, 'warning', '站内内链偏少，建议至少 3-5 个');
   if (missingCoreLinks.length >= 2) pushIssue(issues, 'warning', `建议补充核心内链：${missingCoreLinks.slice(0, 3).join('、')}`);
   if (!images.length) pushIssue(issues, 'warning', '缺少正文图片，建议至少 1 张首图或信息图');
@@ -190,7 +192,7 @@ export function optimizeArticle({ meta = {}, body = '', html = '', inSitemap = f
   if (!images.length) suggestions.push(`补首图：${imagePlan.heroFilename}，alt="${imagePlan.heroAlt}"`);
   suggestions.push(`信息图建议：${imagePlan.infographicAlt}`);
   if (missingCoreLinks.length) suggestions.push(`优先补内链：${missingCoreLinks.slice(0, 4).join('、')}`);
-  if (faqCount < 5) suggestions.push('发布前把 FAQ 扩展到 5-8 个问题，方便读者快速找到重点。');
+  suggestions.push('按读者问题组织正文；表格、图片和 FAQ 按需使用，不为数量补写。');
 
   const penalty = issues.reduce((sum, issue) => sum + (issue.severity === 'error' ? 24 : 7), 0);
   const score = Math.max(0, 100 - penalty);
@@ -199,7 +201,7 @@ export function optimizeArticle({ meta = {}, body = '', html = '', inSitemap = f
   return {
     score,
     level,
-    recommendedPublish: level !== 'error' && score >= 78,
+    recommendedPublish: level !== 'error' && reviewIssues.length === 0 && reviewed,
     suggestedTitle: suggestedSeoTitle(keyword || title, category),
     suggestedDescription: suggestedDescription(keyword || title, meta.categoryLabel || meta.category || '新加坡升学'),
     metrics: {
@@ -208,6 +210,8 @@ export function optimizeArticle({ meta = {}, body = '', html = '', inSitemap = f
       faqCount,
       internalLinkCount: internalLinks.length,
       imageCount: images.length,
+      sourceCount: sourceLinks(body).length,
+      factReviewed: reviewed,
     },
     images,
     imagePlan,

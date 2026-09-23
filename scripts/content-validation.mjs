@@ -1,11 +1,24 @@
 import fs from 'node:fs';
 import { load } from 'cheerio';
 import { SITE, localFile } from './seo-pages.mjs';
+import { parseSitemap, inspectPage } from './seo-pages.mjs';
+
+export function verifyBuiltPublication(root, route) {
+  const file = localFile(root, route);
+  if (!file || !fs.existsSync(file)) throw new Error(`Published page missing: ${route}`);
+  const url = new URL(route, SITE).href;
+  const page = inspectPage(fs.readFileSync(file, 'utf8'), url);
+  if (page.issues.length) throw new Error(`Published page invalid: ${route}: ${page.issues.join('; ')}`);
+  const map = parseSitemap(fs.readFileSync(`${root}/sitemap.xml`, 'utf8'));
+  if (!map.some(entry => entry.url === url)) throw new Error(`Published page absent from sitemap: ${route}`);
+  return { scope: 'origin-build', url, status: 'verified', publicHttpStatus: null };
+}
 
 export function partitionArticles(all) {
   const published = all.filter(a => !a.meta.draft);
   const urls = new Set();
   for (const a of published) {
+    if (a.meta.contentType === 'research-brief' || /\[待核实\]|\[待补充\]/.test(a.body || '')) throw new Error(`Unreviewed research brief: ${a.url}`);
     if (urls.has(a.url)) throw new Error(`Duplicate published article URL: ${a.url}`);
     urls.add(a.url);
   }

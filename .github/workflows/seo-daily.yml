@@ -5,11 +5,6 @@ on:
     # 09:00 Singapore time.
     - cron: "0 1 * * *"
   workflow_dispatch:
-    inputs:
-      submit_to_baidu:
-        description: "Submit priority URLs to Baidu when BAIDU_TOKEN is configured"
-        required: false
-        default: "true"
 
 permissions:
   contents: read
@@ -44,8 +39,6 @@ jobs:
         env:
           SITE: https://sgeda.org.cn
           BAIDU_SITE: https://sgeda.org.cn
-          BAIDU_TOKEN: ${{ secrets.BAIDU_TOKEN }}
-          SUBMIT_TO_BAIDU: ${{ github.event.inputs.submit_to_baidu || 'true' }}
           BAIDU_SUBMIT_LIMIT: "5"
           FAIL_ON_CRITICAL: "true"
         run: |

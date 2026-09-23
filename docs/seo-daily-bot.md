@@ -2,13 +2,13 @@
 
 ## 检查与提交
 
-GitHub Actions 的 `seo-daily.yml` 是百度提交的唯一执行入口。服务器上的 `seo:submit` 保留为兼容入口，只调用 IndexNow；CMS 发布的新页面通过更新的百度地图进入下一次百度日更队列。
+GitHub Actions 的 `seo-daily.yml` 当前仅做技术审计，主动百度提交被硬编码禁用。服务器仓库内的 `seo:submit` 兼容入口只调用 IndexNow；CMS 通过 sitemap 暴露新页面。服务器另有旧任务时必须单独核对，不能把 GitHub 的跳过状态当作服务器没有提交。
 
 每日读取生产站点的 `sitemap.xml`、`baidu-sitemap.xml` 和 `robots.txt`，检查所有允许百度抓取的 HTML、标题、描述、H1、canonical、noindex、重复标题和描述，以及真实 DOM 中的站内链接与图片。脚本字符串中的 HTML 不作为可见链接统计。每日 JSON 报告保留完整检查结果，Markdown 汇总列出问题和实际提交 URL。
 
-`BAIDU_TOKEN` 仅从 GitHub Secrets 提供，不写入脚本。主动提交必须设置 `SUBMIT_TO_BAIDU=true`，本地默认只读。
+当前工作流不读取或验证 `BAIDU_TOKEN`。不要为测试 token 而消耗百度额度；没有接口响应时报告未验证，不报告 token 有效。
 
-每次最多提交 5 个健康页面：优先实质修改页、新页面，再到距成功提交已超过 30 天的页面。文章使用明确的修改日期；已接受且未变化的内容不会每天重复推送。优先清单仍支持手动排序，但不能绕过质量检查或重复提交限制。
+报告最多列出 5 个候选页面供审核，不自动提交：优先实质修改页、新页面，再到距历史成功记录已超过 30 天的页面。候选队列不是提交记录。
 
 状态保存在 `data/seo/baidu-state.json`，由 Actions cache 跨运行恢复。队列记录仅在百度确认整批接受后更新；失败、超配额、无法确定具体 URL 的部分成功均保留重试。缓存被平台清理时会重新发现页面，因此应保留原始运行报告用于追踪。
 

@@ -11,6 +11,9 @@ import { appendFileSync, existsSync, mkdirSync, readFileSync, readdirSync, renam
 import { createRequire } from 'node:module';
 import { basename, dirname, join, relative, sep } from 'node:path';
 import { optimizeArticle } from './scripts/seo-optimizer.mjs';
+import { filterTraffic, referrerSource, singaporeDate, legacyBaiduRecords, mergeSubmissionRecords, optionalCount } from './scripts/operations-metrics.mjs';
+import { editorialIssues, researchBrief } from './scripts/editorial-policy.mjs';
+import { verifyBuiltPublication } from './scripts/content-validation.mjs';
 
 const PORT = Number(process.env.PORT || 3002);
 const require = createRequire(import.meta.url);
@@ -409,7 +412,7 @@ function inferLocation(req, body = {}, timezone = '', language = '') {
 
 function deviceType(ua = '') {
   const value = String(ua).toLowerCase();
-  if (/bot|spider|crawl|slurp|baiduspider|bingbot|googlebot/.test(value)) return '爬虫';
+  if (/bot|spider|crawl|slurp|headless|lighthouse/.test(value)) return '爬虫';
   if (/ipad|tablet/.test(value)) return '平板';
   if (/mobile|iphone|android/.test(value)) return '手机';
   return '电脑';
@@ -528,7 +531,7 @@ function leadId() {
 }
 
 function todayDate() {
-  return new Date().toISOString().slice(0, 10);
+  return singaporeDate();
 }
 
 function readSitemapUrls() {
@@ -747,22 +750,23 @@ function readBaiduSubmitState(totalUrls) {
   const offsetFile = join(process.cwd(), '.baidu-submit-offset');
   const offset = existsSync(offsetFile) ? Number(readFileSync(offsetFile, 'utf8').trim()) || 0 : 0;
   let logTail = [];
+  let records = [];
   for (const file of ['/var/log/baidu-submit.log', join(process.cwd(), 'baidu-submit.log')]) {
     if (!existsSync(file)) continue;
-    logTail = readFileSync(file, 'utf8').split(/\r?\n/).filter(Boolean).slice(-10);
-    break;
+    const log = readFileSync(file, 'utf8');
+    logTail = [...logTail, ...log.split(/\r?\n/).filter(Boolean)].slice(-10);
+    records.push(...legacyBaiduRecords(log));
   }
   return {
     offset,
     nextStart: totalUrls ? Math.min(offset + 1, totalUrls) : 0,
     logTail,
+    records,
   };
 }
 
 function submissionSummary(date = todayDate()) {
-  const records = readJsonl(SEO_SUBMISSION_FILE, 5000)
-    .filter((row) => row.date === date || String(row.createdAt || '').startsWith(date))
-    .sort((a, b) => String(b.createdAt || '').localeCompare(String(a.createdAt || '')));
+  const records = mergeSubmissionRecords(readJsonl(SEO_SUBMISSION_FILE, 5000), readBaiduSubmitState(0).records, date);
   const providers = {
     baidu: { submitted: 0, success: 0, error: 0, lastStatus: '', lastHttpStatus: 0, lastCreatedAt: '' },
     indexnow: { submitted: 0, success: 0, error: 0, lastStatus: '', lastHttpStatus: 0, lastCreatedAt: '' },
@@ -772,7 +776,7 @@ function submissionSummary(date = todayDate()) {
     if (!providers[provider]) continue;
     providers[provider].submitted += Math.max(0, Number(record.submitted || 0) || 0);
     if (record.status === 'success') providers[provider].success += 1;
-    if (record.status && record.status !== 'success') providers[provider].error += 1;
+    if (['error', 'failed', 'over_quota'].includes(record.status)) providers[provider].error += 1;
     if (!providers[provider].lastStatus) {
       providers[provider].lastStatus = record.status || '';
       providers[provider].lastHttpStatus = Number(record.httpStatus || 0) || 0;
@@ -783,6 +787,8 @@ function submissionSummary(date = todayDate()) {
     records: records.slice(0, 20),
     providers,
     totalSubmitted: Object.values(providers).reduce((sum, item) => sum + item.submitted, 0),
+    github: { status: 'disabled', tokenStatus: 'not_tested' },
+    scope: '服务器台账与有日期的旧日志；不代表索引或排名',
   };
 }
 
@@ -794,8 +800,8 @@ function submitPipelineStatus({ sitemapUrlCount = 0, todayPublishedArticles = 0,
   const indexNowOk = indexnow.lastStatus === 'success' && Number(indexnow.submitted || 0) > 0;
   const hasPublish = Number(todayPublishedArticles || 0) > 0;
   const hasAnySubmit = Number(submissions.totalSubmitted || 0) > 0;
-  const needsRun = hasPublish && (!baiduOk || !indexNowOk);
-  const hasError = [baidu.lastStatus, indexnow.lastStatus].some((status) => status && status !== 'success');
+  const needsRun = hasPublish && !indexNowOk;
+  const hasError = [baidu.lastStatus, indexnow.lastStatus].some((status) => ['error', 'failed', 'over_quota'].includes(status));
   return {
     sitemap: sitemapUrlCount > 0 ? 'ok' : 'error',
     publish: hasPublish ? 'ok' : 'idle',
@@ -808,7 +814,7 @@ function submitPipelineStatus({ sitemapUrlCount = 0, todayPublishedArticles = 0,
     message: hasError
       ? '提交脚本有异常，需要查看日志'
       : needsRun
-        ? '今日有发布内容，建议补跑百度 / IndexNow 提交'
+        ? '今日有发布内容，需核对 IndexNow 记录；GitHub 百度推送已禁用'
         : hasAnySubmit
           ? '今日自动提交已记录'
           : '今日还没有提交记录',
@@ -922,10 +928,7 @@ function auditArticle(fullPath, sitemapSet) {
   if (!keywords) addIssue(issues, 'warning', '缺少 keywords/tags，后台选题归档不完整');
   if (meta.draft) addIssue(issues, 'warning', '文章仍是 draft，不会作为正式页面收录');
 
-  if (length < 1500) addIssue(issues, 'warning', `正文偏短（约 ${length} 字），建议 1500 字以上`);
   if (length > 4200) addIssue(issues, 'warning', `正文偏长（约 ${length} 字），建议拆成子话题或加强目录`);
-  if (h2Count < 4) addIssue(issues, 'warning', 'H2 小标题偏少，长文结构不够清晰');
-  if (!hasFaq) addIssue(issues, 'warning', '缺少 FAQ/常见问题段落，GEO 摘要机会偏弱');
   if (internalLinkCount < 2) addIssue(issues, 'warning', '站内内链偏少，建议至少 2-4 个相关页面');
 
   if (!meta.draft && !htmlExists) addIssue(issues, 'error', '已发布但生成页面不存在，请重新构建内容');
@@ -1252,22 +1255,6 @@ function contentHealth(articles = articleSummaries()) {
   };
 }
 
-function referrerSource(referrer = '') {
-  if (!referrer) return '直接访问';
-  try {
-    const host = new URL(referrer).hostname.replace(/^www\./, '');
-    if (host.includes('baidu')) return '百度';
-    if (host.includes('bing')) return 'Bing';
-    if (host.includes('google')) return 'Google';
-    if (host.includes('sogou')) return '搜狗';
-    if (host.includes('wechat') || host.includes('weixin')) return '微信';
-    if (host.includes('sgeda.org.cn')) return '站内';
-    return host;
-  } catch {
-    return '其他来源';
-  }
-}
-
 async function handleAnalyticsCollect(req, res) {
   let body;
   try { body = await readBody(req); } catch { return noContent(res); }
@@ -1293,6 +1280,7 @@ async function handleAnalyticsCollect(req, res) {
     timezone,
     language,
     device: deviceType(req.headers['user-agent'] || body.userAgent || ''),
+    trafficClass: cmsSession(req) ? 'internal' : body.isTest === true ? 'test' : 'unclassified',
     durationSeconds,
     visitor: hashVisitor(visitorRaw),
   };
@@ -1421,6 +1409,11 @@ async function handleCmsSeoSave(req, res) {
   try { body = await readBody(req); } catch { return json(res, 400, { error: '请求格式错误' }); }
   const date = cleanLeadText(body.date || todayDate(), 20) || todayDate();
   const snapshot = seoSnapshot(date);
+  let measurements;
+  try {
+    measurements = Object.fromEntries(['indexedCount', 'baiduRemaining', 'abnormalUrlCount', 'searchImpressions', 'searchClicks'].map(key => [key, optionalCount(body[key])]));
+    if ((measurements.searchImpressions !== null || measurements.searchClicks !== null) && !String(body.measurementSource || '').trim()) throw new Error('填写展现或点击时，必须记录数据出处和报表日期');
+  } catch (error) { return json(res, 400, { error: error.message }); }
   const record = {
     date,
     updatedAt: new Date().toISOString(),
@@ -1428,9 +1421,8 @@ async function handleCmsSeoSave(req, res) {
     todayPublishedArticles: snapshot.todayPublishedArticles,
     baiduSubmitted: Math.max(0, Number(body.baiduSubmitted || snapshot.submissions?.providers?.baidu?.submitted || 0) || 0),
     indexNowSubmitted: Math.max(0, Number(body.indexNowSubmitted || snapshot.submissions?.providers?.indexnow?.submitted || 0) || 0),
-    baiduRemaining: Math.max(0, Number(body.baiduRemaining || 0) || 0),
-    indexedCount: Math.max(0, Number(body.indexedCount || 0) || 0),
-    abnormalUrlCount: Math.max(0, Number(body.abnormalUrlCount || 0) || 0),
+    ...measurements,
+    measurementSource: cleanLeadText(body.measurementSource, 300),
     priorityUrls: cleanMultilineText(body.priorityUrls, 1200),
     notes: cleanMultilineText(body.notes, 1200),
   };
@@ -1446,11 +1438,12 @@ function handleCmsAnalytics(req, res, url) {
   const days = Math.min(Math.max(Number(url.searchParams.get('days') || 30), 1), 90);
   const recentLimit = Math.min(Math.max(Number(url.searchParams.get('recentLimit') || 20), 1), 100);
   const recentOffset = Math.min(Math.max(Number(url.searchParams.get('recentOffset') || 0), 0), 5000);
-  const events = readAnalyticsEvents(days);
+  const traffic = filterTraffic(readAnalyticsEvents(days));
+  const events = traffic.events;
   const pageviews = events.filter((event) => (event.eventType || 'pageview') === 'pageview');
   const engagementEvents = events.filter((event) => event.eventType === 'engagement' && Number(event.durationSeconds || 0) > 0);
-  const todayKey = new Date().toISOString().slice(0, 10);
-  const todayEvents = pageviews.filter((event) => String(event.ts).startsWith(todayKey));
+  const todayKey = todayDate();
+  const todayEvents = pageviews.filter((event) => singaporeDate(event.ts) === todayKey);
   const visitors = new Set(pageviews.map((event) => event.visitor)).size;
   const todayVisitors = new Set(todayEvents.map((event) => event.visitor)).size;
   const averageDurationSeconds = engagementEvents.length
@@ -1480,7 +1473,9 @@ function handleCmsAnalytics(req, res, url) {
       nextOffset: recentOffset + recent.length,
     },
     totals: {
-      pageviews: events.length,
+      rawPageviews: traffic.rawPageviews,
+      excluded: traffic.excluded,
+      pageviews: pageviews.length,
       pageviewEvents: pageviews.length,
       visitors,
       todayPageviews: todayEvents.length,
@@ -1499,25 +1494,27 @@ function handleCmsAnalytics(req, res, url) {
 
 // Public daily analytics report — token-protected, no CMS auth needed
 function handleAnalyticsReport(req, res, url) {
-  const token = (process.env.ANALYTICS_REPORT_TOKEN || 'seda-report-2026');
-  if (url.searchParams.get('token') !== token) {
+  const token = process.env.ANALYTICS_REPORT_TOKEN;
+  if (!token || url.searchParams.get('token') !== token) {
     return json(res, 403, { error: 'Invalid token' });
   }
   const dateStr = url.searchParams.get('date') || yesterdayDate();
-  const allEvents = readAnalyticsEvents(2);
+  const traffic = filterTraffic(readAnalyticsEvents(2));
+  const allEvents = traffic.events;
   const pageviews = allEvents.filter((event) => (event.eventType || 'pageview') === 'pageview');
-  const dayEvents = pageviews.filter((event) => String(event.ts || '').startsWith(dateStr));
+  const dayEvents = pageviews.filter((event) => singaporeDate(event.ts) === dateStr);
   const visitors = new Set(dayEvents.map((event) => event.visitor)).size;
   // WeChat conversion events
   const wechatEvents = allEvents.filter((event) => 
     (event.event_category === 'wechat_conversion' || String(event.eventType || '').startsWith('wechat_')) &&
-    String(event.ts || '').startsWith(dateStr)
+    singaporeDate(event.ts) === dateStr
   );
   const wechatClicks = wechatEvents.filter(e => e.eventType === 'wechat_click').length;
   const wechatCopies = wechatEvents.filter(e => e.eventType === 'wechat_copy').length;
   const wechatExposures = wechatEvents.filter(e => e.eventType === 'wechat_exposure').length;
   json(res, 200, {
     date: dateStr,
+    trafficScope: '排除已识别爬虫、管理员和测试访问；其余访问未验证为真人',
     pageviews: dayEvents.length,
     visitors,
     wechat: {
@@ -1534,9 +1531,7 @@ function handleAnalyticsReport(req, res, url) {
 }
 
 function yesterdayDate() {
-  const d = new Date();
-  d.setDate(d.getDate() - 1);
-  return d.toISOString().slice(0, 10);
+  return singaporeDate(Date.now() - 86400000);
 }
 
 function handleCmsOverview(req, res) {
@@ -1544,8 +1539,8 @@ function handleCmsOverview(req, res) {
   const today = todayDate();
   const articles = articleSummaries();
   const leads = readJsonl(LEADS_FILE, 100000);
-  const events = readAnalyticsEvents(30).filter((event) => (event.eventType || 'pageview') === 'pageview');
-  const todayEvents = events.filter((event) => String(event.ts || '').startsWith(today));
+  const events = filterTraffic(readAnalyticsEvents(30)).events.filter((event) => (event.eventType || 'pageview') === 'pageview');
+  const todayEvents = events.filter((event) => singaporeDate(event.ts) === today);
   const seo = seoSnapshot(today);
   const sitemapUrls = readSitemapUrls();
   const topics = topicMatrix(articles, sitemapUrls);
@@ -1563,7 +1558,7 @@ function handleCmsOverview(req, res) {
   if (revisionArticles.length) tasks.push({ type: 'content', title: `${revisionArticles.length} 篇文章需要修改`, target: 'content', priority: 'medium' });
   if (newLeads.length) tasks.push({ type: 'leads', title: `跟进 ${newLeads.length} 条新客户线索`, target: 'leads', priority: 'high' });
   if (pendingCrm.length) tasks.push({ type: 'leads', title: `${pendingCrm.length} 条线索待同步 CRM`, target: 'leads', priority: 'medium' });
-  if (todayPublished.length < 5) tasks.push({ type: 'content', title: `今日已发布 ${todayPublished.length} 篇，建议补到 5 篇以上`, target: 'content', priority: 'medium' });
+  tasks.push({ type: 'content', title: '优先复核核心页面的事实、来源与适用年份，不设每日发文数量目标', target: 'content', priority: 'medium' });
   if (!seo.saved) tasks.push({ type: 'seo', title: '记录今日百度 / IndexNow 提交情况', target: 'seo', priority: 'medium' });
   if (topics.some((topic) => !topic.inSitemap)) tasks.push({ type: 'seo', title: '检查专题页是否全部进入 sitemap', target: 'seo', priority: 'medium' });
   const missingTopicPages = topics.reduce((sum, topic) => sum + (topic.missingCount || 0), 0);
@@ -1927,6 +1922,18 @@ async function handleContentReview(req, res) {
 
   const articlePath = articleFilePath(fileName);
   if (!existsSync(articlePath)) return json(res, 404, { error: '文章不存在' });
+  const original = readFileSync(articlePath, 'utf8');
+  let publicationVerified = false;
+  if (action === 'approve') {
+    const parsed = parseFrontmatter(original);
+    const issues = editorialIssues(parsed.meta, parsed.body);
+    const route = makeArticleUrl(parsed.meta);
+    const pageFile = join(process.cwd(), new URL(route, 'https://sgeda.org.cn').pathname, 'index.html');
+    if (existsSync(pageFile) && (parsed.meta.custom || readFileSync(pageFile, 'utf8').includes('<!-- SEDA_CUSTOM_PAGE -->'))) {
+      issues.push('此 URL 是受保护的自定义页面，请使用页面编辑与部署流程；文章构建不会覆盖它');
+    }
+    if (issues.length) return json(res, 422, { error: issues.join('；') });
+  }
 
   try {
     if (action === 'archive') {
@@ -1941,6 +1948,10 @@ async function handleContentReview(req, res) {
       raw = replaceFrontmatterValue(raw, 'draft', action !== 'approve');
       raw = replaceFrontmatterValue(raw, 'reviewStatus', action === 'approve' ? 'approved' : 'needs_revision');
       raw = replaceFrontmatterValue(raw, 'reviewedAt', new Date().toISOString());
+      if (action === 'approve') {
+        raw = replaceFrontmatterValue(raw, 'reviewedBy', cmsSession(req)?.username || 'authorized-reviewer');
+        raw = replaceFrontmatterValue(raw, 'factCheckedAt', todayDate());
+      }
       raw = replaceFrontmatterValue(raw, 'updated', new Date().toISOString().slice(0, 10));
       if (action === 'approve') raw = replaceFrontmatterValue(raw, 'publishedAt', new Date().toISOString());
       if (body.note) raw = replaceFrontmatterValue(raw, 'reviewNote', String(body.note).slice(0, 300));
@@ -1948,12 +1959,16 @@ async function handleContentReview(req, res) {
     }
     const output = await rebuildContent();
     let seoSubmission = null;
+    let publication = null;
     if (action === 'approve') {
+      publication = verifyBuiltPublication(process.cwd(), makeArticleUrl(parseFrontmatter(original).meta));
+      publicationVerified = true;
       seoSubmission = await submitSeoAfterPublish();
     }
-    json(res, 200, { ok: true, action, output, seoSubmission });
+    json(res, 200, { ok: true, action, output, seoSubmission, publication });
   } catch (error) {
-    json(res, 500, { error: '审核操作失败', detail: error.output || error.message });
+    if (action !== 'archive' && !publicationVerified) writeFileSync(articlePath, original, 'utf8');
+    json(res, 500, { error: publicationVerified ? '发布已验证，但提交失败；请重试提交，不要重复发布' : '审核操作失败', published: publicationVerified, detail: error.output || error.message });
   }
 }
 
@@ -2168,46 +2183,6 @@ function quotedYaml(value = '') {
   return `"${String(value || '').replace(/\r?\n/g, ' ').replace(/"/g, '\\"')}"`;
 }
 
-function fallbackAiArticle({ topic, category, targetUrl }) {
-  const title = cleanLeadText(topic, 90);
-  return `# ${title}
-
-很多中国家长第一次搜索“${title}”时，真正想解决的不是概念问题，而是想判断这条路径是否适合自己的孩子。SEDA 建议先把年龄、英文基础、目标学校类型和家庭预算放在一起看，再决定是否进入申请或备考阶段。
-
-## 适合哪些学生
-
-如果孩子希望在新加坡继续升学，且家庭希望有清晰的课程路径、考试节点和学校选择，那么这个方向值得重点评估。不同学生的情况差异很大，不能只看单一考试成绩。
-
-## 家长需要先确认什么
-
-建议先确认当前年级、英文水平、数学基础、目标学校类型和可接受的准备周期。对于国际学生来说，时间线经常比成绩本身更重要。
-
-## 申请或备考重点
-
-准备阶段应优先解决三件事：第一是明确目标路径，第二是判断差距，第三是安排备考或申请材料。不要等到临近截止日期才开始整理资料。
-
-## 和其他路径怎么比较
-
-可以同时比较 AEIS、O-Level、WACE、A-Level、Poly、公立大学和国际学校路径。不同路径的适配人群、英语要求和升学出口不同，家长应避免只听单一学校或单一课程的说法。
-
-## SEDA 建议
-
-如果还没有明确方向，可以先阅读 ${targetUrl || '/'} 相关页面，再结合孩子当前情况做一次路径筛选。真正好的规划不是选最热门的学校，而是选孩子能够持续推进的路径。
-
-## 常见问题
-
-### 这个方向适合中国学生吗？
-
-适合一部分学生，但需要结合年龄、英文水平、目标大学或学校类型判断。
-
-### 需要提前多久准备？
-
-通常建议至少提前 6-12 个月做规划，热门学校和关键考试路径需要更早。
-
-### 家长下一步应该做什么？
-
-先整理孩子年级、成绩、英文水平和目标，再让顾问判断更稳妥的路径。`;
-}
 
 async function generateAiArticle(body) {
   const topic = cleanLeadText(body.topic, 120);
@@ -2216,7 +2191,7 @@ async function generateAiArticle(body) {
   const slug = uniqueArticleSlug(topic);
   const targetUrl = pageUrlPath(body.targetUrl || `/${category}/`);
   const prompt = cleanMultilineText(body.prompt, 1800);
-  const system = '你是 SEDA 新加坡择校网的中文 SEO 编辑。写给中国家长，语气自然，不要 AI 味。必须包含 H2、FAQ、站内内链建议，不夸大承诺。';
+  const system = '你是 SEDA 新加坡择校网编辑。只依据提供的可核实资料回答具体问题；不要编造政策、费用、来源、录取率或案例。资料不足写 [待核实]。不设字数、FAQ 或配图数量目标，不写 GEO 可读答案等术语。';
   let articleBody = '';
   const apiKey = process.env.DEEPSEEK_API_KEY;
   if (apiKey) {
@@ -2227,7 +2202,7 @@ async function generateAiArticle(body) {
         model: process.env.DEEPSEEK_MODEL || 'deepseek-chat',
         messages: [
           { role: 'system', content: system },
-          { role: 'user', content: `请写一篇 1500-2500 字中文 SEO 草稿，标题：${topic}\n栏目：${category}\n目标页面：${targetUrl}\n补充要求：${prompt || '面向中国家长，加入 FAQ 和自然内链。'}` },
+          { role: 'user', content: `请按读者问题写精简草稿，标题：${topic}\n栏目：${category}\n目标页面：${targetUrl}\n资料与要求：${prompt || '没有已核实的资料，只生成研究提纲。'}` },
         ],
         temperature: 0.45,
         max_tokens: 2800,
@@ -2238,7 +2213,7 @@ async function generateAiArticle(body) {
       articleBody = data.choices?.[0]?.message?.content?.trim() || '';
     }
   }
-  if (!articleBody) articleBody = fallbackAiArticle({ topic, category, targetUrl });
+  if (!articleBody) articleBody = researchBrief(topic);
   articleBody = articleBody.replace(/^---[\s\S]*?---\s*/, '').trim();
   const description = `${topic}完整指南：面向中国家长梳理适合人群、申请节奏、常见误区和下一步规划建议。`;
   const content = `---

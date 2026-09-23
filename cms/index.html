@@ -784,15 +784,27 @@
             </div>
             <div class="seo-field">
               <label for="baiduRemainingInput">百度提交剩余额度</label>
-              <input id="baiduRemainingInput" class="cms-input" type="number" min="0" value="0">
+              <input id="baiduRemainingInput" class="cms-input" type="number" min="0" placeholder="未核实">
             </div>
             <div class="seo-field">
               <label for="indexedCountInput">人工抽查已收录 URL</label>
-              <input id="indexedCountInput" class="cms-input" type="number" min="0" value="0">
+              <input id="indexedCountInput" class="cms-input" type="number" min="0" placeholder="未核实">
+            </div>
+            <div class="seo-field">
+              <label for="searchImpressionsInput">百度当日展现</label>
+              <input id="searchImpressionsInput" class="cms-input" type="number" min="0" placeholder="未核实">
+            </div>
+            <div class="seo-field">
+              <label for="searchClicksInput">百度当日自然点击</label>
+              <input id="searchClicksInput" class="cms-input" type="number" min="0" placeholder="未核实">
+            </div>
+            <div class="seo-field wide">
+              <label for="measurementSourceInput">数据出处 / 报表日期</label>
+              <input id="measurementSourceInput" class="cms-input" type="text" maxlength="300">
             </div>
             <div class="seo-field">
               <label for="abnormalUrlCountInput">异常 URL</label>
-              <input id="abnormalUrlCountInput" class="cms-input" type="number" min="0" value="0">
+              <input id="abnormalUrlCountInput" class="cms-input" type="number" min="0" placeholder="未核实">
             </div>
             <div class="seo-field wide">
               <label for="priorityUrlsInput">重点 URL / 家长搜索问题</label>
@@ -1053,8 +1065,8 @@
       const suggestions = optimization.suggestions || [];
       const checks = [
         { label: '标题具体', ok: Boolean(state.selected?.title && state.selected.title.length >= 12) },
-        { label: '正文 1500 字以上', ok: Number(metrics.length || 0) >= 1500 },
-        { label: 'FAQ 4 个以上', ok: Number(metrics.faqCount || 0) >= 4 },
+        { label: '外部来源', ok: Number(metrics.sourceCount || 0) > 0 },
+        { label: '事实复核记录', ok: Boolean(metrics.factReviewed) },
         { label: '内链 3 个以上', ok: Number(metrics.internalLinkCount || 0) >= 3 },
         { label: '已插入图片', ok: Number(metrics.imageCount || 0) > 0 || images.length > 0 },
         { label: '进入 sitemap', ok: Boolean(optimization.inSitemap || state.selected?.inSitemap) },
@@ -1063,7 +1075,7 @@
         <div class="editor-quality-top">
           <div>
             <strong>发布前内容 / 图片检查</strong>
-            <div class="lead-muted" style="margin-top:5px">${optimization.recommendedPublish ? '基础项达到发布线，建议补图后发布。' : '建议先按下方清单优化，再通过发布。'}</div>
+            <div class="lead-muted" style="margin-top:5px">${optimization.recommendedPublish ? '基础项与复核记录齐备，发布前仍需确认事实。' : '补充来源并人工核实关键事实；自动分数不代表可收录。'}</div>
           </div>
           <span class="editor-quality-score ${esc(level)}">${label} · ${optimization.score || 0}/100</span>
         </div>
@@ -1120,7 +1132,6 @@
       const metrics = data.metrics || {};
       const seoOps = data.seoOps || {};
       const health = data.contentHealth || {};
-      const dailyTarget = 5;
       const draftArticles = Number(metrics.draftArticles || 0);
       const todayPublished = Number(metrics.todayPublished || 0);
       const newLeads = Number(metrics.newLeads || 0);
@@ -1128,9 +1139,8 @@
       const missingImages = Number(health.missingImages || seoOps.auditTotals?.warning || 0);
       const submittedToday = Number(seoOps.baiduSubmitted || 0) + Number(seoOps.indexNowSubmitted || 0);
       const publishedNotSubmitted = Math.max(0, todayPublished && !submittedToday ? todayPublished : 0);
-      const generateRemaining = Math.max(0, dailyTarget - todayPublished - draftArticles);
       els.productionFlow.innerHTML = `
-        <div class="flow-step ${generateRemaining ? 'hot' : 'ok'}"><strong>${generateRemaining}</strong><span>待生成</span><em>每日目标 ${dailyTarget} 篇</em></div>
+        <div class="flow-step"><strong>${todayPublished}</strong><span>今日更新</span><em>优先复核已有核心页面</em></div>
         <div class="flow-step ${draftArticles ? 'hot' : 'ok'}"><strong>${draftArticles}</strong><span>待审核</span><em>人工确认后发布</em></div>
         <div class="flow-step ${missingImages ? 'hot' : 'ok'}"><strong>${missingImages}</strong><span>待补图</span><em>首图 / 信息图 / alt</em></div>
         <div class="flow-step ${publishedNotSubmitted ? 'hot' : 'ok'}"><strong>${publishedNotSubmitted}</strong><span>发布未提交</span><em>百度 / IndexNow</em></div>
@@ -1434,10 +1444,12 @@
       const data = state.analytics;
       const totals = data?.totals || {};
       els.analyticsStats.innerHTML = `
-        <div class="analytics-card"><strong>${totals.pageviewEvents || totals.pageviews || 0}</strong><span>30天浏览量</span></div>
-        <div class="analytics-card"><strong>${totals.visitors || 0}</strong><span>30天访客</span></div>
+        <div class="analytics-card"><strong>${totals.pageviewEvents ?? totals.pageviews ?? 0}</strong><span>30天过滤后浏览</span></div>
+        <div class="analytics-card"><strong>${totals.visitors || 0}</strong><span>30天访客标识（非真人验证）</span></div>
         <div class="analytics-card"><strong>${totals.todayPageviews || 0}</strong><span>今日浏览</span></div>
         <div class="analytics-card"><strong>${formatDuration(totals.averageDurationSeconds || 0)}</strong><span>平均停留</span></div>
+        <div class="analytics-card"><strong>${totals.excluded?.bot || 0}</strong><span>已排除爬虫浏览</span></div>
+        <div class="analytics-card"><strong>${(totals.excluded?.internal || 0) + (totals.excluded?.test || 0)}</strong><span>已排除内部 / 测试浏览</span></div>
       `;
       renderBarChart(els.regionChart, data?.regions || []);
       renderBarChart(els.locationChart, data?.locations || []);
@@ -1592,9 +1604,12 @@
       const auto = state.seo?.submissions?.providers || {};
       els.baiduSubmittedInput.value = record.baiduSubmitted || auto.baidu?.submitted || 0;
       els.indexNowSubmittedInput.value = record.indexNowSubmitted || auto.indexnow?.submitted || 0;
-      els.baiduRemainingInput.value = record.baiduRemaining || 0;
-      els.indexedCountInput.value = record.indexedCount || 0;
-      els.abnormalUrlCountInput.value = record.abnormalUrlCount || 0;
+      els.baiduRemainingInput.value = record.baiduRemaining ?? '';
+      els.indexedCountInput.value = record.indexedCount ?? '';
+      document.getElementById('searchImpressionsInput').value = record.searchImpressions ?? '';
+      document.getElementById('searchClicksInput').value = record.searchClicks ?? '';
+      document.getElementById('measurementSourceInput').value = record.measurementSource || '';
+      els.abnormalUrlCountInput.value = record.abnormalUrlCount ?? '';
       els.priorityUrlsInput.value = record.priorityUrls || '';
       els.seoNotesInput.value = record.notes || '';
     }
@@ -1613,7 +1628,7 @@
       const steps = [
         { key: 'sitemap', title: 'Sitemap 更新', value: pipeline.sitemap || 'pending' },
         { key: 'publish', title: '今日发布', value: pipeline.publish || 'idle' },
-        { key: 'baidu', title: '百度推送', value: pipeline.baidu || 'pending', meta: providers.baidu?.lastCreatedAt ? String(providers.baidu.lastCreatedAt).replace('T', ' ').slice(0, 16) : '' },
+        { key: 'baidu', title: '服务器百度记录', value: pipeline.baidu || 'idle', meta: providers.baidu?.lastCreatedAt ? String(providers.baidu.lastCreatedAt).replace('T', ' ').slice(0, 16) : '未核实；GitHub 推送禁用' },
         { key: 'indexnow', title: 'IndexNow', value: pipeline.indexnow || 'pending', meta: providers.indexnow?.lastCreatedAt ? String(providers.indexnow.lastCreatedAt).replace('T', ' ').slice(0, 16) : '' },
       ];
       return `<div class="submit-pipeline">${steps.map((step) => `<div class="submit-step ${esc(step.value)}">
@@ -1635,7 +1650,7 @@
         <div class="analytics-card"><strong>${data.baiduNextStart || 0}</strong><span>百度提交起点</span></div>
         <div class="analytics-card"><strong>${providers.baidu?.submitted || 0}</strong><span>今日百度提交</span></div>
         <div class="analytics-card"><strong>${providers.indexnow?.submitted || 0}</strong><span>今日 IndexNow</span></div>
-        <div class="analytics-card"><strong>${saved.abnormalUrlCount || 0}</strong><span>健康异常 URL</span></div>
+        <div class="analytics-card"><strong>${saved.abnormalUrlCount ?? '未核实'}</strong><span>健康异常 URL</span></div>
       `;
       fillSeoForm(saved);
       renderSeoQuality();
@@ -1647,8 +1662,8 @@
           <td>${row.todayPublishedArticles || 0}</td>
           <td>${row.baiduSubmitted || 0}</td>
           <td>${row.indexNowSubmitted || 0}</td>
-          <td>${row.indexedCount || 0}</td>
-          <td>${row.abnormalUrlCount || 0}</td>
+          <td>${row.indexedCount ?? '未核实'}</td>
+          <td>${row.abnormalUrlCount ?? '未核实'}</td>
           <td>${esc(row.notes || '')}</td>
         </tr>`).join('')}</tbody>
       </table>` : '<div class="cms-empty" style="padding:24px">暂无 SEO 记录。</div>';
@@ -1690,6 +1705,9 @@
             indexNowSubmitted: els.indexNowSubmittedInput.value,
             baiduRemaining: els.baiduRemainingInput.value,
             indexedCount: els.indexedCountInput.value,
+            searchImpressions: document.getElementById('searchImpressionsInput').value,
+            searchClicks: document.getElementById('searchClicksInput').value,
+            measurementSource: document.getElementById('measurementSourceInput').value,
             abnormalUrlCount: els.abnormalUrlCountInput.value,
             priorityUrls: els.priorityUrlsInput.value,
             notes: els.seoNotesInput.value,

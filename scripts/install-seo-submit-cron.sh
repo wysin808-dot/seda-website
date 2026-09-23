@@ -12,7 +12,7 @@ cat > "$CRON_FILE" <<EOF
 SHELL=/bin/bash
 PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 
-# Submit SEDA sitemap URLs to Baidu and IndexNow every day at 09:20 Singapore/China time.
+# Submit to IndexNow at 09:20 server time. Baidu automatic push is disabled.
 20 9 * * * root cd $SITE_DIR && npm run seo:submit >> $LOG_FILE 2>&1
 EOF
 

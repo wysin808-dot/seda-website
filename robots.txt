@@ -8,7 +8,7 @@ Disallow: /content-review/
 User-agent: Baiduspider
 Disallow: /cms/
 Disallow: /content-review/
-# Individual school pages with unique content — always allowed
+# Individual school pages with unique content - always allowed
 Allow: /primary-schools/kong-hwa/
 # Polytechnics with unique, hand-written content
 Allow: /poly/sp/

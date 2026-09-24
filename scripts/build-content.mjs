@@ -1137,3 +1137,11 @@ console.log(`Enhanced ${enhancedRobotsCount} pages with robots meta.`);
 console.log(`Prepared ${drafts.length} draft articles for review.`);
 console.log(`Updated sitemap.xml with ${urlCount} URLs.`);
 console.log(`Baidu robots allowlist: ${baiduAllowCount} original-content pages under blocked prefixes.`);
+
+// 编码自检：robots.txt 必须纯 ASCII / 合法 UTF-8 / Sitemap 规则完整，构建期即报错
+import('./check-robots-encoding.mjs').then(m => {
+  m.runCheck(path.join(root, 'robots.txt'));
+}).catch(err => {
+  console.error('[check-robots-encoding] 检查脚本执行异常:', err.message);
+  process.exitCode = 1;
+});

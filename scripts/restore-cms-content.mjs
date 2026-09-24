@@ -3,6 +3,7 @@ import path from 'node:path';
 import os from 'node:os';
 import { execFileSync, spawnSync } from 'node:child_process';
 import { pathToFileURL } from 'node:url';
+import { markSourceFreeDraftsForReview } from './mark-source-free-drafts-for-review.mjs';
 
 export function mergeContent(base, server, incoming) {
   if (server === base || server === incoming) return incoming;
@@ -39,5 +40,6 @@ if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) 
     fs.mkdirSync(path.dirname(relative), { recursive: true });
     fs.writeFileSync(relative, merged);
   }
-  console.log(`Preserved ${pending.length} CMS changes; repository fixes retained.`);
+  const review = markSourceFreeDraftsForReview();
+  console.log(`Preserved ${pending.length} CMS changes; marked ${review.updated.length} source-free drafts for revision; repository fixes retained.`);
 }

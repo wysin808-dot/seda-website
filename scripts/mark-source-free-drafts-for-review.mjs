@@ -1,9 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import { pathToFileURL } from 'node:url';
 
-const root = process.cwd();
-const articleDir = path.join(root, 'content', 'articles');
-const reviewDate = '2026-09-24';
 const reviewNote = '草稿审核：缺少可核对的外部来源；不得发布。请补充权威来源、逐项核验关键事实并完成人工审核。';
 
 function splitFrontmatter(raw) {
@@ -22,23 +20,31 @@ function setField(frontmatter, key, value) {
   return pattern.test(frontmatter) ? frontmatter.replace(pattern, line) : `${frontmatter}\n${line}`;
 }
 
-const updated = [];
-for (const file of fs.readdirSync(articleDir).filter((name) => name.endsWith('.md') && !name.startsWith('_')).sort()) {
-  const articlePath = path.join(articleDir, file);
-  const raw = fs.readFileSync(articlePath, 'utf8');
-  const parts = splitFrontmatter(raw);
-  if (!parts || !/^draft:\s*true\s*$/m.test(parts.frontmatter) || sourceCount(parts.body) > 0) continue;
-  let frontmatter = parts.frontmatter;
-  frontmatter = setField(frontmatter, 'contentType', 'research-brief');
-  frontmatter = setField(frontmatter, 'reviewStatus', 'needs_revision');
-  frontmatter = setField(frontmatter, 'factCheckRequired', 'true');
-  frontmatter = setField(frontmatter, 'reviewNote', reviewNote);
-  frontmatter = setField(frontmatter, 'reviewedAt', reviewDate);
-  const next = `${parts.start}${frontmatter}${parts.separator}${parts.body}`;
-  if (next !== raw) {
-    fs.writeFileSync(articlePath, next, 'utf8');
-    updated.push(file);
+export function markSourceFreeDraftsForReview({ root = process.cwd(), reviewDate = new Date().toISOString().slice(0, 10) } = {}) {
+  const articleDir = path.join(root, 'content', 'articles');
+  const updated = [];
+  if (!fs.existsSync(articleDir)) return { updated };
+  for (const file of fs.readdirSync(articleDir).filter((name) => name.endsWith('.md') && !name.startsWith('_')).sort()) {
+    const articlePath = path.join(articleDir, file);
+    const raw = fs.readFileSync(articlePath, 'utf8');
+    const parts = splitFrontmatter(raw);
+    if (!parts || !/^draft:\s*true\s*$/m.test(parts.frontmatter) || sourceCount(parts.body) > 0) continue;
+    let frontmatter = parts.frontmatter;
+    frontmatter = setField(frontmatter, 'contentType', 'research-brief');
+    frontmatter = setField(frontmatter, 'reviewStatus', 'needs_revision');
+    frontmatter = setField(frontmatter, 'factCheckRequired', 'true');
+    frontmatter = setField(frontmatter, 'reviewNote', reviewNote);
+    frontmatter = setField(frontmatter, 'reviewedAt', reviewDate);
+    const next = `${parts.start}${frontmatter}${parts.separator}${parts.body}`;
+    if (next !== raw) {
+      fs.writeFileSync(articlePath, next, 'utf8');
+      updated.push(file);
+    }
   }
+  return { updated };
 }
 
-console.log(JSON.stringify({ updated: updated.length, files: updated }, null, 2));
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+  const result = markSourceFreeDraftsForReview();
+  console.log(JSON.stringify({ updated: result.updated.length, files: result.updated }, null, 2));
+}

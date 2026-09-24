@@ -9,7 +9,7 @@ slug: nus-vs-ntu-difficulty
 date: 2026-06-12
 tags: 公立大学,新加坡留学,中国家长
 draft: true
-reviewStatus: pending
+reviewStatus: needs_revision
 generatedBy: daily-draft-system
 seoScore: 38
 seoLevel: error
@@ -21,6 +21,10 @@ imageHero: university-nus-vs-ntu-difficulty-cover.webp
 imageAlt: NUS和NTU申请哪个更难：新加坡大学申请规划
 imagePrompt: 新加坡公立大学申请资料、专业选择表和校园建筑，真实大学申请媒体风格
 infographicSuggestion: NUS和NTU申请哪个更难路径图、时间线或选校 checklist
+contentType: research-brief
+factCheckRequired: true
+reviewNote: 草稿审核：缺少可核对的外部来源；不得发布。请补充权威来源、逐项核验关键事实并完成人工审核。
+reviewedAt: 2026-09-24
 ---
 
 很多家长第一次搜索“NUS和NTU申请哪个更难”，通常不是为了看一个官方定义。

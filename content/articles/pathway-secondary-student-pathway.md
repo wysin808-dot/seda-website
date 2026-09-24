@@ -9,7 +9,7 @@ slug: secondary-student-pathway
 date: 2026-06-12
 tags: 升学路径,新加坡留学,中国家长
 draft: true
-reviewStatus: pending
+reviewStatus: needs_revision
 generatedBy: daily-draft-system
 seoScore: 31
 seoLevel: error
@@ -21,6 +21,10 @@ imageHero: pathway-secondary-student-pathway-cover.webp
 imageAlt: 中国初中生去新加坡读书怎么选路径：中国学生新加坡升学路径规划
 imagePrompt: 中国学生新加坡升学路径流程图，AEIS、O-Level、WACE、JC、Poly 与大学出口清晰呈现
 infographicSuggestion: 中国初中生去新加坡读书怎么选路径路径图、时间线或选校 checklist
+contentType: research-brief
+factCheckRequired: true
+reviewNote: 草稿审核：缺少可核对的外部来源；不得发布。请补充权威来源、逐项核验关键事实并完成人工审核。
+reviewedAt: 2026-09-24
 ---
 
 很多家长第一次搜索“中国初中生去新加坡读书怎么选路径”，通常不是为了看一个官方定义。

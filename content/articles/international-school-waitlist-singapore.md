@@ -8,8 +8,12 @@ slug: international-school-waitlist-singapore
 date: 2026-06-06
 tags: 国际学校,新加坡选校,中国家长,申请时间
 draft: true
-reviewStatus: pending
+reviewStatus: needs_revision
 generatedBy: daily-draft-system
+contentType: research-brief
+factCheckRequired: true
+reviewNote: 草稿审核：缺少可核对的外部来源；不得发布。请补充权威来源、逐项核验关键事实并完成人工审核。
+reviewedAt: 2026-09-24
 ---
 
 很多家长申请新加坡国际学校时，会听到一个词：waiting list。

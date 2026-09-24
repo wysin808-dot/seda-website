@@ -8,8 +8,10 @@ slug: aeis-exam-center-transport-accommodation-guide
 date: 2026-09-24
 draft: true
 contentType: research-brief
-reviewStatus: pending
+reviewStatus: needs_revision
 factCheckRequired: true
+reviewNote: 草稿审核：缺少可核对的外部来源；不得发布。请补充权威来源、逐项核验关键事实并完成人工审核。
+reviewedAt: 2026-09-24
 ---
 
 ![AEIS 新加坡考场交通住宿指南](/assets/articles/aeis-exam-center-transport-accommodation-guide-hero.png)

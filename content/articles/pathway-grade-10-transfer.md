@@ -9,7 +9,7 @@ slug: grade-10-transfer
 date: 2026-06-12
 tags: 升学路径,新加坡留学,中国家长
 draft: true
-reviewStatus: pending
+reviewStatus: needs_revision
 generatedBy: daily-draft-system
 seoScore: 31
 seoLevel: error
@@ -21,6 +21,10 @@ imageHero: pathway-grade-10-transfer-cover.webp
 imageAlt: 国内高一转新加坡还来得及吗：中国学生新加坡升学路径规划
 imagePrompt: 中国学生新加坡升学路径流程图，AEIS、O-Level、WACE、JC、Poly 与大学出口清晰呈现
 infographicSuggestion: 国内高一转新加坡还来得及吗路径图、时间线或选校 checklist
+contentType: research-brief
+factCheckRequired: true
+reviewNote: 草稿审核：缺少可核对的外部来源；不得发布。请补充权威来源、逐项核验关键事实并完成人工审核。
+reviewedAt: 2026-09-24
 ---
 
 很多家长第一次搜索“国内高一转新加坡还来得及吗”，通常不是为了看一个官方定义。

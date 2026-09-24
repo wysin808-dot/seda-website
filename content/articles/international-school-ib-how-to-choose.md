@@ -9,7 +9,7 @@ slug: ib-how-to-choose
 date: 2026-06-15
 tags: 国际学校,新加坡留学,中国家长
 draft: true
-reviewStatus: pending
+reviewStatus: needs_revision
 generatedBy: daily-draft-system
 seoScore: 38
 seoLevel: error
@@ -21,6 +21,10 @@ imageHero: international-school-ib-how-to-choose-cover.webp
 imageAlt: 新加坡国际学校IB怎么选：新加坡国际学校选校指南
 imagePrompt: 新加坡国际学校校园、课程体系对比和选校 checklist，真实国际教育媒体风格
 infographicSuggestion: 新加坡国际学校IB怎么选路径图、时间线或选校 checklist
+contentType: research-brief
+factCheckRequired: true
+reviewNote: 草稿审核：缺少可核对的外部来源；不得发布。请补充权威来源、逐项核验关键事实并完成人工审核。
+reviewedAt: 2026-09-24
 ---
 
 很多家长第一次搜索“新加坡国际学校IB怎么选”，通常不是为了看一个官方定义。

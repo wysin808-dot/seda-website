@@ -9,7 +9,7 @@ slug: o-level-english-difficulty-chinese-students
 date: 2026-06-07
 tags: O-Level 升学,新加坡留学,中国家长
 draft: true
-reviewStatus: pending
+reviewStatus: needs_revision
 generatedBy: daily-draft-system
 seoScore: 38
 seoLevel: error
@@ -21,6 +21,10 @@ imageHero: o-level-o-level-english-difficulty-chinese-students-cover.webp
 imageAlt: O-Level英文难度对中国学生高吗：O-Level 考试与新加坡升学路径
 imagePrompt: 新加坡中学生备考 O-Level、书桌上的考试计划和 JC/Poly 路径图，真实教育资讯风格
 infographicSuggestion: O-Level英文难度对中国学生高吗路径图、时间线或选校 checklist
+contentType: research-brief
+factCheckRequired: true
+reviewNote: 草稿审核：缺少可核对的外部来源；不得发布。请补充权威来源、逐项核验关键事实并完成人工审核。
+reviewedAt: 2026-09-24
 ---
 
 很多家长第一次搜索“O-Level英文难度对中国学生高吗”，通常不是为了看一个官方定义。

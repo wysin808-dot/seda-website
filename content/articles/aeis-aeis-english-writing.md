@@ -9,7 +9,7 @@ slug: aeis-english-writing
 date: 2026-06-08
 tags: AEIS 考试,新加坡留学,中国家长
 draft: true
-reviewStatus: pending
+reviewStatus: needs_revision
 generatedBy: daily-draft-system
 seoScore: 38
 seoLevel: error
@@ -21,6 +21,10 @@ imageHero: aeis-aeis-english-writing-cover.webp
 imageAlt: AEIS英文写作怎么提高：AEIS 考试与政府学校插班规划
 imagePrompt: 低龄学生准备 AEIS 英文和数学、家长查看新加坡政府学校申请时间线，真实教育咨询风格
 infographicSuggestion: AEIS英文写作怎么提高路径图、时间线或选校 checklist
+contentType: research-brief
+factCheckRequired: true
+reviewNote: 草稿审核：缺少可核对的外部来源；不得发布。请补充权威来源、逐项核验关键事实并完成人工审核。
+reviewedAt: 2026-09-24
 ---
 
 很多家长第一次搜索“AEIS英文写作怎么提高”，通常不是为了看一个官方定义。

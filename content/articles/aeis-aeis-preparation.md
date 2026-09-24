@@ -8,8 +8,12 @@ slug: aeis-preparation
 date: 2026-06-05
 tags: AEIS 考试,新加坡留学,中国家长
 draft: true
-reviewStatus: pending
+reviewStatus: needs_revision
 generatedBy: daily-draft-system
+contentType: research-brief
+factCheckRequired: true
+reviewNote: 草稿审核：缺少可核对的外部来源；不得发布。请补充权威来源、逐项核验关键事实并完成人工审核。
+reviewedAt: 2026-09-24
 ---
 
 很多家长第一次搜索“新加坡AEIS英文怎么准备”，通常不是为了看一个官方定义。

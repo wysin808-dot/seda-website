@@ -9,7 +9,7 @@ slug: wace-apply-australia-go8-atar
 date: 2026-06-07
 tags: WACE 课程,新加坡留学,中国家长
 draft: true
-reviewStatus: pending
+reviewStatus: needs_revision
 generatedBy: daily-draft-system
 seoScore: 38
 seoLevel: error
@@ -21,6 +21,10 @@ imageHero: wace-wace-apply-australia-go8-atar-cover.webp
 imageAlt: WACE申请澳洲八大需要多少ATAR：WACE 课程与中国学生升学规划
 imagePrompt: 新加坡国际高中教室、学生查看课程表和 ATAR 升学路径图，真实教育媒体风格
 infographicSuggestion: WACE申请澳洲八大需要多少ATAR路径图、时间线或选校 checklist
+contentType: research-brief
+factCheckRequired: true
+reviewNote: 草稿审核：缺少可核对的外部来源；不得发布。请补充权威来源、逐项核验关键事实并完成人工审核。
+reviewedAt: 2026-09-24
 ---
 
 很多家长第一次搜索“WACE申请澳洲八大需要多少ATAR”，通常不是为了看一个官方定义。

@@ -9,7 +9,7 @@ slug: total-cost
 date: 2026-06-12
 tags: 留学指南,新加坡留学,中国家长
 draft: true
-reviewStatus: pending
+reviewStatus: needs_revision
 generatedBy: daily-draft-system
 seoScore: 38
 seoLevel: error
@@ -21,6 +21,10 @@ imageHero: guide-total-cost-cover.webp
 imageAlt: 新加坡留学一年总费用怎么估算：新加坡留学申请与家长指南
 imagePrompt: 新加坡留学材料清单、学生准证申请流程和家长规划笔记，真实留学指南风格
 infographicSuggestion: 新加坡留学一年总费用怎么估算路径图、时间线或选校 checklist
+contentType: research-brief
+factCheckRequired: true
+reviewNote: 草稿审核：缺少可核对的外部来源；不得发布。请补充权威来源、逐项核验关键事实并完成人工审核。
+reviewedAt: 2026-09-24
 ---
 
 很多家长第一次搜索“新加坡留学一年总费用怎么估算”，通常不是为了看一个官方定义。

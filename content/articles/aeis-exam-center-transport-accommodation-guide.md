@@ -6,7 +6,10 @@ category: aeis
 categoryLabel: AEIS 考试
 slug: aeis-exam-center-transport-accommodation-guide
 date: 2026-09-24
-draft: false
+draft: true
+contentType: research-brief
+reviewStatus: pending
+factCheckRequired: true
 ---
 
 ![AEIS 新加坡考场交通住宿指南](/assets/articles/aeis-exam-center-transport-accommodation-guide-hero.png)

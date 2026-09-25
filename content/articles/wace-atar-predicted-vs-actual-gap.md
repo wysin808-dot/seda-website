@@ -6,7 +6,11 @@ category: wace
 categoryLabel: WACE 课程
 slug: wace-atar-predicted-vs-actual-gap
 date: 2026-09-25
-draft: false
+draft: true
+contentType: research-brief
+reviewStatus: needs_revision
+factCheckRequired: true
+reviewNote: 缺少可核对的外部来源且两张配图不存在；不得发布。请补官方来源、逐项核验文中评分和录取主张，并补齐授权或自有配图。
 ---
 
 ![WACE 学生在教室参加模拟考试](/assets/articles/wace-atar-predicted-vs-actual-gap-hero.png)

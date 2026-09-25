@@ -2,17 +2,15 @@
 
 ## 检查与提交
 
-GitHub Actions 的 `seo-daily.yml` 当前仅做技术审计，主动百度提交被硬编码禁用。服务器仓库内的 `seo:submit` 兼容入口只调用 IndexNow；CMS 通过 sitemap 暴露新页面。服务器另有旧任务时必须单独核对，不能把 GitHub 的跳过状态当作服务器没有提交。
+GitHub Actions 的 `seo-daily.yml` 当前仅做技术审计，主动百度提交被硬编码禁用。服务器仓库内的 `seo:submit` 兼容入口不会提交 URL，部署时会删除历史提交 cron；CMS 通过 sitemap 暴露新页面。服务器另有旧任务时必须单独核对，不能把 GitHub 的跳过状态当作服务器没有提交。
 
 每日读取生产站点的 `sitemap.xml`、`baidu-sitemap.xml` 和 `robots.txt`，检查所有允许百度抓取的 HTML、标题、描述、H1、canonical、noindex、重复标题和描述，以及真实 DOM 中的站内链接与图片。脚本字符串中的 HTML 不作为可见链接统计。每日 JSON 报告保留完整检查结果，Markdown 汇总列出问题和实际提交 URL。
 
 当前工作流不读取或验证 `BAIDU_TOKEN`。不要为测试 token 而消耗百度额度；没有接口响应时报告未验证，不报告 token 有效。
 
-报告最多列出 5 个候选页面供审核，不自动提交：优先实质修改页、新页面，再到距历史成功记录已超过 30 天的页面。候选队列不是提交记录。
+报告最多列出 5 个候选页面供审核，不自动提交：优先实质修改页、新页面，再到距历史成功记录已超过 30 天的页面。候选队列不是提交记录，也不会触发百度 API。
 
-状态保存在 `data/seo/baidu-state.json`，由 Actions cache 跨运行恢复。队列记录仅在百度确认整批接受后更新；失败、超配额、无法确定具体 URL 的部分成功均保留重试。缓存被平台清理时会重新发现页面，因此应保留原始运行报告用于追踪。
-
-`remain=0, success=5` 表示 5 条成功且剩余额度为 0。它不同于 over quota 错误。提交记录不能证明索引量、展现或点击增长，这些指标仍以百度搜索资源平台为准。
+候选状态保存在 `data/seo/baidu-state.json`，由 Actions cache 跨运行恢复。它仅用于稳定地排序审计候选页，不代表提交记录，也不应据此推断收录、展现或点击增长。
 
 ## 本地验证
 
@@ -42,4 +40,4 @@ SUBMIT_TO_BAIDU=false npm run seo:daily
 - `reports/seo-daily-report.json`
 - GitHub Actions Summary 和 `seo-daily-report` artifact
 
-检测到问题或百度提交失败时任务失败，但仍上传诊断报告。生产监测只能排除技术性障碍，不能保证百度收录或搜索排名。
+检测到问题时任务失败，但仍上传诊断报告。生产监测只能排除技术性障碍，不能保证百度收录或搜索排名。

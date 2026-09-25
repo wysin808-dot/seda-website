@@ -11,3 +11,12 @@ test('daily SEO audit cannot post URLs to Baidu', () => {
   assert.doesNotMatch(bot, /data\.zz\.baidu\.com\/urls/);
   assert.doesNotMatch(bot, /recordAccepted\(/);
 });
+
+test('legacy submission entry points cannot consume Baidu quota', () => {
+  const compatibilityScript = fs.readFileSync(path.join(root, 'scripts', 'baidu-submit.sh'), 'utf8');
+  const cronInstaller = fs.readFileSync(path.join(root, 'scripts', 'install-seo-submit-cron.sh'), 'utf8');
+  assert.match(compatibilityScript, /Automatic Baidu URL submission is disabled/);
+  assert.doesNotMatch(compatibilityScript, /data\.zz\.baidu\.com|BAIDU_TOKEN|curl\s+-.*POST/);
+  assert.match(cronInstaller, /rm -f/);
+  assert.doesNotMatch(cronInstaller, /npm run seo:submit/);
+});

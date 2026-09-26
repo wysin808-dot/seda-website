@@ -2,6 +2,11 @@ import fs from 'node:fs';
 import { load } from 'cheerio';
 import { SITE, localFile } from './seo-pages.mjs';
 import { parseSitemap, inspectPage } from './seo-pages.mjs';
+import { sourceLinks } from './editorial-policy.mjs';
+
+// This date marks the start of the reviewed-publication workflow. Older
+// published content remains stable while it is audited incrementally.
+const REVIEWED_PUBLICATION_START = '2026-09-24';
 
 export function verifyBuiltPublication(root, route) {
   const file = localFile(root, route);
@@ -19,6 +24,12 @@ export function partitionArticles(all) {
   const urls = new Set();
   for (const a of published) {
     if (a.meta.contentType === 'research-brief' || /\[待核实\]|\[待补充\]/.test(a.body || '')) throw new Error(`Unreviewed research brief: ${a.url}`);
+    if (String(a.meta.date || '') >= REVIEWED_PUBLICATION_START) {
+      if (!sourceLinks(a.body).length) throw new Error(`Recent publication lacks external sources: ${a.url}`);
+      if (a.meta.reviewStatus !== 'approved' || !a.meta.reviewedBy || !a.meta.factCheckedAt) {
+        throw new Error(`Recent publication lacks review evidence: ${a.url}`);
+      }
+    }
     if (urls.has(a.url)) throw new Error(`Duplicate published article URL: ${a.url}`);
     urls.add(a.url);
   }

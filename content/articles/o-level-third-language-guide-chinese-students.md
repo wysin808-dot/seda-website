@@ -6,7 +6,11 @@ category: o-level
 categoryLabel: O-Level 升学
 slug: o-level-third-language-guide-chinese-students
 date: 2026-09-26
-draft: false
+draft: true
+contentType: research-brief
+reviewStatus: needs_revision
+factCheckRequired: true
+reviewNote: 缺少可核对的官方来源和两张图片；不得发布。请逐项核验 MOE、SEAB、MOELC 与 JAE 规则，补齐来源及授权或自有图片后再人工审核。
 ---
 
 ![O-Level第三语言选项——新加坡中学生第三语言课堂场景](/assets/articles/o-level-third-language-guide-chinese-students-hero.png)

@@ -130,7 +130,7 @@ ${push.skipped ? `Skipped: ${push.reason}` : `Submitted: ${push.submitted || 0}\
 
 ${table(batch.map(p => ({ URL: p.url, Updated: p.modified || p.lastmod || '-' })), ['URL', 'Updated'])}
 
-Accepted URLs are discovery submissions, not proof of Baidu indexing or ranking. A response with remain=0 and success=5 is success with no remaining quota; over quota is an API error.
+The URLs above are audit candidates only. They are not submitted to Baidu, do not consume quota, and do not demonstrate indexing or ranking.
 
 ## Priority Fix List
 

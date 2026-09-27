@@ -4,7 +4,7 @@
 
 GitHub Actions 的 `seo-daily.yml` 当前仅做技术审计，主动百度提交被硬编码禁用。服务器仓库内的 `seo:submit` 兼容入口不会提交 URL，部署时会删除历史提交 cron；CMS 通过 sitemap 暴露新页面。服务器另有旧任务时必须单独核对，不能把 GitHub 的跳过状态当作服务器没有提交。
 
-每日读取生产站点的 `sitemap.xml`、`baidu-sitemap.xml` 和 `robots.txt`，检查所有允许百度抓取的 HTML、标题、描述、H1、canonical、noindex、重复标题和描述，以及真实 DOM 中的站内链接与图片。脚本字符串中的 HTML 不作为可见链接统计。每日 JSON 报告保留完整检查结果，Markdown 汇总列出问题和实际提交 URL。
+每日读取生产站点的 `sitemap.xml`、`baidu-sitemap.xml` 和 `robots.txt`，检查所有允许百度抓取的 HTML、标题、描述、H1、canonical、noindex、重复标题和描述，以及真实 DOM 中的站内链接与图片。脚本字符串中的 HTML 不作为可见链接统计。每日 JSON 报告保留完整检查结果，Markdown 汇总列出问题和仅供审计的候选 URL；不会提交 URL。
 
 当前工作流不读取或验证 `BAIDU_TOKEN`。不要为测试 token 而消耗百度额度；没有接口响应时报告未验证，不报告 token 有效。
 

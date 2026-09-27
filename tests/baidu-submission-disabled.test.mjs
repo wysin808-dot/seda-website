@@ -8,8 +8,10 @@ const root = path.resolve(import.meta.dirname, '..');
 test('daily SEO audit cannot post URLs to Baidu', () => {
   const bot = fs.readFileSync(path.join(root, 'scripts', 'seo-daily-bot.mjs'), 'utf8');
   assert.match(bot, /Automatic Baidu URL submission is disabled/);
+  assert.match(bot, /audit candidates only/);
   assert.doesNotMatch(bot, /data\.zz\.baidu\.com\/urls/);
   assert.doesNotMatch(bot, /recordAccepted\(/);
+  assert.doesNotMatch(bot, /Accepted URLs are discovery submissions/);
 });
 
 test('legacy submission entry points cannot consume Baidu quota', () => {

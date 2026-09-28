@@ -6,7 +6,12 @@ category: aeis
 categoryLabel: AEIS 考试
 slug: aeis-vs-china-zhongkao-comparison
 date: 2026-09-28
-draft: false
+draft: true
+contentType: research-brief
+reviewStatus: needs_revision
+factCheckRequired: true
+reviewNote: 缺少可核对的官方来源和两张图片；不得发布。请逐项核验 MOE、SEAB 与各地教育主管部门的考试安排、资格、评分、录取与统计表述，补齐来源和授权或自有图片后再人工审核。
+reviewedAt: 2026-09-28
 ---
 
 ![AEIS 考试与中国中考对比](/assets/articles/aeis-vs-china-zhongkao-comparison-hero.png)

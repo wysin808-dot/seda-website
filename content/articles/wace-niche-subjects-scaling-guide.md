@@ -6,7 +6,12 @@ category: wace
 categoryLabel: WACE 课程
 slug: wace-niche-subjects-scaling-guide
 date: 2026-09-29
-draft: false
+draft: true
+contentType: research-brief
+reviewStatus: needs_revision
+factCheckRequired: true
+reviewNote: 缺少可核对的官方来源和两张图片；不得发布。请逐项核验 SCSA 的科目、scaling、评估与 ATAR 规则，以及各大学当前先修条件，补齐来源和授权或自有图片后再人工审核。
+reviewedAt: 2026-09-29
 ---
 
 ![WACE小众科目选课与Scaling分析](/assets/articles/wace-niche-subjects-scaling-guide-hero.png)

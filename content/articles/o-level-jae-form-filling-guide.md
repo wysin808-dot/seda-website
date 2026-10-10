@@ -6,7 +6,7 @@ category: o-level
 categoryLabel: O-Level 升学
 slug: o-level-jae-form-filling-guide
 date: 2026-10-02
-draft: false
+draft: true
 ---
 
 ![新加坡JC和Poly校园场景](/assets/articles/o-level-jae-form-filling-guide-hero.png)

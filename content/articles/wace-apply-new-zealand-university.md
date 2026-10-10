@@ -6,7 +6,7 @@ category: wace
 categoryLabel: WACE 课程
 slug: wace-apply-new-zealand-university
 date: 2026-10-05
-draft: false
+draft: true
 ---
 
 ![WACE学生申请新西兰大学路径](/assets/articles/wace-apply-new-zealand-university-hero.png)

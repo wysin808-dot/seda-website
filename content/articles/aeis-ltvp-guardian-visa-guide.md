@@ -6,7 +6,7 @@ category: aeis
 categoryLabel: AEIS 考试
 slug: aeis-ltvp-guardian-visa-guide
 date: 2026-10-03
-draft: false
+draft: true
 ---
 
 ![AEIS考过后家长办理陪读签证指南](/assets/articles/aeis-ltvp-guardian-visa-hero.png)

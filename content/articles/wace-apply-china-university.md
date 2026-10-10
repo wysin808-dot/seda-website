@@ -6,7 +6,7 @@ category: wace
 categoryLabel: WACE课程
 slug: wace-apply-china-university
 date: 2026-10-09
-draft: false
+draft: true
 ---
 
 ![WACE毕业生回国读大学](/assets/articles/wace-apply-china-university-hero.png)

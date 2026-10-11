@@ -6,7 +6,7 @@ category: aeis
 categoryLabel: AEIS 考试
 slug: aeis-exam-violations-consequences
 date: 2026-10-11
-draft: false
+draft: true
 ---
 
 ![AEIS考试违规与后果详解](/assets/articles/aeis-exam-violations-consequences-hero.png)

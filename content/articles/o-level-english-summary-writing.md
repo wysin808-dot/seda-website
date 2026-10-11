@@ -7,6 +7,10 @@ categoryLabel: O-Level 升学
 slug: o-level-english-summary-writing
 date: 2026-10-10
 draft: true
+contentType: research-brief
+reviewStatus: needs_revision
+factCheckRequired: true
+reviewNote: 草稿缺少可核对的外部来源，不得发布。请补充权威来源并逐项核实关键事实。
 ---
 
 ![新加坡O-Level英文Summary Writing备考要点](/assets/articles/o-level-english-summary-writing-hero.png)

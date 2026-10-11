@@ -4,6 +4,7 @@
     "content:new": "node scripts/new-article.mjs",
     "content:drafts": "node scripts/generate-daily-drafts.mjs",
     "content:build": "node scripts/build-content.mjs",
+    "footer:sync": "node scripts/sync-site-footer.mjs",
     "schools:build": "node scripts/build-school-pages.mjs",
     "schools:private": "node scripts/import-private-school-data.mjs",
     "seo:daily": "node scripts/seo-daily-bot.mjs",

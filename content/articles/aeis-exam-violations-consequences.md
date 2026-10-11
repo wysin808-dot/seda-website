@@ -7,6 +7,10 @@ categoryLabel: AEIS 考试
 slug: aeis-exam-violations-consequences
 date: 2026-10-11
 draft: true
+contentType: research-brief
+reviewStatus: needs_revision
+factCheckRequired: true
+reviewNote: 草稿缺少可核对的外部来源，不得发布。须逐项核实违规后果、统计数据和法律相关表述。
 ---
 
 ![AEIS考试违规与后果详解](/assets/articles/aeis-exam-violations-consequences-hero.png)

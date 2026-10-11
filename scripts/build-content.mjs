@@ -5,6 +5,7 @@ import { enhanceKeySeoPages } from './enhance-key-seo-pages.mjs';
 import { optimizeArticle } from './seo-optimizer.mjs';
 import { partitionArticles, prepareArticleHtml } from './content-validation.mjs';
 import { baiduAllowed, inspectPage, parseSitemap, sitemapXml } from './seo-pages.mjs';
+import { syncSiteFooter } from './sync-site-footer.mjs';
 
 const root = process.cwd();
 const domain = 'https://sgeda.org.cn';
@@ -696,24 +697,6 @@ function updateNewsIndex(articles) {
   fs.writeFileSync(file, html, 'utf8');
 }
 
-function updateHomeLatestArticles(articles) {
-  const file = path.join(root, 'index.html');
-  let html = read(file);
-  const start = '<!-- HOME_LATEST_ARTICLES_START -->';
-  const end = '<!-- HOME_LATEST_ARTICLES_END -->';
-  if (!html.includes(start) || !html.includes(end)) return;
-  const cards = renderArticleCards(articles, 6);
-  const block = `${start}\n${cards || `          <article class="article-card">
-            <a href="/news/">
-              <span class="tag">SEO文章</span>
-              <h3>最新文章正在更新</h3>
-              <p>每天发布的新加坡升学攻略会显示在这里。</p>
-            </a>
-          </article>`}\n          ${end}`;
-  html = html.replace(new RegExp(`${start}[\\s\\S]*?${end}`), block);
-  fs.writeFileSync(file, html, 'utf8');
-}
-
 function renderFeed(articles) {
   const items = sortedArticles(articles).slice(0, 50).map((article) => {
     const published = new Date(article.meta.publishedAt || article.meta.date || Date.now()).toUTCString();
@@ -1117,7 +1100,6 @@ articles.filter(a => !a.meta.custom || !fs.existsSync(path.join(root, a.url, 'in
 drafts.forEach(removeDraftArticlePage);
 writeReviewPage(allArticles);
 updateNewsIndex(articles);
-updateHomeLatestArticles(articles);
 const baiduAllowCount = updateBaiduRobotsAllowlist();
 writeFeeds(articles);
 updateLlms(articles);
@@ -1126,7 +1108,9 @@ const enhancedGoogleAnalyticsCount = enhanceGlobalGoogleAnalytics();
 const enhancedBaiduTongjiCount = enhanceBaiduTongji();
 const enhancedRobotsCount = enhanceGlobalRobotsMeta();
 repairLegacyPageReferences();
+const footerSync = syncSiteFooter(root);
 const urlCount = updateSitemap(drafts);
+console.log(`Synchronized ${footerSync.updated} shared footers (${footerSync.checked} pages checked).`);
 console.log(`Built ${articles.length} content articles.`);
 console.log(`Built ${schoolPageCount} school SEO pages.`);
 console.log(`Enhanced ${enhancedKeyPageCount} key SEO pages.`);

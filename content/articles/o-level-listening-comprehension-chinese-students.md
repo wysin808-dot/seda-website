@@ -7,6 +7,10 @@ categoryLabel: O-Level 升学
 slug: o-level-listening-comprehension-chinese-students
 date: 2026-10-06
 draft: true
+contentType: research-brief
+reviewStatus: needs_revision
+factCheckRequired: true
+reviewNote: 草稿缺少可核对的外部来源，不得发布。请补充权威来源并逐项核实关键事实。
 ---
 
 ![O-Level英文听力考试场景](/assets/articles/o-level-listening-comprehension-chinese-students-hero.png)

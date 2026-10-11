@@ -297,7 +297,9 @@ date: ${today()}
 tags: ${frontmatterValue(`${label},新加坡留学,中国家长`)}
 draft: true
 contentType: research-brief
-reviewStatus: pending
+reviewStatus: needs_revision
+factCheckRequired: true
+reviewNote: 研究提纲缺少已核实来源和完整正文，不得发布。请补充权威来源并完成事实核查。
 generatedBy: daily-draft-system
 seoScore: ${optimization.seoScore}
 seoLevel: ${frontmatterValue(optimization.seoLevel)}

@@ -7,6 +7,10 @@ categoryLabel: WACE 课程
 slug: wace-apply-new-zealand-university
 date: 2026-10-05
 draft: true
+contentType: research-brief
+reviewStatus: needs_revision
+factCheckRequired: true
+reviewNote: 草稿缺少可核对的外部来源，不得发布。请补充权威来源并逐项核实关键事实。
 ---
 
 ![WACE学生申请新西兰大学路径](/assets/articles/wace-apply-new-zealand-university-hero.png)

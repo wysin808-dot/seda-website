@@ -7,6 +7,10 @@ categoryLabel: WACE课程
 slug: wace-apply-china-university
 date: 2026-10-09
 draft: true
+contentType: research-brief
+reviewStatus: needs_revision
+factCheckRequired: true
+reviewNote: 草稿缺少可核对的外部来源，不得发布。请补充权威来源并逐项核实关键事实。
 ---
 
 ![WACE毕业生回国读大学](/assets/articles/wace-apply-china-university-hero.png)

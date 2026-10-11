@@ -4533,7 +4533,7 @@ body.nav-drawer-open {
    ═══════════════════════════════════════════════════════════ */
 .site-footer {
   display: block;
-  background: linear-gradient(180deg, #33191d 0%, var(--deep) 58%, #1f0e10 100%);
+  background: linear-gradient(180deg, #5a4e52 0%, #49403f 60%, #3f3736 100%);
   color: #d9c2c5;
   padding: 52px clamp(20px, 6vw, 80px) 0;
   border-top: 0;
@@ -4616,7 +4616,7 @@ body.nav-drawer-open {
 }
 .footer-bottom p {
   margin: 0;
-  color: #a3767c;
+  color: #cbbabd;
   line-height: 1.7;
 }
 .icp-record {
@@ -4625,7 +4625,7 @@ body.nav-drawer-open {
   opacity: 1 !important;
 }
 .icp-record a {
-  color: #a3767c;
+  color: #cbbabd;
   text-decoration: none;
 }
 .icp-record a:hover { color: #fff; }

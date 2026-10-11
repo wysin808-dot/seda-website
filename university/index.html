@@ -176,6 +176,9 @@
 .uadv .col li:first-child{border-top:0;padding-top:0}
 .uadv .col li b{color:var(--ink)}
 @media(max-width:720px){.uadv{grid-template-columns:1fr}}
+/* 信息图卡 */
+.uinfo{border:1px solid var(--line);border-radius:16px;padding:16px 16px 12px;background:#fff;margin:6px 0 18px;box-shadow:0 2px 10px rgba(20,20,40,.04)}
+.uinfo-cap{margin:10px 0 0;font-size:.85rem;color:var(--muted);line-height:1.6;text-align:center}
 </style>
 </head>
 <body>
@@ -297,7 +300,29 @@
     <div class="uprose">
     <p style="font-size:.97rem;line-height:1.8;margin:0 0 20px">新加坡公立大学"少而精"——6 所自治大学 + 1 所艺术大学，却常年全球前列（NUS #8、NTU #12）。难点不在"有哪些"，而在 <b>怎么分、录取分怎么读、怎么不踩坑</b>。</p>
 
-    <h3>① 6 校定位：一张表看懂分工</h3>
+    <h3>① 6 校定位：先看地图，再看细节</h3>
+    <div class="uinfo">
+    <svg viewBox="0 0 700 440" style="width:100%;height:auto;display:block" role="img" aria-label="新加坡7所大学定位矩阵图：横轴从看硬成绩到能力本位，纵轴从综合研究型到应用专精">
+      <line x1="90" y1="205" x2="650" y2="205" stroke="#e8e8f0" stroke-width="1" stroke-dasharray="5 5"/>
+      <line x1="370" y1="58" x2="370" y2="358" stroke="#e8e8f0" stroke-width="1" stroke-dasharray="5 5"/>
+      <text x="92" y="392" font-size="13.5" font-weight="700" fill="#8a8a98">← 看硬成绩（IGP）</text>
+      <text x="648" y="392" text-anchor="end" font-size="13.5" font-weight="700" fill="#8a8a98">能力本位 / 作品 →</text>
+      <text x="370" y="48" text-anchor="middle" font-size="13.5" font-weight="700" fill="#8a8a98">综合 · 研究型 ↑</text>
+      <text x="370" y="376" text-anchor="middle" font-size="13.5" font-weight="700" fill="#8a8a98">↓ 应用 · 专精</text>
+      <g>
+        <g><circle cx="175" cy="105" r="29" fill="#c62828"/><text x="175" y="110" text-anchor="middle" font-size="15" font-weight="800" fill="#fff">NUS</text><text x="175" y="150" text-anchor="middle" font-size="13" font-weight="600" fill="#444">综合旗舰</text></g>
+        <g><circle cx="262" cy="152" r="29" fill="#c62828"/><text x="262" y="157" text-anchor="middle" font-size="15" font-weight="800" fill="#fff">NTU</text><text x="262" y="197" text-anchor="middle" font-size="13" font-weight="600" fill="#444">理工强校</text></g>
+        <g><circle cx="238" cy="262" r="29" fill="#c62828"/><text x="238" y="267" text-anchor="middle" font-size="15" font-weight="800" fill="#fff">SMU</text><text x="238" y="302" text-anchor="middle" font-size="13" font-weight="600" fill="#444">商科专精</text></g>
+        <g><circle cx="436" cy="170" r="29" fill="#e08a00"/><text x="436" y="175" text-anchor="middle" font-size="13.5" font-weight="800" fill="#fff">SUTD</text><text x="436" y="210" text-anchor="middle" font-size="13" font-weight="600" fill="#444">科技设计</text></g>
+        <g><circle cx="572" cy="232" r="29" fill="#e08a00"/><text x="572" y="237" text-anchor="middle" font-size="13.5" font-weight="800" fill="#fff">SUSS</text><text x="572" y="272" text-anchor="middle" font-size="13" font-weight="600" fill="#444">社科灵活</text></g>
+        <g><circle cx="500" cy="300" r="29" fill="#e08a00"/><text x="500" y="305" text-anchor="middle" font-size="15" font-weight="800" fill="#fff">SIT</text><text x="500" y="340" text-anchor="middle" font-size="13" font-weight="600" fill="#444">应用实战</text></g>
+        <g><circle cx="615" cy="322" r="29" fill="#b5179e"/><text x="615" y="327" text-anchor="middle" font-size="13.5" font-weight="800" fill="#fff">UAS</text><text x="615" y="362" text-anchor="middle" font-size="13" font-weight="600" fill="#444">艺术</text></g>
+      </g>
+      <g font-size="13"><circle cx="100" cy="420" r="6" fill="#c62828"/><text x="113" y="425" fill="#666">成绩型 · IGP</text><circle cx="258" cy="420" r="6" fill="#e08a00"/><text x="271" y="425" fill="#666">能力本位 / 综合</text><circle cx="440" cy="420" r="6" fill="#b5179e"/><text x="453" y="425" fill="#666">作品集 / 试演</text></g>
+    </svg>
+    <p class="uinfo-cap">越往左越看硬成绩，越往右越看作品与综合表现；越往上越综合研究型，越往下越应用专精。</p>
+    </div>
+    <p class="upicklb" style="margin-top:2px">📋 细节对照表</p>
     <div class="ucmp-wrap"><table class="ucmp">
       <thead><tr><th>学校</th><th>定位</th><th>录取逻辑</th><th>最适合</th><th>强项领域</th></tr></thead>
       <tbody>
@@ -322,6 +347,25 @@
     </div>
 
     <h3>② 录取分（IGP）怎么读</h3>
+    <div class="uinfo">
+    <svg viewBox="0 0 700 158" style="width:100%;height:auto;display:block" role="img" aria-label="IGP 录取成绩百分位示意图：被录取学生成绩分布在第10到第90百分位">
+      <defs><linearGradient id="igpbar" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#fbe4e4"/><stop offset=".5" stop-color="#e06666"/><stop offset="1" stop-color="#a31515"/></linearGradient></defs>
+      <text x="350" y="22" text-anchor="middle" font-size="14.5" font-weight="800" fill="#1a1a2e">IGP ＝ 上届被录取学生的成绩分布（第 10–90 百分位）</text>
+      <rect x="62" y="60" width="576" height="30" rx="15" fill="url(#igpbar)"/>
+      <line x1="120" y1="52" x2="120" y2="98" stroke="#a31515" stroke-width="2"/>
+      <text x="120" y="45" text-anchor="middle" font-size="12" font-weight="700" fill="#a31515">第 10 百分位</text>
+      <text x="120" y="116" text-anchor="middle" font-size="12" fill="#777">擦线冲刺</text>
+      <line x1="350" y1="50" x2="350" y2="100" stroke="#a31515" stroke-width="3"/>
+      <text x="350" y="45" text-anchor="middle" font-size="13" font-weight="800" fill="#a31515">中位</text>
+      <text x="350" y="116" text-anchor="middle" font-size="12" font-weight="700" fill="#555">达到更稳</text>
+      <line x1="580" y1="52" x2="580" y2="98" stroke="#a31515" stroke-width="2"/>
+      <text x="580" y="45" text-anchor="middle" font-size="12" font-weight="700" fill="#a31515">第 90 百分位</text>
+      <text x="580" y="116" text-anchor="middle" font-size="12" fill="#777">顶尖录取</text>
+      <text x="62" y="144" font-size="11.5" fill="#9aa">← 成绩较低</text>
+      <text x="638" y="144" text-anchor="end" font-size="11.5" fill="#9aa">成绩更高 →</text>
+    </svg>
+    <p class="uinfo-cap">读图：你的成绩落在哪一段，就对应多大把握。踩中位以上较稳，贴第 10 百分位属于冲刺，要配保底。</p>
+    </div>
     <div class="ukeys">
       <div class="ukey"><div class="k"><span class="ico">📊</span>是区间，不是分数线</div><div class="v">NUS/NTU/SMU 公布的 IGP，是上届录取者成绩的第 10–90 百分位。达到中位更稳，踩下沿是擦线冲刺。</div></div>
       <div class="ukey"><div class="k"><span class="ico">🔁</span>回看 ≠ 保证</div><div class="v">随当年报考人数、名额浮动。IGP 偏低 ≠ 好进——可能只是名额少或新专业。</div></div>

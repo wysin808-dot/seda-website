@@ -4527,133 +4527,18 @@ body.nav-drawer-open {
   font-size: 0 !important;
 }
 
-/* ═══════════════════════════════════════════════════════════
-   Footer v2 (2026-09) — 深色页脚 + 垂直链接列 + 底部版权条
-   覆盖上方所有 .site-footer 旧规则（本段位于文件末尾，同优先级下后声明生效）
-   ═══════════════════════════════════════════════════════════ */
-.site-footer {
-  display: block;
-  background: linear-gradient(180deg, #5a4e52 0%, #49403f 60%, #3f3736 100%);
-  color: #d9c2c5;
-  padding: 52px clamp(20px, 6vw, 80px) 0;
-  border-top: 0;
-}
-.footer-main {
-  display: grid;
-  grid-template-columns: 2.1fr 1fr 1fr 1fr 1fr;
-  gap: 40px;
-  padding-bottom: 44px;
-}
-.footer-brand strong {
-  display: block;
-  margin-bottom: 10px;
-  color: #fff;
-  font-size: 19px;
-  font-weight: 800;
-  letter-spacing: .02em;
-}
-.footer-brand p {
-  margin: 0 0 14px;
-  color: #c9a3a8;
-  font-size: 14px;
-  line-height: 1.75;
-}
-.footer-contact {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  font-size: 13.5px;
-  line-height: 2.05;
-  color: #b18a8f;
-}
-.footer-contact a {
-  color: #ecd9db;
-  text-decoration: none;
-  border-bottom: 1px solid rgba(255, 255, 255, .22);
-  padding-bottom: 1px;
-}
-.footer-contact a:hover {
-  color: #fff;
-  border-bottom-color: #fff;
-}
-.footer-col span {
-  display: block;
-  margin: 4px 0 12px;
-  font-size: 12.5px;
-  font-weight: 700;
-  letter-spacing: .16em;
-  color: #cf8d94;
-}
-.footer-col ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-.footer-col li { margin: 0; }
-.footer-col a {
-  display: inline-block;
-  padding: 4px 0;
-  color: #d9c2c5;
-  font-size: 14px;
-  line-height: 1.6;
-  text-decoration: none;
-}
-.footer-col a:hover {
-  color: #fff;
-  text-decoration: underline;
-  text-underline-offset: 4px;
-}
-.footer-bottom {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px 24px;
-  align-items: center;
-  justify-content: space-between;
-  border-top: 1px solid rgba(255, 255, 255, .1);
-  margin: 0 calc(-1 * clamp(20px, 6vw, 80px));
-  padding: 16px clamp(20px, 6vw, 80px) 20px;
-  font-size: 12.5px;
-}
-.footer-bottom p {
-  margin: 0;
-  color: #cbbabd;
-  line-height: 1.7;
-}
-.icp-record {
-  margin: 0 !important;
-  font-size: 12.5px !important;
-  opacity: 1 !important;
-}
-.icp-record a {
-  color: #cbbabd;
-  text-decoration: none;
-}
-.icp-record a:hover { color: #fff; }
-
-@media (max-width: 1200px) {
-  .footer-main {
-    grid-template-columns: repeat(4, 1fr);
-    gap: 32px;
-  }
-  .footer-brand {
-    grid-column: 1 / -1;
-    max-width: 560px;
-  }
-}
-@media (max-width: 680px) {
-  .site-footer { padding-top: 40px; }
-  .footer-main {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 24px 20px;
-    padding-bottom: 30px;
-  }
-  .footer-brand { grid-column: 1 / -1; }
-  .footer-col a { padding: 7px 0; }
-  .footer-contact { line-height: 2.2; }
-  .footer-bottom {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 4px;
-    padding-bottom: 24px;
-  }
-}
+/* ═══ Footer v3 (2026-10) — 极简浅色 ═══ */
+.site-footer{display:block;background:#f7f7f9;border-top:1px solid var(--line);color:var(--muted)}
+.footer-min{max-width:1180px;margin:0 auto;padding:26px clamp(20px,6vw,80px);display:flex;flex-direction:column;gap:13px}
+.footer-min-top{display:flex;flex-wrap:wrap;align-items:center;gap:10px 22px}
+.footer-min-brand{color:var(--ink);font-size:15.5px;font-weight:800;white-space:nowrap}
+.footer-min-links{display:flex;flex-wrap:wrap;gap:8px 20px}
+.footer-min-links a{color:#475467;font-size:14px;font-weight:600;text-decoration:none}
+.footer-min-links a:hover{color:var(--brand)}
+.footer-min-contact{font-size:13px;color:var(--muted)}
+.footer-min-contact a{color:#475467;text-decoration:none;border-bottom:1px solid #d7dae0}
+.footer-min-contact a:hover{color:var(--brand);border-bottom-color:var(--brand)}
+.footer-min-copy{display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px 18px;font-size:12.5px;color:#98a2b3;border-top:1px solid var(--line);padding-top:13px}
+.footer-min-copy .icp-record{color:#98a2b3;text-decoration:none;margin:0;font-size:12.5px;opacity:1}
+.footer-min-copy .icp-record:hover{color:var(--brand)}
+@media(max-width:680px){.footer-min-copy{flex-direction:column;align-items:flex-start;gap:4px}}

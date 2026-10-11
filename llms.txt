@@ -21,17 +21,26 @@ SEDA 新加坡择校网提供中文的新加坡教育信息，重点覆盖 WACE�
 
 ## Latest SEO Articles
 
-- [AEIS年龄要求怎么看？中国学生申请新加坡政府学校别踩这个坑](/aeis/aeis-age-requirements-chinese-students/): 面向中国家长解释 AEIS 年龄要求、年级匹配、申请窗口、降级入学和政府学校路径规划，帮助家庭提前避开年级选择误区。
-- [O-Level申请Poly怎么规划？中国学生和家长要看懂这条路](/o-level/o-level-poly-application-guide/): 面向中国家长解释 O-Level 申请新加坡理工学院 Poly 的流程、分数、专业选择、适合学生类型和升学就业方向。
-- [中国学生去新加坡升学路径怎么选？家长先看这5条路线](/pathway/chinese-students-singapore-pathway/): 面向中国家长梳理中国学生去新加坡读书的主要升学路径，包括 AEIS、O-Level、WACE、A-Level、IB、国际学校和大学申请选择。
-- [新加坡国立大学本科怎么申请？中国学生家长需要先看懂规则](/university/nus-undergraduate-application-chinese-students/): 面向中国家长解析新加坡国立大学 NUS 本科申请路径，包括高考、国际课程、英文要求、专业选择、申请时间和备选方案。
-- [WACE申请NUS需要什么条件？中国学生要提前看这几项](/wace/wace-apply-nus-requirements/): 面向中国家长解析 WACE 学生申请新加坡国立大学 NUS 的成绩、ATAR、科目、英文要求和专业选择注意事项。
-- [AEIS数学怎么备考？中国学生不能只靠刷题](/aeis/aeis-math-preparation/): 解析 AEIS 数学备考方法，面向中国家长说明新加坡政府学校入学考试中的英文题干、应用题、时间管理和备考周期。
-- [学生准证怎么申请？中国学生来新加坡读书要准备哪些材料](/guides/student-pass-application-singapore/): 面向中国家长解析新加坡学生准证 Student Pass 申请流程、材料、周期、常见拒签原因，以及 AEIS、O-Level、国际学校学生家庭应该提前注意的问题。
-- [新加坡国际学校学费一年多少？中国家庭要算清这几笔账](/international-school/singapore-international-school-fees/): 面向中国家长解析新加坡国际学校学费、申请费、校车、餐费、EAL 英文支持、住宿和隐性成本，帮助家庭做预算规划。
-- [O-Level英文难吗？中国学生最容易卡在哪些地方](/o-level/o-level-english-difficulty/): 面向中国家长解释新加坡 O-Level 英文难度，分析阅读、写作、听力、口语、备考周期和国际学生常见误区。
-- [WACE申请NTU难吗？中国学生要看哪些成绩和科目](/wace/wace-apply-ntu-difficulty/): 解析 WACE 学生申请新加坡南洋理工大学 NTU 的难度、ATAR 要求、科目组合、英文能力和家长规划重点。
-- [WACE适合中国学生吗？家长最关心的7个判断点](/wace/wace-suitable-for-chinese-students/): 面向中国家长解释 WACE 是否适合中国学生，重点分析英文基础、数学优势、ATAR、大学申请和新加坡国际高中路径。
+- [O-Level 成绩复议与申诉流程——appeal and review of results 怎么操作、成功率如何](/o-level/o-level-appeal-review-of-results-guide/): 新加坡O-Level成绩不理想怎么办？详解SEAB成绩复议（review of results）与申诉（appeal）的完整流程、费用、成功率、截止日期，以及中国学生家长最关心的操作步骤。
+- [AEIS 需要面试吗？考试、录取通知与报到沟通的区别](/aeis/aeis-interview-preparation-chinese-students/): 根据 SEAB 官方考试与录取流程，区分 AEIS 测试、录取通知和学校报到沟通，避免把无依据的面试说法当作统一要求。
+- [WACE ATAR 申请新加坡私立大学全攻略——SIM/PSB/Kaplan 入学门槛、专业与费用对比](/wace/wace-apply-singapore-private-university/): 持有WACE成绩的中国学生如何申请新加坡私立大学？详解SIM、PSB、Kaplan等院校的ATAR要求、合作大学、热门专业与学费，附申请时间线与避坑指南。
+- [O-Level POA（会计原理）值得选吗——中国学生选科指南与升学价值全解析](/o-level/o-level-poa-worth-it-chinese-students/): O-Level POA会计原理科目对中国学生是否值得选？本文从课程内容、A1率、Poly商科衔接、JC选科影响和就业前景五个维度，提供完整选科决策参考。
+- [AEIS 小学英文语法怎么补——中国学生最容易出错的 6 大语法点与纠错练习](/aeis/aeis-primary-english-grammar-chinese-students/): AEIS 小学英文语法是中国学生失分的重灾区。本文梳理 6 个高频语法错误点，提供对照纠错表、冠词/介词/时态速查表和 30 天专项提升计划，帮助针对性攻克语法短板。
+- [WACE English/Literature 怎么拿高分——中国学生写作策略、扣分避坑与选课建议](/wace/wace-english-literature-high-score-chinese-students/): WACE English 和 Literature 是中国学生丢分最多的科目之一。本文从评分标准、高频扣分点、写作策略和选课对比四个维度，提供针对性的高分备考方案。
+- [O-Level DSA直接收生计划全解析——中国学生申请条件、竞争力领域与准备策略](/o-level/o-level-dsa-guide-chinese-students/): 新加坡O-Level DSA直接收生计划中国学生能否申请？详解DSA资格限制、中国学生有竞争力的领域、申请时间线与各JC录取难度，附完整准备清单。
+- [WACE 科目 scaling 规则全解析：哪些科目天然"加分"？如何利用 scaling 机制拉高 ATAR？](/wace/wace-subject-scaling-guide/): WACE 各科目 scaling 系数差异可达 10 分以上——选对科目组合比单纯刷分更有效。拆解 Methods、Specialist、物理、化学、EALD 等科目的加减分规律，对比五种选课方案的 ATAR 产出，提供数据驱动的选课优化策略。
+- [AEIS 考上后科学跟不上怎么办——中国学生从国内理科到新加坡Science的差距与衔接策略](/aeis/aeis-science-gap-china-students/): AEIS通过后中国学生的最大挑战往往不是英文而是科学——国内初中物理化学与新加坡Science在知识体系、实验技能、英文术语三个维度存在系统差距，看懂差距才能精准补课。
+- [O-Level Combined Science和Pure Science怎么选？对JC和Poly升学路径的真实影响](/o-level/o-level-combined-science-vs-pure-science/): 新加坡O-Level选科时Combined Science和Pure Science究竟差在哪里？从L1R5计分、JC科学方向前置条件、Poly专业门槛三个维度，为中国家长拆解两种科学科目的真实差异与选择策略。
+- [WACE 考试能带什么进考场——公式表、计算器与禁带物品完整清单](/wace/wace-exam-permitted-items/): WACE 考试允许携带哪些物品？详解公式表、计算器型号规定与禁带物品清单，附各科目计算器使用规则，中国考生考前必读。
+- [AEIS 中学入学后选科指南——Sec1-Sec2的科目组合与未来升学影响](/aeis/aeis-secondary-subject-selection-guide/): 详解AEIS通过后进入新加坡政府中学的科目选择策略：Sec1-Sec2核心科与选修科对比、Express/NA/NT分流影响、科目组合对JC和Poly升学路径的决定性作用
+- [O-Level 英文口试怎么准备——中国学生常见失分点与针对性训练方法](/o-level/o-level-oral-exam-preparation-chinese-students/): 新加坡O-Level英文口试评分标准、中国学生四大失分重灾区与3个月分阶段训练方案。含口语朗读、看图说话、对话环节答题模板与常见话题词汇表，实用可操作。
+- [WACE 成绩复核：2026 考季 Results Check 与申请截止日期](/wace/wace-appeal-remark-process/): WACE 成绩有疑问，可以申请哪些官方核查？依据 SCSA 2026 手册说明 Results Check、原始分数明细和答卷副本的区别、费用与 2027 年申请截止日期。
+- [AEIS 英文写作：中学字数要求与练习方法（2026）](/aeis/aeis-english-writing/): 核对 AEIS 中学英文写作的选题数量、字数范围及英语整卷时长，区分小学 CEQ 要求，并提供审题、修改与限时练习方法。
+- [AEIS申请政府小学和中学流程有什么区别——报名条件、考试内容、分配机制全面对比](/aeis/aeis-primary-vs-secondary-application/): 解析AEIS申请新加坡政府小学（P2-P5）和政府中学（Sec1-Sec3）的六大核心差异：年龄门槛、考试科目、名额分配逻辑、录取难度、到校适应和后续升学路径。
+- [AEIS数学英文词汇对照表——中国学生最容易踩的术语陷阱](/aeis/aeis-math-english-vocabulary-chinese-students/): AEIS数学考试全英文出题，中国学生因不熟悉英文数学术语而频频丢分。本文整理运算、几何、代数三大类核心词汇中英对照，附常见术语陷阱和考试题干高频词。
+- [O-Level 科学实验考试怎么准备——Practical Assessment评分标准与中国学生常见失误](/o-level/o-level-science-practical-exam-preparation/): O-Level科学实验考试（Practical Assessment）在物理、化学、生物三科中各占20%权重，是中国学生冲击A1路上最容易被忽视的失分重灾区。本文详解三科实验评分标准、中国学生七个高频失误与分阶段备考方案。
+- [WACE 毕业可以申请新加坡本地奖学金吗——NUS/NTU/SMU奖学金申请条件、ATAR门槛与金额全解析](/wace/wace-singapore-local-scholarship/): 新加坡私立学校WACE毕业生如何申请NUS、NTU、SMU本科奖学金：各类奖学金ATAR分数要求、申请材料、时间线与服务期绑定条款全面对比。
+- [AEIS 备考自学还是报班？中国学生优劣势全面对比与选择建议](/aeis/aeis-self-study-vs-tuition/): AEIS备考自学与报班各有优劣——自学省钱但依赖自律，报班有体系但费用高。本文从费用、效果、时间安排、英文基础等维度，以数据表格形式全面对比两种备考方式的适用场景。
 
 ## School Databases
 
@@ -44,21 +53,12 @@ SEDA 新加坡择校网提供中文的新加坡教育信息，重点覆盖 WACE�
 - [国际学校](/international-school/): 新加坡国际学校与课程体系。
 - [私立学校](/private-schools/): 新加坡私立学校与升学路径。
 
-## Topic Hubs
-
-- [SEDA 专题中心](/topics/): 新加坡教育 主题专题入口。
-- [AEIS 新加坡政府学校插班专题](/topics/aeis/): 面向中国家长的 AEIS / S-AEIS 备考专题，覆盖年龄要求、英文数学准备、政府小学和政府中学插班路径、失败后的备选方案。
-- [O-Level 新加坡中学升学专题](/topics/o-level/): 整理新加坡 O-Level 课程、科目选择、考试难度、JC 与 Poly 升学路径，帮助中国学生和家长判断中学阶段规划。
-- [WACE 国际高中与 ATAR 升学专题](/topics/wace/): 聚合 WACE 课程、ATAR 分数、选课策略、WACE vs A-Level、NUS/NTU 和海外大学申请内容，适合关注国际高中路径的家庭。
-- [新加坡政府学校择校专题](/topics/singapore-government-schools/): 覆盖新加坡政府小学、政府中学、AEIS、PSLE、O-Level 和中国学生择校路径，帮助家长理解入学考试、学额和升学出口。
-- [新加坡国际学校择校专题](/topics/international-schools/): 整理新加坡国际学校选择，覆盖 IB、A-Level、IGCSE、AP、WACE、英式、美式、澳洲课程、学费预算和入学申请。
-- [新加坡大学申请专题](/topics/singapore-university/): 聚合 NUS、NTU、SMU、SUTD、SIT、SUSS、UAS、公立大学申请和中国学生本科路径，覆盖成绩体系、专业选择和申请策略。
-- [新加坡留学费用专题](/topics/study-cost/): 整理新加坡留学费用预算，覆盖政府学校、国际学校、Poly、大学、住宿、生活费、陪读安排和长期升学成本。
-
 ## University Pathways
 
 - [新加坡公立大学总览](/university/): NUS、NTU、SMU、SUTD、SIT、SUSS 六所公立大学 + UAS 艺术大学目录，含预估录取分。
 - [大学专业录取分数据库](/university/degrees/): 137 个本科专业的 IGP 录取分（A-Level / 理工 GPA / 预估 ATAR）可筛选数据库。
+- [新加坡私立大学](/private-university/): 10 所主流私立大学（SIM、Kaplan、PSB、JCU、MDIS、Curtin、LSBF、Amity、SHRM、TMC）总览，含合作大学、学费与中留服认证。
+- [私立大学专业数据库](/private-university/#database): 10 所私立大学 273 个本科 / 硕士 / 文凭专业可筛选数据库（按学校、方向、层级、合作大学），已并入私立大学总览页。
 - [NUS 新加坡国立大学](/university/nus/): NUS 完整指南——学科实力、录取路径（含高考）、学费、就业。
 - [NTU 南洋理工大学](/university/ntu/): NTU 完整指南——材料/工程强项、录取路径、学费、就业。
 - [SMU 新加坡管理大学](/university/smu/): SMU 完整指南——商科/研讨式教学、录取路径、学费。
@@ -96,7 +96,10 @@ SEDA 新加坡择校网提供中文的新加坡教育信息，重点覆盖 WACE�
 ## Brand and Contact
 
 - Brand: SEDA 新加坡择校网
-- Legal entity: Singapore Educational Development Association Ltd.
+- Singapore office: 75 Bukit Timah Road, #05-24, Singapore 229833
+- China office: 上海市杨浦区平凉路2241弄17栋805室
+- Phone: +65 8084 7715
+- Email: admin@seda.org.sg
 - Website: https://sgeda.org.cn/
 - Language: Simplified Chinese (zh-CN)
 - Audience: Chinese students and parents researching Singapore education pathways

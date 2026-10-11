@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://sgeda.org.cn/</loc>
-    <lastmod>2026-06-15</lastmod>
+    <lastmod>2026-10-11</lastmod>
   </url>
   <url>
     <loc>https://sgeda.org.cn/a-level/</loc>
@@ -14,7 +14,7 @@
   </url>
   <url>
     <loc>https://sgeda.org.cn/aeis/</loc>
-    <lastmod>2026-09-17</lastmod>
+    <lastmod>2026-10-11</lastmod>
   </url>
   <url>
     <loc>https://sgeda.org.cn/aeis/aeis-adapt-after-passing/</loc>
@@ -62,7 +62,7 @@
   </url>
   <url>
     <loc>https://sgeda.org.cn/aeis/aeis-interview-preparation-chinese-students/</loc>
-    <lastmod>2026-09-17</lastmod>
+    <lastmod>2026-09-23</lastmod>
   </url>
   <url>
     <loc>https://sgeda.org.cn/aeis/aeis-math-difficulty-china-grade/</loc>
@@ -83,6 +83,10 @@
   <url>
     <loc>https://sgeda.org.cn/aeis/aeis-preparation-timeline/</loc>
     <lastmod>2026-06-22</lastmod>
+  </url>
+  <url>
+    <loc>https://sgeda.org.cn/aeis/aeis-primary-english-grammar-chinese-students/</loc>
+    <lastmod>2026-09-19</lastmod>
   </url>
   <url>
     <loc>https://sgeda.org.cn/aeis/aeis-primary-vs-secondary-application/</loc>
@@ -286,7 +290,7 @@
   </url>
   <url>
     <loc>https://sgeda.org.cn/guides/cost/</loc>
-    <lastmod>2026-06-09</lastmod>
+    <lastmod>2026-10-11</lastmod>
   </url>
   <url>
     <loc>https://sgeda.org.cn/guides/dependent-pass/</loc>
@@ -310,7 +314,7 @@
   </url>
   <url>
     <loc>https://sgeda.org.cn/guides/timeline/</loc>
-    <lastmod>2026-06-09</lastmod>
+    <lastmod>2026-10-11</lastmod>
   </url>
   <url>
     <loc>https://sgeda.org.cn/hk-university/</loc>
@@ -366,7 +370,7 @@
   </url>
   <url>
     <loc>https://sgeda.org.cn/international-school/</loc>
-    <lastmod>2026-06-15</lastmod>
+    <lastmod>2026-10-11</lastmod>
   </url>
   <url>
     <loc>https://sgeda.org.cn/international-school/singapore-international-school-fees/</loc>
@@ -473,6 +477,10 @@
     <lastmod>2026-06-09</lastmod>
   </url>
   <url>
+    <loc>https://sgeda.org.cn/o-level/o-level-appeal-review-of-results-guide/</loc>
+    <lastmod>2026-09-23</lastmod>
+  </url>
+  <url>
     <loc>https://sgeda.org.cn/o-level/o-level-apply-overseas-high-school/</loc>
     <lastmod>2026-08-29</lastmod>
   </url>
@@ -527,6 +535,10 @@
   <url>
     <loc>https://sgeda.org.cn/o-level/o-level-oral-exam-preparation-chinese-students/</loc>
     <lastmod>2026-09-08</lastmod>
+  </url>
+  <url>
+    <loc>https://sgeda.org.cn/o-level/o-level-poa-worth-it-chinese-students/</loc>
+    <lastmod>2026-09-20</lastmod>
   </url>
   <url>
     <loc>https://sgeda.org.cn/o-level/o-level-poly-application-guide/</loc>
@@ -838,7 +850,7 @@
   </url>
   <url>
     <loc>https://sgeda.org.cn/university/</loc>
-    <lastmod>2026-06-09</lastmod>
+    <lastmod>2026-10-11</lastmod>
   </url>
   <url>
     <loc>https://sgeda.org.cn/university/admission/</loc>
@@ -937,6 +949,10 @@
     <lastmod>2026-06-04</lastmod>
   </url>
   <url>
+    <loc>https://sgeda.org.cn/wace/wace-apply-singapore-private-university/</loc>
+    <lastmod>2026-09-22</lastmod>
+  </url>
+  <url>
     <loc>https://sgeda.org.cn/wace/wace-apply-uk-university/</loc>
     <lastmod>2026-08-01</lastmod>
   </url>
@@ -959,6 +975,10 @@
   <url>
     <loc>https://sgeda.org.cn/wace/wace-eald-what-is/</loc>
     <lastmod>2026-07-19</lastmod>
+  </url>
+  <url>
+    <loc>https://sgeda.org.cn/wace/wace-english-literature-high-score-chinese-students/</loc>
+    <lastmod>2026-09-19</lastmod>
   </url>
   <url>
     <loc>https://sgeda.org.cn/wace/wace-exam-permitted-items/</loc>

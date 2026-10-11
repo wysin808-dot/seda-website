@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://sgeda.org.cn/</loc>
-    <lastmod>2026-06-15</lastmod>
+    <lastmod>2026-10-11</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -20,7 +20,7 @@
   </url>
   <url>
     <loc>https://sgeda.org.cn/aeis/</loc>
-    <lastmod>2026-09-17</lastmod>
+    <lastmod>2026-10-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -92,7 +92,7 @@
   </url>
   <url>
     <loc>https://sgeda.org.cn/aeis/aeis-interview-preparation-chinese-students/</loc>
-    <lastmod>2026-09-17</lastmod>
+    <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -123,6 +123,12 @@
   <url>
     <loc>https://sgeda.org.cn/aeis/aeis-preparation-timeline/</loc>
     <lastmod>2026-06-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://sgeda.org.cn/aeis/aeis-primary-english-grammar-chinese-students/</loc>
+    <lastmod>2026-09-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -428,7 +434,7 @@
   </url>
   <url>
     <loc>https://sgeda.org.cn/guides/cost/</loc>
-    <lastmod>2026-06-09</lastmod>
+    <lastmod>2026-10-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -464,7 +470,7 @@
   </url>
   <url>
     <loc>https://sgeda.org.cn/guides/timeline/</loc>
-    <lastmod>2026-06-09</lastmod>
+    <lastmod>2026-10-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -548,7 +554,7 @@
   </url>
   <url>
     <loc>https://sgeda.org.cn/international-school/</loc>
-    <lastmod>2026-06-15</lastmod>
+    <lastmod>2026-10-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -1003,6 +1009,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://sgeda.org.cn/o-level/o-level-appeal-review-of-results-guide/</loc>
+    <lastmod>2026-09-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://sgeda.org.cn/o-level/o-level-apply-overseas-high-school/</loc>
     <lastmod>2026-08-29</lastmod>
     <changefreq>weekly</changefreq>
@@ -1083,6 +1095,12 @@
   <url>
     <loc>https://sgeda.org.cn/o-level/o-level-oral-exam-preparation-chinese-students/</loc>
     <lastmod>2026-09-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://sgeda.org.cn/o-level/o-level-poa-worth-it-chinese-students/</loc>
+    <lastmod>2026-09-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -3602,7 +3620,7 @@
   </url>
   <url>
     <loc>https://sgeda.org.cn/university/</loc>
-    <lastmod>2026-06-09</lastmod>
+    <lastmod>2026-10-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -3751,6 +3769,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://sgeda.org.cn/wace/wace-apply-singapore-private-university/</loc>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://sgeda.org.cn/wace/wace-apply-uk-university/</loc>
     <lastmod>2026-08-01</lastmod>
     <changefreq>weekly</changefreq>
@@ -3783,6 +3807,12 @@
   <url>
     <loc>https://sgeda.org.cn/wace/wace-eald-what-is/</loc>
     <lastmod>2026-07-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://sgeda.org.cn/wace/wace-english-literature-high-score-chinese-students/</loc>
+    <lastmod>2026-09-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>

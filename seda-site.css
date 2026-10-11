@@ -140,6 +140,19 @@ select {
   opacity: 0.5;
   flex-shrink: 0;
 }
+.nav-search {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 9px;
+  color: #475467;
+  flex-shrink: 0;
+  transition: color .2s, background .2s;
+}
+.nav-search:hover { color: var(--brand); background: #fff5f5; }
+.nav-search .nav-icon { width: 20px; height: 20px; color: inherit; }
 
 .trending-bar {
   display: flex;

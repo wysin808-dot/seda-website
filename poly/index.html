@@ -17,7 +17,9 @@
 <style>
 .pdb-hero{position:relative;padding:54px clamp(20px,6vw,80px) 46px;background:linear-gradient(135deg,#7f1d1d 0%,#b32020 48%,#c62828 100%);color:#fff;overflow:hidden}
 .pdb-hero::after{content:"";position:absolute;inset:0;background:radial-gradient(900px 360px at 88% -10%,rgba(255,255,255,.14),transparent 60%);pointer-events:none}
-.pdb-hero .in{position:relative;max-width:1180px;margin:0 auto}
+.pdb-hero .in{position:relative;max-width:1180px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1fr) 360px;align-items:center;gap:44px}
+.pdb-hero-art{width:100%;max-width:360px;height:auto;justify-self:end;border-radius:18px;box-shadow:0 22px 50px rgba(0,0,0,.28)}
+@media(max-width:900px){.pdb-hero .in{grid-template-columns:1fr}.pdb-hero-art{display:none}}
 .pdb-eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.28);padding:6px 14px;border-radius:999px;font-size:.82rem;font-weight:700;margin-bottom:16px}
 .pdb-hero h1{font-size:clamp(28px,4.4vw,46px);line-height:1.16;margin:0 0 14px;font-weight:850}
 .pdb-hero p.sub{font-size:clamp(15px,1.7vw,18px);color:rgba(255,255,255,.9);max-width:760px;margin:0 0 24px;line-height:1.7}
@@ -235,6 +237,7 @@ var _hmt = _hmt || [];
     </header>
 <main>
   <section class="pdb-hero"><div class="in">
+    <div class="pdb-hero-copy">
     <span class="pdb-eyebrow">🎓 5 所公立理工 · 195 个 Diploma · 真实 ELR2B2 录取分</span>
     <h1>新加坡五大理工学院<br>专业与录取分数据库</h1>
     <p class="sub">SP · NP · NYP · TP · RP 一站对比。195 个 Diploma 专业的 2026 年 JAE 录取分数（ELR2B2）全部收录，按专业方向或你的分数即可查到能进哪些专业。</p>
@@ -245,6 +248,8 @@ var _hmt = _hmt || [];
     <div class="pdb-hotrow"><span>热门：</span><a href="/poly/courses/?q=护理">护理</a><a href="/poly/courses/?q=商">商科</a><a href="/poly/courses/?cluster=信息科技">信息科技</a><a href="/poly/courses/?cluster=工程">工程</a><a href="/poly/courses/?q=设计">设计</a><a href="/poly/courses/?q=航空">航空</a></div>
     <div class="pdb-trust"><span>✅ 数据来源 MOE / 各校官方</span><span>✅ 2026 最新一届 JAE</span><span>✅ 可按分数筛选</span></div>
     <div class="pdb-hotrow"><span>申请通道：</span><a href="/poly/dae/"><strong>DAE 直接招生专题（中国学生主通道）</strong></a><a href="/poly/admission/">中国学生申请攻略</a></div>
+    </div>
+    <img class="pdb-hero-art" src="/assets/poly-hero.jpg" alt="新加坡理工学院专业学习示意插画：工程、设计、护理、信息科技与实训" width="800" height="800" loading="eager" decoding="async">
   </div></section>
 
   <div class="pdb-statsband"><div class="pdb-stats"><div class="pdb-stat"><div class="n">5</div><div class="l">所公立理工</div></div><div class="pdb-stat"><div class="n">195</div><div class="l">个 Diploma 专业</div></div><div class="pdb-stat"><div class="n">11</div><div class="l">个专业大类</div></div><div class="pdb-stat"><div class="n">2026</div><div class="l">最新 ELR2B2</div></div><div class="pdb-stat"><div class="n">NUS·NTU·SIT</div><div class="l">可衔接公立大学</div></div></div></div>

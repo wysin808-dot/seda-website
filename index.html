@@ -12,7 +12,7 @@
     <link rel="canonical" href="https://sgeda.org.cn/" />
     <link rel="alternate" type="application/rss+xml" title="SEDA 新加坡择校网最新文章" href="https://sgeda.org.cn/feed.xml" />
     <link rel="stylesheet" href="/seda-site.css?v=43" />
-    <link rel="stylesheet" href="/seda-home-new.css?v=1" />
+    <link rel="stylesheet" href="/seda-home-new.css?v=2" />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -68,52 +68,36 @@
       }
     </script>
     <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "SEDA 是什么机构？",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "SEDA（新加坡国际教育平台）是一个中文新加坡留学资讯平台，为中国家庭提供关于新加坡教育体系、考试课程、学校选择和升学路径的全面信息。"
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "中国学生去新加坡留学有哪些途径？",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "主要有三条路径：通过 AEIS 考试进入政府学校、进入私立学校读 WACE 或 A-Level 课程、进入国际学校读 IB 或其他国际课程。选择取决于孩子年龄、英文水平和目标大学。"
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "新加坡留学一年大概需要多少钱？",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "因学校类型差异较大：政府学校约 15-25 万人民币/年，私立学校约 25-40 万/年，国际学校约 40-65 万/年（含学费和生活费）。"
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "WACE、O-Level、A-Level、IB 怎么选？",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "WACE 节奏稳定适合英文爬坡阶段，O-Level 是新加坡本地体系基础，A-Level 学术要求最高，IB 最全面但压力大。选择要看孩子当前学术状态和大学方向。"
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "SEDA 提供免费咨询吗？",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "是的。家长可以通过网站表单或微信/WhatsApp 联系我们，我们会根据孩子的年龄、英文水平和目标，推荐最合适的课程体系和学校。"
-            }
-          }
-        ]
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "从哪里开始选择升学路径？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "先整理孩子的年级、英文水平、预算与目标，再比较政府学校、私立课程和国际学校。详见升学路径总览。"
       }
+    },
+    {
+      "@type": "Question",
+      "name": "留学预算要考虑哪些费用？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "除学费外，还需考虑住宿、餐饮、交通、保险和申请费用。按学校与住宿方式分别核算，详见费用指南。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "2027 年还叫 O-Level 吗？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "从 2027 年起，新加坡中学毕业生参加 SEC 考试。本站保留 O-Level 关键词与历史资料，方便对照。详见 SEC / O-Level 指南及 SEAB 说明。"
+      }
+    }
+  ]
+}
     </script>
     <meta property="og:type" content="website" />
   <meta property="og:locale" content="zh_CN" />
@@ -189,423 +173,107 @@ var _hmt = _hmt || [];
     </header>
 
 
-<main id="main-content">
-
-  <!-- ══════════════════════════════════
-       1. HERO
-       ══════════════════════════════════ -->
-  <section class="hero" aria-label="首页 Hero">
-    <div class="hero-inner">
-      <div class="hero-copy">
-        <p class="hero-eyebrow">中国家庭的新加坡升学参谋</p>
-        <h1 class="hero-title">新加坡升学参谋<br>从小学到大学，每步都有答案</h1>
-        <p class="hero-subtitle">
-          不知道该走哪条路？告诉我孩子的年龄和英文基础，<br>
-          我们帮你找到最适合的那条——不是最贵的，是最稳的。
-        </p>
-        <div class="hero-actions">
-          <button class="primary-button" onclick="document.getElementById('wechat-contact').scrollIntoView({behavior:'smooth'})">
-            免费获取择校方案
-          </button>
-          <a href="/pathway/" class="secondary-button">查看升学路径</a>
-        </div>
-        <!-- 微信卡片 -->
-        <div class="hero-wechat-card">
-          <img src="/assets/wechat-amy-seda-guide.jpg" alt="新加坡择校顾问Amy微信二维码" width="88" height="88"/>
-          <div class="hero-wechat-copy">
-            <strong>新加坡择校顾问 Amy</strong>
-            <span>扫码添加，获取免费择校方案</span>
-            <ul>
-              <li>国际学校推荐</li>
-              <li>AEIS 规划</li>
-              <li>A-Level 规划</li>
-              <li>WACE 规划</li>
-              <li>学费预算分析</li>
-            </ul>
-          </div>
-        </div>
+<main id="main-content" class="home-visual">
+  <section class="home-hero" aria-label="新加坡留学">
+    <img class="home-hero-image" src="/assets/hero-mbs-day3.jpg" alt="新加坡滨海湾、金沙酒店与滨海艺术中心" width="1920" height="1080" fetchpriority="high">
+    <div class="home-wrap home-hero-copy">
+      <p class="home-kicker">SEDA · 中国家庭的新加坡升学参谋</p>
+      <h1>新加坡留学与择校</h1>
+      <p class="home-hero-line">从小学到大学，找到适合孩子的路。</p>
+      <div class="home-actions">
+        <a class="home-button" href="#home-pathways">查看升学路径</a>
+        <a class="home-button home-button-ghost" href="#wechat-contact">免费择校咨询</a>
       </div>
     </div>
-    <!-- 数据统计条 -->
-    <div class="hero-stats" aria-label="平台数据">
-      <div class="stat-chip">
-        <span class="stat-icon">🎓</span>
-        <div><strong>5 大课程体系</strong><span>WACE / O-Level / A-Level / AEIS / IB</span></div>
+    <span class="home-photo-caption">SINGAPORE · 滨海湾</span>
+  </section>
+
+  <nav class="home-quicklinks home-wrap" aria-label="热门升学入口">
+    <a href="/aeis/"><span>政府学校入学</span><strong>AEIS <span aria-hidden="true">↗</span></strong></a>
+    <a href="/o-level/"><span>2027 新考试</span><strong>SEC / O-Level <span aria-hidden="true">↗</span></strong></a>
+    <a href="/wace/"><span>国际高中课程</span><strong>WACE <span aria-hidden="true">↗</span></strong></a>
+    <a href="/school-database/"><span>从校园开始了解</span><strong>学校数据库 <span aria-hidden="true">↗</span></strong></a>
+  </nav>
+
+  <section class="home-band" id="home-pathways" aria-labelledby="pathways-heading">
+    <div class="home-wrap">
+      <div class="home-heading"><div><p class="home-kicker">升学路径</p><h2 id="pathways-heading">孩子现在在哪个阶段？</h2></div><a class="home-text-link" href="/pathway/">全部路径 →</a></div>
+      <div class="home-pathways">
+        <a href="/aeis/"><span class="home-step">01</span><h3>小学阶段</h3><p>了解政府小学入学</p><strong>AEIS 备考 →</strong></a>
+        <a href="/o-level/"><span class="home-step">02</span><h3>初中阶段</h3><p>了解中学考试与分流</p><strong>SEC / O-Level →</strong></a>
+        <a href="/wace-vs-a-level/"><span class="home-step">03</span><h3>高中阶段</h3><p>比较课程与申请方向</p><strong>WACE / A-Level →</strong></a>
+        <a href="/pathway/gaokao/"><span class="home-step">04</span><h3>高考之后</h3><p>按成绩与专业查要求</p><strong>大学申请 →</strong></a>
       </div>
-      <div class="stat-chip">
-        <span class="stat-icon">🏫</span>
-        <div><strong>325 所学校数据</strong><span>179 小学 / 146 中学 / 国际学校</span></div>
+      <p class="home-note">路径仅供初步定位，具体入学条件以学校及考试机构公布为准。</p>
+    </div>
+  </section>
+
+  <section class="home-band home-campus-band" aria-labelledby="campus-heading">
+    <div class="home-wrap">
+      <div class="home-heading"><div><p class="home-kicker">走进校园</p><h2 id="campus-heading">先看校园，再了解学校</h2></div><a class="home-text-link" href="/school-database/">学校数据库 →</a></div>
+      <div class="home-campus-grid">
+        <a class="home-photo-card" href="/university/nus/">
+          <img src="/assets/nus-hero.jpg" alt="新加坡国立大学校园入口与校名标识" width="1600" height="820" loading="lazy">
+          <div><span>NUS</span><h3>新加坡国立大学</h3><p>专业与申请要求 <span aria-hidden="true">↗</span></p></div>
+        </a>
+        <a class="home-photo-card" href="/university/ntu/">
+          <img src="/assets/ntu-campus.jpg" alt="南洋理工大学校园中的云南园建筑" width="1000" height="562" loading="lazy">
+          <div><span>NTU</span><h3>南洋理工大学</h3><p>专业与申请要求 <span aria-hidden="true">↗</span></p></div>
+        </a>
+        <a class="home-photo-card" href="/university/smu/">
+          <img src="/assets/smu-campus.jpg" alt="新加坡管理大学李光前商学院建筑" width="1100" height="733" loading="lazy">
+          <div><span>SMU</span><h3>新加坡管理大学</h3><p>专业与申请要求 <span aria-hidden="true">↗</span></p></div>
+        </a>
       </div>
-      <div class="stat-chip">
-        <span class="stat-icon">📖</span>
-        <div><strong>25+ 深度攻略</strong><span>3,000–5,000 字全面指南</span></div>
+      <nav class="home-school-links" aria-label="更多学校类型">
+        <a href="/primary-schools/">政府小学</a><a href="/secondary-schools/">政府中学</a><a href="/international-school/">国际学校</a><a href="/jc/">初级学院</a><a href="/poly/">理工学院</a><a href="/private-university/">私立大学</a><a href="/university/">全部公立大学 →</a>
+      </nav>
+    </div>
+  </section>
+
+  <section class="home-band" aria-labelledby="guides-heading">
+    <div class="home-wrap">
+      <div class="home-heading"><div><p class="home-kicker">择校指南</p><h2 id="guides-heading">选课程，先看这几个问题</h2></div><a class="home-text-link" href="/guides/">更多指南 →</a></div>
+      <div class="home-guide-grid">
+        <a class="home-photo-card" href="/wace-vs-a-level/">
+          <img src="/assets/wace-study-group-1400.jpg" alt="学生一起查阅教材的学习场景示意" width="1400" height="787" loading="lazy">
+          <div><span>课程对比</span><h3>WACE 还是 A-Level？</h3><p>科目、评估与大学申请</p></div>
+        </a>
+        <a class="home-photo-card" href="/international-school/">
+          <img src="/assets/ib-students-group.jpg" alt="学生合作完成课堂项目的学习场景示意" width="800" height="534" loading="lazy">
+          <div><span>国际学校</span><h3>哪种课程适合孩子？</h3><p>IB、A-Level 与选校要点</p></div>
+        </a>
+        <a class="home-photo-card" href="/guides/cost/">
+          <img src="/assets/sg-px-6305534.jpg" alt="新加坡城市天际线与花园景观" width="640" height="480" loading="lazy">
+          <div><span>留学预算</span><h3>一年需要准备多少钱？</h3><p>学费、住宿与日常开支</p></div>
+        </a>
       </div>
-      <div class="stat-chip">
-        <span class="stat-icon">✅</span>
-        <div><strong>免费咨询</strong><span>微信 / WhatsApp 即时响应</span></div>
+      <div class="home-sec-note">
+        <strong>2027 · SEC</strong>
+        <p>新加坡中学毕业考试将采用 SEC；O-Level 相关资料继续保留。</p>
+        <a class="home-text-link" href="/o-level/">了解变化 →</a>
+        <a class="home-source" href="https://ask.gov.sg/seab/questions/cmkkrc4rh000cxefr59eizvpp" target="_blank" rel="noopener">SEAB 官方说明</a>
       </div>
     </div>
   </section>
 
-
-  <!-- ══════════════════════════════════
-       2. 痛点区：信息太多，反而更难做决定
-       ══════════════════════════════════ -->
-  <section class="pain-section" aria-label="为什么选择 SEDA">
-    <div class="pain-inner">
-      <div class="pain-text">
-        <span class="section-label">为什么选择 SEDA</span>
-        <h2>信息太多，<br>反而更难做决定</h2>
-        <p>
-          很多家长第一次搜索"新加坡留学"，会被 WACE、O-Level、A-Level、IB、AEIS 这些名词搞晕。
-          每个中介说的方向都不一样，学校官网全是英文，身边也没有走过这条路的人可以问。
-        </p>
-        <p>
-          SEDA 做的事情很简单：<strong>把新加坡教育体系用中文讲清楚</strong>，
-          帮你根据孩子的年龄、英文基础和目标大学，找到那条最适合的路——而不是最贵的路。
-        </p>
-        <a href="/about/" class="text-link">了解 SEDA 是什么 →</a>
-      </div>
-      <div class="pain-cards">
-        <a href="/aeis/" class="pain-card">
-          <div class="pain-card-icon" style="background:#fef2f2;">📝</div>
-          <div class="pain-card-body">
-            <strong>政府学校入学</strong>
-            <p>AEIS 考试是中国学生进入新加坡政府中小学的唯一途径，每年 9 月考试，提前 6 个月备考最稳。</p>
-            <span class="pain-card-link">AEIS 完整攻略 →</span>
-          </div>
-        </a>
-        <a href="/wace/" class="pain-card">
-          <div class="pain-card-icon" style="background:#eff6ff;">📘</div>
-          <div class="pain-card-body">
-            <strong>国际高中课程</strong>
-            <p>WACE 是节奏最友好的国际高中体系，适合英文正在提升阶段的学生，毕业可直申 NUS / NTU。</p>
-            <span class="pain-card-link">WACE 完整攻略 →</span>
-          </div>
-        </a>
-        <a href="/international-school/" class="pain-card">
-          <div class="pain-card-icon" style="background:#f0fdf4;">🌍</div>
-          <div class="pain-card-body">
-            <strong>国际学校直入</strong>
-            <p>无需考试，直接申请。IB、A-Level、AP 多种课程可选，学费 40–65 万/年，适合有明确目标的家庭。</p>
-            <span class="pain-card-link">国际学校选校指南 →</span>
-          </div>
-        </a>
+  <section class="home-band home-faq-band" aria-labelledby="faq-heading">
+    <div class="home-wrap home-faq-layout">
+      <div><p class="home-kicker">家长常问</p><h2 id="faq-heading">还有这些疑问？</h2><a class="home-text-link" href="/guides/parents-faq/">更多问答 →</a></div>
+      <div class="home-faq-list">
+        <details><summary>从哪里开始选择升学路径？</summary><p>先整理孩子的年级、英文水平、预算与目标，再比较政府学校、私立课程和国际学校。详见<a href="/pathway/">升学路径总览</a>。</p></details>
+        <details><summary>留学预算要考虑哪些费用？</summary><p>除学费外，还需考虑住宿、餐饮、交通、保险和申请费用。按学校与住宿方式分别核算，详见<a href="/guides/cost/">费用指南</a>。</p></details>
+        <details><summary>2027 年还叫 O-Level 吗？</summary><p>从 2027 年起，新加坡中学毕业生参加 SEC 考试。本站保留 O-Level 关键词与历史资料，方便对照。详见<a href="/o-level/">SEC / O-Level 指南</a>及<a href="https://ask.gov.sg/seab/questions/cmkkrc4rh000cxefr59eizvpp" target="_blank" rel="noopener">SEAB 说明</a>。</p></details>
       </div>
     </div>
   </section>
 
-
-  <!-- ══════════════════════════════════
-       3. 按年龄段选路径
-       ══════════════════════════════════ -->
-  <section class="age-finder-section" aria-label="按年龄段选择升学路径">
-    <div class="section-header">
-      <span class="section-label">快速定位</span>
-      <h2>孩子现在几年级？</h2>
-      <p class="section-desc">不同年龄段，最优路径完全不同。选对入口，少走两年弯路。</p>
-    </div>
-    <div class="age-grid">
-      <a href="/aeis/" class="age-card">
-        <span class="age-badge">小学阶段</span>
-        <span class="age-range">7–12 岁 / 小 1–小 6</span>
-        <h3>通过 AEIS 进政府小学</h3>
-        <p>
-          全英文沉浸式环境，是最早起步的路径。AEIS 每年 9 月考试，
-          考数学和英文，通过后直接进入新加坡政府小学，与本地学生同班就读。
-          越早入学，语言适应成本越低。
-        </p>
-        <span class="age-cta">查看 AEIS 备考攻略 →</span>
-      </a>
-      <a href="/pathway/" class="age-card">
-        <span class="age-badge">初中阶段</span>
-        <span class="age-range">13–15 岁 / 初 1–初 3</span>
-        <h3>政府中学 或 私立 WACE / O-Level</h3>
-        <p>
-          这个阶段有两条路：通过 AEIS 进政府中学（竞争激烈，英文要求高），
-          或直接进入私立学校读 WACE / O-Level 预备课程（门槛低，节奏灵活）。
-          选哪条，取决于孩子的英文基础和目标大学。
-        </p>
-        <span class="age-cta">查看初中阶段路径分析 →</span>
-      </a>
-      <a href="/wace/" class="age-card">
-        <span class="age-badge">高中阶段</span>
-        <span class="age-range">15–17 岁 / 高 1–高 2</span>
-        <h3>WACE / A-Level / IB 三选一</h3>
-        <p>
-          高中阶段是最关键的选择节点。WACE 节奏稳、认可度高，适合英文仍在提升的学生；
-          A-Level 学术要求最高，适合冲新加坡本地大学；IB 最全面，适合目标欧美名校的学生。
-          两年完成国际高中，直接申请大学。
-        </p>
-        <span class="age-cta">查看高中课程对比 →</span>
-      </a>
-      <a href="/wace-nus-ntu/" class="age-card">
-        <span class="age-badge">高考后</span>
-        <span class="age-range">17 岁以上 / 高三毕业</span>
-        <h3>高考成绩直申 或 一年跳板</h3>
-        <p>
-          高考成绩达到一本线以上，可以直接申请 NUS / NTU / SMU。
-          如果成绩不够理想，读一年 WACE 或 A-Level 作为跳板，
-          通过 ATAR 或 A-Level 成绩重新申请，是最常见的补救路径。
-        </p>
-        <span class="age-cta">查看高考后升学方案 →</span>
-      </a>
+  <section class="home-band home-contact-band" id="wechat-contact" aria-labelledby="contact-heading">
+    <div class="home-wrap home-contact-layout">
+      <div><p class="home-kicker">免费择校咨询</p><h2 id="contact-heading">一起理清孩子的下一步</h2><p>带上年级、英文水平和预算，和 Amy 聊聊。</p><a class="home-button" href="/contact/">联系升学顾问</a></div>
+      <div class="home-qr"><img src="/assets/wechat-amy-seda-guide.jpg" alt="新加坡择校顾问 Amy 微信二维码" width="140" height="140" loading="lazy"><div><strong>择校顾问 Amy</strong><p>微信：SEDA_Guide</p><span>扫码咨询</span></div></div>
     </div>
   </section>
-
-
-  <!-- ══════════════════════════════════
-       4. 顾问信任区
-       ══════════════════════════════════ -->
-  <section class="advisor-section" aria-label="为什么选择我们">
-    <div class="advisor-inner">
-      <div class="advisor-stats">
-        <span class="section-label light">为什么选择我们</span>
-        <h2>不卖课，不收佣金<br>只帮你做对的决定</h2>
-        <p>
-          SEDA 是一个独立的中文新加坡教育资讯平台。
-          我们不代理任何学校，不收取学校佣金，
-          给出的建议只基于孩子的实际情况和数据。
-        </p>
-        <div class="stat-row">
-          <div class="stat-item"><strong>300+</strong><span>已服务中国家庭</span></div>
-          <div class="stat-item"><strong>325 所</strong><span>学校数据库覆盖</span></div>
-          <div class="stat-item"><strong>5 大</strong><span>课程体系深度解析</span></div>
-        </div>
-        <button class="primary-button" onclick="document.getElementById('wechat-contact').scrollIntoView({behavior:'smooth'})">
-          预约免费咨询
-        </button>
-      </div>
-      <div class="advisor-reviews">
-        <div class="review-card">
-          <div class="review-stars">★★★★★</div>
-          <p class="review-text">
-            "孩子初二，英文中等，我们完全不知道该走政府学校还是私立。Amy 帮我们分析了三条路的时间线和费用，最后选了 WACE，现在已经顺利入读了。"
-          </p>
-          <span class="review-meta">— 上海家长，孩子现就读新加坡私立学校 WACE 课程</span>
-        </div>
-        <div class="review-card">
-          <div class="review-stars">★★★★★</div>
-          <p class="review-text">
-            "高考 560 分，本来以为去不了新加坡。SEDA 告诉我们可以用高考成绩直申 SIT，或者读一年 WACE 冲 NTU。最终孩子选了 WACE，ATAR 85，现在在 NTU 读书。"
-          </p>
-          <span class="review-meta">— 北京家长，孩子现就读 NTU 工程学院</span>
-        </div>
-        <div class="review-card">
-          <div class="review-stars">★★★★★</div>
-          <p class="review-text">
-            "最大的收获是搞清楚了 WACE 和 A-Level 的区别。之前以为 A-Level 更好，咨询后才知道孩子的英文基础更适合先走 WACE，省了很多弯路。"
-          </p>
-          <span class="review-meta">— 广州家长，孩子现就读新加坡国际学校</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ══════════════════════════════════
-       5. 深度攻略（杂志式布局）
-       ══════════════════════════════════ -->
-  <section class="guides-section" aria-label="深度攻略">
-    <div class="section-header">
-      <span class="section-label">深度攻略</span>
-      <h2>每篇都是 3,000 字以上的真实指南</h2>
-      <p class="section-desc">不是机器生成内容，是顾问团队根据真实咨询案例整理的完整解析。</p>
-    </div>
-    <div class="guides-layout">
-      <!-- 精选大图 -->
-      <a href="/wace-vs-a-level/" class="guide-featured">
-        <div class="guide-featured-img">
-          <img src="/assets/sg-px-6305534.jpg" alt="新加坡滨海湾摩天轮与城市天际线" width="640" height="480" loading="lazy"/>
-          <div class="guide-featured-overlay">
-            <span class="guide-tag">核心对比</span>
-            <h3>WACE vs A-Level：新加坡国际高中怎么选？</h3>
-            <p>从课程结构、难度、评分方式、大学认可、英文要求和费用六个维度做完全对比。适合正在纠结高中路径的家庭。</p>
-          </div>
-        </div>
-      </a>
-      <!-- 列表 -->
-      <div class="guide-list">
-        <a href="/aeis/" class="guide-item">
-          <span class="guide-tag-sm">AEIS</span>
-          <div class="guide-item-body">
-            <h4>AEIS 考试完全攻略</h4>
-            <p>时间表、年龄要求、英文数学题型、备考策略，以及 S-AEIS 与 AEIS 的区别。</p>
-          </div>
-        </a>
-        <a href="/wace/" class="guide-item">
-          <span class="guide-tag-sm">WACE</span>
-          <div class="guide-item-body">
-            <h4>WACE 课程完全攻略</h4>
-            <p>西澳课程结构、ATAR 计算方式、科目选择策略，以及新加坡开设 WACE 的私立学校一览。</p>
-          </div>
-        </a>
-        <a href="/o-level/" class="guide-item">
-          <span class="guide-tag-sm">O-Level</span>
-          <div class="guide-item-body">
-            <h4>O-Level 考试完全攻略</h4>
-            <p>科目体系、L1R5 与 ELR2B2 评分详解、JC 和 Poly 两条升学出口、国际学生备考策略。</p>
-          </div>
-        </a>
-        <a href="/guides/cost/" class="guide-item">
-          <span class="guide-tag-sm">留学费用</span>
-          <div class="guide-item-body">
-            <h4>新加坡留学一年多少钱？</h4>
-            <p>政府学校 15–25 万、私立 25–40 万、国际学校 40–65 万，含学费、生活费、住宿完整核算。</p>
-          </div>
-        </a>
-        <a href="/guides/" class="guide-item">
-          <span class="guide-tag-sm">查看全部</span>
-          <div class="guide-item-body">
-            <h4>查看全部 25+ 篇深度攻略 →</h4>
-            <p>涵盖 AEIS、WACE、O-Level、A-Level、IB、留学费用、学生准证等所有核心话题。</p>
-          </div>
-        </a>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ══════════════════════════════════
-       6. 精选学校
-       ══════════════════════════════════ -->
-  <section class="school-showcase" aria-label="精选学校">
-    <div class="section-header">
-      <span class="section-label">精选大学</span>
-      <h2>新加坡名校一览</h2>
-      <p class="section-desc">6 所公立大学 + 公立艺术大学 UAS + 顶尖私立 SIM，点击查看录取要求、专业方向与申请路径</p>
-    </div>
-    <div class="school-grid">
-      <a href="/university/nus/" class="school-chip uni">
-        <img class="school-logo" src="/wace/images/logos/nus.png" alt="新加坡国立大学 校徽" loading="lazy" decoding="async">
-        <div><span class="school-name">新加坡国立大学</span><br><span class="school-type">公立大学 · 综合研究型</span></div>
-      </a>
-      <a href="/university/ntu/" class="school-chip uni">
-        <img class="school-logo" src="/wace/images/logos/ntu.png" alt="南洋理工大学 校徽" loading="lazy" decoding="async">
-        <div><span class="school-name">南洋理工大学</span><br><span class="school-type">公立大学 · 理工见长</span></div>
-      </a>
-      <a href="/university/smu/" class="school-chip uni">
-        <img class="school-logo" src="/wace/images/logos/smu.png" alt="新加坡管理大学 校徽" loading="lazy" decoding="async">
-        <div><span class="school-name">新加坡管理大学</span><br><span class="school-type">公立大学 · 商科顶尖</span></div>
-      </a>
-      <a href="/university/sutd/" class="school-chip uni">
-        <img class="school-logo" src="/wace/images/logos/sutd.png" alt="新加坡科技设计大学 校徽" loading="lazy" decoding="async">
-        <div><span class="school-name">新加坡科技设计大学</span><br><span class="school-type">公立大学 · 科技与设计</span></div>
-      </a>
-      <a href="/university/sit/" class="school-chip uni">
-        <img class="school-logo" src="/wace/images/logos/sit.png" alt="新加坡理工大学 校徽" loading="lazy" decoding="async">
-        <div><span class="school-name">新加坡理工大学</span><br><span class="school-type">公立大学 · 应用科技</span></div>
-      </a>
-      <a href="/university/suss/" class="school-chip uni">
-        <img class="school-logo" src="/wace/images/logos/suss.png" alt="新加坡社科大学 校徽" loading="lazy" decoding="async">
-        <div><span class="school-name">新加坡社科大学</span><br><span class="school-type">公立大学 · 社会科学</span></div>
-      </a>
-      <a href="/university/uas/" class="school-chip uni">
-        <img class="school-logo" src="/wace/images/logos/uas.png" alt="新加坡艺术大学 校徽" loading="lazy" decoding="async">
-        <div><span class="school-name">新加坡艺术大学</span><br><span class="school-type">公立艺术大学 · 拉萨尔/南艺</span></div>
-      </a>
-      <a href="/private-university/sim/" class="school-chip private">
-        <img class="school-logo" src="/wace/images/logos/sim.jpg" alt="新加坡管理学院 校徽" loading="lazy" decoding="async">
-        <div><span class="school-name">新加坡管理学院 SIM</span><br><span class="school-type">私立名校 · 海外名校学位</span></div>
-      </a>
-    </div>
-    <div class="showcase-footer">
-      <a href="/university/" class="outline-btn">新加坡公立大学总览 →</a>
-      <a href="/private-university/" class="outline-btn">新加坡私立大学总览 →</a>
-      <a href="/university/degrees/" class="outline-btn">大学专业录取分数据库 →</a>
-      <a href="/private-university/#database" class="outline-btn">私立大学专业数据库（10 所）→</a>
-      <a href="/poly/courses/" class="outline-btn">理工学院专业录取分数据库 →</a>
-      <a href="/school-database/" class="outline-btn">进入完整学校数据库 →</a>
-    </div>
-  </section>
-
-
-
-  <!-- ══════════════════════════════════
-       7. FAQ（对百度 SEO 帮助最大）
-       ══════════════════════════════════ -->
-  <section class="faq-section" aria-label="常见问题">
-    <div class="section-header">
-      <span class="section-label">常见问题</span>
-      <h2>家长最常问的几个问题</h2>
-    </div>
-    <div class="faq-grid">
-      <details class="faq-item">
-        <summary>SEDA 是什么机构？收费吗？</summary>
-        <p>
-          SEDA（新加坡国际教育平台）是一个独立的中文新加坡留学资讯平台。我们不代理学校、不收取佣金，提供的所有资讯和初步咨询均免费。
-        </p>
-      </details>
-      <details class="faq-item">
-        <summary>中国学生去新加坡留学，主要有哪几条路？</summary>
-        <p>
-          主要三条路：① 通过 AEIS 考试进入政府学校（O-Level → JC/Poly 路线）；② 进入私立学校读 WACE 或 A-Level 课程；③ 进入国际学校读 IB 或其他国际课程。选择取决于孩子年龄、英文水平和目标大学。详见<a href="/pathway/">升学路径总览</a>。
-        </p>
-      </details>
-      <details class="faq-item">
-        <summary>新加坡留学一年大概需要多少钱？</summary>
-        <p>
-          因学校类型差异较大：政府学校约 15–25 万人民币/年，私立学校约 25–40 万/年，国际学校约 40–65 万/年（含学费和生活费）。详见<a href="/guides/cost/">留学费用指南</a>。
-        </p>
-      </details>
-      <details class="faq-item">
-        <summary>WACE、O-Level、A-Level、IB 到底怎么选？</summary>
-        <p>
-          这四种课程面向不同学生：WACE 节奏稳定适合英文爬坡阶段；O-Level 是新加坡本地体系基础；A-Level 学术要求最高；IB 最全面但压力大。选择要看孩子当前学术状态和大学方向。详见<a href="/wace-vs-a-level/">WACE vs A-Level 对比</a>。
-        </p>
-      </details>
-      <details class="faq-item">
-        <summary>高考成绩可以直接申请新加坡大学吗？</summary>
-        <p>
-          可以。NUS、NTU、SMU 等公立大学接受高考成绩申请，一般要求达到一本线以上，部分热门专业要求更高。也可以通过 WACE 或 A-Level 成绩申请，详见<a href="/pathway/gaokao/">高考后升学方案</a>。
-        </p>
-      </details>
-      <details class="faq-item">
-        <summary>孩子英文不好，还能去新加坡读书吗？</summary>
-        <p>
-          可以。WACE 课程对英文要求相对宽松，适合英文正在提升阶段的学生。很多中国学生入读时英文基础一般，经过一到两年的全英文环境后，英文水平会有显著提升。建议先通过<a href="/contact/">免费咨询</a>评估孩子的英文水平，再制定备考计划。
-        </p>
-      </details>
-    </div>
-  </section>
-
-
-  <!-- ══════════════════════════════════
-       8. 底部联系区（转化）
-       ══════════════════════════════════ -->
-  <section class="contact-section" id="wechat-contact" aria-label="免费咨询">
-    <div class="contact-inner">
-      <div class="contact-copy">
-        <span class="section-label light">免费咨询</span>
-        <h2>告诉我们孩子的情况<br>我们帮你找到最合适的路</h2>
-        <p>
-          不管孩子现在几年级、英文什么水平、目标是 NUS 还是国际学校——
-          只需要告诉我们基本情况，顾问会在 24 小时内给出具体的路径建议，完全免费。
-        </p>
-        <ul class="contact-features">
-          <li>✓ 不推销课程，只给建议</li>
-          <li>✓ 不收取任何费用</li>
-          <li>✓ 微信 / WhatsApp 均可联系</li>
-          <li>✓ 工作日 9:00–21:00 在线响应</li>
-        </ul>
-      </div>
-      <div class="wechat-card-large">
-        <strong>新加坡择校顾问 Amy</strong>
-        <span>扫码添加微信，获取免费择校方案</span>
-        <img src="/assets/wechat-amy-seda-guide.jpg" alt="新加坡择校顾问Amy微信二维码" width="140" height="140" loading="lazy"/>
-        <div class="wechat-id-row">
-          微信号：<strong id="wechat-id-text">SEDA_Guide</strong>
-          <button class="copy-btn" onclick="
-            navigator.clipboard.writeText('SEDA_Guide').then(()=>{
-              this.textContent='已复制';
-              setTimeout(()=>this.textContent='复制',2000);
-            });
-          ">复制微信号</button>
-        </div>
-      </div>
-    </div>
-  </section>
-
 </main>
 
     <footer class="site-footer">

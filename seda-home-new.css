@@ -6,10 +6,11 @@
 .home-visual a:focus-visible, .home-visual summary:focus-visible { outline: 3px solid #287369; outline-offset: 5px; }
 .home-wrap { width: min(1200px, calc(100% - 64px)); margin-inline: auto; }
 .home-visual > section.home-band { max-width: none; margin: 0; padding: 64px 0; border: 0; border-radius: 0; }
-.home-visual > section.home-hero { position: relative; display: flex; align-items: center; min-height: 430px; height: min(540px, 65svh); max-width: none; padding: 0; margin: 0; background: #36595b; overflow: hidden; border-radius: 0; }
-.home-hero-image { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 42%; }
-.home-hero::after { content: ""; position: absolute; inset: 0; background: rgba(0, 0, 0, .22); pointer-events: none; }
-.home-hero-copy { position: relative; z-index: 1; color: #fff; text-shadow: 0 2px 10px #0008; }
+.home-visual > section.home-hero { position: relative; display: flex; align-items: flex-end; min-height: 360px; height: min(500px, 60svh); max-width: none; padding: 0; margin: 0; background: #36595b; overflow: hidden; border-radius: 0; }
+/* Keep the roofline visible on wide screens without changing the source photo. */
+.home-hero-image { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 14%; }
+.home-hero::after { content: ""; position: absolute; inset: 0; background: rgba(0, 0, 0, .16); pointer-events: none; }
+.home-hero-copy { position: relative; z-index: 1; color: #fff; padding-bottom: 60px; text-shadow: 0 2px 8px #000b, 0 1px 2px #0008; }
 .home-visual .home-kicker { font-size: 13px; font-weight: 600; line-height: 1.6; color: #a82c2c; margin-bottom: 12px; }
 .home-hero .home-kicker { color: #fff; font-size: 15px; }
 .home-visual h1 { font-size: 52px; color: #fff; line-height: 1.2; font-weight: 750; }

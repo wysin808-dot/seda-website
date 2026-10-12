@@ -141,6 +141,36 @@
 @media(max-width:560px){
  .pdb-table .col-en{display:none}
 }
+
+/* ===== ELR2B2 图解导读 ===== */
+.pdb-guide{background:#fcfbfa}
+.pdb-infotitle{display:flex;align-items:center;gap:9px;font-weight:800;color:var(--ink);font-size:1.02rem;margin:30px 0 12px}
+.pdb-infotitle .no{flex:0 0 auto;width:26px;height:26px;border-radius:8px;background:var(--brand);color:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:.86rem;font-weight:800}
+.pdb-elr{display:flex;flex-wrap:wrap;align-items:stretch;gap:10px;margin:0 0 14px}
+.pdb-term{flex:1 1 160px;min-width:150px;border:1px solid var(--line);border-radius:14px;padding:14px 16px;background:#fff;box-shadow:0 2px 8px rgba(20,20,40,.04)}
+.pdb-term .tag{display:inline-block;font-weight:800;font-size:.74rem;color:#fff;background:var(--brand);padding:3px 11px;border-radius:999px;margin-bottom:9px;letter-spacing:.03em}
+.pdb-term.r .tag{background:#d97706}.pdb-term.b .tag{background:#2e7d32}
+.pdb-term h4{margin:0 0 4px;font-size:1rem;color:var(--ink);font-weight:800}
+.pdb-term p{margin:0;font-size:.82rem;color:var(--muted);line-height:1.55}
+.pdb-op{align-self:center;font-size:1.7rem;font-weight:800;color:#c9ccd3;flex:0 0 auto;line-height:1}
+.pdb-eq{flex:1 1 170px;min-width:160px;border-radius:14px;padding:14px 16px;background:linear-gradient(135deg,#7f1d1d,#c62828);color:#fff;box-shadow:0 10px 24px rgba(198,40,40,.22)}
+.pdb-eq .tag{display:inline-block;font-weight:800;font-size:.74rem;background:rgba(255,255,255,.22);padding:3px 11px;border-radius:999px;margin-bottom:9px}
+.pdb-eq h4{margin:0 0 4px;font-size:1rem;font-weight:800}
+.pdb-eq p{margin:0;font-size:.82rem;color:rgba(255,255,255,.9);line-height:1.55}
+.pdb-rules{display:flex;flex-wrap:wrap;gap:8px;margin:2px 0 6px}
+.pdb-rules span{font-size:.82rem;background:var(--brand-light);color:var(--brand-strong);border:1px solid #f3c6c6;padding:6px 13px;border-radius:999px;font-weight:600}
+.pdb-infocap{font-size:.78rem;color:var(--muted);margin:4px 0 0;line-height:1.6}
+.pdb-bandwrap{border:1px solid var(--line);border-radius:16px;padding:18px 20px 14px;background:#fff;box-shadow:0 2px 8px rgba(20,20,40,.04)}
+.pdb-bandwrap svg{width:100%;height:auto;display:block}
+.pdb-routes{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:2px}
+.pdb-route{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:16px;padding:18px;background:#fff;text-decoration:none;box-shadow:0 2px 8px rgba(20,20,40,.04);transition:transform .18s,box-shadow .18s,border-color .18s}
+.pdb-route:hover{transform:translateY(-3px);box-shadow:var(--shadow-md);border-color:#f0bcbc}
+.pdb-route .rh{display:flex;align-items:center;gap:9px;margin-bottom:8px}
+.pdb-route .ic{font-size:1.5rem;line-height:1}
+.pdb-route .rn{font-weight:800;color:var(--ink);font-size:1.04rem}
+.pdb-route .who{font-size:.74rem;color:#fff;background:var(--brand);padding:2px 9px;border-radius:999px;font-weight:700;margin-left:auto}
+.pdb-route p{margin:0 0 10px;font-size:.86rem;color:var(--muted);line-height:1.6}
+.pdb-route .go{margin-top:auto;color:var(--brand-strong);font-weight:800;font-size:.86rem}
 </style>
 <!-- SEDA_GA4_START -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-38WFES3WTH"></script>
@@ -283,6 +313,92 @@ var _hmt = _hmt || [];
     <div class="foot"><span class="cnt"><b>41</b> 个 Diploma 专业</span><span class="go">查看详情 →</span></div>
   </div>
 </a></div>
+  </section>
+
+  <section class="pdb-sec pdb-guide">
+    <h2>看懂 ELR2B2：理工录取分怎么算、你能进什么</h2>
+    <p class="lead">ELR2B2 是 O-Level 升理工（JAE）唯一看的分数。它不是「考几分」，而是 <b>5 门科目的等级相加、越低越好</b>。先看它怎么拼出来，再看你的分数落在哪一档。</p>
+
+    <div class="pdb-infotitle"><span class="no">1</span>ELR2B2 是怎么拼出来的</div>
+    <div class="pdb-elr">
+      <div class="pdb-term"><span class="tag">EL</span><h4>英文</h4><p>必算项，英文等级直接计入</p></div>
+      <div class="pdb-op">+</div>
+      <div class="pdb-term r"><span class="tag">R2</span><h4>2 门相关科目</h4><p>与所报专业对口（如工程看数理、商科看数学）</p></div>
+      <div class="pdb-op">+</div>
+      <div class="pdb-term b"><span class="tag">B2</span><h4>2 门最佳科目</h4><p>其余科目里等级最好的两门</p></div>
+      <div class="pdb-op">=</div>
+      <div class="pdb-eq"><span class="tag">ELR2B2</span><h4>总分 6–30</h4><p>5 科等级之和，<b>数字越小越好</b></p></div>
+    </div>
+    <div class="pdb-rules">
+      <span>✅ 每科 A1=1、A2=2…C6=6，相加即总分</span>
+      <span>✅ 可用 CCA 课外活动最多减 2 分</span>
+      <span>✅ 多数专业录取线 ≤26</span>
+      <span>✅ 护理类（ELR2B2-C）放宽到 ≤28</span>
+    </div>
+    <p class="pdb-infocap">示意：净分 = ELR2B2 − CCA 加分。同一专业不同理工分数线不同，具体以数据库每个专业的实际录取分为准。</p>
+
+    <div class="pdb-infotitle"><span class="no">2</span>你的分数能进什么（2026 真实录取分区间）</div>
+    <div class="pdb-bandwrap">
+      <svg viewBox="0 0 840 120" role="img" aria-label="ELR2B2 分数档位示意：分数越低越难进，越高门槛越松">
+        <text x="40" y="30" font-size="13" fill="#8a8f98" font-weight="600">← 分数越低越难进（学霸区）</text>
+        <text x="800" y="30" font-size="13" fill="#8a8f98" font-weight="600" text-anchor="end">门槛越松 →</text>
+        <defs><clipPath id="pdbbar"><rect x="40" y="46" width="760" height="30" rx="15"/></clipPath></defs>
+        <g clip-path="url(#pdbbar)">
+          <rect x="40" y="46" width="63" height="30" fill="#a31515"/>
+          <rect x="103" y="46" width="254" height="30" fill="#c62828"/>
+          <rect x="357" y="46" width="190" height="30" fill="#e08a00"/>
+          <rect x="547" y="46" width="126" height="30" fill="#2e7d32"/>
+          <rect x="673" y="46" width="64" height="30" fill="#6a4c93"/>
+          <rect x="737" y="46" width="63" height="30" fill="#cfd3da"/>
+          <line x1="103" y1="46" x2="103" y2="76" stroke="#fff" stroke-width="2"/>
+          <line x1="357" y1="46" x2="357" y2="76" stroke="#fff" stroke-width="2"/>
+          <line x1="547" y1="46" x2="547" y2="76" stroke="#fff" stroke-width="2"/>
+          <line x1="673" y1="46" x2="673" y2="76" stroke="#fff" stroke-width="2"/>
+          <line x1="737" y1="46" x2="737" y2="76" stroke="#fff" stroke-width="2"/>
+        </g>
+        <g font-size="13" font-weight="800" fill="#fff" text-anchor="middle">
+          <text x="71" y="65">6–8</text>
+          <text x="230" y="65">9–16</text>
+          <text x="452" y="65">17–22</text>
+          <text x="610" y="65">23–26</text>
+          <text x="705" y="65" font-size="11">27–28</text>
+        </g>
+        <g font-size="12" fill="#555" text-anchor="middle" font-weight="600">
+          <text x="71" y="97">顶尖</text>
+          <text x="230" y="97">热门专业</text>
+          <text x="452" y="97">主流工程/科学</text>
+          <text x="610" y="97">多数专业门槛</text>
+          <text x="769" y="97" font-size="11">护理-C</text>
+        </g>
+      </svg>
+    </div>
+    <div class="pdb-rules" style="margin-top:12px">
+      <span>6–8｜生物医学、应用化学等全国最难</span>
+      <span>9–16｜银行金融、热门 IT、传媒招牌</span>
+      <span>17–22｜多数工程与应用科学</span>
+      <span>23–26｜普通专业录取门槛</span>
+      <span>27–28｜护理类 ELR2B2-C 专用线</span>
+    </div>
+    <p class="pdb-infocap">想知道「我这个分能进哪些专业」，直接到 <a href="/poly/courses/">专业录取分数据库</a> 输入分数即可筛选。</p>
+
+    <div class="pdb-infotitle"><span class="no">3</span>中国学生进理工的 3 条路线</div>
+    <div class="pdb-routes">
+      <a class="pdb-route" href="/poly/dae/">
+        <div class="rh"><span class="ic">🚀</span><span class="rn">DAE 直接招生</span><span class="who">主通道</span></div>
+        <p>无需 O-Level，凭初中 / 高中成绩 + 校方笔试面试直接申请，是多数中国学生进理工的主路径。</p>
+        <span class="go">看 DAE 专题 →</span>
+      </a>
+      <a class="pdb-route" href="/poly/courses/">
+        <div class="rh"><span class="ic">🎯</span><span class="rn">O-Level / JAE</span><span class="who">凭分数</span></div>
+        <p>已有 O-Level 成绩，按 ELR2B2 统一填志愿、全国竞争入学，分数越低可选专业越多。</p>
+        <span class="go">查录取分数据库 →</span>
+      </a>
+      <a class="pdb-route" href="/poly/admission/">
+        <div class="rh"><span class="ic">📝</span><span class="rn">AEIS / 预科补底</span><span class="who">零基础</span></div>
+        <p>没有 O-Level 也不走直招，可先考 AEIS 或读 O-Level 预备 / 预科，再通过 JAE 申请。</p>
+        <span class="go">看申请攻略 →</span>
+      </a>
+    </div>
   </section>
 
   <section class="pdb-sec" style="padding-top:0">

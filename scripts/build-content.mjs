@@ -4,7 +4,7 @@ import { buildSchoolPages } from './build-school-pages.mjs';
 import { enhanceKeySeoPages } from './enhance-key-seo-pages.mjs';
 import { optimizeArticle } from './seo-optimizer.mjs';
 import { partitionArticles, prepareArticleHtml } from './content-validation.mjs';
-import { baiduAllowed, inspectPage, parseSitemap, sitemapXml } from './seo-pages.mjs';
+import { baiduAllowed, inspectPage, parseSitemap, prioritySitemapEntries, sitemapXml } from './seo-pages.mjs';
 import { syncSiteFooter } from './sync-site-footer.mjs';
 
 const root = process.cwd();
@@ -891,7 +891,10 @@ function updateSitemap(drafts = []) {
     .sort((a, b) => a.url.localeCompare(b.url));
   const body = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map((entry) => `  <url>\n    <loc>${entry.url}</loc>\n    <lastmod>${entry.lastmod}</lastmod>\n    <changefreq>${entry.changefreq}</changefreq>\n    <priority>${entry.priority}</priority>\n  </url>`).join('\n')}\n</urlset>\n`;
   fs.writeFileSync(path.join(root, 'sitemap.xml'), body, 'utf8');
-  fs.writeFileSync(path.join(root, 'baidu-sitemap.xml'), sitemapXml(urls.filter(item => allowed(item.url))), 'utf8');
+  const baiduPriorityFile = path.join(root, 'data', 'seo', 'baidu-priority-urls.txt');
+  if (!fs.existsSync(baiduPriorityFile)) throw new Error(`Missing Baidu priority URL list: ${baiduPriorityFile}`);
+  const baiduUrls = prioritySitemapEntries(urls, read(baiduPriorityFile), { allowed, max: 100 });
+  fs.writeFileSync(path.join(root, 'baidu-sitemap.xml'), sitemapXml(baiduUrls), 'utf8');
   fs.mkdirSync(path.dirname(stateFile), { recursive: true });
   fs.writeFileSync(stateFile, JSON.stringify(updates, null, 2), 'utf8');
   return urls.length;

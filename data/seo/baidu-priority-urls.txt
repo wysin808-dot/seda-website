@@ -1,0 +1,120 @@
+# SEDA 百度优先收录清单
+#
+# 仅放最重要、最完整、最具原创价值的页面；构建脚本强制限制最多 100 个 URL。
+# 不在本文件中不代表禁止抓取，也不会影响完整 sitemap.xml。
+
+# 品牌、核心栏目与课程体系（24）
+https://sgeda.org.cn/
+https://sgeda.org.cn/about/
+https://sgeda.org.cn/news/
+https://sgeda.org.cn/school-database/
+https://sgeda.org.cn/pathway/
+https://sgeda.org.cn/government-schools/
+https://sgeda.org.cn/primary-schools/
+https://sgeda.org.cn/secondary-schools/
+https://sgeda.org.cn/international-school/
+https://sgeda.org.cn/private-schools/
+https://sgeda.org.cn/university/
+https://sgeda.org.cn/private-university/
+https://sgeda.org.cn/poly/
+https://sgeda.org.cn/jc/
+https://sgeda.org.cn/guides/
+https://sgeda.org.cn/entrance-exams/
+https://sgeda.org.cn/a-level/
+https://sgeda.org.cn/international-alevel/
+https://sgeda.org.cn/ib/
+https://sgeda.org.cn/ap/
+https://sgeda.org.cn/foundation/
+https://sgeda.org.cn/wace/
+https://sgeda.org.cn/o-level/
+https://sgeda.org.cn/aeis/
+
+# 实用指南（9）
+https://sgeda.org.cn/guides/accommodation/
+https://sgeda.org.cn/guides/checklist/
+https://sgeda.org.cn/guides/cost/
+https://sgeda.org.cn/guides/dependent-pass/
+https://sgeda.org.cn/guides/parents-faq/
+https://sgeda.org.cn/guides/scholarship/
+https://sgeda.org.cn/guides/student-pass-application-singapore/
+https://sgeda.org.cn/guides/student-pass/
+https://sgeda.org.cn/guides/timeline/
+
+# 升学路径（8）
+https://sgeda.org.cn/pathway/a-level-to-university/
+https://sgeda.org.cn/pathway/by-age/
+https://sgeda.org.cn/pathway/chinese-students-singapore-pathway/
+https://sgeda.org.cn/pathway/gaokao/
+https://sgeda.org.cn/pathway/nus/
+https://sgeda.org.cn/pathway/ntu/
+https://sgeda.org.cn/pathway/transfer-from-china/
+https://sgeda.org.cn/pathway/wace-to-uk/
+
+# 新加坡大学（9）
+https://sgeda.org.cn/university/admission/
+https://sgeda.org.cn/university/degrees/
+https://sgeda.org.cn/university/nus/
+https://sgeda.org.cn/university/ntu/
+https://sgeda.org.cn/university/smu/
+https://sgeda.org.cn/university/sutd/
+https://sgeda.org.cn/university/sit/
+https://sgeda.org.cn/university/suss/
+https://sgeda.org.cn/university/nus-undergraduate-application-chinese-students/
+
+# 理工学院（7）
+https://sgeda.org.cn/poly/admission/
+https://sgeda.org.cn/poly/courses/
+https://sgeda.org.cn/poly/sp/
+https://sgeda.org.cn/poly/np/
+https://sgeda.org.cn/poly/nyp/
+https://sgeda.org.cn/poly/tp/
+https://sgeda.org.cn/poly/rp/
+
+# WACE 原创专题（15）
+https://sgeda.org.cn/wace-vs-a-level/
+https://sgeda.org.cn/wace-atar/
+https://sgeda.org.cn/wace-nus-ntu/
+https://sgeda.org.cn/wace/what-is/
+https://sgeda.org.cn/wace/chinese-students/
+https://sgeda.org.cn/wace/subjects/
+https://sgeda.org.cn/wace/university-recognition/
+https://sgeda.org.cn/wace/wace-atar-calculation/
+https://sgeda.org.cn/wace/wace-apply-nus-requirements/
+https://sgeda.org.cn/wace/wace-apply-ntu-difficulty/
+https://sgeda.org.cn/wace/wace-best-schools-singapore/
+https://sgeda.org.cn/wace/wace-suitable-for-chinese-students/
+https://sgeda.org.cn/wace/wace-subject-selection/
+https://sgeda.org.cn/wace/wace-tuition-fees/
+https://sgeda.org.cn/wace/wace-year-11-transfer/
+
+# AEIS 原创专题（14）
+https://sgeda.org.cn/aeis/age-requirements/
+https://sgeda.org.cn/aeis/english/
+https://sgeda.org.cn/aeis/math/
+https://sgeda.org.cn/aeis/preparation/
+https://sgeda.org.cn/aeis/results/
+https://sgeda.org.cn/aeis/s-aeis/
+https://sgeda.org.cn/aeis/timeline/
+https://sgeda.org.cn/aeis/grade-checker/
+https://sgeda.org.cn/aeis/aeis-exam-fees-registration/
+https://sgeda.org.cn/aeis/aeis-preparation-timeline/
+https://sgeda.org.cn/aeis/aeis-primary-vs-secondary-application/
+https://sgeda.org.cn/aeis/aeis-school-selection-after-passing/
+https://sgeda.org.cn/aeis/aeis-self-study-vs-tuition/
+https://sgeda.org.cn/aeis/s-aeis-vs-aeis/
+
+# O-Level / SEC 原创专题（14）
+https://sgeda.org.cn/o-level/exam-format/
+https://sgeda.org.cn/o-level/preparation/
+https://sgeda.org.cn/o-level/registration/
+https://sgeda.org.cn/o-level/results-grading/
+https://sgeda.org.cn/o-level/scoring/
+https://sgeda.org.cn/o-level/subjects/
+https://sgeda.org.cn/o-level/timeline/
+https://sgeda.org.cn/o-level/vs-igcse/
+https://sgeda.org.cn/o-level/o-level-international-students-registration/
+https://sgeda.org.cn/o-level/o-level-jc-score/
+https://sgeda.org.cn/o-level/o-level-poly-application-guide/
+https://sgeda.org.cn/o-level/o-level-poly-or-jc/
+https://sgeda.org.cn/o-level/o-level-private-candidate-registration/
+https://sgeda.org.cn/o-level/o-level-subject-combination/

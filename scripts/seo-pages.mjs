@@ -21,6 +21,30 @@ export function baiduAllowed(robots, site = SITE) {
   const parser = robotsParser(`${site}/robots.txt`, robots);
   return url => new URL(url).origin === site && parser.isAllowed(url, 'Baiduspider') === true;
 }
+export function prioritySitemapEntries(entries, text, { site = SITE, allowed = () => true, max = 100 } = {}) {
+  const base = new URL(site);
+  const byUrl = new Map(entries.map(entry => [entry.url, entry]));
+  const seen = new Set();
+  const selected = [];
+  const values = String(text || '')
+    .split(/\r?\n/)
+    .map(line => line.trim())
+    .filter(line => line && !line.startsWith('#'));
+  if (values.length > max) throw new Error(`Baidu priority sitemap exceeds ${max} URLs (${values.length})`);
+  for (const value of values) {
+    const url = new URL(value, base);
+    url.hash = '';
+    if (url.origin !== base.origin) throw new Error(`Baidu priority URL is outside ${base.origin}: ${value}`);
+    const normalized = url.href;
+    if (seen.has(normalized)) throw new Error(`Duplicate Baidu priority URL: ${normalized}`);
+    seen.add(normalized);
+    const entry = byUrl.get(normalized);
+    if (!entry) throw new Error(`Baidu priority URL is missing from sitemap.xml: ${normalized}`);
+    if (!allowed(normalized)) throw new Error(`Baidu priority URL is blocked by robots.txt: ${normalized}`);
+    selected.push(entry);
+  }
+  return selected;
+}
 export function localFile(root, value, base = SITE) {
   const url = new URL(value, base);
   if (url.origin !== new URL(base).origin) return null;

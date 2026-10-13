@@ -1,6 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import { SITE, assertLocalReferences, baiduAllowed, inspectPage, localFile, parseSitemap } from './seo-pages.mjs';
+import { SITE, assertLocalReferences, baiduAllowed, inspectPage, localFile, parseSitemap, prioritySitemapEntries } from './seo-pages.mjs';
 import { missingPublishedQueueRoutes } from './queue-publications.mjs';
 
 const root = process.cwd();
@@ -15,7 +15,8 @@ for (const entry of entries) {
   errors.push(...assertLocalReferences(root, page));
 }
 const baidu = parseSitemap(fs.readFileSync(path.join(root, 'baidu-sitemap.xml'), 'utf8'));
-const expected = new Set(entries.map(e => e.url));
+const priorityText = fs.readFileSync(path.join(root, 'data', 'seo', 'baidu-priority-urls.txt'), 'utf8');
+const expected = new Set(prioritySitemapEntries(entries, priorityText, { allowed }).map(e => e.url));
 for (const item of baidu) if (!expected.has(item.url)) errors.push(`ineligible Baidu sitemap URL: ${item.url}`);
 for (const url of expected) if (!baidu.some(e => e.url === url)) errors.push(`missing Baidu sitemap URL: ${url}`);
 const queue = fs.readFileSync(path.join(root, 'content', 'keyword-queue.csv'), 'utf8');

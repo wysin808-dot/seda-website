@@ -5,7 +5,7 @@ import os from 'node:os';
 import path from 'node:path';
 import { selectBatch, recordAccepted } from '../scripts/baidu-queue.mjs';
 import { partitionArticles, prepareArticleHtml } from '../scripts/content-validation.mjs';
-import { SITE, baiduAllowed, inspectPage, parseSitemap, sitemapXml, localFile } from '../scripts/seo-pages.mjs';
+import { SITE, baiduAllowed, inspectPage, parseSitemap, prioritySitemapEntries, sitemapXml, localFile } from '../scripts/seo-pages.mjs';
 import { mergeContent } from '../scripts/restore-cms-content.mjs';
 
 const now = new Date('2026-09-07T06:00:00Z');
@@ -55,6 +55,21 @@ test('robots keeps declared sitemap resources crawlable', () => {
   const allow = baiduAllowed('User-agent: *\nAllow: /\n\nUser-agent: Baiduspider\nAllow: /\n');
   assert.equal(allow(SITE + '/sitemap.xml'), true);
   assert.equal(allow(SITE + '/baidu-sitemap.xml'), true);
+});
+test('priority sitemap keeps curated order and enforces quality guardrails', () => {
+  const entries = [
+    { url: `${SITE}/`, lastmod: '2026-10-13' },
+    { url: `${SITE}/wace/`, lastmod: '2026-10-12' },
+  ];
+  assert.deepEqual(
+    prioritySitemapEntries(entries, '/wace/\n/\n', { allowed: () => true }),
+    [entries[1], entries[0]],
+  );
+  assert.throws(() => prioritySitemapEntries(entries, '/\n/\n'), /Duplicate/);
+  assert.throws(() => prioritySitemapEntries(entries, 'https:\/\/example.com\/'), /outside/);
+  assert.throws(() => prioritySitemapEntries(entries, '/missing/'), /missing from sitemap/);
+  assert.throws(() => prioritySitemapEntries(entries, '/wace/', { allowed: () => false }), /blocked by robots/);
+  assert.throws(() => prioritySitemapEntries(entries, '/\n/wace/', { max: 1 }), /exceeds 1 URLs/);
 });
 test('sitemap parser supports one entry, empty lists and XML entities', () => {
   const entries = [{ url: SITE + '/test/?a=1&b=2', lastmod: '2026-09-07' }];

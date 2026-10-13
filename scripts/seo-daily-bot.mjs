@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import fs from 'node:fs';
 import path from 'node:path';
-import { SITE, baiduAllowed, inspectPage, parseSitemap } from './seo-pages.mjs';
+import { SITE, baiduAllowed, inspectPage, parseSitemap, prioritySitemapEntries } from './seo-pages.mjs';
 import { selectBatch } from './baidu-queue.mjs';
 import { observationSummary } from './search-observations.mjs';
 
@@ -69,7 +69,8 @@ try {
   const allowed = baiduAllowed(robots.text, site);
   const eligible = sitemapEntries.filter(entry => allowed(entry.url));
   blocked = sitemapEntries.length - eligible.length;
-  const expected = new Set(eligible.map(e => e.url));
+  const priorityText = fs.readFileSync(path.join(root, 'data/seo/baidu-priority-urls.txt'), 'utf8');
+  const expected = new Set(prioritySitemapEntries(eligible, priorityText, { site, allowed }).map(e => e.url));
   const baiduSet = new Set(baiduEntries.map(e => e.url));
   for (const url of expected) if (!baiduSet.has(url)) errors.push(`Missing from Baidu sitemap: ${url}`);
   for (const url of baiduSet) if (!expected.has(url)) errors.push(`Ineligible Baidu sitemap URL: ${url}`);

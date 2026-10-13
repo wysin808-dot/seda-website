@@ -21,7 +21,9 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const site = (process.env.BAIDU_SITE || 'https://sgeda.org.cn').replace(/\/$/, '');
+let siteInput = (process.env.BAIDU_SITE || 'https://sgeda.org.cn').trim().replace(/\/$/, '');
+if (!/^https?:\/\//i.test(siteInput)) siteInput = 'https://' + siteInput; // allow bare domain in env
+const site = siteInput;
 const host = new URL(site).host;
 const token = process.env.BAIDU_TOKEN || '';
 const pushMax = Math.max(1, Math.min(2000, Number(process.env.PUSH_MAX) || 2000));

@@ -102,27 +102,41 @@ if (process.env.VERIFY !== '0') {
 if (!token) fail('BAIDU_TOKEN is not set (expected as an environment variable / GitHub Secret).');
 
 // --- push to Baidu ------------------------------------------------------------
-const endpoint = `http://data.zz.baidu.com/urls?site=${encodeURIComponent(site)}&token=${encodeURIComponent(token)}`;
-let res, bodyText;
-try {
-  res = await fetch(endpoint, {
-    method: 'POST',
-    headers: { 'Content-Type': 'text/plain' },
-    body: batch.join('\n'),
-    signal: AbortSignal.timeout(30000),
+// Baidu's `site` param must match the verified property EXACTLY. We try the
+// configured form first, then alternates (bare domain, www, http) until one works.
+const bare = host;                      // sgeda.org.cn
+const variants = [...new Set([
+  site,                                 // https://sgeda.org.cn (configured)
+  bare,                                 // sgeda.org.cn
+  `https://www.${bare.replace(/^www\./, '')}`,
+  `http://${bare}`,
+])];
+
+async function pushWith(siteParam) {
+  const endpoint = `http://data.zz.baidu.com/urls?site=${encodeURIComponent(siteParam)}&token=${encodeURIComponent(token)}`;
+  const res = await fetch(endpoint, {
+    method: 'POST', headers: { 'Content-Type': 'text/plain' },
+    body: batch.join('\n'), signal: AbortSignal.timeout(30000),
   });
-  bodyText = await res.text();
-} catch (e) {
-  fail(`Request to Baidu failed: ${e.message}`);
+  const text = await res.text();
+  let json; try { json = JSON.parse(text); } catch { json = { error: res.status, message: text.slice(0, 200) }; }
+  return json;
 }
 
-let data;
-try { data = JSON.parse(bodyText); } catch { fail(`Unexpected response (HTTP ${res.status}): ${bodyText.slice(0, 300)}`); }
+let data, usedSite;
+for (const v of variants) {
+  try { data = await pushWith(v); } catch (e) { data = { error: -1, message: e.message }; }
+  usedSite = v;
+  if (!data.error) break;
+  console.log(`· site="${v}" → error ${data.error}: ${data.message}`);
+}
 
 if (data.error) {
-  // 401 token invalid, 400 site mismatch, etc. — surface clearly, do NOT print the token.
-  fail(`Baidu API error ${data.error}: ${data.message}`);
+  fail(`Baidu API error ${data.error}: ${data.message}\n` +
+       `所有 site 格式都失败。请到 百度搜索资源平台 → 链接提交 → 主动推送，核对示例里的 site= 值与 token，` +
+       `并确认 sgeda.org.cn 这个站点状态为「正常」。token 若已更新，请更新 GitHub Secret BAIDU_TOKEN。`);
 }
+console.log(`Matched site param: ${usedSite}`);
 
 const success = Number(data.success) || 0;
 const remain = data.remain;

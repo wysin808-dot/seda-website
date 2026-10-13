@@ -102,52 +102,67 @@ if (process.env.VERIFY !== '0') {
 if (!token) fail('BAIDU_TOKEN is not set (expected as an environment variable / GitHub Secret).');
 
 // --- push to Baidu ------------------------------------------------------------
-// Baidu's `site` param must match the verified property EXACTLY. We try the
-// configured form first, then alternates (bare domain, www, http) until one works.
+// The `site` param must match the verified property EXACTLY. Baidu's bare-domain
+// form is tried first (that is what worked for this site), with protocol variants
+// as fallback. "site init fail" = wrong site param; "over quota" = correct site
+// but today's quota is used up (Baidu gives low-index sites a small daily quota).
 const bare = host;                      // sgeda.org.cn
 const variants = [...new Set([
-  site,                                 // https://sgeda.org.cn (configured)
-  bare,                                 // sgeda.org.cn
-  `https://www.${bare.replace(/^www\./, '')}`,
+  bare,                                 // sgeda.org.cn   (correct for this property)
+  site,                                 // https://sgeda.org.cn
   `http://${bare}`,
+  `https://www.${bare.replace(/^www\./, '')}`,
 ])];
+const chunkStart = Math.max(1, Math.min(2000, Number(process.env.PUSH_CHUNK) || 50));
 
-async function pushWith(siteParam) {
+async function pushWith(siteParam, urls) {
   const endpoint = `http://data.zz.baidu.com/urls?site=${encodeURIComponent(siteParam)}&token=${encodeURIComponent(token)}`;
-  const res = await fetch(endpoint, {
-    method: 'POST', headers: { 'Content-Type': 'text/plain' },
-    body: batch.join('\n'), signal: AbortSignal.timeout(30000),
-  });
-  const text = await res.text();
-  let json; try { json = JSON.parse(text); } catch { json = { error: res.status, message: text.slice(0, 200) }; }
-  return json;
+  try {
+    const res = await fetch(endpoint, { method: 'POST', headers: { 'Content-Type': 'text/plain' },
+      body: urls.join('\n'), signal: AbortSignal.timeout(30000) });
+    const text = await res.text();
+    try { return JSON.parse(text); } catch { return { error: res.status, message: text.slice(0, 200) }; }
+  } catch (e) { return { error: -1, message: e.message }; }
 }
+const isQuota = d => d && d.error && /quota/i.test(d.message || '');
+const isWrongSite = d => d && d.error && /(init fail|not exist|site error|站点)/i.test(d.message || '');
 
-let data, usedSite;
+// 1) detect the accepted site param with a 1-URL probe (minimal quota cost)
+let workingSite = null, probe = null;
 for (const v of variants) {
-  try { data = await pushWith(v); } catch (e) { data = { error: -1, message: e.message }; }
-  usedSite = v;
-  if (!data.error) break;
-  console.log(`· site="${v}" → error ${data.error}: ${data.message}`);
+  probe = await pushWith(v, batch.slice(0, 1));
+  if (isWrongSite(probe)) { console.log(`· site="${v}" → ${probe.message}`); continue; }
+  workingSite = v; break;                 // success OR over-quota => this site is correct
+}
+if (!workingSite) fail('所有 site 格式都 site init fail。请到 百度搜索资源平台 → 链接提交 → 主动推送，\n' +
+  '核对示例里的 site= 值与 token，并确认 sgeda.org.cn 站点状态为「正常」；token 若更新请改 GitHub Secret BAIDU_TOKEN。');
+console.log(`Matched site param: ${workingSite}`);
+
+// 2) quota-aware chunked push: shrink the chunk on "over quota" to use up exactly
+//    whatever quota remains today; resume the rest on the next daily run via state.
+let totalSuccess = 0, lastRemain, quotaHit = false;
+const pushedUrls = [];
+let remaining = [...batch];
+if (!probe.error) { totalSuccess += Number(probe.success) || 0; lastRemain = probe.remain; pushedUrls.push(batch[0]); remaining = batch.slice(1); }
+else if (isQuota(probe)) { quotaHit = true; }
+
+let chunkSize = chunkStart;
+while (!quotaHit && remaining.length) {
+  const group = remaining.slice(0, chunkSize);
+  const d = await pushWith(workingSite, group);
+  if (isQuota(d)) { if (chunkSize <= 1) { quotaHit = true; break; } chunkSize = Math.max(1, Math.floor(chunkSize / 2)); continue; }
+  if (d.error) fail(`Baidu API error ${d.error}: ${d.message}`);
+  totalSuccess += Number(d.success) || 0; lastRemain = d.remain; pushedUrls.push(...group); remaining = remaining.slice(group.length);
+  if (lastRemain === 0) { quotaHit = true; break; }
 }
 
-if (data.error) {
-  fail(`Baidu API error ${data.error}: ${data.message}\n` +
-       `所有 site 格式都失败。请到 百度搜索资源平台 → 链接提交 → 主动推送，核对示例里的 site= 值与 token，` +
-       `并确认 sgeda.org.cn 这个站点状态为「正常」。token 若已更新，请更新 GitHub Secret BAIDU_TOKEN。`);
-}
-console.log(`Matched site param: ${usedSite}`);
+console.log(`\n✅ Pushed this run: ${pushedUrls.length} URL(s), Baidu success: ${totalSuccess}, remain quota: ${lastRemain ?? 'n/a'}`);
+if (quotaHit) console.log(`ℹ️ 今日配额用尽，剩余 ${remaining.length} 个将在后续每日运行中继续推送。`);
 
-const success = Number(data.success) || 0;
-const remain = data.remain;
-console.log(`\n✅ Pushed OK — success: ${success}, remain (today's quota left): ${remain}`);
-if (Array.isArray(data.not_same_site) && data.not_same_site.length) console.log(`⚠️ not_same_site (${data.not_same_site.length}): ${data.not_same_site.slice(0, 5).join(', ')}…`);
-if (Array.isArray(data.not_valid) && data.not_valid.length) console.log(`⚠️ not_valid (${data.not_valid.length}): ${data.not_valid.slice(0, 5).join(', ')}…`);
-
-// --- persist state ------------------------------------------------------------
+// --- persist state (only URLs actually pushed) --------------------------------
 const stampedAt = new Date().toISOString();
-for (const u of batch) state.pushed[u] = stampedAt;
-state.runs = [...(state.runs || []), { at: stampedAt, batch: batch.length, success, remain }].slice(-30);
+for (const u of pushedUrls) state.pushed[u] = stampedAt;
+state.runs = [...(state.runs || []), { at: stampedAt, site: workingSite, pushed: pushedUrls.length, success: totalSuccess, remain: lastRemain ?? null, quotaHit }].slice(-30);
 fs.mkdirSync(path.dirname(stateFile), { recursive: true });
 fs.writeFileSync(stateFile, JSON.stringify(state, null, 2));
-console.log(`State saved: ${Object.keys(state.pushed).length} URLs marked pushed.`);
+console.log(`State saved: ${Object.keys(state.pushed).length}/${entries.length} quality URLs pushed so far.`);

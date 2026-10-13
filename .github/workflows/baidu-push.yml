@@ -43,10 +43,13 @@ jobs:
 
       - name: Push URLs to Baidu
         env:
-          BAIDU_SITE: https://sgeda.org.cn
+          BAIDU_SITE: sgeda.org.cn
           BAIDU_TOKEN: ${{ secrets.BAIDU_TOKEN }}
           PUSH_MAX: ${{ github.event.inputs.push_max || '2000' }}
-          REFRESH_PER_RUN: "30"
+          PUSH_CHUNK: "50"
+          # Prioritise the backlog of never-pushed pages while the daily quota is
+          # small; turn on rotation (e.g. 30) once the whole site is pushed through.
+          REFRESH_PER_RUN: "0"
         run: node scripts/baidu-push.mjs | tee baidu-push.log
 
       - name: Save push state

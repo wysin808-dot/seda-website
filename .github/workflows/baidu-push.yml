@@ -1,0 +1,65 @@
+name: Baidu URL Push
+
+# 主动推送 (普通收录): submit baidu-sitemap.xml quality URLs to Baidu so they
+# enter the crawl queue the same day. New pages are always pushed; a small
+# rotation of already-pushed pages is refreshed each run. Token stays in Secrets.
+
+on:
+  schedule:
+    # 10:00 Singapore time (offset from the SEO audit bot at 09:00).
+    - cron: "0 2 * * *"
+  workflow_dispatch:
+    inputs:
+      push_max:
+        description: "Max URLs to push this run"
+        required: false
+        default: "2000"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: seda-baidu-push
+  cancel-in-progress: false
+
+jobs:
+  baidu-push:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+
+      - name: Restore push state
+        uses: actions/cache/restore@v4
+        with:
+          path: data/seo/baidu-push-state.json
+          key: baidu-push-state-v1-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: baidu-push-state-v1-
+
+      - name: Push URLs to Baidu
+        env:
+          BAIDU_SITE: https://sgeda.org.cn
+          BAIDU_TOKEN: ${{ secrets.BAIDU_TOKEN }}
+          PUSH_MAX: ${{ github.event.inputs.push_max || '2000' }}
+          REFRESH_PER_RUN: "30"
+        run: node scripts/baidu-push.mjs | tee baidu-push.log
+
+      - name: Save push state
+        if: always() && hashFiles('data/seo/baidu-push-state.json') != ''
+        uses: actions/cache/save@v4
+        with:
+          path: data/seo/baidu-push-state.json
+          key: baidu-push-state-v1-${{ github.run_id }}-${{ github.run_attempt }}
+
+      - name: Upload log
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: baidu-push-log
+          path: baidu-push.log
+          if-no-files-found: ignore

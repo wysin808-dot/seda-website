@@ -6,7 +6,11 @@ category: o-level
 categoryLabel: O-Level 升学
 slug: o-level-social-studies-sbq-guide
 date: 2026-10-14
-draft: false
+draft: true
+contentType: research-brief
+reviewStatus: needs_revision
+factCheckRequired: true
+reviewNote: 草稿缺少可核对的外部来源（SEAB 考纲、SBQ 评分标准须附官方链接），复核并补来源后再发布。
 ---
 
 ![O-Level Social Studies课堂场景——新加坡学生在分析Source-Based Question资料](/assets/articles/o-level-social-studies-sbq-guide-hero.png)

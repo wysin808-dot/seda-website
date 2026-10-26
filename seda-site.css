@@ -4631,7 +4631,7 @@ body.nav-drawer-open {
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: 8px 24px;
+  gap: 8px 18px;
   border-top: 1px solid #dedfe2;
   padding-block: 20px 24px;
 }
@@ -4644,6 +4644,24 @@ body.nav-drawer-open {
   font-weight: 400;
   line-height: 1.7;
   opacity: 1;
+}
+
+/* Copyright stays left; the two record links group together on the right with a
+   hairline divider between ICP and 公安备案 (replaces the sparse space-between). */
+.site-footer .footer-bottom p { margin-right: auto; }
+.site-footer .footer-bottom .gongan-record {
+  position: relative;
+  padding-left: 19px;
+}
+.site-footer .footer-bottom .gongan-record::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 1px;
+  height: 11px;
+  transform: translateY(-50%);
+  background: #cfd2d6;
 }
 
 .site-footer .footer-bottom a:hover { color: var(--brand); }
@@ -4664,4 +4682,7 @@ body.nav-drawer-open {
   .footer-contact { padding-top: 24px; border-top: 1px solid #dedfe2; }
   .site-footer .footer-email { padding-block: 6px; }
   .footer-bottom { align-items: flex-start; flex-direction: column; padding-block: 18px 24px; gap: 6px; }
+  .site-footer .footer-bottom p { margin-right: 0; }
+  .site-footer .footer-bottom .gongan-record { padding-left: 0; }
+  .site-footer .footer-bottom .gongan-record::before { display: none; }
 }

@@ -470,6 +470,14 @@ function removeDraftArticlePage(article) {
   const dir = path.join(root, article.url);
   const rel = path.relative(root, dir);
   if (!rel || rel.startsWith('..') || rel === '.' || !article.meta.slug) return;
+  // SEDA_CUSTOM_PAGE protection: a draft article must never delete a hand-built
+  // custom page that happens to share its URL (same guard as writeArticle). Without
+  // this, a server-only CMS/cron draft at e.g. guides/accommodation/ wipes the
+  // committed hand-built page on every build (leaving it 404 in production).
+  const outFile = path.join(dir, 'index.html');
+  if (fs.existsSync(outFile) && fs.readFileSync(outFile, 'utf8').includes('<!-- SEDA_CUSTOM_PAGE -->')) {
+    return;
+  }
   if (fs.existsSync(dir)) {
     fs.rmSync(dir, { recursive: true, force: true });
   }

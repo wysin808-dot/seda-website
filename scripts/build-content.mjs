@@ -862,7 +862,15 @@ function walk(dir, out = []) {
 function draftUrlPathSet(drafts) {
   return new Set(drafts.map((article) => {
     const clean = String(article.url || '').replace(/^\/+|\/+$/g, '');
-    return clean ? `${clean}/index.html` : '';
+    if (!clean) return '';
+    // SEDA_CUSTOM_PAGE protection: a draft whose URL collides with a hand-built
+    // custom page must not shadow that page out of the sitemap — the custom page
+    // wins (and is also protected from deletion in removeDraftArticlePage). Without
+    // this, a server-only draft at e.g. guides/accommodation/ drops the committed
+    // priority page from sitemap.xml and the Baidu priority check then aborts build.
+    const outFile = path.join(root, clean, 'index.html');
+    if (fs.existsSync(outFile) && fs.readFileSync(outFile, 'utf8').includes('<!-- SEDA_CUSTOM_PAGE -->')) return '';
+    return `${clean}/index.html`;
   }).filter(Boolean));
 }
 

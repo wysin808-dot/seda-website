@@ -10,7 +10,7 @@ draft: true
 contentType: research-brief
 reviewStatus: needs_revision
 factCheckRequired: true
-reviewNote: 草稿缺少可核对的外部来源（UCAS Tariff、各校 ATAR 门槛须附官方链接），不得发布。请补充权威来源并逐项核实关键事实后再发布。
+reviewNote: 草稿缺少可核对的外部来源（UCAS Tariff、各校 ATAR 门槛须附官方链接），复核并补来源后再发布。
 ---
 
 ![WACE ATAR 与 A-Level 成绩换算对照](/assets/articles/wace-atar-to-a-level-ucas-tariff-conversion-hero.png)

@@ -18,6 +18,10 @@ function stylesheetNodes($) {
   return $('link[rel="stylesheet"]').toArray().filter(node => /^\/seda-site\.css(?:\?|$)/.test($(node).attr('href') || ''));
 }
 
+function sharedScriptNodes($) {
+  return $('script[src]').toArray().filter(node => /^\/seda-site\.js(?:\?|$)/.test($(node).attr('src') || ''));
+}
+
 export function syncSiteFooter(root = process.cwd()) {
   const home = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
   const $home = load(home, { sourceCodeLocationInfo: true });
@@ -28,6 +32,8 @@ export function syncSiteFooter(root = process.cwd()) {
   const styles = stylesheetNodes($home);
   if (styles.length !== 1) throw new Error('Homepage must have exactly one shared stylesheet');
   const stylesheet = $home(styles[0]).attr('href');
+  const scripts = sharedScriptNodes($home);
+  const sharedScript = scripts.length === 1 ? $home(scripts[0]).attr('src') : null;
   const changes = [];
   let checked = 0;
 
@@ -43,6 +49,12 @@ export function syncSiteFooter(root = process.cwd()) {
     for (const node of stylesheetNodes($)) {
       const attr = node.sourceCodeLocation.attrs.href;
       edits.push({ start: attr.startOffset, end: attr.endOffset, value: `href="${stylesheet}"` });
+    }
+    if (sharedScript) {
+      for (const node of sharedScriptNodes($)) {
+        const attr = node.sourceCodeLocation.attrs.src;
+        edits.push({ start: attr.startOffset, end: attr.endOffset, value: `src="${sharedScript}"` });
+      }
     }
     // Replace only source ranges, preserving each page's independent markup.
     let next = html;

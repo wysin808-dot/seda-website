@@ -4686,3 +4686,63 @@ body.nav-drawer-open {
   .site-footer .footer-bottom .gongan-record { padding-left: 0; }
   .site-footer .footer-bottom .gongan-record::before { display: none; }
 }
+
+/* Shared motion leaves the server-rendered content visible without JavaScript. */
+.seda-reading-progress {
+  position: fixed;
+  inset: 0 0 auto;
+  height: 3px;
+  z-index: 1000;
+  background: #bc302e;
+  transform: scaleX(0);
+  transform-origin: left;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .site-header { transition: box-shadow 220ms ease; }
+  .seda-page-scrolled .site-header { box-shadow: 0 5px 18px #18242c16; }
+  :is(.home-button, .btn, .btn-primary, .btn-secondary, .nav-cta) {
+    transition: translate 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
+  }
+  :is(.home-button, .btn, .btn-primary, .btn-secondary, .nav-cta):active {
+    translate: 0 1px;
+  }
+  .nav-arrow { transition: rotate 200ms ease; }
+  .nav-group:is(:hover, :focus-within, .mobile-open) .nav-arrow { rotate: 180deg; }
+  .nav-group:is(:hover, :focus-within, .mobile-open) > .mega-dropdown {
+    animation: seda-menu-enter 180ms ease-out;
+  }
+  @keyframes seda-menu-enter {
+    from { opacity: .5; translate: 0 -5px; }
+    to { opacity: 1; translate: 0 0; }
+  }
+}
+
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  :is(.home-photo-card, .home-pathways > a, .wace-related-card, .nx-fcard, .nx-pcard, .nx-rcard) {
+    transition: translate 240ms ease, box-shadow 240ms ease;
+  }
+  :is(.home-photo-card, .home-pathways > a, .wace-related-card, .nx-fcard, .nx-pcard, .nx-rcard):hover {
+    translate: 0 -4px;
+  }
+  :is(.home-button, .btn, .btn-primary, .btn-secondary, .nav-cta):hover {
+    translate: 0 -2px;
+    box-shadow: 0 5px 14px #18242c20;
+  }
+  .home-quicklinks strong span { transition: translate 200ms ease; }
+  .home-quicklinks a:hover strong span { translate: 3px -3px; }
+  .home-photo-card img { transition: clip-path 400ms ease, scale 400ms ease; clip-path: inset(0 round 4px); }
+  .home-photo-card:hover img { scale: 1.025; clip-path: inset(1.22% round 4px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html, html:focus-within { scroll-behavior: auto; }
+  .seda-reading-progress { display: none; }
+  .home-decision-card, .home-decision-photo img { transition: none; }
+  .home-decision-card:hover, .home-decision-card:hover .home-decision-photo img { transform: none; }
+}
+
+@media print {
+  .seda-reading-progress { display: none; }
+}

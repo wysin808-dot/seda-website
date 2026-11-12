@@ -1,3 +1,116 @@
+/* SEDA motion: progressive enhancement; content is never hidden awaiting JS. */
+(function(){
+  function initMotion() {
+    if (!document.querySelector('.site-header') || document.documentElement.dataset.sedaMotionReady) return;
+    document.documentElement.dataset.sedaMotionReady = 'true';
+    var preference = window.matchMedia('(prefers-reduced-motion: reduce)');
+    var stop = function(){};
+
+    function start() {
+      var root = document.documentElement;
+      var animations = new Set();
+      var frame = 0;
+      var observer;
+      var resizeObserver;
+      var progress = document.createElement('div');
+      progress.className = 'seda-reading-progress';
+      progress.setAttribute('aria-hidden', 'true');
+      document.body.appendChild(progress);
+      root.classList.add('seda-motion-enabled');
+
+      function animate(element, keyframes, options) {
+        if (!element.animate || document.hidden) return;
+        var animation = element.animate(keyframes, options);
+        animations.add(animation);
+        animation.finished.then(function(){ animations.delete(animation); }, function(){ animations.delete(animation); });
+      }
+
+      function updateProgress() {
+        frame = 0;
+        var height = root.scrollHeight - window.innerHeight;
+        var ratio = height > 0 ? Math.max(0, Math.min(1, window.scrollY / height)) : 0;
+        progress.style.transform = 'scaleX(' + ratio + ')';
+        root.classList.toggle('seda-page-scrolled', window.scrollY > 24);
+      }
+      function scheduleProgress() {
+        if (!frame) frame = window.requestAnimationFrame(updateProgress);
+      }
+
+      // Observe compact visual units, never whole sections containing sticky navigation.
+      var selector = 'main h1, main h2, main figure, .content-main h2, .content-main figure, ' +
+        '.home-heading, .home-decision-head, .home-hero-copy > *, .home-quicklinks > a, ' +
+        '.home-pathways > a, .home-photo-card, .home-decision-card, ' +
+        '.icon-card, .subject-card, .nx-fcard, .nx-pcard, .nx-rcard, ' +
+        '.wace-year-card, .wace-recognition-card, .wace-assess-card, .wace-fit-card, .wace-related-card';
+      var candidates = Array.from(document.querySelectorAll(selector));
+      var targets = new Set(candidates);
+      if ('IntersectionObserver' in window) {
+        observer = new IntersectionObserver(function(entries){
+          var index = 0;
+          entries.forEach(function(entry){
+            if (!entry.isIntersecting) return;
+            observer.unobserve(entry.target);
+            if (entry.target.contains(document.activeElement) || window.location.hash) return;
+            animate(entry.target, [
+              { opacity: 0.55, transform: 'translateY(20px)' },
+              { opacity: 1, transform: 'translateY(0)' }
+            ], { duration: 620, delay: Math.min(index++ * 65, 195), easing: 'cubic-bezier(.2,.7,.2,1)' });
+          });
+        }, { threshold: 0.08 });
+        candidates.forEach(function(element){
+          for (var parent = element.parentElement; parent; parent = parent.parentElement) {
+            if (targets.has(parent)) return;
+          }
+          observer.observe(element);
+        });
+      }
+
+      var heroImage = document.querySelector('.home-hero-image, .wace-hero-bg');
+      if (heroImage && !window.location.hash && window.scrollY < window.innerHeight) {
+        animate(heroImage, [{ transform: 'scale(1.035)' }, { transform: 'scale(1)' }],
+          { duration: 3800, easing: 'cubic-bezier(.2,.6,.3,1)' });
+      }
+      function openDetails(event) {
+        var details = event.target;
+        if (details.tagName !== 'DETAILS' || !details.open || !details.closest('main, .content-main')) return;
+        Array.from(details.children).forEach(function(child){
+          if (child.tagName !== 'SUMMARY') animate(child,
+            [{ opacity: 0.5, transform: 'translateY(-4px)' }, { opacity: 1, transform: 'translateY(0)' }],
+            { duration: 220, easing: 'ease-out' });
+        });
+      }
+      document.addEventListener('toggle', openDetails, true);
+      window.addEventListener('scroll', scheduleProgress, { passive: true });
+      window.addEventListener('resize', scheduleProgress);
+      if ('ResizeObserver' in window) {
+        resizeObserver = new ResizeObserver(scheduleProgress);
+        resizeObserver.observe(document.body);
+      }
+      updateProgress();
+
+      return function(){
+        if (observer) observer.disconnect();
+        if (resizeObserver) resizeObserver.disconnect();
+        animations.forEach(function(animation){ animation.cancel(); });
+        window.cancelAnimationFrame(frame);
+        window.removeEventListener('scroll', scheduleProgress);
+        window.removeEventListener('resize', scheduleProgress);
+        document.removeEventListener('toggle', openDetails, true);
+        progress.remove();
+        root.classList.remove('seda-motion-enabled', 'seda-page-scrolled');
+      };
+    }
+    function applyPreference() {
+      stop();
+      stop = preference.matches ? function(){} : start();
+    }
+    applyPreference();
+    if (preference.addEventListener) preference.addEventListener('change', applyPreference);
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initMotion, { once: true });
+  else initMotion();
+})();
+
 /* ── Global WeChat Contact ── */
 (function(){
   var contact = {

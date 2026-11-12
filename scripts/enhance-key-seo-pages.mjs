@@ -223,30 +223,7 @@ const pages = [
       { q: '申请 NUS/NTU 要提前多久准备？', a: '建议至少提前一年规划科目、成绩目标和材料，Year 12 阶段要密切关注申请窗口。' },
     ],
   },
-  {
-    path: '/aeis/',
-    file: 'aeis/index.html',
-    title: 'AEIS 考试攻略',
-    description: '面向中国学生的新加坡 AEIS 入学考试攻略，覆盖年龄、英文、数学、备考时间线、政府中小学入学路径和家长常见问题。',
-    about: ['AEIS', 'S-AEIS', '新加坡政府学校', '国际学生入学考试', '小学插班', '中学插班', 'AEIS 英文', 'AEIS 数学'],
-    summary: [
-      'AEIS 是国际学生进入新加坡政府小学和中学的重要考试入口。',
-      '中国学生备考 AEIS 的核心不是数学，而是英文阅读、写作和课堂适应。',
-      'AEIS 页面需要和年龄要求、数学备考、英文备考、政府学校数据库形成强内链。',
-    ],
-    links: [
-      { name: 'AEIS 年龄要求', url: '/aeis/age-requirements/' },
-      { name: 'AEIS 数学备考', url: '/aeis/math/' },
-      { name: 'AEIS 英文备考', url: '/aeis/english/' },
-      { name: '政府小学数据库', url: '/primary-schools/' },
-      { name: '政府中学数据库', url: '/secondary-schools/' },
-    ],
-    faq: [
-      { q: 'AEIS 是什么考试？', a: 'AEIS 是新加坡教育部为国际学生申请政府小学和中学设置的集中入学考试，主要考英文和数学。' },
-      { q: '中国学生 AEIS 最难在哪里？', a: '多数中国学生数学基础不弱，真正难点在英文阅读、写作、题目理解和进入英文课堂后的适应。' },
-      { q: 'AEIS 通过后可以指定学校吗？', a: '通常不能完全指定学校，教育部会根据成绩、年级和学校学额进行分配。' },
-    ],
-  },
+  // /aeis/ owns its reviewed body and FAQ schema; do not inject a second FAQ.
   // NOTE: /o-level/ excluded — now a fully hand-built static page with its own
   // structured data and content; must NOT be enhanced (avoids injected blocks).
   {

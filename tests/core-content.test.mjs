@@ -15,7 +15,9 @@ test('corrected core facts and structured data stay aligned', () => {
   assert.match(aeis, /小学 AEIS 不设英语试卷/);
   const cost = read('guides/cost/index.html');
   assert.match(cost, /S\$26,280/);
-  assert.match(cost, /S\$48,880/);
+  assert.match(cost, /S\$45/);
+  assert.match(cost, /S\$12,000/);
+  assert.doesNotMatch(cost, /S\$15k-65k|S\$25,000-40,000/);
   const timeline = read('guides/timeline/index.html');
   assert.match(timeline, /2027 年 1 月 13 日/);
   assert.doesNotMatch(timeline, /父亲只能申请旅游签证|第二年起可以在新加坡兼职/);

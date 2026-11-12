@@ -1,0 +1,24 @@
+/* Scoped to the five reviewed course and budget pages. */
+:is(#contact, #faq, [id^="section-"]) { scroll-margin-top: 170px; }
+.aeis-table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+.aeis-table th, .aeis-table td { padding: 12px; border-bottom: 1px solid #ddd; text-align: left; overflow-wrap: anywhere; }
+.aeis-table th { background: #f4f5f6; }
+.aeis-hero .stat-num, .stats-strip .stat-num { overflow-wrap: anywhere; }
+.wace-atar-steps { max-width: 780px; }
+.contact-section .btn-primary, .cta-section .btn-primary, .wace-contact .wace-btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-height: 44px; padding: 12px 22px; border-radius: 6px;
+  background: #b52a2d; color: #fff; font-weight: 700;
+  text-decoration: none; white-space: normal; text-align: center;
+}
+.contact-section .btn-primary:focus-visible, .cta-section .btn-primary:focus-visible, .wace-contact .wace-btn:focus-visible { outline: 3px solid #d5a73b; outline-offset: 3px; }
+.rankings-table td { overflow-wrap: anywhere; }
+.content-main .data-table:has(th:first-child:nth-last-child(2)),
+.content-main .data-table:has(th:first-child:nth-last-child(3)) { min-width: 0; table-layout: fixed; }
+.content-main .data-table td { overflow-wrap: anywhere; }
+@media (max-width: 600px) {
+  .aeis-table th, .aeis-table td { padding: 10px 6px; font-size: 14px; }
+  .stats-strip .stat-num { font-size: 22px; }
+  .wace-two-col { min-width: 0; }
+  .wace-copy { min-width: 0; overflow-wrap: anywhere; }
+}

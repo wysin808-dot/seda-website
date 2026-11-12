@@ -2,7 +2,8 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
-import { sourceLinks } from '../scripts/editorial-policy.mjs';
+import { sourceLinks, editorialIssues } from '../scripts/editorial-policy.mjs';
+import { partitionArticles } from '../scripts/content-validation.mjs';
 
 const root = path.resolve(import.meta.dirname, '..');
 const articleDir = path.join(root, 'content', 'articles');
@@ -27,7 +28,12 @@ test('source-free drafts remain blocked pending factual review', () => {
     assert.equal(meta.contentType, 'research-brief', `${file} must remain a research brief`);
     assert.equal(meta.reviewStatus, 'needs_revision', `${file} must be marked for revision`);
     assert.equal(meta.factCheckRequired, 'true', `${file} must require fact checking`);
-    assert.match(meta.reviewNote || '', /不得发布/, `${file} must state that publication is blocked`);
+    assert.ok((meta.reviewNote || '').trim(), `${file} must explain the review requirement`);
+    // Editorial notes are CMS-owned prose; verify the actual publication gate.
+    assert.ok(editorialIssues(meta, body).length > 0, `${file} must fail editorial approval`);
+    const article = { url: '/' + meta.category + '/' + meta.slug + '/', meta: { ...meta, draft: true }, body };
+    assert.equal(partitionArticles([article]).published.length, 0);
+    assert.throws(() => partitionArticles([{ ...article, meta: { ...article.meta, draft: false } }]), /Unreviewed research brief/);
   }
   assert.ok(sourceFreeDrafts.length > 0, 'expected at least one source-free draft to be protected');
 });

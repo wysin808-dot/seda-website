@@ -7,3 +7,5 @@ https://sgeda.org.cn/a/student/
 https://sgeda.org.cn/a/news/2024/1224/73.html
 https://sgeda.org.cn/pages/detail/6
 https://sgeda.org.cn/news/detail/19
+https://test.sgeda.org.cn/
+http://test.sgeda.org.cn/

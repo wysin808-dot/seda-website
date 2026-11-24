@@ -6,13 +6,586 @@
     <meta name="baidu-site-verification" content="codeva-tIxwK8h7Ud" />
     <meta name="msvalidate.01" content="E4D80325C566CD490445E84CB542BB9E" />
     <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
-    <title>SEDA 新加坡择校网 | 中国家庭新加坡留学升学参谋</title>
+    <title>SEDA 新加坡择校网 | 新加坡留学择校与升学规划：AEIS、O-Level、WACE</title>
     <meta name="description" content="SEDA 是专为中国家庭打造的新加坡升学资讯平台。覆盖 AEIS 考试、WACE 课程、O-Level、A-Level、IB 全体系，提供免费择校咨询，帮你根据孩子年龄和英文基础找到最稳的那条路。" />
     <meta name="keywords" content="新加坡留学,WACE,O-Level,A-Level,AEIS,IB,新加坡国际学校,新加坡政府学校,新加坡私立学校,新加坡留学费用,新加坡留学路径" />
     <link rel="canonical" href="https://sgeda.org.cn/" />
     <link rel="alternate" type="application/rss+xml" title="SEDA 新加坡择校网最新文章" href="https://sgeda.org.cn/feed.xml" />
     <link rel="stylesheet" href="/seda-site.css?v=45" />
     <link rel="stylesheet" href="/seda-home-new.css?v=7" />
+
+    <!-- SEDA_HOME_V2_STYLE_START -->
+    <style>
+      :root{--sg-red:#C8102E;--sg-red-d:#a30c24;--sg-ink:#1f2328;--sg-muted:#646b73;--sg-line:#e7e1d6;--sg-cream:#fbf6ee;--sg-card:#fffdf9;--sg-teal:#1f8a70;--sg-gold:#C89B3C;--sg-navy:#1d2a63}
+      .home-visual{background:#fff}
+      /* ---------- HERO ---------- */
+      .home-visual > section.hv-hero{position:relative;display:block;height:auto;min-height:0;max-width:none;margin:0;padding:0;background:linear-gradient(#fdf8f0,#f6efe3);overflow:hidden;border-radius:0}
+      .hv-copy{position:relative;z-index:3;text-align:center;padding:34px 0 18px}
+      .hv-kicker{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border-radius:999px;background:#fff;border:1px solid var(--sg-line);font-size:13px;font-weight:700;color:var(--sg-red);box-shadow:0 6px 18px -12px rgba(0,0,0,.25)}
+      .hv-kicker i{width:8px;height:8px;border-radius:50%;background:var(--sg-red);box-shadow:0 0 0 4px rgba(200,16,46,.15);animation:hv-ping 2s ease-in-out infinite}
+      @keyframes hv-ping{50%{box-shadow:0 0 0 8px rgba(200,16,46,0)}}
+      .home-visual .hv-copy .hv-slogan{color:var(--sg-ink);font-size:clamp(34px,5.2vw,60px);line-height:1.15;font-weight:800;margin:0 0 16px;letter-spacing:.5px}
+      .hv-copy .hv-slogan .em{color:var(--sg-red)}
+      .hv-line{font-size:clamp(16px,1.8vw,20px);color:var(--sg-muted)}
+      .hv-line .hv-rot{display:inline-block;min-width:4.2em;color:var(--sg-red);font-weight:800;text-align:center}
+      .hv-line .hv-rot b{display:inline-block;animation:hv-word .5s cubic-bezier(.34,1.56,.64,1)}
+      @keyframes hv-word{from{opacity:0;transform:translateY(60%)}to{opacity:1;transform:none}}
+
+      .hv-stage{position:relative;margin-top:6px;height:clamp(420px,47vw,720px)}
+      .sg-scene{position:absolute;inset:0;width:100%;height:100%;display:block}
+      .hv-tools{position:absolute;top:16px;right:max(16px,calc((100% - 1200px)/2));z-index:4;display:flex;gap:10px;align-items:center}
+      .hv-toggle{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(255,255,255,.7);background:rgba(255,255,255,.78);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);padding:9px 16px;border-radius:999px;font:inherit;font-size:14px;font-weight:700;color:var(--sg-ink);cursor:pointer;box-shadow:0 10px 24px -14px rgba(0,0,0,.45);transition:transform .2s,background .4s,color .4s}
+      .hv-toggle:hover{transform:translateY(-2px)}
+      .hv-toggle .ic{font-size:16px;line-height:1}
+      .hv-hint{font-size:12px;color:var(--sg-muted);background:rgba(255,255,255,.7);padding:6px 12px;border-radius:999px}
+      .hv-hero.is-night .hv-toggle{background:rgba(20,24,60,.7);color:#fff;border-color:rgba(255,255,255,.25)}
+      .hv-hero.is-night .hv-hint{background:rgba(20,24,60,.6);color:#d9dcf5}
+      .hv-hero.is-night{background:linear-gradient(#fdf8f0 0,#fdf8f0 30%,#efe7f3 100%)}
+
+      /* 选年级浮卡 */
+      .hv-pick{position:absolute;left:50%;bottom:22px;transform:translateX(-50%);z-index:4;width:min(760px,calc(100% - 32px));background:rgba(255,255,255,.88);backdrop-filter:blur(14px) saturate(1.3);-webkit-backdrop-filter:blur(14px) saturate(1.3);border:1px solid rgba(255,255,255,.9);border-radius:22px;padding:16px 18px 16px;box-shadow:0 30px 60px -30px rgba(10,20,50,.55)}
+      .hv-pick-q{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px}
+      .hv-pick-q strong{font-size:16px;color:var(--sg-ink)}
+      .hv-pick-q span{font-size:12px;color:var(--sg-muted)}
+      .hv-chips{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+      .hv-chip{border:1px solid var(--sg-line);background:#fff;border-radius:14px;padding:10px 8px;font:inherit;cursor:pointer;text-align:center;transition:all .25s;color:var(--sg-ink)}
+      .hv-chip b{display:block;font-size:15px}
+      .hv-chip small{display:block;font-size:11.5px;color:var(--sg-muted);margin-top:2px}
+      .hv-chip:hover{border-color:#f1b7c0;transform:translateY(-2px)}
+      .hv-chip[aria-selected="true"]{background:var(--sg-red);border-color:var(--sg-red);color:#fff;box-shadow:0 12px 22px -12px rgba(200,16,46,.8)}
+      .hv-chip[aria-selected="true"] small{color:rgba(255,255,255,.85)}
+      .hv-ans{display:none;margin-top:12px;padding:12px 14px;border-radius:14px;background:#fff6f7;border:1px dashed #f1b7c0;align-items:center;gap:14px;flex-wrap:wrap}
+      .hv-ans.on{display:flex;animation:hv-ans .45s cubic-bezier(.16,1,.3,1)}
+      @keyframes hv-ans{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+      .hv-ans p{flex:1 1 300px;margin:0;font-size:14px;line-height:1.6;color:var(--sg-ink)}
+      .hv-ans p b{color:var(--sg-red)}
+      .hv-ans .go{display:flex;gap:8px;flex-wrap:wrap}
+      .hv-ans .go a{font-size:13px;font-weight:700;padding:8px 14px;border-radius:999px;background:var(--sg-red);color:#fff;white-space:nowrap}
+      .hv-ans .go a + a{background:#fff;color:var(--sg-red);border:1px solid #f1b7c0}
+
+      /* 地标提示 */
+      .hv-tip{position:absolute;z-index:6;pointer-events:none;background:#fff;border-radius:14px;padding:10px 14px;box-shadow:0 18px 40px -16px rgba(0,0,0,.45);max-width:240px;opacity:0;transform:translate(-50%,calc(-100% - 6px)) scale(.92);transition:opacity .2s,transform .25s cubic-bezier(.34,1.56,.64,1)}
+      .hv-tip.on{opacity:1;transform:translate(-50%,calc(-100% - 14px)) scale(1)}
+      .hv-tip b{display:block;font-size:14px;color:var(--sg-red);margin-bottom:2px}
+      .hv-tip span{font-size:12.5px;line-height:1.5;color:var(--sg-ink)}
+      .hv-tip::after{content:"";position:absolute;left:50%;bottom:-6px;width:12px;height:12px;background:#fff;transform:translateX(-50%) rotate(45deg)}
+
+      /* ---------- SVG 场景配色（昼 / 夜） ---------- */
+      .sg-scene *{transition:fill 1.2s ease,stroke 1.2s ease,opacity 1.2s ease}
+      .sg-scene .sky-n,.sg-scene .sea-n{opacity:0}
+      .is-night .sg-scene .sky-n,.is-night .sg-scene .sea-n{opacity:1}
+      .sg-scene .stars circle{fill:#fff;opacity:0}
+      .is-night .sg-scene .stars circle{animation:sg-twinkle 3s ease-in-out infinite;animation-delay:var(--d)}
+      @keyframes sg-twinkle{0%,100%{opacity:.2}50%{opacity:1}}
+      .sg-scene .sun-moon{cursor:pointer}
+      .sg-scene .moon{opacity:0}
+      .is-night .sg-scene .moon{opacity:1}
+      .is-night .sg-scene .sun{opacity:0}
+      .sg-scene .sun{animation:sg-sun 6s ease-in-out infinite;transform-origin:1395px 120px}
+      @keyframes sg-sun{50%{transform:scale(1.06)}}
+      .sg-scene .cloud-p{fill:#fff;opacity:.92}
+      .is-night .sg-scene .cloud-p{fill:#6f6aa6;opacity:.35}
+      .sg-scene .cloud{animation:sg-cloud var(--dur) linear infinite;animation-delay:var(--d)}
+      @keyframes sg-cloud{from{transform:translateX(-240px)}to{transform:translateX(1900px)}}
+      .sg-scene .plane-trail{fill:none;stroke:#fff;stroke-width:2;stroke-dasharray:3 9;opacity:.7}
+      .is-night .sg-scene .plane-trail{opacity:.15}
+      .sg-scene .bird{fill:none;stroke:#4a5568;stroke-width:1.6;stroke-linecap:round;animation:sg-bird 3.2s ease-in-out infinite;animation-delay:var(--d)}
+      .is-night .sg-scene .bird{opacity:0}
+      @keyframes sg-bird{50%{transform:translate(6px,-5px)}}
+
+      .sg-scene .c-far{fill:#cfdde9}
+      .is-night .sg-scene .c-far{fill:#2a3263}
+      .sg-scene .c-far-line{stroke:#b5c6d6;stroke-width:2}
+      .is-night .sg-scene .c-far-line{stroke:#3a4378}
+      .sg-scene .beacon{fill:#e46c6c;opacity:.5}
+      .is-night .sg-scene .beacon{fill:#ff5d5d;animation:sg-blink 1.6s steps(2) infinite;animation-delay:var(--d)}
+      @keyframes sg-blink{50%{opacity:.15}}
+      .sg-scene .win{fill:#fff;opacity:.38}
+      .sg-scene .w-far{opacity:.28}
+      .is-night .sg-scene .win{fill:#ffd36e;opacity:.9}
+      .is-night .sg-scene .w-far{opacity:.55}
+      .is-night .sg-scene .win.f{animation:sg-flick 5s ease-in-out infinite;animation-delay:var(--d)}
+      @keyframes sg-flick{0%,100%{opacity:.9}45%{opacity:.9}50%{opacity:.1}70%{opacity:.1}75%{opacity:.9}}
+
+      .sg-scene .c-hdb1{fill:#f4d7b5}.sg-scene .c-hdb2{fill:#cfe6dd}.sg-scene .c-hdb3{fill:#f6c9c4}
+      .is-night .sg-scene .c-hdb1{fill:#4b3f63}.is-night .sg-scene .c-hdb2{fill:#33476b}.is-night .sg-scene .c-hdb3{fill:#523d66}
+      .sg-scene .hdb-roof{fill:#C8102E;opacity:.75}
+      .sg-scene .hdb-band{fill:#fff;opacity:.55}
+      .is-night .sg-scene .hdb-band{opacity:.08}
+
+      .sg-scene .flyer-leg{stroke:#8d99a8;stroke-width:5;fill:none;stroke-linecap:round}
+      .sg-scene .c-term{fill:#e9eef2;stroke:#b8c3cd}
+      .is-night .sg-scene .c-term{fill:#2f3a6d;stroke:#47538a}
+      .sg-scene .flyer-rim{fill:none;stroke:#8d99a8;stroke-width:4}
+      .sg-scene .flyer-rim2{fill:none;stroke:#b8c3cd;stroke-width:1.5}
+      .sg-scene .flyer-spoke{stroke:#b8c3cd;stroke-width:1}
+      .sg-scene .flyer-hub{fill:#8d99a8}
+      .sg-scene .flyer-cap{fill:#fff;stroke:#8d99a8;stroke-width:1}
+      .is-night .sg-scene .flyer-rim{stroke:#7ad7ff;filter:url(#sgGlow)}
+      .is-night .sg-scene .flyer-spoke{stroke:#4d77b8}
+      .is-night .sg-scene .flyer-cap{fill:#ffe08a;stroke:#ffe08a;animation:sg-cap 3s ease-in-out infinite;animation-delay:var(--d)}
+      @keyframes sg-cap{50%{fill:#ff8fc7;stroke:#ff8fc7}}
+      .sg-scene .flyer-rot{animation:sg-spin 90s linear infinite}
+      @keyframes sg-spin{to{transform:rotate(360deg)}}
+
+      .sg-scene .st-trunk{fill:#8b6f9c}
+      .sg-scene .st-can{fill:#6ea86b;opacity:.92}
+      .sg-scene .st-rib{stroke:#4f7f4d;stroke-width:1;opacity:.6}
+      .sg-scene .st-top{fill:#5d9a5a}
+      .sg-scene .skyway{stroke:#8b6f9c;stroke-width:3;fill:none}
+      .sg-scene .c-garden{fill:#9fca8a}
+      .is-night .sg-scene .st-trunk{fill:#4a3a6e}
+      .is-night .sg-scene .c-garden{fill:#22424a}
+      .is-night .sg-scene .st-rib{stroke:#fff;opacity:.25}
+      .is-night .sg-scene .st-can,.is-night .sg-scene .st-top{animation:sg-rhapsody 4.5s linear infinite;animation-delay:var(--d);filter:url(#sgGlow)}
+      .is-night .sg-scene .skyway{stroke:#ffe08a;filter:url(#sgGlow)}
+      @keyframes sg-rhapsody{0%{fill:#ff4fa3}25%{fill:#ffb347}50%{fill:#7b6bff}75%{fill:#2fd3c2}100%{fill:#ff4fa3}}
+
+      .sg-scene .c-mbs{fill:#eef1f4;stroke:#c3ccd5;stroke-width:1}
+      .sg-scene .mbs-split{stroke:#c3ccd5;stroke-width:1}
+      .sg-scene .mbs-floor{stroke:#d5dce3;stroke-width:1}
+      .sg-scene .w-mbs{opacity:.25}
+      .sg-scene .c-sky{fill:#e3e8ed;stroke:#b5bfc9;stroke-width:1}
+      .sg-scene .sky-tree{fill:#6ea86b}
+      .sg-scene .sky-pool{stroke:#59b6dd;stroke-width:3}
+      .is-night .sg-scene .c-mbs{fill:#353f75;stroke:#4a5592}
+      .is-night .sg-scene .mbs-floor{stroke:#414c86}
+      .is-night .sg-scene .c-sky{fill:#3c4680;stroke:#7ad7ff}
+      .is-night .sg-scene .sky-pool{stroke:#7ad7ff;filter:url(#sgGlow)}
+      .sg-scene .laser{stroke-width:2.2;opacity:0;stroke-linecap:round}
+      .sg-scene .laser.l0{stroke:#7af0ff}.sg-scene .laser.l1{stroke:#7dff9c}.sg-scene .laser.l2{stroke:#ff7ad9}
+      .is-night .sg-scene .laser{animation:sg-laser 3.6s ease-in-out infinite;animation-delay:var(--d)}
+      @keyframes sg-laser{0%,100%{opacity:0}20%,60%{opacity:.55}}
+      .is-night .sg-scene .lasers{animation:sg-sweep 7s ease-in-out infinite}
+      @keyframes sg-sweep{0%,100%{transform:rotate(-10deg)}50%{transform:rotate(10deg)}}
+
+      .sg-scene .c-lotus{fill:#fbfaf6;stroke:#c9c2b2;stroke-width:1}
+      .sg-scene .c-lotus-base{fill:#e2dccd}
+      .is-night .sg-scene .c-lotus{fill:#f6e7ff;stroke:#c7a6ff;filter:url(#sgGlow)}
+      .sg-scene .esp-bg{fill:#d8be82}
+      .sg-scene .esp-spike{fill:none;stroke:#a88a4a;stroke-width:1.1}
+      .sg-scene .esp-edge{fill:none;stroke:#9f8344;stroke-width:1.5}
+      .is-night .sg-scene .esp-bg{fill:#6f5d40}
+      .is-night .sg-scene .esp-spike{stroke:#ffd36e}
+      .is-night .sg-scene .esp-edge{stroke:#ffd36e}
+
+      .sg-scene .mrt-deck{fill:#c7ccd2}
+      .sg-scene .mrt-pillar{fill:#d6dade}
+      .is-night .sg-scene .mrt-deck{fill:#3b4479}
+      .is-night .sg-scene .mrt-pillar{fill:#323a6a}
+      .sg-scene .mrt-car{fill:#fff;stroke:#7d8691;stroke-width:1}
+      .sg-scene .mrt-stripe{fill:#C8102E}
+      .sg-scene .mrt-win{fill:#4f6275}
+      .is-night .sg-scene .mrt-win{fill:#ffe9a8}
+      .sg-scene .mrt-train{animation:sg-mrt 13s cubic-bezier(.45,0,.55,1) infinite}
+      @keyframes sg-mrt{0%{transform:translateX(-280px)}45%,55%{transform:translateX(130px)}100%{transform:translateX(560px)}}
+
+      .sg-scene .c-prom{fill:#e9dcc4}
+      .is-night .sg-scene .c-prom{fill:#3a3354}
+      .sg-scene .prom-rail{stroke:#bfae8e;stroke-width:2}
+      .is-night .sg-scene .prom-rail{stroke:#ffd36e;stroke-dasharray:2 10;filter:url(#sgGlow)}
+      .sg-scene .palm-trunk{fill:none;stroke:#8a6a46;stroke-width:4;stroke-linecap:round}
+      .sg-scene .palm-leaf{fill:none;stroke:#3f8a4c;stroke-width:4;stroke-linecap:round}
+      .is-night .sg-scene .palm-leaf{stroke:#1f4a3c}
+      .is-night .sg-scene .palm-trunk{stroke:#3a2f45}
+      .sg-scene .palm-top{animation:sg-sway 5s ease-in-out infinite}
+      @keyframes sg-sway{50%{transform:rotate(5deg)}}
+
+      .sg-scene .c-pier{fill:#d8ccb4}
+      .sg-scene .c-merlion{fill:#fbfaf5;stroke:#9e9888;stroke-width:1}
+      .sg-scene .c-merlion-mane{fill:#ece6d6;stroke:#9e9888;stroke-width:1}
+      .is-night .sg-scene .c-merlion,.is-night .sg-scene .c-merlion-mane{fill:#fff8e6;filter:url(#sgGlow)}
+      .sg-scene .jet{fill:none;stroke:#a9dcf2;stroke-width:5;stroke-linecap:round;stroke-dasharray:10 14;animation:sg-jet .9s linear infinite}
+      .sg-scene .jet2{stroke:#fff;stroke-width:2;opacity:.8;animation-duration:.6s}
+      @keyframes sg-jet{to{stroke-dashoffset:-48}}
+      .sg-scene .merl-base{fill:#d9d3c4;stroke:#9e9888;stroke-width:.8}
+      .sg-scene .merl-scale{fill:none;stroke:#b8b09e;stroke-width:.7}
+      .sg-scene .merl-line{fill:none;stroke:#9e9888;stroke-width:.8;stroke-linecap:round}
+      .sg-scene .merl-mouth{fill:#6b5d4a}
+      .sg-scene .merl-eye{fill:#3b3326}
+      .is-night .sg-scene .merl-base{fill:#cfc6b2}
+      .sg-scene .c-jewel{fill:url(#sgJewelG);opacity:.95}
+      .sg-scene .jewel-green{fill:#5fae6e}.sg-scene .jewel-green2{fill:#3f8f55}
+      .sg-scene .jewel-grid{stroke:#fff;stroke-width:.8;opacity:.75}
+      .sg-scene .jewel-edge{fill:none;stroke:#7fa9bf;stroke-width:1.6}
+      .sg-scene .jewel-ocu{fill:#dff4ff;stroke:#7fa9bf;stroke-width:1}
+      .sg-scene .jewel-pool{fill:#bfe8fb}
+      .sg-scene .vortex{fill:none;stroke:#bfe9ff;stroke-width:7;stroke-dasharray:6 6;animation:sg-jet .55s linear infinite}
+      .sg-scene .vortex.v2{stroke:#fff;stroke-width:2.4;stroke-dasharray:4 8;animation-duration:.4s}
+      .is-night .sg-scene .c-jewel{fill:#26386b;opacity:1}
+      .is-night .sg-scene .jewel-grid{stroke:#9fd8ff;opacity:.45}
+      .is-night .sg-scene .jewel-edge{stroke:#9fd8ff;filter:url(#sgGlow)}
+      .is-night .sg-scene .jewel-green{fill:#2f6a4a}.is-night .sg-scene .jewel-green2{fill:#1f5038}
+      .is-night .sg-scene .vortex{animation:sg-jet .55s linear infinite,sg-vlight 4s linear infinite}
+      .sg-scene .vortex-glow{fill:#dff4ff;opacity:.5}
+      .is-night .sg-scene .vortex-glow{fill:#7ad7ff;opacity:.55;filter:url(#sgGlow);animation:sg-vglow 4s linear infinite}
+      @keyframes sg-vglow{0%,100%{fill:#7ad7ff}33%{fill:#ff8ad8}66%{fill:#ffe08a}}
+      .is-night .sg-scene .jewel-pool{fill:#7ad7ff;filter:url(#sgGlow)}
+      @keyframes sg-vlight{0%,100%{stroke:#7ad7ff}33%{stroke:#ff8ad8}66%{stroke:#ffe08a}}
+      .sg-scene .splash circle{fill:#d8f1fb;animation:sg-splash 1s ease-out infinite}
+      .sg-scene .splash circle:nth-child(2){animation-delay:.3s}.sg-scene .splash circle:nth-child(3){animation-delay:.6s}
+      @keyframes sg-splash{0%{transform:translateY(0);opacity:1}100%{transform:translateY(-10px);opacity:0}}
+
+      .sg-scene .walker{animation:sg-walk var(--dur) linear infinite;animation-delay:var(--d)}
+      @keyframes sg-walk{from{transform:translateX(-40px)}to{transform:translateX(1660px)}}
+      .sg-scene .bob{animation:sg-bob .5s ease-in-out infinite alternate}
+      @keyframes sg-bob{to{transform:translateY(-1.4px)}}
+
+      .sg-scene .reflect{opacity:.22}
+      .is-night .sg-scene .reflect{opacity:.38}
+      .sg-scene .wave{stroke:#fff;stroke-width:1.6;stroke-linecap:round;opacity:.45;animation:sg-wave 6s ease-in-out infinite;animation-delay:var(--d)}
+      .is-night .sg-scene .wave{stroke:#ffd36e;opacity:.3}
+      @keyframes sg-wave{50%{transform:translateX(18px);opacity:.15}}
+      .sg-scene .boat{animation:sg-boat 55s linear infinite}
+      @keyframes sg-boat{from{transform:translateX(1700px)}to{transform:translateX(-120px)}}
+      .sg-scene .boat-rock{animation:sg-rock 2.4s ease-in-out infinite}
+      @keyframes sg-rock{50%{transform:rotate(-2deg) translateY(1px)}}
+      .sg-scene .boat-hull{fill:#8a4b2a}
+      .sg-scene .boat-cabin{fill:#f3e6cc}
+      .sg-scene .boat-roof{fill:#C8102E}
+      .sg-scene .wake{fill:none;stroke:#fff;stroke-width:1.5;opacity:.7}
+
+      .sg-scene .lm{cursor:pointer;outline:none}
+      .sg-scene .lm:hover,.sg-scene .lm:focus-visible{filter:brightness(1.06) drop-shadow(0 0 6px rgba(255,255,255,.9))}
+      .sg-layer{transition:transform .5s cubic-bezier(.16,1,.3,1)}
+
+      /* ---------- 通用滚动揭示 ---------- */
+      .hv-rv{opacity:0;transform:translateY(56px);transition:opacity .9s cubic-bezier(.16,1,.3,1),transform .9s cubic-bezier(.16,1,.3,1)}
+      .hv-rv.in{opacity:1;transform:none}
+
+      /* ---------- 数字 ---------- */
+      .hv-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+      .hv-stat{position:relative;display:block;padding:24px 22px 20px;border-radius:20px;background:var(--sg-card);border:1px solid var(--sg-line);color:var(--sg-ink);overflow:hidden;transition:transform .3s,box-shadow .3s}
+      .hv-stat:hover{transform:translateY(-4px);box-shadow:0 22px 40px -26px rgba(0,0,0,.4)}
+      .hv-stat::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--c,var(--sg-red))}
+      .hv-stat .n{font-size:44px;font-weight:850;line-height:1;color:var(--c,var(--sg-red));font-variant-numeric:tabular-nums}
+      .hv-stat .n small{font-size:16px;font-weight:700;margin-left:4px;color:var(--sg-muted)}
+      .hv-stat .t{display:block;margin-top:10px;font-size:15px;font-weight:700}
+      .hv-stat .s{display:block;margin-top:4px;font-size:12.5px;color:var(--sg-muted)}
+      .hv-stat .ic{position:absolute;right:16px;top:16px;font-size:26px;opacity:.9;transition:transform .4s}
+      .hv-stat:hover .ic{transform:rotate(-10deg) scale(1.15)}
+
+      /* ---------- 地铁线路图式升学阶段 ---------- */
+      .mrt{position:relative;padding:12px 0 0}
+      .mrt-line{position:relative;height:10px;border-radius:10px;background:#ece7de;margin:34px 6% 0}
+      .mrt-fill{position:absolute;left:0;top:0;bottom:0;width:0;border-radius:10px;background:linear-gradient(90deg,#d42e12,#009645 34%,#9900aa 67%,#fa9e0d);transition:width 1.8s cubic-bezier(.16,1,.3,1)}
+      .mrt.in .mrt-fill{width:100%}
+      .mrt-train{position:absolute;top:50%;left:0;transform:translate(-50%,-115%);transition:left 1.2s cubic-bezier(.65,0,.35,1);z-index:2}
+      .mrt-train svg{display:block;width:72px;height:auto;filter:drop-shadow(0 6px 8px rgba(0,0,0,.18))}
+      .mrt-stops{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:-17px}
+      .mrt-stop{position:relative;display:block;text-align:center;color:var(--sg-ink);padding-top:0}
+      .mrt-dot{display:block;width:24px;height:24px;margin:0 auto 16px;border-radius:50%;background:#fff;border:5px solid var(--c);box-shadow:0 0 0 4px #fff;transition:transform .3s}
+      .mrt-stop:hover .mrt-dot,.mrt-stop.on .mrt-dot{transform:scale(1.25)}
+      .mrt-card{display:block;border:1px solid var(--sg-line);border-radius:18px;padding:18px 16px 16px;background:var(--sg-card);transition:transform .3s,box-shadow .3s,border-color .3s}
+      .mrt-stop:hover .mrt-card,.mrt-stop.on .mrt-card{transform:translateY(-4px);box-shadow:0 22px 40px -26px rgba(0,0,0,.45);border-color:var(--c)}
+      .mrt-code{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:800;color:#fff;background:var(--c);padding:3px 10px;border-radius:6px;letter-spacing:.06em}
+      .mrt-card h3{margin:10px 0 4px!important}
+      .mrt-card p{font-size:13.5px;color:var(--sg-muted)}
+      .mrt-card strong{display:inline-block;margin-top:12px;font-size:14px;color:var(--c)}
+
+      /* 三条路线卡：地铁站式流程 */
+      .home-decision-card{transition:transform .35s,box-shadow .35s}
+      .home-decision-card:hover{transform:translateY(-6px);box-shadow:0 28px 50px -30px rgba(0,0,0,.45)}
+      .home-decision-photo img{transition:transform 1.2s cubic-bezier(.16,1,.3,1)}
+      .home-decision-card:hover .home-decision-photo img{transform:scale(1.06)}
+      .home-visual .home-route-flow{position:relative}
+      .home-photo-card img{transition:transform 1.2s cubic-bezier(.16,1,.3,1)}
+      .home-photo-card:hover img{transform:scale(1.06)}
+
+      /* ---------- 咨询区：对话卡 ---------- */
+      .hv-cta{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;border-radius:28px;padding:46px 48px;background:radial-gradient(520px 260px at 100% 0%,rgba(200,16,46,.10),transparent 70%),radial-gradient(420px 240px at 0% 100%,rgba(31,138,112,.12),transparent 70%),var(--sg-card);border:1px solid var(--sg-line);box-shadow:0 30px 60px -40px rgba(0,0,0,.35)}
+      .hv-cta h2{margin:0 0 18px!important}
+      .hv-cta h2 .em{color:var(--sg-red)}
+      .hv-steps{list-style:none;margin:0 0 26px;padding:0;display:flex;flex-wrap:wrap;gap:10px}
+      .hv-steps li{display:flex;align-items:center;gap:8px;padding:8px 14px 8px 8px;border-radius:999px;background:#fff;border:1px solid var(--sg-line);font-size:14px;font-weight:700}
+      .hv-steps li b{width:24px;height:24px;border-radius:50%;display:grid;place-items:center;background:var(--sg-red);color:#fff;font-size:12px}
+      .hv-cta .home-button{border-radius:999px;padding:14px 28px;box-shadow:0 14px 28px -12px rgba(200,16,46,.7)}
+      .hv-chat{background:#fff;border:1px solid var(--sg-line);border-radius:22px;box-shadow:0 24px 44px -28px rgba(0,0,0,.45);overflow:hidden;transform:rotate(1.2deg)}
+      .hv-chat-head{display:flex;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid var(--sg-line);background:#fcf8f1}
+      .hv-chat-head i{width:36px;height:36px;border-radius:50%;background:var(--sg-red);color:#fff;display:grid;place-items:center;font-style:normal;font-weight:900;position:relative}
+      .hv-chat-head i::after{content:"";position:absolute;right:-1px;bottom:-1px;width:10px;height:10px;border-radius:50%;background:#2fb36d;border:2px solid #fcf8f1}
+      .hv-chat-head b{display:block;font-size:15px}
+      .hv-chat-head em{font-style:normal;font-size:12px;color:var(--sg-muted)}
+      .hv-chat-body{padding:18px 16px 20px;display:flex;flex-direction:column;gap:10px}
+      .hv-msg{max-width:86%;padding:10px 14px;border-radius:16px;font-size:14px;line-height:1.55;opacity:0;transform:translateY(12px) scale(.96)}
+      .hv-msg.me{align-self:flex-end;background:var(--sg-red);color:#fff;border-bottom-right-radius:4px}
+      .hv-msg.bot{align-self:flex-start;background:#f4efe6;color:var(--sg-ink);border-bottom-left-radius:4px}
+      .hv-msg.qr{display:flex;gap:12px;align-items:center}
+      .hv-msg.qr img{width:92px;height:92px;border-radius:10px;background:#fff;padding:4px;flex:none}
+      .hv-msg.qr strong{display:block;font-size:14px}
+      .hv-msg.qr span{display:block;font-size:12.5px;color:var(--sg-muted)}
+      .hv-chat.in .hv-msg{animation:hv-in .55s cubic-bezier(.16,1,.3,1) forwards}
+      .hv-chat.in .hv-msg:nth-child(1){animation-delay:.3s}
+      .hv-chat.in .hv-msg:nth-child(2){animation-delay:1.3s}
+      .hv-chat.in .hv-msg:nth-child(3){animation-delay:2.3s}
+      @keyframes hv-in{to{opacity:1;transform:none}}
+
+      /* 标题叠在插画天空上（宽屏） */
+      @media all{
+        .hv-copy{position:absolute;top:0;left:0;right:0;padding:34px 0 0;pointer-events:none}
+        .hv-copy a,.hv-copy button{pointer-events:auto}
+        .hv-stage{margin-top:0;height:clamp(500px,52vw,780px)}
+        .home-visual .hv-copy .hv-slogan{text-shadow:0 2px 18px rgba(255,255,255,.85)}
+        .hv-line{color:#3d4650;text-shadow:0 1px 10px rgba(255,255,255,.9)}
+        .hv-hero.is-night .hv-copy .hv-slogan{color:#fff;text-shadow:0 4px 24px rgba(0,0,0,.45)}
+        .hv-hero.is-night .hv-copy .hv-slogan .em{color:#ff6b7f}
+        .hv-hero.is-night .hv-line{color:#e4e6f7;text-shadow:0 2px 12px rgba(0,0,0,.5)}
+        .hv-copy .hv-slogan,.hv-line{transition:color .6s}
+      }
+      /* ---- 标题排版 ---- */
+      .hv-eyebrow{display:flex;align-items:center;justify-content:center;gap:14px;margin:0 0 12px;font-size:12px;font-weight:800;letter-spacing:.55em;padding-left:.55em;color:var(--sg-red);animation:hv-rise .9s cubic-bezier(.16,1,.3,1) both}
+      .hv-eyebrow i{display:block;width:36px;height:1px;background:currentColor;opacity:.55}
+      .home-visual .hv-copy .hv-slogan{font-size:clamp(38px,4.8vw,68px);font-weight:900;letter-spacing:.12em;padding-left:.12em;color:#1d2a63;line-height:1.12}
+      .hv-copy .hv-slogan .w{display:inline-block;animation:hv-rise 1s cubic-bezier(.16,1,.3,1) both}
+      .hv-copy .hv-slogan .w:nth-child(2){animation-delay:.12s}.hv-copy .hv-slogan .w:nth-child(3){animation-delay:.24s}.hv-copy .hv-slogan .w:nth-child(4){animation-delay:.36s}
+      .hv-copy .hv-slogan .em{background:linear-gradient(100deg,#C8102E 10%,#ff5a4e 90%);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
+      .hv-line{font-size:clamp(15px,1.4vw,18px);letter-spacing:.2em;font-weight:500;animation:hv-rise 1s .5s cubic-bezier(.16,1,.3,1) both}
+      .hv-line b{display:inline-block;margin:0 .6em;color:var(--sg-red);font-weight:900}
+      @keyframes hv-rise{from{opacity:0;transform:translateY(18px);filter:blur(6px)}to{opacity:1;transform:none;filter:none}}
+      @media all{
+        .home-visual .hv-copy .hv-slogan{text-shadow:none;filter:drop-shadow(0 2px 14px rgba(255,255,255,.9))}
+        .hv-hero.is-night .hv-copy .hv-slogan{color:#fff;text-shadow:none;filter:drop-shadow(0 4px 22px rgba(10,14,40,.6))}
+        .hv-hero.is-night .hv-copy .hv-slogan .em{background:linear-gradient(100deg,#ffd36e 5%,#ff8ad8 95%);-webkit-background-clip:text;background-clip:text;color:transparent}
+        .hv-hero.is-night .hv-eyebrow{color:#ffd36e}
+        .hv-hero.is-night .hv-line b{color:#ffd36e}
+      }
+      @media(prefers-reduced-motion:reduce){.hv-h1,.hv-copy .hv-slogan .w{animation:none}}
+      .home-visual .hv-copy h1.hv-h1{display:flex;align-items:center;justify-content:center;gap:14px;margin:0 0 14px;font-size:clamp(14px,1.25vw,17px);font-weight:800;line-height:1.4;letter-spacing:.42em;padding-left:.42em;color:var(--sg-red);text-shadow:none;filter:none;animation:hv-rise .9s cubic-bezier(.16,1,.3,1) both}
+      .hv-h1 i{display:block;width:40px;height:1px;background:currentColor;opacity:.55}
+      .home-visual .hv-copy .hv-slogan{margin:0}
+      .hv-slogan .w{white-space:nowrap}
+      .hv-hero.is-night .hv-copy h1.hv-h1{color:#ffd36e}
+      @media(max-width:900px){
+        .hv-stats{grid-template-columns:1fr 1fr}
+        .mrt-stops{grid-template-columns:1fr 1fr;row-gap:24px}
+        .mrt-line{display:none}
+        .mrt-stops{margin-top:0;gap:12px}
+        .mrt-dot{display:none}
+        .hv-cta{grid-template-columns:1fr;padding:30px 22px}
+        .hv-chat{transform:none}
+        .hv-stage{height:auto;padding-bottom:0}
+        .sg-scene{position:relative;height:clamp(340px,62vw,520px)}
+        .hv-pick{position:relative;left:auto;bottom:auto;transform:none;margin:-36px auto 22px}
+      }
+      @media(max-width:640px){
+        .sg-scene{height:340px}
+        .hv-chips{grid-template-columns:1fr 1fr}
+        .hv-hint{display:none}
+        .hv-stat .n{font-size:36px}
+      }
+      @media(prefers-reduced-motion:reduce){
+        .sg-scene *,.hv-rv,.mrt-fill,.mrt-train{animation:none!important;transition:none!important}
+        .hv-rv{opacity:1;transform:none}
+        .hv-msg{opacity:1;transform:none}
+      }
+      /* ---- 插画容器 & 手机版 ---- */
+      .hv-pan{position:absolute;inset:0}
+      .hv-swipe{display:none}
+      @media(max-width:900px){
+        .hv-stage{--h:min(600px,max(460px,128vw))}
+        .hv-pan{position:relative;height:var(--h);overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;scrollbar-width:none;overscroll-behavior-x:contain}
+        .hv-pan::-webkit-scrollbar{display:none}
+        .hv-pan .sg-scene{position:relative;inset:auto;height:var(--h);width:calc(var(--h) * 2.2223);max-width:none}
+        .hv-copy{padding:22px 16px 0}
+        .home-visual .hv-copy h1.hv-h1{font-size:13px;letter-spacing:.32em;padding-left:.32em;gap:10px;margin-bottom:10px}
+        .hv-h1 i{width:22px}
+        .home-visual .hv-copy .hv-slogan{font-size:clamp(30px,9.4vw,44px);letter-spacing:.08em;padding-left:.08em;line-height:1.2}
+        .hv-slogan .w:first-child{display:block}
+        .hv-tools{top:calc(var(--h) - 100px);bottom:auto;left:14px;right:auto}
+        .hv-toggle{padding:7px 12px;font-size:13px}
+        .hv-swipe{display:block;position:absolute;right:14px;top:calc(var(--h) - 94px);z-index:4;font-size:12px;font-weight:700;color:#fff;background:rgba(20,24,60,.55);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);padding:6px 12px;border-radius:999px;pointer-events:none;transition:opacity .5s;animation:hv-nudge 1.8s ease-in-out infinite}
+        .hv-swipe.off{opacity:0}
+        .hv-pick{margin:-40px auto 22px}
+      }
+      @keyframes hv-nudge{50%{transform:translateX(-6px)}}
+      @media(max-width:900px) and (prefers-reduced-motion:reduce){.hv-swipe{animation:none}}
+      /* ---- 走进校园（明信片） vs 择校指南（文章卡） ---- */
+      .home-visual .hv-copy h1.hv-slogan{max-width:none}
+      .home-visual > .home-campus-band{background:linear-gradient(180deg,#0f2a4a 0%,#173a5e 100%);color:#fff}
+      .home-campus-band .home-kicker{color:#ffd36e}
+      .home-campus-band .home-heading h2{color:#fff}
+      .home-campus-band .home-text-link{color:#ffd36e}
+      .home-campus-grid .home-photo-card{position:relative;border-radius:20px;overflow:hidden;color:#fff;box-shadow:0 30px 60px -30px rgba(0,0,0,.6);isolation:isolate}
+      .home-campus-grid .home-photo-card img{aspect-ratio:4/5;border-radius:0}
+      .home-campus-grid .home-photo-card::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,16,36,0) 40%,rgba(8,16,36,.88) 100%);z-index:1;pointer-events:none}
+      .home-campus-grid .home-photo-card > div{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:22px 22px 20px}
+      .home-campus-grid .home-photo-card > div > span{display:inline-block;padding:4px 10px;border-radius:999px;background:var(--u,#C8102E);color:#fff;font-size:12px;font-weight:800;letter-spacing:.08em}
+      .home-campus-grid .home-photo-card:nth-child(1){--u:#ef7c00}
+      .home-campus-grid .home-photo-card:nth-child(2){--u:#C8102E}
+      .home-campus-grid .home-photo-card:nth-child(3){--u:#1f5fbf}
+      .home-campus-grid .home-photo-card h3{color:#fff;font-size:22px;margin-top:4px}
+      .home-campus-grid .home-photo-card:hover h3{color:#ffd36e}
+      .home-campus-grid .home-photo-card p{color:rgba(255,255,255,.8)}
+      .home-campus-band .home-school-links{border-top-color:rgba(255,255,255,.18)}
+      .home-campus-band .home-school-links a{color:#fff;padding:7px 14px;border:1px solid rgba(255,255,255,.28);border-radius:999px;transition:background .3s,color .3s}
+      .home-campus-band .home-school-links a:hover{background:#ffd36e;color:#0f2a4a;text-decoration:none}
+      .home-guide-grid .home-photo-card{display:flex;flex-direction:column;background:#fff;border:1px solid #e6e1d6;border-radius:16px;overflow:hidden;transition:transform .3s,box-shadow .3s}
+      .home-guide-grid .home-photo-card:hover{transform:translateY(-4px);box-shadow:0 22px 40px -26px rgba(0,0,0,.35)}
+      .home-guide-grid .home-photo-card img{aspect-ratio:16/9;border-radius:0}
+      .home-guide-grid .home-photo-card > div{padding:18px 20px 20px;border-top:4px solid var(--g,#C8102E)}
+      .home-guide-grid .home-photo-card:nth-child(1){--g:#C8102E}
+      .home-guide-grid .home-photo-card:nth-child(2){--g:#1f8a5b}
+      .home-guide-grid .home-photo-card:nth-child(3){--g:#e3a21a}
+      .home-guide-grid .home-photo-card > div > span{display:inline-flex;align-items:center;gap:6px;color:var(--g);font-weight:800}
+      .home-guide-grid .home-photo-card > div > span::before{content:"指南";padding:2px 7px;border-radius:4px;background:var(--g);color:#fff;font-size:11px}
+      .home-guide-grid .home-photo-card p::after{content:"阅读 →";color:var(--g);font-weight:700;margin-left:12px;white-space:nowrap}
+      @media(max-width:900px){
+        .home-campus-grid{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 -20px;padding:0 20px 6px;scrollbar-width:none}
+        .home-campus-grid::-webkit-scrollbar{display:none}
+        .home-campus-grid .home-photo-card{flex:0 0 min(78%,320px);scroll-snap-align:start}
+        .home-campus-grid .home-photo-card img{aspect-ratio:3/4}
+        .home-guide-grid{gap:14px}
+        .home-guide-grid .home-photo-card{flex-direction:row;align-items:stretch}
+        .home-guide-grid .home-photo-card img{width:34%;flex:0 0 34%;aspect-ratio:auto;height:auto;min-height:112px}
+        .home-guide-grid .home-photo-card > div{border-top:0;border-left:4px solid var(--g);padding:14px 14px}
+        .home-guide-grid .home-photo-card h3{font-size:16px}
+        .home-guide-grid .home-photo-card p{font-size:13px;flex-wrap:wrap}
+        .home-guide-grid .home-photo-card p::after{margin-left:0;margin-top:4px;width:100%}
+        .home-campus-band .home-school-links{gap:10px}
+      }
+      /* ---- 7 所公立大学滚动带 ---- */
+      .hv-unis{overflow:hidden}
+      .hv-unis .home-heading{margin-bottom:26px}
+      .uni-rail{overflow-x:auto;scrollbar-width:none;padding:8px 0 14px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent);mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent)}
+      .uni-rail::-webkit-scrollbar{display:none}
+      .uni-track{display:flex;width:max-content;padding-left:max(20px,calc((100vw - 1180px) / 2))}
+      .uni-rail.is-loop{overflow:hidden}
+      .uni-rail.is-loop .uni-track{padding-left:0;animation:uni-marquee 48s linear infinite}
+      .uni-rail.is-loop:hover .uni-track,.uni-rail.is-loop:focus-within .uni-track{animation-play-state:paused}
+      @keyframes uni-marquee{to{transform:translateX(-50%)}}
+      .uni-card{flex:0 0 232px;margin-right:18px;display:block;background:#fff;border-radius:16px;overflow:hidden;color:#1d2433;box-shadow:0 18px 36px -22px rgba(0,0,0,.55);transition:transform .35s cubic-bezier(.16,1,.3,1),box-shadow .35s}
+      .uni-card:hover{transform:translateY(-6px);box-shadow:0 26px 44px -22px rgba(0,0,0,.65)}
+      .uni-ph{display:block;height:138px;overflow:hidden;border-bottom:4px solid var(--u)}
+      .uni-ph img{display:block;width:100%;height:100%;object-fit:cover;transition:transform 1s cubic-bezier(.16,1,.3,1)}
+      .uni-card:hover .uni-ph img{transform:scale(1.08)}
+      .uni-ph--logo{display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#fff 0%,#f3eee6 100%)}
+      .uni-ph--logo img{width:72%;height:auto;max-height:66px;object-fit:contain}
+      .uni-card:hover .uni-ph--logo img{transform:scale(1.05)}
+      .uni-meta{display:block;padding:14px 16px 16px}
+      .uni-meta b{display:inline-block;font-size:11px;font-weight:800;letter-spacing:.1em;color:#fff;background:var(--u);padding:3px 9px;border-radius:999px}
+      .uni-meta strong{display:block;font-size:17px;font-weight:800;margin-top:9px;color:#1d2433}
+      .uni-meta em{display:block;font-style:normal;font-size:13px;color:#69707a;margin-top:4px}
+      .uni-card:hover .uni-meta strong{color:var(--u)}
+      .hv-unis .home-school-links{margin-top:22px}
+      /* ---- 择校指南：问题卡（无大图） ---- */
+      .hv-qa{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+      .hv-q{position:relative;display:flex;align-items:flex-start;gap:16px;padding:26px 22px;border-radius:18px;background:#fff;border:1px solid #ebe5d8;color:#1d2433;overflow:hidden;isolation:isolate;transition:transform .3s,box-shadow .3s}
+      .hv-q::before{content:"";position:absolute;inset:0;background:var(--g);transform:translateY(101%);transition:transform .45s cubic-bezier(.16,1,.3,1);z-index:-1}
+      .hv-q:hover{transform:translateY(-4px);box-shadow:0 22px 40px -24px rgba(0,0,0,.4)}
+      .hv-q:hover::before{transform:none}
+      .hv-q .qn{flex:0 0 auto;font-size:42px;font-weight:900;line-height:1;color:transparent;-webkit-text-stroke:1.5px var(--g);font-family:"Helvetica Neue",Arial,sans-serif;letter-spacing:-.02em;transition:-webkit-text-stroke-color .3s}
+      .hv-q .qb{flex:1;min-width:0}
+      .hv-q .qb em{font-style:normal;font-size:12px;font-weight:800;letter-spacing:.06em;color:var(--g);transition:color .3s}
+      .hv-q .qb h3{font-size:18px;font-weight:800;margin:6px 0 4px;color:#1d2433;transition:color .3s}
+      .hv-q .qb p{font-size:13.5px;color:#6b7078;transition:color .3s}
+      .hv-q .go{flex:0 0 auto;align-self:center;width:36px;height:36px;border-radius:50%;border:1.5px solid var(--g);color:var(--g);display:flex;align-items:center;justify-content:center;font-weight:800;transition:all .3s}
+      .hv-q:hover .qn{-webkit-text-stroke-color:#fff}
+      .hv-q:hover .qb em,.hv-q:hover .qb h3,.hv-q:hover .qb p{color:#fff}
+      .hv-q:hover .go{background:#fff;border-color:#fff;color:var(--g);transform:translateX(4px)}
+      @media(max-width:900px){
+        .uni-card{flex-basis:196px;margin-right:14px}
+        .uni-ph{height:118px}
+        .uni-meta strong{font-size:15.5px}
+        .hv-qa{grid-template-columns:1fr;gap:12px}
+        .hv-q{padding:18px 16px;gap:14px}
+        .hv-q .qn{font-size:34px}
+        .hv-q .qb h3{font-size:16.5px}
+      }
+      @media(prefers-reduced-motion:reduce){.uni-rail.is-loop .uni-track{animation:none}}
+      /* ---- 紧凑化：数字区 + 升学路径 ---- */
+      .home-visual.home-v2 > section.home-band{padding:52px 0}
+      .home-visual.home-v2 > section.hv-stats-band{padding-bottom:16px}
+      .home-visual.home-v2 > section#home-pathways{padding-top:36px}
+      .home-v2 .home-heading{margin-bottom:22px}
+      .home-visual.home-v2 h2{font-size:26px}
+      .hv-stats{gap:14px}
+      .hv-stat{padding:16px 18px 14px;border-radius:16px}
+      .hv-stat .n{font-size:34px}
+      .hv-stat .n small{font-size:14px}
+      .hv-stat .t{margin-top:8px;font-size:14px}
+      .hv-stat .s{font-size:12px}
+      .hv-stat .ic{right:14px;top:14px;font-size:20px}
+      .mrt{padding-top:4px}
+      .mrt-line{height:8px;margin-top:22px}
+      .mrt-train svg{width:60px}
+      .mrt-stops{gap:16px;margin-top:-14px}
+      .mrt-dot{width:20px;height:20px;border-width:4px;margin-bottom:12px}
+      .mrt-card{padding:14px 14px 12px;border-radius:14px}
+      .home-visual .mrt-card h3{font-size:17px;margin:8px 0 2px!important}
+      .mrt-card p{font-size:13px}
+      .mrt-card strong{margin-top:8px;font-size:13px}
+      @media(max-width:900px){
+        .home-visual.home-v2 > section.home-band{padding:38px 0}
+        .home-visual.home-v2 > section.hv-stats-band{padding-bottom:10px}
+        .home-visual.home-v2 > section#home-pathways{padding-top:28px}
+        .home-visual.home-v2 h2{font-size:22px}
+        .hv-stat{padding:14px 14px 12px}
+        .hv-stat .n{font-size:28px}
+        .mrt-stops{margin-top:0}
+      }
+      /* ---- 数字区：红色数据横幅（与下方卡片区分） ---- */
+      .hv-data{position:relative;display:grid;grid-template-columns:minmax(240px,300px) 1fr;gap:32px;align-items:center;padding:34px 40px;border-radius:24px;background:linear-gradient(115deg,#C8102E 0%,#a80d27 60%,#8c0a21 100%);color:#fff;overflow:hidden;isolation:isolate;box-shadow:0 30px 60px -36px rgba(140,10,33,.7)}
+      .hv-data::before{content:"";position:absolute;right:-90px;top:-120px;width:320px;height:320px;border-radius:50%;box-shadow:inset -46px 0 0 0 rgba(255,255,255,.07);z-index:-1}
+      .hv-data::after{content:"★ ★ ★ ★ ★";position:absolute;right:26px;top:16px;font-size:10px;letter-spacing:6px;color:rgba(255,255,255,.28);z-index:-1}
+      .hv-data .home-heading{display:block;margin:0}
+      .hv-data .home-kicker{color:rgba(255,255,255,.75)}
+      .home-visual.home-v2 .hv-data h2{color:#fff;font-size:24px;line-height:1.4;margin-top:6px}
+      .hv-data .home-text-link{display:inline-block;margin-top:14px;color:#fff;font-weight:700;border-bottom:1px solid rgba(255,255,255,.45);padding-bottom:2px}
+      .hv-data .hv-stats{grid-template-columns:repeat(4,minmax(0,1fr));gap:0}
+      .hv-data .hv-stat{background:none;border:0;border-left:1px solid rgba(255,255,255,.22);border-radius:0;padding:6px 0 6px 22px;color:#fff;box-shadow:none;overflow:visible}
+      .hv-data .hv-stat::before,.hv-data .hv-stat .ic{display:none}
+      .hv-data .hv-stat:hover{transform:translateY(-3px);box-shadow:none}
+      .hv-data .hv-stat .n{font-size:42px;color:#fff}
+      .hv-data .hv-stat .n small{color:rgba(255,255,255,.7)}
+      .hv-data .hv-stat .t{color:#fff;margin-top:10px}
+      .hv-data .hv-stat .s{color:rgba(255,255,255,.68)}
+      .hv-data .hv-stat:hover .t{text-decoration:underline;text-underline-offset:3px}
+      @media(max-width:1080px){.hv-data{grid-template-columns:1fr;gap:22px}}
+      @media(max-width:900px){
+        .hv-data{padding:24px 20px;border-radius:18px}
+        .home-visual.home-v2 .hv-data h2{font-size:20px}
+        .hv-data .hv-stats{grid-template-columns:1fr 1fr;gap:18px 0}
+        .hv-data .hv-stat{padding:2px 0 2px 14px}
+        .hv-data .hv-stat:nth-child(odd){border-left:0;padding-left:0}
+        .hv-data .hv-stat .n{font-size:30px}
+      }
+      /* ---- 数字区：圆点可视化 ---- */
+      .hv-data .hv-stat .dots{display:flex;flex-wrap:wrap;gap:3px;margin-top:14px;max-width:190px}
+      .hv-data .hv-stat .dots i{display:block;width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,.16);transform:scale(.4);transition:background .35s var(--d,0ms),transform .35s cubic-bezier(.34,1.56,.64,1) var(--d,0ms)}
+      .hv-data .hv-stat.in .dots i{background:rgba(255,255,255,.92);transform:none}
+      .hv-data .hv-stat:hover .dots i{background:#fff;box-shadow:0 0 6px rgba(255,255,255,.8)}
+      .hv-data .hv-stat:nth-child(4) .dots i{border-radius:1px}
+      .hv-data .hv-stat .t{font-size:15px}
+      .home-visual.home-v2 .hv-data h2{margin-top:0}
+      .hv-data .hv-stats{align-items:start}
+      @media(prefers-reduced-motion:reduce){.hv-data .hv-stat .dots i{transition:none;transform:none;background:rgba(255,255,255,.92)}}
+      @media(max-width:900px){.hv-data .hv-stat .dots{max-width:150px;gap:2px}.hv-data .hv-stat .dots i{width:4px;height:4px}}
+      /* ---- 数字区标题压窄 ---- */
+      .hv-data{grid-template-columns:200px 1fr;gap:28px;padding:30px 36px}
+      .home-visual.home-v2 .hv-data h2{font-size:21px;line-height:1.45;white-space:nowrap}
+      .hv-data h2 .br{display:block}
+      .hv-data .home-text-link{margin-top:10px;font-size:14px}
+      @media(max-width:1080px){
+        .hv-data{grid-template-columns:1fr;gap:18px}
+        .hv-data .home-heading{display:flex;align-items:center;justify-content:space-between;gap:12px}
+        .hv-data h2 .br{display:inline}
+        .hv-data .home-text-link{margin-top:0;white-space:nowrap}
+      }
+      @media(max-width:900px){.hv-data{padding:22px 20px}}
+      @media(max-width:520px){
+        .home-visual.home-v2 .hv-data h2{font-size:18px;white-space:normal}
+        .hv-data h2 .br{display:block}
+      }
+
+/* 数据横幅：去掉标题区与圆点，只留 4 组数字 */
+.hv-sr{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;margin:-1px;padding:0;border:0}
+.home-visual.home-v2 .hv-data{display:block!important;padding:30px 36px}
+.home-visual.home-v2 .hv-data .hv-stats{grid-template-columns:repeat(4,1fr)!important}
+.home-visual.home-v2 .hv-data .hv-stat:first-child{border-left:0!important;padding-left:0}
+.home-visual.home-v2 .hv-data .dots{display:none!important}
+@media(max-width:900px){.home-visual.home-v2 .hv-data{padding:22px 20px}.home-visual.home-v2 .hv-data .hv-stats{grid-template-columns:repeat(2,1fr)!important}}
+    </style>
+    <!-- SEDA_HOME_V2_STYLE_END -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -102,7 +675,7 @@
     <meta property="og:type" content="website" />
   <meta property="og:locale" content="zh_CN" />
   <meta property="og:site_name" content="SEDA 新加坡择校网" />
-  <meta property="og:title" content="SEDA 新加坡择校网 | 最全中文新加坡教育资讯平台" />
+  <meta property="og:title" content="SEDA 新加坡择校网 | 新加坡留学择校与升学规划：AEIS、O-Level、WACE" />
   <meta property="og:description" content="SEDA 新加坡择校网，最全面的中文新加坡留学资讯门户。覆盖 WACE、O-Level、A-Level、AEIS、IB 考试体系，政府学校、私立学校、国际学校选校指南，以及升学路径与实用留学攻略。" />
   <meta property="og:url" content="https://sgeda.org.cn/" />
   <meta property="og:image" content="https://sgeda.org.cn/assets/hero-mbs-day3.jpg" />
@@ -173,36 +746,70 @@ var _hmt = _hmt || [];
     </header>
 
 
-<main id="main-content" class="home-visual">
-  <section class="home-hero" aria-label="新加坡留学">
-    <img class="home-hero-image" src="/assets/hero-mbs-day3.jpg" alt="新加坡滨海湾、金沙酒店与滨海艺术中心" width="1920" height="1080" fetchpriority="high">
-    <div class="home-wrap home-hero-copy">
-      <p class="home-kicker">SEDA · 中国家庭的新加坡升学参谋</p>
-      <h1>新加坡留学与择校</h1>
-      <p class="home-hero-line">从小学到大学，找到适合孩子的路。</p>
-      <div class="home-actions">
-        <a class="home-button" href="#home-pathways">查看升学路径</a>
-        <a class="home-button home-button-ghost" href="#wechat-contact">免费择校咨询</a>
+<main id="main-content" class="home-visual home-v2">
+  <section class="hv-hero" aria-label="新加坡留学">
+    <div class="home-wrap hv-copy">
+      <h1 class="hv-slogan"><span class="w">您身边的 </span><span class="w em">新加坡 </span><span class="w">升学参谋</span></h1>
+    </div>
+    <div class="hv-stage">
+      <div class="hv-pan"><svg class="sg-scene" viewBox="0 0 1600 720" preserveAspectRatio="xMidYMax slice" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="sgSceneTitle" font-family="inherit"><title id="sgSceneTitle">新加坡插画：滨海湾金沙、鱼尾狮、超级树、摩天观景轮、滨海艺术中心、星耀樟宜、组屋与地铁，学生穿着校服沿河边上学</title><defs>
+<linearGradient id="sgSkyD" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9fd3ee"/><stop offset=".62" stop-color="#d9eef6"/><stop offset="1" stop-color="#fdf1dc"/></linearGradient>
+<linearGradient id="sgSkyN" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0a1238"/><stop offset=".6" stop-color="#26245e"/><stop offset="1" stop-color="#5b3b78"/></linearGradient>
+<linearGradient id="sgSeaD" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7fbcd6"/><stop offset="1" stop-color="#4f93b8"/></linearGradient>
+<linearGradient id="sgSeaN" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1d2a63"/><stop offset="1" stop-color="#0b1233"/></linearGradient>
+<radialGradient id="sgSun" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#fff3c4"/><stop offset=".55" stop-color="#ffd877"/><stop offset="1" stop-color="#ffd877" stop-opacity="0"/></radialGradient>
+<radialGradient id="sgMoon" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#fffbe8"/><stop offset=".5" stop-color="#f3ecd0" stop-opacity=".9"/><stop offset="1" stop-color="#f3ecd0" stop-opacity="0"/></radialGradient>
+<pattern id="sgDurian" width="12" height="10" patternUnits="userSpaceOnUse"><rect width="12" height="10" class="esp-bg"/><path d="M0 10 L6 0 L12 10" class="esp-spike"/></pattern>
+<clipPath id="sgTrackClip"><rect x="-10" y="470" width="520" height="40"/></clipPath>
+<clipPath id="sgWaterClip"><rect x="0" y="552" width="1600" height="168"/></clipPath>
+<filter id="sgGlow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+</defs><rect width="1600" height="720" fill="url(#sgSkyD)"/><rect width="1600" height="720" fill="url(#sgSkyN)" class="sky-n"/><g class="stars"><circle cx="664" cy="102" r="1" style="--d:1.3s"/><circle cx="846" cy="186" r="1.2" style="--d:2.5s"/><circle cx="698" cy="82" r="1.6" style="--d:0.8s"/><circle cx="1049" cy="209" r="0.8" style="--d:0.8s"/><circle cx="255" cy="246" r="1" style="--d:2.4s"/><circle cx="1318" cy="54" r="1.2" style="--d:1.1s"/><circle cx="1044" cy="208" r="1" style="--d:1.2s"/><circle cx="762" cy="234" r="0.8" style="--d:2.3s"/><circle cx="535" cy="320" r="1.2" style="--d:0.0s"/><circle cx="1179" cy="34" r="0.8" style="--d:0.5s"/><circle cx="1288" cy="193" r="1.6" style="--d:1.3s"/><circle cx="825" cy="254" r="1.2" style="--d:0.7s"/><circle cx="476" cy="124" r="1.2" style="--d:1.7s"/><circle cx="1132" cy="215" r="0.8" style="--d:0.9s"/><circle cx="105" cy="102" r="1" style="--d:2.6s"/><circle cx="211" cy="39" r="1.6" style="--d:1.8s"/><circle cx="635" cy="130" r="0.8" style="--d:3.0s"/><circle cx="1444" cy="192" r="1.6" style="--d:0.5s"/><circle cx="1591" cy="289" r="1.6" style="--d:1.9s"/><circle cx="764" cy="276" r="1.2" style="--d:2.8s"/><circle cx="1348" cy="162" r="0.8" style="--d:2.9s"/><circle cx="289" cy="265" r="0.8" style="--d:2.9s"/><circle cx="424" cy="222" r="1" style="--d:0.4s"/><circle cx="1093" cy="294" r="1" style="--d:0.9s"/><circle cx="632" cy="144" r="1.2" style="--d:2.0s"/><circle cx="902" cy="204" r="1.6" style="--d:2.9s"/><circle cx="354" cy="83" r="1.6" style="--d:2.2s"/><circle cx="410" cy="81" r="1.2" style="--d:0.0s"/><circle cx="575" cy="62" r="1.6" style="--d:2.2s"/><circle cx="1099" cy="41" r="1.2" style="--d:0.2s"/><circle cx="1008" cy="273" r="1" style="--d:1.3s"/><circle cx="942" cy="186" r="1.2" style="--d:1.8s"/><circle cx="1360" cy="97" r="0.8" style="--d:0.5s"/><circle cx="1163" cy="269" r="1" style="--d:1.3s"/><circle cx="1380" cy="164" r="1.6" style="--d:2.2s"/><circle cx="1252" cy="90" r="1" style="--d:0.4s"/><circle cx="178" cy="55" r="1.2" style="--d:2.5s"/><circle cx="232" cy="265" r="1.6" style="--d:1.4s"/><circle cx="1369" cy="266" r="1.2" style="--d:0.7s"/><circle cx="982" cy="319" r="0.8" style="--d:0.3s"/><circle cx="1328" cy="27" r="1" style="--d:0.8s"/><circle cx="1421" cy="105" r="1" style="--d:1.9s"/><circle cx="1049" cy="192" r="1" style="--d:2.5s"/><circle cx="54" cy="302" r="0.8" style="--d:2.9s"/><circle cx="1517" cy="141" r="1" style="--d:1.7s"/><circle cx="1138" cy="301" r="1.6" style="--d:0.6s"/><circle cx="1297" cy="62" r="1" style="--d:0.3s"/><circle cx="1149" cy="248" r="1.6" style="--d:1.8s"/><circle cx="1557" cy="42" r="0.8" style="--d:0.8s"/><circle cx="1232" cy="248" r="0.8" style="--d:0.2s"/><circle cx="432" cy="102" r="0.8" style="--d:0.9s"/><circle cx="815" cy="103" r="0.8" style="--d:0.4s"/><circle cx="894" cy="48" r="0.8" style="--d:2.3s"/><circle cx="1027" cy="78" r="0.8" style="--d:1.1s"/><circle cx="1458" cy="91" r="1.2" style="--d:2.2s"/><circle cx="703" cy="312" r="0.8" style="--d:1.6s"/><circle cx="1383" cy="187" r="1" style="--d:2.2s"/><circle cx="105" cy="73" r="1" style="--d:0.7s"/><circle cx="1591" cy="60" r="1.2" style="--d:0.1s"/><circle cx="700" cy="154" r="1" style="--d:2.8s"/><circle cx="707" cy="152" r="0.8" style="--d:0.3s"/><circle cx="1597" cy="314" r="1.6" style="--d:1.2s"/><circle cx="500" cy="119" r="0.8" style="--d:1.2s"/><circle cx="596" cy="101" r="1" style="--d:1.9s"/><circle cx="1522" cy="305" r="0.8" style="--d:0.6s"/><circle cx="610" cy="53" r="1" style="--d:2.8s"/><circle cx="988" cy="42" r="1" style="--d:0.2s"/><circle cx="48" cy="259" r="0.8" style="--d:0.4s"/><circle cx="554" cy="195" r="1" style="--d:1.1s"/><circle cx="1479" cy="156" r="1.6" style="--d:2.6s"/></g><g class="sun-moon" tabindex="0" role="button" aria-label="切换白天 / 夜景"><g class="sun"><circle cx="1395" cy="120" r="90" fill="url(#sgSun)"/><circle cx="1395" cy="120" r="40" fill="#ffd46b"/></g><g class="moon"><circle cx="1395" cy="120" r="80" fill="url(#sgMoon)"/><circle cx="1395" cy="120" r="30" fill="#fff6da"/><circle cx="1408" cy="112" r="27" fill="#26245e" opacity=".0"/><path d="M1382 108 a4 4 0 1 0 .1 0M1402 132 a3 3 0 1 0 .1 0" fill="#e8dfbd"/></g></g><g class="sg-layer" data-depth="4"><g transform="translate(180,70) scale(1.1)"><g class="cloud" style="--dur:90s;--d:0s"><path d="M0 30 q0 -22 26 -22 q8 -18 32 -14 q20 -16 42 2 q26 -4 30 20 q16 2 16 14 z" class="cloud-p"/></g></g><g transform="translate(620,40) scale(0.8)"><g class="cloud" style="--dur:110s;--d:-30s"><path d="M0 30 q0 -22 26 -22 q8 -18 32 -14 q20 -16 42 2 q26 -4 30 20 q16 2 16 14 z" class="cloud-p"/></g></g><g transform="translate(1050,95) scale(0.9)"><g class="cloud" style="--dur:100s;--d:-60s"><path d="M0 30 q0 -22 26 -22 q8 -18 32 -14 q20 -16 42 2 q26 -4 30 20 q16 2 16 14 z" class="cloud-p"/></g></g><g transform="translate(1480,210) scale(0.7)"><g class="cloud" style="--dur:120s;--d:-20s"><path d="M0 30 q0 -22 26 -22 q8 -18 32 -14 q20 -16 42 2 q26 -4 30 20 q16 2 16 14 z" class="cloud-p"/></g></g></g><g class="plane-wrap"><path id="sgPlanePath" d="M1700 150 C 1300 80, 900 60, 500 120 S -100 200, -200 160" fill="none"/><path d="M1700 150 C 1300 80, 900 60, 500 120 S -100 200, -200 160" class="plane-trail"/><g class="plane"><path d="M-18 0 L14 -3 Q22 0 14 3 Z" fill="#fff" stroke="#5a6275" stroke-width="1"/><path d="M0 -1 L-8 -12 L-3 -12 L6 -1 Z M0 1 L-8 12 L-3 12 L6 1 Z" fill="#fff" stroke="#5a6275" stroke-width="1"/><path d="M-18 0 L-22 -7 L-17 -7 L-13 -1Z" fill="#C8102E"/><animateMotion dur="26s" repeatCount="indefinite" rotate="auto-reverse"><mpath href="#sgPlanePath"/></animateMotion></g></g><g class="birds"><path d="M700 210 q5 -5 10 0 q5 -5 10 0" class="bird" style="--d:0s"/><path d="M725 200 q5 -5 10 0 q5 -5 10 0" class="bird" style="--d:0.4s"/><path d="M745 218 q5 -5 10 0 q5 -5 10 0" class="bird" style="--d:0.8s"/><path d="M980 170 q5 -5 10 0 q5 -5 10 0" class="bird" style="--d:0.2s"/><path d="M1000 162 q5 -5 10 0 q5 -5 10 0" class="bird" style="--d:0.6s"/></g><g class="sg-layer" data-depth="8"><rect x="-10.0" y="440.0" width="37.0" height="100.0" class="c-far"/><rect x="10.9" y="449.5" width="8.6" height="11.2" class="win w-far"/><rect x="-2.6" y="494.5" width="8.6" height="11.2" class="win w-far"/><line x1="8" y1="440" x2="8" y2="422" class="c-far-line"/><circle cx="8" cy="422" r="2" class="beacon" style="--d:0.9s"/><rect x="33.0" y="325.0" width="68.0" height="215.0" class="c-far"/><rect x="69.6" y="357.3" width="9.3" height="11.4" class="win w-far"/><rect x="84.1" y="357.3" width="9.3" height="11.4" class="win w-far"/><rect x="69.6" y="380.1" width="9.3" height="11.4" class="win w-far"/><rect x="40.6" y="402.9" width="9.3" height="11.4" class="win w-far"/><rect x="55.1" y="402.9" width="9.3" height="11.4" class="win w-far"/><rect x="55.1" y="425.7" width="9.3" height="11.4" class="win w-far"/><rect x="84.1" y="448.4" width="9.3" height="11.4" class="win w-far"/><rect x="55.1" y="471.2" width="9.3" height="11.4" class="win w-far"/><rect x="69.6" y="471.2" width="9.3" height="11.4" class="win w-far f" style="--d:2.5s"/><rect x="84.1" y="471.2" width="9.3" height="11.4" class="win w-far"/><rect x="40.6" y="494.0" width="9.3" height="11.4" class="win w-far"/><rect x="84.1" y="516.8" width="9.3" height="11.4" class="win w-far"/><rect x="110.0" y="432.0" width="52.0" height="108.0" class="c-far"/><rect x="117.5" y="441.9" width="9.0" height="12.2" class="win w-far"/><rect x="131.5" y="441.9" width="9.0" height="12.2" class="win w-far"/><rect x="117.5" y="490.9" width="9.0" height="12.2" class="win w-far"/><rect x="145.5" y="490.9" width="9.0" height="12.2" class="win w-far"/><rect x="131.5" y="515.4" width="9.0" height="12.2" class="win w-far"/><rect x="145.5" y="515.4" width="9.0" height="12.2" class="win w-far"/><rect x="174.0" y="333.0" width="70.0" height="207.0" class="c-far"/><rect x="181.2" y="342.4" width="7.7" height="10.9" class="win w-far f" style="--d:2.0s"/><rect x="193.2" y="342.4" width="7.7" height="10.9" class="win w-far"/><rect x="205.2" y="342.4" width="7.7" height="10.9" class="win w-far"/><rect x="229.2" y="342.4" width="7.7" height="10.9" class="win w-far"/><rect x="181.2" y="364.3" width="7.7" height="10.9" class="win w-far"/><rect x="193.2" y="364.3" width="7.7" height="10.9" class="win w-far f" style="--d:3.5s"/><rect x="205.2" y="364.3" width="7.7" height="10.9" class="win w-far f" style="--d:3.7s"/><rect x="217.2" y="364.3" width="7.7" height="10.9" class="win w-far"/><rect x="229.2" y="364.3" width="7.7" height="10.9" class="win w-far"/><rect x="229.2" y="386.2" width="7.7" height="10.9" class="win w-far"/><rect x="205.2" y="408.0" width="7.7" height="10.9" class="win w-far"/><rect x="193.2" y="429.9" width="7.7" height="10.9" class="win w-far"/><rect x="181.2" y="451.8" width="7.7" height="10.9" class="win w-far f" style="--d:3.8s"/><rect x="193.2" y="451.8" width="7.7" height="10.9" class="win w-far"/><rect x="181.2" y="473.7" width="7.7" height="10.9" class="win w-far f" style="--d:1.6s"/><rect x="229.2" y="473.7" width="7.7" height="10.9" class="win w-far"/><rect x="181.2" y="495.6" width="7.7" height="10.9" class="win w-far"/><rect x="193.2" y="495.6" width="7.7" height="10.9" class="win w-far"/><rect x="229.2" y="495.6" width="7.7" height="10.9" class="win w-far f" style="--d:3.2s"/><rect x="181.2" y="517.5" width="7.7" height="10.9" class="win w-far"/><rect x="193.2" y="517.5" width="7.7" height="10.9" class="win w-far"/><rect x="256.0" y="350.0" width="41.0" height="190.0" class="c-far"/><rect x="279.3" y="359.5" width="9.9" height="11.2" class="win w-far"/><rect x="263.8" y="427.0" width="9.9" height="11.2" class="win w-far"/><rect x="279.3" y="494.5" width="9.9" height="11.2" class="win w-far"/><rect x="302.0" y="425.0" width="43.0" height="115.0" class="c-far"/><rect x="309.0" y="434.2" width="7.0" height="10.5" class="win w-far"/><rect x="320.0" y="434.2" width="7.0" height="10.5" class="win w-far"/><rect x="331.0" y="434.2" width="7.0" height="10.5" class="win w-far"/><rect x="320.0" y="455.2" width="7.0" height="10.5" class="win w-far f" style="--d:1.0s"/><rect x="331.0" y="455.2" width="7.0" height="10.5" class="win w-far"/><rect x="309.0" y="476.2" width="7.0" height="10.5" class="win w-far"/><rect x="331.0" y="476.2" width="7.0" height="10.5" class="win w-far"/><rect x="320.0" y="497.2" width="7.0" height="10.5" class="win w-far"/><rect x="331.0" y="497.2" width="7.0" height="10.5" class="win w-far"/><line x1="324" y1="425" x2="324" y2="407" class="c-far-line"/><circle cx="324" cy="407" r="2" class="beacon" style="--d:1.9s"/><rect x="347.0" y="346.0" width="38.0" height="194.0" class="c-far"/><rect x="354.5" y="401.6" width="9.0" height="11.5" class="win w-far"/><rect x="368.5" y="424.6" width="9.0" height="11.5" class="win w-far"/><rect x="354.5" y="470.6" width="9.0" height="11.5" class="win w-far"/><rect x="389.0" y="315.0" width="36.0" height="225.0" class="c-far"/><rect x="396.3" y="345.8" width="8.3" height="10.8" class="win w-far"/><rect x="409.3" y="345.8" width="8.3" height="10.8" class="win w-far"/><rect x="409.3" y="453.3" width="8.3" height="10.8" class="win w-far"/><rect x="396.3" y="474.8" width="8.3" height="10.8" class="win w-far"/><rect x="396.3" y="517.8" width="8.3" height="10.8" class="win w-far f" style="--d:0.3s"/><rect x="409.3" y="517.8" width="8.3" height="10.8" class="win w-far"/><rect x="428.0" y="316.0" width="43.0" height="224.0" class="c-far"/><rect x="446.0" y="325.3" width="7.0" height="10.7" class="win w-far"/><rect x="435.0" y="346.7" width="7.0" height="10.7" class="win w-far"/><rect x="446.0" y="346.7" width="7.0" height="10.7" class="win w-far"/><rect x="435.0" y="368.1" width="7.0" height="10.7" class="win w-far"/><rect x="446.0" y="368.1" width="7.0" height="10.7" class="win w-far f" style="--d:1.2s"/><rect x="435.0" y="389.5" width="7.0" height="10.7" class="win w-far"/><rect x="457.0" y="389.5" width="7.0" height="10.7" class="win w-far"/><rect x="435.0" y="410.9" width="7.0" height="10.7" class="win w-far"/><rect x="457.0" y="410.9" width="7.0" height="10.7" class="win w-far"/><rect x="435.0" y="453.7" width="7.0" height="10.7" class="win w-far"/><rect x="446.0" y="453.7" width="7.0" height="10.7" class="win w-far"/><rect x="457.0" y="453.7" width="7.0" height="10.7" class="win w-far"/><rect x="446.0" y="475.1" width="7.0" height="10.7" class="win w-far"/><rect x="457.0" y="475.1" width="7.0" height="10.7" class="win w-far f" style="--d:1.7s"/><rect x="446.0" y="496.5" width="7.0" height="10.7" class="win w-far"/><rect x="457.0" y="496.5" width="7.0" height="10.7" class="win w-far"/><rect x="476.0" y="355.0" width="67.0" height="185.0" class="c-far"/><rect x="483.6" y="364.4" width="9.1" height="10.9" class="win w-far"/><rect x="497.8" y="364.4" width="9.1" height="10.9" class="win w-far"/><rect x="512.1" y="364.4" width="9.1" height="10.9" class="win w-far"/><rect x="526.3" y="364.4" width="9.1" height="10.9" class="win w-far f" style="--d:1.0s"/><rect x="512.1" y="386.2" width="9.1" height="10.9" class="win w-far"/><rect x="526.3" y="386.2" width="9.1" height="10.9" class="win w-far"/><rect x="497.8" y="408.1" width="9.1" height="10.9" class="win w-far f" style="--d:1.5s"/><rect x="512.1" y="408.1" width="9.1" height="10.9" class="win w-far"/><rect x="483.6" y="430.0" width="9.1" height="10.9" class="win w-far"/><rect x="483.6" y="451.9" width="9.1" height="10.9" class="win w-far f" style="--d:3.6s"/><rect x="497.8" y="451.9" width="9.1" height="10.9" class="win w-far"/><rect x="512.1" y="473.8" width="9.1" height="10.9" class="win w-far"/><rect x="526.3" y="473.8" width="9.1" height="10.9" class="win w-far f" style="--d:3.3s"/><rect x="483.6" y="495.6" width="9.1" height="10.9" class="win w-far"/><rect x="497.8" y="495.6" width="9.1" height="10.9" class="win w-far"/><rect x="526.3" y="495.6" width="9.1" height="10.9" class="win w-far"/><rect x="483.6" y="517.5" width="9.1" height="10.9" class="win w-far"/><rect x="526.3" y="517.5" width="9.1" height="10.9" class="win w-far f" style="--d:3.1s"/><rect x="552.0" y="379.0" width="58.0" height="161.0" class="c-far"/><rect x="571.2" y="388.3" width="7.7" height="10.8" class="win w-far"/><rect x="583.2" y="388.3" width="7.7" height="10.8" class="win w-far f" style="--d:0.3s"/><rect x="595.2" y="388.3" width="7.7" height="10.8" class="win w-far"/><rect x="559.2" y="409.9" width="7.7" height="10.8" class="win w-far"/><rect x="583.2" y="409.9" width="7.7" height="10.8" class="win w-far f" style="--d:1.2s"/><rect x="559.2" y="431.5" width="7.7" height="10.8" class="win w-far"/><rect x="559.2" y="474.6" width="7.7" height="10.8" class="win w-far f" style="--d:3.3s"/><rect x="571.2" y="474.6" width="7.7" height="10.8" class="win w-far f" style="--d:3.0s"/><rect x="583.2" y="474.6" width="7.7" height="10.8" class="win w-far f" style="--d:0.6s"/><rect x="559.2" y="496.2" width="7.7" height="10.8" class="win w-far"/><rect x="583.2" y="517.7" width="7.7" height="10.8" class="win w-far"/><rect x="595.2" y="517.7" width="7.7" height="10.8" class="win w-far"/><rect x="623.0" y="445.0" width="52.0" height="95.0" class="c-far"/><rect x="658.5" y="454.2" width="9.0" height="10.6" class="win w-far f" style="--d:3.7s"/><rect x="644.5" y="475.5" width="9.0" height="10.6" class="win w-far f" style="--d:0.9s"/><rect x="658.5" y="475.5" width="9.0" height="10.6" class="win w-far"/><rect x="644.5" y="496.8" width="9.0" height="10.6" class="win w-far f" style="--d:2.5s"/><rect x="658.5" y="496.8" width="9.0" height="10.6" class="win w-far"/><rect x="630.5" y="518.0" width="9.0" height="10.6" class="win w-far"/><line x1="649" y1="445" x2="649" y2="427" class="c-far-line"/><circle cx="649" cy="427" r="2" class="beacon" style="--d:0.1s"/><rect x="689.0" y="384.0" width="38.0" height="156.0" class="c-far"/><rect x="696.5" y="393.2" width="9.0" height="10.4" class="win w-far"/><rect x="710.5" y="393.2" width="9.0" height="10.4" class="win w-far f" style="--d:1.1s"/><rect x="696.5" y="434.9" width="9.0" height="10.4" class="win w-far"/><rect x="710.5" y="434.9" width="9.0" height="10.4" class="win w-far f" style="--d:0.7s"/><rect x="710.5" y="455.7" width="9.0" height="10.4" class="win w-far"/><rect x="696.5" y="476.6" width="9.0" height="10.4" class="win w-far"/><rect x="710.5" y="497.5" width="9.0" height="10.4" class="win w-far"/><rect x="710.5" y="518.3" width="9.0" height="10.4" class="win w-far"/><rect x="733.0" y="326.0" width="64.0" height="214.0" class="c-far"/><rect x="753.9" y="335.5" width="8.6" height="11.3" class="win w-far"/><rect x="780.9" y="335.5" width="8.6" height="11.3" class="win w-far"/><rect x="767.4" y="358.2" width="8.6" height="11.3" class="win w-far f" style="--d:1.9s"/><rect x="740.4" y="380.9" width="8.6" height="11.3" class="win w-far"/><rect x="753.9" y="380.9" width="8.6" height="11.3" class="win w-far"/><rect x="780.9" y="380.9" width="8.6" height="11.3" class="win w-far"/><rect x="740.4" y="403.5" width="8.6" height="11.3" class="win w-far"/><rect x="753.9" y="403.5" width="8.6" height="11.3" class="win w-far"/><rect x="767.4" y="403.5" width="8.6" height="11.3" class="win w-far f" style="--d:0.3s"/><rect x="740.4" y="426.2" width="8.6" height="11.3" class="win w-far f" style="--d:0.8s"/><rect x="780.9" y="426.2" width="8.6" height="11.3" class="win w-far"/><rect x="780.9" y="448.9" width="8.6" height="11.3" class="win w-far"/><rect x="740.4" y="471.5" width="8.6" height="11.3" class="win w-far"/><rect x="753.9" y="471.5" width="8.6" height="11.3" class="win w-far"/><rect x="767.4" y="471.5" width="8.6" height="11.3" class="win w-far"/><rect x="753.9" y="494.2" width="8.6" height="11.3" class="win w-far"/><rect x="767.4" y="494.2" width="8.6" height="11.3" class="win w-far"/><rect x="753.9" y="516.9" width="8.6" height="11.3" class="win w-far"/><rect x="799.0" y="306.0" width="70.0" height="234.0" class="c-far"/><rect x="818.2" y="315.5" width="7.7" height="11.2" class="win w-far"/><rect x="830.2" y="315.5" width="7.7" height="11.2" class="win w-far"/><rect x="830.2" y="337.9" width="7.7" height="11.2" class="win w-far"/><rect x="806.2" y="360.3" width="7.7" height="11.2" class="win w-far"/><rect x="818.2" y="360.3" width="7.7" height="11.2" class="win w-far f" style="--d:3.0s"/><rect x="830.2" y="360.3" width="7.7" height="11.2" class="win w-far"/><rect x="842.2" y="360.3" width="7.7" height="11.2" class="win w-far"/><rect x="854.2" y="360.3" width="7.7" height="11.2" class="win w-far"/><rect x="830.2" y="382.7" width="7.7" height="11.2" class="win w-far"/><rect x="854.2" y="382.7" width="7.7" height="11.2" class="win w-far"/><rect x="806.2" y="427.5" width="7.7" height="11.2" class="win w-far f" style="--d:2.0s"/><rect x="818.2" y="427.5" width="7.7" height="11.2" class="win w-far"/><rect x="854.2" y="427.5" width="7.7" height="11.2" class="win w-far"/><rect x="806.2" y="449.9" width="7.7" height="11.2" class="win w-far"/><rect x="854.2" y="449.9" width="7.7" height="11.2" class="win w-far f" style="--d:2.3s"/><rect x="806.2" y="472.3" width="7.7" height="11.2" class="win w-far"/><rect x="818.2" y="472.3" width="7.7" height="11.2" class="win w-far"/><rect x="830.2" y="472.3" width="7.7" height="11.2" class="win w-far"/><rect x="806.2" y="494.7" width="7.7" height="11.2" class="win w-far f" style="--d:2.0s"/><rect x="818.2" y="494.7" width="7.7" height="11.2" class="win w-far"/><rect x="830.2" y="494.7" width="7.7" height="11.2" class="win w-far"/><rect x="842.2" y="494.7" width="7.7" height="11.2" class="win w-far"/><rect x="854.2" y="494.7" width="7.7" height="11.2" class="win w-far f" style="--d:0.1s"/><rect x="818.2" y="517.1" width="7.7" height="11.2" class="win w-far"/><rect x="830.2" y="517.1" width="7.7" height="11.2" class="win w-far f" style="--d:0.9s"/><line x1="834" y1="306" x2="834" y2="288" class="c-far-line"/><circle cx="834" cy="288" r="2" class="beacon" style="--d:0.4s"/><rect x="872.0" y="459.0" width="39.0" height="81.0" class="c-far"/><rect x="879.6" y="468.7" width="9.3" height="11.8" class="win w-far"/><rect x="879.6" y="492.4" width="9.3" height="11.8" class="win w-far"/><rect x="894.1" y="492.4" width="9.3" height="11.8" class="win w-far"/><rect x="879.6" y="516.1" width="9.3" height="11.8" class="win w-far"/><rect x="923.0" y="465.0" width="70.0" height="75.0" class="c-far"/><rect x="942.2" y="474.3" width="7.7" height="10.8" class="win w-far f" style="--d:0.4s"/><rect x="954.2" y="474.3" width="7.7" height="10.8" class="win w-far f" style="--d:1.0s"/><rect x="942.2" y="496.0" width="7.7" height="10.8" class="win w-far"/><rect x="954.2" y="496.0" width="7.7" height="10.8" class="win w-far"/><rect x="978.2" y="496.0" width="7.7" height="10.8" class="win w-far"/><rect x="954.2" y="517.7" width="7.7" height="10.8" class="win w-far f" style="--d:1.0s"/><rect x="966.2" y="517.7" width="7.7" height="10.8" class="win w-far f" style="--d:3.5s"/><rect x="1002.0" y="412.0" width="43.0" height="128.0" class="c-far"/><rect x="1009.0" y="421.7" width="7.0" height="11.8" class="win w-far"/><rect x="1020.0" y="421.7" width="7.0" height="11.8" class="win w-far f" style="--d:0.9s"/><rect x="1031.0" y="445.3" width="7.0" height="11.8" class="win w-far"/><rect x="1020.0" y="468.9" width="7.0" height="11.8" class="win w-far"/><rect x="1031.0" y="468.9" width="7.0" height="11.8" class="win w-far"/><rect x="1020.0" y="492.5" width="7.0" height="11.8" class="win w-far"/><line x1="1024" y1="412" x2="1024" y2="394" class="c-far-line"/><circle cx="1024" cy="394" r="2" class="beacon" style="--d:1.9s"/><rect x="1048.0" y="465.0" width="34.0" height="75.0" class="c-far"/><rect x="1055.2" y="496.0" width="7.7" height="10.8" class="win w-far"/><rect x="1055.2" y="517.7" width="7.7" height="10.8" class="win w-far"/><rect x="1067.2" y="517.7" width="7.7" height="10.8" class="win w-far"/><line x1="1065" y1="465" x2="1065" y2="447" class="c-far-line"/><circle cx="1065" cy="447" r="2" class="beacon" style="--d:1.6s"/><rect x="1096.0" y="411.0" width="45.0" height="129.0" class="c-far"/><rect x="1103.1" y="444.6" width="7.5" height="11.9" class="win w-far"/><rect x="1114.8" y="444.6" width="7.5" height="11.9" class="win w-far"/><rect x="1126.4" y="444.6" width="7.5" height="11.9" class="win w-far f" style="--d:0.8s"/><rect x="1126.4" y="492.2" width="7.5" height="11.9" class="win w-far"/><rect x="1103.1" y="516.0" width="7.5" height="11.9" class="win w-far"/><line x1="1118" y1="411" x2="1118" y2="393" class="c-far-line"/><circle cx="1118" cy="393" r="2" class="beacon" style="--d:0.7s"/><rect x="1144.0" y="454.0" width="55.0" height="86.0" class="c-far"/><rect x="1151.7" y="464.1" width="9.6" height="12.7" class="win w-far"/><rect x="1181.7" y="464.1" width="9.6" height="12.7" class="win w-far"/><rect x="1208.0" y="397.0" width="45.0" height="143.0" class="c-far"/><rect x="1238.4" y="406.4" width="7.5" height="11.1" class="win w-far"/><rect x="1238.4" y="428.6" width="7.5" height="11.1" class="win w-far"/><rect x="1238.4" y="450.8" width="7.5" height="11.1" class="win w-far"/><rect x="1215.1" y="472.9" width="7.5" height="11.1" class="win w-far"/><rect x="1226.8" y="472.9" width="7.5" height="11.1" class="win w-far"/><rect x="1238.4" y="472.9" width="7.5" height="11.1" class="win w-far"/><rect x="1215.1" y="495.1" width="7.5" height="11.1" class="win w-far f" style="--d:2.5s"/><rect x="1226.8" y="495.1" width="7.5" height="11.1" class="win w-far"/><rect x="1238.4" y="495.1" width="7.5" height="11.1" class="win w-far"/><rect x="1226.8" y="517.3" width="7.5" height="11.1" class="win w-far"/><rect x="1238.4" y="517.3" width="7.5" height="11.1" class="win w-far"/><rect x="1264.0" y="365.0" width="47.0" height="175.0" class="c-far"/><rect x="1271.2" y="374.7" width="7.9" height="11.8" class="win w-far"/><rect x="1271.2" y="398.3" width="7.9" height="11.8" class="win w-far f" style="--d:3.3s"/><rect x="1283.6" y="421.9" width="7.9" height="11.8" class="win w-far"/><rect x="1295.9" y="421.9" width="7.9" height="11.8" class="win w-far"/><rect x="1271.2" y="469.0" width="7.9" height="11.8" class="win w-far"/><rect x="1283.6" y="492.6" width="7.9" height="11.8" class="win w-far f" style="--d:3.8s"/><rect x="1295.9" y="492.6" width="7.9" height="11.8" class="win w-far"/><rect x="1283.6" y="516.1" width="7.9" height="11.8" class="win w-far"/><rect x="1295.9" y="516.1" width="7.9" height="11.8" class="win w-far"/><rect x="1316.0" y="425.0" width="40.0" height="115.0" class="c-far"/><rect x="1338.7" y="455.2" width="9.6" height="10.5" class="win w-far"/><rect x="1338.7" y="476.2" width="9.6" height="10.5" class="win w-far"/><rect x="1358.0" y="390.0" width="67.0" height="150.0" class="c-far"/><rect x="1365.6" y="399.7" width="9.1" height="11.7" class="win w-far"/><rect x="1379.8" y="399.7" width="9.1" height="11.7" class="win w-far"/><rect x="1394.1" y="399.7" width="9.1" height="11.7" class="win w-far f" style="--d:3.9s"/><rect x="1408.3" y="399.7" width="9.1" height="11.7" class="win w-far"/><rect x="1408.3" y="423.0" width="9.1" height="11.7" class="win w-far"/><rect x="1365.6" y="446.3" width="9.1" height="11.7" class="win w-far"/><rect x="1394.1" y="446.3" width="9.1" height="11.7" class="win w-far"/><rect x="1379.8" y="469.7" width="9.1" height="11.7" class="win w-far"/><rect x="1408.3" y="469.7" width="9.1" height="11.7" class="win w-far"/><rect x="1365.6" y="493.0" width="9.1" height="11.7" class="win w-far"/><rect x="1394.1" y="493.0" width="9.1" height="11.7" class="win w-far"/><rect x="1408.3" y="493.0" width="9.1" height="11.7" class="win w-far"/><rect x="1365.6" y="516.3" width="9.1" height="11.7" class="win w-far"/><rect x="1379.8" y="516.3" width="9.1" height="11.7" class="win w-far"/><rect x="1394.1" y="516.3" width="9.1" height="11.7" class="win w-far"/><rect x="1436.0" y="414.0" width="57.0" height="126.0" class="c-far"/><rect x="1454.9" y="423.6" width="7.5" height="11.6" class="win w-far f" style="--d:3.8s"/><rect x="1466.6" y="423.6" width="7.5" height="11.6" class="win w-far"/><rect x="1454.9" y="446.8" width="7.5" height="11.6" class="win w-far"/><rect x="1478.4" y="446.8" width="7.5" height="11.6" class="win w-far"/><rect x="1443.1" y="493.2" width="7.5" height="11.6" class="win w-far"/><rect x="1466.6" y="493.2" width="7.5" height="11.6" class="win w-far"/><rect x="1443.1" y="516.4" width="7.5" height="11.6" class="win w-far f" style="--d:0.0s"/><rect x="1454.9" y="516.4" width="7.5" height="11.6" class="win w-far"/><rect x="1478.4" y="516.4" width="7.5" height="11.6" class="win w-far f" style="--d:3.7s"/><rect x="1505.0" y="320.0" width="34.0" height="220.0" class="c-far"/><rect x="1524.2" y="350.2" width="7.7" height="10.5" class="win w-far"/><rect x="1524.2" y="371.2" width="7.7" height="10.5" class="win w-far"/><rect x="1512.2" y="392.2" width="7.7" height="10.5" class="win w-far"/><rect x="1524.2" y="413.2" width="7.7" height="10.5" class="win w-far"/><rect x="1512.2" y="434.2" width="7.7" height="10.5" class="win w-far"/><rect x="1524.2" y="434.2" width="7.7" height="10.5" class="win w-far"/><rect x="1512.2" y="455.2" width="7.7" height="10.5" class="win w-far"/><rect x="1512.2" y="518.2" width="7.7" height="10.5" class="win w-far f" style="--d:3.8s"/><rect x="1524.2" y="518.2" width="7.7" height="10.5" class="win w-far"/><rect x="1542.0" y="427.0" width="49.0" height="113.0" class="c-far"/><rect x="1575.3" y="436.1" width="8.3" height="10.3" class="win w-far"/><rect x="1562.3" y="456.7" width="8.3" height="10.3" class="win w-far"/><rect x="1562.3" y="477.3" width="8.3" height="10.3" class="win w-far"/><rect x="1562.3" y="497.9" width="8.3" height="10.3" class="win w-far"/><rect x="1549.3" y="518.5" width="8.3" height="10.3" class="win w-far"/><rect x="1562.3" y="518.5" width="8.3" height="10.3" class="win w-far f" style="--d:3.2s"/><rect x="1575.3" y="518.5" width="8.3" height="10.3" class="win w-far"/><line x1="1566" y1="427" x2="1566" y2="409" class="c-far-line"/><circle cx="1566" cy="409" r="2" class="beacon" style="--d:1.0s"/><rect x="1598.0" y="403.0" width="61.0" height="137.0" class="c-far"/><rect x="1605.3" y="412.2" width="8.2" height="10.6" class="win w-far"/><rect x="1630.8" y="412.2" width="8.2" height="10.6" class="win w-far"/><rect x="1618.0" y="433.4" width="8.2" height="10.6" class="win w-far"/><rect x="1630.8" y="433.4" width="8.2" height="10.6" class="win w-far f" style="--d:2.0s"/><rect x="1605.3" y="454.6" width="8.2" height="10.6" class="win w-far"/><rect x="1618.0" y="454.6" width="8.2" height="10.6" class="win w-far"/><rect x="1630.8" y="454.6" width="8.2" height="10.6" class="win w-far"/><rect x="1618.0" y="475.7" width="8.2" height="10.6" class="win w-far"/><rect x="1618.0" y="496.9" width="8.2" height="10.6" class="win w-far f" style="--d:0.4s"/><rect x="1630.8" y="496.9" width="8.2" height="10.6" class="win w-far"/><rect x="1643.5" y="496.9" width="8.2" height="10.6" class="win w-far"/><rect x="1618.0" y="518.1" width="8.2" height="10.6" class="win w-far"/><rect x="1643.5" y="518.1" width="8.2" height="10.6" class="win w-far"/></g><g class="sg-layer" data-depth="16"><g id="sgMid"><g class="lm" data-name="组屋 HDB" data-tip="约八成新加坡居民住在组屋，陪读家庭也常租组屋"><rect x="8.0" y="350.0" width="64.0" height="190.0" class="c-hdb1"/><rect x="8.0" y="350.0" width="64.0" height="8.0" class="hdb-roof"/><rect x="12.0" y="364.0" width="56.0" height="2.4" class="hdb-band"/><rect x="12.0" y="380.0" width="56.0" height="2.4" class="hdb-band"/><rect x="12.0" y="396.0" width="56.0" height="2.4" class="hdb-band"/><rect x="12.0" y="412.0" width="56.0" height="2.4" class="hdb-band"/><rect x="12.0" y="428.0" width="56.0" height="2.4" class="hdb-band"/><rect x="12.0" y="444.0" width="56.0" height="2.4" class="hdb-band"/><rect x="12.0" y="460.0" width="56.0" height="2.4" class="hdb-band"/><rect x="12.0" y="476.0" width="56.0" height="2.4" class="hdb-band"/><rect x="12.0" y="492.0" width="56.0" height="2.4" class="hdb-band"/><rect x="12.0" y="508.0" width="56.0" height="2.4" class="hdb-band"/><rect x="28.9" y="368.1" width="8.6" height="7.7" class="win"/><rect x="42.4" y="368.1" width="8.6" height="7.7" class="win f" style="--d:0.4s"/><rect x="15.4" y="399.0" width="8.6" height="7.7" class="win f" style="--d:1.4s"/><rect x="15.4" y="414.5" width="8.6" height="7.7" class="win"/><rect x="28.9" y="414.5" width="8.6" height="7.7" class="win"/><rect x="55.9" y="414.5" width="8.6" height="7.7" class="win"/><rect x="28.9" y="429.9" width="8.6" height="7.7" class="win"/><rect x="15.4" y="445.4" width="8.6" height="7.7" class="win"/><rect x="42.4" y="445.4" width="8.6" height="7.7" class="win"/><rect x="55.9" y="445.4" width="8.6" height="7.7" class="win"/><rect x="15.4" y="460.8" width="8.6" height="7.7" class="win"/><rect x="28.9" y="460.8" width="8.6" height="7.7" class="win"/><rect x="55.9" y="460.8" width="8.6" height="7.7" class="win f" style="--d:2.7s"/><rect x="42.4" y="476.3" width="8.6" height="7.7" class="win"/><rect x="42.4" y="491.7" width="8.6" height="7.7" class="win"/><rect x="55.9" y="491.7" width="8.6" height="7.7" class="win"/><rect x="42.4" y="507.2" width="8.6" height="7.7" class="win"/><rect x="28.9" y="522.6" width="8.6" height="7.7" class="win"/><rect x="55.9" y="522.6" width="8.6" height="7.7" class="win"/><rect x="78.0" y="390.0" width="56.0" height="150.0" class="c-hdb2"/><rect x="78.0" y="390.0" width="56.0" height="8.0" class="hdb-roof"/><rect x="82.0" y="404.0" width="48.0" height="2.4" class="hdb-band"/><rect x="82.0" y="420.0" width="48.0" height="2.4" class="hdb-band"/><rect x="82.0" y="436.0" width="48.0" height="2.4" class="hdb-band"/><rect x="82.0" y="452.0" width="48.0" height="2.4" class="hdb-band"/><rect x="82.0" y="468.0" width="48.0" height="2.4" class="hdb-band"/><rect x="82.0" y="484.0" width="48.0" height="2.4" class="hdb-band"/><rect x="82.0" y="500.0" width="48.0" height="2.4" class="hdb-band"/><rect x="82.0" y="516.0" width="48.0" height="2.4" class="hdb-band"/><rect x="96.6" y="407.9" width="7.4" height="7.2" class="win"/><rect x="108.1" y="407.9" width="7.4" height="7.2" class="win"/><rect x="119.6" y="422.3" width="7.4" height="7.2" class="win"/><rect x="85.1" y="436.8" width="7.4" height="7.2" class="win f" style="--d:0.2s"/><rect x="85.1" y="451.2" width="7.4" height="7.2" class="win f" style="--d:3.8s"/><rect x="119.6" y="451.2" width="7.4" height="7.2" class="win"/><rect x="85.1" y="465.7" width="7.4" height="7.2" class="win"/><rect x="108.1" y="480.1" width="7.4" height="7.2" class="win"/><rect x="119.6" y="480.1" width="7.4" height="7.2" class="win"/><rect x="85.1" y="494.6" width="7.4" height="7.2" class="win f" style="--d:3.6s"/><rect x="96.6" y="494.6" width="7.4" height="7.2" class="win"/><rect x="85.1" y="509.0" width="7.4" height="7.2" class="win"/><rect x="108.1" y="523.4" width="7.4" height="7.2" class="win"/><rect x="140.0" y="370.0" width="60.0" height="170.0" class="c-hdb3"/><rect x="140.0" y="370.0" width="60.0" height="8.0" class="hdb-roof"/><rect x="144.0" y="384.0" width="52.0" height="2.4" class="hdb-band"/><rect x="144.0" y="400.0" width="52.0" height="2.4" class="hdb-band"/><rect x="144.0" y="416.0" width="52.0" height="2.4" class="hdb-band"/><rect x="144.0" y="432.0" width="52.0" height="2.4" class="hdb-band"/><rect x="144.0" y="448.0" width="52.0" height="2.4" class="hdb-band"/><rect x="144.0" y="464.0" width="52.0" height="2.4" class="hdb-band"/><rect x="144.0" y="480.0" width="52.0" height="2.4" class="hdb-band"/><rect x="144.0" y="496.0" width="52.0" height="2.4" class="hdb-band"/><rect x="144.0" y="512.0" width="52.0" height="2.4" class="hdb-band"/><rect x="147.2" y="388.0" width="8.0" height="7.5" class="win"/><rect x="147.2" y="403.0" width="8.0" height="7.5" class="win"/><rect x="159.8" y="403.0" width="8.0" height="7.5" class="win"/><rect x="172.2" y="403.0" width="8.0" height="7.5" class="win"/><rect x="184.8" y="403.0" width="8.0" height="7.5" class="win"/><rect x="147.2" y="418.0" width="8.0" height="7.5" class="win"/><rect x="172.2" y="418.0" width="8.0" height="7.5" class="win"/><rect x="147.2" y="433.0" width="8.0" height="7.5" class="win f" style="--d:3.2s"/><rect x="184.8" y="433.0" width="8.0" height="7.5" class="win"/><rect x="147.2" y="448.0" width="8.0" height="7.5" class="win"/><rect x="159.8" y="448.0" width="8.0" height="7.5" class="win"/><rect x="159.8" y="463.0" width="8.0" height="7.5" class="win"/><rect x="172.2" y="463.0" width="8.0" height="7.5" class="win f" style="--d:0.4s"/><rect x="184.8" y="463.0" width="8.0" height="7.5" class="win"/><rect x="147.2" y="478.0" width="8.0" height="7.5" class="win"/><rect x="159.8" y="478.0" width="8.0" height="7.5" class="win f" style="--d:1.7s"/><rect x="184.8" y="478.0" width="8.0" height="7.5" class="win f" style="--d:0.3s"/><rect x="147.2" y="493.0" width="8.0" height="7.5" class="win f" style="--d:0.6s"/><rect x="159.8" y="493.0" width="8.0" height="7.5" class="win"/><rect x="184.8" y="493.0" width="8.0" height="7.5" class="win"/><rect x="159.8" y="508.0" width="8.0" height="7.5" class="win"/><rect x="172.2" y="508.0" width="8.0" height="7.5" class="win"/><rect x="147.2" y="523.0" width="8.0" height="7.5" class="win"/><rect x="172.2" y="523.0" width="8.0" height="7.5" class="win"/><rect x="184.8" y="523.0" width="8.0" height="7.5" class="win f" style="--d:2.1s"/></g><g class="lm" data-name="新加坡摩天观景轮" data-tip="高 165 米，可俯瞰整个滨海湾"><path d="M340 300 L270 540 M340 300 L410 540 M340 300 L310 540" class="flyer-leg"/><rect x="230.0" y="514.0" width="220.0" height="26.0" class="c-term" rx="6"/><rect x="236.7" y="521.6" width="9.7" height="9.0" class="win"/><rect x="251.9" y="521.6" width="9.7" height="9.0" class="win"/><rect x="267.0" y="521.6" width="9.7" height="9.0" class="win"/><rect x="282.2" y="521.6" width="9.7" height="9.0" class="win"/><rect x="297.3" y="521.6" width="9.7" height="9.0" class="win"/><rect x="312.4" y="521.6" width="9.7" height="9.0" class="win"/><rect x="327.6" y="521.6" width="9.7" height="9.0" class="win"/><rect x="342.7" y="521.6" width="9.7" height="9.0" class="win"/><rect x="357.9" y="521.6" width="9.7" height="9.0" class="win"/><rect x="373.0" y="521.6" width="9.7" height="9.0" class="win"/><rect x="388.2" y="521.6" width="9.7" height="9.0" class="win"/><rect x="403.3" y="521.6" width="9.7" height="9.0" class="win"/><rect x="418.4" y="521.6" width="9.7" height="9.0" class="win"/><rect x="433.6" y="521.6" width="9.7" height="9.0" class="win f" style="--d:3.3s"/><g transform="translate(340,300)"><g class="flyer-rot"><circle r="138" class="flyer-rim"/><circle r="130" class="flyer-rim2"/><line x1="0" y1="0" x2="138.0" y2="0.0" class="flyer-spoke"/><line x1="0" y1="0" x2="133.3" y2="35.7" class="flyer-spoke"/><line x1="0" y1="0" x2="119.5" y2="69.0" class="flyer-spoke"/><line x1="0" y1="0" x2="97.6" y2="97.6" class="flyer-spoke"/><line x1="0" y1="0" x2="69.0" y2="119.5" class="flyer-spoke"/><line x1="0" y1="0" x2="35.7" y2="133.3" class="flyer-spoke"/><line x1="0" y1="0" x2="0.0" y2="138.0" class="flyer-spoke"/><line x1="0" y1="0" x2="-35.7" y2="133.3" class="flyer-spoke"/><line x1="0" y1="0" x2="-69.0" y2="119.5" class="flyer-spoke"/><line x1="0" y1="0" x2="-97.6" y2="97.6" class="flyer-spoke"/><line x1="0" y1="0" x2="-119.5" y2="69.0" class="flyer-spoke"/><line x1="0" y1="0" x2="-133.3" y2="35.7" class="flyer-spoke"/><line x1="0" y1="0" x2="-138.0" y2="0.0" class="flyer-spoke"/><line x1="0" y1="0" x2="-133.3" y2="-35.7" class="flyer-spoke"/><line x1="0" y1="0" x2="-119.5" y2="-69.0" class="flyer-spoke"/><line x1="0" y1="0" x2="-97.6" y2="-97.6" class="flyer-spoke"/><line x1="0" y1="0" x2="-69.0" y2="-119.5" class="flyer-spoke"/><line x1="0" y1="0" x2="-35.7" y2="-133.3" class="flyer-spoke"/><line x1="0" y1="0" x2="-0.0" y2="-138.0" class="flyer-spoke"/><line x1="0" y1="0" x2="35.7" y2="-133.3" class="flyer-spoke"/><line x1="0" y1="0" x2="69.0" y2="-119.5" class="flyer-spoke"/><line x1="0" y1="0" x2="97.6" y2="-97.6" class="flyer-spoke"/><line x1="0" y1="0" x2="119.5" y2="-69.0" class="flyer-spoke"/><line x1="0" y1="0" x2="133.3" y2="-35.7" class="flyer-spoke"/><ellipse cx="144.0" cy="0.0" rx="6" ry="4.5" class="flyer-cap" style="--d:0.00s"/><ellipse cx="140.4" cy="32.0" rx="6" ry="4.5" class="flyer-cap" style="--d:0.12s"/><ellipse cx="129.7" cy="62.5" rx="6" ry="4.5" class="flyer-cap" style="--d:0.24s"/><ellipse cx="112.6" cy="89.8" rx="6" ry="4.5" class="flyer-cap" style="--d:0.36s"/><ellipse cx="89.8" cy="112.6" rx="6" ry="4.5" class="flyer-cap" style="--d:0.48s"/><ellipse cx="62.5" cy="129.7" rx="6" ry="4.5" class="flyer-cap" style="--d:0.60s"/><ellipse cx="32.0" cy="140.4" rx="6" ry="4.5" class="flyer-cap" style="--d:0.72s"/><ellipse cx="0.0" cy="144.0" rx="6" ry="4.5" class="flyer-cap" style="--d:0.84s"/><ellipse cx="-32.0" cy="140.4" rx="6" ry="4.5" class="flyer-cap" style="--d:0.96s"/><ellipse cx="-62.5" cy="129.7" rx="6" ry="4.5" class="flyer-cap" style="--d:1.08s"/><ellipse cx="-89.8" cy="112.6" rx="6" ry="4.5" class="flyer-cap" style="--d:1.20s"/><ellipse cx="-112.6" cy="89.8" rx="6" ry="4.5" class="flyer-cap" style="--d:1.32s"/><ellipse cx="-129.7" cy="62.5" rx="6" ry="4.5" class="flyer-cap" style="--d:1.44s"/><ellipse cx="-140.4" cy="32.0" rx="6" ry="4.5" class="flyer-cap" style="--d:1.56s"/><ellipse cx="-144.0" cy="0.0" rx="6" ry="4.5" class="flyer-cap" style="--d:1.68s"/><ellipse cx="-140.4" cy="-32.0" rx="6" ry="4.5" class="flyer-cap" style="--d:1.80s"/><ellipse cx="-129.7" cy="-62.5" rx="6" ry="4.5" class="flyer-cap" style="--d:1.92s"/><ellipse cx="-112.6" cy="-89.8" rx="6" ry="4.5" class="flyer-cap" style="--d:2.04s"/><ellipse cx="-89.8" cy="-112.6" rx="6" ry="4.5" class="flyer-cap" style="--d:2.16s"/><ellipse cx="-62.5" cy="-129.7" rx="6" ry="4.5" class="flyer-cap" style="--d:2.28s"/><ellipse cx="-32.0" cy="-140.4" rx="6" ry="4.5" class="flyer-cap" style="--d:2.40s"/><ellipse cx="-0.0" cy="-144.0" rx="6" ry="4.5" class="flyer-cap" style="--d:2.52s"/><ellipse cx="32.0" cy="-140.4" rx="6" ry="4.5" class="flyer-cap" style="--d:2.64s"/><ellipse cx="62.5" cy="-129.7" rx="6" ry="4.5" class="flyer-cap" style="--d:2.76s"/><ellipse cx="89.8" cy="-112.6" rx="6" ry="4.5" class="flyer-cap" style="--d:2.88s"/><ellipse cx="112.6" cy="-89.8" rx="6" ry="4.5" class="flyer-cap" style="--d:3.00s"/><ellipse cx="129.7" cy="-62.5" rx="6" ry="4.5" class="flyer-cap" style="--d:3.12s"/><ellipse cx="140.4" cy="-32.0" rx="6" ry="4.5" class="flyer-cap" style="--d:3.24s"/><circle r="12" class="flyer-hub"/></g></g></g><g class="lm" data-name="滨海湾花园 · 超级树" data-tip="每晚 7:45 和 8:45 两场免费灯光秀 Garden Rhapsody"><path d="M566 370 L660 385" class="skyway"/><path d="M514.0 540 L517.5 400.0 L522.5 400.0 L526.0 540 Z" class="st-trunk"/><path d="M476.0 360 L564.0 360 L524.0 402.0 L516.0 402.0 Z" class="st-can" style="--d:0.0s"/><line x1="480.0" y1="360" x2="520.0" y2="402.0" class="st-rib"/><line x1="493.3" y1="360" x2="520.0" y2="402.0" class="st-rib"/><line x1="506.7" y1="360" x2="520.0" y2="402.0" class="st-rib"/><line x1="520.0" y1="360" x2="520.0" y2="402.0" class="st-rib"/><line x1="533.3" y1="360" x2="520.0" y2="402.0" class="st-rib"/><line x1="546.7" y1="360" x2="520.0" y2="402.0" class="st-rib"/><line x1="560.0" y1="360" x2="520.0" y2="402.0" class="st-rib"/><ellipse cx="520" cy="360" rx="44.0" ry="5.0" class="st-top" style="--d:0.0s"/><path d="M559.1 540 L563.1 376.0 L568.9 376.0 L572.9 540 Z" class="st-trunk"/><path d="M515.4 330 L616.6 330 L570.6 378.3 L561.4 378.3 Z" class="st-can" style="--d:0.5s"/><line x1="520.0" y1="330" x2="566.0" y2="378.3" class="st-rib"/><line x1="535.3" y1="330" x2="566.0" y2="378.3" class="st-rib"/><line x1="550.7" y1="330" x2="566.0" y2="378.3" class="st-rib"/><line x1="566.0" y1="330" x2="566.0" y2="378.3" class="st-rib"/><line x1="581.3" y1="330" x2="566.0" y2="378.3" class="st-rib"/><line x1="596.7" y1="330" x2="566.0" y2="378.3" class="st-rib"/><line x1="612.0" y1="330" x2="566.0" y2="378.3" class="st-rib"/><ellipse cx="566" cy="330" rx="50.6" ry="5.8" class="st-top" style="--d:0.5s"/><path d="M606.3 540 L609.6 410.0 L614.4 410.0 L617.7 540 Z" class="st-trunk"/><path d="M570.2 372 L653.8 372 L615.8 411.9 L608.2 411.9 Z" class="st-can" style="--d:1.0s"/><line x1="574.0" y1="372" x2="612.0" y2="411.9" class="st-rib"/><line x1="586.7" y1="372" x2="612.0" y2="411.9" class="st-rib"/><line x1="599.3" y1="372" x2="612.0" y2="411.9" class="st-rib"/><line x1="612.0" y1="372" x2="612.0" y2="411.9" class="st-rib"/><line x1="624.7" y1="372" x2="612.0" y2="411.9" class="st-rib"/><line x1="637.3" y1="372" x2="612.0" y2="411.9" class="st-rib"/><line x1="650.0" y1="372" x2="612.0" y2="411.9" class="st-rib"/><ellipse cx="612" cy="372" rx="41.8" ry="4.8" class="st-top" style="--d:1.0s"/><path d="M653.7 540 L657.4 387.0 L662.6 387.0 L666.3 540 Z" class="st-trunk"/><path d="M613.8 345 L706.2 345 L664.2 389.1 L655.8 389.1 Z" class="st-can" style="--d:1.5s"/><line x1="618.0" y1="345" x2="660.0" y2="389.1" class="st-rib"/><line x1="632.0" y1="345" x2="660.0" y2="389.1" class="st-rib"/><line x1="646.0" y1="345" x2="660.0" y2="389.1" class="st-rib"/><line x1="660.0" y1="345" x2="660.0" y2="389.1" class="st-rib"/><line x1="674.0" y1="345" x2="660.0" y2="389.1" class="st-rib"/><line x1="688.0" y1="345" x2="660.0" y2="389.1" class="st-rib"/><line x1="702.0" y1="345" x2="660.0" y2="389.1" class="st-rib"/><ellipse cx="660" cy="345" rx="46.2" ry="5.2" class="st-top" style="--d:1.5s"/><path d="M698.9 540 L701.9 426.0 L706.1 426.0 L709.1 540 Z" class="st-trunk"/><path d="M666.6 392 L741.4 392 L707.4 427.7 L700.6 427.7 Z" class="st-can" style="--d:2.0s"/><line x1="670.0" y1="392" x2="704.0" y2="427.7" class="st-rib"/><line x1="681.3" y1="392" x2="704.0" y2="427.7" class="st-rib"/><line x1="692.7" y1="392" x2="704.0" y2="427.7" class="st-rib"/><line x1="704.0" y1="392" x2="704.0" y2="427.7" class="st-rib"/><line x1="715.3" y1="392" x2="704.0" y2="427.7" class="st-rib"/><line x1="726.7" y1="392" x2="704.0" y2="427.7" class="st-rib"/><line x1="738.0" y1="392" x2="704.0" y2="427.7" class="st-rib"/><ellipse cx="704" cy="392" rx="37.4" ry="4.2" class="st-top" style="--d:2.0s"/><path d="M470 540 Q520 518 580 530 Q650 514 740 540 Z" class="c-garden"/></g><g class="lm" data-name="滨海湾金沙" data-tip="新加坡最具代表性的地标，空中花园横跨三座塔楼"><path d="M880 250 L950 250 L962 540 L876 540 Z" class="c-mbs"/><path d="M916.4 250 L922.4 540" class="mbs-split"/><line x1="882" y1="262.0" x2="952.4" y2="262.0" class="mbs-floor"/><line x1="882" y1="278.5" x2="953.0" y2="278.5" class="mbs-floor"/><line x1="882" y1="295.0" x2="953.6" y2="295.0" class="mbs-floor"/><line x1="882" y1="311.5" x2="954.1" y2="311.5" class="mbs-floor"/><line x1="882" y1="328.0" x2="954.7" y2="328.0" class="mbs-floor"/><line x1="882" y1="344.5" x2="955.3" y2="344.5" class="mbs-floor"/><line x1="882" y1="361.0" x2="955.8" y2="361.0" class="mbs-floor"/><line x1="882" y1="377.5" x2="956.4" y2="377.5" class="mbs-floor"/><line x1="882" y1="394.0" x2="957.0" y2="394.0" class="mbs-floor"/><line x1="882" y1="410.5" x2="957.5" y2="410.5" class="mbs-floor"/><line x1="882" y1="427.0" x2="958.1" y2="427.0" class="mbs-floor"/><line x1="882" y1="443.5" x2="958.7" y2="443.5" class="mbs-floor"/><line x1="882" y1="460.0" x2="959.2" y2="460.0" class="mbs-floor"/><line x1="882" y1="476.5" x2="959.8" y2="476.5" class="mbs-floor"/><line x1="882" y1="493.0" x2="960.4" y2="493.0" class="mbs-floor"/><line x1="882" y1="509.5" x2="960.9" y2="509.5" class="mbs-floor"/><line x1="882" y1="526.0" x2="961.5" y2="526.0" class="mbs-floor"/><rect x="886.2" y="263.4" width="7.9" height="8.5" class="win w-mbs"/><rect x="898.6" y="280.4" width="7.9" height="8.5" class="win w-mbs f" style="--d:2.0s"/><rect x="911.0" y="280.4" width="7.9" height="8.5" class="win w-mbs"/><rect x="911.0" y="297.4" width="7.9" height="8.5" class="win w-mbs"/><rect x="923.4" y="297.4" width="7.9" height="8.5" class="win w-mbs"/><rect x="886.2" y="314.4" width="7.9" height="8.5" class="win w-mbs"/><rect x="911.0" y="331.4" width="7.9" height="8.5" class="win w-mbs"/><rect x="923.4" y="331.4" width="7.9" height="8.5" class="win w-mbs"/><rect x="935.8" y="331.4" width="7.9" height="8.5" class="win w-mbs"/><rect x="898.6" y="348.4" width="7.9" height="8.5" class="win w-mbs f" style="--d:3.8s"/><rect x="923.4" y="348.4" width="7.9" height="8.5" class="win w-mbs"/><rect x="935.8" y="348.4" width="7.9" height="8.5" class="win w-mbs"/><rect x="886.2" y="365.4" width="7.9" height="8.5" class="win w-mbs f" style="--d:2.0s"/><rect x="935.8" y="365.4" width="7.9" height="8.5" class="win w-mbs"/><rect x="886.2" y="382.4" width="7.9" height="8.5" class="win w-mbs"/><rect x="911.0" y="382.4" width="7.9" height="8.5" class="win w-mbs"/><rect x="923.4" y="382.4" width="7.9" height="8.5" class="win w-mbs"/><rect x="935.8" y="382.4" width="7.9" height="8.5" class="win w-mbs"/><rect x="886.2" y="399.4" width="7.9" height="8.5" class="win w-mbs"/><rect x="898.6" y="399.4" width="7.9" height="8.5" class="win w-mbs f" style="--d:3.1s"/><rect x="911.0" y="399.4" width="7.9" height="8.5" class="win w-mbs"/><rect x="935.8" y="399.4" width="7.9" height="8.5" class="win w-mbs"/><rect x="911.0" y="416.4" width="7.9" height="8.5" class="win w-mbs f" style="--d:1.6s"/><rect x="923.4" y="416.4" width="7.9" height="8.5" class="win w-mbs"/><rect x="911.0" y="433.4" width="7.9" height="8.5" class="win w-mbs"/><rect x="911.0" y="450.4" width="7.9" height="8.5" class="win w-mbs"/><rect x="935.8" y="450.4" width="7.9" height="8.5" class="win w-mbs f" style="--d:1.4s"/><rect x="898.6" y="467.4" width="7.9" height="8.5" class="win w-mbs"/><rect x="911.0" y="467.4" width="7.9" height="8.5" class="win w-mbs"/><rect x="923.4" y="467.4" width="7.9" height="8.5" class="win w-mbs"/><rect x="935.8" y="467.4" width="7.9" height="8.5" class="win w-mbs"/><rect x="935.8" y="484.4" width="7.9" height="8.5" class="win w-mbs"/><rect x="886.2" y="501.4" width="7.9" height="8.5" class="win w-mbs"/><rect x="898.6" y="501.4" width="7.9" height="8.5" class="win w-mbs"/><rect x="898.6" y="518.4" width="7.9" height="8.5" class="win w-mbs"/><rect x="935.8" y="518.4" width="7.9" height="8.5" class="win w-mbs"/><path d="M992 250 L1062 250 L1074 540 L988 540 Z" class="c-mbs"/><path d="M1028.4 250 L1034.4 540" class="mbs-split"/><line x1="994" y1="262.0" x2="1064.4" y2="262.0" class="mbs-floor"/><line x1="994" y1="278.5" x2="1065.0" y2="278.5" class="mbs-floor"/><line x1="994" y1="295.0" x2="1065.6" y2="295.0" class="mbs-floor"/><line x1="994" y1="311.5" x2="1066.1" y2="311.5" class="mbs-floor"/><line x1="994" y1="328.0" x2="1066.7" y2="328.0" class="mbs-floor"/><line x1="994" y1="344.5" x2="1067.3" y2="344.5" class="mbs-floor"/><line x1="994" y1="361.0" x2="1067.8" y2="361.0" class="mbs-floor"/><line x1="994" y1="377.5" x2="1068.4" y2="377.5" class="mbs-floor"/><line x1="994" y1="394.0" x2="1069.0" y2="394.0" class="mbs-floor"/><line x1="994" y1="410.5" x2="1069.5" y2="410.5" class="mbs-floor"/><line x1="994" y1="427.0" x2="1070.1" y2="427.0" class="mbs-floor"/><line x1="994" y1="443.5" x2="1070.7" y2="443.5" class="mbs-floor"/><line x1="994" y1="460.0" x2="1071.2" y2="460.0" class="mbs-floor"/><line x1="994" y1="476.5" x2="1071.8" y2="476.5" class="mbs-floor"/><line x1="994" y1="493.0" x2="1072.4" y2="493.0" class="mbs-floor"/><line x1="994" y1="509.5" x2="1072.9" y2="509.5" class="mbs-floor"/><line x1="994" y1="526.0" x2="1073.5" y2="526.0" class="mbs-floor"/><rect x="1010.6" y="263.4" width="7.9" height="8.5" class="win w-mbs"/><rect x="1023.0" y="263.4" width="7.9" height="8.5" class="win w-mbs"/><rect x="1035.4" y="280.4" width="7.9" height="8.5" class="win w-mbs"/><rect x="998.2" y="297.4" width="7.9" height="8.5" class="win w-mbs"/><rect x="1023.0" y="297.4" width="7.9" height="8.5" class="win w-mbs"/><rect x="998.2" y="314.4" width="7.9" height="8.5" class="win w-mbs"/><rect x="1035.4" y="314.4" width="7.9" height="8.5" class="win w-mbs"/><rect x="1047.8" y="314.4" width="7.9" height="8.5" class="win w-mbs"/><rect x="998.2" y="331.4" width="7.9" height="8.5" class="win w-mbs"/><rect x="1010.6" y="331.4" width="7.9" height="8.5" class="win w-mbs f" style="--d:1.3s"/><rect x="1023.0" y="331.4" width="7.9" height="8.5" class="win w-mbs"/><rect x="1047.8" y="331.4" width="7.9" height="8.5" class="win w-mbs"/><rect x="998.2" y="348.4" width="7.9" height="8.5" class="win w-mbs"/><rect x="1010.6" y="348.4" width="7.9" height="8.5" class="win w-mbs"/><rect x="1047.8" y="348.4" width="7.9" height="8.5" class="win w-mbs"/><rect x="998.2" y="365.4" width="7.9" height="8.5" class="win w-mbs"/><rect x="1047.8" y="365.4" width="7.9" height="8.5" class="win w-mbs"/><rect x="1010.6" y="382.4" width="7.9" height="8.5" class="win w-mbs"/><rect x="1035.4" y="382.4" width="7.9" height="8.5" class="win w-mbs"/><rect x="1047.8" y="382.4" width="7.9" height="8.5" class="win w-mbs f" style="--d:0.6s"/><rect x="1010.6" y="399.4" width="7.9" height="8.5" class="win w-mbs"/><rect x="1047.8" y="399.4" width="7.9" height="8.5" class="win w-mbs"/><rect x="998.2" y="416.4" width="7.9" height="8.5" class="win w-mbs f" style="--d:3.0s"/><rect x="1010.6" y="416.4" width="7.9" height="8.5" class="win w-mbs"/><rect x="998.2" y="433.4" width="7.9" height="8.5" class="win w-mbs"/><rect x="1023.0" y="433.4" width="7.9" height="8.5" class="win w-mbs"/><rect x="1010.6" y="450.4" width="7.9" height="8.5" class="win w-mbs"/><rect x="998.2" y="467.4" width="7.9" height="8.5" class="win w-mbs"/><rect x="1023.0" y="467.4" width="7.9" height="8.5" class="win w-mbs"/><rect x="1035.4" y="467.4" width="7.9" height="8.5" class="win w-mbs"/><rect x="998.2" y="484.4" width="7.9" height="8.5" class="win w-mbs"/><rect x="1010.6" y="484.4" width="7.9" height="8.5" class="win w-mbs f" style="--d:2.8s"/><rect x="1035.4" y="501.4" width="7.9" height="8.5" class="win w-mbs"/><rect x="1047.8" y="501.4" width="7.9" height="8.5" class="win w-mbs"/><rect x="1010.6" y="518.4" width="7.9" height="8.5" class="win w-mbs f" style="--d:0.6s"/><rect x="1023.0" y="518.4" width="7.9" height="8.5" class="win w-mbs"/><rect x="1047.8" y="518.4" width="7.9" height="8.5" class="win w-mbs"/><path d="M1104 250 L1174 250 L1186 540 L1100 540 Z" class="c-mbs"/><path d="M1140.4 250 L1146.4 540" class="mbs-split"/><line x1="1106" y1="262.0" x2="1176.4" y2="262.0" class="mbs-floor"/><line x1="1106" y1="278.5" x2="1177.0" y2="278.5" class="mbs-floor"/><line x1="1106" y1="295.0" x2="1177.6" y2="295.0" class="mbs-floor"/><line x1="1106" y1="311.5" x2="1178.1" y2="311.5" class="mbs-floor"/><line x1="1106" y1="328.0" x2="1178.7" y2="328.0" class="mbs-floor"/><line x1="1106" y1="344.5" x2="1179.3" y2="344.5" class="mbs-floor"/><line x1="1106" y1="361.0" x2="1179.8" y2="361.0" class="mbs-floor"/><line x1="1106" y1="377.5" x2="1180.4" y2="377.5" class="mbs-floor"/><line x1="1106" y1="394.0" x2="1181.0" y2="394.0" class="mbs-floor"/><line x1="1106" y1="410.5" x2="1181.5" y2="410.5" class="mbs-floor"/><line x1="1106" y1="427.0" x2="1182.1" y2="427.0" class="mbs-floor"/><line x1="1106" y1="443.5" x2="1182.7" y2="443.5" class="mbs-floor"/><line x1="1106" y1="460.0" x2="1183.2" y2="460.0" class="mbs-floor"/><line x1="1106" y1="476.5" x2="1183.8" y2="476.5" class="mbs-floor"/><line x1="1106" y1="493.0" x2="1184.4" y2="493.0" class="mbs-floor"/><line x1="1106" y1="509.5" x2="1184.9" y2="509.5" class="mbs-floor"/><line x1="1106" y1="526.0" x2="1185.5" y2="526.0" class="mbs-floor"/><rect x="1122.6" y="263.4" width="7.9" height="8.5" class="win w-mbs"/><rect x="1135.0" y="280.4" width="7.9" height="8.5" class="win w-mbs"/><rect x="1147.4" y="280.4" width="7.9" height="8.5" class="win w-mbs"/><rect x="1110.2" y="297.4" width="7.9" height="8.5" class="win w-mbs f" style="--d:2.4s"/><rect x="1122.6" y="297.4" width="7.9" height="8.5" class="win w-mbs"/><rect x="1147.4" y="297.4" width="7.9" height="8.5" class="win w-mbs"/><rect x="1159.8" y="297.4" width="7.9" height="8.5" class="win w-mbs f" style="--d:0.6s"/><rect x="1110.2" y="314.4" width="7.9" height="8.5" class="win w-mbs"/><rect x="1122.6" y="314.4" width="7.9" height="8.5" class="win w-mbs"/><rect x="1147.4" y="314.4" width="7.9" height="8.5" class="win w-mbs"/><rect x="1159.8" y="314.4" width="7.9" height="8.5" class="win w-mbs"/><rect x="1147.4" y="331.4" width="7.9" height="8.5" class="win w-mbs"/><rect x="1159.8" y="348.4" width="7.9" height="8.5" class="win w-mbs"/><rect x="1122.6" y="365.4" width="7.9" height="8.5" class="win w-mbs"/><rect x="1135.0" y="365.4" width="7.9" height="8.5" class="win w-mbs"/><rect x="1159.8" y="365.4" width="7.9" height="8.5" class="win w-mbs"/><rect x="1135.0" y="382.4" width="7.9" height="8.5" class="win w-mbs"/><rect x="1147.4" y="382.4" width="7.9" height="8.5" class="win w-mbs"/><rect x="1159.8" y="382.4" width="7.9" height="8.5" class="win w-mbs"/><rect x="1110.2" y="399.4" width="7.9" height="8.5" class="win w-mbs f" style="--d:0.0s"/><rect x="1159.8" y="399.4" width="7.9" height="8.5" class="win w-mbs f" style="--d:2.6s"/><rect x="1110.2" y="416.4" width="7.9" height="8.5" class="win w-mbs"/><rect x="1122.6" y="416.4" width="7.9" height="8.5" class="win w-mbs f" style="--d:4.0s"/><rect x="1147.4" y="416.4" width="7.9" height="8.5" class="win w-mbs"/><rect x="1135.0" y="433.4" width="7.9" height="8.5" class="win w-mbs"/><rect x="1159.8" y="433.4" width="7.9" height="8.5" class="win w-mbs"/><rect x="1110.2" y="450.4" width="7.9" height="8.5" class="win w-mbs"/><rect x="1147.4" y="450.4" width="7.9" height="8.5" class="win w-mbs"/><rect x="1159.8" y="450.4" width="7.9" height="8.5" class="win w-mbs f" style="--d:3.9s"/><rect x="1135.0" y="467.4" width="7.9" height="8.5" class="win w-mbs f" style="--d:1.7s"/><rect x="1147.4" y="467.4" width="7.9" height="8.5" class="win w-mbs"/><rect x="1110.2" y="484.4" width="7.9" height="8.5" class="win w-mbs f" style="--d:2.0s"/><rect x="1135.0" y="484.4" width="7.9" height="8.5" class="win w-mbs"/><rect x="1110.2" y="501.4" width="7.9" height="8.5" class="win w-mbs f" style="--d:3.9s"/><rect x="1122.6" y="501.4" width="7.9" height="8.5" class="win w-mbs"/><rect x="1110.2" y="518.4" width="7.9" height="8.5" class="win w-mbs"/><rect x="1122.6" y="518.4" width="7.9" height="8.5" class="win w-mbs"/><rect x="1135.0" y="518.4" width="7.9" height="8.5" class="win w-mbs f" style="--d:2.2s"/><rect x="1147.4" y="518.4" width="7.9" height="8.5" class="win w-mbs f" style="--d:3.2s"/><rect x="1159.8" y="518.4" width="7.9" height="8.5" class="win w-mbs"/><g transform="translate(1060,236)"><g class="lasers"><line x1="0" y1="0" x2="779" y2="-450" class="laser l0" style="--d:0.00s"/><line x1="0" y1="0" x2="554" y2="-709" class="laser l1" style="--d:0.35s"/><line x1="0" y1="0" x2="248" y2="-865" class="laser l2" style="--d:0.70s"/><line x1="0" y1="0" x2="-94" y2="-895" class="laser l0" style="--d:1.05s"/><line x1="0" y1="0" x2="-423" y2="-795" class="laser l1" style="--d:1.40s"/><line x1="0" y1="0" x2="-689" y2="-579" class="laser l2" style="--d:1.75s"/><line x1="0" y1="0" x2="-846" y2="-308" class="laser l0" style="--d:2.10s"/></g></g><path d="M864 232 L1180 232 L1222 222 L1222 236 L1182 248 L864 248 Z" class="c-sky"/><circle cx="880" cy="229" r="5" class="sky-tree"/><circle cx="902" cy="229" r="5" class="sky-tree"/><circle cx="924" cy="229" r="5" class="sky-tree"/><circle cx="946" cy="229" r="5" class="sky-tree"/><circle cx="968" cy="229" r="5" class="sky-tree"/><circle cx="990" cy="229" r="5" class="sky-tree"/><circle cx="1012" cy="229" r="5" class="sky-tree"/><circle cx="1034" cy="229" r="5" class="sky-tree"/><circle cx="1056" cy="229" r="5" class="sky-tree"/><circle cx="1078" cy="229" r="5" class="sky-tree"/><circle cx="1100" cy="229" r="5" class="sky-tree"/><circle cx="1122" cy="229" r="5" class="sky-tree"/><circle cx="1144" cy="229" r="5" class="sky-tree"/><line x1="864" y1="240" x2="1182" y2="240" class="sky-pool"/></g><g class="lm" data-name="艺术科学博物馆" data-tip="莲花造型的博物馆，亲子周末的热门去处"><path d="M1200.0 532 Q1196.0 508.8 1211 488 Q1226.0 508.8 1222.0 532 Z" class="c-lotus"/><path d="M1217.0 532 Q1213.0 498.0 1228 470 Q1243.0 498.0 1239.0 532 Z" class="c-lotus"/><path d="M1234.0 532 Q1230.0 490.8 1245 458 Q1260.0 490.8 1256.0 532 Z" class="c-lotus"/><path d="M1251.0 532 Q1247.0 498.0 1262 470 Q1277.0 498.0 1273.0 532 Z" class="c-lotus"/><path d="M1268.0 532 Q1264.0 508.8 1279 488 Q1294.0 508.8 1290.0 532 Z" class="c-lotus"/><rect x="1199.0" y="530.0" width="92.0" height="10.0" class="c-lotus-base" rx="3"/></g><g class="lm" data-name="滨海艺术中心" data-tip="外形像榴莲，本地人亲切地叫它“大榴莲”"><path d="M1284 540 A 54 52 0 0 1 1392 540 Z" fill="url(#sgDurian)" class="esp"/><path d="M1284 540 A 54 52 0 0 1 1392 540" class="esp-edge"/><path d="M1376 540 A 38 36 0 0 1 1452 540 Z" fill="url(#sgDurian)" class="esp"/><path d="M1376 540 A 38 36 0 0 1 1452 540" class="esp-edge"/></g><g class="lm" data-name="星耀樟宜 Jewel" data-tip="樟宜机场旁的玻璃穹顶，“雨漩涡”高 40 米，是全球最高的室内瀑布"><defs><linearGradient id="sgJewelG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f2fbff"/><stop offset="1" stop-color="#a9d6ea"/></linearGradient><clipPath id="sgJewelClip"><path d="M1440 540 C1440 504 1464 478 1510 476 C1556 478 1580 504 1580 540 Z"/></clipPath></defs><path d="M1440 540 C1440 504 1464 478 1510 476 C1556 478 1580 504 1580 540 Z" class="c-jewel"/><g clip-path="url(#sgJewelClip)"><path d="M1442 540 Q1460 518 1478 526 Q1494 512 1510 522 Q1526 510 1542 526 Q1560 518 1578 540 Z" class="jewel-green"/><path d="M1458 540 Q1470 526 1486 532 Q1498 524 1510 530 Q1522 522 1536 532 Q1550 526 1562 540 Z" class="jewel-green2"/><line x1="1366" y1="540" x2="1438" y2="474" class="jewel-grid"/><line x1="1438" y1="540" x2="1366" y2="474" class="jewel-grid"/><line x1="1378" y1="540" x2="1450" y2="474" class="jewel-grid"/><line x1="1450" y1="540" x2="1378" y2="474" class="jewel-grid"/><line x1="1390" y1="540" x2="1462" y2="474" class="jewel-grid"/><line x1="1462" y1="540" x2="1390" y2="474" class="jewel-grid"/><line x1="1402" y1="540" x2="1474" y2="474" class="jewel-grid"/><line x1="1474" y1="540" x2="1402" y2="474" class="jewel-grid"/><line x1="1414" y1="540" x2="1486" y2="474" class="jewel-grid"/><line x1="1486" y1="540" x2="1414" y2="474" class="jewel-grid"/><line x1="1426" y1="540" x2="1498" y2="474" class="jewel-grid"/><line x1="1498" y1="540" x2="1426" y2="474" class="jewel-grid"/><line x1="1438" y1="540" x2="1510" y2="474" class="jewel-grid"/><line x1="1510" y1="540" x2="1438" y2="474" class="jewel-grid"/><line x1="1450" y1="540" x2="1522" y2="474" class="jewel-grid"/><line x1="1522" y1="540" x2="1450" y2="474" class="jewel-grid"/><line x1="1462" y1="540" x2="1534" y2="474" class="jewel-grid"/><line x1="1534" y1="540" x2="1462" y2="474" class="jewel-grid"/><line x1="1474" y1="540" x2="1546" y2="474" class="jewel-grid"/><line x1="1546" y1="540" x2="1474" y2="474" class="jewel-grid"/><line x1="1486" y1="540" x2="1558" y2="474" class="jewel-grid"/><line x1="1558" y1="540" x2="1486" y2="474" class="jewel-grid"/><line x1="1498" y1="540" x2="1570" y2="474" class="jewel-grid"/><line x1="1570" y1="540" x2="1498" y2="474" class="jewel-grid"/><line x1="1510" y1="540" x2="1582" y2="474" class="jewel-grid"/><line x1="1582" y1="540" x2="1510" y2="474" class="jewel-grid"/><line x1="1522" y1="540" x2="1594" y2="474" class="jewel-grid"/><line x1="1594" y1="540" x2="1522" y2="474" class="jewel-grid"/><line x1="1534" y1="540" x2="1606" y2="474" class="jewel-grid"/><line x1="1606" y1="540" x2="1534" y2="474" class="jewel-grid"/><line x1="1546" y1="540" x2="1618" y2="474" class="jewel-grid"/><line x1="1618" y1="540" x2="1546" y2="474" class="jewel-grid"/><line x1="1558" y1="540" x2="1630" y2="474" class="jewel-grid"/><line x1="1630" y1="540" x2="1558" y2="474" class="jewel-grid"/><line x1="1570" y1="540" x2="1642" y2="474" class="jewel-grid"/><line x1="1642" y1="540" x2="1570" y2="474" class="jewel-grid"/><line x1="1582" y1="540" x2="1654" y2="474" class="jewel-grid"/><line x1="1654" y1="540" x2="1582" y2="474" class="jewel-grid"/><line x1="1440" y1="488" x2="1580" y2="488" class="jewel-grid"/><line x1="1440" y1="502" x2="1580" y2="502" class="jewel-grid"/><line x1="1440" y1="516" x2="1580" y2="516" class="jewel-grid"/><line x1="1440" y1="530" x2="1580" y2="530" class="jewel-grid"/></g><rect x="1503" y="479" width="14" height="50" rx="7" class="vortex-glow"/><line x1="1510" y1="479" x2="1510" y2="529" class="vortex"/><line x1="1510" y1="479" x2="1510" y2="529" class="vortex v2"/><ellipse cx="1510" cy="530" rx="16" ry="3.5" class="jewel-pool"/><ellipse cx="1510" cy="478" rx="11" ry="2.8" class="jewel-ocu"/><path d="M1440 540 C1440 504 1464 478 1510 476 C1556 478 1580 504 1580 540 Z" class="jewel-edge"/></g></g></g><g class="sg-layer" data-depth="26"><g class="lm" data-name="地铁 MRT" data-tip="地铁通达全岛，学生办学生卡乘车有优惠"><rect x="-10" y="500" width="520" height="8" class="mrt-deck"/><rect x="20.0" y="508.0" width="9.0" height="32.0" class="mrt-pillar"/><rect x="90.0" y="508.0" width="9.0" height="32.0" class="mrt-pillar"/><rect x="160.0" y="508.0" width="9.0" height="32.0" class="mrt-pillar"/><rect x="230.0" y="508.0" width="9.0" height="32.0" class="mrt-pillar"/><rect x="300.0" y="508.0" width="9.0" height="32.0" class="mrt-pillar"/><rect x="370.0" y="508.0" width="9.0" height="32.0" class="mrt-pillar"/><rect x="440.0" y="508.0" width="9.0" height="32.0" class="mrt-pillar"/><g clip-path="url(#sgTrackClip)"><g transform="translate(0,482)"><g class="mrt-train"><rect x="0" y="0" width="60" height="18" rx="5" class="mrt-car"/><rect x="0" y="11" width="60" height="3" class="mrt-stripe"/><rect x="6" y="3" width="9" height="6" rx="1.5" class="mrt-win"/><rect x="19" y="3" width="9" height="6" rx="1.5" class="mrt-win"/><rect x="32" y="3" width="9" height="6" rx="1.5" class="mrt-win"/><rect x="45" y="3" width="9" height="6" rx="1.5" class="mrt-win"/><rect x="64" y="0" width="60" height="18" rx="5" class="mrt-car"/><rect x="64" y="11" width="60" height="3" class="mrt-stripe"/><rect x="70" y="3" width="9" height="6" rx="1.5" class="mrt-win"/><rect x="83" y="3" width="9" height="6" rx="1.5" class="mrt-win"/><rect x="96" y="3" width="9" height="6" rx="1.5" class="mrt-win"/><rect x="109" y="3" width="9" height="6" rx="1.5" class="mrt-win"/><rect x="128" y="0" width="60" height="18" rx="5" class="mrt-car"/><rect x="128" y="11" width="60" height="3" class="mrt-stripe"/><rect x="134" y="3" width="9" height="6" rx="1.5" class="mrt-win"/><rect x="147" y="3" width="9" height="6" rx="1.5" class="mrt-win"/><rect x="160" y="3" width="9" height="6" rx="1.5" class="mrt-win"/><rect x="173" y="3" width="9" height="6" rx="1.5" class="mrt-win"/><rect x="192" y="0" width="60" height="18" rx="5" class="mrt-car"/><rect x="192" y="11" width="60" height="3" class="mrt-stripe"/><rect x="198" y="3" width="9" height="6" rx="1.5" class="mrt-win"/><rect x="211" y="3" width="9" height="6" rx="1.5" class="mrt-win"/><rect x="224" y="3" width="9" height="6" rx="1.5" class="mrt-win"/><rect x="237" y="3" width="9" height="6" rx="1.5" class="mrt-win"/></g></g></g></g><rect x="-40" y="540" width="1680" height="12" class="c-prom"/><line x1="0" y1="541" x2="1600" y2="541" class="prom-rail"/><g transform="translate(450,540) scale(1)"><path d="M0 0 Q-3 -30 2 -58" class="palm-trunk"/><g transform="translate(2,-58)"><g class="palm-top"><path d="M0 0 Q-16 -10 -30 2 M0 0 Q-12 -18 -24 -20 M0 0 Q4 -20 14 -24 M0 0 Q16 -10 30 2 M0 0 Q18 -2 26 12 M0 0 Q-18 -2 -26 12" class="palm-leaf"/></g></g></g><g transform="translate(700,540) scale(0.9)"><path d="M0 0 Q-3 -30 2 -58" class="palm-trunk"/><g transform="translate(2,-58)"><g class="palm-top"><path d="M0 0 Q-16 -10 -30 2 M0 0 Q-12 -18 -24 -20 M0 0 Q4 -20 14 -24 M0 0 Q16 -10 30 2 M0 0 Q18 -2 26 12 M0 0 Q-18 -2 -26 12" class="palm-leaf"/></g></g></g><g transform="translate(1168,540) scale(1.05)"><path d="M0 0 Q-3 -30 2 -58" class="palm-trunk"/><g transform="translate(2,-58)"><g class="palm-top"><path d="M0 0 Q-16 -10 -30 2 M0 0 Q-12 -18 -24 -20 M0 0 Q4 -20 14 -24 M0 0 Q16 -10 30 2 M0 0 Q18 -2 26 12 M0 0 Q-18 -2 -26 12" class="palm-leaf"/></g></g></g><g transform="translate(1592,540) scale(0.8)"><path d="M0 0 Q-3 -30 2 -58" class="palm-trunk"/><g transform="translate(2,-58)"><g class="palm-top"><path d="M0 0 Q-16 -10 -30 2 M0 0 Q-12 -18 -24 -20 M0 0 Q4 -20 14 -24 M0 0 Q16 -10 30 2 M0 0 Q18 -2 26 12 M0 0 Q-18 -2 -26 12" class="palm-leaf"/></g></g></g><g class="lm" data-name="鱼尾狮" data-tip="狮头鱼身，高 8.6 米，是新加坡的象征，“狮城”之名由此而来"><rect x="722" y="528" width="80" height="14" rx="3" class="c-pier"/><g transform="translate(762,528) scale(1.3)"><defs><clipPath id="sgMerlClip"><path d="M-8 -10 C-18 -12 -26 -18 -28 -28 C-30 -36 -26 -42 -20 -44 L-29 -52 L-21 -53 L-16 -47 L-17 -58 L-11 -51 L-14 -42 C-20 -40 -22 -34 -20 -28 C-18 -22 -12 -22 -8 -28 L-4 -44 L14 -44 C17 -32 17 -20 12 -10 Z"/></clipPath></defs><path d="M-30 0 L-29 -6 Q-21 -12 -11 -9 Q-1 -14 9 -9 Q19 -13 29 -7 L30 0 Z" class="merl-base"/><path d="M-8 -10 C-18 -12 -26 -18 -28 -28 C-30 -36 -26 -42 -20 -44 L-29 -52 L-21 -53 L-16 -47 L-17 -58 L-11 -51 L-14 -42 C-20 -40 -22 -34 -20 -28 C-18 -22 -12 -22 -8 -28 L-4 -44 L14 -44 C17 -32 17 -20 12 -10 Z" class="c-merlion"/><path d="M-32 -40 q2.5 2.6 5 0 M-27 -40 q2.5 2.6 5 0 M-22 -40 q2.5 2.6 5 0 M-17 -40 q2.5 2.6 5 0 M-12 -40 q2.5 2.6 5 0 M-7 -40 q2.5 2.6 5 0 M-2 -40 q2.5 2.6 5 0 M3 -40 q2.5 2.6 5 0 M8 -40 q2.5 2.6 5 0 M13 -40 q2.5 2.6 5 0 M18 -40 q2.5 2.6 5 0 M-30 -36 q2.5 2.6 5 0 M-25 -36 q2.5 2.6 5 0 M-20 -36 q2.5 2.6 5 0 M-15 -36 q2.5 2.6 5 0 M-10 -36 q2.5 2.6 5 0 M-5 -36 q2.5 2.6 5 0 M0 -36 q2.5 2.6 5 0 M5 -36 q2.5 2.6 5 0 M10 -36 q2.5 2.6 5 0 M15 -36 q2.5 2.6 5 0 M20 -36 q2.5 2.6 5 0 M-32 -32 q2.5 2.6 5 0 M-27 -32 q2.5 2.6 5 0 M-22 -32 q2.5 2.6 5 0 M-17 -32 q2.5 2.6 5 0 M-12 -32 q2.5 2.6 5 0 M-7 -32 q2.5 2.6 5 0 M-2 -32 q2.5 2.6 5 0 M3 -32 q2.5 2.6 5 0 M8 -32 q2.5 2.6 5 0 M13 -32 q2.5 2.6 5 0 M18 -32 q2.5 2.6 5 0 M-30 -28 q2.5 2.6 5 0 M-25 -28 q2.5 2.6 5 0 M-20 -28 q2.5 2.6 5 0 M-15 -28 q2.5 2.6 5 0 M-10 -28 q2.5 2.6 5 0 M-5 -28 q2.5 2.6 5 0 M0 -28 q2.5 2.6 5 0 M5 -28 q2.5 2.6 5 0 M10 -28 q2.5 2.6 5 0 M15 -28 q2.5 2.6 5 0 M20 -28 q2.5 2.6 5 0 M-32 -24 q2.5 2.6 5 0 M-27 -24 q2.5 2.6 5 0 M-22 -24 q2.5 2.6 5 0 M-17 -24 q2.5 2.6 5 0 M-12 -24 q2.5 2.6 5 0 M-7 -24 q2.5 2.6 5 0 M-2 -24 q2.5 2.6 5 0 M3 -24 q2.5 2.6 5 0 M8 -24 q2.5 2.6 5 0 M13 -24 q2.5 2.6 5 0 M18 -24 q2.5 2.6 5 0 M-30 -20 q2.5 2.6 5 0 M-25 -20 q2.5 2.6 5 0 M-20 -20 q2.5 2.6 5 0 M-15 -20 q2.5 2.6 5 0 M-10 -20 q2.5 2.6 5 0 M-5 -20 q2.5 2.6 5 0 M0 -20 q2.5 2.6 5 0 M5 -20 q2.5 2.6 5 0 M10 -20 q2.5 2.6 5 0 M15 -20 q2.5 2.6 5 0 M20 -20 q2.5 2.6 5 0 M-32 -16 q2.5 2.6 5 0 M-27 -16 q2.5 2.6 5 0 M-22 -16 q2.5 2.6 5 0 M-17 -16 q2.5 2.6 5 0 M-12 -16 q2.5 2.6 5 0 M-7 -16 q2.5 2.6 5 0 M-2 -16 q2.5 2.6 5 0 M3 -16 q2.5 2.6 5 0 M8 -16 q2.5 2.6 5 0 M13 -16 q2.5 2.6 5 0 M18 -16 q2.5 2.6 5 0 M-30 -12 q2.5 2.6 5 0 M-25 -12 q2.5 2.6 5 0 M-20 -12 q2.5 2.6 5 0 M-15 -12 q2.5 2.6 5 0 M-10 -12 q2.5 2.6 5 0 M-5 -12 q2.5 2.6 5 0 M0 -12 q2.5 2.6 5 0 M5 -12 q2.5 2.6 5 0 M10 -12 q2.5 2.6 5 0 M15 -12 q2.5 2.6 5 0 M20 -12 q2.5 2.6 5 0 " clip-path="url(#sgMerlClip)" class="merl-scale"/><path d="M12 -26 Q22 -24 25 -15 Q17 -17 10 -20 Z" class="c-merlion-mane"/><g class="c-merlion-mane"><circle cx="11.5" cy="-45.0" r="6.6"/><circle cx="6.6" cy="-43.2" r="6.6"/><circle cx="1.4" cy="-43.2" r="6.6"/><circle cx="-3.5" cy="-45.0" r="6.6"/><circle cx="-7.5" cy="-48.4" r="6.6"/><circle cx="-10.1" cy="-52.9" r="6.6"/><circle cx="-11.0" cy="-58.0" r="6.6"/><circle cx="-10.1" cy="-63.1" r="6.6"/><circle cx="-7.5" cy="-67.6" r="6.6"/><circle cx="-3.5" cy="-71.0" r="6.6"/><circle cx="1.4" cy="-72.8" r="6.6"/><circle cx="6.6" cy="-72.8" r="6.6"/><circle cx="11.5" cy="-71.0" r="6.6"/></g><circle cx="5" cy="-58" r="14" class="c-merlion-mane"/><path d="M-4 -52 Q-8 -58 -4 -64 M-9 -56 Q-12 -62 -7 -68 M0 -46 Q-5 -49 -5 -54 M-2 -70 Q2 -74 7 -73" class="merl-line"/><path d="M6 -72 Q18 -75 22.5 -67 L22.5 -62.5 L16.5 -60.8 L23 -58 Q22 -49.5 10 -48 Q1 -58 6 -72 Z" class="c-merlion"/><path d="M16.5 -60.8 L22.6 -62.6 L23 -58 Z" class="merl-mouth"/><circle cx="21" cy="-66.6" r="2" class="merl-mouth"/><circle cx="12.5" cy="-64.5" r="1.7" class="merl-eye"/><path d="M9.5 -68 Q12.5 -70.5 16 -68.2" class="merl-line"/><path d="M14 -54 Q18 -53 21 -55" class="merl-line"/></g><path d="M792 452 Q850 416 890 556" class="jet"/><path d="M792 452 Q850 416 890 556" class="jet jet2"/><g class="splash"><circle cx="890" cy="558" r="3"/><circle cx="882" cy="556" r="2"/><circle cx="898" cy="556" r="2"/></g></g><g class="lm" data-name="上学路上" data-tip="新加坡学校普遍穿校服，通勤安全、步行友好"><g transform="translate(0,538) scale(1)"><g class="walker" style="--d:0s;--dur:46s"><g class="bob"><rect x="-4" y="-14" width="8" height="10" rx="2" fill="#fff" stroke="#3b3326" stroke-width=".8"/><rect x="-4" y="-5" width="8" height="5" rx="1" fill="#1f3a7a"/><rect x="-8" y="-13" width="4.5" height="7" rx="1.5" fill="#C8102E"/><circle cx="0" cy="-18" r="4" fill="#f2c9a0" stroke="#3b3326" stroke-width=".8"/><path d="M-4 -19 Q0 -24 4 -19" fill="#2b2118"/><path d="M-2 0 v4 M2 0 v4" stroke="#3b3326" stroke-width="1.4" class="legs"/></g></g></g><g transform="translate(0,538) scale(1)"><g class="walker" style="--d:-9s;--dur:50s"><g class="bob"><rect x="-4" y="-14" width="8" height="10" rx="2" fill="#fff" stroke="#3b3326" stroke-width=".8"/><rect x="-4" y="-5" width="8" height="5" rx="1" fill="#1f3a7a"/><rect x="-8" y="-13" width="4.5" height="7" rx="1.5" fill="#f0a92b"/><circle cx="0" cy="-18" r="4" fill="#f2c9a0" stroke="#3b3326" stroke-width=".8"/><path d="M-4 -19 Q0 -24 4 -19" fill="#2b2118"/><path d="M-2 0 v4 M2 0 v4" stroke="#3b3326" stroke-width="1.4" class="legs"/></g></g></g><g transform="translate(0,538) scale(1)"><g class="walker" style="--d:-20s;--dur:44s"><g class="bob"><rect x="-4" y="-14" width="8" height="10" rx="2" fill="#fff" stroke="#3b3326" stroke-width=".8"/><rect x="-4" y="-5" width="8" height="5" rx="1" fill="#7a1f2b"/><rect x="-8" y="-13" width="4.5" height="7" rx="1.5" fill="#2a8a6a"/><circle cx="0" cy="-18" r="4" fill="#f2c9a0" stroke="#3b3326" stroke-width=".8"/><path d="M-4 -19 Q0 -24 4 -19" fill="#2b2118"/><path d="M-2 0 v4 M2 0 v4" stroke="#3b3326" stroke-width="1.4" class="legs"/></g></g></g><g transform="translate(0,538) scale(1)"><g class="walker" style="--d:-31s;--dur:48s"><g class="bob"><rect x="-4" y="-14" width="8" height="10" rx="2" fill="#fff" stroke="#3b3326" stroke-width=".8"/><rect x="-4" y="-5" width="8" height="5" rx="1" fill="#1f3a7a"/><rect x="-8" y="-13" width="4.5" height="7" rx="1.5" fill="#5b5fc7"/><circle cx="0" cy="-18" r="4" fill="#f2c9a0" stroke="#3b3326" stroke-width=".8"/><path d="M-4 -19 Q0 -24 4 -19" fill="#2b2118"/><path d="M-2 0 v4 M2 0 v4" stroke="#3b3326" stroke-width="1.4" class="legs"/></g></g></g><g transform="translate(0,538) scale(1)"><g class="walker" style="--d:-38s;--dur:52s"><g class="bob"><rect x="-4" y="-14" width="8" height="10" rx="2" fill="#fff" stroke="#3b3326" stroke-width=".8"/><rect x="-4" y="-5" width="8" height="5" rx="1" fill="#3b3326"/><rect x="-8" y="-13" width="4.5" height="7" rx="1.5" fill="#C8102E"/><circle cx="0" cy="-18" r="4" fill="#f2c9a0" stroke="#3b3326" stroke-width=".8"/><path d="M-4 -19 Q0 -24 4 -19" fill="#2b2118"/><path d="M-2 0 v4 M2 0 v4" stroke="#3b3326" stroke-width="1.4" class="legs"/></g></g></g></g><rect x="-40" y="552" width="1680" height="188" fill="url(#sgSeaD)"/><rect x="-40" y="552" width="1680" height="188" fill="url(#sgSeaN)" class="sea-n"/><g clip-path="url(#sgWaterClip)"><g class="reflect" transform="translate(0,1096) scale(1,-1)"><use href="#sgMid"/></g></g><g class="waves"><line x1="54" y1="636" x2="103" y2="636" class="wave" style="--d:4.8s"/><line x1="1495" y1="651" x2="1539" y2="651" class="wave" style="--d:3.5s"/><line x1="396" y1="602" x2="424" y2="602" class="wave" style="--d:3.6s"/><line x1="1491" y1="563" x2="1545" y2="563" class="wave" style="--d:3.8s"/><line x1="225" y1="700" x2="267" y2="700" class="wave" style="--d:0.7s"/><line x1="149" y1="713" x2="205" y2="713" class="wave" style="--d:4.1s"/><line x1="586" y1="669" x2="621" y2="669" class="wave" style="--d:2.6s"/><line x1="210" y1="581" x2="244" y2="581" class="wave" style="--d:1.2s"/><line x1="617" y1="602" x2="639" y2="602" class="wave" style="--d:2.0s"/><line x1="1168" y1="652" x2="1221" y2="652" class="wave" style="--d:1.7s"/><line x1="477" y1="580" x2="546" y2="580" class="wave" style="--d:4.9s"/><line x1="221" y1="626" x2="288" y2="626" class="wave" style="--d:1.8s"/><line x1="417" y1="575" x2="479" y2="575" class="wave" style="--d:2.6s"/><line x1="789" y1="601" x2="820" y2="601" class="wave" style="--d:4.0s"/><line x1="946" y1="683" x2="973" y2="683" class="wave" style="--d:2.6s"/><line x1="966" y1="575" x2="1011" y2="575" class="wave" style="--d:1.5s"/><line x1="860" y1="667" x2="885" y2="667" class="wave" style="--d:3.9s"/><line x1="42" y1="664" x2="78" y2="664" class="wave" style="--d:0.8s"/><line x1="84" y1="682" x2="136" y2="682" class="wave" style="--d:3.7s"/><line x1="450" y1="628" x2="470" y2="628" class="wave" style="--d:3.6s"/><line x1="103" y1="656" x2="130" y2="656" class="wave" style="--d:2.4s"/><line x1="353" y1="656" x2="421" y2="656" class="wave" style="--d:1.4s"/><line x1="371" y1="565" x2="401" y2="565" class="wave" style="--d:0.4s"/><line x1="1381" y1="631" x2="1404" y2="631" class="wave" style="--d:3.6s"/><line x1="1088" y1="625" x2="1113" y2="625" class="wave" style="--d:0.1s"/><line x1="226" y1="693" x2="278" y2="693" class="wave" style="--d:4.7s"/><line x1="704" y1="627" x2="730" y2="627" class="wave" style="--d:0.4s"/><line x1="1531" y1="675" x2="1561" y2="675" class="wave" style="--d:3.2s"/><line x1="1414" y1="613" x2="1454" y2="613" class="wave" style="--d:1.8s"/><line x1="1335" y1="592" x2="1385" y2="592" class="wave" style="--d:5.0s"/><line x1="304" y1="678" x2="339" y2="678" class="wave" style="--d:4.1s"/><line x1="25" y1="585" x2="92" y2="585" class="wave" style="--d:1.4s"/><line x1="66" y1="680" x2="86" y2="680" class="wave" style="--d:0.8s"/><line x1="771" y1="659" x2="808" y2="659" class="wave" style="--d:3.6s"/><line x1="279" y1="566" x2="342" y2="566" class="wave" style="--d:2.1s"/><line x1="1000" y1="593" x2="1055" y2="593" class="wave" style="--d:2.9s"/><line x1="1302" y1="631" x2="1362" y2="631" class="wave" style="--d:4.9s"/><line x1="1190" y1="637" x2="1244" y2="637" class="wave" style="--d:1.1s"/><line x1="1320" y1="597" x2="1378" y2="597" class="wave" style="--d:3.0s"/><line x1="1158" y1="675" x2="1211" y2="675" class="wave" style="--d:4.4s"/><line x1="1510" y1="698" x2="1562" y2="698" class="wave" style="--d:3.3s"/><line x1="166" y1="571" x2="226" y2="571" class="wave" style="--d:0.4s"/><line x1="46" y1="660" x2="69" y2="660" class="wave" style="--d:3.0s"/><line x1="801" y1="602" x2="825" y2="602" class="wave" style="--d:3.7s"/><line x1="1174" y1="650" x2="1203" y2="650" class="wave" style="--d:4.1s"/><line x1="246" y1="630" x2="315" y2="630" class="wave" style="--d:0.6s"/></g><g class="lm" data-name="新加坡河驳船" data-tip="坐游船看两岸，是了解城市的好方式"><g transform="translate(0,612)"><g class="boat"><g class="boat-rock"><path d="M-44 0 L44 0 L34 14 L-36 14 Z" class="boat-hull"/><rect x="-30" y="-16" width="56" height="16" rx="2" class="boat-cabin"/><path d="M-36 -16 L32 -16 L28 -24 L-32 -24 Z" class="boat-roof"/><circle cx="-18" cy="-8" r="2.5" class="win"/><circle cx="-6" cy="-8" r="2.5" class="win"/><circle cx="6" cy="-8" r="2.5" class="win"/><circle cx="18" cy="-8" r="2.5" class="win"/><path d="M44 8 q16 2 30 -2 M44 12 q20 4 40 0" class="wake"/></g></g></g></g></g></svg></div>
+      <span class="hv-swipe" aria-hidden="true">← 左右滑动看全景 →</span>
+      <div class="hv-tools">
+        <span class="hv-hint">移动鼠标，点地标看看</span>
+        <button class="hv-toggle" type="button" aria-pressed="false"><span class="ic">🌙</span><span class="tx">看夜景</span></button>
+      </div>
+      <div class="hv-tip" role="status" aria-live="polite"><b></b><span></span></div>
+      <div class="hv-pick" role="group" aria-labelledby="hvPickQ">
+        <div class="hv-pick-q"><strong id="hvPickQ">孩子现在读几年级？</strong><span>点一下，看适合的路线</span></div>
+        <div class="hv-chips" role="tablist">
+          <button class="hv-chip" type="button" role="tab" aria-selected="false" data-k="p"><b>小学</b><small>6–12 岁</small></button>
+          <button class="hv-chip" type="button" role="tab" aria-selected="false" data-k="s"><b>初中</b><small>13–16 岁</small></button>
+          <button class="hv-chip" type="button" role="tab" aria-selected="false" data-k="h"><b>高中</b><small>16–18 岁</small></button>
+          <button class="hv-chip" type="button" role="tab" aria-selected="false" data-k="g"><b>高考之后</b><small>本科申请</small></button>
+        </div>
+        <div class="hv-ans" data-k="p" role="tabpanel"><p>想进<b>政府小学</b>：通常先考 <b>AEIS</b> 插班；英文基础弱，可先读预备课程或考虑国际学校。</p><div class="go"><a href="/aeis/">AEIS 备考 →</a><a href="/primary-schools/">179 所小学库</a></div></div>
+        <div class="hv-ans" data-k="s" role="tabpanel"><p>可经 <b>AEIS</b> 插班政府中学，衔接 2027 起的 <b>SEC</b>（原 O-Level）；也可走国际课程。</p><div class="go"><a href="/o-level/">SEC / O-Level →</a><a href="/secondary-schools/">146 所中学库</a></div></div>
+        <div class="hv-ans" data-k="h" role="tabpanel"><p>高中阶段重点比较 <b>WACE、A-Level、IB、OSSD</b>，按目标大学和孩子的考试风格选课程。</p><div class="go"><a href="/wace-vs-a-level/">课程对比 →</a><a href="/ossd/">OSSD 课程</a></div></div>
+        <div class="hv-ans" data-k="g" role="tabpanel"><p>可凭<b>高考成绩</b>申请新加坡公立 / 私立大学，或读 <b>Foundation 预科</b>衔接本科。</p><div class="go"><a href="/pathway/gaokao/">高考后路径 →</a><a href="/university/">公立大学要求</a></div></div>
       </div>
     </div>
-    <span class="home-photo-caption">SINGAPORE · 滨海湾</span>
   </section>
-
-  <nav class="home-quicklinks home-wrap" aria-label="热门升学入口">
-    <a href="/aeis/"><span>政府学校入学</span><strong>AEIS <span aria-hidden="true">↗</span></strong></a>
-    <a href="/o-level/"><span>2027 新考试</span><strong>SEC / O-Level <span aria-hidden="true">↗</span></strong></a>
-    <a href="/wace/"><span>国际高中课程</span><strong>WACE <span aria-hidden="true">↗</span></strong></a>
-    <a href="/school-database/"><span>从校园开始了解</span><strong>学校数据库 <span aria-hidden="true">↗</span></strong></a>
-  </nav>
+  <section class="home-band hv-stats-band" aria-labelledby="stats-heading">
+    <div class="home-wrap"><div class="hv-data">
+      <h2 id="stats-heading" class="hv-sr">新加坡学校数据：政府小学、政府中学、初级学院与大学专业录取</h2>
+      <div class="hv-stats">
+        <a class="hv-stat hv-rv" href="/primary-schools/" style="--c:#d42e12"><span class="ic" aria-hidden="true">🎒</span><span class="n"><b class="cnt" data-to="179">179</b><small>所</small></span><span class="t">政府小学</span></a>
+        <a class="hv-stat hv-rv" href="/secondary-schools/" style="--c:#009645"><span class="ic" aria-hidden="true">📚</span><span class="n"><b class="cnt" data-to="146">146</b><small>所</small></span><span class="t">政府中学</span></a>
+        <a class="hv-stat hv-rv" href="/jc/" style="--c:#9900aa"><span class="ic" aria-hidden="true">🏫</span><span class="n"><b class="cnt" data-to="16">16</b><small>所</small></span><span class="t">初级学院 JC</span></a>
+        <a class="hv-stat hv-rv" href="/university/" style="--c:#fa9e0d"><span class="ic" aria-hidden="true">🎓</span><span class="n"><b class="cnt" data-to="137">137</b><small>个</small></span><span class="t">大学专业录取数据</span></a>
+      </div>
+    </div></div>
+  </section>
 
   <section class="home-band" id="home-pathways" aria-labelledby="pathways-heading">
     <div class="home-wrap">
       <div class="home-heading"><div><p class="home-kicker">升学路径</p><h2 id="pathways-heading">孩子现在在哪个阶段？</h2></div><a class="home-text-link" href="/pathway/">全部路径 →</a></div>
-      <div class="home-pathways">
-        <a href="/aeis/"><span class="home-step">01</span><h3>小学阶段</h3><p>了解政府小学入学</p><strong>AEIS 备考 →</strong></a>
-        <a href="/o-level/"><span class="home-step">02</span><h3>初中阶段</h3><p>了解中学考试与分流</p><strong>SEC / O-Level →</strong></a>
-        <a href="/wace-vs-a-level/"><span class="home-step">03</span><h3>高中阶段</h3><p>比较课程与申请方向</p><strong>WACE / A-Level →</strong></a>
-        <a href="/pathway/gaokao/"><span class="home-step">04</span><h3>高考之后</h3><p>按成绩与专业查要求</p><strong>大学申请 →</strong></a>
+      <div class="mrt hv-rv">
+        <div class="mrt-line" aria-hidden="true"><i class="mrt-fill"></i>
+          <span class="mrt-train"><svg viewBox="0 0 90 30"><rect x="1" y="4" width="86" height="22" rx="8" fill="#fff" stroke="#7d8691" stroke-width="1.5"/><rect x="1" y="17" width="86" height="4" fill="#C8102E"/><rect x="9" y="8" width="12" height="7" rx="2" fill="#4f6275"/><rect x="26" y="8" width="12" height="7" rx="2" fill="#4f6275"/><rect x="43" y="8" width="12" height="7" rx="2" fill="#4f6275"/><rect x="60" y="8" width="12" height="7" rx="2" fill="#4f6275"/><path d="M78 7 h6 q3 0 3 4 v4 h-9z" fill="#4f6275"/></svg></span>
+        </div>
+        <div class="mrt-stops">
+          <a class="mrt-stop" href="/aeis/" style="--c:#d42e12"><span class="mrt-dot"></span><span class="mrt-card"><span class="mrt-code">01 · 小学</span><h3>小学阶段</h3><p>了解政府小学入学</p><strong>AEIS 备考 →</strong></span></a>
+          <a class="mrt-stop" href="/o-level/" style="--c:#009645"><span class="mrt-dot"></span><span class="mrt-card"><span class="mrt-code">02 · 初中</span><h3>初中阶段</h3><p>了解中学考试与分流</p><strong>SEC / O-Level →</strong></span></a>
+          <a class="mrt-stop" href="/wace-vs-a-level/" style="--c:#9900aa"><span class="mrt-dot"></span><span class="mrt-card"><span class="mrt-code">03 · 高中</span><h3>高中阶段</h3><p>比较课程与申请方向</p><strong>WACE / A-Level →</strong></span></a>
+          <a class="mrt-stop" href="/pathway/gaokao/" style="--c:#fa9e0d"><span class="mrt-dot"></span><span class="mrt-card"><span class="mrt-code">04 · 大学</span><h3>高考之后</h3><p>按成绩与专业查要求</p><strong>大学申请 →</strong></span></a>
+        </div>
       </div>
       <p class="home-note">路径仅供初步定位，具体入学条件以学校及考试机构公布为准。</p>
     </div>
@@ -270,23 +877,22 @@ var _hmt = _hmt || [];
     </div>
   </section>
 
-  <section class="home-band home-campus-band" aria-labelledby="campus-heading">
+  <section class="home-band home-campus-band hv-unis" aria-labelledby="campus-heading">
     <div class="home-wrap">
-      <div class="home-heading"><div><p class="home-kicker">走进校园</p><h2 id="campus-heading">先看校园，再了解学校</h2></div><a class="home-text-link" href="/school-database/">学校数据库 →</a></div>
-      <div class="home-campus-grid">
-        <a class="home-photo-card" href="/university/nus/">
-          <img src="/assets/nus-hero.jpg" alt="新加坡国立大学校园入口与校名标识" width="1600" height="820" loading="lazy">
-          <div><span>NUS</span><h3>新加坡国立大学</h3><p>专业与申请要求 <span aria-hidden="true">↗</span></p></div>
-        </a>
-        <a class="home-photo-card" href="/university/ntu/">
-          <img src="/assets/ntu-campus.jpg" alt="南洋理工大学校园中的云南园建筑" width="1000" height="562" loading="lazy">
-          <div><span>NTU</span><h3>南洋理工大学</h3><p>专业与申请要求 <span aria-hidden="true">↗</span></p></div>
-        </a>
-        <a class="home-photo-card" href="/university/smu/">
-          <img src="/assets/smu-campus.jpg" alt="新加坡管理大学李光前商学院建筑" width="1100" height="733" loading="lazy">
-          <div><span>SMU</span><h3>新加坡管理大学</h3><p>专业与申请要求 <span aria-hidden="true">↗</span></p></div>
-        </a>
+      <div class="home-heading"><div><p class="home-kicker">走进校园</p><h2 id="campus-heading">先看校园，再了解学校</h2></div><a class="home-text-link" href="/university/">7 所公立大学 →</a></div>
+    </div>
+    <div class="uni-rail" aria-label="新加坡 7 所公立大学">
+      <div class="uni-track">
+          <a class="uni-card" href="/university/nus/" style="--u:#ef7c00"><span class="uni-ph"><img src="/assets/nus-campus.jpg" alt="新加坡国立大学校园" width="1000" height="750" loading="lazy"></span><span class="uni-meta"><b>NUS</b><strong>新加坡国立大学</strong><em>综合研究型大学</em></span></a>
+          <a class="uni-card" href="/university/ntu/" style="--u:#c8102e"><span class="uni-ph"><img src="/assets/ntu-campus.jpg" alt="南洋理工大学校园中的云南园建筑" width="1000" height="562" loading="lazy"></span><span class="uni-meta"><b>NTU</b><strong>南洋理工大学</strong><em>工程与科技强校</em></span></a>
+          <a class="uni-card" href="/university/smu/" style="--u:#1b2a6b"><span class="uni-ph"><img src="/assets/smu-campus.jpg" alt="新加坡管理大学李光前商学院建筑" width="1100" height="733" loading="lazy"></span><span class="uni-meta"><b>SMU</b><strong>新加坡管理大学</strong><em>市中心商科名校</em></span></a>
+          <a class="uni-card" href="/university/sutd/" style="--u:#8b1d41"><span class="uni-ph uni-ph--logo"><img src="/assets/uni-sutd-logo.svg" alt="新加坡科技设计大学校徽" loading="lazy"></span><span class="uni-meta"><b>SUTD</b><strong>新加坡科技设计大学</strong><em>与 MIT 合作创办</em></span></a>
+          <a class="uni-card" href="/university/sit/" style="--u:#d52b1e"><span class="uni-ph"><img src="/assets/sit-campus.jpg" alt="新加坡理工大学校园" width="1000" height="750" loading="lazy"></span><span class="uni-meta"><b>SIT</b><strong>新加坡理工大学</strong><em>应用型大学</em></span></a>
+          <a class="uni-card" href="/university/suss/" style="--u:#00599c"><span class="uni-ph uni-ph--logo"><img src="/assets/uni-suss-logo.png" alt="新跃社科大学校徽" loading="lazy"></span><span class="uni-meta"><b>SUSS</b><strong>新跃社科大学</strong><em>社会科学见长</em></span></a>
+          <a class="uni-card" href="/university/uas/" style="--u:#6b2c91"><span class="uni-ph"><img src="/assets/uas-campus.jpg" alt="新加坡艺术大学校园" width="1100" height="825" loading="lazy"></span><span class="uni-meta"><b>UAS</b><strong>新加坡艺术大学</strong><em>LASALLE + NAFA</em></span></a>
       </div>
+    </div>
+    <div class="home-wrap">
       <nav class="home-school-links" aria-label="更多学校类型">
         <a href="/primary-schools/">政府小学</a><a href="/secondary-schools/">政府中学</a><a href="/international-school/">国际学校</a><a href="/jc/">初级学院</a><a href="/poly/">理工学院</a><a href="/private-university/">私立大学</a><a href="/university/">全部公立大学 →</a>
       </nav>
@@ -296,19 +902,10 @@ var _hmt = _hmt || [];
   <section class="home-band" aria-labelledby="guides-heading">
     <div class="home-wrap">
       <div class="home-heading"><div><p class="home-kicker">择校指南</p><h2 id="guides-heading">选课程，先看这几个问题</h2></div><a class="home-text-link" href="/guides/">更多指南 →</a></div>
-      <div class="home-guide-grid">
-        <a class="home-photo-card" href="/wace-vs-a-level/">
-          <img src="/assets/wace-study-group-1400.jpg" alt="学生一起查阅教材的学习场景示意" width="1400" height="787" loading="lazy">
-          <div><span>课程对比</span><h3>WACE 还是 A-Level？</h3><p>科目、评估与大学申请</p></div>
-        </a>
-        <a class="home-photo-card" href="/international-school/">
-          <img src="/assets/ib-students-group.jpg" alt="学生合作完成课堂项目的学习场景示意" width="800" height="534" loading="lazy">
-          <div><span>国际学校</span><h3>哪种课程适合孩子？</h3><p>IB、A-Level 与选校要点</p></div>
-        </a>
-        <a class="home-photo-card" href="/guides/cost/">
-          <img src="/assets/sg-px-6305534.jpg" alt="新加坡城市天际线与花园景观" width="640" height="480" loading="lazy">
-          <div><span>留学预算</span><h3>一年需要准备多少钱？</h3><p>学费、住宿与日常开支</p></div>
-        </a>
+      <div class="hv-qa">
+        <a class="hv-q" href="/wace-vs-a-level/" style="--g:#C8102E"><span class="qn">Q1</span><span class="qb"><em>课程对比</em><h3>WACE 还是 A-Level？</h3><p>科目、评估与大学申请</p></span><span class="go" aria-hidden="true">→</span></a>
+        <a class="hv-q" href="/international-school/" style="--g:#1f8a5b"><span class="qn">Q2</span><span class="qb"><em>国际学校</em><h3>哪种课程适合孩子？</h3><p>IB、A-Level 与选校要点</p></span><span class="go" aria-hidden="true">→</span></a>
+        <a class="hv-q" href="/guides/cost/" style="--g:#d18a00"><span class="qn">Q3</span><span class="qb"><em>留学预算</em><h3>一年需要准备多少钱？</h3><p>学费、住宿与日常开支</p></span><span class="go" aria-hidden="true">→</span></a>
       </div>
       <div class="home-sec-note">
         <strong>2027 · SEC</strong>
@@ -331,9 +928,27 @@ var _hmt = _hmt || [];
   </section>
 
   <section class="home-band home-contact-band" id="wechat-contact" aria-labelledby="contact-heading">
-    <div class="home-wrap home-contact-layout">
-      <div><p class="home-kicker">免费择校咨询</p><h2 id="contact-heading">一起理清孩子的下一步</h2><p>带上年级、英文水平和预算，和 Amy 聊聊。</p><a class="home-button" href="/contact/">联系升学顾问</a></div>
-      <div class="home-qr"><img src="/assets/wechat-amy-seda-guide.jpg" alt="新加坡择校顾问 Amy 微信二维码" width="140" height="140" loading="lazy"><div><strong>择校顾问 Amy</strong><p>微信：SEDA_Guide</p><span>扫码咨询</span></div></div>
+    <div class="home-wrap">
+      <div class="hv-cta hv-rv">
+        <div>
+          <p class="home-kicker">免费择校咨询</p>
+          <h2 id="contact-heading">一起理清孩子的<span class="em">下一步</span></h2>
+          <ol class="hv-steps">
+            <li><b>1</b>告诉我们年级、英文水平</li>
+            <li><b>2</b>说说预算和目标</li>
+            <li><b>3</b>Amy 帮你理出路线</li>
+          </ol>
+          <a class="home-button" href="/contact/">联系升学顾问 →</a>
+        </div>
+        <div class="hv-chat">
+          <div class="hv-chat-head"><i>A</i><div><b>择校顾问 Amy</b><em>在线 · 微信 SEDA_Guide</em></div></div>
+          <div class="hv-chat-body">
+            <div class="hv-msg me">孩子初二，英文一般，想去新加坡读书，从哪开始？</div>
+            <div class="hv-msg bot">可以先看 AEIS 插班和国际课程两条路，我按孩子情况帮你比一比 😊</div>
+            <div class="hv-msg bot qr"><img src="/assets/wechat-amy-seda-guide.jpg" alt="新加坡择校顾问 Amy 微信二维码" width="140" height="140" loading="lazy"><div><strong>扫码加 Amy 微信</strong><span>微信：SEDA_Guide</span></div></div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 </main>
@@ -383,5 +998,136 @@ var _hmt = _hmt || [];
     </footer>
 
     <script src="/seda-site.js?v=30"></script>
+    <!-- SEDA_HOME_V2_SCRIPT_START -->
+    <script>
+    (function(){
+      var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var hero = document.querySelector('.hv-hero'); if(!hero) return;
+      var scene = hero.querySelector('.sg-scene'), stage = hero.querySelector('.hv-stage');
+
+      // 1) 昼夜切换：新加坡时间 19:00–06:00 默认夜景
+      var btn = hero.querySelector('.hv-toggle');
+      function setNight(on){
+        hero.classList.toggle('is-night', on);
+        btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+        btn.querySelector('.ic').textContent = on ? '☀️' : '🌙';
+        btn.querySelector('.tx').textContent = on ? '看白天' : '看夜景';
+      }
+      try{ var h = (new Date().getUTCHours() + 8) % 24; setNight(h >= 19 || h < 6); }catch(e){ setNight(false); }
+      btn.addEventListener('click', function(){ setNight(!hero.classList.contains('is-night')); });
+      var sm = scene.querySelector('.sun-moon');
+      if(sm){ sm.addEventListener('click', function(){ setNight(!hero.classList.contains('is-night')); });
+        sm.addEventListener('keydown', function(e){ if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); setNight(!hero.classList.contains('is-night')); } }); }
+
+      // 1b) 手机：插画可横向滑动，初始对准鱼尾狮/金沙
+      var pan = hero.querySelector('.hv-pan'), swipe = hero.querySelector('.hv-swipe');
+      function centerPan(){ if(pan && pan.scrollWidth > pan.clientWidth + 4){ pan.scrollLeft = pan.scrollWidth * (880 / 1600) - pan.clientWidth / 2; } }
+      centerPan(); window.addEventListener('load', centerPan);
+      if(pan && swipe){ var sx = null; pan.addEventListener('scroll', function(){ if(sx === null){ sx = pan.scrollLeft; return; } if(Math.abs(pan.scrollLeft - sx) > 30) swipe.classList.add('off'); }, {passive:true}); }
+
+      // 1c) 7 所大学：克隆一份实现无缝循环滚动（静态 HTML 已含全部 7 所）
+      [].forEach.call(document.querySelectorAll('.uni-rail'), function(rail){
+        if(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+        var tr = rail.querySelector('.uni-track'); if(!tr) return;
+        [].slice.call(tr.children).forEach(function(c){ var k = c.cloneNode(true); k.setAttribute('aria-hidden','true'); k.setAttribute('tabindex','-1'); tr.appendChild(k); });
+        rail.classList.add('is-loop');
+      });
+
+      // 2) 视差
+      var layers = scene.querySelectorAll('.sg-layer');
+      if(!reduce && window.matchMedia('(pointer:fine)').matches){
+        stage.addEventListener('mousemove', function(e){
+          var r = stage.getBoundingClientRect(), x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5;
+          [].forEach.call(layers, function(l){ var d = +l.getAttribute('data-depth') || 0; l.style.transform = 'translate(' + (-x * d).toFixed(1) + 'px,' + (-y * d * .4).toFixed(1) + 'px)'; });
+        });
+        stage.addEventListener('mouseleave', function(){ [].forEach.call(layers, function(l){ l.style.transform = ''; }); });
+      }
+
+      // 3) 地标提示
+      var tip = hero.querySelector('.hv-tip'), tb = tip.querySelector('b'), ts = tip.querySelector('span'), tipTimer;
+      function showTip(el){
+        var r = el.getBoundingClientRect(), sr = stage.getBoundingClientRect();
+        tb.textContent = el.getAttribute('data-name'); ts.textContent = el.getAttribute('data-tip');
+        var x = Math.min(Math.max(r.left + r.width / 2 - sr.left, 130), sr.width - 130);
+        tip.style.left = x + 'px'; tip.style.top = Math.max(r.top - sr.top, 150) + 'px';
+        tip.classList.add('on'); clearTimeout(tipTimer);
+      }
+      function hideTip(){ tipTimer = setTimeout(function(){ tip.classList.remove('on'); }, 120); }
+      [].forEach.call(scene.querySelectorAll('.lm'), function(el){
+        el.setAttribute('tabindex', '0');
+        el.addEventListener('mouseenter', function(){ showTip(el); });
+        el.addEventListener('mouseleave', hideTip);
+        el.addEventListener('focus', function(){ showTip(el); });
+        el.addEventListener('blur', hideTip);
+        el.addEventListener('click', function(){ showTip(el); clearTimeout(tipTimer); tipTimer = setTimeout(function(){ tip.classList.remove('on'); }, 3200); });
+      });
+
+      // 4) 选年级
+      var chips = hero.querySelectorAll('.hv-chip'), ans = hero.querySelectorAll('.hv-ans');
+      [].forEach.call(chips, function(c){
+        c.addEventListener('click', function(){
+          var k = c.getAttribute('data-k'), was = c.getAttribute('aria-selected') === 'true';
+          [].forEach.call(chips, function(x){ x.setAttribute('aria-selected', (!was && x === c) ? 'true' : 'false'); });
+          [].forEach.call(ans, function(a){ a.classList.toggle('on', !was && a.getAttribute('data-k') === k); });
+          if(window.gtag){ try{ gtag('event', 'home_grade_pick', {grade: k}); }catch(e){} }
+        });
+      });
+
+      // 5) 轮播词
+      var rot = hero.querySelector('.hv-rot');
+      if(rot && !reduce){
+        var words = rot.getAttribute('data-words').split(','), wi = 0;
+        setInterval(function(){ wi = (wi + 1) % words.length; rot.innerHTML = '<b>' + words[wi] + '</b>'; }, 2400);
+      }
+
+      // 6) 滚动揭示 + 计数 + 地铁
+      function countUp(el){
+        var to = +el.getAttribute('data-to'), t0 = null;
+        if(reduce){ el.textContent = to; return; }
+        function step(ts){ if(!t0) t0 = ts; var p = Math.min((ts - t0) / 1400, 1); el.textContent = Math.round(to * (1 - Math.pow(1 - p, 3))); if(p < 1) requestAnimationFrame(step); }
+        el.textContent = 0; requestAnimationFrame(step);
+      }
+      var mrt = document.querySelector('.mrt'), train = mrt && mrt.querySelector('.mrt-train'), stops = mrt ? mrt.querySelectorAll('.mrt-stop') : [], mrtTimer, mi = 0;
+      function moveTrain(i){
+        if(!train) return;
+        var line = mrt.querySelector('.mrt-line'), lr = line.getBoundingClientRect();
+        var dot = stops[i].querySelector('.mrt-dot').getBoundingClientRect();
+        train.style.left = (dot.left + dot.width / 2 - lr.left) + 'px';
+        [].forEach.call(stops, function(s, j){ s.classList.toggle('on', j === i); });
+      }
+      function autoTrain(){ clearInterval(mrtTimer); mrtTimer = setInterval(function(){ mi = (mi + 1) % stops.length; moveTrain(mi); }, 2600); }
+      [].forEach.call(stops, function(s, j){
+        s.addEventListener('mouseenter', function(){ clearInterval(mrtTimer); mi = j; moveTrain(j); });
+        s.addEventListener('mouseleave', autoTrain);
+      });
+      window.addEventListener('resize', function(){ if(stops.length) moveTrain(mi); });
+
+      // 数字区：一个圆点 = 一所学校 / 一个专业，进入视口依次点亮
+      [].forEach.call(document.querySelectorAll('.hv-stat .dots'), function(box){
+        var c = box.parentNode.querySelector('.cnt'), n = c ? parseInt(c.getAttribute('data-to'), 10) || 0 : 0, h = '';
+        for(var k = 0; k < n; k++){ h += '<i style="--d:' + Math.round(k * 1400 / Math.max(n, 1)) + 'ms"></i>'; }
+        box.innerHTML = h;
+      });
+      var rv = document.querySelectorAll('.hv-rv, .home-decision-card, .home-photo-card, .hv-chat');
+      [].forEach.call(document.querySelectorAll('.home-decision-card, .home-photo-card'), function(el, i){ el.classList.add('hv-rv'); el.style.transitionDelay = (i % 3) * 90 + 'ms'; });
+      [].forEach.call(document.querySelectorAll('.hv-stat'), function(el, i){ el.style.transitionDelay = i * 90 + 'ms'; });
+      if('IntersectionObserver' in window && !reduce){
+        var io = new IntersectionObserver(function(es){
+          es.forEach(function(e){
+            if(!e.isIntersecting) return;
+            var el = e.target; el.classList.add('in');
+            [].forEach.call(el.querySelectorAll('.cnt'), countUp);
+            if(el === mrt){ setTimeout(function(){ moveTrain(0); autoTrain(); }, 300); }
+            io.unobserve(el);
+          });
+        }, {threshold: .18, rootMargin: '0px 0px -40px 0px'});
+        [].forEach.call(rv, function(el){ io.observe(el); });
+      } else {
+        [].forEach.call(rv, function(el){ el.classList.add('in'); });
+        if(stops.length) moveTrain(0);
+      }
+    })();
+    </script>
+    <!-- SEDA_HOME_V2_SCRIPT_END -->
   </body>
 </html>

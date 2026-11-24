@@ -584,6 +584,10 @@
 .home-visual.home-v2 .hv-data .hv-stat:first-child{border-left:0!important;padding-left:0}
 .home-visual.home-v2 .hv-data .dots{display:none!important}
 @media(max-width:900px){.home-visual.home-v2 .hv-data{padding:22px 20px}.home-visual.home-v2 .hv-data .hv-stats{grid-template-columns:repeat(2,1fr)!important}}
+
+/* 数据横幅 5 列（加 Poly） */
+.home-visual.home-v2 .hv-data .hv-stats{grid-template-columns:repeat(5,1fr)!important}
+@media(max-width:900px){.home-visual.home-v2 .hv-data .hv-stats{grid-template-columns:repeat(2,1fr)!important}.home-visual.home-v2 .hv-data .hv-stat:last-child{grid-column:1/-1}}
     </style>
     <!-- SEDA_HOME_V2_STYLE_END -->
     <script type="application/ld+json">
@@ -787,11 +791,12 @@ var _hmt = _hmt || [];
   </section>
   <section class="home-band hv-stats-band" aria-labelledby="stats-heading">
     <div class="home-wrap"><div class="hv-data">
-      <h2 id="stats-heading" class="hv-sr">新加坡学校数据：政府小学、政府中学、初级学院与大学专业录取</h2>
+      <h2 id="stats-heading" class="hv-sr">新加坡学校数据：政府小学、政府中学、初级学院、理工学院与大学专业录取</h2>
       <div class="hv-stats">
         <a class="hv-stat hv-rv" href="/primary-schools/" style="--c:#d42e12"><span class="ic" aria-hidden="true">🎒</span><span class="n"><b class="cnt" data-to="179">179</b><small>所</small></span><span class="t">政府小学</span></a>
         <a class="hv-stat hv-rv" href="/secondary-schools/" style="--c:#009645"><span class="ic" aria-hidden="true">📚</span><span class="n"><b class="cnt" data-to="146">146</b><small>所</small></span><span class="t">政府中学</span></a>
         <a class="hv-stat hv-rv" href="/jc/" style="--c:#9900aa"><span class="ic" aria-hidden="true">🏫</span><span class="n"><b class="cnt" data-to="16">16</b><small>所</small></span><span class="t">初级学院 JC</span></a>
+        <a class="hv-stat hv-rv" href="/poly/" style="--c:#0099aa"><span class="ic" aria-hidden="true">🛠️</span><span class="n"><b class="cnt" data-to="5">5</b><small>所</small></span><span class="t">理工学院 Poly</span></a>
         <a class="hv-stat hv-rv" href="/university/" style="--c:#fa9e0d"><span class="ic" aria-hidden="true">🎓</span><span class="n"><b class="cnt" data-to="137">137</b><small>个</small></span><span class="t">大学专业录取数据</span></a>
       </div>
     </div></div>

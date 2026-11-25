@@ -53,6 +53,7 @@ test('partial acceptance preserves confirmed probe but not ambiguous batch URLs'
   assert.match(result.stderr, /partial or invalid acceptance/);
   assert.equal(Object.keys(result.state.pushed).length, 1);
   assert.equal(result.state.runs.at(-1).incomplete, true);
+  assert.match(result.stdout, new RegExp(`Pending new/updated URLs: ${entries.length - 1}\\.`));
 });
 
 test('zero remaining quota stops after the confirmed probe', () => {

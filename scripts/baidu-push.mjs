@@ -172,7 +172,7 @@ while (!quotaHit && !incomplete && remaining.length) {
 }
 
 console.log(`\n✅ Pushed this run: ${pushedUrls.length} URL(s), Baidu success: ${totalSuccess}, remain quota: ${lastRemain ?? 'n/a'}`);
-if (quotaHit) console.log(`ℹ️ 今日配额用尽，剩余 ${remaining.length} 个将在后续每日运行中继续推送。`);
+if (quotaHit) console.log(`今日配额用尽；本批尚未确认 ${remaining.length} 个 URL。`);
 
 // --- persist state (only URLs actually pushed) --------------------------------
 const stampedAt = new Date().toISOString();
@@ -181,5 +181,9 @@ for (const u of pushedUrls) { state.pushed[u] = stampedAt; state.lastmod[u] = la
 state.runs = [...(state.runs || []), { at: stampedAt, site: workingSite, pushed: pushedUrls.length, success: totalSuccess, remain: lastRemain ?? null, quotaHit, incomplete }].slice(-30);
 fs.mkdirSync(path.dirname(stateFile), { recursive: true });
 fs.writeFileSync(stateFile, JSON.stringify(state, null, 2));
-console.log(`State saved: ${Object.keys(state.pushed).length}/${entries.length} quality URLs pushed so far.`);
+const currentAccepted = entries.filter(e => state.pushed[e.url]).length;
+const pending = [...new Set([...newUrls, ...changedUrls])].filter(u => !pushedUrls.includes(u));
+console.log(`State saved: ${currentAccepted}/${entries.length} current quality URLs accepted at least once.`);
+console.log(`Pending new/updated URLs: ${pending.length}. Acceptance is not indexing.`);
+if (pushedUrls.length) console.log('Confirmed accepted URLs:\n' + pushedUrls.join('\n'));
 if (incomplete) process.exitCode = 1;

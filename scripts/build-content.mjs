@@ -8,6 +8,7 @@ import { baiduAllowed, inspectPage, parseSitemap, prioritySitemapEntries, sitema
 import { syncSiteFooter } from './sync-site-footer.mjs';
 import { applySources } from './enhance-eeat.mjs';
 import { applyOrganization } from './enhance-organization.mjs';
+import { softenCta } from './soften-page-cta.mjs';
 
 const root = process.cwd();
 const domain = 'https://sgeda.org.cn';
@@ -1147,11 +1148,13 @@ const footerSync = syncSiteFooter(root);
 // lastmod 不会随内容变化。
 const eeat = applySources(root);
 const org = applyOrganization(root);
+const cta = softenCta(root);
 const urlCount = updateSitemap(drafts);
 console.log(`Synchronized ${footerSync.updated} shared footers (${footerSync.checked} pages checked).`);
 console.log(`Built ${articles.length} content articles.`);
 console.log(`Attached official sources to ${eeat.total} pages (${eeat.updated} changed).`);
 console.log(`Injected Organization node on ${org.total} pages (${org.updated} changed).`);
+console.log(`Softened CTA on ${cta.softened} pages (${cta.kept} keep full card).`);
 console.log(`Built ${schoolPageCount} school SEO pages.`);
 console.log(`Enhanced ${enhancedKeyPageCount} key SEO pages.`);
 console.log(`Enhanced ${enhancedUtilitySchemaCount} utility pages with schema.`);

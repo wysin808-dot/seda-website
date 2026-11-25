@@ -4746,3 +4746,28 @@ body.nav-drawer-open {
 @media print {
   .seda-reading-progress { display: none; }
 }
+
+/* ---- 轻量 CTA：替代 477 个页面共用的整块咨询卡 ------------------
+   整块「红色按钮 + 微信二维码 + 三行说明」在全站重复出现，是页面
+   之间最显眼的同质化元素。内容页只保留一句安静的文字链接，
+   完整 CTA 只留给首页、/contact/ 和各栏目落地页。 */
+.cp-soft-cta {
+  max-width: 1240px;
+  margin: 44px auto 0;
+  padding: 0 max(clamp(20px, 6vw, 56px), calc((100% - 1240px) / 2 + 80px));
+}
+.cp-soft-cta p {
+  margin: 0;
+  padding: 16px 0 0;
+  border-top: 1px solid #ece5d8;
+  font-size: 15px;
+  line-height: 1.8;
+  color: #5b5b5b;
+}
+.cp-soft-cta a {
+  color: var(--brand-strong, #c62828);
+  font-weight: 650;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(198, 40, 40, .35);
+}
+.cp-soft-cta a:hover { border-bottom-color: var(--brand-strong, #c62828); }

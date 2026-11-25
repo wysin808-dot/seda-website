@@ -446,25 +446,7 @@
 /* ── Google Analytics 4 ── */
 (function(){
   if (location.pathname.startsWith('/cms/') || location.pathname.startsWith('/content-review/')) return;
-  fetch('/api/config', { credentials: 'same-origin' }).then(function(res){
-    return res.ok ? res.json() : {};
-  }).then(function(config){
-    var id = String(config.googleAnalyticsId || '').trim();
-    if (!/^G-[A-Z0-9]+$/i.test(id)) return;
-    if (window.__sedaGaLoaded || typeof window.gtag === 'function') return;
-    window.__sedaGaLoaded = true;
-    window.dataLayer = window.dataLayer || [];
-    window.gtag = function(){ window.dataLayer.push(arguments); };
-    window.gtag('js', new Date());
-    window.gtag('config', id, {
-      send_page_view: true,
-      linker: { domains: ['sgeda.org.cn'] },
-    });
-    var script = document.createElement('script');
-    script.async = true;
-    script.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(id);
-    document.head.appendChild(script);
-  }).catch(function(){});
+  // GA4 由构建脚本内联到页面（SEDA_GA4_START），此处不再请求 /api/config。
 })();
 
 document.querySelectorAll(".filter").forEach((button) => {
@@ -550,12 +532,11 @@ document.querySelectorAll(".faq-list details summary").forEach((summary) => {
   trigger.addEventListener('click', toggle);
   document.body.appendChild(trigger);
 
-  // Fetch config
-  fetch(API_BASE + '/api/config').then(function(r){ return r.json(); }).then(function(d){
-    cfg = Object.assign({}, cfg, d || {});
-    if (!cfg.wechatId) cfg.wechatId = 'SEDAGUIDE';
-    if (!cfg.wechatQrUrl) cfg.wechatQrUrl = '/assets/wechat-amy-seda-guide.jpg';
-  }).catch(function(){});
+  // 配置改为内联（window.__SEDA_CONFIG__）或直接走默认值：
+  // 每页一次 /api/config 的请求对用户是延迟、对蜘蛛是纯浪费。
+  cfg = Object.assign({}, cfg, window.__SEDA_CONFIG__ || {});
+  if (!cfg.wechatId) cfg.wechatId = 'SEDAGUIDE';
+  if (!cfg.wechatQrUrl) cfg.wechatQrUrl = '/assets/wechat-amy-seda-guide.jpg';
 
   function toggle() {
     if (isOpen) close(); else open();

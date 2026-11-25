@@ -66,7 +66,7 @@ export function inspectPage(html, url) {
   }).get())];
   const canonical = $('link[rel="canonical"]').attr('href') || '';
   const robots = $('meta[name="robots"],meta[name="baiduspider"]').map((_, el) => $(el).attr('content')).get().join(',');
-  const title = $('title').text().trim();
+  const title = $('head > title').text().trim();
   const description = $('meta[name="description"]').attr('content') || '';
   const h1 = $('h1').first().text().trim();
   const issues = [];

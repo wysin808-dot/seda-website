@@ -9,10 +9,12 @@ const $ = load(fs.readFileSync(new URL('index.html', root), 'utf8'));
 test('visual homepage keeps crawlable entry points and existing destinations', () => {
   assert.equal($('h1').length, 1);
   assert.equal($('link[rel="canonical"]').attr('href'), 'https://sgeda.org.cn/');
-  // 核心入口可以放 header、也可以放 main，但必须存在于首页 HTML 里
-  // （百度/必应不执行 JS，首页是它们建立整站链接图的第一跳）。
+  // Keep real HTML links available without depending on client-side rendering.
   for (const path of ['/o-level/', '/aeis/', '/wace/', '/pathway/', '/school-database/', '/contact/']) {
     assert.ok($(`a[href="${path}"]`).length, path);
+  }
+  for (const path of ['/aeis/', '/o-level/', '/wace/', '/ossd/', '/a-level/']) {
+    assert.ok($(`main a[href="${path}"]`).length, `Missing contextual course link: ${path}`);
   }
   $('a[href^="/"]').each((_, a) => {
     const path = $(a).attr('href').split('#')[0];

@@ -1,8 +1,8 @@
 name: Baidu URL Push
 
 # 主动推送 (普通收录): submit baidu-sitemap.xml quality URLs to Baidu so they
-# enter the crawl queue the same day. New pages are always pushed; a small
-# rotation of already-pushed pages is refreshed each run. Token stays in Secrets.
+# can be discovered by Baidu. Acceptance does not guarantee crawling or indexing.
+# New and updated pages are prioritised; unchanged rotation is disabled.
 
 on:
   schedule:

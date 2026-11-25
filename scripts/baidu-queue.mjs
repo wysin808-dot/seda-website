@@ -10,9 +10,14 @@ export function selectBatch(pages, state, limit, priorities = [], now = new Date
   }).slice(0, limit);
 }
 
-export function recordAccepted(state, batch, result, now = new Date()) {
+export function isFullAcceptance(response, count) {
   // Partial acceptance does not identify which URLs Baidu accepted.
-  if (!result.ok || result.response.success !== batch.length || result.response.not_same_site?.length || result.response.not_valid?.length) return false;
+  return Boolean(response && !response.error && response.success === count &&
+    !response.not_same_site?.length && !response.not_valid?.length);
+}
+
+export function recordAccepted(state, batch, result, now = new Date()) {
+  if (!result.ok || !isFullAcceptance(result.response, batch.length)) return false;
   for (const page of batch) state[page.url] = { fingerprint: page.fingerprint, submittedAt: now.toISOString() };
   return true;
 }

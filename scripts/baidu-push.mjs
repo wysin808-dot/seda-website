@@ -1,5 +1,5 @@
 // Baidu 主动推送 (普通收录) — pushes the curated quality URLs from baidu-sitemap.xml
-// to Baidu's urls/submit API so they enter the crawl queue the same day.
+// to Baidu's urls/submit API. Acceptance does not guarantee crawling or indexing.
 //
 // Design:
 //  - Source of URLs = baidu-sitemap.xml (already excludes thin template pages via robots).
@@ -19,6 +19,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { isFullAcceptance } from './baidu-queue.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 let siteInput = (process.env.BAIDU_SITE || 'https://sgeda.org.cn').trim().replace(/\/$/, '');
@@ -27,7 +28,9 @@ const site = siteInput;
 const host = new URL(site).host;
 const token = process.env.BAIDU_TOKEN || '';
 const pushMax = Math.max(1, Math.min(2000, Number(process.env.PUSH_MAX) || 2000));
-const refreshPerRun = Math.max(0, Number(process.env.REFRESH_PER_RUN) || 30);
+const refreshValue = Number(process.env.REFRESH_PER_RUN ?? 30);
+if (!Number.isFinite(refreshValue) || refreshValue < 0) throw new Error('REFRESH_PER_RUN must be a non-negative number');
+const refreshPerRun = Math.floor(refreshValue);
 const dryRun = process.env.DRY_RUN === '1';
 
 const sitemapFile = path.join(root, 'baidu-sitemap.xml');
@@ -56,8 +59,11 @@ entries.sort((a, b) => {
 let state = { pushed: {}, refreshCursor: 0, runs: [] };
 try { state = { ...state, ...JSON.parse(fs.readFileSync(stateFile, 'utf8')) }; } catch { /* first run */ }
 state.pushed = state.pushed || {};
+state.lastmod = state.lastmod || {};
 
 const newUrls = entries.filter(e => !state.pushed[e.url]).map(e => e.url);
+const changedUrls = entries.filter(e => state.pushed[e.url] && e.lastmod &&
+  e.lastmod > (state.lastmod[e.url] || String(state.pushed[e.url]).slice(0, 10))).map(e => e.url);
 
 // rotating refresh of already-pushed URLs (so stale pages get re-crawled over time)
 const allUrls = entries.map(e => e.url);
@@ -71,11 +77,11 @@ if (refreshPerRun > 0 && allUrls.length) {
   state.refreshCursor = cursor % allUrls.length;
 }
 
-let batch = [...new Set([...newUrls, ...refresh])].slice(0, pushMax);
+let batch = [...new Set([...newUrls, ...changedUrls, ...refresh])].slice(0, pushMax);
 
 console.log(`Site: ${site}`);
 console.log(`Eligible quality URLs: ${entries.length}`);
-console.log(`New (never pushed): ${newUrls.length} | Rotating refresh: ${refresh.length} | Pre-verify batch: ${batch.length}`);
+console.log(`New (never pushed): ${newUrls.length} | Updated: ${changedUrls.length} | Rotating refresh: ${refresh.length} | Pre-verify batch: ${batch.length}`);
 
 if (!batch.length) { console.log('✅ Nothing new to push and refresh disabled — done.'); process.exit(0); }
 if (dryRun) { console.log('\n[DRY_RUN] Would push (before live 200 check):\n' + batch.join('\n')); process.exit(0); }
@@ -139,21 +145,28 @@ for (const v of variants) {
 if (!workingSite) fail('所有 site 格式都 site init fail。请到 百度搜索资源平台 → 链接提交 → 主动推送，\n' +
   '核对示例里的 site= 值与 token，并确认 sgeda.org.cn 站点状态为「正常」；token 若更新请改 GitHub Secret BAIDU_TOKEN。');
 console.log(`Matched site param: ${workingSite}`);
+if (probe.error && !isQuota(probe)) fail(`Baidu API error ${probe.error}: ${probe.message}`);
 
 // 2) quota-aware chunked push: shrink the chunk on "over quota" to use up exactly
 //    whatever quota remains today; resume the rest on the next daily run via state.
 let totalSuccess = 0, lastRemain, quotaHit = false;
+let incomplete = false;
 const pushedUrls = [];
 let remaining = [...batch];
-if (!probe.error) { totalSuccess += Number(probe.success) || 0; lastRemain = probe.remain; pushedUrls.push(batch[0]); remaining = batch.slice(1); }
+if (isFullAcceptance(probe, 1)) {
+  totalSuccess += probe.success; lastRemain = probe.remain; pushedUrls.push(batch[0]); remaining = batch.slice(1);
+  if (lastRemain === 0) quotaHit = true;
+}
 else if (isQuota(probe)) { quotaHit = true; }
+else { incomplete = true; console.error('Baidu did not confirm full acceptance of the probe; URL remains pending.'); }
 
 let chunkSize = chunkStart;
-while (!quotaHit && remaining.length) {
+while (!quotaHit && !incomplete && remaining.length) {
   const group = remaining.slice(0, chunkSize);
   const d = await pushWith(workingSite, group);
   if (isQuota(d)) { if (chunkSize <= 1) { quotaHit = true; break; } chunkSize = Math.max(1, Math.floor(chunkSize / 2)); continue; }
-  if (d.error) fail(`Baidu API error ${d.error}: ${d.message}`);
+  if (d.error) { incomplete = true; console.error(`Baidu API error ${d.error}: ${d.message}`); break; }
+  if (!isFullAcceptance(d, group.length)) { incomplete = true; console.error('Baidu returned partial or invalid acceptance; ambiguous URLs remain pending.'); break; }
   totalSuccess += Number(d.success) || 0; lastRemain = d.remain; pushedUrls.push(...group); remaining = remaining.slice(group.length);
   if (lastRemain === 0) { quotaHit = true; break; }
 }
@@ -163,8 +176,10 @@ if (quotaHit) console.log(`ℹ️ 今日配额用尽，剩余 ${remaining.length
 
 // --- persist state (only URLs actually pushed) --------------------------------
 const stampedAt = new Date().toISOString();
-for (const u of pushedUrls) state.pushed[u] = stampedAt;
-state.runs = [...(state.runs || []), { at: stampedAt, site: workingSite, pushed: pushedUrls.length, success: totalSuccess, remain: lastRemain ?? null, quotaHit }].slice(-30);
+const lastmodByUrl = new Map(entries.map(e => [e.url, e.lastmod]));
+for (const u of pushedUrls) { state.pushed[u] = stampedAt; state.lastmod[u] = lastmodByUrl.get(u); }
+state.runs = [...(state.runs || []), { at: stampedAt, site: workingSite, pushed: pushedUrls.length, success: totalSuccess, remain: lastRemain ?? null, quotaHit, incomplete }].slice(-30);
 fs.mkdirSync(path.dirname(stateFile), { recursive: true });
 fs.writeFileSync(stateFile, JSON.stringify(state, null, 2));
 console.log(`State saved: ${Object.keys(state.pushed).length}/${entries.length} quality URLs pushed so far.`);
+if (incomplete) process.exitCode = 1;

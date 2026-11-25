@@ -88,6 +88,11 @@ test('related article updates do not invalidate every article fingerprint', () =
   assert.equal(inspectPage(html('old'), SITE).fingerprint, inspectPage(html('new'), SITE).fingerprint);
   assert.notEqual(inspectPage('<main><a href="/a/">Link</a></main>', SITE).fingerprint, inspectPage('<main><a href="/b/">Link</a></main>', SITE).fingerprint);
 });
+test('HTML inspection does not confuse an SVG label with the page title', () => {
+  const html = '<html><head><title>Course guide</title></head><body><main><h1>Course guide</h1><svg role="img"><title>Campus illustration</title></svg></main></body></html>';
+  assert.equal(inspectPage(html, SITE).title, 'Course guide');
+  assert.ok(inspectPage(html.replace('<title>Course guide</title>', ''), SITE).issues.includes('missing title'));
+});
 test('local file resolution rejects traversal and external paths', () => {
   assert.equal(localFile('/tmp/site', 'https://external.example/a/'), null);
   assert.throws(() => localFile('/tmp/site', SITE + '/%2e%2e%2foutside/'), /Invalid/);

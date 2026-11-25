@@ -341,5 +341,23 @@
         "url": "https://www.moe.gov.sg/international-students/aeis/eligibility-criteria"
       }
     ]
+  },
+  "https://sgeda.org.cn/o-level/scoring/": {
+    "lastVerified": "2026-11-25",
+    "note": "本页的 L1R4 门槛、G3 科目要求与 2028 年升学改制，以 MOE 的 PSE 入学标准为准；等级换算与 O-Level 计分以 SEAB 说明为准。",
+    "sources": [
+      {
+        "label": "MOE — PSE 初级学院与 MI 入学标准（2028 起 L1R4）",
+        "url": "https://www.moe.gov.sg/post-secondary/admissions/pse/jc-and-mi"
+      },
+      {
+        "label": "SEAB — GCE O-Level 考试说明",
+        "url": "https://www.seab.gov.sg/gce-o-level/"
+      },
+      {
+        "label": "MOE — 中学后教育招生总览（PSE）",
+        "url": "https://www.moe.gov.sg/post-secondary/admissions/pse"
+      }
+    ]
   }
 }

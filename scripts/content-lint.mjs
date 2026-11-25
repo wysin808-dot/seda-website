@@ -57,6 +57,10 @@ const FACT_PATTERNS = [
   /ATAR\s*\d+/gi,         // 澳洲 ATAR
   /L1R[45]/g,             // JC 录取分
   /ELR2B2/g,              // Poly 录取分
+  // 题量、时长、词数、校数这类量化表述同样是硬信息，旧版漏掉了它们，
+  // 「54 题 / 135 分钟 / 300 词」这种页面会被误判成空泛内容。
+  /\d+\s*(?:题|分钟|小时|词|所|门|岁|倍|项|篇|分|名|天|周)/g,
+  /\d+\s*[–\-—~]\s*\d+/g,   // 区间：54–59 / 200-300 / 2—3 月
 ];
 
 // 只有这些栏目下的页面才做换名测试（学校/院校详情页）。
@@ -158,8 +162,16 @@ function analyseHtml(html, url) {
   // 套话密度（每千字命中次数）。
   const clicheCounts = {};
   let clicheHits = 0;
+  // 「首先/其次/最后/另外/同时」在人写的句子里也常见（"最后 10 分钟检查"），
+  // 只有后面直接跟逗号/顿号/冒号时才算话语标记式套话。
+  const STRUCTURAL = new Set(['首先', '其次', '最后', '另外', '同时']);
   for (const word of CLICHES) {
-    const n = bodyText.split(word).length - 1;
+    let n;
+    if (STRUCTURAL.has(word)) {
+      n = (bodyText.match(new RegExp(word + '\\s*[，、：]', 'g')) || []).length;
+    } else {
+      n = bodyText.split(word).length - 1;
+    }
     if (n > 0) clicheCounts[word] = n;
     clicheHits += n;
   }
@@ -228,7 +240,9 @@ function analyseHtml(html, url) {
 //   - 正文 0 字直接记 0：否则「没有套话」会让空页反而拿到 42.9 分。
 function scorePage({ clichesPerK, factsPerK, namedParagraphRatio, wordCount }) {
   if (!wordCount) return 0;
-  const factsScore = Math.min(40, factsPerK * 8);
+  // 上限按「16 次/千字」校准：补上题量/时长类硬信息后，页面很容易超过 5 次/千字，
+  // 沿用旧系数会让所有认真写的页都顶格，失去区分度。
+  const factsScore = Math.min(40, factsPerK * 2.5);
   const clichesScore = Math.max(0, 30 - clichesPerK * 10);
   const base = factsScore + clichesScore;
   const score = namedParagraphRatio == null

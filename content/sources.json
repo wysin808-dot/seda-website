@@ -313,5 +313,33 @@
         "url": "https://www.seab.gov.sg/aeis/"
       }
     ]
+  },
+  "https://sgeda.org.cn/aeis/math/": {
+    "lastVerified": "2026-11-25",
+    "note": "本页的卷面结构、题量、时长与禁用计算器规则，以 SEAB 公布的 AEIS Test Details 为准；考查内容按 MOE 的「前一级」原则执行。",
+    "sources": [
+      {
+        "label": "SEAB — AEIS 考试结构与题量（Test Details）",
+        "url": "https://www.seab.gov.sg/aeis/test-details/"
+      },
+      {
+        "label": "MOE — AEIS 考试详情（考查年级与范围）",
+        "url": "https://www.moe.gov.sg/international-students/aeis/test-details"
+      }
+    ]
+  },
+  "https://sgeda.org.cn/aeis/english/": {
+    "lastVerified": "2026-11-25",
+    "note": "本页的英文卷结构以 SEAB 公布的 AEIS Test Details 为准；小学组不设英文卷、改用 CEQ 成绩报名，依据 MOE 报名资格页面。",
+    "sources": [
+      {
+        "label": "SEAB — AEIS 考试结构与题量（Test Details）",
+        "url": "https://www.seab.gov.sg/aeis/test-details/"
+      },
+      {
+        "label": "MOE — AEIS 报名资格（含小学组 CEQ 要求）",
+        "url": "https://www.moe.gov.sg/international-students/aeis/eligibility-criteria"
+      }
+    ]
   }
 }

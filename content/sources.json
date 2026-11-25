@@ -377,5 +377,19 @@
         "url": "https://www.moe.gov.sg/post-secondary/admissions/pse/jc-and-mi"
       }
     ]
+  },
+  "https://sgeda.org.cn/aeis/timeline/": {
+    "lastVerified": "2026-11-25",
+    "note": "本页的报名、考试与入学时间以 MOE 的 AEIS 与 S-AEIS 页面为准；S-AEIS 2027 的考试日期为 MOE 标注的暂定时间。",
+    "sources": [
+      {
+        "label": "MOE — AEIS 国际学生入学",
+        "url": "https://www.moe.gov.sg/international-students/aeis"
+      },
+      {
+        "label": "MOE — S-AEIS 补充考试",
+        "url": "https://www.moe.gov.sg/international-students/s-aeis"
+      }
+    ]
   }
 }

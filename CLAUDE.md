@@ -74,6 +74,31 @@ nav.breadcrumb{display:block}
 - **robots 白名单与 `data/seo/baidu-priority-urls.txt` 是同一个事实源**：清单里的 URL 即使位于模板前缀下，`build-content.mjs` 也会自动 `Allow`。想让百度抓某页，加进清单即可，不要再手写 Allow
 - **`sitemap.xml` 只给 Google，`robots.txt` 里只声明 `baidu-sitemap.xml`**：前者是 653 条全量，其中约 391 条对 Baiduspider 是屏蔽的，再交给百度就等于喂它一份自相矛盾的地图
 
+### 旧站 URL 重定向表
+
+2022–2025 的旧站用过编号详情页，百度索引里残留的很可能就是这批地址。nginx 已全部映射：
+
+| 旧地址 | 现在 |
+| --- | --- |
+| `/school/detail/N` | 301 → `/school-database/` |
+| `/pages/detail/N` | 301 → `/pathway/` |
+| `/project`、`/project/*` | 301 → `/pathway/` |
+| `/news/detail/N` | 301 → `/news/` |
+| `/feedback` | 301 → `/contact/` |
+| `/attach/image/*` | 410（旧图已删，明确告知） |
+
+### 抓取体检
+
+`scripts/baidu-crawl-audit.sh` 在服务器上运行，读 nginx 日志、双向 DNS 验证蜘蛛、
+统计「接口 / 静态资源 / HTML」的配额占比和核心页覆盖情况。
+
+```bash
+ssh root@8.141.10.184 'bash /var/www/sgeda/scripts/baidu-crawl-audit.sh 7'
+```
+
+2026-11-25 基线：14 天 558 次 GET，其中 168 次打 `/api/config`，只抓到 96 个 HTML 页面，
+`/aeis/` 0 次。修掉接口请求和筛选态 URL 后，这个脚本用来验证配额是否真的转向 HTML。
+
 ## SEO/GEO 要点
 
 - 死链清单：`dead-links.txt`（站根，百度站长已订阅，新死链追加进去即可）

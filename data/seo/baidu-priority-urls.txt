@@ -6,13 +6,13 @@
 # 品牌、核心栏目与课程体系（24）
 https://sgeda.org.cn/
 https://sgeda.org.cn/about/
-https://sgeda.org.cn/news/
 https://sgeda.org.cn/school-database/
 https://sgeda.org.cn/pathway/
 https://sgeda.org.cn/government-schools/
 https://sgeda.org.cn/primary-schools/
 https://sgeda.org.cn/secondary-schools/
 https://sgeda.org.cn/international-school/
+https://sgeda.org.cn/international-school/singapore-international-school-fees/
 https://sgeda.org.cn/international-school/schools/
 https://sgeda.org.cn/private-schools/
 https://sgeda.org.cn/university/

@@ -4,7 +4,11 @@
 
 ## 部署
 
-`git push origin main` → GitHub Actions 自动部署到阿里云 ECS（新加坡 43.98.175.239，git reset --hard + 运行 build-content.mjs 等）。**远端常有日更内容提交，push 被拒时 `git pull --rebase` 再推**。大陆流量走阿里云 CDN（CNAME 分线路：中国大陆→CDN，海外→源站直连；CDN 回源协议必须 HTTPS，否则 301 循环）。
+`git push origin main` → GitHub Actions 的 `deploy-aliyun.yml` 自动部署到**阿里云北京 ECS `8.141.10.184`**（cn-beijing，站点目录 `/var/www/sgeda`，SSH 密钥 `~/.ssh/sgeda_beijing`）。流程是 git reset --hard → 恢复 CMS 内容 → `npm ci` → **`npm test`** → `build-content.mjs` → `seo-check.mjs`。**`set -e`，任何一步失败整次部署中止**——2026-11-24 起就因为首页改版后测试没同步，连续十几次部署全挂，线上落后好几天；改测试或改内容后必须本地先跑 `npm test` + `npm run seo:check`。
+
+**没有 CDN**：DNS 是 A 记录直连源站（无 CNAME、无分线路），源站在境内，百度/大陆访问直连即可。旧文档里的新加坡机 `43.98.175.239` 已弃用（证书过期），别再往那台部署。`nginx.conf` 只是仓库里的参照副本，实际生效的是服务器 `/etc/nginx/sites-available/sgeda-http`，部署不会覆盖它。
+
+**远端常有日更内容提交，push 被拒时 `git pull --rebase` 再推**。
 
 ## 新建/重设计单页的「四件套」（必须遵守）
 
@@ -38,10 +42,13 @@ nav.breadcrumb{display:block}
 - 数据年份保鲜是护城河命脉：poly ELR2B2（每年 1 月 JAE 后刷新）、secondary-schools COP（每年 12-1 月放榜后刷新）、JC L1R5
 - 不同类型数据库（poly/公立/私立/国际）不互相交叉链接混淆定位
 - robots.txt 故意屏蔽了模板化学校子页（防低质惩罚）；去模板化一批才解封一批
+- **robots 白名单与 `data/seo/baidu-priority-urls.txt` 是同一个事实源**：清单里的 URL 即使位于模板前缀下，`build-content.mjs` 也会自动 `Allow`。想让百度抓某页，加进清单即可，不要再手写 Allow
+- **`sitemap.xml` 只给 Google，`robots.txt` 里只声明 `baidu-sitemap.xml`**：前者是 653 条全量，其中约 391 条对 Baiduspider 是屏蔽的，再交给百度就等于喂它一份自相矛盾的地图
 
 ## SEO/GEO 要点
 
 - 死链清单：`dead-links.txt`（站根，百度站长已订阅，新死链追加进去即可）
 - `verification.html`（阿里云 CDN 归属凭证）与谷歌验证文件**不可删除**
-- 推送脚本 `scripts/baidu-submit.sh`：priority-urls.txt 非空=集中推清单，空=轮换 baidu-sitemap
+- 百度主动推送走 **GitHub Actions `baidu-push.yml`**（每日一次，读 `baidu-sitemap.xml`，配额不足自动减半）。`scripts/baidu-submit.sh` 是**故意禁用**的兼容壳（`tests/baidu-submission-disabled.test.mjs` 守着它），别在里面恢复推送逻辑
+- 主机名：`www.sgeda.org.cn` 和 80 端口一律 301 到 `https://sgeda.org.cn`；旧草稿 URL 用 nginx `location =` 做 301，别留 404
 - Let's Encrypt 证书（CDN 用）约 90 天续签：资料在 `~/.seda-certbot/`，HTTP-01 验证文件走 git 部署（见 certbot-auth-hook.sh）

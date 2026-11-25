@@ -124,7 +124,7 @@
     "lastmod": "2026-06-09"
   },
   "https://sgeda.org.cn/aeis/": {
-    "fingerprint": "2599173b2ce76ca68ec169a432331ed8410ae15c740783e068c41dd1c5c5b387",
+    "fingerprint": "65a76b8f5ec3b9e0ea25d8990cb0947fbef62c66b8f78567244b10592da47513",
     "lastmod": "2026-11-25"
   },
   "https://sgeda.org.cn/aeis/math/": {
@@ -164,8 +164,8 @@
     "lastmod": "2026-06-09"
   },
   "https://sgeda.org.cn/au-university/": {
-    "fingerprint": "fb9ffa4faa02b1d8575f28d9d72806c127c4e6efd7ec43f7335c0b931556ac26",
-    "lastmod": "2026-06-09"
+    "fingerprint": "3efe658dfb4177108e8842b24748ebeca33ad660f8944eb994526964f7a6c932",
+    "lastmod": "2026-11-25"
   },
   "https://sgeda.org.cn/au-university/matcher/": {
     "fingerprint": "110ca123f1206a22d5b0b969d1077d61be78188e1f29c719cf2790c2fe037557",
@@ -284,8 +284,8 @@
     "lastmod": "2026-06-09"
   },
   "https://sgeda.org.cn/guides/": {
-    "fingerprint": "65eeeb8a384dee6a48e5f16d07335228eb2707db9857ee37cce00511b4dcaeb8",
-    "lastmod": "2026-06-09"
+    "fingerprint": "6626c1acd32abac14c6b1263c43afe3cec318a028778b561f6de9b21993cac43",
+    "lastmod": "2026-11-25"
   },
   "https://sgeda.org.cn/guides/parents-faq/": {
     "fingerprint": "fd5e1280bb72ec3b637c8af7c444d761293c1908139bd557f70bbd02cae050f5",
@@ -436,8 +436,8 @@
     "lastmod": "2026-11-25"
   },
   "https://sgeda.org.cn/international-school/": {
-    "fingerprint": "5bb84f81dd66fc26dda65f30ab8079bbec207472eb9a3c3c2d70f4697560231e",
-    "lastmod": "2026-10-11"
+    "fingerprint": "92b73720eb942033d6d2bb41ab1a7fc0a13d920e03734c93ac00c3aa45b1be86",
+    "lastmod": "2026-11-25"
   },
   "https://sgeda.org.cn/international-school/insworld-institute/": {
     "fingerprint": "22d2c74f28b9fcbd0f1b1e472f6b31f5462a71fc9c084429eaafb5dd180de900",
@@ -592,7 +592,7 @@
     "lastmod": "2026-11-25"
   },
   "https://sgeda.org.cn/jc/": {
-    "fingerprint": "3f5090de1490ef486bdc4177465f339ebe0177581c927fc7031d232582d63fa3",
+    "fingerprint": "e89ac9e4c1fcd5e858fceaa2a5822cc560565f1060bde8bf5ab9e2333c39911b",
     "lastmod": "2026-11-25"
   },
   "https://sgeda.org.cn/jc/jurong-pioneer-jc/": {
@@ -652,7 +652,7 @@
     "lastmod": "2026-11-25"
   },
   "https://sgeda.org.cn/o-level/": {
-    "fingerprint": "d4d30dd469105321a2c7442bc8f8712f2eb246d70b16c4170c4d72ce83244c17",
+    "fingerprint": "aaa23068830dd6c7642223d7411b57dc13e1c5e2e01afb7b428560a82071dc7d",
     "lastmod": "2026-11-25"
   },
   "https://sgeda.org.cn/o-level/o-level-apply-overseas-high-school/": {
@@ -816,8 +816,8 @@
     "lastmod": "2026-06-09"
   },
   "https://sgeda.org.cn/pathway/": {
-    "fingerprint": "938dc41a9f0bc4c119ae367969b053f2ed112cd484be257d94e2e02c0b05c0d4",
-    "lastmod": "2026-06-15"
+    "fingerprint": "5737edd20f90db83b069b6f847106ea2a3ce059bf9a3b3c20abcd34e01e9ec59",
+    "lastmod": "2026-11-25"
   },
   "https://sgeda.org.cn/pathway/ntu/": {
     "fingerprint": "46de53b1361abe1f0080c2fd7effc2b7797f1c530505b3a2947c0002e1346801",
@@ -1628,7 +1628,7 @@
     "lastmod": "2026-11-25"
   },
   "https://sgeda.org.cn/private-schools/": {
-    "fingerprint": "b4800380698ec4d3ba1bc4f3b050405b3c293ef0c0b8c8b23aeee32d135d964a",
+    "fingerprint": "c9c990736ca792e7638a449ab644dc13ad7488a7c548dd40b51b143f7812bd06",
     "lastmod": "2026-11-25"
   },
   "https://sgeda.org.cn/private-schools/insworld-institute/": {
@@ -1976,7 +1976,7 @@
     "lastmod": "2026-11-25"
   },
   "https://sgeda.org.cn/secondary-schools/": {
-    "fingerprint": "5aaa84d2e4af6fcad4c402d8818c8acc2689757558688810712c27705729ed07",
+    "fingerprint": "d5983d6fb5d8a799532b7c05782f1a43805b65b126850d6ea85d48f6833f1902",
     "lastmod": "2026-11-25"
   },
   "https://sgeda.org.cn/secondary-schools/junyuan/": {
@@ -2320,7 +2320,7 @@
     "lastmod": "2026-11-25"
   },
   "https://sgeda.org.cn/singapore-education/": {
-    "fingerprint": "027b22773b186e11c137fd45e0c0eeab75a1444991e5064443802cc6f35773e1",
+    "fingerprint": "c69094abe62c6f2d4ea8a871fa054f4d2c8435d2ec7e502568469f900c1cf350",
     "lastmod": "2026-11-25"
   },
   "https://sgeda.org.cn/singapore-education/junior-college/": {
@@ -2408,8 +2408,8 @@
     "lastmod": "2026-09-17"
   },
   "https://sgeda.org.cn/university/": {
-    "fingerprint": "6390b2af15c98b02711028ed52c653bf02a01707197a22bc77d3e649efc6a0c0",
-    "lastmod": "2026-10-11"
+    "fingerprint": "64f8050a6bdc76e6bc68a51cd74d82cd7639d72fa152c4f52bab93a6632e21a8",
+    "lastmod": "2026-11-25"
   },
   "https://sgeda.org.cn/university/ntu/": {
     "fingerprint": "603f8095a42b4bd082413d7f0b6bc2641bfafae9e81ab103863b92a76157b78b",
@@ -2452,7 +2452,7 @@
     "lastmod": "2026-06-09"
   },
   "https://sgeda.org.cn/wace/": {
-    "fingerprint": "73bb734f7a41552fb7aec234d580557a05bce7123c087b36bb7516ffc037deb6",
+    "fingerprint": "5bef889fafa3359ceaeaaae6469000537d70591548fdd42d52a0046263e44d31",
     "lastmod": "2026-11-25"
   },
   "https://sgeda.org.cn/wace/subjects/": {

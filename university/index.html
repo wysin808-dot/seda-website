@@ -439,7 +439,32 @@ var _hmt = _hmt || [];
 function run(el){var t=parseInt((el.textContent||'').replace(/[^0-9]/g,''),10);if(isNaN(t)){return;}var d=900,s=null;
 function step(ts){if(!s)s=ts;var p=Math.min((ts-s)/d,1),e=1-Math.pow(1-p,3);el.textContent=Math.round(e*t);if(p<1){requestAnimationFrame(step);}}requestAnimationFrame(step);}
 if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){run(en.target);io.unobserve(en.target);}});},{threshold:.5});els.forEach(function(el){io.observe(el);});}else{els.forEach(run);}})();
-</script></main>
+</script><!-- SEDA_ALL_SCHOOLS_START -->
+<section class="all-schools" aria-labelledby="all-schools-title">
+  <style>
+    .all-schools{max-width:1240px;margin:40px auto 0;padding:0 clamp(16px,4vw,40px)}
+    .all-schools details{border:1px solid #e7e1d6;border-radius:12px;background:#fbf8f2;padding:14px 18px}
+    .all-schools summary{cursor:pointer;font-weight:700;color:#1f2328}
+    .all-schools ul{list-style:none;margin:14px 0 0;padding:0;columns:3;column-gap:28px;font-size:14px;line-height:1.9}
+    .all-schools li{break-inside:avoid}
+    .all-schools a{color:#0b5cad;text-decoration:none;border-bottom:1px solid rgba(11,92,173,.25)}
+    @media(max-width:900px){.all-schools ul{columns:2}}
+    @media(max-width:600px){.all-schools ul{columns:1}}
+  </style>
+  <details>
+    <summary id="all-schools-title">其余 2 个页面（共 10 个页面，按拼音排序，可展开）</summary>
+    <ul>
+      <li><a href="/university/nus-undergraduate-application-chinese-students/">新加坡国立大学本科怎么申请？中国学生家长需要先看懂规则</a></li>
+      <li><a href="/university/admission/">中国学生申请新加坡公立大学</a></li>
+    </ul>
+  </details>
+</section>
+<!-- SEDA_ALL_SCHOOLS_END -->
+<section class="also-see" style="max-width:1240px;margin:32px auto 0;padding:0 clamp(16px,4vw,40px)">
+  <p style="font-size:15px;color:#5b5b5b;line-height:1.8">读完本科想继续读硕士？可以看 <a href="/mba/">中新联合 MBA 升学计划</a>（面向大专学历，18 个月，英国雷克瑟姆大学学位）。</p>
+</section>
+
+</main>
 <footer class="site-footer">
       <div class="footer-inner">
         <div class="footer-main">

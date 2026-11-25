@@ -17,11 +17,24 @@ const START = '<!-- SEDA_ALL_SCHOOLS_START -->';
 const END = '<!-- SEDA_ALL_SCHOOLS_END -->';
 
 export function addStaticSchoolList(root, { checkOnly = false } = {}) {
-  const targets = [
-    { dir: 'primary-schools', urlPrefix: '/primary-schools/', label: '全部政府小学' },
-    { dir: 'secondary-schools', urlPrefix: '/secondary-schools/', label: '全部政府中学' },
-    { dir: 'private-schools', urlPrefix: '/private-schools/', label: '全部私立学校' },
-  ];
+  // 显式列出的学校库用固定标题；其余栏目自动扫描（只补未链接的子页）
+  const explicit = {
+    'primary-schools': '全部政府小学',
+    'secondary-schools': '全部政府中学',
+    'private-schools': '全部私立学校',
+  };
+  const targets = [];
+  for (const dirent of fs.readdirSync(root, { withFileTypes: true })) {
+    if (!dirent.isDirectory()) continue;
+    const dir = dirent.name;
+    if (dir.startsWith('.') || ['node_modules', 'content', 'assets', 'cms', 'content-review', 'reports', 'scripts', 'docs', 'data'].includes(dir)) continue;
+    const hub = path.join(root, dir, 'index.html');
+    if (!fs.existsSync(hub)) continue;
+    const children = fs.readdirSync(path.join(root, dir), { withFileTypes: true })
+      .filter((e) => e.isDirectory() && fs.existsSync(path.join(root, dir, e.name, 'index.html')));
+    if (children.length < 2) continue;
+    targets.push({ dir, urlPrefix: `/${dir}/`, label: explicit[dir] || '更多内容' });
+  }
 
   let updated = 0;
   for (const t of targets) {
@@ -46,8 +59,12 @@ export function addStaticSchoolList(root, { checkOnly = false } = {}) {
     // 只补「枢纽页还没链接到」的学校：secondary 已有预渲染卡片，
     // 全量再列一遍只会产生重复链接。统计时排除脚本自己生成过的块。
     const cleanHub = fs.readFileSync(hub, 'utf8').replace(new RegExp(`${START}[\\s\\S]*?${END}`, 'g'), '');
-    const linked = new Set(cleanHub.match(new RegExp(`href="${t.urlPrefix}[^"/]+/`, 'g')) || []);
-    const missing = entries.filter((e) => !linked.has(`href="${e.link}"`));
+    // 单双引号都要认（二级页的卡片用的是 href='...'），并且按 URL 去重
+    const linked = new Set(
+      (cleanHub.match(new RegExp(`href=["'](${t.urlPrefix}[^"']+)["']`, 'g')) || [])
+        .map((m) => m.replace(/^href=["']/, '').replace(/["']$/, '')),
+    );
+    const missing = entries.filter((e) => !linked.has(e.link));
     if (!missing.length) {
       let cur = fs.readFileSync(hub, 'utf8');
       if (cur.includes(START)) {
@@ -59,10 +76,11 @@ export function addStaticSchoolList(root, { checkOnly = false } = {}) {
 
     const items = missing.map((s2) => `      <li><a href="${s2.link}">${s2.name}</a></li>`).join('\n');
 
-    const allLinked = entries.length - missing.length;
-    const label = allLinked === 0
-      ? `${t.label}（${missing.length} 所，按拼音排序，可展开）`
-      : `其余 ${missing.length} 所（共 ${entries.length} 所，按拼音排序，可展开）`;
+    const isSchoolLib = Boolean(explicit[t.dir]);
+    const unit = isSchoolLib ? '所' : '个页面';
+    const label = missing.length === entries.length
+      ? `${t.label}（${missing.length} ${unit}，按拼音排序，可展开）`
+      : `其余 ${missing.length} ${unit}（共 ${entries.length} ${unit}，按拼音排序，可展开）`;
     const block = `${START}
 <section class="all-schools" aria-labelledby="all-schools-title">
   <style>
@@ -89,6 +107,9 @@ ${END}`;
       html = html.replace(new RegExp(`${START}[\\s\\S]*?${END}`), block);
     } else if (html.includes('</main>')) {
       html = html.replace('</main>', `${block}\n</main>`);
+    } else if (html.includes('<footer class="site-footer"')) {
+      // o-level / jc 这类枢纽没有 <main>，插在页脚之前
+      html = html.replace('<footer class="site-footer"', `${block}\n<footer class="site-footer"`);
     } else {
       continue;
     }

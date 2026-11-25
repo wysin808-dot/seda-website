@@ -16,15 +16,19 @@
   },
   "https://sgeda.org.cn/guides/student-pass/": {
     "lastVerified": "2026-11-25",
-    "note": "本页的申请条件、材料清单、SOLAR 在线流程与费用，以 ICA 与 MOE 当期规定为准；审批结果由 ICA 决定。",
+    "note": "本页的费用（受理费 S$45、签发费 S$60、多次入境签证 S$30）与 SOLAR 流程以 ICA 当前公布为准；审批结果由 ICA 决定，学校只负责提交申请。",
     "sources": [
       {
-        "label": "新加坡移民与关卡局 ICA — Student's Pass 申请",
+        "label": "ICA — Student's Pass 申请与续签",
         "url": "https://www.ica.gov.sg/reside/STP/apply"
       },
       {
-        "label": "新加坡教育部 MOE — 国际学生入学总览",
-        "url": "https://www.moe.gov.sg/international-students"
+        "label": "ICA SOLAR 常见问题（费用说明）",
+        "url": "https://eservices.ica.gov.sg/solar/xhtml/StaticPages/Faq.xhtml"
+      },
+      {
+        "label": "ICA — 准证签发手续与费用",
+        "url": "https://www.ica.gov.sg/information-and-e-services/long-term-visit-and-study/student-s-pass/completion-of-formalities-and-issuance-of-student%27s-pass"
       }
     ]
   },

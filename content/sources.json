@@ -1,0 +1,53 @@
+{
+  "_comment": "页面级官方来源清单。enhance-eeat.mjs 会把它渲染成每页底部的「资料来源与核实」区块，并把 URL 写进 Article 的 citation。新增页面时在这里登记；url 必须是页面自己的 canonical。",
+  "https://sgeda.org.cn/aeis/": {
+    "lastVerified": "2026-11-25",
+    "note": "本页的招生年级、CEQ 要求、测试科目与报名流程，以 MOE 与 SEAB 当期公告为准；官方调整后以官方为准。",
+    "sources": [
+      {
+        "label": "新加坡教育部 MOE — AEIS 国际学生入学",
+        "url": "https://www.moe.gov.sg/international-students/aeis"
+      },
+      {
+        "label": "新加坡考试与评鉴局 SEAB — AEIS 考试说明",
+        "url": "https://www.seab.gov.sg/aeis/"
+      }
+    ]
+  },
+  "https://sgeda.org.cn/guides/student-pass/": {
+    "lastVerified": "2026-11-25",
+    "note": "本页的申请条件、材料清单、SOLAR 在线流程与费用，以 ICA 与 MOE 当期规定为准；审批结果由 ICA 决定。",
+    "sources": [
+      {
+        "label": "新加坡移民与关卡局 ICA — Student's Pass 申请",
+        "url": "https://www.ica.gov.sg/reside/STP/apply"
+      },
+      {
+        "label": "新加坡教育部 MOE — 国际学生入学总览",
+        "url": "https://www.moe.gov.sg/international-students"
+      }
+    ]
+  },
+  "https://sgeda.org.cn/wace/": {
+    "lastVerified": "2026-11-25",
+    "note": "本页的 WACE 毕业要求、ATAR 计算与大学录取门槛，以 WA 教育部、TISC 与两校官网当期内容为准；录取仍取决于专业与当年竞争。",
+    "sources": [
+      {
+        "label": "西澳教育部 — WACE 西澳高中毕业资格",
+        "url": "https://www.education.wa.edu.au/wace"
+      },
+      {
+        "label": "TISC — ATAR 是什么、如何计算",
+        "url": "https://www.tisc.edu.au/static/guide/atar-about.tisc"
+      },
+      {
+        "label": "新加坡国立大学 NUS — 国际学历申请要求",
+        "url": "https://www.nus.edu.sg/oam/admissions/international-qualifications"
+      },
+      {
+        "label": "南洋理工大学 NTU — 本科招生要求",
+        "url": "https://www.ntu.edu.sg/admissions/undergraduate"
+      }
+    ]
+  }
+}

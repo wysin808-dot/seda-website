@@ -16,7 +16,9 @@
     "check:robots": "node scripts/check-robots-encoding.mjs robots.txt",
     "content:audit": "node scripts/content-quality-audit.mjs",
     "content:eeat": "node scripts/enhance-eeat.mjs",
-    "content:eeat:check": "node scripts/enhance-eeat.mjs --check"
+    "content:eeat:check": "node scripts/enhance-eeat.mjs --check",
+    "content:lint": "node scripts/content-lint.mjs",
+    "content:lint:check": "node scripts/content-lint.mjs --check"
   },
   "dependencies": {
     "cheerio": "^1.2.0",

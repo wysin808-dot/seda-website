@@ -299,5 +299,19 @@
         "url": "https://www.ica.gov.sg/reside/STP/apply"
       }
     ]
+  },
+  "https://sgeda.org.cn/aeis/preparation/": {
+    "lastVerified": "2026-11-25",
+    "note": "本页的报考年级、报名与考试时间、是否需要 CEQ，以 MOE 与 SEAB 当期公告为准；每年日程会调整，报名在 7 月。",
+    "sources": [
+      {
+        "label": "新加坡教育部 MOE — AEIS 国际学生入学",
+        "url": "https://www.moe.gov.sg/international-students/aeis"
+      },
+      {
+        "label": "新加坡考试与评鉴局 SEAB — AEIS 考试说明",
+        "url": "https://www.seab.gov.sg/aeis/"
+      }
+    ]
   }
 }

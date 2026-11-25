@@ -7,6 +7,7 @@ import { partitionArticles, prepareArticleHtml } from './content-validation.mjs'
 import { baiduAllowed, inspectPage, parseSitemap, prioritySitemapEntries, sitemapXml } from './seo-pages.mjs';
 import { syncSiteFooter } from './sync-site-footer.mjs';
 import { applySources } from './enhance-eeat.mjs';
+import { applyOrganization } from './enhance-organization.mjs';
 
 const root = process.cwd();
 const domain = 'https://sgeda.org.cn';
@@ -1145,10 +1146,12 @@ const footerSync = syncSiteFooter(root);
 // 来源/署名区块必须在生成 sitemap 之前注入，否则页面 fingerprint 漏掉这一块，
 // lastmod 不会随内容变化。
 const eeat = applySources(root);
+const org = applyOrganization(root);
 const urlCount = updateSitemap(drafts);
 console.log(`Synchronized ${footerSync.updated} shared footers (${footerSync.checked} pages checked).`);
 console.log(`Built ${articles.length} content articles.`);
 console.log(`Attached official sources to ${eeat.total} pages (${eeat.updated} changed).`);
+console.log(`Injected Organization node on ${org.total} pages (${org.updated} changed).`);
 console.log(`Built ${schoolPageCount} school SEO pages.`);
 console.log(`Enhanced ${enhancedKeyPageCount} key SEO pages.`);
 console.log(`Enhanced ${enhancedUtilitySchemaCount} utility pages with schema.`);

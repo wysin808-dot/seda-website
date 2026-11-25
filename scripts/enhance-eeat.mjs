@@ -56,7 +56,7 @@ function renderBlock(entry) {
 ${sources}
   </ul>
   <dl>
-    <dt>维护</dt><dd>SEDA 编辑部（新加坡教育发展协会）</dd>
+    <dt>维护</dt><dd><a href="/about/#editorial">SEDA 编辑部（新加坡教育发展协会）</a></dd>
     <dt>最近核实</dt><dd>${esc(entry.lastVerified)}</dd>
     <dt>纠错</dt><dd>发现错误或过期信息，请通过 <a href="/contact/">联系我们</a> 指出本页链接，我们核对后更新。</dd>
     <dt>更新记录</dt><dd>${esc(entry.lastVerified)} 标注官方来源、核实日期与纠错入口</dd>

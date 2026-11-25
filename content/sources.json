@@ -398,7 +398,7 @@
   },
   "https://sgeda.org.cn/international-school/singapore-international-school-fees/": {
     "lastVerified": "2026-11-25",
-    "note": "学费取自 SAIS 与 UWCSEA 的官方 2026/27 收费表；两校口径不同（SAIS 含技术费、UWCSEA 另收发展金），对比时需按实际支出计算。其余学校仍在逐校核对。",
+    "note": "学费取自 CIS、SAIS、UWCSEA 的官方 2026/27 收费表；三所口径不同（CIS 另收申请/确认/设施费、SAIS 含技术费、UWCSEA 另收发展金），且学段切分不一致，不可直接按标价排序。其余学校仍在逐校核对。",
     "sources": [
       {
         "label": "SAIS — AY26/27 Fee Schedule（官方 PDF）",
@@ -407,6 +407,10 @@
       {
         "label": "UWCSEA — 2026/2027 收费页",
         "url": "https://www.uwcsea.edu.sg/admissions/fees-and-scholarships/fees"
+      },
+      {
+        "label": "CIS — Fee Schedule 2026/2027（官方 PDF）",
+        "url": "https://media.sg.digistormhosting.com.au/cis-sg-04-129-website-2025/content/3-Admissions/Fees/Fee-schedule-and-financial-policies-2026-2027-updated-Mar-6-2026.pdf"
       }
     ]
   }

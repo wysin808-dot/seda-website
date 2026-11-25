@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://sgeda.org.cn/</loc>
-    <lastmod>2026-10-14</lastmod>
+    <lastmod>2026-11-25</lastmod>
   </url>
   <url>
     <loc>https://sgeda.org.cn/about/</loc>
@@ -37,6 +37,10 @@
     <lastmod>2026-10-11</lastmod>
   </url>
   <url>
+    <loc>https://sgeda.org.cn/international-school/schools/</loc>
+    <lastmod>2026-06-15</lastmod>
+  </url>
+  <url>
     <loc>https://sgeda.org.cn/private-schools/</loc>
     <lastmod>2026-06-15</lastmod>
   </url>
@@ -54,7 +58,7 @@
   </url>
   <url>
     <loc>https://sgeda.org.cn/jc/</loc>
-    <lastmod>2026-06-09</lastmod>
+    <lastmod>2026-11-25</lastmod>
   </url>
   <url>
     <loc>https://sgeda.org.cn/guides/</loc>
@@ -86,15 +90,15 @@
   </url>
   <url>
     <loc>https://sgeda.org.cn/wace/</loc>
-    <lastmod>2026-09-17</lastmod>
+    <lastmod>2026-11-25</lastmod>
   </url>
   <url>
     <loc>https://sgeda.org.cn/o-level/</loc>
-    <lastmod>2026-09-17</lastmod>
+    <lastmod>2026-11-25</lastmod>
   </url>
   <url>
     <loc>https://sgeda.org.cn/aeis/</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-11-25</lastmod>
   </url>
   <url>
     <loc>https://sgeda.org.cn/guides/accommodation/</loc>
@@ -106,7 +110,7 @@
   </url>
   <url>
     <loc>https://sgeda.org.cn/guides/cost/</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-11-25</lastmod>
   </url>
   <url>
     <loc>https://sgeda.org.cn/guides/dependent-pass/</loc>
@@ -314,10 +318,6 @@
   </url>
   <url>
     <loc>https://sgeda.org.cn/aeis/timeline/</loc>
-    <lastmod>2026-06-09</lastmod>
-  </url>
-  <url>
-    <loc>https://sgeda.org.cn/aeis/grade-checker/</loc>
     <lastmod>2026-06-09</lastmod>
   </url>
   <url>

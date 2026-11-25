@@ -13,6 +13,7 @@ https://sgeda.org.cn/government-schools/
 https://sgeda.org.cn/primary-schools/
 https://sgeda.org.cn/secondary-schools/
 https://sgeda.org.cn/international-school/
+https://sgeda.org.cn/international-school/schools/
 https://sgeda.org.cn/private-schools/
 https://sgeda.org.cn/university/
 https://sgeda.org.cn/private-university/
@@ -95,7 +96,6 @@ https://sgeda.org.cn/aeis/preparation/
 https://sgeda.org.cn/aeis/results/
 https://sgeda.org.cn/aeis/s-aeis/
 https://sgeda.org.cn/aeis/timeline/
-https://sgeda.org.cn/aeis/grade-checker/
 https://sgeda.org.cn/aeis/aeis-exam-fees-registration/
 https://sgeda.org.cn/aeis/aeis-preparation-timeline/
 https://sgeda.org.cn/aeis/aeis-primary-vs-secondary-application/

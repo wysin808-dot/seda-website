@@ -45,7 +45,12 @@ export function runCheck(file) {
     .split('\n')
     .filter((l) => l.startsWith('Sitemap:'))
     .length;
-  if (sitemapLines < 2) errors.push(`Sitemap 行数异常（应为 2 行，实际 ${sitemapLines} 行）`);
+  // 只对百度暴露 baidu-sitemap.xml：sitemap.xml 是给 Google 的全量表，
+  // 里面 60% 的 URL 对 Baiduspider 是屏蔽的，挂在这里会让百度读到自相矛盾的地图。
+  if (sitemapLines < 1) errors.push(`Sitemap 行数异常（至少 1 行，实际 ${sitemapLines} 行）`);
+  if (!text.includes('Sitemap: https://sgeda.org.cn/baidu-sitemap.xml')) {
+    errors.push('缺少 Baidu sitemap 声明 Sitemap: https://sgeda.org.cn/baidu-sitemap.xml');
+  }
 
   if (errors.length > 0) {
     console.error(`❌ ${file} 编码/内容检查未通过:`);

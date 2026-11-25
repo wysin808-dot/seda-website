@@ -10,6 +10,7 @@ import { applySources } from './enhance-eeat.mjs';
 import { applyOrganization } from './enhance-organization.mjs';
 import { softenCta } from './soften-page-cta.mjs';
 import { varyHero } from './vary-hero.mjs';
+import { addStaticSchoolList } from './add-static-school-list.mjs';
 
 const root = process.cwd();
 const domain = 'https://sgeda.org.cn';
@@ -1151,6 +1152,7 @@ const eeat = applySources(root);
 const org = applyOrganization(root);
 const cta = softenCta(root);
 const hero = varyHero(root);
+const schoolList = addStaticSchoolList(root);
 const urlCount = updateSitemap(drafts);
 console.log(`Synchronized ${footerSync.updated} shared footers (${footerSync.checked} pages checked).`);
 console.log(`Built ${articles.length} content articles.`);
@@ -1158,6 +1160,7 @@ console.log(`Attached official sources to ${eeat.total} pages (${eeat.updated} c
 console.log(`Injected Organization node on ${org.total} pages (${org.updated} changed).`);
 console.log(`Softened CTA on ${cta.softened} pages (${cta.kept} keep full card).`);
 console.log(`Varied hero on ${hero.school} school pages and ${hero.pathway} pathway pages.`);
+if (schoolList.updated) console.log(`Static school lists updated on ${schoolList.updated} hubs.`);
 console.log(`Built ${schoolPageCount} school SEO pages.`);
 console.log(`Enhanced ${enhancedKeyPageCount} key SEO pages.`);
 console.log(`Enhanced ${enhancedUtilitySchemaCount} utility pages with schema.`);

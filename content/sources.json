@@ -395,5 +395,15 @@
         "url": "https://www.moe.gov.sg/international-students/s-aeis"
       }
     ]
+  },
+  "https://sgeda.org.cn/international-school/singapore-international-school-fees/": {
+    "lastVerified": "2026-11-25",
+    "note": "本页的 SAIS 学费取自该校 AY26/27 官方收费表；其余学校的费用仍在逐校核对，未核实的数字不写入表格。",
+    "sources": [
+      {
+        "label": "SAIS — AY26/27 Fee Schedule（官方 PDF）",
+        "url": "https://www.sais.edu.sg/wp-content/uploads/sites/36/2026/08/SAIS-International-Singapore-Fees-2026-2027-Early-Years-to-High-School.pdf"
+      }
+    ]
   }
 }

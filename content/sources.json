@@ -359,5 +359,23 @@
         "url": "https://www.moe.gov.sg/post-secondary/admissions/pse"
       }
     ]
+  },
+  "https://sgeda.org.cn/o-level/exam-format/": {
+    "lastVerified": "2026-11-25",
+    "note": "本页的报名、准考证、实验考试、放榜日期以 SEAB 的 Important Dates 为准；科目结构与计分位置以 MOE 的 JC / Poly 入学规则为准。",
+    "sources": [
+      {
+        "label": "SEAB — Important Dates for Candidates（2026 考试日历）",
+        "url": "https://www.seab.gov.sg/important-dates-for-candidates/"
+      },
+      {
+        "label": "SEAB — GCE O-Level 考试总览",
+        "url": "https://www.seab.gov.sg/gce-o-level/"
+      },
+      {
+        "label": "MOE — 2028 起 JC / MI 入学标准（L1R4）",
+        "url": "https://www.moe.gov.sg/post-secondary/admissions/pse/jc-and-mi"
+      }
+    ]
   }
 }

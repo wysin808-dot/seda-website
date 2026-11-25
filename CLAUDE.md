@@ -112,6 +112,19 @@ ssh root@8.141.10.184 'bash /var/www/sgeda/scripts/baidu-crawl-audit.sh 7'
 执行分工：页面/数据/结构化归我，站长平台与百家号归运营。
 每周跑 `scripts/baidu-crawl-audit.sh` 看抓取结构是否改善。
 
+### 月度政策核对
+
+`scripts/policy-check.mjs` 每月 1 号由 `.github/workflows/policy-check.yml` 自动跑：
+
+- 遍历 `content/sources.json` 里 26 条官方来源，检查是否仍返回 200
+- 断言 5 个会被政策改动的数字：学生准证受理费 S$45、JC 的 L1R4 ≤16、
+  AEIS 在 9 月、S-AEIS 1 月报名、SEC 已取代 O-Level
+
+任一失败即 workflow 失败（GitHub 会邮件提醒），并在失败信息里写清「该改哪一页」。
+
+背景：2026-11 这轮重写每改一页都能抓到一处过期事实（AEIS 小学英文卷、
+L1R5、受理费 S$30、时间表停在 2025-2026）。页面写得很完整，但没人跟政策走。
+
 ## SEO/GEO 要点
 
 - 死链清单：`dead-links.txt`（站根，百度站长已订阅，新死链追加进去即可）

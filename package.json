@@ -18,7 +18,8 @@
     "content:eeat": "node scripts/enhance-eeat.mjs",
     "content:eeat:check": "node scripts/enhance-eeat.mjs --check",
     "content:lint": "node scripts/content-lint.mjs",
-    "content:lint:check": "node scripts/content-lint.mjs --check"
+    "content:lint:check": "node scripts/content-lint.mjs --check",
+    "policy:check": "node scripts/policy-check.mjs"
   },
   "dependencies": {
     "cheerio": "^1.2.0",

@@ -1,0 +1,33 @@
+name: Policy Check
+
+# 每月 1 号核对官方来源：链接是否还在、关键数字是否还成立。
+# 网站引用的政策数字（受理费、L1R4、AEIS 时间表）会变，而页面不会自己更新。
+on:
+  schedule:
+    # 1 号 09:00 新加坡时间（01:00 UTC）
+    - cron: "0 1 1 * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  policy-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+
+      - name: Check official sources and policy numbers
+        run: node scripts/policy-check.mjs
+
+      - name: Upload report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: policy-check-report
+          path: reports/policy-check-*.md
+          if-no-files-found: ignore

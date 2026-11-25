@@ -30,6 +30,24 @@ nav.breadcrumb{display:block}
 .breadcrumb::before{content:none!important;display:none!important}
 ```
 
+## 内容页版式变体（拆模板感）
+
+全站页面原本共用一套骨架（大图 hero + 6~8 个 H2 + 常见问题 + 同一个 CTA），
+百度按模板站处理。`seda-content.css` 提供三种版式，**新页面按用途选一种，不要都用同一种**：
+
+| 变体 | 用在 | 特征 |
+| --- | --- | --- |
+| `cp-hero--light` | 数据页：题量结构、录取分、费用对照 | 白底细线 hero，不放背景图，正文直接进表格 |
+| `cp-hero--split` | 指南页：备考、申请流程 | 左标题右要点卡，第一屏说清三条关键结论 |
+| 默认大图 hero | 栏目落地页 | 保留视觉冲击，一个栏目只用一次 |
+
+配套组件：
+- `.cp-data-strip` + `.cp-stat`：hero 下方 2~3 个关键数字，数据页专用
+- `.cp-cta-inline`：紧凑 CTA，替代整块 `contact-section`；参考页（纯查数据）可以不放 CTA
+- 页面要 `<link rel="stylesheet" href="/seda-content.css?v=1">`（跟在 seda-site.css 后面）
+
+判断标准：**同一栏目下的 4 个页面，hero 不应该长得都一样。**
+
 ## 防覆盖机制
 
 - 文章类：frontmatter 加 `custom: true` → `build-content.mjs` 跳过不覆盖

@@ -5,17 +5,17 @@
 // 的 citation 字段（结构化数据必须与可见内容一致）。
 //
 // 数据源：content/sources.json
-// 用法：node scripts/enhance-eeat.mjs [--check]
-//   --check  只报告哪些页面缺区块/是否过期，不写文件（适合放进 CI）
+// 用法：
+//   node scripts/enhance-eeat.mjs           # 写入
+//   node scripts/enhance-eeat.mjs --check   # 只检查，不写（CI 用）
+//   import { applySources } from './enhance-eeat.mjs'  // build-content.mjs 内调用
 //
 // 幂等：以 <!-- SEDA_SOURCES_START --> / END 为界替换，重复运行不会叠加。
+// 必须在写文章正文之后、生成 sitemap 之前调用，否则 fingerprint 会漏掉这一块。
 
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-
-const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const checkOnly = process.argv.includes('--check');
 
 const STYLE_START = '<!-- SEDA_SOURCES_STYLE_START -->';
 const STYLE_END = '<!-- SEDA_SOURCES_STYLE_END -->';
@@ -44,8 +44,10 @@ function esc(s) {
   return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 }
 
-function renderBlock(url, entry) {
-  const sources = entry.sources.map((s) => `      <li><a href="${esc(s.url)}" target="_blank" rel="noopener nofollow">${esc(s.label)}</a><span class="seda-verified">核实于 ${esc(entry.lastVerified)}</span></li>`).join('\n');
+function renderBlock(entry) {
+  const sources = entry.sources
+    .map((s) => `      <li><a href="${esc(s.url)}" target="_blank" rel="noopener nofollow">${esc(s.label)}</a><span class="seda-verified">核实于 ${esc(entry.lastVerified)}</span></li>`)
+    .join('\n');
   return `${BLOCK_START}
 <section class="seda-sources" aria-labelledby="seda-sources-title">
   <h2 id="seda-sources-title">资料来源与核实</h2>
@@ -64,15 +66,37 @@ ${BLOCK_END}`;
 }
 
 // 把 citation / dateModified 写进现有的 Article 节点
+// 页面没有 Article/WebPage 实体时，单独补一个 WebPage 节点承载 citation。
+const CITATION_START = '<!-- SEDA_CITATION_START -->';
+const CITATION_END = '<!-- SEDA_CITATION_END -->';
+function addCitationScript(html, url, entry) {
+  const node = {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    '@id': url,
+    url,
+    inLanguage: 'zh-CN',
+    dateModified: entry.lastVerified,
+    citation: entry.sources.map((s) => s.url),
+  };
+  const block = `${CITATION_START}\n<script type="application/ld+json">${JSON.stringify(node)}</script>\n${CITATION_END}`;
+  if (html.includes(CITATION_START)) {
+    return html.replace(new RegExp(`${CITATION_START}[\\s\\S]*?${CITATION_END}`), block);
+  }
+  return html.includes('</head>') ? html.replace('</head>', `${block}\n</head>`) : html;
+}
+
 function patchArticle(html, entry) {
   let changed = false;
   const out = html.replace(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g, (whole, body) => {
     let data;
     try { data = JSON.parse(body); } catch { return whole; }
     const nodes = data['@graph'] ? data['@graph'] : [data];
-    const articles = nodes.filter((n) => n && n['@type'] === 'Article');
-    if (!articles.length) return whole;
-    for (const a of articles) {
+    // 有 Article 就写 Article；没有就退到 WebPage，保证 citation 至少挂在主实体上。
+    let targets = nodes.filter((n) => n && n['@type'] === 'Article');
+    if (!targets.length) targets = nodes.filter((n) => n && (n['@type'] === 'WebPage' || n['@type'] === 'CollectionPage'));
+    if (!targets.length) return whole;
+    for (const a of targets) {
       a.citation = entry.sources.map((s) => s.url);
       a.dateModified = entry.lastVerified;
       a.author = a.author || { '@type': 'Organization', name: 'SEDA 新加坡择校网', url: 'https://sgeda.org.cn' };
@@ -84,58 +108,65 @@ function patchArticle(html, entry) {
   return { html: out, changed };
 }
 
-const configPath = path.join(root, 'content', 'sources.json');
-if (!fs.existsSync(configPath)) {
-  console.error('缺少 content/sources.json');
-  process.exit(1);
+export function applySources(root, { checkOnly = false } = {}) {
+  const configPath = path.join(root, 'content', 'sources.json');
+  if (!fs.existsSync(configPath)) throw new Error('缺少 content/sources.json');
+  const config = JSON.parse(fs.readFileSync(configPath, 'utf8'));
+
+  let updated = 0;
+  const issues = [];
+  const urls = Object.keys(config).filter((k) => !k.startsWith('_'));
+  for (const url of urls) {
+    const entry = config[url];
+    const { pathname } = new URL(url);
+    const file = path.join(root, pathname, 'index.html');
+    if (!fs.existsSync(file)) { issues.push(`缺页面 ${url}`); continue; }
+    const before = fs.readFileSync(file, 'utf8');
+    let html = before;
+
+    const block = renderBlock(entry);
+    // 先摘掉旧区块再统一插到页脚之前：/aeis/ 这类页面 </main> 后面紧跟 sidebar，
+    // 插在 </main> 之后会变成 grid 的一项，把版式挤乱。
+    if (html.includes(BLOCK_START)) {
+      html = html.replace(new RegExp(`${BLOCK_START}[\\s\\S]*?${BLOCK_END}\\n?`), '');
+    }
+    const footerAnchor = '<footer class="site-footer"';
+    if (html.includes(footerAnchor)) {
+      html = html.replace(footerAnchor, `${block}\n${footerAnchor}`);
+    } else if (html.includes('</main>')) {
+      html = html.replace('</main>', `</main>\n${block}`);
+    } else {
+      issues.push(`找不到页脚/主体结束位置，跳过 ${url}`);
+      continue;
+    }
+
+    if (!html.includes(STYLE_START)) {
+      html = html.includes('</head>') ? html.replace('</head>', `${style}\n</head>`) : html;
+    }
+
+    const patched = patchArticle(html, entry);
+    html = patched.html;
+    if (!patched.changed) {
+      // 没有 Article/WebPage 实体：补一个 WebPage 节点，别让 citation 无处安放
+      html = addCitationScript(html, url, entry);
+    }
+
+    if (checkOnly) {
+      if (!before.includes(BLOCK_START)) issues.push(`缺来源区块 ${url}`);
+      continue;
+    }
+    if (html !== before) { fs.writeFileSync(file, html, 'utf8'); updated += 1; }
+  }
+  return { updated, total: urls.length, issues };
 }
-const config = JSON.parse(fs.readFileSync(configPath, 'utf8'));
 
-let updated = 0;
-const issues = [];
-for (const [url, entry] of Object.entries(config)) {
-  if (url.startsWith('_')) continue;
-  const { pathname } = new URL(url);
-  const file = path.join(root, pathname, 'index.html');
-  if (!fs.existsSync(file)) { issues.push(`缺页面 ${url}`); continue; }
-  let html = fs.readFileSync(file, 'utf8');
-
-  const block = renderBlock(url, entry);
-  // 先摘掉旧区块再统一插到页脚之前：/aeis/ 这类页面 </main> 后面紧跟 sidebar，
-  // 插在 </main> 之后会变成 grid 的一项，把版式挤乱。
-  if (html.includes(BLOCK_START)) {
-    html = html.replace(new RegExp(`${BLOCK_START}[\\s\\S]*?${BLOCK_END}\\n?`), '');
-  }
-  const footerAnchor = '<footer class="site-footer"';
-  if (html.includes(footerAnchor)) {
-    html = html.replace(footerAnchor, `${block}\n${footerAnchor}`);
-  } else if (html.includes('</main>')) {
-    html = html.replace('</main>', `</main>\n${block}`);
-  } else {
-    issues.push(`找不到页脚/主体结束位置，跳过 ${url}`);
-    continue;
-  }
-
-  if (!html.includes(STYLE_START)) {
-    html = html.includes('</head>') ? html.replace('</head>', `${style}\n</head>`) : html;
-  }
-
-  const patched = patchArticle(html, entry);
-  html = patched.html;
-
-  if (checkOnly) {
-    const ok = html.includes(BLOCK_START) && patched.changed;
-    if (!ok) issues.push(`缺署名/来源区块 ${url}`);
-    continue;
-  }
-  const before = fs.readFileSync(file, 'utf8');
-  if (html !== before) { fs.writeFileSync(file, html, 'utf8'); updated += 1; }
-}
-
-if (checkOnly) {
-  if (issues.length) { console.error(issues.join('\n')); process.exit(1); }
-  console.log(`✅ ${Object.keys(config).filter((k) => !k.startsWith('_')).length} 页均有来源区块与 citation`);
-} else {
-  console.log(`来源区块：更新 ${updated} 页，共 ${Object.keys(config).filter((k) => !k.startsWith('_')).length} 页登记`);
+if (process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1]) {
+  const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+  const checkOnly = process.argv.includes('--check');
+  const { updated, total, issues } = applySources(root, { checkOnly });
   if (issues.length) console.log(issues.join('\n'));
+  console.log(checkOnly
+    ? `✅ ${total} 页来源区块检查完成`
+    : `来源区块：更新 ${updated} 页，共 ${total} 页登记`);
+  if (checkOnly && issues.length) process.exit(1);
 }

@@ -49,5 +49,255 @@
         "url": "https://www.ntu.edu.sg/admissions/undergraduate"
       }
     ]
+  },
+  "https://sgeda.org.cn/aeis/aeis-english-reading-comprehension-tips/": {
+    "lastVerified": "2026-11-25",
+    "note": "本页的题型结构、评分方式与答题要求，以 SEAB 公布的 AEIS 考试说明为准；官方调整后以官方为准。",
+    "sources": [
+      {
+        "label": "新加坡考试与评鉴局 SEAB — AEIS 考试说明",
+        "url": "https://www.seab.gov.sg/aeis/"
+      },
+      {
+        "label": "新加坡教育部 MOE — AEIS 国际学生入学",
+        "url": "https://www.moe.gov.sg/international-students/aeis"
+      }
+    ]
+  },
+  "https://sgeda.org.cn/aeis/aeis-preparation-timeline/": {
+    "lastVerified": "2026-11-25",
+    "note": "本页的报名窗口、考试月份与放榜安排，以 MOE 与 SEAB 当期公告为准；每年日程可能调整。",
+    "sources": [
+      {
+        "label": "新加坡教育部 MOE — AEIS 国际学生入学",
+        "url": "https://www.moe.gov.sg/international-students/aeis"
+      },
+      {
+        "label": "新加坡考试与评鉴局 SEAB — AEIS 考试说明",
+        "url": "https://www.seab.gov.sg/aeis/"
+      }
+    ]
+  },
+  "https://sgeda.org.cn/aeis/age-requirements/": {
+    "lastVerified": "2026-11-25",
+    "note": "本页的年龄区间与可报考年级对照，以 MOE 公布的 AEIS 入学年级规则为准；超龄与年级对应须按当年公告核对。",
+    "sources": [
+      {
+        "label": "新加坡教育部 MOE — AEIS 国际学生入学",
+        "url": "https://www.moe.gov.sg/international-students/aeis"
+      }
+    ]
+  },
+  "https://sgeda.org.cn/jc/": {
+    "lastVerified": "2026-11-25",
+    "note": "本页的 JC 入学计分框架与 JAE 分配规则，以 MOE 当期公告为准；2028 年起为 L1R4，不能沿用旧 L1R5。",
+    "sources": [
+      {
+        "label": "MOE — 联合招生计划 JAE 说明",
+        "url": "https://www.moe.gov.sg/post-secondary/admissions/jae"
+      },
+      {
+        "label": "MOE — 中学后教育路径总览",
+        "url": "https://www.moe.gov.sg/post-secondary"
+      }
+    ]
+  },
+  "https://sgeda.org.cn/o-level/o-level-international-students-registration/": {
+    "lastVerified": "2026-11-25",
+    "note": "本页的私人考生报名资格、科目与流程，以 SEAB 当期规定为准；考试资格不等于 JAE 分配资格。",
+    "sources": [
+      {
+        "label": "SEAB — GCE O-Level 考试说明",
+        "url": "https://www.seab.gov.sg/gce-o-level/"
+      },
+      {
+        "label": "SEAB — 私人考生报名入口",
+        "url": "https://www.seab.gov.sg/private-candidate-start-here/"
+      }
+    ]
+  },
+  "https://sgeda.org.cn/wace/wace-apply-hku/": {
+    "lastVerified": "2026-11-25",
+    "note": "本页的 HKU 入学要求与申请节点，以香港大学官网为准；WACE 资格与 ATAR 计算以西澳教育部与 TISC 为准。",
+    "sources": [
+      {
+        "label": "香港大学 HKU — 本科入学",
+        "url": "https://www.hku.hk/admission"
+      },
+      {
+        "label": "西澳教育部 — WACE 西澳高中毕业资格",
+        "url": "https://www.education.wa.edu.au/wace"
+      },
+      {
+        "label": "TISC — ATAR 是什么、如何计算",
+        "url": "https://www.tisc.edu.au/static/guide/atar-about.tisc"
+      }
+    ]
+  },
+  "https://sgeda.org.cn/wace/wace-apply-uk-university/": {
+    "lastVerified": "2026-11-25",
+    "note": "本页的英国本科申请流程与时间节点，以 UCAS 为准；ATAR 与 WACE 资格以西澳教育部与 TISC 为准。",
+    "sources": [
+      {
+        "label": "UCAS — 英国大学统一申请系统",
+        "url": "https://www.ucas.com/"
+      },
+      {
+        "label": "TISC — ATAR 是什么、如何计算",
+        "url": "https://www.tisc.edu.au/static/guide/atar-about.tisc"
+      },
+      {
+        "label": "西澳教育部 — WACE 西澳高中毕业资格",
+        "url": "https://www.education.wa.edu.au/wace"
+      }
+    ]
+  },
+  "https://sgeda.org.cn/wace/wace-atar-85-university-options/": {
+    "lastVerified": "2026-11-25",
+    "note": "本页的 ATAR 计算口径以 TISC 为准，大学录取门槛以各校官网为准；门槛不等于保证录取线。",
+    "sources": [
+      {
+        "label": "TISC — ATAR 是什么、如何计算",
+        "url": "https://www.tisc.edu.au/static/guide/atar-about.tisc"
+      },
+      {
+        "label": "西澳教育部 — WACE 西澳高中毕业资格",
+        "url": "https://www.education.wa.edu.au/wace"
+      },
+      {
+        "label": "新加坡国立大学 NUS — 国际学历申请要求",
+        "url": "https://www.nus.edu.sg/oam/admissions/international-qualifications"
+      },
+      {
+        "label": "南洋理工大学 NTU — 本科招生要求",
+        "url": "https://www.ntu.edu.sg/admissions/undergraduate"
+      }
+    ]
+  },
+  "https://sgeda.org.cn/wace/wace-difficult-subjects-chinese-students/": {
+    "lastVerified": "2026-11-25",
+    "note": "本页的科目结构与评估方式以西澳教育部 WACE 说明为准；具体科目大纲与评估细则由 SCSA 发布，以当年版本为准。",
+    "sources": [
+      {
+        "label": "西澳教育部 — WACE 西澳高中毕业资格",
+        "url": "https://www.education.wa.edu.au/wace"
+      },
+      {
+        "label": "TISC — ATAR 是什么、如何计算",
+        "url": "https://www.tisc.edu.au/static/guide/atar-about.tisc"
+      }
+    ]
+  },
+  "https://sgeda.org.cn/wace/wace-eald-what-is/": {
+    "lastVerified": "2026-11-25",
+    "note": "本页的 EAL/D 课程定位与选课限制，以西澳教育部 WACE 说明为准；资格认定细则由 SCSA 按当年规则执行。",
+    "sources": [
+      {
+        "label": "西澳教育部 — WACE 西澳高中毕业资格",
+        "url": "https://www.education.wa.edu.au/wace"
+      }
+    ]
+  },
+  "https://sgeda.org.cn/wace/wace-english-literature-high-score-chinese-students/": {
+    "lastVerified": "2026-11-25",
+    "note": "本页的科目评估结构与评分口径以西澳教育部 WACE 说明为准；具体大纲与评分标准以 SCSA 当年版本为准。",
+    "sources": [
+      {
+        "label": "西澳教育部 — WACE 西澳高中毕业资格",
+        "url": "https://www.education.wa.edu.au/wace"
+      },
+      {
+        "label": "TISC — ATAR 是什么、如何计算",
+        "url": "https://www.tisc.edu.au/static/guide/atar-about.tisc"
+      }
+    ]
+  },
+  "https://sgeda.org.cn/wace/wace-singapore-local-scholarship/": {
+    "lastVerified": "2026-11-25",
+    "note": "本页的奖学金与助学安排，以 MOE 公布的奖项说明为准；国际学生的适用资格须逐项核对。",
+    "sources": [
+      {
+        "label": "MOE — 奖学金与奖项",
+        "url": "https://www.moe.gov.sg/financial-matters/awards-scholarships"
+      },
+      {
+        "label": "西澳教育部 — WACE 西澳高中毕业资格",
+        "url": "https://www.education.wa.edu.au/wace"
+      }
+    ]
+  },
+  "https://sgeda.org.cn/wace/wace-specialist-difficulty/": {
+    "lastVerified": "2026-11-25",
+    "note": "本页的 Specialist 科目结构与难度判断，以西澳教育部 WACE 说明与 TISC 的 ATAR 计算口径为准。",
+    "sources": [
+      {
+        "label": "西澳教育部 — WACE 西澳高中毕业资格",
+        "url": "https://www.education.wa.edu.au/wace"
+      },
+      {
+        "label": "TISC — ATAR 是什么、如何计算",
+        "url": "https://www.tisc.edu.au/static/guide/atar-about.tisc"
+      }
+    ]
+  },
+  "https://sgeda.org.cn/wace/wace-year-12-transfer/": {
+    "lastVerified": "2026-11-25",
+    "note": "本页的 Year 12 转学与学分衔接，以西澳教育部 WACE 规则为准；个案是否接受由学校与 SCSA 判定。",
+    "sources": [
+      {
+        "label": "西澳教育部 — WACE 西澳高中毕业资格",
+        "url": "https://www.education.wa.edu.au/wace"
+      },
+      {
+        "label": "TISC — ATAR 是什么、如何计算",
+        "url": "https://www.tisc.edu.au/static/guide/atar-about.tisc"
+      }
+    ]
+  },
+  "https://sgeda.org.cn/wace-nus-ntu/": {
+    "lastVerified": "2026-11-25",
+    "note": "本页的 NUS 与 NTU 录取门槛以两校官网为准，ATAR 计算以 TISC 为准；门槛不等于保证录取线。",
+    "sources": [
+      {
+        "label": "新加坡国立大学 NUS — 国际学历申请要求",
+        "url": "https://www.nus.edu.sg/oam/admissions/international-qualifications"
+      },
+      {
+        "label": "南洋理工大学 NTU — 本科招生要求",
+        "url": "https://www.ntu.edu.sg/admissions/undergraduate"
+      },
+      {
+        "label": "TISC — ATAR 是什么、如何计算",
+        "url": "https://www.tisc.edu.au/static/guide/atar-about.tisc"
+      }
+    ]
+  },
+  "https://sgeda.org.cn/university/uas/": {
+    "lastVerified": "2026-11-25",
+    "note": "本页的学院构成、课程与申请要求，以新加坡艺术大学官网为准；学位授予与认证以 UAS 公告为准。",
+    "sources": [
+      {
+        "label": "新加坡艺术大学 UAS — 官网",
+        "url": "https://www.uas.edu.sg/"
+      },
+      {
+        "label": "MOE — 中学后教育路径总览",
+        "url": "https://www.moe.gov.sg/post-secondary"
+      }
+    ]
+  },
+  "https://sgeda.org.cn/private-university/sim/": {
+    "lastVerified": "2026-11-25",
+    "note": "本页的课程、合作大学与学历认证，以 SIM 官网为准；学生准证与就读要求以 ICA 规定为准。",
+    "sources": [
+      {
+        "label": "新加坡管理学院 SIM — 官网",
+        "url": "https://www.sim.edu.sg/"
+      },
+      {
+        "label": "新加坡移民与关卡局 ICA — Student's Pass 申请",
+        "url": "https://www.ica.gov.sg/reside/STP/apply"
+      }
+    ]
   }
 }

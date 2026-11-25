@@ -14,7 +14,9 @@
     "seo:submit": "bash scripts/baidu-submit.sh",
     "seo:indexnow": "node scripts/indexnow-submit.mjs",
     "check:robots": "node scripts/check-robots-encoding.mjs robots.txt",
-    "content:audit": "node scripts/content-quality-audit.mjs"
+    "content:audit": "node scripts/content-quality-audit.mjs",
+    "content:eeat": "node scripts/enhance-eeat.mjs",
+    "content:eeat:check": "node scripts/enhance-eeat.mjs --check"
   },
   "dependencies": {
     "cheerio": "^1.2.0",

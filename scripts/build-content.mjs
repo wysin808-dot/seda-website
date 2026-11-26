@@ -15,8 +15,10 @@ import { cleanLegacySchoolPages } from './remove-school-boilerplate.mjs';
 import { buildSchoolDatabase } from './build-school-database.mjs';
 import { migrateSchoolPages } from './migrate-school-pages.mjs';
 import { applyCatalogCrawlPolicy, updateCatalogPriority } from './catalog-crawl-policy.mjs';
+import { assertNoPublicBackups } from './public-content-safety.mjs';
 
 const root = process.cwd();
+assertNoPublicBackups(root);
 const domain = 'https://sgeda.org.cn';
 const defaultGoogleAnalyticsId = 'G-38WFES3WTH';
 const buildDate = new Date().toISOString().slice(0, 10);

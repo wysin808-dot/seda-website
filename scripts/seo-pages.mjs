@@ -21,7 +21,10 @@ export function baiduAllowed(robots, site = SITE) {
   const parser = robotsParser(`${site}/robots.txt`, robots);
   return url => new URL(url).origin === site && parser.isAllowed(url, 'Baiduspider') === true;
 }
-export function prioritySitemapEntries(entries, text, { site = SITE, allowed = () => true, max = 100 } = {}) {
+// Internal editorial cap, not a Baidu submission quota. Keep headroom for
+// approved OSSD, JC and other substantive pages without opening all templates.
+export const BAIDU_PRIORITY_LIMIT = 150;
+export function prioritySitemapEntries(entries, text, { site = SITE, allowed = () => true, max = BAIDU_PRIORITY_LIMIT } = {}) {
   const base = new URL(site);
   const byUrl = new Map(entries.map(entry => [entry.url, entry]));
   const seen = new Set();

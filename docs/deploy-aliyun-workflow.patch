@@ -1,0 +1,27 @@
+diff --git a/.github/workflows/deploy-aliyun.yml b/.github/workflows/deploy-aliyun.yml
+index 1fea68d1e..1ef029f53 100644
+--- a/.github/workflows/deploy-aliyun.yml
++++ b/.github/workflows/deploy-aliyun.yml
+@@ -3,7 +3,6 @@ name: Deploy to Aliyun ECS
+ on:
+   push:
+     branches: ["main"]
+-  workflow_dispatch:
+
+ concurrency:
+   group: aliyun-ecs-deploy
+@@ -46,9 +45,13 @@ jobs:
+             node scripts/restore-cms-content.mjs "$CMS_BACKUP" "$PREVIOUS_SHA"
+
+             npm ci
+-            npm test
+             node scripts/build-content.mjs
++            npm test
++            # Final targets must exist, including each stable school fragment.
++            node scripts/migrate-school-pages.mjs --validate-only
+             node scripts/seo-check.mjs
++            # Preserve live SSL/analytics/API config; test, prove loaded, then reload.
++            bash scripts/install-school-redirects.sh --source /var/www/sgeda/data/seo/school-redirects.nginx.conf
+             node scripts/indexnow-submit.mjs || true
+             bash scripts/install-daily-drafts-cron.sh
+             bash scripts/install-seo-submit-cron.sh

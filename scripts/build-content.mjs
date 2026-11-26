@@ -11,8 +11,17 @@ import { applyOrganization } from './enhance-organization.mjs';
 import { softenCta } from './soften-page-cta.mjs';
 import { varyHero } from './vary-hero.mjs';
 import { addStaticSchoolList } from './add-static-school-list.mjs';
+import { cleanLegacySchoolPages } from './remove-school-boilerplate.mjs';
+import { buildSchoolDatabase } from './build-school-database.mjs';
+import { migrateSchoolPages } from './migrate-school-pages.mjs';
+import { applyCatalogCrawlPolicy, updateCatalogPriority } from './catalog-crawl-policy.mjs';
+import { assertNoPublicBackups } from './public-content-safety.mjs';
+import { syncPathwayCatalogNavigation } from './sync-pathway-catalog-navigation.mjs';
 
 const root = process.cwd();
+assertNoPublicBackups(root);
+// Normalize the shared source before article and school-catalog generators read it.
+const navigationSync = syncPathwayCatalogNavigation(root);
 const domain = 'https://sgeda.org.cn';
 const defaultGoogleAnalyticsId = 'G-38WFES3WTH';
 const buildDate = new Date().toISOString().slice(0, 10);
@@ -847,18 +856,20 @@ When citing SEDA, prefer canonical URLs under https://sgeda.org.cn/. Use SEDA as
 function isSitemapPage(file) {
   const rel = path.relative(root, file);
   if (rel.includes('/api/') || rel.startsWith('content/') || rel.startsWith('scripts/')) return false;
+  if (['tests/', 'data/', 'docs/', 'reports/'].some(prefix => rel.startsWith(prefix))) return false;
   if (rel.startsWith('content-review/')) return false;
   if (rel.startsWith('cms/')) return false;
   if (rel === 'private-schools/bci/index.html') return false;
   if (rel.startsWith('news/') && rel !== 'news/index.html') return false;
   if (['googlec871b41fdb15d90a.html', 'verification.html'].includes(rel)) return false;
   if (rel.split('/').some(part => part.endsWith('_backup'))) return false;
+  if (rel.endsWith('.html') && read(file).includes('<!-- SEDA_SCHOOL_REDIRECT -->')) return false;
   return rel.endsWith('.html');
 }
 
 function walk(dir, out = []) {
   for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
-    if (entry.name.startsWith('.') || entry.name === 'node_modules' || entry.name === 'content' || entry.name === 'scripts') continue;
+    if (entry.name.startsWith('.') || ['node_modules', 'content', 'scripts', 'tests', 'data', 'docs', 'reports'].includes(entry.name)) continue;
     const full = path.join(dir, entry.name);
     if (entry.isDirectory()) walk(full, out);
     else out.push(full);
@@ -903,7 +914,9 @@ function updateSitemap(drafts = []) {
       const page = inspectPage(read(file), url);
       if (page.issues.includes('noindex')) return null;
       const saved = updates[url];
-      const lastmod = articleDates.get(url) || (saved && saved.fingerprint !== page.fingerprint ? buildDate : saved?.lastmod || previous.get(url) || buildDate);
+      const lastmod = saved && saved.fingerprint !== page.fingerprint
+        ? buildDate
+        : saved?.lastmod || articleDates.get(url) || previous.get(url) || buildDate;
       updates[url] = { fingerprint: page.fingerprint, lastmod };
       const trimmed = rel.endsWith('/') ? rel.slice(0, -1) : rel;
       const priority = rel === '' ? '1.0' : trimmed.includes('/') ? '0.6' : '0.8';
@@ -918,6 +931,8 @@ function updateSitemap(drafts = []) {
   if (!fs.existsSync(baiduPriorityFile)) throw new Error(`Missing Baidu priority URL list: ${baiduPriorityFile}`);
   const baiduUrls = prioritySitemapEntries(urls, read(baiduPriorityFile), { allowed });
   fs.writeFileSync(path.join(root, 'baidu-sitemap.xml'), sitemapXml(baiduUrls), 'utf8');
+  const activeUrls = new Set(urls.map(entry => entry.url));
+  for (const url of Object.keys(updates)) if (!activeUrls.has(url)) delete updates[url];
   fs.mkdirSync(path.dirname(stateFile), { recursive: true });
   fs.writeFileSync(stateFile, JSON.stringify(updates, null, 2), 'utf8');
   return urls.length;
@@ -1133,7 +1148,10 @@ function updateBaiduRobotsAllowlist() {
 
 const allArticles = loadArticles();
 const { published: articles, drafts } = partitionArticles(allArticles);
+const catalogEnabled = fs.existsSync(path.join(root, 'content', 'schools', 'database.json'))
+  && fs.existsSync(path.join(root, 'content', 'schools', 'database-policy.json'));
 const schoolPageCount = buildSchoolPages();
+const catalogStats = catalogEnabled ? await buildSchoolDatabase(root) : null;
 const enhancedKeyPageCount = enhanceKeySeoPages();
 const repairPolicy = JSON.parse(read(path.join(root, 'data', 'seo', 'legacy-content-repairs.json')));
 const contentErrors = [];
@@ -1146,7 +1164,7 @@ articles.filter(a => !a.meta.custom || !fs.existsSync(path.join(root, a.url, 'in
 drafts.forEach(removeDraftArticlePage);
 writeReviewPage(allArticles);
 updateNewsIndex(articles);
-const baiduAllowCount = updateBaiduRobotsAllowlist();
+const baiduAllowCount = catalogEnabled ? 0 : updateBaiduRobotsAllowlist();
 writeFeeds(articles);
 updateLlms(articles);
 const enhancedUtilitySchemaCount = enhanceUtilityPageSchema();
@@ -1155,22 +1173,30 @@ const enhancedBaiduTongjiCount = enhanceBaiduTongji();
 const enhancedRobotsCount = enhanceGlobalRobotsMeta();
 repairLegacyPageReferences();
 const footerSync = syncSiteFooter(root);
-// 来源/署名区块必须在生成 sitemap 之前注入，否则页面 fingerprint 漏掉这一块，
-// lastmod 不会随内容变化。
+const schoolEditorial = cleanLegacySchoolPages(root);
+// Source records stay in maintenance metadata, not a repeated front-end block.
 const eeat = applySources(root);
 const org = applyOrganization(root);
 const cta = softenCta(root);
 const hero = varyHero(root);
 const schoolList = addStaticSchoolList(root);
+// Late migration makes the fallback pages minimal and updates references after
+// all content generators; no later decorator may recreate an old school page.
+const migrationStats = catalogEnabled ? await migrateSchoolPages(root, { validateTargets: true }) : null;
+const catalogCrawl = catalogEnabled ? applyCatalogCrawlPolicy(root) : null;
+const catalogPriority = catalogEnabled ? updateCatalogPriority(root) : null;
 const urlCount = updateSitemap(drafts);
+console.log(`Distinguished pathway/catalog navigation on ${navigationSync.updated} pages.`);
 console.log(`Synchronized ${footerSync.updated} shared footers (${footerSync.checked} pages checked).`);
+console.log(`Removed legacy school boilerplate on ${schoolEditorial.updated} pages.`);
 console.log(`Built ${articles.length} content articles.`);
-console.log(`Attached official sources to ${eeat.total} pages (${eeat.updated} changed).`);
+console.log(`Maintained citation records on ${eeat.total} pages (${eeat.updated} changed); no visible source module.`);
 console.log(`Injected Organization node on ${org.total} pages (${org.updated} changed).`);
 console.log(`Softened CTA on ${cta.softened} pages (${cta.kept} keep full card).`);
 console.log(`Varied hero on ${hero.school} school pages and ${hero.pathway} pathway pages.`);
 if (schoolList.updated) console.log(`Static school lists updated on ${schoolList.updated} hubs.`);
 console.log(`Built ${schoolPageCount} school SEO pages.`);
+if (catalogEnabled) console.log(JSON.stringify({ catalog: catalogStats, migration: migrationStats, crawl: catalogCrawl, priority: catalogPriority }));
 console.log(`Enhanced ${enhancedKeyPageCount} key SEO pages.`);
 console.log(`Enhanced ${enhancedUtilitySchemaCount} utility pages with schema.`);
 console.log(`Enhanced ${enhancedGoogleAnalyticsCount} pages with GA4 tags.`);

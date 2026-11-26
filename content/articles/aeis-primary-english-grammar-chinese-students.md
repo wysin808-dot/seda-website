@@ -147,14 +147,7 @@ MOE 的[申请资格页](https://www.moe.gov.sg/international-students/aeis/elig
 
 基础语法规则可以借助练习材料自学，但应有人帮助核对解释与实际表达。若孩子难以理解错误原因或难以坚持，可考虑教师辅导。选择依据是孩子的基础和反馈需求，不保证某一种方式更快提分。
 
-## 资料来源与核实
-
-本文考试定位依据 MOE 官方页面，核实日期为 2026-11-26；语法例句与练习计划为学习建议，不是官方考纲、考试统计或教育效果数据。
-
-- [MOE：AEIS 申请资格（小学 CEQ 要求）](https://www.moe.gov.sg/international-students/aeis/eligibility-criteria)
-- [MOE：AEIS 测试详情（小学数学、中学英语与数学）](https://www.moe.gov.sg/international-students/aeis/test-details)
-
-[相关阅读]
+## 相关阅读
 - [AEIS 英文怎么准备——词汇、语法、阅读理解全面规划](/aeis/aeis-english-preparation/)
 - [AEIS 英文写作：中学字数要求与练习方法（2026）](/aeis/aeis-english-writing/)
 - [AEIS 英文阅读理解答题技巧——题型分析与解题方法](/aeis/aeis-english-reading-comprehension-tips/)

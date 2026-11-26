@@ -1214,6 +1214,7 @@
         </div>`;
       }).join('')}</div>` : '<div class="cms-empty" style="padding:24px">暂无专题矩阵。</div>';
       const schoolGroups = data.schoolMatrix?.groups || [];
+      const schoolCatalogMode = data.schoolMatrix?.mode === 'catalog';
       els.overviewSchools.innerHTML = schoolGroups.length ? `<div class="school-matrix">${schoolGroups.map((group) => {
         const percent = Math.max(0, Math.min(100, Number(group.coveragePercent || 0)));
         const actions = Array.isArray(group.nextActions) && group.nextActions.length ? group.nextActions : ['暂无明显缺口'];
@@ -1223,13 +1224,13 @@
             <span>${esc(group.team || '未分配团队')}</span>
           </div>
           <div class="coverage-meter">
-            <span>页面 ${group.generatedCount || 0}/${group.targetCount || 0} · ${percent}%</span>
+            <span>${schoolCatalogMode ? '记录' : '页面'} ${group.generatedCount || 0}/${group.targetCount || 0} · ${percent}%</span>
             <div class="coverage-track"><div class="coverage-fill" style="width:${percent}%"></div></div>
           </div>
           <div>
-            <span>数据 / sitemap</span>
+            <span>${schoolCatalogMode ? '记录 / 地图覆盖记录' : '数据 / sitemap'}</span>
             <strong>${group.sourceCount || 0} / ${group.sitemapCount || 0}</strong>
-            <span class="status-dot ${group.dataGap || group.missingSitemapCount ? 'warn' : 'ok'}" style="margin-top:6px">${group.dataGap ? `缺数据 ${group.dataGap}` : group.missingSitemapCount ? `缺 sitemap ${group.missingSitemapCount}` : '覆盖正常'}</span>
+            <span class="status-dot ${group.dataGap || group.missingPageCount || group.missingSitemapCount ? 'warn' : 'ok'}" style="margin-top:6px">${group.dataGap ? `缺数据 ${group.dataGap}` : group.missingPageCount ? `缺${schoolCatalogMode ? '记录' : '页面'} ${group.missingPageCount}` : group.missingSitemapCount ? `缺地图覆盖 ${group.missingSitemapCount}` : '覆盖正常'}</span>
           </div>
           <div class="school-action-list">
             ${actions.map((action) => `<span class="school-action ${action === '暂无明显缺口' ? 'ok' : ''}">${esc(action)}</span>`).join('')}

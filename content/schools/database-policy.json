@@ -1,0 +1,2043 @@
+{
+  "version": 1,
+  "categories": [
+    {
+      "id": "primary",
+      "label": "政府小学",
+      "route": "/primary-schools/"
+    },
+    {
+      "id": "secondary",
+      "label": "政府中学",
+      "route": "/secondary-schools/"
+    },
+    {
+      "id": "international",
+      "label": "国际学校",
+      "route": "/international-school/schools/"
+    },
+    {
+      "id": "private",
+      "label": "私立学校",
+      "route": "/private-schools/"
+    },
+    {
+      "id": "jc",
+      "label": "初级学院",
+      "route": "/school-database/jc/"
+    },
+    {
+      "id": "poly",
+      "label": "理工学院",
+      "route": "/school-database/poly/"
+    },
+    {
+      "id": "university",
+      "label": "大学",
+      "route": "/school-database/university/"
+    }
+  ],
+  "retainedDetails": [
+    "/jc/anderson-serangoon-jc/",
+    "/jc/anglo-chinese-jc/",
+    "/jc/catholic-jc/",
+    "/jc/dunman-high/",
+    "/jc/eunoia-jc/",
+    "/jc/hwa-chong-institution/",
+    "/jc/jurong-pioneer-jc/",
+    "/jc/nanyang-jc/",
+    "/jc/national-jc/",
+    "/jc/raffles-institution/",
+    "/jc/river-valley-high/",
+    "/jc/st-andrews-jc/",
+    "/jc/tampines-meridian-jc/",
+    "/jc/temasek-jc/",
+    "/jc/victoria-jc/",
+    "/jc/yishun-innova-jc/",
+    "/poly/np/",
+    "/poly/nyp/",
+    "/poly/rp/",
+    "/poly/sp/",
+    "/poly/tp/",
+    "/primary-schools/kong-hwa/",
+    "/private-university/amity/",
+    "/private-university/curtin/",
+    "/private-university/jcu/",
+    "/private-university/kaplan/",
+    "/private-university/lsbf/",
+    "/private-university/mdis/",
+    "/private-university/psb/",
+    "/private-university/shrm/",
+    "/private-university/sim/",
+    "/private-university/tmc/",
+    "/university/ntu/",
+    "/university/nus/",
+    "/university/sit/",
+    "/university/smu/",
+    "/university/suss/",
+    "/university/sutd/",
+    "/university/uas/"
+  ],
+  "redirects": [
+    {
+      "from": "/international-school/5-steps-academy/",
+      "to": "/international-school/schools/#school-international-5-steps-academy",
+      "recordId": "international-5-steps-academy"
+    },
+    {
+      "from": "/international-school/acs-international/",
+      "to": "/international-school/schools/#school-international-acs-international",
+      "recordId": "international-acs-international"
+    },
+    {
+      "from": "/international-school/astor-international/",
+      "to": "/international-school/schools/#school-international-astor-international",
+      "recordId": "international-astor-international"
+    },
+    {
+      "from": "/international-school/australian-international/",
+      "to": "/international-school/schools/#school-international-australian-international",
+      "recordId": "international-australian-international"
+    },
+    {
+      "from": "/international-school/brighton-college/",
+      "to": "/international-school/schools/#school-international-brighton-college",
+      "recordId": "international-brighton-college"
+    },
+    {
+      "from": "/international-school/canadian-international/",
+      "to": "/international-school/schools/#school-international-canadian-international",
+      "recordId": "international-canadian-international"
+    },
+    {
+      "from": "/international-school/chatsworth/",
+      "to": "/international-school/schools/#school-international-chatsworth",
+      "recordId": "international-chatsworth"
+    },
+    {
+      "from": "/international-school/dimensions-international/",
+      "to": "/international-school/schools/#school-international-dimensions-international",
+      "recordId": "international-dimensions-international"
+    },
+    {
+      "from": "/international-school/dover-court/",
+      "to": "/international-school/schools/#school-international-dover-court",
+      "recordId": "international-dover-court"
+    },
+    {
+      "from": "/international-school/dps-international/",
+      "to": "/international-school/schools/#school-international-dps-international",
+      "recordId": "international-dps-international"
+    },
+    {
+      "from": "/international-school/dulwich/",
+      "to": "/international-school/schools/#school-international-dulwich",
+      "recordId": "international-dulwich"
+    },
+    {
+      "from": "/international-school/etonhouse-international/",
+      "to": "/international-school/schools/#school-international-etonhouse-international",
+      "recordId": "international-etonhouse-international"
+    },
+    {
+      "from": "/international-school/furen-international/",
+      "to": "/international-school/schools/#school-international-furen-international",
+      "recordId": "international-furen-international"
+    },
+    {
+      "from": "/international-school/gems-world-academy/",
+      "to": "/international-school/schools/#school-international-gems-world-academy",
+      "recordId": "international-gems-world-academy"
+    },
+    {
+      "from": "/international-school/gess/",
+      "to": "/international-school/schools/#school-international-gess",
+      "recordId": "international-gess"
+    },
+    {
+      "from": "/international-school/global-indian/",
+      "to": "/international-school/schools/#school-international-global-indian",
+      "recordId": "international-global-indian"
+    },
+    {
+      "from": "/international-school/holland-international/",
+      "to": "/international-school/schools/#school-international-holland-international",
+      "recordId": "international-holland-international"
+    },
+    {
+      "from": "/international-school/hwa-chong-international/",
+      "to": "/international-school/schools/#school-international-hwa-chong-international",
+      "recordId": "international-hwa-chong-international"
+    },
+    {
+      "from": "/international-school/insworld-institute/",
+      "to": "/international-school/schools/#school-international-insworld-institute",
+      "recordId": "international-insworld-institute"
+    },
+    {
+      "from": "/international-school/integrated-international/",
+      "to": "/international-school/schools/#school-international-integrated-international",
+      "recordId": "international-integrated-international"
+    },
+    {
+      "from": "/international-school/international-french-school/",
+      "to": "/international-school/schools/#school-international-international-french-school",
+      "recordId": "international-international-french-school"
+    },
+    {
+      "from": "/international-school/invictus/",
+      "to": "/international-school/schools/#school-international-invictus",
+      "recordId": "international-invictus"
+    },
+    {
+      "from": "/international-school/iss/",
+      "to": "/international-school/schools/#school-international-iss",
+      "recordId": "international-iss"
+    },
+    {
+      "from": "/international-school/knightsbridge-house/",
+      "to": "/international-school/schools/#school-international-knightsbridge-house",
+      "recordId": "international-knightsbridge-house"
+    },
+    {
+      "from": "/international-school/lotus-bridge/",
+      "to": "/international-school/schools/#school-international-lotus-bridge",
+      "recordId": "international-lotus-bridge"
+    },
+    {
+      "from": "/international-school/melbourne-specialist/",
+      "to": "/international-school/schools/#school-international-melbourne-specialist",
+      "recordId": "international-melbourne-specialist"
+    },
+    {
+      "from": "/international-school/middleton-international/",
+      "to": "/international-school/schools/#school-international-middleton-international",
+      "recordId": "international-middleton-international"
+    },
+    {
+      "from": "/international-school/nexus/",
+      "to": "/international-school/schools/#school-international-nexus",
+      "recordId": "international-nexus"
+    },
+    {
+      "from": "/international-school/north-london-collegiate/",
+      "to": "/international-school/schools/#school-international-north-london-collegiate",
+      "recordId": "international-north-london-collegiate"
+    },
+    {
+      "from": "/international-school/nps-international/",
+      "to": "/international-school/schools/#school-international-nps-international",
+      "recordId": "international-nps-international"
+    },
+    {
+      "from": "/international-school/one-world/",
+      "to": "/international-school/schools/#school-international-one-world",
+      "recordId": "international-one-world"
+    },
+    {
+      "from": "/international-school/overseas-family-school/",
+      "to": "/international-school/schools/#school-international-overseas-family-school",
+      "recordId": "international-overseas-family-school"
+    },
+    {
+      "from": "/international-school/perse-school/",
+      "to": "/international-school/schools/#school-international-perse-school",
+      "recordId": "international-perse-school"
+    },
+    {
+      "from": "/international-school/raeburn-park/",
+      "to": "/international-school/schools/#school-international-raeburn-park",
+      "recordId": "international-raeburn-park"
+    },
+    {
+      "from": "/international-school/san-yu-adventist/",
+      "to": "/international-school/schools/#school-international-san-yu-adventist",
+      "recordId": "international-san-yu-adventist"
+    },
+    {
+      "from": "/international-school/singapore-american/",
+      "to": "/international-school/schools/#school-international-singapore-american",
+      "recordId": "international-singapore-american"
+    },
+    {
+      "from": "/international-school/singapore-korean-international/",
+      "to": "/international-school/schools/#school-international-singapore-korean-international",
+      "recordId": "international-singapore-korean-international"
+    },
+    {
+      "from": "/international-school/sir-manasseh-meyer/",
+      "to": "/international-school/schools/#school-international-sir-manasseh-meyer",
+      "recordId": "international-sir-manasseh-meyer"
+    },
+    {
+      "from": "/international-school/sji-international/",
+      "to": "/international-school/schools/#school-international-sji-international",
+      "recordId": "international-sji-international"
+    },
+    {
+      "from": "/international-school/st-francis-methodist/",
+      "to": "/international-school/schools/#school-international-st-francis-methodist",
+      "recordId": "international-st-francis-methodist"
+    },
+    {
+      "from": "/international-school/stamford-american/",
+      "to": "/international-school/schools/#school-international-stamford-american",
+      "recordId": "international-stamford-american"
+    },
+    {
+      "from": "/international-school/swiss-school/",
+      "to": "/international-school/schools/#school-international-swiss-school",
+      "recordId": "international-swiss-school"
+    },
+    {
+      "from": "/international-school/tanglin-trust/",
+      "to": "/international-school/schools/#school-international-tanglin-trust",
+      "recordId": "international-tanglin-trust"
+    },
+    {
+      "from": "/international-school/the-grange-institution/",
+      "to": "/international-school/schools/#school-international-the-grange-institution",
+      "recordId": "international-the-grange-institution"
+    },
+    {
+      "from": "/international-school/uwcsea/",
+      "to": "/international-school/schools/#school-international-uwcsea",
+      "recordId": "international-uwcsea"
+    },
+    {
+      "from": "/international-school/waseda-shibuya/",
+      "to": "/international-school/schools/#school-international-waseda-shibuya",
+      "recordId": "international-waseda-shibuya"
+    },
+    {
+      "from": "/international-school/winstedt/",
+      "to": "/international-school/schools/#school-international-winstedt",
+      "recordId": "international-winstedt"
+    },
+    {
+      "from": "/international-school/yuvabharathi/",
+      "to": "/international-school/schools/#school-international-yuvabharathi",
+      "recordId": "international-yuvabharathi"
+    },
+    {
+      "from": "/primary-schools/admiralty/",
+      "to": "/primary-schools/#school-primary-admiralty",
+      "recordId": "primary-admiralty"
+    },
+    {
+      "from": "/primary-schools/ahmad-ibrahim/",
+      "to": "/primary-schools/#school-primary-ahmad-ibrahim",
+      "recordId": "primary-ahmad-ibrahim"
+    },
+    {
+      "from": "/primary-schools/ai-tong/",
+      "to": "/primary-schools/#school-primary-ai-tong",
+      "recordId": "primary-ai-tong"
+    },
+    {
+      "from": "/primary-schools/alexandra-primary/",
+      "to": "/primary-schools/#school-primary-alexandra-primary",
+      "recordId": "primary-alexandra-primary"
+    },
+    {
+      "from": "/primary-schools/anchor-green/",
+      "to": "/primary-schools/#school-primary-anchor-green",
+      "recordId": "primary-anchor-green"
+    },
+    {
+      "from": "/primary-schools/anderson-primary/",
+      "to": "/primary-schools/#school-primary-anderson-primary",
+      "recordId": "primary-anderson-primary"
+    },
+    {
+      "from": "/primary-schools/ang-mo-kio/",
+      "to": "/primary-schools/#school-primary-ang-mo-kio",
+      "recordId": "primary-ang-mo-kio"
+    },
+    {
+      "from": "/primary-schools/anglo-chinese-primary/",
+      "to": "/primary-schools/#school-primary-anglo-chinese-primary",
+      "recordId": "primary-anglo-chinese-primary"
+    },
+    {
+      "from": "/primary-schools/anglo-chinese-school-junior/",
+      "to": "/primary-schools/#school-primary-anglo-chinese-school-junior",
+      "recordId": "primary-anglo-chinese-school-junior"
+    },
+    {
+      "from": "/primary-schools/angsana/",
+      "to": "/primary-schools/#school-primary-angsana",
+      "recordId": "primary-angsana"
+    },
+    {
+      "from": "/primary-schools/beacon/",
+      "to": "/primary-schools/#school-primary-beacon",
+      "recordId": "primary-beacon"
+    },
+    {
+      "from": "/primary-schools/bedok-green/",
+      "to": "/primary-schools/#school-primary-bedok-green",
+      "recordId": "primary-bedok-green"
+    },
+    {
+      "from": "/primary-schools/bendemeer/",
+      "to": "/primary-schools/#school-primary-bendemeer",
+      "recordId": "primary-bendemeer"
+    },
+    {
+      "from": "/primary-schools/blangah-rise/",
+      "to": "/primary-schools/#school-primary-blangah-rise",
+      "recordId": "primary-blangah-rise"
+    },
+    {
+      "from": "/primary-schools/boon-lay-garden/",
+      "to": "/primary-schools/#school-primary-boon-lay-garden",
+      "recordId": "primary-boon-lay-garden"
+    },
+    {
+      "from": "/primary-schools/bukit-panjang/",
+      "to": "/primary-schools/#school-primary-bukit-panjang",
+      "recordId": "primary-bukit-panjang"
+    },
+    {
+      "from": "/primary-schools/bukit-timah-primary/",
+      "to": "/primary-schools/#school-primary-bukit-timah-primary",
+      "recordId": "primary-bukit-timah-primary"
+    },
+    {
+      "from": "/primary-schools/bukit-view/",
+      "to": "/primary-schools/#school-primary-bukit-view",
+      "recordId": "primary-bukit-view"
+    },
+    {
+      "from": "/primary-schools/canberra/",
+      "to": "/primary-schools/#school-primary-canberra",
+      "recordId": "primary-canberra"
+    },
+    {
+      "from": "/primary-schools/canossa-primary/",
+      "to": "/primary-schools/#school-primary-canossa-primary",
+      "recordId": "primary-canossa-primary"
+    },
+    {
+      "from": "/primary-schools/cantonment/",
+      "to": "/primary-schools/#school-primary-cantonment",
+      "recordId": "primary-cantonment"
+    },
+    {
+      "from": "/primary-schools/casuarina/",
+      "to": "/primary-schools/#school-primary-casuarina",
+      "recordId": "primary-casuarina"
+    },
+    {
+      "from": "/primary-schools/catholic-high-primary/",
+      "to": "/primary-schools/#school-primary-catholic-high-primary",
+      "recordId": "primary-catholic-high-primary"
+    },
+    {
+      "from": "/primary-schools/cedar/",
+      "to": "/primary-schools/#school-primary-cedar",
+      "recordId": "primary-cedar"
+    },
+    {
+      "from": "/primary-schools/changkat/",
+      "to": "/primary-schools/#school-primary-changkat",
+      "recordId": "primary-changkat"
+    },
+    {
+      "from": "/primary-schools/chij-kellock/",
+      "to": "/primary-schools/#school-primary-chij-kellock",
+      "recordId": "primary-chij-kellock"
+    },
+    {
+      "from": "/primary-schools/chij-our-lady-of-good-counsel/",
+      "to": "/primary-schools/#school-primary-chij-our-lady-of-good-counsel",
+      "recordId": "primary-chij-our-lady-of-good-counsel"
+    },
+    {
+      "from": "/primary-schools/chij-our-lady-of-the-nativity/",
+      "to": "/primary-schools/#school-primary-chij-our-lady-of-the-nativity",
+      "recordId": "primary-chij-our-lady-of-the-nativity"
+    },
+    {
+      "from": "/primary-schools/chij-our-lady-queen-of-peace/",
+      "to": "/primary-schools/#school-primary-chij-our-lady-queen-of-peace",
+      "recordId": "primary-chij-our-lady-queen-of-peace"
+    },
+    {
+      "from": "/primary-schools/chij-primary/",
+      "to": "/primary-schools/#school-primary-chij-primary",
+      "recordId": "primary-chij-primary"
+    },
+    {
+      "from": "/primary-schools/chij-st-nicholas-girls-school/",
+      "to": "/primary-schools/#school-primary-chij-st-nicholas-girls-school",
+      "recordId": "primary-chij-st-nicholas-girls-school"
+    },
+    {
+      "from": "/primary-schools/chij/",
+      "to": "/primary-schools/#school-primary-chij",
+      "recordId": "primary-chij"
+    },
+    {
+      "from": "/primary-schools/chongfu/",
+      "to": "/primary-schools/#school-primary-chongfu",
+      "recordId": "primary-chongfu"
+    },
+    {
+      "from": "/primary-schools/chongzheng/",
+      "to": "/primary-schools/#school-primary-chongzheng",
+      "recordId": "primary-chongzheng"
+    },
+    {
+      "from": "/primary-schools/chua-chu-kang/",
+      "to": "/primary-schools/#school-primary-chua-chu-kang",
+      "recordId": "primary-chua-chu-kang"
+    },
+    {
+      "from": "/primary-schools/clementi/",
+      "to": "/primary-schools/#school-primary-clementi",
+      "recordId": "primary-clementi"
+    },
+    {
+      "from": "/primary-schools/compassvale-primary/",
+      "to": "/primary-schools/#school-primary-compassvale-primary",
+      "recordId": "primary-compassvale-primary"
+    },
+    {
+      "from": "/primary-schools/concord/",
+      "to": "/primary-schools/#school-primary-concord",
+      "recordId": "primary-concord"
+    },
+    {
+      "from": "/primary-schools/corporation/",
+      "to": "/primary-schools/#school-primary-corporation",
+      "recordId": "primary-corporation"
+    },
+    {
+      "from": "/primary-schools/dazhong/",
+      "to": "/primary-schools/#school-primary-dazhong",
+      "recordId": "primary-dazhong"
+    },
+    {
+      "from": "/primary-schools/de-la-salle/",
+      "to": "/primary-schools/#school-primary-de-la-salle",
+      "recordId": "primary-de-la-salle"
+    },
+    {
+      "from": "/primary-schools/east-spring/",
+      "to": "/primary-schools/#school-primary-east-spring",
+      "recordId": "primary-east-spring"
+    },
+    {
+      "from": "/primary-schools/edgefield/",
+      "to": "/primary-schools/#school-primary-edgefield",
+      "recordId": "primary-edgefield"
+    },
+    {
+      "from": "/primary-schools/elias-park-primary/",
+      "to": "/primary-schools/#school-primary-elias-park-primary",
+      "recordId": "primary-elias-park-primary"
+    },
+    {
+      "from": "/primary-schools/endeavour/",
+      "to": "/primary-schools/#school-primary-endeavour",
+      "recordId": "primary-endeavour"
+    },
+    {
+      "from": "/primary-schools/evergreen/",
+      "to": "/primary-schools/#school-primary-evergreen",
+      "recordId": "primary-evergreen"
+    },
+    {
+      "from": "/primary-schools/fairfield-methodist-primary/",
+      "to": "/primary-schools/#school-primary-fairfield-methodist-primary",
+      "recordId": "primary-fairfield-methodist-primary"
+    },
+    {
+      "from": "/primary-schools/farrer-park/",
+      "to": "/primary-schools/#school-primary-farrer-park",
+      "recordId": "primary-farrer-park"
+    },
+    {
+      "from": "/primary-schools/fengshan/",
+      "to": "/primary-schools/#school-primary-fengshan",
+      "recordId": "primary-fengshan"
+    },
+    {
+      "from": "/primary-schools/fern-green/",
+      "to": "/primary-schools/#school-primary-fern-green",
+      "recordId": "primary-fern-green"
+    },
+    {
+      "from": "/primary-schools/fernvale/",
+      "to": "/primary-schools/#school-primary-fernvale",
+      "recordId": "primary-fernvale"
+    },
+    {
+      "from": "/primary-schools/first-toa-payoh/",
+      "to": "/primary-schools/#school-primary-first-toa-payoh",
+      "recordId": "primary-first-toa-payoh"
+    },
+    {
+      "from": "/primary-schools/frontier/",
+      "to": "/primary-schools/#school-primary-frontier",
+      "recordId": "primary-frontier"
+    },
+    {
+      "from": "/primary-schools/fuchun/",
+      "to": "/primary-schools/#school-primary-fuchun",
+      "recordId": "primary-fuchun"
+    },
+    {
+      "from": "/primary-schools/fuhua/",
+      "to": "/primary-schools/#school-primary-fuhua",
+      "recordId": "primary-fuhua"
+    },
+    {
+      "from": "/primary-schools/gan-eng-seng/",
+      "to": "/primary-schools/#school-primary-gan-eng-seng",
+      "recordId": "primary-gan-eng-seng"
+    },
+    {
+      "from": "/primary-schools/geylang-methodist-school/",
+      "to": "/primary-schools/#school-primary-geylang-methodist-school",
+      "recordId": "primary-geylang-methodist-school"
+    },
+    {
+      "from": "/primary-schools/gongshang-primary/",
+      "to": "/primary-schools/#school-primary-gongshang-primary",
+      "recordId": "primary-gongshang-primary"
+    },
+    {
+      "from": "/primary-schools/greendale-primary/",
+      "to": "/primary-schools/#school-primary-greendale-primary",
+      "recordId": "primary-greendale-primary"
+    },
+    {
+      "from": "/primary-schools/greenridge/",
+      "to": "/primary-schools/#school-primary-greenridge",
+      "recordId": "primary-greenridge"
+    },
+    {
+      "from": "/primary-schools/greenwood/",
+      "to": "/primary-schools/#school-primary-greenwood",
+      "recordId": "primary-greenwood"
+    },
+    {
+      "from": "/primary-schools/haig-girls/",
+      "to": "/primary-schools/#school-primary-haig-girls",
+      "recordId": "primary-haig-girls"
+    },
+    {
+      "from": "/primary-schools/henry-park/",
+      "to": "/primary-schools/#school-primary-henry-park",
+      "recordId": "primary-henry-park"
+    },
+    {
+      "from": "/primary-schools/holy-innocents-primary/",
+      "to": "/primary-schools/#school-primary-holy-innocents-primary",
+      "recordId": "primary-holy-innocents-primary"
+    },
+    {
+      "from": "/primary-schools/hong-wen/",
+      "to": "/primary-schools/#school-primary-hong-wen",
+      "recordId": "primary-hong-wen"
+    },
+    {
+      "from": "/primary-schools/horizon/",
+      "to": "/primary-schools/#school-primary-horizon",
+      "recordId": "primary-horizon"
+    },
+    {
+      "from": "/primary-schools/hougang/",
+      "to": "/primary-schools/#school-primary-hougang",
+      "recordId": "primary-hougang"
+    },
+    {
+      "from": "/primary-schools/huamin/",
+      "to": "/primary-schools/#school-primary-huamin",
+      "recordId": "primary-huamin"
+    },
+    {
+      "from": "/primary-schools/innova/",
+      "to": "/primary-schools/#school-primary-innova",
+      "recordId": "primary-innova"
+    },
+    {
+      "from": "/primary-schools/jiemin/",
+      "to": "/primary-schools/#school-primary-jiemin",
+      "recordId": "primary-jiemin"
+    },
+    {
+      "from": "/primary-schools/jing-shan/",
+      "to": "/primary-schools/#school-primary-jing-shan",
+      "recordId": "primary-jing-shan"
+    },
+    {
+      "from": "/primary-schools/junyuan/",
+      "to": "/primary-schools/#school-primary-junyuan",
+      "recordId": "primary-junyuan"
+    },
+    {
+      "from": "/primary-schools/jurong-primary/",
+      "to": "/primary-schools/#school-primary-jurong-primary",
+      "recordId": "primary-jurong-primary"
+    },
+    {
+      "from": "/primary-schools/jurong-west/",
+      "to": "/primary-schools/#school-primary-jurong-west",
+      "recordId": "primary-jurong-west"
+    },
+    {
+      "from": "/primary-schools/keming/",
+      "to": "/primary-schools/#school-primary-keming",
+      "recordId": "primary-keming"
+    },
+    {
+      "from": "/primary-schools/kheng-cheng/",
+      "to": "/primary-schools/#school-primary-kheng-cheng",
+      "recordId": "primary-kheng-cheng"
+    },
+    {
+      "from": "/primary-schools/kuo-chuan-presbyterian/",
+      "to": "/primary-schools/#school-primary-kuo-chuan-presbyterian",
+      "recordId": "primary-kuo-chuan-presbyterian"
+    },
+    {
+      "from": "/primary-schools/lakeside/",
+      "to": "/primary-schools/#school-primary-lakeside",
+      "recordId": "primary-lakeside"
+    },
+    {
+      "from": "/primary-schools/lianhua-primary/",
+      "to": "/primary-schools/#school-primary-lianhua-primary",
+      "recordId": "primary-lianhua-primary"
+    },
+    {
+      "from": "/primary-schools/maha-bodhi/",
+      "to": "/primary-schools/#school-primary-maha-bodhi",
+      "recordId": "primary-maha-bodhi"
+    },
+    {
+      "from": "/primary-schools/maris-stella-high-primary/",
+      "to": "/primary-schools/#school-primary-maris-stella-high-primary",
+      "recordId": "primary-maris-stella-high-primary"
+    },
+    {
+      "from": "/primary-schools/marsiling/",
+      "to": "/primary-schools/#school-primary-marsiling",
+      "recordId": "primary-marsiling"
+    },
+    {
+      "from": "/primary-schools/marymount-convent/",
+      "to": "/primary-schools/#school-primary-marymount-convent",
+      "recordId": "primary-marymount-convent"
+    },
+    {
+      "from": "/primary-schools/mayflower-primary/",
+      "to": "/primary-schools/#school-primary-mayflower-primary",
+      "recordId": "primary-mayflower-primary"
+    },
+    {
+      "from": "/primary-schools/mee-toh/",
+      "to": "/primary-schools/#school-primary-mee-toh",
+      "recordId": "primary-mee-toh"
+    },
+    {
+      "from": "/primary-schools/meridian/",
+      "to": "/primary-schools/#school-primary-meridian",
+      "recordId": "primary-meridian"
+    },
+    {
+      "from": "/primary-schools/methodist-girls-school/",
+      "to": "/primary-schools/#school-primary-methodist-girls-school",
+      "recordId": "primary-methodist-girls-school"
+    },
+    {
+      "from": "/primary-schools/montfort-junior/",
+      "to": "/primary-schools/#school-primary-montfort-junior",
+      "recordId": "primary-montfort-junior"
+    },
+    {
+      "from": "/primary-schools/nan-chiau/",
+      "to": "/primary-schools/#school-primary-nan-chiau",
+      "recordId": "primary-nan-chiau"
+    },
+    {
+      "from": "/primary-schools/nan-hua-primary/",
+      "to": "/primary-schools/#school-primary-nan-hua-primary",
+      "recordId": "primary-nan-hua-primary"
+    },
+    {
+      "from": "/primary-schools/nanyang-primary/",
+      "to": "/primary-schools/#school-primary-nanyang-primary",
+      "recordId": "primary-nanyang-primary"
+    },
+    {
+      "from": "/primary-schools/naval-base/",
+      "to": "/primary-schools/#school-primary-naval-base",
+      "recordId": "primary-naval-base"
+    },
+    {
+      "from": "/primary-schools/new-town/",
+      "to": "/primary-schools/#school-primary-new-town",
+      "recordId": "primary-new-town"
+    },
+    {
+      "from": "/primary-schools/ngee-ann/",
+      "to": "/primary-schools/#school-primary-ngee-ann",
+      "recordId": "primary-ngee-ann"
+    },
+    {
+      "from": "/primary-schools/north-spring-primary/",
+      "to": "/primary-schools/#school-primary-north-spring-primary",
+      "recordId": "primary-north-spring-primary"
+    },
+    {
+      "from": "/primary-schools/north-view/",
+      "to": "/primary-schools/#school-primary-north-view",
+      "recordId": "primary-north-view"
+    },
+    {
+      "from": "/primary-schools/north-vista/",
+      "to": "/primary-schools/#school-primary-north-vista",
+      "recordId": "primary-north-vista"
+    },
+    {
+      "from": "/primary-schools/northland/",
+      "to": "/primary-schools/#school-primary-northland",
+      "recordId": "primary-northland"
+    },
+    {
+      "from": "/primary-schools/northoaks/",
+      "to": "/primary-schools/#school-primary-northoaks",
+      "recordId": "primary-northoaks"
+    },
+    {
+      "from": "/primary-schools/northshore/",
+      "to": "/primary-schools/#school-primary-northshore",
+      "recordId": "primary-northshore"
+    },
+    {
+      "from": "/primary-schools/oasis/",
+      "to": "/primary-schools/#school-primary-oasis",
+      "recordId": "primary-oasis"
+    },
+    {
+      "from": "/primary-schools/opera-estate/",
+      "to": "/primary-schools/#school-primary-opera-estate",
+      "recordId": "primary-opera-estate"
+    },
+    {
+      "from": "/primary-schools/palm-view/",
+      "to": "/primary-schools/#school-primary-palm-view",
+      "recordId": "primary-palm-view"
+    },
+    {
+      "from": "/primary-schools/park-view/",
+      "to": "/primary-schools/#school-primary-park-view",
+      "recordId": "primary-park-view"
+    },
+    {
+      "from": "/primary-schools/pasir-ris/",
+      "to": "/primary-schools/#school-primary-pasir-ris",
+      "recordId": "primary-pasir-ris"
+    },
+    {
+      "from": "/primary-schools/paya-lebar-methodist-girls-school/",
+      "to": "/primary-schools/#school-primary-paya-lebar-methodist-girls-school",
+      "recordId": "primary-paya-lebar-methodist-girls-school"
+    },
+    {
+      "from": "/primary-schools/pei-chun-public/",
+      "to": "/primary-schools/#school-primary-pei-chun-public",
+      "recordId": "primary-pei-chun-public"
+    },
+    {
+      "from": "/primary-schools/pei-hwa-presbyterian/",
+      "to": "/primary-schools/#school-primary-pei-hwa-presbyterian",
+      "recordId": "primary-pei-hwa-presbyterian"
+    },
+    {
+      "from": "/primary-schools/pei-tong/",
+      "to": "/primary-schools/#school-primary-pei-tong",
+      "recordId": "primary-pei-tong"
+    },
+    {
+      "from": "/primary-schools/peiying/",
+      "to": "/primary-schools/#school-primary-peiying",
+      "recordId": "primary-peiying"
+    },
+    {
+      "from": "/primary-schools/pioneer/",
+      "to": "/primary-schools/#school-primary-pioneer",
+      "recordId": "primary-pioneer"
+    },
+    {
+      "from": "/primary-schools/poi-ching/",
+      "to": "/primary-schools/#school-primary-poi-ching",
+      "recordId": "primary-poi-ching"
+    },
+    {
+      "from": "/primary-schools/princess-elizabeth-primary/",
+      "to": "/primary-schools/#school-primary-princess-elizabeth-primary",
+      "recordId": "primary-princess-elizabeth-primary"
+    },
+    {
+      "from": "/primary-schools/punggol-cove/",
+      "to": "/primary-schools/#school-primary-punggol-cove",
+      "recordId": "primary-punggol-cove"
+    },
+    {
+      "from": "/primary-schools/punggol-green/",
+      "to": "/primary-schools/#school-primary-punggol-green",
+      "recordId": "primary-punggol-green"
+    },
+    {
+      "from": "/primary-schools/punggol-primary/",
+      "to": "/primary-schools/#school-primary-punggol-primary",
+      "recordId": "primary-punggol-primary"
+    },
+    {
+      "from": "/primary-schools/punggol-view/",
+      "to": "/primary-schools/#school-primary-punggol-view",
+      "recordId": "primary-punggol-view"
+    },
+    {
+      "from": "/primary-schools/qifa/",
+      "to": "/primary-schools/#school-primary-qifa",
+      "recordId": "primary-qifa"
+    },
+    {
+      "from": "/primary-schools/qihua/",
+      "to": "/primary-schools/#school-primary-qihua",
+      "recordId": "primary-qihua"
+    },
+    {
+      "from": "/primary-schools/queenstown/",
+      "to": "/primary-schools/#school-primary-queenstown",
+      "recordId": "primary-queenstown"
+    },
+    {
+      "from": "/primary-schools/radin-mas/",
+      "to": "/primary-schools/#school-primary-radin-mas",
+      "recordId": "primary-radin-mas"
+    },
+    {
+      "from": "/primary-schools/raffles-girls-primary/",
+      "to": "/primary-schools/#school-primary-raffles-girls-primary",
+      "recordId": "primary-raffles-girls-primary"
+    },
+    {
+      "from": "/primary-schools/red-swastika/",
+      "to": "/primary-schools/#school-primary-red-swastika",
+      "recordId": "primary-red-swastika"
+    },
+    {
+      "from": "/primary-schools/river-valley-primary/",
+      "to": "/primary-schools/#school-primary-river-valley-primary",
+      "recordId": "primary-river-valley-primary"
+    },
+    {
+      "from": "/primary-schools/riverside/",
+      "to": "/primary-schools/#school-primary-riverside",
+      "recordId": "primary-riverside"
+    },
+    {
+      "from": "/primary-schools/rivervale/",
+      "to": "/primary-schools/#school-primary-rivervale",
+      "recordId": "primary-rivervale"
+    },
+    {
+      "from": "/primary-schools/rosyth/",
+      "to": "/primary-schools/#school-primary-rosyth",
+      "recordId": "primary-rosyth"
+    },
+    {
+      "from": "/primary-schools/rulang/",
+      "to": "/primary-schools/#school-primary-rulang",
+      "recordId": "primary-rulang"
+    },
+    {
+      "from": "/primary-schools/sembawang/",
+      "to": "/primary-schools/#school-primary-sembawang",
+      "recordId": "primary-sembawang"
+    },
+    {
+      "from": "/primary-schools/sengkang-green/",
+      "to": "/primary-schools/#school-primary-sengkang-green",
+      "recordId": "primary-sengkang-green"
+    },
+    {
+      "from": "/primary-schools/sengkang-primary/",
+      "to": "/primary-schools/#school-primary-sengkang-primary",
+      "recordId": "primary-sengkang-primary"
+    },
+    {
+      "from": "/primary-schools/shuqun/",
+      "to": "/primary-schools/#school-primary-shuqun",
+      "recordId": "primary-shuqun"
+    },
+    {
+      "from": "/primary-schools/si-ling/",
+      "to": "/primary-schools/#school-primary-si-ling",
+      "recordId": "primary-si-ling"
+    },
+    {
+      "from": "/primary-schools/singapore-chinese-girls-school/",
+      "to": "/primary-schools/#school-primary-singapore-chinese-girls-school",
+      "recordId": "primary-singapore-chinese-girls-school"
+    },
+    {
+      "from": "/primary-schools/south-view-primary/",
+      "to": "/primary-schools/#school-primary-south-view-primary",
+      "recordId": "primary-south-view-primary"
+    },
+    {
+      "from": "/primary-schools/springdale/",
+      "to": "/primary-schools/#school-primary-springdale",
+      "recordId": "primary-springdale"
+    },
+    {
+      "from": "/primary-schools/st-andrew-s-junior/",
+      "to": "/primary-schools/#school-primary-st-andrew-s-junior",
+      "recordId": "primary-st-andrew-s-junior"
+    },
+    {
+      "from": "/primary-schools/st-anthony-s-canossian/",
+      "to": "/primary-schools/#school-primary-st-anthony-s-canossian",
+      "recordId": "primary-st-anthony-s-canossian"
+    },
+    {
+      "from": "/primary-schools/st-anthony-s/",
+      "to": "/primary-schools/#school-primary-st-anthony-s",
+      "recordId": "primary-st-anthony-s"
+    },
+    {
+      "from": "/primary-schools/st-gabriel-s/",
+      "to": "/primary-schools/#school-primary-st-gabriel-s",
+      "recordId": "primary-st-gabriel-s"
+    },
+    {
+      "from": "/primary-schools/st-hildas-primary/",
+      "to": "/primary-schools/#school-primary-st-hildas-primary",
+      "recordId": "primary-st-hildas-primary"
+    },
+    {
+      "from": "/primary-schools/st-joseph-s-institution-junior/",
+      "to": "/primary-schools/#school-primary-st-joseph-s-institution-junior",
+      "recordId": "primary-st-joseph-s-institution-junior"
+    },
+    {
+      "from": "/primary-schools/st-margarets-primary/",
+      "to": "/primary-schools/#school-primary-st-margarets-primary",
+      "recordId": "primary-st-margarets-primary"
+    },
+    {
+      "from": "/primary-schools/st-stephen-s/",
+      "to": "/primary-schools/#school-primary-st-stephen-s",
+      "recordId": "primary-st-stephen-s"
+    },
+    {
+      "from": "/primary-schools/tampines-north/",
+      "to": "/primary-schools/#school-primary-tampines-north",
+      "recordId": "primary-tampines-north"
+    },
+    {
+      "from": "/primary-schools/tampines/",
+      "to": "/primary-schools/#school-primary-tampines",
+      "recordId": "primary-tampines"
+    },
+    {
+      "from": "/primary-schools/tanjong-katong-primary/",
+      "to": "/primary-schools/#school-primary-tanjong-katong-primary",
+      "recordId": "primary-tanjong-katong-primary"
+    },
+    {
+      "from": "/primary-schools/tao-nan/",
+      "to": "/primary-schools/#school-primary-tao-nan",
+      "recordId": "primary-tao-nan"
+    },
+    {
+      "from": "/primary-schools/teck-ghee/",
+      "to": "/primary-schools/#school-primary-teck-ghee",
+      "recordId": "primary-teck-ghee"
+    },
+    {
+      "from": "/primary-schools/teck-whye/",
+      "to": "/primary-schools/#school-primary-teck-whye",
+      "recordId": "primary-teck-whye"
+    },
+    {
+      "from": "/primary-schools/telok-kurau/",
+      "to": "/primary-schools/#school-primary-telok-kurau",
+      "recordId": "primary-telok-kurau"
+    },
+    {
+      "from": "/primary-schools/temasek-primary/",
+      "to": "/primary-schools/#school-primary-temasek-primary",
+      "recordId": "primary-temasek-primary"
+    },
+    {
+      "from": "/primary-schools/unity/",
+      "to": "/primary-schools/#school-primary-unity",
+      "recordId": "primary-unity"
+    },
+    {
+      "from": "/primary-schools/valour/",
+      "to": "/primary-schools/#school-primary-valour",
+      "recordId": "primary-valour"
+    },
+    {
+      "from": "/primary-schools/waterway/",
+      "to": "/primary-schools/#school-primary-waterway",
+      "recordId": "primary-waterway"
+    },
+    {
+      "from": "/primary-schools/wellington/",
+      "to": "/primary-schools/#school-primary-wellington",
+      "recordId": "primary-wellington"
+    },
+    {
+      "from": "/primary-schools/west-grove/",
+      "to": "/primary-schools/#school-primary-west-grove",
+      "recordId": "primary-west-grove"
+    },
+    {
+      "from": "/primary-schools/west-spring-primary/",
+      "to": "/primary-schools/#school-primary-west-spring-primary",
+      "recordId": "primary-west-spring-primary"
+    },
+    {
+      "from": "/primary-schools/west-view/",
+      "to": "/primary-schools/#school-primary-west-view",
+      "recordId": "primary-west-view"
+    },
+    {
+      "from": "/primary-schools/westwood/",
+      "to": "/primary-schools/#school-primary-westwood",
+      "recordId": "primary-westwood"
+    },
+    {
+      "from": "/primary-schools/white-sands/",
+      "to": "/primary-schools/#school-primary-white-sands",
+      "recordId": "primary-white-sands"
+    },
+    {
+      "from": "/primary-schools/woodgrove/",
+      "to": "/primary-schools/#school-primary-woodgrove",
+      "recordId": "primary-woodgrove"
+    },
+    {
+      "from": "/primary-schools/woodlands-primary/",
+      "to": "/primary-schools/#school-primary-woodlands-primary",
+      "recordId": "primary-woodlands-primary"
+    },
+    {
+      "from": "/primary-schools/woodlands-ring/",
+      "to": "/primary-schools/#school-primary-woodlands-ring",
+      "recordId": "primary-woodlands-ring"
+    },
+    {
+      "from": "/primary-schools/xinghua-primary/",
+      "to": "/primary-schools/#school-primary-xinghua-primary",
+      "recordId": "primary-xinghua-primary"
+    },
+    {
+      "from": "/primary-schools/xingnan/",
+      "to": "/primary-schools/#school-primary-xingnan",
+      "recordId": "primary-xingnan"
+    },
+    {
+      "from": "/primary-schools/xinmin-primary/",
+      "to": "/primary-schools/#school-primary-xinmin-primary",
+      "recordId": "primary-xinmin-primary"
+    },
+    {
+      "from": "/primary-schools/xishan/",
+      "to": "/primary-schools/#school-primary-xishan",
+      "recordId": "primary-xishan"
+    },
+    {
+      "from": "/primary-schools/yangzheng/",
+      "to": "/primary-schools/#school-primary-yangzheng",
+      "recordId": "primary-yangzheng"
+    },
+    {
+      "from": "/primary-schools/yew-tee/",
+      "to": "/primary-schools/#school-primary-yew-tee",
+      "recordId": "primary-yew-tee"
+    },
+    {
+      "from": "/primary-schools/yio-chu-kang/",
+      "to": "/primary-schools/#school-primary-yio-chu-kang",
+      "recordId": "primary-yio-chu-kang"
+    },
+    {
+      "from": "/primary-schools/yishun/",
+      "to": "/primary-schools/#school-primary-yishun",
+      "recordId": "primary-yishun"
+    },
+    {
+      "from": "/primary-schools/yu-neng/",
+      "to": "/primary-schools/#school-primary-yu-neng",
+      "recordId": "primary-yu-neng"
+    },
+    {
+      "from": "/primary-schools/yuhua/",
+      "to": "/primary-schools/#school-primary-yuhua",
+      "recordId": "primary-yuhua"
+    },
+    {
+      "from": "/primary-schools/yumin-primary/",
+      "to": "/primary-schools/#school-primary-yumin-primary",
+      "recordId": "primary-yumin-primary"
+    },
+    {
+      "from": "/primary-schools/zhangde-primary/",
+      "to": "/primary-schools/#school-primary-zhangde-primary",
+      "recordId": "primary-zhangde-primary"
+    },
+    {
+      "from": "/primary-schools/zhenghua/",
+      "to": "/primary-schools/#school-primary-zhenghua",
+      "recordId": "primary-zhenghua"
+    },
+    {
+      "from": "/primary-schools/zhonghua/",
+      "to": "/primary-schools/#school-primary-zhonghua",
+      "recordId": "primary-zhonghua"
+    },
+    {
+      "from": "/private-schools/amity-global-institute/",
+      "to": "/private-university/amity/",
+      "recordId": "private-amity-global-institute"
+    },
+    {
+      "from": "/private-schools/bci/",
+      "to": "/private-schools/#school-private-brentvale-college-international",
+      "recordId": "private-brentvale-college-international"
+    },
+    {
+      "from": "/private-schools/brentvale-college-international/",
+      "to": "/private-schools/#school-private-brentvale-college-international",
+      "recordId": "private-brentvale-college-international"
+    },
+    {
+      "from": "/private-schools/curtin-singapore/",
+      "to": "/private-university/curtin/",
+      "recordId": "private-curtin-singapore"
+    },
+    {
+      "from": "/private-schools/dimensions-international/",
+      "to": "/international-school/schools/#school-international-dimensions-international",
+      "recordId": "international-dimensions-international"
+    },
+    {
+      "from": "/private-schools/erc-institute/",
+      "to": "/private-schools/#school-private-erc-institute",
+      "recordId": "private-erc-institute"
+    },
+    {
+      "from": "/private-schools/furen-international/",
+      "to": "/international-school/schools/#school-international-furen-international",
+      "recordId": "international-furen-international"
+    },
+    {
+      "from": "/private-schools/insworld-institute/",
+      "to": "/international-school/schools/#school-international-insworld-institute",
+      "recordId": "international-insworld-institute"
+    },
+    {
+      "from": "/private-schools/jcu-singapore/",
+      "to": "/private-university/jcu/",
+      "recordId": "private-jcu-singapore"
+    },
+    {
+      "from": "/private-schools/kaplan/",
+      "to": "/private-university/kaplan/",
+      "recordId": "private-kaplan"
+    },
+    {
+      "from": "/private-schools/lsbf-singapore/",
+      "to": "/private-university/lsbf/",
+      "recordId": "private-lsbf-singapore"
+    },
+    {
+      "from": "/private-schools/mdis/",
+      "to": "/private-university/mdis/",
+      "recordId": "private-mdis"
+    },
+    {
+      "from": "/private-schools/psb-academy/",
+      "to": "/private-university/psb/",
+      "recordId": "private-psb-academy"
+    },
+    {
+      "from": "/private-schools/psb/",
+      "to": "/private-university/psb/",
+      "recordId": "private-psb-academy"
+    },
+    {
+      "from": "/private-schools/raffles-college-higher-education/",
+      "to": "/private-schools/#school-private-raffles-college-higher-education",
+      "recordId": "private-raffles-college-higher-education"
+    },
+    {
+      "from": "/private-schools/san-yu-adventist/",
+      "to": "/international-school/schools/#school-international-san-yu-adventist",
+      "recordId": "international-san-yu-adventist"
+    },
+    {
+      "from": "/private-schools/shelton-college/",
+      "to": "/private-schools/#school-private-shelton-college",
+      "recordId": "private-shelton-college"
+    },
+    {
+      "from": "/private-schools/sim/",
+      "to": "/private-university/sim/",
+      "recordId": "private-sim"
+    },
+    {
+      "from": "/private-schools/st-francis-methodist/",
+      "to": "/international-school/schools/#school-international-st-francis-methodist",
+      "recordId": "international-st-francis-methodist"
+    },
+    {
+      "from": "/private-schools/tmc-academy/",
+      "to": "/private-university/tmc/",
+      "recordId": "private-tmc-academy"
+    },
+    {
+      "from": "/secondary-schools/acs-barker-road/",
+      "to": "/secondary-schools/#school-secondary-acs-barker-road",
+      "recordId": "secondary-acs-barker-road"
+    },
+    {
+      "from": "/secondary-schools/admiralty/",
+      "to": "/secondary-schools/#school-secondary-admiralty",
+      "recordId": "secondary-admiralty"
+    },
+    {
+      "from": "/secondary-schools/ahmad-ibrahim/",
+      "to": "/secondary-schools/#school-secondary-ahmad-ibrahim",
+      "recordId": "secondary-ahmad-ibrahim"
+    },
+    {
+      "from": "/secondary-schools/anderson/",
+      "to": "/secondary-schools/#school-secondary-anderson",
+      "recordId": "secondary-anderson"
+    },
+    {
+      "from": "/secondary-schools/ang-mo-kio/",
+      "to": "/secondary-schools/#school-secondary-ang-mo-kio",
+      "recordId": "secondary-ang-mo-kio"
+    },
+    {
+      "from": "/secondary-schools/anglican-high-school/",
+      "to": "/secondary-schools/#school-secondary-anglican-high-school",
+      "recordId": "secondary-anglican-high-school"
+    },
+    {
+      "from": "/secondary-schools/anglo-chinese-independent/",
+      "to": "/secondary-schools/#school-secondary-anglo-chinese-independent",
+      "recordId": "secondary-anglo-chinese-independent"
+    },
+    {
+      "from": "/secondary-schools/assumption-english/",
+      "to": "/secondary-schools/#school-secondary-assumption-english",
+      "recordId": "secondary-assumption-english"
+    },
+    {
+      "from": "/secondary-schools/assumption-pathway/",
+      "to": "/secondary-schools/#school-secondary-assumption-pathway",
+      "recordId": "secondary-assumption-pathway"
+    },
+    {
+      "from": "/secondary-schools/bartley/",
+      "to": "/secondary-schools/#school-secondary-bartley",
+      "recordId": "secondary-bartley"
+    },
+    {
+      "from": "/secondary-schools/beatty/",
+      "to": "/secondary-schools/#school-secondary-beatty",
+      "recordId": "secondary-beatty"
+    },
+    {
+      "from": "/secondary-schools/bedok-green/",
+      "to": "/secondary-schools/#school-secondary-bedok-green",
+      "recordId": "secondary-bedok-green"
+    },
+    {
+      "from": "/secondary-schools/bedok-south/",
+      "to": "/secondary-schools/#school-secondary-bedok-south",
+      "recordId": "secondary-bedok-south"
+    },
+    {
+      "from": "/secondary-schools/bedok-view/",
+      "to": "/secondary-schools/#school-secondary-bedok-view",
+      "recordId": "secondary-bedok-view"
+    },
+    {
+      "from": "/secondary-schools/bendemeer/",
+      "to": "/secondary-schools/#school-secondary-bendemeer",
+      "recordId": "secondary-bendemeer"
+    },
+    {
+      "from": "/secondary-schools/boon-lay/",
+      "to": "/secondary-schools/#school-secondary-boon-lay",
+      "recordId": "secondary-boon-lay"
+    },
+    {
+      "from": "/secondary-schools/bowen/",
+      "to": "/secondary-schools/#school-secondary-bowen",
+      "recordId": "secondary-bowen"
+    },
+    {
+      "from": "/secondary-schools/broadrick/",
+      "to": "/secondary-schools/#school-secondary-broadrick",
+      "recordId": "secondary-broadrick"
+    },
+    {
+      "from": "/secondary-schools/bukit-batok/",
+      "to": "/secondary-schools/#school-secondary-bukit-batok",
+      "recordId": "secondary-bukit-batok"
+    },
+    {
+      "from": "/secondary-schools/bukit-merah/",
+      "to": "/secondary-schools/#school-secondary-bukit-merah",
+      "recordId": "secondary-bukit-merah"
+    },
+    {
+      "from": "/secondary-schools/bukit-panjang-govt-high/",
+      "to": "/secondary-schools/#school-secondary-bukit-panjang-govt-high",
+      "recordId": "secondary-bukit-panjang-govt-high"
+    },
+    {
+      "from": "/secondary-schools/bukit-view/",
+      "to": "/secondary-schools/#school-secondary-bukit-view",
+      "recordId": "secondary-bukit-view"
+    },
+    {
+      "from": "/secondary-schools/canberra/",
+      "to": "/secondary-schools/#school-secondary-canberra",
+      "recordId": "secondary-canberra"
+    },
+    {
+      "from": "/secondary-schools/catholic-high/",
+      "to": "/secondary-schools/#school-secondary-catholic-high",
+      "recordId": "secondary-catholic-high"
+    },
+    {
+      "from": "/secondary-schools/cedar-girls/",
+      "to": "/secondary-schools/#school-secondary-cedar-girls",
+      "recordId": "secondary-cedar-girls"
+    },
+    {
+      "from": "/secondary-schools/changkat-changi/",
+      "to": "/secondary-schools/#school-secondary-changkat-changi",
+      "recordId": "secondary-changkat-changi"
+    },
+    {
+      "from": "/secondary-schools/chij-katong-convent/",
+      "to": "/secondary-schools/#school-secondary-chij-katong-convent",
+      "recordId": "secondary-chij-katong-convent"
+    },
+    {
+      "from": "/secondary-schools/chij-st-josephs-convent/",
+      "to": "/secondary-schools/#school-secondary-chij-st-josephs-convent",
+      "recordId": "secondary-chij-st-josephs-convent"
+    },
+    {
+      "from": "/secondary-schools/chij-st-nicholas/",
+      "to": "/secondary-schools/#school-secondary-chij-st-nicholas",
+      "recordId": "secondary-chij-st-nicholas"
+    },
+    {
+      "from": "/secondary-schools/chij-st-theresas-convent/",
+      "to": "/secondary-schools/#school-secondary-chij-st-theresas-convent",
+      "recordId": "secondary-chij-st-theresas-convent"
+    },
+    {
+      "from": "/secondary-schools/chij-toa-payoh/",
+      "to": "/secondary-schools/#school-secondary-chij-toa-payoh",
+      "recordId": "secondary-chij-toa-payoh"
+    },
+    {
+      "from": "/secondary-schools/christ-church/",
+      "to": "/secondary-schools/#school-secondary-christ-church",
+      "recordId": "secondary-christ-church"
+    },
+    {
+      "from": "/secondary-schools/chua-chu-kang/",
+      "to": "/secondary-schools/#school-secondary-chua-chu-kang",
+      "recordId": "secondary-chua-chu-kang"
+    },
+    {
+      "from": "/secondary-schools/chung-cheng-high-main/",
+      "to": "/secondary-schools/#school-secondary-chung-cheng-high-main",
+      "recordId": "secondary-chung-cheng-high-main"
+    },
+    {
+      "from": "/secondary-schools/chung-cheng-high-yishun/",
+      "to": "/secondary-schools/#school-secondary-chung-cheng-high-yishun",
+      "recordId": "secondary-chung-cheng-high-yishun"
+    },
+    {
+      "from": "/secondary-schools/clementi-town/",
+      "to": "/secondary-schools/#school-secondary-clementi-town",
+      "recordId": "secondary-clementi-town"
+    },
+    {
+      "from": "/secondary-schools/commonwealth/",
+      "to": "/secondary-schools/#school-secondary-commonwealth",
+      "recordId": "secondary-commonwealth"
+    },
+    {
+      "from": "/secondary-schools/compassvale/",
+      "to": "/secondary-schools/#school-secondary-compassvale",
+      "recordId": "secondary-compassvale"
+    },
+    {
+      "from": "/secondary-schools/crescent-girls/",
+      "to": "/secondary-schools/#school-secondary-crescent-girls",
+      "recordId": "secondary-crescent-girls"
+    },
+    {
+      "from": "/secondary-schools/crest/",
+      "to": "/secondary-schools/#school-secondary-crest",
+      "recordId": "secondary-crest"
+    },
+    {
+      "from": "/secondary-schools/damai/",
+      "to": "/secondary-schools/#school-secondary-damai",
+      "recordId": "secondary-damai"
+    },
+    {
+      "from": "/secondary-schools/deyi/",
+      "to": "/secondary-schools/#school-secondary-deyi",
+      "recordId": "secondary-deyi"
+    },
+    {
+      "from": "/secondary-schools/dunearn/",
+      "to": "/secondary-schools/#school-secondary-dunearn",
+      "recordId": "secondary-dunearn"
+    },
+    {
+      "from": "/secondary-schools/dunman-high/",
+      "to": "/secondary-schools/#school-secondary-dunman-high",
+      "recordId": "secondary-dunman-high"
+    },
+    {
+      "from": "/secondary-schools/dunman/",
+      "to": "/secondary-schools/#school-secondary-dunman",
+      "recordId": "secondary-dunman"
+    },
+    {
+      "from": "/secondary-schools/east-spring/",
+      "to": "/secondary-schools/#school-secondary-east-spring",
+      "recordId": "secondary-east-spring"
+    },
+    {
+      "from": "/secondary-schools/edgefield/",
+      "to": "/secondary-schools/#school-secondary-edgefield",
+      "recordId": "secondary-edgefield"
+    },
+    {
+      "from": "/secondary-schools/evergreen/",
+      "to": "/secondary-schools/#school-secondary-evergreen",
+      "recordId": "secondary-evergreen"
+    },
+    {
+      "from": "/secondary-schools/fairfield-methodist/",
+      "to": "/secondary-schools/#school-secondary-fairfield-methodist",
+      "recordId": "secondary-fairfield-methodist"
+    },
+    {
+      "from": "/secondary-schools/fuhua/",
+      "to": "/secondary-schools/#school-secondary-fuhua",
+      "recordId": "secondary-fuhua"
+    },
+    {
+      "from": "/secondary-schools/gan-eng-seng/",
+      "to": "/secondary-schools/#school-secondary-gan-eng-seng",
+      "recordId": "secondary-gan-eng-seng"
+    },
+    {
+      "from": "/secondary-schools/geylang-methodist/",
+      "to": "/secondary-schools/#school-secondary-geylang-methodist",
+      "recordId": "secondary-geylang-methodist"
+    },
+    {
+      "from": "/secondary-schools/greendale/",
+      "to": "/secondary-schools/#school-secondary-greendale",
+      "recordId": "secondary-greendale"
+    },
+    {
+      "from": "/secondary-schools/greenridge/",
+      "to": "/secondary-schools/#school-secondary-greenridge",
+      "recordId": "secondary-greenridge"
+    },
+    {
+      "from": "/secondary-schools/guangyang/",
+      "to": "/secondary-schools/#school-secondary-guangyang",
+      "recordId": "secondary-guangyang"
+    },
+    {
+      "from": "/secondary-schools/hai-sing-catholic/",
+      "to": "/secondary-schools/#school-secondary-hai-sing-catholic",
+      "recordId": "secondary-hai-sing-catholic"
+    },
+    {
+      "from": "/secondary-schools/hillgrove/",
+      "to": "/secondary-schools/#school-secondary-hillgrove",
+      "recordId": "secondary-hillgrove"
+    },
+    {
+      "from": "/secondary-schools/holy-innocents-high/",
+      "to": "/secondary-schools/#school-secondary-holy-innocents-high",
+      "recordId": "secondary-holy-innocents-high"
+    },
+    {
+      "from": "/secondary-schools/hougang/",
+      "to": "/secondary-schools/#school-secondary-hougang",
+      "recordId": "secondary-hougang"
+    },
+    {
+      "from": "/secondary-schools/hua-yi/",
+      "to": "/secondary-schools/#school-secondary-hua-yi",
+      "recordId": "secondary-hua-yi"
+    },
+    {
+      "from": "/secondary-schools/hwa-chong-institution/",
+      "to": "/secondary-schools/#school-secondary-hwa-chong-institution",
+      "recordId": "secondary-hwa-chong-institution"
+    },
+    {
+      "from": "/secondary-schools/junyuan/",
+      "to": "/secondary-schools/#school-secondary-junyuan",
+      "recordId": "secondary-junyuan"
+    },
+    {
+      "from": "/secondary-schools/jurong-west/",
+      "to": "/secondary-schools/#school-secondary-jurong-west",
+      "recordId": "secondary-jurong-west"
+    },
+    {
+      "from": "/secondary-schools/jurong/",
+      "to": "/secondary-schools/#school-secondary-jurong",
+      "recordId": "secondary-jurong"
+    },
+    {
+      "from": "/secondary-schools/jurongville/",
+      "to": "/secondary-schools/#school-secondary-jurongville",
+      "recordId": "secondary-jurongville"
+    },
+    {
+      "from": "/secondary-schools/juying/",
+      "to": "/secondary-schools/#school-secondary-juying",
+      "recordId": "secondary-juying"
+    },
+    {
+      "from": "/secondary-schools/kent-ridge/",
+      "to": "/secondary-schools/#school-secondary-kent-ridge",
+      "recordId": "secondary-kent-ridge"
+    },
+    {
+      "from": "/secondary-schools/kranji/",
+      "to": "/secondary-schools/#school-secondary-kranji",
+      "recordId": "secondary-kranji"
+    },
+    {
+      "from": "/secondary-schools/kuo-chuan-presbyterian/",
+      "to": "/secondary-schools/#school-secondary-kuo-chuan-presbyterian",
+      "recordId": "secondary-kuo-chuan-presbyterian"
+    },
+    {
+      "from": "/secondary-schools/loyang-view/",
+      "to": "/secondary-schools/#school-secondary-loyang-view",
+      "recordId": "secondary-loyang-view"
+    },
+    {
+      "from": "/secondary-schools/manjusri/",
+      "to": "/secondary-schools/#school-secondary-manjusri",
+      "recordId": "secondary-manjusri"
+    },
+    {
+      "from": "/secondary-schools/maris-stella-high/",
+      "to": "/secondary-schools/#school-secondary-maris-stella-high",
+      "recordId": "secondary-maris-stella-high"
+    },
+    {
+      "from": "/secondary-schools/marsiling/",
+      "to": "/secondary-schools/#school-secondary-marsiling",
+      "recordId": "secondary-marsiling"
+    },
+    {
+      "from": "/secondary-schools/mayflower/",
+      "to": "/secondary-schools/#school-secondary-mayflower",
+      "recordId": "secondary-mayflower"
+    },
+    {
+      "from": "/secondary-schools/meridian/",
+      "to": "/secondary-schools/#school-secondary-meridian",
+      "recordId": "secondary-meridian"
+    },
+    {
+      "from": "/secondary-schools/methodist-girls/",
+      "to": "/secondary-schools/#school-secondary-methodist-girls",
+      "recordId": "secondary-methodist-girls"
+    },
+    {
+      "from": "/secondary-schools/montfort/",
+      "to": "/secondary-schools/#school-secondary-montfort",
+      "recordId": "secondary-montfort"
+    },
+    {
+      "from": "/secondary-schools/nan-chiau-high/",
+      "to": "/secondary-schools/#school-secondary-nan-chiau-high",
+      "recordId": "secondary-nan-chiau-high"
+    },
+    {
+      "from": "/secondary-schools/nan-hua-high/",
+      "to": "/secondary-schools/#school-secondary-nan-hua-high",
+      "recordId": "secondary-nan-hua-high"
+    },
+    {
+      "from": "/secondary-schools/nanyang-girls/",
+      "to": "/secondary-schools/#school-secondary-nanyang-girls",
+      "recordId": "secondary-nanyang-girls"
+    },
+    {
+      "from": "/secondary-schools/national-junior-college/",
+      "to": "/secondary-schools/#school-secondary-national-junior-college",
+      "recordId": "secondary-national-junior-college"
+    },
+    {
+      "from": "/secondary-schools/naval-base/",
+      "to": "/secondary-schools/#school-secondary-naval-base",
+      "recordId": "secondary-naval-base"
+    },
+    {
+      "from": "/secondary-schools/new-town/",
+      "to": "/secondary-schools/#school-secondary-new-town",
+      "recordId": "secondary-new-town"
+    },
+    {
+      "from": "/secondary-schools/ngee-ann/",
+      "to": "/secondary-schools/#school-secondary-ngee-ann",
+      "recordId": "secondary-ngee-ann"
+    },
+    {
+      "from": "/secondary-schools/north-vista/",
+      "to": "/secondary-schools/#school-secondary-north-vista",
+      "recordId": "secondary-north-vista"
+    },
+    {
+      "from": "/secondary-schools/northbrooks/",
+      "to": "/secondary-schools/#school-secondary-northbrooks",
+      "recordId": "secondary-northbrooks"
+    },
+    {
+      "from": "/secondary-schools/northland/",
+      "to": "/secondary-schools/#school-secondary-northland",
+      "recordId": "secondary-northland"
+    },
+    {
+      "from": "/secondary-schools/nus-high/",
+      "to": "/secondary-schools/#school-secondary-nus-high",
+      "recordId": "secondary-nus-high"
+    },
+    {
+      "from": "/secondary-schools/orchid-park/",
+      "to": "/secondary-schools/#school-secondary-orchid-park",
+      "recordId": "secondary-orchid-park"
+    },
+    {
+      "from": "/secondary-schools/outram/",
+      "to": "/secondary-schools/#school-secondary-outram",
+      "recordId": "secondary-outram"
+    },
+    {
+      "from": "/secondary-schools/pasir-ris-crest/",
+      "to": "/secondary-schools/#school-secondary-pasir-ris-crest",
+      "recordId": "secondary-pasir-ris-crest"
+    },
+    {
+      "from": "/secondary-schools/pasir-ris/",
+      "to": "/secondary-schools/#school-secondary-pasir-ris",
+      "recordId": "secondary-pasir-ris"
+    },
+    {
+      "from": "/secondary-schools/paya-lebar-methodist/",
+      "to": "/secondary-schools/#school-secondary-paya-lebar-methodist",
+      "recordId": "secondary-paya-lebar-methodist"
+    },
+    {
+      "from": "/secondary-schools/pei-hwa/",
+      "to": "/secondary-schools/#school-secondary-pei-hwa",
+      "recordId": "secondary-pei-hwa"
+    },
+    {
+      "from": "/secondary-schools/peicai/",
+      "to": "/secondary-schools/#school-secondary-peicai",
+      "recordId": "secondary-peicai"
+    },
+    {
+      "from": "/secondary-schools/peirce/",
+      "to": "/secondary-schools/#school-secondary-peirce",
+      "recordId": "secondary-peirce"
+    },
+    {
+      "from": "/secondary-schools/presbyterian-high/",
+      "to": "/secondary-schools/#school-secondary-presbyterian-high",
+      "recordId": "secondary-presbyterian-high"
+    },
+    {
+      "from": "/secondary-schools/punggol/",
+      "to": "/secondary-schools/#school-secondary-punggol",
+      "recordId": "secondary-punggol"
+    },
+    {
+      "from": "/secondary-schools/queenstown/",
+      "to": "/secondary-schools/#school-secondary-queenstown",
+      "recordId": "secondary-queenstown"
+    },
+    {
+      "from": "/secondary-schools/queensway/",
+      "to": "/secondary-schools/#school-secondary-queensway",
+      "recordId": "secondary-queensway"
+    },
+    {
+      "from": "/secondary-schools/raffles-girls/",
+      "to": "/secondary-schools/#school-secondary-raffles-girls",
+      "recordId": "secondary-raffles-girls"
+    },
+    {
+      "from": "/secondary-schools/raffles-institution/",
+      "to": "/secondary-schools/#school-secondary-raffles-institution",
+      "recordId": "secondary-raffles-institution"
+    },
+    {
+      "from": "/secondary-schools/regent/",
+      "to": "/secondary-schools/#school-secondary-regent",
+      "recordId": "secondary-regent"
+    },
+    {
+      "from": "/secondary-schools/river-valley-high/",
+      "to": "/secondary-schools/#school-secondary-river-valley-high",
+      "recordId": "secondary-river-valley-high"
+    },
+    {
+      "from": "/secondary-schools/riverside/",
+      "to": "/secondary-schools/#school-secondary-riverside",
+      "recordId": "secondary-riverside"
+    },
+    {
+      "from": "/secondary-schools/school-of-science-technology/",
+      "to": "/secondary-schools/#school-secondary-school-of-science-technology",
+      "recordId": "secondary-school-of-science-technology"
+    },
+    {
+      "from": "/secondary-schools/school-of-the-arts/",
+      "to": "/secondary-schools/#school-secondary-school-of-the-arts",
+      "recordId": "secondary-school-of-the-arts"
+    },
+    {
+      "from": "/secondary-schools/sembawang/",
+      "to": "/secondary-schools/#school-secondary-sembawang",
+      "recordId": "secondary-sembawang"
+    },
+    {
+      "from": "/secondary-schools/seng-kang/",
+      "to": "/secondary-schools/#school-secondary-seng-kang",
+      "recordId": "secondary-seng-kang"
+    },
+    {
+      "from": "/secondary-schools/serangoon-garden/",
+      "to": "/secondary-schools/#school-secondary-serangoon-garden",
+      "recordId": "secondary-serangoon-garden"
+    },
+    {
+      "from": "/secondary-schools/serangoon/",
+      "to": "/secondary-schools/#school-secondary-serangoon",
+      "recordId": "secondary-serangoon"
+    },
+    {
+      "from": "/secondary-schools/singapore-chinese-girls/",
+      "to": "/secondary-schools/#school-secondary-singapore-chinese-girls",
+      "recordId": "secondary-singapore-chinese-girls"
+    },
+    {
+      "from": "/secondary-schools/singapore-sports-school/",
+      "to": "/secondary-schools/#school-secondary-singapore-sports-school",
+      "recordId": "secondary-singapore-sports-school"
+    },
+    {
+      "from": "/secondary-schools/spectra/",
+      "to": "/secondary-schools/#school-secondary-spectra",
+      "recordId": "secondary-spectra"
+    },
+    {
+      "from": "/secondary-schools/springfield/",
+      "to": "/secondary-schools/#school-secondary-springfield",
+      "recordId": "secondary-springfield"
+    },
+    {
+      "from": "/secondary-schools/st-andrews/",
+      "to": "/secondary-schools/#school-secondary-st-andrews",
+      "recordId": "secondary-st-andrews"
+    },
+    {
+      "from": "/secondary-schools/st-anthonys-canossian/",
+      "to": "/secondary-schools/#school-secondary-st-anthonys-canossian",
+      "recordId": "secondary-st-anthonys-canossian"
+    },
+    {
+      "from": "/secondary-schools/st-gabriels/",
+      "to": "/secondary-schools/#school-secondary-st-gabriels",
+      "recordId": "secondary-st-gabriels"
+    },
+    {
+      "from": "/secondary-schools/st-hildas/",
+      "to": "/secondary-schools/#school-secondary-st-hildas",
+      "recordId": "secondary-st-hildas"
+    },
+    {
+      "from": "/secondary-schools/st-josephs-institution/",
+      "to": "/secondary-schools/#school-secondary-st-josephs-institution",
+      "recordId": "secondary-st-josephs-institution"
+    },
+    {
+      "from": "/secondary-schools/st-margarets/",
+      "to": "/secondary-schools/#school-secondary-st-margarets",
+      "recordId": "secondary-st-margarets"
+    },
+    {
+      "from": "/secondary-schools/st-patricks/",
+      "to": "/secondary-schools/#school-secondary-st-patricks",
+      "recordId": "secondary-st-patricks"
+    },
+    {
+      "from": "/secondary-schools/swiss-cottage/",
+      "to": "/secondary-schools/#school-secondary-swiss-cottage",
+      "recordId": "secondary-swiss-cottage"
+    },
+    {
+      "from": "/secondary-schools/tampines/",
+      "to": "/secondary-schools/#school-secondary-tampines",
+      "recordId": "secondary-tampines"
+    },
+    {
+      "from": "/secondary-schools/tanjong-katong-girls/",
+      "to": "/secondary-schools/#school-secondary-tanjong-katong-girls",
+      "recordId": "secondary-tanjong-katong-girls"
+    },
+    {
+      "from": "/secondary-schools/tanjong-katong/",
+      "to": "/secondary-schools/#school-secondary-tanjong-katong",
+      "recordId": "secondary-tanjong-katong"
+    },
+    {
+      "from": "/secondary-schools/temasek-junior-college/",
+      "to": "/secondary-schools/#school-secondary-temasek-junior-college",
+      "recordId": "secondary-temasek-junior-college"
+    },
+    {
+      "from": "/secondary-schools/temasek/",
+      "to": "/secondary-schools/#school-secondary-temasek",
+      "recordId": "secondary-temasek"
+    },
+    {
+      "from": "/secondary-schools/unity/",
+      "to": "/secondary-schools/#school-secondary-unity",
+      "recordId": "secondary-unity"
+    },
+    {
+      "from": "/secondary-schools/victoria-school/",
+      "to": "/secondary-schools/#school-secondary-victoria-school",
+      "recordId": "secondary-victoria-school"
+    },
+    {
+      "from": "/secondary-schools/west-spring/",
+      "to": "/secondary-schools/#school-secondary-west-spring",
+      "recordId": "secondary-west-spring"
+    },
+    {
+      "from": "/secondary-schools/westwood/",
+      "to": "/secondary-schools/#school-secondary-westwood",
+      "recordId": "secondary-westwood"
+    },
+    {
+      "from": "/secondary-schools/whitley/",
+      "to": "/secondary-schools/#school-secondary-whitley",
+      "recordId": "secondary-whitley"
+    },
+    {
+      "from": "/secondary-schools/woodgrove/",
+      "to": "/secondary-schools/#school-secondary-woodgrove",
+      "recordId": "secondary-woodgrove"
+    },
+    {
+      "from": "/secondary-schools/woodlands-ring/",
+      "to": "/secondary-schools/#school-secondary-woodlands-ring",
+      "recordId": "secondary-woodlands-ring"
+    },
+    {
+      "from": "/secondary-schools/woodlands/",
+      "to": "/secondary-schools/#school-secondary-woodlands",
+      "recordId": "secondary-woodlands"
+    },
+    {
+      "from": "/secondary-schools/xinmin/",
+      "to": "/secondary-schools/#school-secondary-xinmin",
+      "recordId": "secondary-xinmin"
+    },
+    {
+      "from": "/secondary-schools/yio-chu-kang/",
+      "to": "/secondary-schools/#school-secondary-yio-chu-kang",
+      "recordId": "secondary-yio-chu-kang"
+    },
+    {
+      "from": "/secondary-schools/yishun-town/",
+      "to": "/secondary-schools/#school-secondary-yishun-town",
+      "recordId": "secondary-yishun-town"
+    },
+    {
+      "from": "/secondary-schools/yishun/",
+      "to": "/secondary-schools/#school-secondary-yishun",
+      "recordId": "secondary-yishun"
+    },
+    {
+      "from": "/secondary-schools/yuan-ching/",
+      "to": "/secondary-schools/#school-secondary-yuan-ching",
+      "recordId": "secondary-yuan-ching"
+    },
+    {
+      "from": "/secondary-schools/yuhua/",
+      "to": "/secondary-schools/#school-secondary-yuhua",
+      "recordId": "secondary-yuhua"
+    },
+    {
+      "from": "/secondary-schools/yusof-ishak/",
+      "to": "/secondary-schools/#school-secondary-yusof-ishak",
+      "recordId": "secondary-yusof-ishak"
+    },
+    {
+      "from": "/secondary-schools/yuying/",
+      "to": "/secondary-schools/#school-secondary-yuying",
+      "recordId": "secondary-yuying"
+    },
+    {
+      "from": "/secondary-schools/zhenghua/",
+      "to": "/secondary-schools/#school-secondary-zhenghua",
+      "recordId": "secondary-zhenghua"
+    },
+    {
+      "from": "/secondary-schools/zhonghua/",
+      "to": "/secondary-schools/#school-secondary-zhonghua",
+      "recordId": "secondary-zhonghua"
+    }
+  ]
+}

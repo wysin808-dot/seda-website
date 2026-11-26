@@ -14,6 +14,7 @@ import { optimizeArticle } from './scripts/seo-optimizer.mjs';
 import { filterTraffic, referrerSource, singaporeDate, legacyBaiduRecords, mergeSubmissionRecords, optionalCount } from './scripts/operations-metrics.mjs';
 import { editorialIssues, researchBrief } from './scripts/editorial-policy.mjs';
 import { verifyBuiltPublication } from './scripts/content-validation.mjs';
+import { catalogCoverageMatrix } from './scripts/catalog-coverage.mjs';
 
 const PORT = Number(process.env.PORT || 3002);
 const require = createRequire(import.meta.url);
@@ -1117,6 +1118,10 @@ function readSchoolRecords() {
 }
 
 function schoolDatabaseMatrix(sitemapUrls = readSitemapUrls()) {
+  if (existsSync(join(process.cwd(), 'content/schools/database.json'))
+    && existsSync(join(process.cwd(), 'content/schools/database-policy.json'))) {
+    return catalogCoverageMatrix(process.cwd(), sitemapUrls);
+  }
   const schools = readSchoolRecords();
   const sitemapSet = new Set(sitemapUrls);
   const groups = [
@@ -1564,7 +1569,9 @@ function handleCmsOverview(req, res) {
   const missingTopicPages = topics.reduce((sum, topic) => sum + (topic.missingCount || 0), 0);
   if (missingTopicPages) tasks.push({ type: 'content', title: `专题矩阵还有 ${missingTopicPages} 个关键页面待补齐`, target: 'pages', priority: 'high' });
   if (schoolMatrix.totals.dataGap) tasks.push({ type: 'content', title: `学校库还有 ${schoolMatrix.totals.dataGap} 条目标数据待补齐`, target: 'pages', priority: 'high' });
-  if (schoolMatrix.totals.missingSitemapCount) tasks.push({ type: 'seo', title: `${schoolMatrix.totals.missingSitemapCount} 个学校页需检查 sitemap`, target: 'seo', priority: 'medium' });
+  if (schoolMatrix.totals.missingSitemapCount) tasks.push({ type: 'seo', title: schoolMatrix.mode === 'catalog'
+    ? `${schoolMatrix.totals.missingSitemapCount} 条学校记录缺分类地图覆盖`
+    : `${schoolMatrix.totals.missingSitemapCount} 个学校页需检查 sitemap`, target: 'seo', priority: 'medium' });
   if (health.lowScore) tasks.push({ type: 'content', title: `${health.lowScore} 篇内容 SEO 分数低于 70`, target: 'seo', priority: 'medium' });
   json(res, 200, {
     ok: true,

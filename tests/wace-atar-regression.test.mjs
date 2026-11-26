@@ -11,6 +11,8 @@ import { parse } from 'parse5';
 const root = path.resolve(import.meta.dirname, '..');
 const html = fs.readFileSync(path.join(root, 'wace-atar/index.html'), 'utf8');
 const $ = load(html);
+const sources = JSON.parse(fs.readFileSync(path.join(root, 'content/sources.json'), 'utf8'));
+const record = sources['https://sgeda.org.cn/wace-atar/'];
 const normalise = text => text.replace(/\s+/g, ' ').trim();
 const schemas = $('script[type="application/ld+json"]').toArray().map(script => JSON.parse($(script).text()));
 const schema = type => schemas.filter(item => item['@type'] === type);
@@ -110,33 +112,31 @@ test('TEA示例标明假设及当年规则，不再将329固定换算为ATAR92',
   assert.doesNotMatch(html, /TEA 329 → ATAR 约 92|第 5 门及以后的科目不计入 TEA/);
 });
 
-test('meta、Open Graph、Article与WebPage描述一致，含最低资格和核实日期', () => {
+test('meta、Open Graph、Article与WebPage描述一致，含最低资格而不堆砌核实日期', () => {
   const description = $('meta[name="description"]').attr('content');
   assert.equal($('meta[property="og:description"]').attr('content'), description);
   assert.equal(schema('Article')[0].description, description);
   assert.equal(schema('WebPage').length, 1);
   assert.equal(schema('WebPage')[0].description, description);
   assert.match(description, /TISC 西澳.*NUS.*90.*NTU 国际申请者.*95/);
-  assert.match(description, /公民\/PR.*年度与专业.*最低资格不保证录取.*2026-11-26/);
-  assert.equal(schema('Article')[0].dateModified, '2026-11-26');
-  assert.deepEqual(schema('Article')[0].citation, officialUrls);
+  assert.match(description, /公民\/PR.*年度与专业.*最低资格不保证录取/);
+  assert.doesNotMatch(description, /核实于|2026-11-26/);
+  for (const type of ['Article', 'WebPage']) {
+    assert.equal(schema(type)[0].dateModified, record.lastVerified);
+    assert.deepEqual(schema(type)[0].citation, officialUrls);
+  }
   const summaries = $('meta[name="ai-summary"]').toArray().map(meta => $(meta).attr('content')).join(' ');
   assert.match(summaries, /TISC 西澳.*90.*95.*最低申请资格不保证录取/);
 });
 
-test('可见官方来源使用具体页面URL和核实日期，保留纠错入口', () => {
-  const sources = $('#atar-official-sources');
-  assert.equal(sources.length, 1);
-  assert.equal(sources.find('time').attr('datetime'), '2026-11-26');
-  for (const url of officialUrls) {
-    const link = sources.find('a').filter((_, anchor) => $(anchor).attr('href') === url);
-    assert.equal(link.length, 1, url);
-    assert.match(link.closest('li').text(), /核实于 2026-11-26/);
-    assert.equal(link.attr('target'), '_blank');
-    assert.match(link.attr('rel'), /noopener/);
-  }
-  assert.equal(sources.find('a[href="/contact/"]').length, 1);
-  assert.match(sources.text(), /最低资格不保证录取.*身份.*申请年度.*目标专业/);
+test('来源-only区块完全移除，真实具体URL及核实范围保存在维护记录与citation', () => {
+  assert.equal($('#atar-official-sources, .seda-sources').length, 0);
+  assert.doesNotMatch($('main').text(), /资料来源与核实|核实于 2026-11-26/);
+  assert.equal(record.lastVerified, '2026-11-26');
+  assert.deepEqual(record.sources.map(source => source.url), officialUrls);
+  assert.match(record.note, /最低资格不保证录取.*身份.*申请年度.*目标专业/);
+  for (const source of record.sources) assert.ok(source.label.trim());
+  assert.equal($('footer a.footer-contact-link[href="/contact/"]').length, 1, '已有联系入口仍可咨询或纠错');
 });
 
 test('页面可执行的内联脚本语法正常，不执行分析或外部脚本', () => {
@@ -149,7 +149,7 @@ test('SEO增强脚本连续两次运行不覆盖旧ATAR整页、已核实摘要�
   const fixtureRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'seda-atar-build-'));
   const fixturePage = path.join(fixtureRoot, 'wace-atar/index.html');
   const controlPage = path.join(fixtureRoot, 'wace-vs-a-level/index.html');
-  const controlHtml = '<!doctype html><html><head></head><body><main></main></body></html>\n';
+  const controlHtml = '<!doctype html><html><head><title>对照页面</title><meta name="description" content="对照页面实际描述"></head><body><main><h1>对照页面</h1></main></body></html>\n';
   try {
     fs.mkdirSync(path.dirname(fixturePage), { recursive: true });
     fs.mkdirSync(path.dirname(controlPage), { recursive: true });
@@ -167,7 +167,11 @@ test('SEO增强脚本连续两次运行不覆盖旧ATAR整页、已核实摘要�
       const control = fs.readFileSync(controlPage, 'utf8');
       assert.notEqual(control, controlHtml);
       const controlSchemas = load(control)('script[type="application/ld+json"]').toArray();
-      assert.equal(controlSchemas.length, 3, '对照页保持正常增强且重复运行不累积JSON-LD');
+      assert.equal(controlSchemas.length, 1, '没有可见FAQ或核心列表的页面不得注入虚构问答或列表');
+      const entity = JSON.parse(load(controlSchemas[0]).text());
+      assert.equal(entity['@type'], 'WebPage');
+      assert.equal(entity.name, '对照页面', '增强读取实际标题而非独立文案模板');
+      assert.equal(entity.description, '对照页面实际描述');
     }
   } finally {
     fs.rmSync(fixtureRoot, { recursive: true, force: true });

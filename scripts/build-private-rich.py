@@ -413,10 +413,9 @@ RICH={
 "kaplan":{
  "abbr":"Kaplan","zh":"楷博高等教育（新加坡）","en":"Kaplan Higher Education Singapore","color":"#003a70","founded":2005,
  "tagline":"全球教育集团 Kaplan 旗下 · 专业最广",
- "sig":"全球教育集团 Kaplan 旗下，新加坡<b>专业最广、开课最灵活</b>的私立学府之一；合作 <b>12 所</b>英、澳、爱名校（UCD、Royal Holloway、Northumbria、Murdoch、Essex、Portsmouth 等）授予学位，商科、会计金融、IT、网络安全、传媒、酒店等齐全。EduTrust 认证。",
+ "sig":"全球教育集团 Kaplan 旗下，新加坡专业最广、开课最灵活的私立学府之一；合作 12 所英、澳、爱名校（UCD、Royal Holloway、Northumbria、Murdoch、Essex、Portsmouth 等）授予学位，商科、会计金融、IT、网络安全、传媒、酒店等齐全。EduTrust 认证。",
  "fee":"S$28,000–48,000","fee_note":"本科总学费按合作大学与专业不同；以官方为准。私立大学不提供 MOE 政府津贴。",
  "intake":"每年多次开学","edutrust":"EduTrust 认证",
- "china":"取决于合作大学是否在中留服名单（如都柏林大学、皇家霍洛威等）；申请前请在中留服官网核实具体学位。",
  "overview":[
    "Kaplan 新加坡隶属<b>全球教育集团 Kaplan</b>，是本地<b>专业最广、开课最灵活</b>的私立学府之一，市中心校区、转专业与衔接灵活，持 EduTrust 认证。",
    "合作 <b>12 所</b>大学（UCD、Royal Holloway、Northumbria、Murdoch、Essex、Portsmouth、Griffith、Monash、RMIT、Swinburne、Birmingham City、南澳大学）授予学位。<b>都柏林大学（UCD）的商学学士（BBS）多方向</b>最热门，会计金融、IT/网络安全、传媒、游戏设计等同样齐全。",
@@ -432,10 +431,9 @@ RICH={
 "mdis":{
  "abbr":"MDIS","zh":"新加坡管理发展学院","en":"Management Development Institute of Singapore (MDIS)","color":"#c81432","founded":1956,
  "tagline":"新加坡历史最悠久的私立学府（1956）",
- "sig":"<b>新加坡历史最悠久的非营利私立学府</b>（1956 年创办），自有校园与宿舍；合作英国 Teesside、Sunderland、Edinburgh Napier、Roehampton、Bangor 及美国中俄克拉荷马大学，<b>专业覆盖最广</b>——商科、工程、生科、时尚、传媒、心理、护理、IT。EduTrust 认证。",
+ "sig":"新加坡历史最悠久的非营利私立学府（1956 年创办），自有校园与宿舍；合作英国 Teesside、Sunderland、Edinburgh Napier、Roehampton、Bangor 及美国中俄克拉荷马大学，专业覆盖最广——商科、工程、生科、时尚、传媒、心理、护理、IT。EduTrust 认证。",
  "fee":"S$28,000–48,000","fee_note":"本科总学费按合作大学与专业不同；以官方为准。私立大学不提供 MOE 政府津贴。",
  "intake":"每年多次开学","edutrust":"EduTrust 认证",
- "china":"MDIS 有 8 所英国合作大学的部分专业获中国教育部（中留服）认证（含 Sunderland、Portsmouth、Bangor、Roehampton、Northumbria、Teesside、Leeds Beckett、Edinburgh Napier）；申请前请在中留服官网核实具体专业。",
  "overview":[
    "MDIS（新加坡管理发展学院）创办于 <b>1956 年</b>，是新加坡<b>历史最悠久的非营利私立学府</b>，拥有自有校园与学生宿舍，持 EduTrust 认证。",
    "合作<b>英国 Teesside、Sunderland、Edinburgh Napier、Roehampton、Bangor</b> 及<b>美国中俄克拉荷马大学</b>授予学位，<b>专业覆盖最广</b>——商科、工程、生命科学、时尚设计、传媒、心理学、护理、信息技术等。",
@@ -451,10 +449,9 @@ RICH={
 "shrm":{
  "abbr":"SHRM","zh":"SHRM 学院","en":"SHRM College Singapore","color":"#8a6d1f","founded":2007,
  "tagline":"酒店与旅游管理专精",
- "sig":"<b>酒店与旅游管理专精</b>的私立学院（2007 年创办，前身 SHRM 酒店与度假村管理学院）；合作英国 <b>Wrexham、Cumbria</b> 授予学位，课程偏实操与行业实训。EduTrust 4 年认证。",
+ "sig":"酒店与旅游管理专精的私立学院（2007 年创办，前身 SHRM 酒店与度假村管理学院）；合作英国 Wrexham、Cumbria 授予学位，课程偏实操与行业实训。EduTrust 4 年认证。",
  "fee":"S$30,000–45,000","fee_note":"本科总学费按专业与学制不同；以官方为准。私立大学不提供 MOE 政府津贴。",
  "intake":"每年多次开学","edutrust":"EduTrust 4 年认证",
- "china":"取决于合作大学是否在中留服名单；申请前请在中留服官网核实具体学位。",
  "overview":[
    "SHRM 学院 2007 年创办（前身为 SHRM 酒店与度假村管理学院），是新加坡<b>酒店与旅游管理专精</b>的私立学院，持 EduTrust 4 年认证。",
    "合作<b>英国雷克瑟姆大学（Wrexham）、坎布里亚大学（Cumbria）</b>，提供国际旅游与酒店管理、酒店与会展管理、国际商业的<b>专升本（Top-up）</b>学位及 MBA；课程<b>偏实操与行业实训</b>。",
@@ -470,10 +467,9 @@ RICH={
 "tmc":{
  "abbr":"TMC","zh":"TMC 学院","en":"TMC Academy","color":"#b3243b","founded":1981,
  "tagline":"新加坡最早的私立学府之一（1981）",
- "sig":"<b>新加坡最早的私立学府之一</b>（1981 年创办），专业面广——商科、IT、<b>心理学</b>、酒店旅游、传媒等；现主要合作英国 <b>Anglia Ruskin</b> 授予学位。EduTrust 4 年认证。",
+ "sig":"新加坡最早的私立学府之一（1981 年创办），专业面广——商科、IT、心理学、酒店旅游、传媒等；现主要合作英国 Anglia Ruskin 授予学位。EduTrust 4 年认证。",
  "fee":"S$28,000–45,000","fee_note":"本科总学费按合作大学与专业不同；以官方为准。私立大学不提供 MOE 政府津贴。",
  "intake":"每年多次开学","edutrust":"EduTrust 4 年认证",
- "china":"取决于合作大学是否在中留服名单；申请前请在中留服官网核实具体学位。",
  "overview":[
    "TMC 学院 1981 年创办，是<b>新加坡最早的私立学府之一</b>，专业面广、老牌稳健，持 EduTrust 4 年认证。",
    "现主要合作<b>英国 Anglia Ruskin 大学（ARU）</b>授予商科学位；另与<b>北安普顿大学</b>合作的多个专业（商科、会计、心理、酒店、传媒、软件等）<b>招生至 2026 年 7 月</b>。商科、心理学、酒店旅游是其传统强项。",
@@ -489,10 +485,9 @@ RICH={
 "amity":{
  "abbr":"Amity","zh":"Amity 全球教育学院（新加坡）","en":"Amity Global Institute Singapore","color":"#00325a","founded":2007,
  "tagline":"印度 Amity 教育集团旗下 · 国际化",
- "sig":"印度 Amity 教育集团旗下的新加坡校区，学生来自 45+ 国家；合作英国 <b>UEA、伦敦大学、Teesside、Northampton</b> 授予学位，<b>商科、人工智能 / 数据科学、物流与酒店旅游</b>见长。EduTrust 4 年认证。",
+ "sig":"印度 Amity 教育集团旗下的新加坡校区，学生来自 45+ 国家；合作英国 UEA、伦敦大学、Teesside、Northampton 授予学位，商科、人工智能 / 数据科学、物流与酒店旅游见长。EduTrust 4 年认证。",
  "fee":"S$28,000–45,000","fee_note":"本科 / 硕士总学费按合作大学与专业不同；以官方为准。私立大学不提供 MOE 政府津贴。",
  "intake":"每年多次开学","edutrust":"EduTrust 4 年认证",
- "china":"取决于合作大学（如伦敦大学、UEA）是否在中留服名单；申请前请在中留服官网核实具体学位。",
  "overview":[
    "Amity 全球教育学院新加坡校区隶属<b>印度 Amity 教育集团</b>，学生来自 45 个以上国家，国际化氛围浓，持 EduTrust 4 年认证。",
    "合作<b>英国东英吉利（UEA）、伦敦大学（MBA 由伦敦玛丽女王大学学术指导）、蒂赛德、北安普顿</b>授予学位。近年在 <b>人工智能、数据科学</b>方向（Teesside）开设多个硕士，商科、物流供应链、数字营销同样齐全。",
@@ -509,10 +504,9 @@ RICH={
 "lsbf":{
  "abbr":"LSBF","zh":"伦敦商业金融学院（新加坡）","en":"London School of Business and Finance Singapore","color":"#16306b","founded":2007,
  "tagline":"专注商科、财会与金融",
- "sig":"伦敦商业金融学院新加坡校区，专注<b>商科、会计金融与酒店管理</b>；合作英国格林威治大学等授予学位，课程偏实务与职业资格（如 ACCA）衔接。EduTrust 4 年认证。",
+ "sig":"伦敦商业金融学院新加坡校区，专注商科、会计金融与酒店管理；合作英国格林威治大学等授予学位，课程偏实务与职业资格（如 ACCA）衔接。EduTrust 4 年认证。",
  "fee":"S$28,000–46,000","fee_note":"本科总学费按合作大学与专业不同；以官方为准。私立大学不提供 MOE 政府津贴。",
  "intake":"1 / 5 / 9 月","edutrust":"EduTrust 4 年认证",
- "china":"取决于合作大学（如格林威治大学）是否在中留服名单；申请前请在中留服官网核实具体学位。",
  "overview":[
    "LSBF（伦敦商业金融学院）新加坡校区<b>专注商科、会计金融与酒店管理</b>，合作<b>英国格林威治大学</b>等授予学位，持 EduTrust 4 年认证。",
    "课程偏<b>实务与职业资格衔接</b>——会计金融方向与 <b>ACCA</b>（特许会计师）紧密结合，可走「ACCA 备考 → 应用会计学位」路线；酒店管理（格林威治该学科 QS 全球前 175）与商业物流也是特色。",
@@ -530,23 +524,20 @@ RICH={
  "abbr":"Curtin","zh":"科廷大学（新加坡）","en":"Curtin University Singapore","color":"#1a1a1a","founded":2008,
  "direct":True,"qs":"#183",
  "tagline":"澳洲科廷大学直属校区",
- "sig":"澳洲科廷大学（QS 世界 #183）的新加坡直属校区，颁发与本部<b>完全一致</b>的学位；商科、会计金融、传媒与信息科技见长，学制紧凑、可加速完成。",
+ "sig":"澳洲科廷大学（QS 世界 #183）的新加坡直属校区，颁发与本部完全一致的学位；商科、会计金融、传媒与信息科技见长，学制紧凑、可加速完成。",
  "fee":"S$55,000–70,000","fee_note":"本科总学费（直属校区较高），按专业不同；以官方为准。私立大学不提供 MOE 政府津贴。",
  "intake":"2 / 6 / 10 月（每年多次开学）","edutrust":"EduTrust 认证",
- "china":"直属海外校区学位，中留服认证相对稳妥（以当年名单为准）。",
  "overview":[
-   "Curtin 新加坡是澳洲科廷大学（QS 世界 #183，澳洲八大之外的实力派）的<b>直属校区</b>，2008 年设立，颁发与本部<b>完全一致</b>的学位、全球认可。",
+   "Curtin 新加坡是澳洲科廷大学（QS 世界 #183，澳洲八大之外的实力派）的<b>直属校区</b>，2008 年设立，颁发与本部<b>完全一致</b>的学位。",
    "<b>商科与会计金融</b>是招牌（会计 / 金融 QS 学科全球前 200），<b>传媒、大众传播、广告</b>同样见长，信息技术、网络安全、人工智能与护理方向齐全；学制紧凑、可加速完成。",
-   "适合想要澳洲正规商科 / 传媒学位、快速衔接就业、中留服认证稳的中国学生。",
  ],
  "highlights":[("同款学位","与澳洲本部一致，QS #183"),("商科 + 传媒","双强项见长"),("加速完成","学制紧凑、省时省钱")],
  "why":[
-   ("🎓","澳洲同款学位","与澳洲科廷本部完全相同的学位，QS #183、全球认可。"),
+   ("🎓","澳洲同款学位","与澳洲科廷本部完全相同的学位，QS #183。"),
    ("💼","商科招牌","会计、金融、管理、市场营销等商科方向强、就业广。"),
    ("🎙️","传媒强项","传播、大众传媒、广告等创意产业方向见长。"),
    ("💻","IT 与网络安全","信息技术、网络安全、人工智能、数据科学齐全。"),
    ("⏩","学制紧凑","加速完成，省时省钱，与本部同质。"),
-   ("🇨🇳","高中即可申请","预科衔接本科，无需高考，中留服认证稳。"),
  ],
  "pathway":[("预科 / 英语","Pathway Diploma 或英语课程，按学历入读，达标直入本科。"),
    ("本科学位","商务 / 传媒 / IT 等，科廷自授、与澳洲本部一致。"),
@@ -560,23 +551,20 @@ RICH={
  "abbr":"JCU","zh":"詹姆斯库克大学（新加坡）","en":"James Cook University Singapore","color":"#009ca6","founded":2003,
  "direct":True,"qs":"#440",
  "tagline":"澳洲詹姆斯库克大学直属校区",
- "sig":"澳洲詹姆斯库克大学（QS 世界 #440）的新加坡直属校区，颁发与本部<b>完全相同</b>的学位；一年 3 学期、最快约 2 年读完本科。海洋与环境科学、心理学、商科、IT、酒店旅游见长。",
+ "sig":"澳洲詹姆斯库克大学（QS 世界 #440）的新加坡直属校区，颁发与本部完全相同的学位；一年 3 学期、最快约 2 年读完本科。海洋与环境科学、心理学、商科、IT、酒店旅游见长。",
  "fee":"S$55,000–72,000","fee_note":"本科总学费（直属校区较高），按专业不同；以官方为准。私立大学不提供 MOE 政府津贴。",
  "intake":"3 / 7 / 11 月（每年 3 次开学）","edutrust":"EduTrust 认证",
- "china":"直属海外校区学位，中留服认证相对稳妥（以当年名单为准）。",
  "overview":[
-   "JCU 新加坡是澳洲詹姆斯库克大学（QS 世界 #440）的<b>直属校区</b>，2003 年设立，颁发与澳洲本部<b>完全相同</b>的学位，全球认可。",
+   "JCU 新加坡是澳洲詹姆斯库克大学（QS 世界 #440）的<b>直属校区</b>，2003 年设立，颁发与澳洲本部<b>完全相同</b>的学位。",
    "采用<b>一年 3 学期</b>的加速学制，最快约 <b>2 年</b>读完本科，比常规省时省钱。海洋生物学全球领先，<b>环境科学、水产养殖、心理学</b>是招牌，商科、IT、网络安全、酒店旅游、教育同样齐全。",
-   "适合想要正规海外大学学位、中留服认证稳、又看重时间与性价比的中国学生。",
  ],
- "highlights":[("同款学位","与澳洲本部完全一致，全球认可"),("最快 2 年","一年 3 学期加速完成"),("海洋与心理","环境/水产/心理学是招牌")],
+ "highlights":[("同款学位","与澳洲本部完全一致"),("最快 2 年","一年 3 学期加速完成"),("海洋与心理","环境/水产/心理学是招牌")],
  "why":[
-   ("🎓","澳洲同款学位","与澳洲 JCU 本部完全相同的学位，全球认可、中留服认证稳。"),
+   ("🎓","澳洲同款学位","与澳洲 JCU 本部完全相同的学位。"),
    ("⏩","最快 2 年本科","一年 3 学期、加速完成，省时省钱。"),
    ("🌊","海洋与环境强项","JCU 海洋生物学全球领先，环境科学、水产养殖特色鲜明。"),
    ("🧠","心理学招牌","心理学、商业心理、指导与咨询是 JCU 强项。"),
    ("💼","商科 IT 齐全","商务、会计、IT、网络安全、酒店旅游等就业方向广。"),
-   ("🇨🇳","高中即可申请","预科 / 大专衔接本科，无需高考，约 2 年拿学位。"),
  ],
  "pathway":[("预科 / 大专","Foundation 或高等教育文凭，按学历入读；达标可直入本科。"),
    ("本科学位","约 2 年（一年 3 学期加速），JCU 自授、与澳洲本部一致。"),
@@ -592,13 +580,12 @@ RICH={
  "sig":"新加坡领先私立学府，与英、澳、新西兰 8 所大学合作，提供从语言、文凭到本科、硕士的完整升学路径；3 大市中心校区，EduTrust 认证，工程与生命科学是特色。",
  "fee":"S$28,000–48,000","fee_note":"本科总学费按合作大学与专业不同；以官方为准。私立大学不提供 MOE 政府津贴。",
  "intake":"每年 1/4/7/10 月等多次开学","edutrust":"EduTrust 认证",
- "china":"取决于合作大学是否在中留服名单（直属/合作各异）；申请前请在中留服官网核实具体学位。",
  "overview":[
    "PSB 学院（PSB Academy）前身可追溯到 1964 年，是新加坡领先的私立学府之一，被称为「亚洲未来学院」。设有 3 个市中心校区，持 EduTrust 认证。",
    "PSB 与<b>英国、澳大利亚、新西兰 8 所大学</b>深度合作，提供从语言（CEP）、PSB 文凭到合作大学本科与硕士的完整路径。它采用<b>一年 3 学期的 Trimester 制</b>，比澳洲本校区两学期制可节省约 1 年时间与费用，所获学位与本校区一致。",
    "<b>工程与生命科学</b>是 PSB 区别于其他私立的特色，商科、IT、传媒、体育科学、护理与医疗健康同样齐全。",
  ],
- "highlights":[("省时省钱","Trimester 制，比澳洲本校区省约 1 年"),("同等学历","学位与本校区一致，可中留服认证"),("专业最全","16 大方向、8 所合作大学")],
+ "highlights":[("省时省钱","Trimester 制，比澳洲本校区省约 1 年"),("专业最全","16 大方向、8 所合作大学")],
  "pathway":[("语言课程 CEP","按入学测试分级；已有雅思 5.5 可跳过，直入证书/文凭。"),
    ("证书 / 预科","6 个月，高中均分达标可跳过，直接读文凭。"),
    ("PSB 文凭","约 12 个月，16 大方向，完成后<b>直入合作大学本科大二</b>。"),
@@ -614,7 +601,6 @@ RICH={
  "sig":"新加坡规模最大、历史最久的私立学府之一（1964 年创办），与英、澳、美、加、欧 12 所大学合作，提供 140+ 专业；伦敦大学（LSE 学术引领）、悉尼大学、伯明翰、华威等名校学位，校园与学生生活成熟。",
  "fee":"S$30,000–50,000","fee_note":"本科总学费按合作大学与专业不同；以官方为准。私立大学不提供 MOE 政府津贴。",
  "intake":"每年多次开学（按合作大学）","edutrust":"EduTrust 认证",
- "china":"取决于合作大学，如<b>伦敦大学、伯明翰、悉尼大学、华威</b>等可获中留服认证；申请前请在中留服官网核实具体学位。",
  "overview":[
    "新加坡管理学院（SIM Global Education）创办于 1964 年，是新加坡<b>规模最大、最具声誉的私立学府之一</b>，在校学生与校友众多、学生生活与社团成熟。",
    "SIM 与<b>英国、澳大利亚、美国、加拿大、法国 12 所大学</b>合作，提供 <b>140+ 个</b>从文凭、预科到本科、硕士的专业。招牌是<b>伦敦大学（学术由 LSE 等引领）</b>，并有悉尼大学（澳洲八大）、伯明翰、华威、卧龙岗、RMIT、布法罗等名校学位。",
@@ -696,17 +682,11 @@ CSS=r'''
 .prc-prog .t.fl{background:#eef1f6;color:#516079}
 .prc-prog .t.pn{background:#f0f6f0;color:#2e7d52}
 .prc-empty{max-width:1080px;margin:0 auto;padding:0 clamp(20px,6vw,80px) 36px;color:var(--prc-muted);display:none}
-/* facts/faq/cta reuse from pv look */
+/* facts/cta reuse from pv look */
 .prc-facts table{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--prc-line);border-radius:14px;overflow:hidden}
 .prc-facts th,.prc-facts td{padding:13px 16px;text-align:left;border-bottom:1px solid var(--prc-line);font-size:.92rem}
 .prc-facts th{background:#f7f8fa;color:var(--prc-muted);font-weight:700;width:32%;white-space:nowrap}
 .prc-facts tr:last-child th,.prc-facts tr:last-child td{border-bottom:0}
-.prc-faq details{border:1px solid var(--prc-line);border-radius:12px;padding:2px 16px;margin-bottom:9px;background:#fff}
-.prc-faq summary{cursor:pointer;font-weight:700;padding:13px 0;list-style:none}
-.prc-faq summary::-webkit-details-marker{display:none}
-.prc-faq summary::after{content:"+";float:right;color:var(--acc);font-weight:800}
-.prc-faq details[open] summary::after{content:"–"}
-.prc-faq .a{padding:0 0 14px;color:#48505f;line-height:1.74}
 .prc-cta{background:var(--accgrad);border-radius:18px;padding:26px 28px;text-align:center;margin:8px 0}
 .prc-cta,.prc-cta *{color:#fff}.prc-cta h3{margin:0 0 8px;font-size:1.3rem}
 .prc-cta a{display:inline-block;margin-top:14px;background:#fff;color:var(--acc);font-weight:800;padding:11px 28px;border-radius:10px;text-decoration:none}
@@ -769,8 +749,7 @@ UNIQUE={
    "合作考文垂、纽卡斯尔、拉筹伯等，应用型强、就业方向广。"],
  "mdis":["<b>新加坡历史最悠久的私立学府</b>（1956 年创办、非营利）。",
    "<b>专业覆盖最广</b>：工程、时尚设计、生命科学、护理、传媒、心理学一应俱全。",
-   "自有校园 + 学生宿舍（MDIS Residences），适合需要住宿的国际生。",
-   "8 所英国合作大学的部分专业获中国教育部（中留服）认证。"],
+   "自有校园 + 学生宿舍（MDIS Residences），适合需要住宿的国际生。"],
  "lsbf":["<b>财会与 ACCA 深度衔接</b>：可走「ACCA 备考 → 应用会计学位」的专业路线。",
    "合作格林威治大学，<b>酒店与休闲管理 QS 学科全球前 175</b>。",
    "学习模式灵活（全日制 / 兼读 / 线上），适合在职或需弹性安排的学生。",
@@ -810,10 +789,10 @@ def build(slug):
     canon=f"https://sgeda.org.cn/private-university/{slug}/"
     if direct:
         title=f"{d['zh']}（{d['abbr']}）完整指南：澳洲直属校区、{len(progs)}+ 专业数据库、升学路径与学费 | SEDA"
-        desc=f"{d['zh']}（{d['en']}）深度指南：澳洲大学直属校区，自授与本部一致的学位；{len(progs)}+ 个专业（本科 {n_b}、硕士 {n_m}）可筛选数据库；学科方向、升学路径、入学要求、学费与中留服认证。"
+        desc=f"{d['zh']}（{d['en']}）深度指南：澳洲大学直属校区，自授与本部一致的学位；{len(progs)}+ 个专业（本科 {n_b}、硕士 {n_m}）可筛选数据库；学科方向、升学路径、入学要求与学费。"
     else:
         title=f"{d['zh']}（{d['abbr']}）完整指南：{npartners} 所合作大学、{len(progs)}+ 专业数据库、升学路径与学费 | SEDA"
-        desc=f"{d['zh']}（{d['en']}）深度指南：与 {npartners} 所英澳新大学合作，{len(progs)}+ 个专业（本科 {n_b}、硕士 {n_m}、文凭 {n_d}）可筛选数据库；合作大学、升学路径、入学要求、学费与中留服认证。"
+        desc=f"{d['zh']}（{d['en']}）深度指南：与 {npartners} 所英澳新大学合作，{len(progs)}+ 个专业（本科 {n_b}、硕士 {n_m}、文凭 {n_d}）可筛选数据库；合作大学、升学路径、入学要求与学费。"
     # partner cards
     pcards=""
     for key,zh,en,ctry,flag,note,qs in partners:
@@ -843,18 +822,7 @@ def build(slug):
     hl="".join(f'<div class="prc-hlc"><b>{esc(t)}</b><span>{esc(x)}</span></div>' for t,x in d["highlights"])
     ov="".join(f'<p class="ov">{p}</p>' for p in d["overview"])
     pathhtml="".join(f'<div class="prc-step"><div class="no">{i+1}</div><b>{esc(t)}</b><span>{x}</span></div>' for i,(t,x) in enumerate(d["pathway"]))
-    pnames="、".join(z for k,z,*_ in partners if k!=slug)
-    if direct:
-        faq1=(f"{d['abbr']} 和澳洲本部是什么关系？",f"{d['zh']}是澳洲詹姆斯库克大学的<b>直属校区</b>，颁发与澳洲本部<b>完全相同</b>的学位、全球认可；学制更紧凑，最快约 2 年读完本科。")
-    else:
-        faq1=(f"{d['abbr']} 和哪些大学合作？",f"{d['zh']}与 {npartners} 所大学合作：{pnames}。学位由合作大学颁发，与其本校区一致。")
-    faqs=[faq1,
-     (f"{d['abbr']} 有多少专业？",f"本页收录约 {len(progs)} 个主要专业（本科 {n_b}、硕士 {n_m}{('、文凭 '+str(n_d)) if n_d else ''}），覆盖 {len(fields)} 大方向，可按方向{('' if direct else '、合作大学')}、层级筛选；完整清单见学校官方课程页。"),
-     (f"{d['abbr']} 的学位中留服认可吗？",d["china"]),
-     ("中国学生没有高考能申请吗？","可以。接受高中毕业证 + 成绩单，按学历从预科 / 文凭起读；英语雅思约 5.5（本科段 6.0–6.5），不达标可先读语言 / 预科课程。"),
-     (f"{d['abbr']} 学费多少？",f"本科总学费约 {d['fee']}。{d['fee_note']} 学费通常可按学期分期。"),
-    ]
-    faq="".join(f'<details><summary>{esc(q)}</summary><div class="a">{a}</div></details>' for q,a in faqs)
+    # No shared admissions/recognition FAQ: school-specific evidence is required.
     jsonld=[
      {"@context":"https://schema.org","@type":"CollegeOrUniversity","name":d["zh"],"alternateName":[d["en"],d["abbr"]],"url":canon,"foundingDate":str(d["founded"]),
       "address":{"@type":"PostalAddress","addressCountry":"SG","addressLocality":"Singapore"},"description":d["sig"]},
@@ -864,7 +832,6 @@ def build(slug):
        {"@type":"ListItem","position":1,"name":"首页","item":"https://sgeda.org.cn/"},
        {"@type":"ListItem","position":2,"name":"新加坡私立大学","item":"https://sgeda.org.cn/private-university/"},
        {"@type":"ListItem","position":3,"name":d["zh"]}]},
-     {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":q,"acceptedAnswer":{"@type":"Answer","text":html.unescape(a.replace("<b>","").replace("</b>",""))}} for q,a in faqs]},
     ]
     lg=logo_path(slug)
     WHITE_LOGO_RICH={"psb","kaplan"}  # 白色 logo → 直接放彩色 hero（透明牌），不用白底
@@ -917,7 +884,6 @@ def build(slug):
   {midsec}
 
   <section class="prc-sec tight"><h2>升学路径</h2>
-    <p class="lead">中国学生典型路线：按学历从预科 / 文凭 / 本科对应阶段入读，学历达标可跳过前段。</p>
     <div class="prc-path">{pathhtml}</div></section>
 
   <div class="prc-db">
@@ -941,10 +907,7 @@ def build(slug):
       <tr><th>开学时间</th><td>{esc(d['intake'])}</td></tr>
       <tr><th>本科学费</th><td>{esc(d['fee'])}<br><small style="color:#888">{esc(d['fee_note'])}</small></td></tr>
       <tr><th>EduTrust</th><td>🎖 {esc(d['edutrust'])}</td></tr>
-      <tr><th>中留服认证</th><td>{d['china']}</td></tr>
     </table></div></section>
-
-  <section class="prc-sec prc-faq tight"><h2>常见问题</h2>{faq}</section>
 
   <section class="prc-sec tight"><div class="prc-cta"><h3>想申请 {esc(d['abbr'])}？</h3><p>告诉我们你的成绩与目标专业，免费匹配合作大学与升学路径方案。</p><a href="/contact/">免费咨询 →</a></div></section>
 
@@ -1070,8 +1033,12 @@ def build_aggregate():
     if os.path.isdir(cp): shutil.rmtree(cp)
     print(f"injected DB ({N} progs) into private-university/index.html | removed standalone /courses/")
 
-for slug in RICH:
-    out=os.path.join(ROOT,"private-university",slug); os.makedirs(out,exist_ok=True)
-    open(os.path.join(out,"index.html"),"w",encoding="utf-8").write(build(slug))
-    print(f"wrote private-university/{slug}/index.html | {len(RICH[slug]['progs'])} programmes")
-build_aggregate()
+def main():
+    for slug in RICH:
+        out=os.path.join(ROOT,"private-university",slug); os.makedirs(out,exist_ok=True)
+        open(os.path.join(out,"index.html"),"w",encoding="utf-8").write(build(slug))
+        print(f"wrote private-university/{slug}/index.html | {len(RICH[slug]['progs'])} programmes")
+    build_aggregate()
+
+if __name__ == "__main__":
+    main()

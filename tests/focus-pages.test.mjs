@@ -16,9 +16,14 @@ for (const route of routes) {
     const entry = sources['https://sgeda.org.cn/' + route + '/'];
     assert.equal(entry.lastVerified, '2026-11-26');
     assert.ok(entry.sources.length >= 2);
-    assert.ok($('.seda-sources').text().includes(entry.lastVerified));
-    for (const source of entry.sources) {
-      assert.ok($('a').toArray().some(a => $(a).attr('href') === source.url), source.url);
+    assert.equal($('.seda-sources').length, 0, 'no unified visible sources module');
+    const entities = $('script[type="application/ld+json"]').toArray()
+      .flatMap(script => { const data = JSON.parse($(script).text()); return data['@graph'] || [data]; })
+      .filter(node => ['Article', 'WebPage', 'CollectionPage'].includes(node['@type']));
+    assert.ok(entities.length > 0, 'sources belong to a real page entity');
+    for (const entity of entities) {
+      assert.deepEqual(entity.citation, entry.sources.map(source => source.url));
+      assert.equal(entity.dateModified, entry.lastVerified);
     }
     $('.content-main a[href^="/"], #official-update a[href^="/"], #compare a[href^="/"]').each((_, a) => {
       const href = $(a).attr('href');

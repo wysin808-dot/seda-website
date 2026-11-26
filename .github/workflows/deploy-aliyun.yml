@@ -3,11 +3,10 @@ name: Deploy to Aliyun ECS
 on:
   push:
     branches: ["main"]
-  workflow_dispatch:
 
 concurrency:
   group: aliyun-ecs-deploy
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   deploy:
@@ -23,32 +22,38 @@ jobs:
           script_stop: true
           command_timeout: 30m
           script: |
-            set -e
+            set -euo pipefail
             cd /var/www/sgeda
 
-            PREVIOUS_SHA="$(git rev-parse HEAD)"
-            CMS_BACKUP="/tmp/sgeda-cms-content-$(date +%Y%m%d%H%M%S)"
-            mkdir -p "$CMS_BACKUP"
-            if [ -d content/articles ]; then
-              mkdir -p "$CMS_BACKUP/content"
-              cp -a content/articles "$CMS_BACKUP/content/articles"
-            fi
-            if [ -f content/keyword-queue.csv ]; then
-              mkdir -p "$CMS_BACKUP/content"
-              cp -a content/keyword-queue.csv "$CMS_BACKUP/content/keyword-queue.csv"
-            fi
-
+            # fetch does not change served bytes. The old production checkout may
+            # not have the transaction helper yet: load it privately from origin/main.
             git fetch origin main
-            git merge --abort || true
-            git rebase --abort || true
+            DEPLOY_HELPER="$(mktemp /var/tmp/sgeda-deploy-helper.XXXXXX)"
+            trap 'rm -f -- "$DEPLOY_HELPER"' EXIT
+            git show origin/main:scripts/deploy-site-transaction.sh > "$DEPLOY_HELPER"
+            source "$DEPLOY_HELPER"
+            rm -f -- "$DEPLOY_HELPER"
+            deploy_site_transaction_begin
+            PREVIOUS_SHA="$DEPLOY_TX_PREVIOUS_SHA"
+            CMS_BACKUP="$DEPLOY_TX_BACKUP/before"
+
+            if [ -f .git/MERGE_HEAD ]; then git merge --abort; fi
+            if [ -d .git/rebase-merge ] || [ -d .git/rebase-apply ]; then git rebase --abort; fi
             git checkout -f main
             git reset --hard origin/main
             node scripts/restore-cms-content.mjs "$CMS_BACKUP" "$PREVIOUS_SHA"
+            deploy_site_transaction_checkpoint_cms
 
             npm ci
-            npm test
             node scripts/build-content.mjs
+            npm test
+            # Final targets must exist, including each stable school fragment.
+            node scripts/migrate-school-pages.mjs --validate-only
             node scripts/seo-check.mjs
+            # Preserve live SSL/analytics/API config; test, prove loaded, then reload.
+            deploy_site_transaction_install_redirects /var/www/sgeda/scripts/install-school-redirects.sh
+            # Core generation is committed before optional submission/maintenance.
+            deploy_site_transaction_commit
             node scripts/indexnow-submit.mjs || true
             bash scripts/install-daily-drafts-cron.sh
             bash scripts/install-seo-submit-cron.sh

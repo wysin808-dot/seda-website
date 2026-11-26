@@ -9,6 +9,8 @@ import { load } from 'cheerio';
 // This test reads only the OSSD static page; it does not build or modify the site.
 const html = fs.readFileSync(new URL('../ossd/index.html', import.meta.url), 'utf8');
 const $ = load(html);
+const sources = JSON.parse(fs.readFileSync(new URL('../content/sources.json', import.meta.url), 'utf8'));
+const record = sources['https://sgeda.org.cn/ossd/'];
 const normalize = text => text.replace(/\s+/g, '');
 const schemas = $('script[type="application/ld+json"]').toArray()
   .map(el => JSON.parse($(el).text()));
@@ -128,22 +130,24 @@ test('FAQ JSON-LD exactly matches all visible questions and answers', () => {
   });
 });
 
-test('metadata and visible official verification record are synchronized', () => {
+test('metadata and maintained official source record are synchronized without a visible appendix', () => {
   const description = $('meta[name="description"]').attr('content');
   assert.equal($('meta[property="og:description"]').attr('content'), description);
   assert.equal($('meta[property="og:title"]').attr('content'), $('title').text());
+  assert.equal(record.lastVerified, '2026-11-26');
+  assert.deepEqual(record.sources.map(source => source.url), [officialUrl]);
   for (const kind of ['Article', 'WebPage']) {
     const schema = schemas.find(node => node['@type'] === kind);
     assert.equal(schema.description, description);
-    assert.equal(schema.dateModified, '2026-11-26');
+    assert.equal(schema.dateModified, record.lastVerified);
+    assert.deepEqual(schema.citation, record.sources.map(source => source.url));
     assert.match(kind === 'Article' ? schema.headline : schema.name, /毕业要求与大学申请规则/);
   }
-  assert.ok(schemas.find(node => node['@type'] === 'Article').citation.includes(officialUrl));
-  assert.equal($('#ossd-sources time').attr('datetime'), '2026-11-26');
-  assert.equal($('#ossd-sources time').text(), '2026-11-26');
-  assert.equal($(`#ossd-sources a[href="${officialUrl}"]`).length, 1);
-  requireText(normalize($('#ossd-sources').text()), [
-    'SEDA 编辑部', '2026-11-18', 'Literacy graduation requirement',
+  assert.equal($('#ossd-sources, .seda-sources').length, 0);
+  assert.doesNotMatch($('main').text(), /官方来源与核实日期|最近核实/);
+  assert.doesNotMatch(description, /2026-11-26.*核实/);
+  requireText(normalize(record.note), [
+    '2026-11-18', 'Literacy graduation requirement',
     'Online learning graduation requirement', 'Opting out',
     'Financial literacy graduation requirement', 'Community involvement activities'
   ]);

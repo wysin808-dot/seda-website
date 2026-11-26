@@ -10,6 +10,7 @@ import { load } from 'cheerio';
 const root = fileURLToPath(new URL('../', import.meta.url));
 const verified = '2026-11-26';
 const marker = '<!-- SEDA_CUSTOM_PAGE -->';
+const sourceConfig = JSON.parse(fs.readFileSync(path.join(root, 'content/sources.json'), 'utf8'));
 const sources = [
   'https://www.moe.gov.sg/schoolfinder/schooldetail/catholic-junior-college',
   'https://www.moe.gov.sg/schoolfinder/schooldetail/st-andrews-junior-college',
@@ -95,19 +96,26 @@ for (const page of pages) {
     }
   });
 
-  test(`jc-merger-regression/${page.slug}/visible-official-evidence-and-verification-date`, () => {
+  test(`jc-merger-regression/${page.slug}/school-status-and-address-retained-without-unified-verification-date`, () => {
     const { $ } = page;
     const block = $('#official-verification');
     assert.equal(block.length, 1);
-    assert.equal(block.find('time').attr('datetime'), verified);
-    assert.equal(block.find('time').text(), verified);
+    assert.equal(block.find('h2').text(), '学校存续与校址');
+    assert.equal(block.find('time').length, 0);
+    assert.doesNotMatch($('main').text(), /核实日期|已于.*2026-11-26.*核实/);
+    assert.match(block.text(), /分别独立办学/);
+    assert.match(block.text(), /129 Whitley Road, Singapore 297822/);
+    assert.match(block.text(), /5 Sorby Adams Drive, Singapore 357691/);
     const links = block.find('a').map((_, node) => $(node).attr('href')).get();
     assert.deepEqual(links, sources);
     for (const url of links) {
       const hostname = new URL(url).hostname;
       assert.ok(hostname === 'www.moe.gov.sg' || hostname.endsWith('.moe.edu.sg'));
     }
-    assert.match(block.text(), /不代表已复核本页其他分数、费用或升学数据/);
+    const record = sourceConfig[`https://sgeda.org.cn${page.url}`];
+    assert.equal(record.lastVerified, verified);
+    assert.deepEqual(record.sources.map(source => source.url), links);
+    assert.match(record.note, /不代表已复核本页其他分数、费用或升学数据/);
   });
 
   test(`jc-merger-regression/${page.slug}/existing-visual-shell-preserved`, () => {
@@ -159,15 +167,11 @@ test('jc-merger-regression/build-source-routes-cannot-regenerate-these-custom-pa
     if (targets.has(`/${school.basePath}/${school.slug}/`)) assert.equal(school.customContent, true, 'School generator must skip a custom JC page');
   }
   for (const page of pages) assert.ok(page.html.includes(marker), 'Existing article-write and draft-delete guards require the custom marker');
-  const sourceConfig = JSON.parse(fs.readFileSync(path.join(root, 'content/sources.json'), 'utf8'));
-  // These pages currently keep their verification blocks in their exclusive HTML
-  // source. A future central-source entry must preserve the same evidence.
+  // Both custom pages preserve their factual body and the same centrally maintained evidence.
   for (const page of pages) {
     const entry = sourceConfig[`https://sgeda.org.cn${page.url}`];
-    if (entry) {
-      assert.equal(entry.lastVerified, verified);
-      assert.deepEqual(entry.sources.map(source => source.url), sources);
-    }
+    assert.equal(entry.lastVerified, verified);
+    assert.deepEqual(entry.sources.map(source => source.url), sources);
   }
 });
 

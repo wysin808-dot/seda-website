@@ -13,6 +13,7 @@ import {
 
 const repository = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const installer = path.join(repository, 'scripts/install-school-redirects.sh');
+const gitGuard = '\n    # BEGIN SEDA_GIT_ACCESS_GUARD\n    if ($uri ~ "^/+[.]git(?:/|$)") {\n        return 404;\n    }\n    # END SEDA_GIT_ACCESS_GUARD\n';
 function inputs() {
   const catalog = [
     { id: 'alpha-primary', nameZh: '甲小学', nameEn: 'Alpha Primary', category: 'primary', detailUrl: '', legacyUrls: ['/primary-schools/alpha/', '/primary-schools/alpha-alias/'] },
@@ -254,7 +255,8 @@ test('installer preserves original SSL/API/analytics, proves loaded, is idempote
   const first = fix.run();
   assert.equal(first.status, 0, first.stderr);
   const current = await fs.readFile(fix.config, 'utf8');
-  assert.equal(current.replace(/    # BEGIN SEDA_SCHOOL_REDIRECT_INCLUDE\n    include [^\n]+;\n    # END SEDA_SCHOOL_REDIRECT_INCLUDE\n/, ''), original);
+  assert.ok(current.includes(gitGuard));
+  assert.equal(current.replace(gitGuard, '').replace(/    # BEGIN SEDA_SCHOOL_REDIRECT_INCLUDE\n    include [^\n]+;\n    # END SEDA_SCHOOL_REDIRECT_INCLUDE\n/, ''), original);
   assert.match(current, /ssl_certificate \/existing\/real.pem/);
   assert.match(current, /location \/api\/ \{ proxy_pass http:\/\/127.0.0.1:3002;/);
   const log = await fs.readFile(fix.log, 'utf8');
@@ -264,7 +266,9 @@ test('installer preserves original SSL/API/analytics, proves loaded, is idempote
   assert.equal(await fs.readFile(fix.log, 'utf8'), `${log}nginx -T\nnginx -t\nnginx -T\n`);
   assert.deepEqual(await fs.readdir(path.dirname(fix.enabled)), ['sgeda']);
   assert.equal(fix.run(['--remove']).status, 0);
-  assert.equal(await fs.readFile(fix.config, 'utf8'), original);
+  const removed = await fs.readFile(fix.config, 'utf8');
+  assert.ok(removed.includes(gitGuard));
+  assert.equal(removed.replace(gitGuard, ''), original);
   await assert.rejects(fs.access(fix.include), /ENOENT/);
 });
 
@@ -318,7 +322,9 @@ test('real temporary Nginx returns 301 for all variants with quoted fragments, k
   const { createServer } = await import('node:net');
   const { spawn } = await import('node:child_process');
   const { once } = await import('node:events');
-  const root = await fixture(t);
+  const root = await fs.mkdtemp(path.join(os.tmpdir(), 'seda-deploy-transaction-'));
+  await fs.chmod(root, 0o700);
+  t.after(() => fs.rm(root, { recursive: true, force: true }));
   await targetPages(root);
   await put(root, 'primary-schools/admission-guide/index.html', '<article>真实政策保留</article>');
   const { policy, catalog } = inputs();

@@ -18,6 +18,16 @@ import tempfile
 
 MARKER_START = '# BEGIN SEDA_SCHOOL_REDIRECT_INCLUDE'
 MARKER_END = '# END SEDA_SCHOOL_REDIRECT_INCLUDE'
+GIT_MARKER_START = '# BEGIN SEDA_GIT_ACCESS_GUARD'
+GIT_MARKER_END = '# END SEDA_GIT_ACCESS_GUARD'
+# Both separating newlines belong to this exact managed block. This lets us
+# insert immediately after server's opening brace (even for an inline server)
+# and later remove/reinsert it without changing any non-managed byte.
+GIT_GUARD = ('\n    ' + GIT_MARKER_START + '\n'
+             '    if ($uri ~ "^/+[.]git(?:/|$)") {\n'
+             '        return 404;\n'
+             '    }\n'
+             '    ' + GIT_MARKER_END + '\n')
 DEFAULT_INCLUDE = '/etc/nginx/snippets/school-redirects.nginx.conf'
 DEFAULT_ROOT = '/var/www/sgeda'
 
@@ -30,13 +40,49 @@ parser.add_argument('--site-root', default=DEFAULT_ROOT)
 parser.add_argument('--nginx-bin', default='nginx')
 parser.add_argument('--reload-bin', default='systemctl', help='Called with: reload nginx')
 parser.add_argument('--dry-run', action='store_true')
-parser.add_argument('--remove', action='store_true', help='Remove the managed include and its rules, then test/reload')
+parser.add_argument('--remove', action='store_true', help='Remove only the school include/rules; retain the independent Git guard, then test/reload')
 parser.add_argument('--test-mode', action='store_true', help='Fixture-only paths; never permits real production config')
 parser.add_argument('--fixture-root', help='Private /tmp/seda-deploy-transaction-* directory')
 args = parser.parse_args()
 
 
+def remove_git_guard(text):
+    start, end, _ = canonical_block(text, args.site_root)
+    managed = re.compile(r'\n[ \t]*' + re.escape(GIT_MARKER_START)
+                         + r'\r?\n[\s\S]*?^[ \t]*' + re.escape(GIT_MARKER_END)
+                         + r'[ \t]*\r?\n', re.M)
+    matches = list(managed.finditer(text))
+    if (len(matches) > 1 or text.count(GIT_MARKER_START) != len(matches)
+            or text.count(GIT_MARKER_END) != len(matches)):
+        fail('Ambiguous or malformed Git guard marker')
+    if not matches:
+        return text
+    match = matches[0]
+    if not (start <= match.start() < match.end() <= end):
+        fail('Git guard is outside canonical TLS server')
+    # A range inside server's bounds is NOT enough: location/if blocks are
+    # nested within those same bounds. Count only unquoted syntactic braces.
+    depth = 0
+    prefix = text[start:match.start()]
+    for value, begin, finish in tokens(prefix):
+        if prefix[begin:finish] == value and value in ('{', '}'):
+            depth += 1 if value == '{' else -1
+    if depth != 0:
+        fail('Git guard must be directly at canonical server scope')
+    if match.group() != GIT_GUARD:
+        fail('Git guard contains changed configuration; refusing overwrite')
+    return text[:match.start()] + text[match.end():]
+
+
+def insert_git_guard(text):
+    start, _, _ = canonical_block(text, args.site_root)
+    # Server rewrite-phase if+return precedes ALL location selection, including
+    # exact/prefix/cache locations. $uri is normalized and excludes the query.
+    return text[:start] + GIT_GUARD + text[start:]
+
+
 def transform(text):
+    text = remove_git_guard(text)
     start, end, directives = canonical_block(text, args.site_root)
     fragment = text[start:end]
     managed = re.compile(r'(?m)^[ \t]*' + re.escape(MARKER_START) + r'\n[\s\S]*?^[ \t]*' + re.escape(MARKER_END) + r'[ \t]*\n?')
@@ -57,14 +103,14 @@ def transform(text):
             if d[0][0] == 'include' and len(d) == 2 and d[1][0] == args.include_path:
                 fail('Unmanaged school include already exists; mark/review it explicitly')
     if args.remove:
-        return text
+        return insert_git_guard(text)
     # Insert directly at server scope, before its closing brace, never within location /api/.
     insertion = f'    {MARKER_START}\n    include {args.include_path};\n    {MARKER_END}\n'
     line_start = text.rfind('\n', 0, end) + 1
     if text[line_start:end].strip():
         line_start = end
         insertion = '\n' + insertion
-    return text[:line_start] + insertion + text[line_start:]
+    return insert_git_guard(text[:line_start] + insertion + text[line_start:])
 
 
 def validate_rules(data):

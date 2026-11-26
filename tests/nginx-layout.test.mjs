@@ -10,6 +10,7 @@ const repository = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '.
 const helper = await fs.readFile(path.join(repository, 'scripts/deploy-site-transaction.sh'), 'utf8');
 const installer = path.join(repository, 'scripts/install-school-redirects.sh');
 const quote = s => `'${s.replaceAll("'", "'\\''")}'`;
+const gitGuard = '\n    # BEGIN SEDA_GIT_ACCESS_GUARD\n    if ($uri ~ "^/+[.]git(?:/|$)") {\n        return 404;\n    }\n    # END SEDA_GIT_ACCESS_GUARD\n';
 
 async function put(root, name, content, mode) {
   const file = path.join(root, name);
@@ -115,7 +116,8 @@ test('self-contained first bootstrap discovers uniquely loaded conf.d file witho
   assert.match(result.stdout + result.stderr, /arbitrary-live-name\.conf/);
   await assert.rejects(fs.access(fix.bootstrap), /ENOENT/);
   const updated = await fs.readFile(fix.config, 'utf8');
-  assert.equal(updated.replace(/    # BEGIN SEDA_SCHOOL_REDIRECT_INCLUDE\n    include [^\n]+;\n    # END SEDA_SCHOOL_REDIRECT_INCLUDE\n/, ''), fix.content);
+  assert.ok(updated.includes(gitGuard));
+  assert.equal(updated.replace(gitGuard, '').replace(/    # BEGIN SEDA_SCHOOL_REDIRECT_INCLUDE\n    include [^\n]+;\n    # END SEDA_SCHOOL_REDIRECT_INCLUDE\n/, ''), fix.content);
   assert.equal(await fs.readFile(fix.active, 'utf8'), await fs.readFile(fix.source, 'utf8'));
   cleanLogs(result);
 });
@@ -324,7 +326,9 @@ test('unrelated loaded TLS include outside nginx subtree is kept byte-identical 
   const result = fix.runTransaction();
   assert.equal(result.status, 0, result.stderr);
   assert.deepEqual(await fs.readFile(tls), before);
-  assert.equal((await fs.readFile(fix.config, 'utf8')).replace(/    # BEGIN SEDA_SCHOOL_REDIRECT_INCLUDE\n    include [^\n]+;\n    # END SEDA_SCHOOL_REDIRECT_INCLUDE\n/, ''), fix.content);
+  const updated = await fs.readFile(fix.config, 'utf8');
+  assert.ok(updated.includes(gitGuard));
+  assert.equal(updated.replace(gitGuard, '').replace(/    # BEGIN SEDA_SCHOOL_REDIRECT_INCLUDE\n    include [^\n]+;\n    # END SEDA_SCHOOL_REDIRECT_INCLUDE\n/, ''), fix.content);
   cleanLogs(result);
 });
 

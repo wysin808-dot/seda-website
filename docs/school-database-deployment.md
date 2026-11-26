@@ -43,9 +43,9 @@ include /etc/nginx/snippets/school-redirects.nginx.conf;
 
 ## 用户批准后的部署顺序
 
-**当前PR不可直接合并自动上线。** GitHub连接缺少 `workflows` 权限，拒绝保存 `.github/workflows/deploy-aliyun.yml` 改动；该文件保留旧版，自动部署尚未接入学校301安装器。待授权差异单独保存在 `docs/deploy-aliyun-workflow.patch`，不会被构建或部署脚本自动应用。上线前需由具有相应权限的连接或账户应用补丁，或者经用户批准明确选择下述手动部署路径。保留补丁不等于工作流已修改。
+**自动部署接线已保存，尚未合并或上线。** 用户补充对应仓库的工作流权限后，`.github/workflows/deploy-aliyun.yml` 已按批准补丁更新并保存至修复分支，提交 `a3657420bb7ef15c1c03830bb0c6d23c239dbb57`；远端文件与本地逐字匹配。自动流程已接入学校301安装器，原Aliyun密钥引用、CMS保护与SSL/API设置保留。`docs/deploy-aliyun-workflow.patch` 仅保留历史差异，已应用，不要重复执行；构建或部署脚本不会自动应用补丁。接线完成不等于真实服务器已经加载规则，仍须另行取得用户上线批准。
 
-旧工作流的自动部署由 main push 触发，另仍有 `workflow_dispatch` 手动入口；当前修复分支push不会自动部署，本轮不调用手动入口。**完成权限处理并获得新的上线批准后**，补丁对应的远端顺序为：保留 CMS 内容，更新 main，恢复 CMS，`npm ci`、完整构建、测试最终产物、迁移 late validator、SEO 检查，随后运行同一 include 安装器，成功后再执行现有提交/cron/API 步骤。任一校验或安装失败，不得声称上线成功。
+工作流仅由 main push 触发，`workflow_dispatch` 已移除；当前修复分支push不会触发该部署工作流，本轮不调用部署。**获得新的上线批准后**，远端顺序为：保留 CMS 内容，更新 main，恢复 CMS，`npm ci`、完整构建、测试最终产物、迁移只读late validator、SEO 检查，随后运行同一 include 安装器，成功后再执行现有提交/cron/API 步骤。新增校验与安装命令均未忽略失败；原IndexNow容错不变。任一校验或安装失败，不得声称上线成功。本次10项YAML/顺序/Bash/受保护配置定点检查及独立只读复核通过，392迁移目标验证通过，SEO265页0错误；未连接生产或运行安装器。
 
 手动 `bash deploy.sh update` 也先构建/测试/验真/SEO；若使用独立 `/var/www/seda-website` 源目录，先在源目录构建，再同步静态文件到 `/var/www/sgeda`，用当前源目录的安装器安装实际服务目录中的生成 include。原 bootstrap 模板只允许在不存在真实配置时复制，已有配置不覆盖；本文不授权新服务器初始化。
 

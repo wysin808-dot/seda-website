@@ -5,7 +5,7 @@ import path from 'node:path';
 import { load } from 'cheerio';
 
 const root = path.resolve(import.meta.dirname, '..');
-const routes = ['aeis', 'o-level', 'wace', 'jc', 'guides/cost'];
+const routes = ['aeis', 'o-level', 'wace', 'jc', 'guides/cost', 'aeis/age-requirements', 'aeis/english', 'wace-nus-ntu'];
 const normalize = text => text.replace(/\s+/g, ' ').trim();
 const read = file => fs.readFileSync(path.join(root, file), 'utf8');
 
@@ -16,7 +16,7 @@ for (const route of routes) {
     assert.match(html, /<!-- SEDA_CUSTOM_PAGE -->/);
     assert.equal($('h1').length, 1);
     assert.equal($('link[rel=canonical]').attr('href'), 'https://sgeda.org.cn/' + route + '/');
-    assert.equal($('meta[property="og:title"]').attr('content'), $('title').text());
+    assert.equal($('meta[property="og:title"]').attr('content'), $('head > title').text());
     assert.equal($('meta[property="og:description"]').attr('content'), $('meta[name=description]').attr('content'));
     assert.ok($('meta[name=description]').attr('content').length > 20);
     const nodes = [];

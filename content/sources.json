@@ -83,12 +83,20 @@
     ]
   },
   "https://sgeda.org.cn/aeis/age-requirements/": {
-    "lastVerified": "2026-11-25",
-    "note": "本页的年龄区间与可报考年级对照，以 MOE 公布的 AEIS 入学年级规则为准；超龄与年级对应须按当年公告核对。",
+    "lastVerified": "2026-11-26",
+    "note": "依据 MOE 当前年龄查询器及 SEAB 报名、测试说明整理；2027 入学示例为演示数据，不是录取案例。个人资格以完整出生日期、入学年份和当届公告核对。",
     "sources": [
       {
-        "label": "新加坡教育部 MOE — AEIS 国际学生入学",
-        "url": "https://www.moe.gov.sg/international-students/aeis"
+        "label": "MOE — 按出生日期和入学年份查询资格",
+        "url": "https://www.moe.gov.sg/international-students/aeis/eligibility-criteria"
+      },
+      {
+        "label": "SEAB — AEIS 测试与备考内容",
+        "url": "https://www.seab.gov.sg/aeis/test-details/"
+      },
+      {
+        "label": "SEAB — 报名文件与 CEQ 成绩日期",
+        "url": "https://www.seab.gov.sg/aeis/application-procedures/"
       }
     ]
   },
@@ -259,20 +267,16 @@
     ]
   },
   "https://sgeda.org.cn/wace-nus-ntu/": {
-    "lastVerified": "2026-11-25",
-    "note": "本页的 NUS 与 NTU 录取门槛以两校官网为准，ATAR 计算以 TISC 为准；门槛不等于保证录取线。",
+    "lastVerified": "2026-11-26",
+    "note": "按两校澳洲高中学历类别整理普通外国申请人的最低条件，不提供未获学校确认的专业 ATAR 录取线。申请批次、先修科目及个别专业要求须另行核对。",
     "sources": [
       {
-        "label": "新加坡国立大学 NUS — 国际学历申请要求",
-        "url": "https://www.nus.edu.sg/oam/admissions/international-qualifications"
+        "label": "NUS — Australian High School（外国申请人）",
+        "url": "https://www.nus.edu.sg/oam/admissions/international-qualifications-for-foreigners/international-qualifications/australian-high-school"
       },
       {
-        "label": "南洋理工大学 NTU — 本科招生要求",
-        "url": "https://www.ntu.edu.sg/admissions/undergraduate"
-      },
-      {
-        "label": "TISC — ATAR 是什么、如何计算",
-        "url": "https://www.tisc.edu.au/static/guide/atar-about.tisc"
+        "label": "NTU — Australia Qualifications",
+        "url": "https://www.ntu.edu.sg/admissions/undergraduate/admissions/general-admission-requirements/international-qualifications/australia-qualifications"
       }
     ]
   },
@@ -333,16 +337,20 @@
     ]
   },
   "https://sgeda.org.cn/aeis/english/": {
-    "lastVerified": "2026-11-25",
-    "note": "本页的英文卷结构以 SEAB 公布的 AEIS Test Details 为准；小学组不设英文卷、改用 CEQ 成绩报名，依据 MOE 报名资格页面。",
+    "lastVerified": "2026-11-26",
+    "note": "CEQ 类型和分数依据 MOE 当前查询器；中学题型依据 SEAB。2026 报名成绩日期仅作说明，不能自动套用于 2027 报名；练习时间分配为编辑建议。",
     "sources": [
       {
-        "label": "SEAB — AEIS 考试结构与题量（Test Details）",
+        "label": "MOE — 小学 CEQ 类型与分数要求",
+        "url": "https://www.moe.gov.sg/international-students/aeis/eligibility-criteria"
+      },
+      {
+        "label": "SEAB — 中学英文题型和字数",
         "url": "https://www.seab.gov.sg/aeis/test-details/"
       },
       {
-        "label": "MOE — AEIS 报名资格（含小学组 CEQ 要求）",
-        "url": "https://www.moe.gov.sg/international-students/aeis/eligibility-criteria"
+        "label": "SEAB — CEQ 成绩报告及考试日期要求",
+        "url": "https://www.seab.gov.sg/aeis/application-procedures/"
       }
     ]
   },
@@ -411,6 +419,46 @@
       {
         "label": "CIS — Fee Schedule 2026/2027（官方 PDF）",
         "url": "https://media.sg.digistormhosting.com.au/cis-sg-04-129-website-2025/content/3-Admissions/Fees/Fee-schedule-and-financial-policies-2026-2027-updated-Mar-6-2026.pdf"
+      }
+    ]
+  },
+  "https://sgeda.org.cn/o-level/": {
+    "lastVerified": "2026-11-26",
+    "note": "本次重点核对 2027 SEC、科目级别与 2028 JC/PSE 转换。考试资格不等于招生资格，私人考生及目标专业须另查当届条件。",
+    "sources": [
+      {
+        "label": "SEAB — SEC 考试及证书说明",
+        "url": "https://www.seab.gov.sg/secondary-education-certificate-sec/"
+      },
+      {
+        "label": "MOE — JC 与 MI 入学条件",
+        "url": "https://www.moe.gov.sg/post-secondary/admissions/pse/jc-and-mi"
+      },
+      {
+        "label": "MOE — 2028 中学后招生安排 PSE",
+        "url": "https://cos.moe.gov.sg/2026-announcements/"
+      },
+      {
+        "label": "SEAB — SEC 私人考生资格问答",
+        "url": "https://ask.gov.sg/seab/questions/cmkkroy440016xefreylq5pwt"
+      }
+    ]
+  },
+  "https://sgeda.org.cn/guides/cost/": {
+    "lastVerified": "2026-11-26",
+    "note": "政府学校学费与杂费使用 MOE 公布的 2026 标准，不当作 2027 报价。住宿、生活费及汇率为明确标注的演算假设，首年费用和陪读费用另计。",
+    "sources": [
+      {
+        "label": "MOE — 2024–2026 政府及政府资助学校收费表",
+        "url": "https://www.moe.gov.sg/news/press-releases/20231018-revised-school-fees-for-non-citizens-in-government-and-government-aided-schools-for-2024-to-2026"
+      },
+      {
+        "label": "ICA — 政府学校学生准证申请费用",
+        "url": "https://www.ica.gov.sg/reside/STP/apply/gov"
+      },
+      {
+        "label": "ICA — 学生准证签发费用",
+        "url": "https://www.ica.gov.sg/information-and-e-services/long-term-visit-and-study/student-s-pass/completion-of-formalities-and-issuance-of-student%27s-pass"
       }
     ]
   }

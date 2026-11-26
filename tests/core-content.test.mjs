@@ -16,7 +16,9 @@ test('corrected core facts and structured data stay aligned', () => {
   const cost = read('guides/cost/index.html');
   assert.match(cost, /S\$26,280/);
   assert.match(cost, /S\$45/);
-  assert.match(cost, /S\$12,000/);
+  assert.match(cost, /34,176/);
+  assert.match(cost, /48,120/);
+  assert.match(cost, /演算假设/);
   assert.doesNotMatch(cost, /S\$15k-65k|S\$25,000-40,000/);
   const timeline = read('guides/timeline/index.html');
   assert.match(timeline, /2027 年 1 月 13 日/);

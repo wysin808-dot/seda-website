@@ -200,29 +200,7 @@ const pages = [
       { q: 'WACE 成绩可以申请哪些地区大学？', a: '常见目标包括新加坡、澳洲、英国、香港、新西兰和部分加拿大大学。' },
     ],
   },
-  {
-    path: '/wace-nus-ntu/',
-    file: 'wace-nus-ntu/index.html',
-    title: 'WACE 申请 NUS/NTU 指南',
-    description: '面向中国学生的 WACE 申请新加坡国立大学、南洋理工大学攻略，覆盖 ATAR、科目要求、专业选择和申请策略。',
-    about: ['WACE 申请 NUS', 'WACE 申请 NTU', '新加坡国立大学', '南洋理工大学', 'ATAR 要求', '本科申请', '中国学生申请'],
-    summary: [
-      'WACE 可以作为申请 NUS/NTU 的国际高中成绩之一，但不同专业对 ATAR 和科目有具体要求。',
-      '申请新加坡公立大学不能只看最低分，热门专业还要看竞争、英文、数学和背景材料。',
-      '本页需要与 WACE、ATAR、NUS、NTU、公立大学总览页面互相连接，形成申请路径闭环。',
-    ],
-    links: [
-      { name: 'WACE 课程总览', url: '/wace/' },
-      { name: 'WACE ATAR', url: '/wace-atar/' },
-      { name: '新加坡国立大学', url: '/university/nus/' },
-      { name: '南洋理工大学', url: '/university/ntu/' },
-    ],
-    faq: [
-      { q: 'WACE 能申请 NUS 吗？', a: '可以作为国际高中成绩申请，但需满足对应专业的分数、科目和英文要求。' },
-      { q: 'WACE 能申请 NTU 吗？', a: '可以，NTU 同样会看 ATAR、科目匹配、专业竞争和申请材料。' },
-      { q: '申请 NUS/NTU 要提前多久准备？', a: '建议至少提前一年规划科目、成绩目标和材料，Year 12 阶段要密切关注申请窗口。' },
-    ],
-  },
+  // /wace-nus-ntu/ owns its reviewed admissions copy and FAQ schema.
   // /aeis/ owns its reviewed body and FAQ schema; do not inject a second FAQ.
   // NOTE: /o-level/ excluded — now a fully hand-built static page with its own
   // structured data and content; must NOT be enhanced (avoids injected blocks).

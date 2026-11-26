@@ -5,10 +5,6 @@ Disallow: /content-review/
 # Front-end config API: the renderer fetches it on every page, which took 30%
 # of Baiduspider's requests in 14 days and index nothing. Spend it on HTML.
 Disallow: /api/
-# Filter-state URLs duplicate the base page; keep only the unfiltered URL.
-Disallow: /*?poly=
-Disallow: /*?cluster=
-Disallow: /*?uni=
 
 # Baiduspider: only index pages with substantial unique content.
 # Template school pages are blocked until unique content is published.
@@ -16,9 +12,6 @@ User-agent: Baiduspider
 Disallow: /cms/
 Disallow: /content-review/
 Disallow: /api/
-Disallow: /*?poly=
-Disallow: /*?cluster=
-Disallow: /*?uni=
 # Individual school pages with unique content - always allowed
 Allow: /primary-schools/kong-hwa/
 # Polytechnics with unique, hand-written content

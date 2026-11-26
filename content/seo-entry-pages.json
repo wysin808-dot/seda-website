@@ -1,0 +1,77 @@
+{
+  "version": 1,
+  "siteName": "SEDA 新加坡择校网",
+  "alternateNames": ["新加坡择校网", "SEDA"],
+  "entries": [
+    {
+      "route": "/",
+      "primaryKeyword": "新加坡择校网",
+      "title": "SEDA 新加坡择校网 - 新加坡留学与升学指南",
+      "description": "SEDA 新加坡择校网提供新加坡学校资料、课程比较与入学指南。按学段查找学校，比较政府学校、国际学校与私立课程，了解申请条件和留学费用。",
+      "keywords": ["新加坡择校网", "新加坡留学", "新加坡学校", "新加坡升学", "AEIS", "WACE"],
+      "h1Parts": ["SEDA ", "新加坡择校网 ", "留学与升学指南"]
+    },
+    {
+      "route": "/school-database/",
+      "primaryKeyword": "新加坡学校",
+      "title": "新加坡学校库：学校资料与分类查询 - SEDA 新加坡择校网",
+      "keywords": ["新加坡学校", "新加坡学校库", "新加坡小学", "新加坡中学", "新加坡择校"]
+    },
+    {
+      "route": "/aeis/",
+      "primaryKeyword": "AEIS",
+      "title": "新加坡 AEIS 与 S-AEIS：报名与入学流程 - SEDA 新加坡择校网",
+      "keywords": ["AEIS", "AEIS报名", "S-AEIS", "新加坡政府学校入学", "小学CEQ"]
+    },
+    {
+      "route": "/o-level/",
+      "primaryKeyword": "O-Level",
+      "title": "新加坡 O-Level 与2027 SEC：科目与升学 - SEDA 新加坡择校网",
+      "keywords": ["O-Level", "新加坡O水准", "2027 SEC", "JC升学", "Poly升学"]
+    },
+    {
+      "route": "/wace/",
+      "primaryKeyword": "WACE",
+      "title": "新加坡 WACE 课程：ATAR与大学申请 - SEDA 新加坡择校网",
+      "keywords": ["WACE课程", "新加坡WACE", "WACE ATAR", "WACE选科", "WACE大学申请"]
+    },
+    {
+      "route": "/pathway/",
+      "primaryKeyword": "新加坡升学路径",
+      "title": "新加坡升学路径：政府学校与国际课程 - SEDA 新加坡择校网",
+      "keywords": ["新加坡升学路径", "新加坡留学规划", "新加坡政府学校", "WACE", "IB与A-Level"]
+    },
+    {
+      "route": "/government-schools/",
+      "primaryKeyword": "新加坡政府学校",
+      "title": "新加坡政府学校：入学与学费指南 - SEDA 新加坡择校网",
+      "keywords": ["新加坡政府学校", "政府学校学费", "AEIS", "S-AEIS", "小一入学"]
+    },
+    {
+      "route": "/international-school/",
+      "primaryKeyword": "新加坡国际学校",
+      "title": "新加坡国际学校：课程、学费与申请 - SEDA 新加坡择校网",
+      "keywords": ["新加坡国际学校", "国际学校课程", "国际学校学费", "国际学校申请"]
+    },
+    {
+      "route": "/university/",
+      "primaryKeyword": "新加坡大学",
+      "title": "新加坡大学：院校与本科专业查询 - SEDA 新加坡择校网",
+      "description": "比较新加坡公立大学与艺术大学，按院校和专业方向浏览已有本科专业资料，查找 A-Level、WACE 与理工学院学历的申请参考及相关入口。具体申请条件以各大学当届要求为准。",
+      "keywords": ["新加坡大学", "新加坡公立大学", "新加坡大学专业", "NUS", "NTU"],
+      "h1": "新加坡大学与本科专业查询"
+    },
+    {
+      "route": "/guides/cost/",
+      "primaryKeyword": "新加坡留学费用",
+      "title": "新加坡留学费用：2026学费与年度预算 - SEDA 新加坡择校网",
+      "keywords": ["新加坡留学费用", "新加坡留学一年多少钱", "新加坡学费", "新加坡生活费"]
+    },
+    {
+      "route": "/about/",
+      "primaryKeyword": "新加坡择校网",
+      "title": "关于 SEDA 新加坡择校网与合作入口",
+      "keywords": ["SEDA", "新加坡择校网", "新加坡教育发展协会", "学校合作", "留学渠道合作"]
+    }
+  ]
+}

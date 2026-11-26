@@ -82,7 +82,8 @@ test('WACE official eligibility replaces invented programme cutoffs and cases', 
 
 test('SEC keeps O-Level terms but separates examination and admission years', () => {
   const $ = page('o-level');
-  assert.match($('head > title').text(), /2027 SEC.*O-Level.*2028/);
+  assert.equal($('head > title').length, 1);
+  assert.match($('head > title').text(), /O-Level.*2027 SEC/);
   assert.match($('#official-update').text(), /2027 JC：L1R5/);
   assert.match($('#official-update').text(), /2028 JC：L1R4/);
   assert.match($('#official-update').text(), /全部为 G3/);

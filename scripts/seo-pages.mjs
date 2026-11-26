@@ -73,6 +73,12 @@ export function inspectPage(html, url) {
   const description = $('meta[name="description"]').attr('content') || '';
   const h1 = $('h1').first().text().trim();
   const issues = [];
+  for (const [selector, label] of [['head > title', 'title'], ['meta[name="description"]', 'description'], ['link[rel="canonical"]', 'canonical'], ['h1', 'h1']]) {
+    if ($(selector).length > 1) issues.push(`duplicate ${label}`);
+  }
+  $('script[type="application/ld+json"]').each((_, el) => {
+    try { JSON.parse($(el).text()); } catch { issues.push('invalid JSON-LD'); }
+  });
   if (!title) issues.push('missing title');
   if (!description) issues.push('missing description');
   if (!h1) issues.push('missing h1');

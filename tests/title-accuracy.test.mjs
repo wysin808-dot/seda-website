@@ -4,17 +4,17 @@ import fs from 'node:fs';
 import { load } from 'cheerio';
 
 const cases = [
-  ['../index.html', '新加坡留学择校与升学规划 | SEDA 新加坡择校网'],
-  ['../wace/index.html', '新加坡 WACE 课程：ATAR、选科与大学申请 | SEDA 新加坡择校网'],
+  ['../index.html', 'SEDA 新加坡择校网 - 新加坡留学与升学指南'],
+  ['../wace/index.html', '新加坡 WACE 课程：ATAR与大学申请 - SEDA 新加坡择校网'],
 ];
 
 for (const [file, title] of cases) {
-  test(`${file}: accurate title and matching social metadata`, () => {
+  test(`${file}: accurate search title and unique search metadata`, () => {
     const $ = load(fs.readFileSync(new URL(file, import.meta.url), 'utf8'));
     assert.equal($('head > title').length, 1);
     assert.equal($('head > title').text(), title);
-    assert.equal($('meta[property="og:title"]').attr('content'), title);
-    assert.equal($('meta[property="og:description"]').attr('content'), $('meta[name="description"]').attr('content'));
+    assert.equal($('meta[name="description"]').length, 1);
+    assert.equal($('link[rel="canonical"]').length, 1);
   });
 }
 

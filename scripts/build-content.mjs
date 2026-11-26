@@ -3,6 +3,7 @@ import path from 'node:path';
 import { buildSchoolPages } from './build-school-pages.mjs';
 import { enhanceKeySeoPages } from './enhance-key-seo-pages.mjs';
 import { optimizeArticle } from './seo-optimizer.mjs';
+import { renderNewsArchive } from './render-news-index.mjs';
 import { partitionArticles, prepareArticleHtml } from './content-validation.mjs';
 import { baiduAllowed, inspectPage, parseSitemap, prioritySitemapEntries, sitemapXml } from './seo-pages.mjs';
 import { syncSiteFooter } from './sync-site-footer.mjs';
@@ -17,6 +18,8 @@ import { migrateSchoolPages } from './migrate-school-pages.mjs';
 import { applyCatalogCrawlPolicy, updateCatalogPriority } from './catalog-crawl-policy.mjs';
 import { assertNoPublicBackups } from './public-content-safety.mjs';
 import { syncPathwayCatalogNavigation } from './sync-pathway-catalog-navigation.mjs';
+import { syncForeignUniversityEntry } from './sync-foreign-university-entry.mjs';
+import { syncEntrySeo } from './sync-entry-seo.mjs';
 
 const root = process.cwd();
 assertNoPublicBackups(root);
@@ -324,9 +327,10 @@ function renderArticle(article, articles) {
     keywords: meta.keywords || meta.tags || '',
     datePublished: meta.date,
     dateModified: meta.updated || meta.date,
-    author: { '@type': 'Organization', name: 'SEDA 新加坡择校网' },
+    author: { '@type': 'Organization', '@id': `${domain}/#organization`, name: 'SEDA 新加坡择校网' },
     publisher: {
       '@type': 'Organization',
+      '@id': `${domain}/#organization`,
       name: 'SEDA 新加坡择校网',
       legalName: 'Singapore Educational Development Association',
       alternateName: ['新加坡教育发展协会', 'SEDA'],
@@ -360,6 +364,7 @@ function renderArticle(article, articles) {
     dateModified: meta.updated || meta.publishedAt || meta.date || buildDate,
     isPartOf: {
       '@type': 'WebSite',
+      '@id': `${domain}/#website`,
       name: 'SEDA 新加坡择校网',
       url: `${domain}/`,
     },
@@ -711,13 +716,12 @@ function updateNewsIndex(articles) {
   let html = read(file);
   const start = '<!-- GENERATED_ARTICLES_START -->';
   const end = '<!-- GENERATED_ARTICLES_END -->';
-  const cards = renderArticleCards(articles, 24);
-  const block = `${start}\n${cards}\n          ${end}`;
-  if (html.includes(start) && html.includes(end)) {
-    html = html.replace(new RegExp(`${start}[\\s\\S]*?${end}`), block);
-  } else {
-    html = html.replace('<div class="article-grid">', `<div class="article-grid">\n          ${block}`);
+  const archive = renderNewsArchive(articles);
+  const block = `${start}\n${archive}\n        ${end}`;
+  if (!html.includes(start) || !html.includes(end)) {
+    throw new Error('News archive generation markers are required');
   }
+  html = html.replace(new RegExp(`${start}[\\s\\S]*?${end}`), block);
   fs.writeFileSync(file, html, 'utf8');
 }
 
@@ -1185,6 +1189,8 @@ const schoolList = addStaticSchoolList(root);
 const migrationStats = catalogEnabled ? await migrateSchoolPages(root, { validateTargets: true }) : null;
 const catalogCrawl = catalogEnabled ? applyCatalogCrawlPolicy(root) : null;
 const catalogPriority = catalogEnabled ? updateCatalogPriority(root) : null;
+syncForeignUniversityEntry(root);
+const entrySeo = syncEntrySeo(root);
 const urlCount = updateSitemap(drafts);
 console.log(`Distinguished pathway/catalog navigation on ${navigationSync.updated} pages.`);
 console.log(`Synchronized ${footerSync.updated} shared footers (${footerSync.checked} pages checked).`);

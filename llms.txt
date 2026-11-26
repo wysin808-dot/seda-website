@@ -22,8 +22,8 @@ SEDA 新加坡择校网提供中文的新加坡教育信息，重点覆盖 WACE�
 ## Latest SEO Articles
 
 - [小学 AEIS 英语准备：CEQ 资格与语法纠错练习](/aeis/aeis-primary-english-grammar-chinese-students/): 当前小学 AEIS 只测数学，CEQ 是申请前的英语资格要求，中学 AEIS 则测试英语和数学。本文保留冠词、时态、介词等语法纠错建议，提供可调整的 30 天英语练习计划，并列明 MOE 官方来源。
-- [O-Level 成绩复议与申诉流程——appeal and review of results 怎么操作、成功率如何](/o-level/o-level-appeal-review-of-results-guide/): 新加坡O-Level成绩不理想怎么办？详解SEAB成绩复议（review of results）与申诉（appeal）的完整流程、费用、成功率、截止日期，以及中国学生家长最关心的操作步骤。
 - [AEIS 需要面试吗？考试、录取通知与报到沟通的区别](/aeis/aeis-interview-preparation-chinese-students/): 根据 SEAB 官方考试与录取流程，区分 AEIS 测试、录取通知和学校报到沟通，避免把无依据的面试说法当作统一要求。
+- [O-Level 成绩复议与申诉流程——appeal and review of results 怎么操作、成功率如何](/o-level/o-level-appeal-review-of-results-guide/): 新加坡O-Level成绩不理想怎么办？详解SEAB成绩复议（review of results）与申诉（appeal）的完整流程、费用、成功率、截止日期，以及中国学生家长最关心的操作步骤。
 - [WACE ATAR 申请新加坡私立大学全攻略——SIM/PSB/Kaplan 入学门槛、专业与费用对比](/wace/wace-apply-singapore-private-university/): 持有WACE成绩的中国学生如何申请新加坡私立大学？详解SIM、PSB、Kaplan等院校的ATAR要求、合作大学、热门专业与学费，附申请时间线与避坑指南。
 - [O-Level POA（会计原理）值得选吗——中国学生选科指南与升学价值全解析](/o-level/o-level-poa-worth-it-chinese-students/): O-Level POA会计原理科目对中国学生是否值得选？本文从课程内容、A1率、Poly商科衔接、JC选科影响和就业前景五个维度，提供完整选科决策参考。
 - [WACE English/Literature 怎么拿高分——中国学生写作策略、扣分避坑与选课建议](/wace/wace-english-literature-high-score-chinese-students/): WACE English 和 Literature 是中国学生丢分最多的科目之一。本文从评分标准、高频扣分点、写作策略和选课对比四个维度，提供针对性的高分备考方案。
@@ -34,8 +34,8 @@ SEDA 新加坡择校网提供中文的新加坡教育信息，重点覆盖 WACE�
 - [WACE 考试能带什么进考场——公式表、计算器与禁带物品完整清单](/wace/wace-exam-permitted-items/): WACE 考试允许携带哪些物品？详解公式表、计算器型号规定与禁带物品清单，附各科目计算器使用规则，中国考生考前必读。
 - [AEIS 中学入学后选科指南——Sec1-Sec2的科目组合与未来升学影响](/aeis/aeis-secondary-subject-selection-guide/): 详解AEIS通过后进入新加坡政府中学的科目选择策略：Sec1-Sec2核心科与选修科对比、Express/NA/NT分流影响、科目组合对JC和Poly升学路径的决定性作用
 - [O-Level 英文口试怎么准备——中国学生常见失分点与针对性训练方法](/o-level/o-level-oral-exam-preparation-chinese-students/): 新加坡O-Level英文口试评分标准、中国学生四大失分重灾区与3个月分阶段训练方案。含口语朗读、看图说话、对话环节答题模板与常见话题词汇表，实用可操作。
-- [WACE 成绩复核：2026 考季 Results Check 与申请截止日期](/wace/wace-appeal-remark-process/): WACE 成绩有疑问，可以申请哪些官方核查？依据 SCSA 2026 手册说明 Results Check、原始分数明细和答卷副本的区别、费用与 2027 年申请截止日期。
 - [AEIS 英文写作：中学字数要求与练习方法（2026）](/aeis/aeis-english-writing/): 核对 AEIS 中学英文写作的选题数量、字数范围及英语整卷时长，区分小学 CEQ 要求，并提供审题、修改与限时练习方法。
+- [WACE 成绩复核：2026 考季 Results Check 与申请截止日期](/wace/wace-appeal-remark-process/): WACE 成绩有疑问，可以申请哪些官方核查？依据 SCSA 2026 手册说明 Results Check、原始分数明细和答卷副本的区别、费用与 2027 年申请截止日期。
 - [AEIS申请政府小学和中学流程有什么区别——报名条件、考试内容、分配机制全面对比](/aeis/aeis-primary-vs-secondary-application/): 解析AEIS申请新加坡政府小学（P2-P5）和政府中学（Sec1-Sec3）的六大核心差异：年龄门槛、考试科目、名额分配逻辑、录取难度、到校适应和后续升学路径。
 - [AEIS数学英文词汇对照表——中国学生最容易踩的术语陷阱](/aeis/aeis-math-english-vocabulary-chinese-students/): AEIS数学考试全英文出题，中国学生因不熟悉英文数学术语而频频丢分。本文整理运算、几何、代数三大类核心词汇中英对照，附常见术语陷阱和考试题干高频词。
 - [O-Level 科学实验考试怎么准备——Practical Assessment评分标准与中国学生常见失误](/o-level/o-level-science-practical-exam-preparation/): O-Level科学实验考试（Practical Assessment）在物理、化学、生物三科中各占20%权重，是中国学生冲击A1路上最容易被忽视的失分重灾区。本文详解三科实验评分标准、中国学生七个高频失误与分阶段备考方案。

@@ -2,6 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { SITE, assertLocalReferences, baiduAllowed, inspectPage, localFile, parseSitemap, prioritySitemapEntries } from './seo-pages.mjs';
 import { missingPublishedQueueRoutes } from './queue-publications.mjs';
+import { inspectEntrySeo, readEntrySeoConfig } from './sync-entry-seo.mjs';
 
 const root = process.cwd();
 const allowed = baiduAllowed(fs.readFileSync(path.join(root, 'robots.txt'), 'utf8'));
@@ -23,5 +24,13 @@ const queue = fs.readFileSync(path.join(root, 'content', 'keyword-queue.csv'), '
 for (const item of missingPublishedQueueRoutes(queue, new Set(parseSitemap(fs.readFileSync(path.join(root, 'sitemap.xml'), 'utf8')).map(entry => entry.url)), SITE)) {
   errors.push(`queue reports unpublished URL as published: ${item.route} (line ${item.line})`);
 }
-console.log(JSON.stringify({ checked: entries.length, errors: [...new Set(errors)] }, null, 2));
+const entryConfig = readEntrySeoConfig(root);
+const organization = JSON.parse(fs.readFileSync(path.join(root, 'content/organization.json'), 'utf8'));
+for (const entry of entryConfig.entries) {
+  const url = SITE + entry.route;
+  const file = localFile(root, url);
+  if (!fs.existsSync(file)) { errors.push(`missing SEO entry ${url}`); continue; }
+  errors.push(...inspectEntrySeo(fs.readFileSync(file, 'utf8'), entry, entryConfig, organization).map(issue => `${url}: ${issue}`));
+}
+console.log(JSON.stringify({ checked: entries.length, seoEntriesChecked: entryConfig.entries.length, errors: [...new Set(errors)] }, null, 2));
 if (errors.length) process.exitCode = 1;

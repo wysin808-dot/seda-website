@@ -413,7 +413,7 @@ RICH={
 "kaplan":{
  "abbr":"Kaplan","zh":"楷博高等教育（新加坡）","en":"Kaplan Higher Education Singapore","color":"#003a70","founded":2005,
  "tagline":"全球教育集团 Kaplan 旗下 · 专业最广",
- "sig":"全球教育集团 Kaplan 旗下，新加坡<b>专业最广、开课最灵活</b>的私立学府之一；合作 <b>12 所</b>英、澳、爱名校（UCD、Royal Holloway、Northumbria、Murdoch、Essex、Portsmouth 等）授予学位，商科、会计金融、IT、网络安全、传媒、酒店等齐全。EduTrust 认证。",
+ "sig":"全球教育集团 Kaplan 旗下，新加坡专业最广、开课最灵活的私立学府之一；合作 12 所英、澳、爱名校（UCD、Royal Holloway、Northumbria、Murdoch、Essex、Portsmouth 等）授予学位，商科、会计金融、IT、网络安全、传媒、酒店等齐全。EduTrust 认证。",
  "fee":"S$28,000–48,000","fee_note":"本科总学费按合作大学与专业不同；以官方为准。私立大学不提供 MOE 政府津贴。",
  "intake":"每年多次开学","edutrust":"EduTrust 认证",
  "overview":[
@@ -431,7 +431,7 @@ RICH={
 "mdis":{
  "abbr":"MDIS","zh":"新加坡管理发展学院","en":"Management Development Institute of Singapore (MDIS)","color":"#c81432","founded":1956,
  "tagline":"新加坡历史最悠久的私立学府（1956）",
- "sig":"<b>新加坡历史最悠久的非营利私立学府</b>（1956 年创办），自有校园与宿舍；合作英国 Teesside、Sunderland、Edinburgh Napier、Roehampton、Bangor 及美国中俄克拉荷马大学，<b>专业覆盖最广</b>——商科、工程、生科、时尚、传媒、心理、护理、IT。EduTrust 认证。",
+ "sig":"新加坡历史最悠久的非营利私立学府（1956 年创办），自有校园与宿舍；合作英国 Teesside、Sunderland、Edinburgh Napier、Roehampton、Bangor 及美国中俄克拉荷马大学，专业覆盖最广——商科、工程、生科、时尚、传媒、心理、护理、IT。EduTrust 认证。",
  "fee":"S$28,000–48,000","fee_note":"本科总学费按合作大学与专业不同；以官方为准。私立大学不提供 MOE 政府津贴。",
  "intake":"每年多次开学","edutrust":"EduTrust 认证",
  "overview":[
@@ -449,7 +449,7 @@ RICH={
 "shrm":{
  "abbr":"SHRM","zh":"SHRM 学院","en":"SHRM College Singapore","color":"#8a6d1f","founded":2007,
  "tagline":"酒店与旅游管理专精",
- "sig":"<b>酒店与旅游管理专精</b>的私立学院（2007 年创办，前身 SHRM 酒店与度假村管理学院）；合作英国 <b>Wrexham、Cumbria</b> 授予学位，课程偏实操与行业实训。EduTrust 4 年认证。",
+ "sig":"酒店与旅游管理专精的私立学院（2007 年创办，前身 SHRM 酒店与度假村管理学院）；合作英国 Wrexham、Cumbria 授予学位，课程偏实操与行业实训。EduTrust 4 年认证。",
  "fee":"S$30,000–45,000","fee_note":"本科总学费按专业与学制不同；以官方为准。私立大学不提供 MOE 政府津贴。",
  "intake":"每年多次开学","edutrust":"EduTrust 4 年认证",
  "overview":[
@@ -467,7 +467,7 @@ RICH={
 "tmc":{
  "abbr":"TMC","zh":"TMC 学院","en":"TMC Academy","color":"#b3243b","founded":1981,
  "tagline":"新加坡最早的私立学府之一（1981）",
- "sig":"<b>新加坡最早的私立学府之一</b>（1981 年创办），专业面广——商科、IT、<b>心理学</b>、酒店旅游、传媒等；现主要合作英国 <b>Anglia Ruskin</b> 授予学位。EduTrust 4 年认证。",
+ "sig":"新加坡最早的私立学府之一（1981 年创办），专业面广——商科、IT、心理学、酒店旅游、传媒等；现主要合作英国 Anglia Ruskin 授予学位。EduTrust 4 年认证。",
  "fee":"S$28,000–45,000","fee_note":"本科总学费按合作大学与专业不同；以官方为准。私立大学不提供 MOE 政府津贴。",
  "intake":"每年多次开学","edutrust":"EduTrust 4 年认证",
  "overview":[
@@ -485,7 +485,7 @@ RICH={
 "amity":{
  "abbr":"Amity","zh":"Amity 全球教育学院（新加坡）","en":"Amity Global Institute Singapore","color":"#00325a","founded":2007,
  "tagline":"印度 Amity 教育集团旗下 · 国际化",
- "sig":"印度 Amity 教育集团旗下的新加坡校区，学生来自 45+ 国家；合作英国 <b>UEA、伦敦大学、Teesside、Northampton</b> 授予学位，<b>商科、人工智能 / 数据科学、物流与酒店旅游</b>见长。EduTrust 4 年认证。",
+ "sig":"印度 Amity 教育集团旗下的新加坡校区，学生来自 45+ 国家；合作英国 UEA、伦敦大学、Teesside、Northampton 授予学位，商科、人工智能 / 数据科学、物流与酒店旅游见长。EduTrust 4 年认证。",
  "fee":"S$28,000–45,000","fee_note":"本科 / 硕士总学费按合作大学与专业不同；以官方为准。私立大学不提供 MOE 政府津贴。",
  "intake":"每年多次开学","edutrust":"EduTrust 4 年认证",
  "overview":[
@@ -504,7 +504,7 @@ RICH={
 "lsbf":{
  "abbr":"LSBF","zh":"伦敦商业金融学院（新加坡）","en":"London School of Business and Finance Singapore","color":"#16306b","founded":2007,
  "tagline":"专注商科、财会与金融",
- "sig":"伦敦商业金融学院新加坡校区，专注<b>商科、会计金融与酒店管理</b>；合作英国格林威治大学等授予学位，课程偏实务与职业资格（如 ACCA）衔接。EduTrust 4 年认证。",
+ "sig":"伦敦商业金融学院新加坡校区，专注商科、会计金融与酒店管理；合作英国格林威治大学等授予学位，课程偏实务与职业资格（如 ACCA）衔接。EduTrust 4 年认证。",
  "fee":"S$28,000–46,000","fee_note":"本科总学费按合作大学与专业不同；以官方为准。私立大学不提供 MOE 政府津贴。",
  "intake":"1 / 5 / 9 月","edutrust":"EduTrust 4 年认证",
  "overview":[
@@ -524,7 +524,7 @@ RICH={
  "abbr":"Curtin","zh":"科廷大学（新加坡）","en":"Curtin University Singapore","color":"#1a1a1a","founded":2008,
  "direct":True,"qs":"#183",
  "tagline":"澳洲科廷大学直属校区",
- "sig":"澳洲科廷大学（QS 世界 #183）的新加坡直属校区，颁发与本部<b>完全一致</b>的学位；商科、会计金融、传媒与信息科技见长，学制紧凑、可加速完成。",
+ "sig":"澳洲科廷大学（QS 世界 #183）的新加坡直属校区，颁发与本部完全一致的学位；商科、会计金融、传媒与信息科技见长，学制紧凑、可加速完成。",
  "fee":"S$55,000–70,000","fee_note":"本科总学费（直属校区较高），按专业不同；以官方为准。私立大学不提供 MOE 政府津贴。",
  "intake":"2 / 6 / 10 月（每年多次开学）","edutrust":"EduTrust 认证",
  "overview":[
@@ -551,7 +551,7 @@ RICH={
  "abbr":"JCU","zh":"詹姆斯库克大学（新加坡）","en":"James Cook University Singapore","color":"#009ca6","founded":2003,
  "direct":True,"qs":"#440",
  "tagline":"澳洲詹姆斯库克大学直属校区",
- "sig":"澳洲詹姆斯库克大学（QS 世界 #440）的新加坡直属校区，颁发与本部<b>完全相同</b>的学位；一年 3 学期、最快约 2 年读完本科。海洋与环境科学、心理学、商科、IT、酒店旅游见长。",
+ "sig":"澳洲詹姆斯库克大学（QS 世界 #440）的新加坡直属校区，颁发与本部完全相同的学位；一年 3 学期、最快约 2 年读完本科。海洋与环境科学、心理学、商科、IT、酒店旅游见长。",
  "fee":"S$55,000–72,000","fee_note":"本科总学费（直属校区较高），按专业不同；以官方为准。私立大学不提供 MOE 政府津贴。",
  "intake":"3 / 7 / 11 月（每年 3 次开学）","edutrust":"EduTrust 认证",
  "overview":[

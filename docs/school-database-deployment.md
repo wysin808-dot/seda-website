@@ -1,6 +1,6 @@
 # 学校数据库 URL 迁移与 Nginx 部署
 
-此改动在独立修复分支完成；**当前不连接生产、不执行部署、不触发工作流、不合并 main**。只有用户另行批准上线后才执行本文生产命令。生产目录是 `/var/www/sgeda`，已有站点配置是 `/etc/nginx/sites-available/sgeda`，由 `/etc/nginx/sites-enabled/sgeda` 加载。不要将仓库 `nginx.conf` 覆盖到已有站点：真实 SSL、analytics 和 API 代理必须保留。仓库模板只增加了学校 include 的定位。
+此改动在独立修复分支完成。2026-11-26 15:06 用户已授权最终检查无阻断后上线；本文保存时尚未合并，必须完成最终候选验收再以确定HEAD合并PR3，不能把接线或本地检查当作已上线。生产目录是 `/var/www/sgeda`，已有站点配置是 `/etc/nginx/sites-available/sgeda`，由 `/etc/nginx/sites-enabled/sgeda` 加载。不要将仓库 `nginx.conf` 覆盖到已有站点：真实 SSL、analytics 和 API 代理必须保留。仓库模板只增加了学校 include 的定位。
 
 ## 迁移模型与生成
 
@@ -72,3 +72,13 @@ bash scripts/install-school-redirects.sh --remove
 ```
 
 移除同样先 `nginx -t/-T` 后 reload，失败恢复原磁盘配置与规则。撤下后旧 URL 会暂时返回兼容 HTML（通常 HTTP 200 + noindex + meta refresh），**不再有学校 Nginx 301**。若要完整回滚学校改版，应同时按批准的历史版本恢复旧内容、数据库生成及地图/抓取配置，避免只撤 include 却误称恢复旧索引行为。要恢复上一版精确规则，可将可信历史 generated include 作为 `--source` 再安装；不覆盖其他 live server 设置。
+
+## 15:06 授权后的前台故障恢复修复
+
+新增 `scripts/deploy-site-transaction.sh` 同时接入自动与手动更新。fetch 不改前台；首次上线时旧生产目录可能没有helper，因此先从 `origin/main` 的Git对象导出到站外私有临时文件再source。在第一次checkout/reset/pull/rsync之前取得同站点flock并保护实际 `/var/www/sgeda`，独立源目录模式也备份服务目标，而不是只备份源代码。Actions同组排队，`cancel-in-progress: false`，仅main push触发，未增加dispatch。
+
+快照在 `/var/tmp/sgeda-site-transaction-*`，顶层权限0700，包含未跟踪旧静态文件、CMS生成HTML及内容来源/keyword队列；不进入公开网站或sites-enabled。`.env*`、上传、CMS运行数据、analytics/leads、SEO state、数据库/日志和node_modules不参与前台字节覆盖。CMS恢复后记录来源检查点，故障回退不覆盖检查点后编辑的已有文章/keyword队列，也不删除新增CMS来源和受保护运行数据。
+
+核心提交前的EXIT/INT/TERM故障恢复旧前台字节与权限/属主，并清理本次新增公开路径。学校安装失败时外层联动恢复原Nginx站点配置/include，`nginx -t/-T`证明旧配置加载后reload；恢复验真失败返回70并保留私有快照，不冒称已恢复。核心提交点为学校301安装、验真及reload成功之后，立即提交；其后IndexNow/cron/PM2等维护失败仍报错，但不把前台退回旧版却留下新版301。成功清除快照，失败保留供受控恢复；不会输出真实CMS/审核口令。
+
+这是既有原地发布架构的补偿恢复，不是目录指针原子切换；构建或回退时可能短暂看到变化中的页面。SIGKILL、掉电或磁盘损坏不能保证trap自动执行，需使用保留快照人工恢复。node_modules、npm缓存与Git暂存状态不在前台字节事务内；独立源仓库可能保持新版，而实际服务根已退回。未新增全局CMS写锁，checkout至CMS恢复检查点的初始窗口不保证并发编辑完全隔离，部署期间应避免主动发布CMS内容。23项隔离故障回归通过，最终版本仍须完整构建与真实上线后HTTP验收。

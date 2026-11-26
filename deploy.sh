@@ -11,6 +11,7 @@ DOMAIN="sgeda.org.cn"
 echo "=== SGEDA 部署脚本 ==="
 
 if [ "$1" == "update" ]; then
+  set -euo pipefail
   build_for_school_redirects() {
     cd "$1"
     npm ci
@@ -19,50 +20,79 @@ if [ "$1" == "update" ]; then
     node scripts/migrate-school-pages.mjs --validate-only
     node scripts/seo-check.mjs
   }
-  # ── 更新代码 ──
-  echo "[1/4] 拉取最新代码..."
-  cd $SITE_DIR && git pull origin main
+  # Select the source before touching the served directory. fetch is read-only
+  # with respect to frontend bytes; bootstrap works on the first helper rollout.
   DEPLOY_SOURCE="$SITE_DIR"
-
-  # 如果存在独立的 git 仓库目录，同步静态文件到 Nginx 服务目录
   if [ -d "/var/www/seda-website" ] && [ "/var/www/seda-website" != "$SITE_DIR" ]; then
-    echo "[1.5/4] 同步 git 仓库内容到网站目录..."
     DEPLOY_SOURCE="/var/www/seda-website"
-    cd "$DEPLOY_SOURCE" && git pull origin main
+  fi
+  cd "$DEPLOY_SOURCE"
+  echo "[1/4] 获取最新代码与站外事务 helper..."
+  git fetch origin main
+  DEPLOY_HELPER="$(mktemp /var/tmp/sgeda-deploy-helper.XXXXXX)"
+  trap 'rm -f -- "$DEPLOY_HELPER"' EXIT
+  git show origin/main:scripts/deploy-site-transaction.sh > "$DEPLOY_HELPER"
+  source "$DEPLOY_HELPER"
+  rm -f -- "$DEPLOY_HELPER"
+  # Always snapshot SITE_DIR, not merely a separate Git source directory.
+  deploy_site_transaction_begin
+  SOURCE_PREVIOUS_SHA="$(git rev-parse HEAD)"
+  git pull origin main
+  node scripts/restore-cms-content.mjs "$DEPLOY_TX_BACKUP/before" "$SOURCE_PREVIOUS_SHA"
+  deploy_site_transaction_checkpoint_cms
+
+  if [ "$DEPLOY_SOURCE" != "$SITE_DIR" ]; then
+    echo "[1.5/4] 构建并同步到实际网站目录..."
     build_for_school_redirects "$DEPLOY_SOURCE"
     rsync -av --delete \
       --exclude='.git' \
-      --exclude='.env' \
+      --exclude='.env*' \
       --exclude='node_modules' \
       --exclude='server-selfhost.js' \
       --exclude='deploy.sh' \
       --exclude='nginx.conf' \
       --exclude='scripts/' \
-      /var/www/seda-website/ $SITE_DIR/
+      --exclude='content/articles/' \
+      --exclude='content/keyword-queue.csv' \
+      --exclude='assets/uploads/' \
+      --exclude='data/analytics/' \
+      --exclude='data/leads/' \
+      --exclude='data/cms/' \
+      --exclude='data/seo/*state*.json' \
+      --exclude='*.jsonl' \
+      --exclude='*.log' \
+      --exclude='*.sqlite*' \
+      --exclude='*.db*' \
+      --exclude='reports/' \
+      "$DEPLOY_SOURCE/" "$SITE_DIR/"
     echo "✅ 文件同步完成"
   else
     build_for_school_redirects "$DEPLOY_SOURCE"
   fi
+  # Validate actual served targets, not only the independently built source.
+  (cd "$SITE_DIR"; node "$DEPLOY_SOURCE/scripts/migrate-school-pages.mjs" --validate-only)
+  echo "[2/4] 安装学校精确 301、校验并重载 Nginx..."
+  deploy_site_transaction_install_redirects "$DEPLOY_SOURCE/scripts/install-school-redirects.sh"
+  deploy_site_transaction_commit
+  # Environment provisioning/API restart are post-commit maintenance. An error
+  # here is reported, without reverting frontend targets used by loaded 301s.
   if [ ! -f "$SITE_DIR/.env" ]; then
     touch "$SITE_DIR/.env"
   fi
   if ! grep -q '^REVIEW_ADMIN_TOKEN=' "$SITE_DIR/.env"; then
     REVIEW_TOKEN=$(node -e "console.log(require('crypto').randomBytes(12).toString('hex'))")
     echo "REVIEW_ADMIN_TOKEN=$REVIEW_TOKEN" >> "$SITE_DIR/.env"
-    echo "内容审核口令: $REVIEW_TOKEN"
+    echo "已配置内容审核口令（不输出秘密值）"
   fi
   if ! grep -q '^CMS_ADMIN_PASSWORD=' "$SITE_DIR/.env"; then
     CMS_PASSWORD=$(grep '^REVIEW_ADMIN_TOKEN=' "$SITE_DIR/.env" | tail -1 | cut -d= -f2-)
     echo "CMS_ADMIN_PASSWORD=$CMS_PASSWORD" >> "$SITE_DIR/.env"
-    echo "CMS 登录密码: $CMS_PASSWORD"
+    echo "已配置 CMS 登录密码（不输出秘密值）"
   fi
   if ! grep -q '^CMS_SESSION_SECRET=' "$SITE_DIR/.env"; then
     CMS_SECRET=$(node -e "console.log(require('crypto').randomBytes(24).toString('hex'))")
     echo "CMS_SESSION_SECRET=$CMS_SECRET" >> "$SITE_DIR/.env"
   fi
-  echo "[2/4] 安装学校精确 301、校验并重载 Nginx..."
-  bash "$DEPLOY_SOURCE/scripts/install-school-redirects.sh" \
-    --source "$SITE_DIR/data/seo/school-redirects.nginx.conf"
   echo "[3/4] 重启 API 服务..."
   pm2 restart seda-api
   echo "✅ 更新完成！"

@@ -16,9 +16,12 @@ import { buildSchoolDatabase } from './build-school-database.mjs';
 import { migrateSchoolPages } from './migrate-school-pages.mjs';
 import { applyCatalogCrawlPolicy, updateCatalogPriority } from './catalog-crawl-policy.mjs';
 import { assertNoPublicBackups } from './public-content-safety.mjs';
+import { syncPathwayCatalogNavigation } from './sync-pathway-catalog-navigation.mjs';
 
 const root = process.cwd();
 assertNoPublicBackups(root);
+// Normalize the shared source before article and school-catalog generators read it.
+const navigationSync = syncPathwayCatalogNavigation(root);
 const domain = 'https://sgeda.org.cn';
 const defaultGoogleAnalyticsId = 'G-38WFES3WTH';
 const buildDate = new Date().toISOString().slice(0, 10);
@@ -1183,6 +1186,7 @@ const migrationStats = catalogEnabled ? await migrateSchoolPages(root, { validat
 const catalogCrawl = catalogEnabled ? applyCatalogCrawlPolicy(root) : null;
 const catalogPriority = catalogEnabled ? updateCatalogPriority(root) : null;
 const urlCount = updateSitemap(drafts);
+console.log(`Distinguished pathway/catalog navigation on ${navigationSync.updated} pages.`);
 console.log(`Synchronized ${footerSync.updated} shared footers (${footerSync.checked} pages checked).`);
 console.log(`Removed legacy school boilerplate on ${schoolEditorial.updated} pages.`);
 console.log(`Built ${articles.length} content articles.`);

@@ -41,7 +41,20 @@ export function prepareArticleHtml(article, all, root, policy) {
   const { published, drafts } = partitionArticles(all);
   const publishedUrls = new Set(published.map(a => a.url));
   const draftUrls = new Set(drafts.map(a => a.url));
-  const exists = route => !draftUrls.has(route) && (publishedUrls.has(route) || fs.existsSync(localFile(root, route)));
+  const exists = route => {
+    if (publishedUrls.has(route)) return true;
+    const file = localFile(root, route);
+    if (!file || !fs.existsSync(file)) return false;
+    if (!draftUrls.has(route)) return true;
+    // The builder preserves an existing custom page over a same-URL draft.
+    // Keep its public links too, without making noindex draft output public.
+    const html = fs.readFileSync(file, 'utf8');
+    if (!html.includes('<!-- SEDA_CUSTOM_PAGE -->')) return false;
+    const page = load(html);
+    return !page('meta[name]').toArray()
+      .filter(node => String(page(node).attr('name')).trim().toLowerCase() === 'robots')
+      .some(node => /\b(?:noindex|none)\b/i.test(page(node).attr('content') || ''));
+  };
   const errors = [];
   $('a[href]').each((_, el) => {
     const node = $(el), raw = node.attr('href');

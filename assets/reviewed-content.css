@@ -1,0 +1,11 @@
+.table-wrap .data-table.focus-table {
+  width: 100%;
+  min-width: 0;
+}
+
+.table-wrap .data-table.focus-table th,
+.table-wrap .data-table.focus-table td {
+  overflow-wrap: anywhere;
+  white-space: normal;
+  vertical-align: top;
+}

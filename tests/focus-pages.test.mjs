@@ -26,6 +26,13 @@ for (const route of routes) {
       assert.ok(fs.existsSync(path.join(root, url.pathname, 'index.html')), href);
     });
     assert.ok($('table').length >= 2, 'scannable comparisons');
+    if (route !== 'o-level') {
+      assert.equal($('link[href="/assets/reviewed-content.css?v=1"]').length, 1);
+      assert.ok(fs.existsSync(path.join(root, 'assets/reviewed-content.css')));
+      $('.data-table').each((_, table) => {
+        if ($(table).find('thead th').length <= 3) assert.ok($(table).hasClass('focus-table'), 'short tables fit narrow screens');
+      });
+    }
     const ids = $('[id]').map((_, el) => $(el).attr('id')).get();
     assert.equal(new Set(ids).size, ids.length, 'unique anchor IDs');
   });

@@ -1,8 +1,7 @@
 name: Deploy static site to GitHub Pages
 
 on:
-  push:
-    branches: ["main"]
+  # Production deploys automatically to Aliyun; Pages is manual only.
   workflow_dispatch:
 
 permissions:
@@ -12,9 +11,7 @@ permissions:
 
 concurrency:
   group: "pages"
-  # 连续两次 push 时，旧的 Pages 部署还在跑，新的会排队并撞车
-  # （Deploy to GitHub Pages 失败，但阿里云部署不受影响）。
-  # 改为取消旧的，只保留最新一次。
+  # Keep only the latest manually requested Pages deployment.
   cancel-in-progress: true
 
 jobs:

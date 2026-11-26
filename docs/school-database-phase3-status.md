@@ -45,7 +45,7 @@
 
 手动部署脚本已接入真实Nginx include安装器：保留现有SSL/API配置，先构建与测试，再验证目标，安装后执行 `nginx -t`、`nginx -T` 确认实际加载，成功后才reload；失败恢复原磁盘配置并报错。规则可移除、可回滚。**目前只在本地隔离环境验收，线上301尚未生效。**
 
-保存时GitHub拒绝当前连接修改 `.github/workflows/deploy-aliyun.yml`（缺少 `workflows` 权限）。完整本地实现保存在本地备份分支 `backup/school-database-full-20261126`、提交 `368d58f984a88b7a248acca80d43ad7b58af6b49`；核心改版将以不改工作流的提交保存至PR3，自动部署补丁另存 `docs/deploy-aliyun-workflow.patch`。**补丁未应用前，不能把PR当成可自动上线版本**：旧GitHub工作流不会安装新学校301规则。上线前必须由具有对应权限的连接或账户应用该补丁，或者明确采用已接线的手动部署方式；当前不执行任何一种上线操作。
+保存时GitHub拒绝当前连接修改 `.github/workflows/deploy-aliyun.yml`（缺少 `workflows` 权限）。完整本地实现保存在本地备份分支 `backup/school-database-full-20261126`、提交 `368d58f984a88b7a248acca80d43ad7b58af6b49`；核心改版已以提交 `3a03d99aea0bb2267ee4f6a5007a63d31cf84695` 成功推送至PR3，不改受限工作流，自动部署补丁另存 `docs/deploy-aliyun-workflow.patch`。PR已确认OPEN、自动合并关闭、生产main不变。**补丁未应用前，不能把PR当成可自动上线版本**：旧GitHub工作流不会安装新学校301规则。上线前必须由具有对应权限的连接或账户应用该补丁，或者明确采用已接线的手动部署方式；当前不执行任何一种上线操作。
 
 用户批准上线后，仍需对真实主域HTTP301、目标200、robots和地图做线上验收，再按百度平台可用额度安排登记。允许抓取和提交地图不保证收录时间或数量。
 

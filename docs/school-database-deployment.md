@@ -43,7 +43,9 @@ include /etc/nginx/snippets/school-redirects.nginx.conf;
 
 ## 用户批准后的部署顺序
 
-GitHub 工作流仅在 main push 触发；当前修复分支不会触发远端部署。远端顺序为：保留 CMS 内容，更新 main，恢复 CMS，`npm ci`、完整构建、测试最终产物、迁移 late validator、SEO 检查，随后运行同一 include 安装器，成功后再执行现有提交/cron/API 步骤。任一校验或安装失败，不得声称上线成功。
+**当前PR不可直接合并自动上线。** GitHub连接缺少 `workflows` 权限，拒绝保存 `.github/workflows/deploy-aliyun.yml` 改动；该文件保留旧版，自动部署尚未接入学校301安装器。待授权差异单独保存在 `docs/deploy-aliyun-workflow.patch`，不会被构建或部署脚本自动应用。上线前需由具有相应权限的连接或账户应用补丁，或者经用户批准明确选择下述手动部署路径。保留补丁不等于工作流已修改。
+
+旧工作流的自动部署由 main push 触发，另仍有 `workflow_dispatch` 手动入口；当前修复分支push不会自动部署，本轮不调用手动入口。**完成权限处理并获得新的上线批准后**，补丁对应的远端顺序为：保留 CMS 内容，更新 main，恢复 CMS，`npm ci`、完整构建、测试最终产物、迁移 late validator、SEO 检查，随后运行同一 include 安装器，成功后再执行现有提交/cron/API 步骤。任一校验或安装失败，不得声称上线成功。
 
 手动 `bash deploy.sh update` 也先构建/测试/验真/SEO；若使用独立 `/var/www/seda-website` 源目录，先在源目录构建，再同步静态文件到 `/var/www/sgeda`，用当前源目录的安装器安装实际服务目录中的生成 include。原 bootstrap 模板只允许在不存在真实配置时复制，已有配置不覆盖；本文不授权新服务器初始化。
 

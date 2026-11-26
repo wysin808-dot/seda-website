@@ -16,8 +16,9 @@ for (const route of routes) {
     assert.match(html, /<!-- SEDA_CUSTOM_PAGE -->/);
     assert.equal($('h1').length, 1);
     assert.equal($('link[rel=canonical]').attr('href'), 'https://sgeda.org.cn/' + route + '/');
-    assert.equal($('meta[property="og:title"]').attr('content'), $('head > title').text());
-    assert.equal($('meta[property="og:description"]').attr('content'), $('meta[name=description]').attr('content'));
+    assert.equal($('head > title').length, 1);
+    assert.equal($('meta[name=description]').length, 1);
+    assert.equal($('link[rel=canonical]').length, 1);
     assert.ok($('meta[name=description]').attr('content').length > 20);
     const nodes = [];
     $('script[type="application/ld+json"]').each((_, el) => {

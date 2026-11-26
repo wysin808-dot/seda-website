@@ -44,8 +44,8 @@ export function enhancePageHtml(html, url) {
   const webPage = {
     '@context':'https://schema.org', '@type':'WebPage', name:title, description, url,
     inLanguage:'zh-CN',
-    isPartOf:{'@type':'WebSite',name:'SEDA 新加坡择校网',url:domain+'/'},
-    publisher:{'@type':'Organization',name:'SEDA 新加坡择校网',url:domain+'/'},
+    isPartOf:{'@type':'WebSite','@id':domain+'/#website',name:'SEDA 新加坡择校网',url:domain+'/'},
+    publisher:{'@type':'Organization','@id':domain+'/#organization',name:'SEDA 新加坡择校网',url:domain+'/'},
   };
   const schemas = [webPage];
   if (!hasExistingFaq && visibleFaqs.length) schemas.push({

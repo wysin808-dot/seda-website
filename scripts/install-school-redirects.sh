@@ -3,12 +3,14 @@
 # Never copies the repository nginx.conf over production. No network operations.
 set -euo pipefail
 command -v python3 >/dev/null || { echo 'python3 is required' >&2; exit 1; }
-exec python3 - "$@" <<'PY'
+# No side effects when sourcing: the helper only defines functions. The shared
+# library is also present in the single-file git-show bootstrap used on first rollout.
+source "$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)/deploy-site-transaction.sh"
+exec python3 - "$@" < <(deploy_site_nginx_python; cat <<'PY'
 import argparse
 import os
 from pathlib import Path
 import re
-import shlex
 import stat
 import subprocess
 import sys
@@ -16,15 +18,13 @@ import tempfile
 
 MARKER_START = '# BEGIN SEDA_SCHOOL_REDIRECT_INCLUDE'
 MARKER_END = '# END SEDA_SCHOOL_REDIRECT_INCLUDE'
-DEFAULT_CONFIG = '/etc/nginx/sites-available/sgeda'
-DEFAULT_ENABLED = '/etc/nginx/sites-enabled/sgeda'
 DEFAULT_INCLUDE = '/etc/nginx/snippets/school-redirects.nginx.conf'
 DEFAULT_ROOT = '/var/www/sgeda'
 
 parser = argparse.ArgumentParser(description='Preserve existing TLS/API configuration; validate before reload; restore on failure.')
 parser.add_argument('--source', default='data/seo/school-redirects.nginx.conf')
-parser.add_argument('--config', default=DEFAULT_CONFIG)
-parser.add_argument('--enabled-config', default=DEFAULT_ENABLED)
+parser.add_argument('--config', help='Assert the discovered regular target')
+parser.add_argument('--enabled-config', help='Assert the actually loaded source/alias')
 parser.add_argument('--include-path', default=DEFAULT_INCLUDE)
 parser.add_argument('--site-root', default=DEFAULT_ROOT)
 parser.add_argument('--nginx-bin', default='nginx')
@@ -32,99 +32,12 @@ parser.add_argument('--reload-bin', default='systemctl', help='Called with: relo
 parser.add_argument('--dry-run', action='store_true')
 parser.add_argument('--remove', action='store_true', help='Remove the managed include and its rules, then test/reload')
 parser.add_argument('--test-mode', action='store_true', help='Fixture-only paths; never permits real production config')
+parser.add_argument('--fixture-root', help='Private /tmp/seda-deploy-transaction-* directory')
 args = parser.parse_args()
 
 
-def fail(message):
-    raise RuntimeError(message)
-
-
-def tokens(text):
-    # Token offsets allow inserting a server-level include without touching other bytes.
-    result = []
-    i = 0
-    while i < len(text):
-        if text[i].isspace():
-            i += 1
-            continue
-        if text[i] == '#':
-            end = text.find('\n', i)
-            i = len(text) if end < 0 else end + 1
-            continue
-        start = i
-        if text[i] in '{};':
-            result.append((text[i], i, i + 1))
-            i += 1
-        elif text[i] in '\"\'':
-            quote = text[i]
-            i += 1
-            value = ''
-            while i < len(text) and text[i] != quote:
-                if text[i] == '\\' and i + 1 < len(text):
-                    i += 1
-                value += text[i]
-                i += 1
-            if i >= len(text):
-                fail('Unterminated Nginx string')
-            i += 1
-            result.append((value, start, i))
-        else:
-            while i < len(text) and not text[i].isspace() and text[i] not in '{};#':
-                i += 1
-            if i == start:
-                fail('Cannot parse Nginx config')
-            result.append((text[start:i], start, i))
-    return result
-
-
-def server_blocks(text):
-    ts = tokens(text)
-    blocks = []
-    for i, token in enumerate(ts[:-1]):
-        if token[0] != 'server' or ts[i + 1][0] != '{':
-            continue
-        depth = 1
-        directive = []
-        directives = []
-        j = i + 2
-        while j < len(ts) and depth:
-            value = ts[j][0]
-            if value == '{':
-                depth += 1
-                directive = []
-            elif value == '}':
-                depth -= 1
-                directive = []
-            elif depth == 1:
-                if value == ';':
-                    if directive:
-                        directives.append(directive)
-                    directive = []
-                else:
-                    directive.append(ts[j])
-            j += 1
-        if depth:
-            fail('Unbalanced Nginx server block')
-        blocks.append((ts[i + 1][2], ts[j - 1][1], directives))
-    return blocks
-
-
-def canonical_block(text):
-    candidates = []
-    for start, end, directives in server_blocks(text):
-        names = [t[0] for d in directives if d[0][0] == 'server_name' for t in d[1:]]
-        roots = [d[1][0] for d in directives if d[0][0] == 'root' and len(d) == 2]
-        tls = any(d[0][0] == 'listen' and any(t[0] == 'ssl' for t in d[1:])
-                  and any(re.search(r'(?:^|:)443$', t[0]) for t in d[1:]) for d in directives)
-        if 'sgeda.org.cn' in names and roots == [args.site_root] and tls:
-            candidates.append((start, end, directives))
-    if len(candidates) != 1:
-        fail('Expected exactly one sgeda.org.cn TLS server with exact root ' + args.site_root)
-    return candidates[0]
-
-
 def transform(text):
-    start, end, directives = canonical_block(text)
+    start, end, directives = canonical_block(text, args.site_root)
     fragment = text[start:end]
     managed = re.compile(r'(?m)^[ \t]*' + re.escape(MARKER_START) + r'\n[\s\S]*?^[ \t]*' + re.escape(MARKER_END) + r'[ \t]*\n?')
     matches = list(managed.finditer(text))
@@ -138,7 +51,7 @@ def transform(text):
         if [token[0] for token in values] != ['include', args.include_path, ';']:
             fail('Managed section contains unrelated configuration; refusing overwrite')
         text = text[:matches[0].start()] + text[matches[0].end():]
-    start, end, directives = canonical_block(text)
+    start, end, directives = canonical_block(text, args.site_root)
     for _, _, ds in server_blocks(text):
         for d in ds:
             if d[0][0] == 'include' and len(d) == 2 and d[1][0] == args.include_path:
@@ -169,7 +82,7 @@ def validate_rules(data):
             continue
         match = expression.fullmatch(line)
         if not match:
-            fail('Unsafe or non-exact generated rule: ' + line)
+            fail('Unsafe or non-exact generated rule')
         source, target = match.groups()
         for value in [source, target.split('#')[0]]:
             if '//' in value or any(part in ('.', '..') for part in value.split('/')):
@@ -190,6 +103,7 @@ def snapshot(file):
 
 
 def atomic_write(file, content, original=None):
+    regular_destination(file)
     fd, temp = tempfile.mkstemp(prefix='.' + file.name + '.', dir=file.parent)
     try:
         with os.fdopen(fd, 'wb') as output:
@@ -213,49 +127,61 @@ def restore(file, before):
 
 
 def check_loaded(config, enabled, include):
-    subprocess.run([args.nginx_bin, '-t'], check=True)
-    # Prove these files are really loaded, not merely present on disk.
-    dump = subprocess.run([args.nginx_bin, '-T'], check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True).stdout
-    if not any(f'# configuration file {file}:' in dump for file in (config, enabled)):
-        fail('nginx -T does not load sites-available/sgeda')
-    if not args.remove and f'# configuration file {include}:' not in dump:
+    nginx_command(args.nginx_bin, '-t')
+    _, _, _, sources = discover_loaded(args.nginx_bin, tree, site, config, enabled)
+    if not args.remove and include not in [origin for origin, _ in sources]:
         fail('nginx -T does not load the generated school include')
 
 
 try:
-    config = Path(args.config)
-    enabled = Path(args.enabled_config)
-    include = Path(args.include_path)
-    site = Path(args.site_root)
-    if not all(p.is_absolute() for p in [config, enabled, include, site]):
-        fail('Config, enabled-config, include-path and site-root must be absolute')
-    if not re.fullmatch(r'/[A-Za-z0-9_./-]+', args.include_path) or '..' in include.parts:
-        fail('Unsafe include path')
+    site, include = absolute_path(args.site_root), absolute_path(args.include_path)
+    config = absolute_path(args.config) if args.config else None
+    enabled = absolute_path(args.enabled_config) if args.enabled_config else None
+    source = absolute_path(os.path.abspath(args.source))
     if args.test_mode:
-        protected = {Path(value).resolve() for value in (DEFAULT_CONFIG, DEFAULT_ENABLED, DEFAULT_INCLUDE, DEFAULT_ROOT)}
-        production_roots = [Path('/etc/nginx').resolve(), Path(DEFAULT_ROOT).resolve()]
-        resolved_paths = [file.resolve() for file in (config, enabled, include, site)]
-        if any(file in protected or any(file == base or base in file.parents for base in production_roots) for file in resolved_paths):
-            fail('Test mode cannot alter production paths')
-    elif (str(config), str(enabled), str(include), str(site)) != (DEFAULT_CONFIG, DEFAULT_ENABLED, DEFAULT_INCLUDE, DEFAULT_ROOT):
-        fail('Non-production paths require explicit --test-mode')
+        root = private_fixture(args.fixture_root)
+        tree = root / 'nginx'
+        for file in [site, include, source, Path(args.nginx_bin), Path(args.reload_bin)]:
+            confined(file, root)
+            no_link_ancestors(file)
+        for file in [config, enabled]:
+            if file is not None:
+                confined(file, tree)
+                no_link_ancestors(file.parent)
+    else:
+        tree = Path('/etc/nginx')
+        if args.fixture_root or (str(include), str(site)) != (DEFAULT_INCLUDE, DEFAULT_ROOT) or (
+                args.nginx_bin, args.reload_bin) != ('nginx', 'systemctl'):
+            fail('Non-production paths/commands require explicit --test-mode')
+        if not args.remove and source != site / 'data/seo/school-redirects.nginx.conf':
+            fail('Production rules source must be the generated file inside the live site')
+        no_link_ancestors(source)
+        no_link_ancestors(site)
+        for file in [config, enabled]:
+            if file is not None:
+                confined(file, tree)
+                no_link_ancestors(file.parent)
+    no_link_ancestors(site / 'index.html')
     if not site.is_dir() or not (site / 'index.html').is_file():
         fail('Site directory/index.html does not exist')
-    if not config.is_file() or config.is_symlink():
-        fail('Config must be a real sites-available file')
-    if not enabled.is_file() or enabled.resolve() != config.resolve():
-        fail('sites-enabled must load this exact sites-available config')
-    if include.is_symlink() or not include.parent.is_dir():
-        fail('Include parent directory must exist and include cannot be a symlink')
+    regular_destination(include)
+    if args.dry_run:
+        # Offline inspection requires both explicit paths; it is NOT loaded proof.
+        if config is None or enabled is None or config_target(config, tree) != config_target(enabled, tree):
+            fail('Offline dry run requires matching explicit config and enabled-config')
+        config = config_target(config, tree)
+    else:
+        config, enabled, _, _ = discover_loaded(args.nginx_bin, tree, site, config, enabled)
+        print('Selected loaded Nginx source: ' + str(enabled) + ' -> ' + str(config))
     before_config = snapshot(config)
     before_include = snapshot(include)
-    content = transform(before_config[0].decode('utf-8')).encode('utf-8')
-    rules = None if args.remove else Path(args.source).read_bytes()
+    content = transform(before_config[0].decode('utf-8', errors='surrogateescape')).encode('utf-8', errors='surrogateescape')
+    rules = None if args.remove else source.read_bytes()
     if rules is not None:
         validate_rules(rules)
     if args.dry_run:
-        print('DRY RUN: no files, nginx commands or reloads executed')
-        print(content.decode('utf-8'))
+        print('DRY RUN: offline transform validated; no files, nginx commands or reloads executed')
+        print('Config path: ' + str(config))
         sys.exit(0)
     if content == before_config[0] and ((args.remove and before_include is None) or (not args.remove and before_include and rules == before_include[0])):
         check_loaded(config, enabled, include)
@@ -279,3 +205,4 @@ except Exception as error:
     print('ERROR: ' + str(error), file=sys.stderr)
     sys.exit(1)
 PY
+)

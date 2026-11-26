@@ -1,6 +1,6 @@
 # 学校数据库 URL 迁移与 Nginx 部署
 
-此改动在独立修复分支完成。2026-11-26 15:06 用户已授权最终检查无阻断后上线；本文保存时尚未合并，必须完成最终候选验收再以确定HEAD合并PR3，不能把接线或本地检查当作已上线。生产目录是 `/var/www/sgeda`，已有站点配置是 `/etc/nginx/sites-available/sgeda`，由 `/etc/nginx/sites-enabled/sgeda` 加载。不要将仓库 `nginx.conf` 覆盖到已有站点：真实 SSL、analytics 和 API 代理必须保留。仓库模板只增加了学校 include 的定位。
+PR3已于15:48合并，但实际阿里云部署在前台首次写入之前因固定Nginx配置检查失败；不能把合并或本地检查当作新版已上线。用户15:53已批准限定配置布局兼容修复，在新候选验收通过后合并新PR触发原部署。生产目录仍固定 `/var/www/sgeda`；既有主域TLS配置文件由实际 `nginx -T` 的唯一匹配来源证明，不再假定文件名是 `/etc/nginx/sites-available/sgeda`。不要将仓库 `nginx.conf` 覆盖到已有站点：真实 SSL、analytics 和 API 代理必须保留。
 
 ## 迁移模型与生成
 
@@ -29,7 +29,7 @@ node --test tests/school-migration.test.mjs
 
 ## 安装器的前置检查与事务
 
-`bash scripts/install-school-redirects.sh` 不连接远端、不改 SSL/API、不把仓库模板覆盖生产。需 Python 3、已有 `/etc/nginx/snippets` 目录、真实站点 `index.html`、已启用且指向准确 sites-available 文件的站点配置。它寻找**唯一**满足 `server_name sgeda.org.cn`、`listen 443 ssl`、精确 `root /var/www/sgeda` 的 server 块，在 server 作用域安装以下管理段：
+`bash scripts/install-school-redirects.sh` 不连接远端、不改 SSL/API、不把仓库模板覆盖生产。需 Python 3、已有 `/etc/nginx/snippets` 目录、真实站点 `index.html`。先捕获 `nginx -T`，从已加载来源中寻找**唯一**同时满足 `server_name sgeda.org.cn`、TCP443加ssl、精确 `root /var/www/sgeda` 的直接server块；选中目标必须是 `/etc/nginx` 内真实regular文件或可验证的sites-enabled安全叶子别名，且dump与磁盘字节一致。支持conf.d或既有文件名布局，不扫描磁盘猜候选；`--config`/`--enabled-config`仅用于断言实际选择。然后在 server 作用域安装以下管理段：
 
 ```nginx
 # BEGIN SEDA_SCHOOL_REDIRECT_INCLUDE
@@ -37,9 +37,9 @@ include /etc/nginx/snippets/school-redirects.nginx.conf;
 # END SEDA_SCHOOL_REDIRECT_INCLUDE
 ```
 
-先严格检查生成 include 的 ASCII 精确规则，然后原子写入 include 和管理段。只改变此管理段，其余现有配置按原始字节保留。接着执行 `nginx -t`，再用 `nginx -T` 证明 sites-enabled/available 及生成 include 确实被 Nginx 加载，全部成功后才 `systemctl reload nginx`。任一步失败，恢复原配置与原 include 或删除新建 include，退出非 0；`nginx -t/-T` 失败时绝不 reload。reload 自身失败时也恢复磁盘文件且不报成功，操作人须检查服务状态与日志。未在 sites-enabled 写任何备份，不会因通配加载而引入重复 server。重复安装相同规则不重复 include、不重复 reload；即便先前进程状态不明，批准上线前仍应独立检查服务状态和 `nginx -t`。
+先严格检查生成 include 的 ASCII 精确规则，然后原子写入 include 和管理段。只改变此管理段，其余现有配置按原始字节保留。接着执行 `nginx -t`，再用 `nginx -T` 证明实际选中的配置来源及生成include仍被加载，全部成功后才 `systemctl reload nginx`。任一步失败，恢复原配置与原 include 或删除新建 include，退出非 0；`nginx -t/-T` 失败时绝不 reload。reload 自身失败时也恢复磁盘文件且不报成功，外层事务继续证明并加载原代；验证失败明确返回70并保留私有恢复快照。未在 sites-enabled 写任何备份。重复安装相同规则不重复include、不重复reload。不会向日志输出完整dump或SSL/API配置值。
 
-非生产路径必须显式 `--test-mode`，测试模式对 `--config`、`--enabled-config`、`--include-path`、`--site-root` 四条路径都进行解析保护：禁止默认/等价生产路径，以及真实 `/etc/nginx/` 和 `/var/www/sgeda/` 子路径，包含符号链接等价路径。fixture 参数还包括 `--source`、`--nginx-bin`、`--reload-bin`；可使用假命令验证顺序和失败恢复，无需 root。`--dry-run` 展示候选配置，不写文件、不运行 Nginx、不 reload。生产默认路径不能使用 fixture 模式规避实际载入证明。
+非生产路径必须显式 `--test-mode --fixture-root`，且根为当前用户拥有的0700私有 `/tmp/seda-deploy-transaction-*`。站点、include、source、命令替身和快照均须在其内部，禁止生产/等价/symlink逃逸；配置别名仅允许受控nginx/sites-enabled叶子链接到该树内regular文件。fixture命令可验证顺序和恢复，无需root。`--dry-run` 需明确一致的 `--config` 与 `--enabled-config`，只做离线变换预览，不写文件、不调用Nginx或reload，也不打印整配置；它不能替代实际载入证明。
 
 ## 用户批准后的部署顺序
 
@@ -53,8 +53,8 @@ include /etc/nginx/snippets/school-redirects.nginx.conf;
 
 ```bash
 cd /var/www/sgeda
-# 无写入预览；需要能读取现有配置。
-bash scripts/install-school-redirects.sh --dry-run
+# 离线无写入预览需传入已确认的实际目标及加载来源；不是加载证明。
+# bash scripts/install-school-redirects.sh --dry-run --config <实际regular配置> --enabled-config <实际加载来源>
 # 仅在用户批准、构建和 SEO 成功后执行（需相应系统权限）。
 bash scripts/install-school-redirects.sh --source /var/www/sgeda/data/seo/school-redirects.nginx.conf
 ```
@@ -67,7 +67,8 @@ bash scripts/install-school-redirects.sh --source /var/www/sgeda/data/seo/school
 
 ```bash
 cd /var/www/sgeda
-bash scripts/install-school-redirects.sh --remove --dry-run
+# 离线预览同样需明确config与enabled-config；不直接执行此占位示例。
+# bash scripts/install-school-redirects.sh --remove --dry-run --config <实际regular配置> --enabled-config <实际加载来源>
 bash scripts/install-school-redirects.sh --remove
 ```
 

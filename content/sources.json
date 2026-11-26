@@ -1,5 +1,5 @@
 {
-  "_comment": "页面级官方来源清单。enhance-eeat.mjs 会把它渲染成每页底部的「资料来源与核实」区块，并把 URL 写进 Article 的 citation。新增页面时在这里登记；url 必须是页面自己的 canonical。",
+  "_comment": "页面级真实官方来源与 lastVerified 维护记录，不在前台正文堆砌来源或核实日期。enhance-eeat.mjs 清除历史统一来源模块并将来源 URL 同步至 Article/WebPage citation；新增页面时登记实际使用的资料和核实范围，url 必须是页面自己的 canonical。不代表全部学校或文章已核实。",
   "https://sgeda.org.cn/aeis/": {
     "lastVerified": "2026-11-25",
     "note": "本页的招生年级、CEQ 要求、测试科目与报名流程，以 MOE 与 SEAB 当期公告为准；官方调整后以官方为准。",
@@ -15,20 +15,36 @@
     ]
   },
   "https://sgeda.org.cn/guides/student-pass/": {
-    "lastVerified": "2026-11-25",
-    "note": "本页的费用（受理费 S$45、签发费 S$60、多次入境签证 S$30）与 SOLAR 流程以 ICA 当前公布为准；审批结果由 ICA 决定，学校只负责提交申请。",
+    "lastVerified": "2026-11-26",
+    "note": "依据ICA机构分类核对课程资格、现有准证豁免、材料翻译、费用、办理分工及数字准证；工作条件依据MOM名单。ITE与幼儿教育只列官方入口，未概括其细则。FSS页面处理时间表述不一致，不提供统一审批时长或获批承诺。",
     "sources": [
       {
-        "label": "ICA — Student's Pass 申请与续签",
+        "label": "ICA — Becoming a Student's Pass Holder",
         "url": "https://www.ica.gov.sg/reside/STP/apply"
       },
       {
-        "label": "ICA SOLAR 常见问题（费用说明）",
-        "url": "https://eservices.ica.gov.sg/solar/xhtml/StaticPages/Faq.xhtml"
+        "label": "ICA — Government Government-Aided Independent Schools",
+        "url": "https://www.ica.gov.sg/information-and-e-services/long-term-visit-and-study/student-s-pass/student%27s-pass-application-renewal/government--government-aided--independent-schools"
       },
       {
-        "label": "ICA — 准证签发手续与费用",
+        "label": "ICA — Approved Private Education Institutions",
+        "url": "https://www.ica.gov.sg/information-and-e-services/long-term-visit-and-study/student-s-pass/student%27s-pass-application-renewal/approved-private-education-institutions"
+      },
+      {
+        "label": "ICA — Foreign System Schools and Privately-Funded Schools",
+        "url": "https://www.ica.gov.sg/information-and-e-services/long-term-visit-and-study/student-s-pass/student%27s-pass-application-renewal/foreign-system-schools-and-privately-funded-schools"
+      },
+      {
+        "label": "ICA — Institutes of Higher Learning",
+        "url": "https://www.ica.gov.sg/information-and-e-services/long-term-visit-and-study/student-s-pass/student%27s-pass-application-renewal/institutes-of-higher-learning"
+      },
+      {
+        "label": "ICA — Completion of Formalities and Issuance of Student's Pass",
         "url": "https://www.ica.gov.sg/information-and-e-services/long-term-visit-and-study/student-s-pass/completion-of-formalities-and-issuance-of-student%27s-pass"
+      },
+      {
+        "label": "MOM — Work pass exemption for foreign students",
+        "url": "https://www.mom.gov.sg/passes-and-permits/work-pass-exemption-for-foreign-students"
       }
     ]
   },
@@ -459,6 +475,240 @@
       {
         "label": "ICA — 学生准证签发费用",
         "url": "https://www.ica.gov.sg/information-and-e-services/long-term-visit-and-study/student-s-pass/completion-of-formalities-and-issuance-of-student%27s-pass"
+      }
+    ]
+  },
+  "https://sgeda.org.cn/primary-schools/kong-hwa/": {
+    "lastVerified": "2026-11-26",
+    "note": "本次核实学校区域、性质、地址、联系资料、SAP、ALP、LLP及所列校史。未核实年度招生学额与个别学生的入学资格，也不提供学校排名。",
+    "sources": [
+      {
+        "label": "MOE SchoolFinder：光华学校现行档案",
+        "url": "https://www.moe.gov.sg/schoolfinder/schooldetail/kong-hwa-school"
+      },
+      {
+        "label": "光华学校官网：联系与交通",
+        "url": "https://www.konghwa.moe.edu.sg/about-khs/contact-us/"
+      },
+      {
+        "label": "光华学校官网：中英校史",
+        "url": "https://www.konghwa.moe.edu.sg/about-khs/school-history/"
+      }
+    ]
+  },
+  "https://sgeda.org.cn/government-schools/": {
+    "lastVerified": "2026-11-26",
+    "note": "本次核对国际学生入学通道、AEIS/S-AEIS年级与测试、2026政府及政府辅助学校收费、Full SBB与SEC届别、报到和准证限制。费用不作为2027报价；个人年龄与CEQ资格以MOE交互查询为准，不提供学校排名或录取保证。",
+    "sources": [
+      {
+        "label": "MOE Admissions process for international students",
+        "url": "https://www.moe.gov.sg/international-students/admission"
+      },
+      {
+        "label": "MOE P1 registration for international students",
+        "url": "https://www.moe.gov.sg/primary/p1-registration/international-students"
+      },
+      {
+        "label": "MOE AEIS eligibility criteria",
+        "url": "https://www.moe.gov.sg/international-students/aeis/eligibility-criteria"
+      },
+      {
+        "label": "MOE AEIS test details",
+        "url": "https://www.moe.gov.sg/international-students/aeis/test-details"
+      },
+      {
+        "label": "MOE AEIS primary application process",
+        "url": "https://www.moe.gov.sg/international-students/aeis"
+      },
+      {
+        "label": "MOE S-AEIS primary application process",
+        "url": "https://www.moe.gov.sg/international-students/s-aeis"
+      },
+      {
+        "label": "MOE Revised school fees for 2024 to 2026",
+        "url": "https://www.moe.gov.sg/news/press-releases/20231018-revised-school-fees-for-non-citizens-in-government-and-government-aided-schools-for-2024-to-2026"
+      },
+      {
+        "label": "MOE School fees",
+        "url": "https://www.moe.gov.sg/financial-matters/fees"
+      },
+      {
+        "label": "MOE Secondary school experience under Full SBB",
+        "url": "https://www.moe.gov.sg/psle-fsbb/full-subject-based-banding/secondary-school-experience"
+      },
+      {
+        "label": "MOE Curriculum for secondary schools",
+        "url": "https://www.moe.gov.sg/secondary/schools-offering-full-sbb"
+      },
+      {
+        "label": "MOE AEIS Release of outcome",
+        "url": "https://www.moe.gov.sg/international-students/aeis/outcome"
+      }
+    ]
+  },
+  "https://sgeda.org.cn/international-school/": {
+    "lastVerified": "2026-11-26",
+    "note": "本次核对IB/AP/WACE课程资格、XCL校名及课程、UWCSEA收费项目口径和ICA外籍体系学校申请条件。未逐校核实全部名单、当年招生名额或费用，不发布学校排名、统一价格和录取保证。",
+    "sources": [
+      {
+        "label": "IB — DP curriculum",
+        "url": "https://www.ibo.org/programmes/diploma-programme/curriculum/"
+      },
+      {
+        "label": "College Board — What Is AP",
+        "url": "https://apstudents.collegeboard.org/what-is-ap"
+      },
+      {
+        "label": "UWCSEA — Fee Schedule 2026/2027",
+        "url": "https://www.uwcsea.edu.sg/admissions/fees-and-scholarships/fees"
+      },
+      {
+        "label": "ICA — Foreign System Schools and Privately-Funded Schools",
+        "url": "https://www.ica.gov.sg/reside/STP/apply/fss"
+      },
+      {
+        "label": "SCSA — WACE",
+        "url": "https://senior-secondary.scsa.wa.edu.au/certification/wace"
+      },
+      {
+        "label": "XCL World Academy — Official website",
+        "url": "https://www.xwa.edu.sg/"
+      }
+    ]
+  },
+  "https://sgeda.org.cn/pathway/": {
+    "lastVerified": "2026-11-26",
+    "note": "本次重点核对NUS/NTU澳洲高中学历最低申请条件与2027 SEC、2028中学后招生时间口径。最低条件不是专业录取线；其他课程与个别学校资格应沿具体专题及官方要求核对。",
+    "sources": [
+      {
+        "label": "NUS 澳洲高中学历申请要求",
+        "url": "https://nus.edu.sg/oam/admissions/international-qualifications-for-foreigners/international-qualifications/australian-high-school"
+      },
+      {
+        "label": "NTU 澳洲学历申请条件与英语及录取限制",
+        "url": "https://www.ntu.edu.sg/admissions/undergraduate/admissions/general-admission-requirements/international-qualifications/australia-qualifications"
+      },
+      {
+        "label": "MOE Full SBB 中学经历与 SEC/PSE 政策",
+        "url": "https://www.moe.gov.sg/psle-fsbb/full-subject-based-banding/secondary-school-experience"
+      },
+      {
+        "label": "MOE AEIS 申请资格",
+        "url": "https://www.moe.gov.sg/international-students/aeis/eligibility-criteria"
+      },
+      {
+        "label": "MOE AEIS 测试内容",
+        "url": "https://www.moe.gov.sg/international-students/aeis/test-details"
+      }
+    ]
+  },
+  "https://sgeda.org.cn/ossd/": {
+    "lastVerified": "2026-11-26",
+    "note": "毕业规则依据安省政府 Earning your high school diploma（官方页面更新于 2026-11-18），核对 Grade 9 年份分组、Literacy graduation requirement、Online learning graduation requirement / Opting out、Financial literacy graduation requirement 和 Community involvement activities。课程资格不代表本地生待遇或语言豁免，转学分及个别适用要求由学校确认。",
+    "sources": [
+      {
+        "label": "Earning your high school diploma",
+        "url": "https://www.ontario.ca/page/earning-your-high-school-diploma"
+      }
+    ]
+  },
+  "https://sgeda.org.cn/wace-atar/": {
+    "lastVerified": "2026-11-26",
+    "note": "本次修正 TISC 西澳 ATAR 排名口径及 NUS/NTU 澳洲学历最低申请条件；其他大学参考值和选课建议不属于本次逐项核实范围。最低资格不保证录取，须按身份、申请年度和目标专业重新核对。",
+    "sources": [
+      {
+        "label": "TISC — ATAR 定义、TEA 与年度换算说明",
+        "url": "https://www.tisc.edu.au/static/guide/atar-about.tisc"
+      },
+      {
+        "label": "NUS — Australian High School 澳洲高中申请要求",
+        "url": "https://nus.edu.sg/oam/admissions/international-qualifications-for-foreigners/international-qualifications/australian-high-school"
+      },
+      {
+        "label": "NTU — Australia Qualifications 澳洲学历申请要求",
+        "url": "https://www.ntu.edu.sg/admissions/undergraduate/admissions/general-admission-requirements/international-qualifications/australia-qualifications"
+      }
+    ]
+  },
+  "https://sgeda.org.cn/aeis/aeis-primary-english-grammar-chinese-students/": {
+    "lastVerified": "2026-11-26",
+    "note": "本文考试定位依据 MOE 官方页面；语法例句与练习计划为学习建议，不是官方考纲、考试统计或教育效果数据。",
+    "sources": [
+      {
+        "label": "MOE：AEIS 申请资格（小学 CEQ 要求）",
+        "url": "https://www.moe.gov.sg/international-students/aeis/eligibility-criteria"
+      },
+      {
+        "label": "MOE：AEIS 测试详情（小学数学、中学英语与数学）",
+        "url": "https://www.moe.gov.sg/international-students/aeis/test-details"
+      }
+    ]
+  },
+  "https://sgeda.org.cn/jc/catholic-jc/": {
+    "lastVerified": "2026-11-26",
+    "note": "核对两校分别办学、校址、校史及 CJC 现行档案的 DSA 项目；不代表已复核本页其他分数、费用或升学数据。",
+    "sources": [
+      {
+        "label": "MOE SchoolFinder：CJC 现行课程与招生资料",
+        "url": "https://www.moe.gov.sg/schoolfinder/schooldetail/catholic-junior-college"
+      },
+      {
+        "label": "MOE SchoolFinder：SAJC 现行课程与招生资料",
+        "url": "https://www.moe.gov.sg/schoolfinder/schooldetail/st-andrews-junior-college"
+      },
+      {
+        "label": "CJC 官网：129 Whitley Road, Singapore 297822",
+        "url": "https://www.cjc.moe.edu.sg/contact-us/"
+      },
+      {
+        "label": "SAJC 官网：5 Sorby Adams Drive, Singapore 357691",
+        "url": "https://www.standrewsjc.moe.edu.sg/about-us/contact-us/"
+      },
+      {
+        "label": "SAJC 官网校史：2005 年迁校与 2021 年后的校长任期",
+        "url": "https://www.standrewsjc.moe.edu.sg/about-us/heritage/"
+      },
+      {
+        "label": "MOE Heritage Centre：CJC 的 Whitley Road 建校历史",
+        "url": "https://moehc.moe.edu.sg/school-history/school-histories/catholic-jc/"
+      },
+      {
+        "label": "MOE Heritage Centre：SAJC 校史与 2023 年 45 周年校庆",
+        "url": "https://moehc.moe.edu.sg/school-history/school-histories/st-andrew-jc/"
+      }
+    ]
+  },
+  "https://sgeda.org.cn/jc/st-andrews-jc/": {
+    "lastVerified": "2026-11-26",
+    "note": "核对两校分别办学、校址及校史；不代表已复核本页其他分数、费用或升学数据。",
+    "sources": [
+      {
+        "label": "MOE SchoolFinder：CJC 现行课程与招生资料",
+        "url": "https://www.moe.gov.sg/schoolfinder/schooldetail/catholic-junior-college"
+      },
+      {
+        "label": "MOE SchoolFinder：SAJC 现行课程与招生资料",
+        "url": "https://www.moe.gov.sg/schoolfinder/schooldetail/st-andrews-junior-college"
+      },
+      {
+        "label": "CJC 官网：129 Whitley Road, Singapore 297822",
+        "url": "https://www.cjc.moe.edu.sg/contact-us/"
+      },
+      {
+        "label": "SAJC 官网：5 Sorby Adams Drive, Singapore 357691",
+        "url": "https://www.standrewsjc.moe.edu.sg/about-us/contact-us/"
+      },
+      {
+        "label": "SAJC 官网校史：2005 年迁校与 2021 年后的校长任期",
+        "url": "https://www.standrewsjc.moe.edu.sg/about-us/heritage/"
+      },
+      {
+        "label": "MOE Heritage Centre：CJC 的 Whitley Road 建校历史",
+        "url": "https://moehc.moe.edu.sg/school-history/school-histories/catholic-jc/"
+      },
+      {
+        "label": "MOE Heritage Centre：SAJC 校史与 2023 年 45 周年校庆",
+        "url": "https://moehc.moe.edu.sg/school-history/school-histories/st-andrew-jc/"
       }
     ]
   }

@@ -1,12 +1,17 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
+import os from 'node:os';
+import path from 'node:path';
+import vm from 'node:vm';
 import { load } from 'cheerio';
+import { applySources } from '../scripts/enhance-eeat.mjs';
 
 const html = fs.readFileSync(new URL('../aeis/aeis-primary-english-grammar-chinese-students/index.html', import.meta.url), 'utf8');
 const source = fs.readFileSync(new URL('../content/articles/aeis-primary-english-grammar-chinese-students.md', import.meta.url), 'utf8');
 const $ = load(html);
 const [, frontmatter, body] = source.match(/^---\n([\s\S]*?)\n---\n\n([\s\S]*)$/);
+const sourceRecords = JSON.parse(fs.readFileSync(new URL('../content/sources.json', import.meta.url), 'utf8'));
 const meta = Object.fromEntries(frontmatter.split('\n').map(line => {
   const separator = line.indexOf(':');
   return [line.slice(0, separator), line.slice(separator + 1).trim()];
@@ -81,7 +86,7 @@ test('all JSON-LD blocks parse and maintain the intended types', () => {
 });
 
 test('FAQ JSON-LD exactly matches the seven visible and source questions and answers', () => {
-  const faq = body.split('## 常见问题\n\n')[1].split('\n## 资料来源与核实')[0];
+  const faq = body.split('## 常见问题\n\n')[1].split('\n## 相关阅读')[0];
   const sourceItems = [...faq.matchAll(/### (.+)\n\n([\s\S]*?)(?=\n### |$)/g)].map(([, question, answer]) => ({
     '@type': 'Question', name: question,
     acceptedAnswer: { '@type': 'Answer', text: normalize(answer) },
@@ -116,15 +121,64 @@ test('retained grammar tables and headings match the Markdown without invented s
   assert.match(articleText, /I will arrive on Monday\./);
 });
 
-test('official sources and verification date are visible and cited in Article JSON-LD', () => {
-  const sourcesHeading = $('article.content-body > h2').filter((_, heading) => $(heading).text() === '资料来源与核实');
-  assert.equal(sourcesHeading.length, 1);
-  assert.match(sourcesHeading.next('p').text(), /核实日期为 2026-11-26/);
+test('source records and Article/WebPage citations stay truthful without a visible source-only appendix', () => {
+  const record = sourceRecords[canonical];
+  assert.equal(record.lastVerified, meta.updated);
+  assert.deepEqual(record.sources.map(item => item.url), officialUrls);
+  assert.deepEqual(meta.citation.split(/\s+/), officialUrls);
+  assert.doesNotMatch(body, /## 资料来源与核实|核实日期/);
+  assert.doesNotMatch(articleText, /资料来源与核实|核实日期/);
+  assert.equal($('.seda-sources').length, 0);
   for (const url of officialUrls) {
-    assert.equal(sourcesHeading.nextAll('ul').first().find(`a[href="${url}"]`).length, 1);
+    assert.equal($(`article.content-body > p a[href="${url}"]`).length, 1, 'necessary policy link stays in the body');
     assert.ok(body.includes(`](${url})`));
   }
-  assert.deepEqual(schema('Article').citation, officialUrls);
+  for (const type of ['Article', 'WebPage']) {
+    assert.deepEqual(schema(type).citation, officialUrls);
+    assert.equal(schema(type).dateModified, record.lastVerified);
+  }
+});
+
+test('isolated real article renderer cannot restore the source appendix or contaminate the last FAQ answer', () => {
+  // Execute only existing pure rendering functions, not the build entrypoint or any school/robots/sitemap writers.
+  const build = fs.readFileSync(new URL('../scripts/build-content.mjs', import.meta.url), 'utf8');
+  const start = build.indexOf('function parseFrontmatter(');
+  const end = build.indexOf('function loadArticles(');
+  assert.ok(start >= 0 && end > start);
+  const context = vm.createContext({
+    relatedByCategory: { aeis: [] }, domain: 'https://sgeda.org.cn', buildDate: '2099-01-01',
+    header: '<header class="site-header"></header>', footer: '<footer class="site-footer"></footer>',
+  });
+  vm.runInContext(build.slice(start, end), context);
+  const parsed = context.parseFrontmatter(source, 'aeis-primary-english-grammar-chinese-students.md');
+  const article = { ...parsed, html: context.markdownToHtml(parsed.body), url: new URL(canonical).pathname };
+  assert.doesNotMatch(article.html, /资料来源与核实|核实日期|seda-sources/);
+  const generated = context.renderArticle(article, [article]);
+  const fixture = fs.mkdtempSync(path.join(os.tmpdir(), 'seda-ceq-source-less-build-'));
+  try {
+    const file = path.join(fixture, article.url, 'index.html');
+    fs.mkdirSync(path.dirname(file), { recursive: true });
+    fs.mkdirSync(path.join(fixture, 'content'));
+    fs.writeFileSync(path.join(fixture, 'content/sources.json'), JSON.stringify({ [canonical]: sourceRecords[canonical] }));
+    fs.writeFileSync(file, generated);
+    assert.deepEqual(applySources(fixture), { updated: 1, total: 1, issues: [] });
+    const rebuilt = fs.readFileSync(file, 'utf8');
+    const rebuiltPage = load(rebuilt);
+    const nodes = rebuiltPage('script[type="application/ld+json"]').toArray().map(script => JSON.parse(rebuiltPage(script).text()));
+    assert.deepEqual(nodes.find(node => node['@type'] === 'FAQPage').mainEntity, schema('FAQPage').mainEntity);
+    assert.equal(rebuiltPage('article.content-body > h3').length, 7);
+    for (const type of ['Article', 'WebPage']) {
+      const node = nodes.find(item => item['@type'] === type);
+      assert.deepEqual(node.citation, officialUrls);
+      assert.equal(node.datePublished, '2026-09-19');
+      assert.equal(node.dateModified, sourceRecords[canonical].lastVerified, 'not a fake build-date verification');
+    }
+    assert.doesNotMatch(rebuilt, /SEDA_SOURCES_(?:START|STYLE_START)|seda-sources|资料来源与核实|核实日期/);
+    assert.deepEqual(applySources(fixture), { updated: 0, total: 1, issues: [] });
+    assert.equal(fs.readFileSync(file, 'utf8'), rebuilt);
+  } finally {
+    fs.rmSync(fixture, { recursive: true, force: true });
+  }
 });
 
 test('preserves the static page shell, existing image assets and table presentation', () => {

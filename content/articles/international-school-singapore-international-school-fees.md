@@ -111,7 +111,7 @@ draft: false
 
 年费是**两个学期相加再加技术费**（小学 S$1,020、中学 S$1,270）。市面上常见的「学费」报价往往只是学期数×2，会少报一千多新币。该表自 AY26/27 起生效（2026 年 4 月 15 日）。
 
-来源：[SAIS AY26/27 Fee Schedule](https://www.sais.edu.sg/wp-content/uploads/sites/36/2026/08/SAIS-International-Singapore-Fees-2026-2027-Early-Years-to-High-School.pdf)（核实于 2026-11-25）。
+来源：[SAIS AY26/27 Fee Schedule](https://www.sais.edu.sg/wp-content/uploads/sites/36/2026/08/SAIS-International-Singapore-Fees-2026-2027-Early-Years-to-High-School.pdf)。
 
 ### UWCSEA 2026/2027 学年
 
@@ -127,7 +127,7 @@ UWCSEA 的坑在**发展金**：第一年一次性 S$9,537，第二年起每年 
 
 另外三笔单独收：申请费 S$627（单校区）/ S$1,254（双校区）、寄宿申请 S$841、确认学位时的一次性注册费 S$4,992（不可退）。
 
-来源：[UWCSEA 2026/2027 收费页](https://www.uwcsea.edu.sg/admissions/fees-and-scholarships/fees)（核实于 2026-11-25）。
+来源：[UWCSEA 2026/2027 收费页](https://www.uwcsea.edu.sg/admissions/fees-and-scholarships/fees)。
 
 ### Canadian International School（CIS）2026/2027
 
@@ -147,7 +147,7 @@ CIS 分英语课程和双语课程两套价目，下面取的是英语课程（�
 
 标价外还有三笔一次性费用：申请费 S$1,000（不退）、确认费 S$5,500（第一个孩子；第二个 4,500，第三个起免）、设施费 S$4,300。合计 S$10,800，其中确认费是否抵扣学费取决于学校条款，本页不代算。
 
-来源：[CIS Fee Schedule 2026/2027](https://media.sg.digistormhosting.com.au/cis-sg-04-129-website-2025/content/3-Admissions/Fees/Fee-schedule-and-financial-policies-2026-2027-updated-Mar-6-2026.pdf)（核实于 2026-11-25）。
+来源：[CIS Fee Schedule 2026/2027](https://media.sg.digistormhosting.com.au/cis-sg-04-129-website-2025/content/3-Admissions/Fees/Fee-schedule-and-financial-policies-2026-2027-updated-Mar-6-2026.pdf)。
 
 ### 三所放在一起看
 

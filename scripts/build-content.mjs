@@ -11,6 +11,7 @@ import { applyOrganization } from './enhance-organization.mjs';
 import { softenCta } from './soften-page-cta.mjs';
 import { varyHero } from './vary-hero.mjs';
 import { addStaticSchoolList } from './add-static-school-list.mjs';
+import { cleanLegacySchoolPages } from './remove-school-boilerplate.mjs';
 
 const root = process.cwd();
 const domain = 'https://sgeda.org.cn';
@@ -1155,6 +1156,7 @@ const enhancedBaiduTongjiCount = enhanceBaiduTongji();
 const enhancedRobotsCount = enhanceGlobalRobotsMeta();
 repairLegacyPageReferences();
 const footerSync = syncSiteFooter(root);
+const schoolEditorial = cleanLegacySchoolPages(root);
 // 来源/署名区块必须在生成 sitemap 之前注入，否则页面 fingerprint 漏掉这一块，
 // lastmod 不会随内容变化。
 const eeat = applySources(root);
@@ -1164,6 +1166,7 @@ const hero = varyHero(root);
 const schoolList = addStaticSchoolList(root);
 const urlCount = updateSitemap(drafts);
 console.log(`Synchronized ${footerSync.updated} shared footers (${footerSync.checked} pages checked).`);
+console.log(`Removed legacy school boilerplate on ${schoolEditorial.updated} pages.`);
 console.log(`Built ${articles.length} content articles.`);
 console.log(`Attached official sources to ${eeat.total} pages (${eeat.updated} changed).`);
 console.log(`Injected Organization node on ${org.total} pages (${org.updated} changed).`);

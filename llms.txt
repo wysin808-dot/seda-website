@@ -21,11 +21,11 @@ SEDA 新加坡择校网提供中文的新加坡教育信息，重点覆盖 WACE�
 
 ## Latest SEO Articles
 
+- [小学 AEIS 英语准备：CEQ 资格与语法纠错练习](/aeis/aeis-primary-english-grammar-chinese-students/): 当前小学 AEIS 只测数学，CEQ 是申请前的英语资格要求，中学 AEIS 则测试英语和数学。本文保留冠词、时态、介词等语法纠错建议，提供可调整的 30 天英语练习计划，并列明 MOE 官方来源。
 - [O-Level 成绩复议与申诉流程——appeal and review of results 怎么操作、成功率如何](/o-level/o-level-appeal-review-of-results-guide/): 新加坡O-Level成绩不理想怎么办？详解SEAB成绩复议（review of results）与申诉（appeal）的完整流程、费用、成功率、截止日期，以及中国学生家长最关心的操作步骤。
 - [AEIS 需要面试吗？考试、录取通知与报到沟通的区别](/aeis/aeis-interview-preparation-chinese-students/): 根据 SEAB 官方考试与录取流程，区分 AEIS 测试、录取通知和学校报到沟通，避免把无依据的面试说法当作统一要求。
 - [WACE ATAR 申请新加坡私立大学全攻略——SIM/PSB/Kaplan 入学门槛、专业与费用对比](/wace/wace-apply-singapore-private-university/): 持有WACE成绩的中国学生如何申请新加坡私立大学？详解SIM、PSB、Kaplan等院校的ATAR要求、合作大学、热门专业与学费，附申请时间线与避坑指南。
 - [O-Level POA（会计原理）值得选吗——中国学生选科指南与升学价值全解析](/o-level/o-level-poa-worth-it-chinese-students/): O-Level POA会计原理科目对中国学生是否值得选？本文从课程内容、A1率、Poly商科衔接、JC选科影响和就业前景五个维度，提供完整选科决策参考。
-- [AEIS 小学英文语法怎么补——中国学生最容易出错的 6 大语法点与纠错练习](/aeis/aeis-primary-english-grammar-chinese-students/): AEIS 小学英文语法是中国学生失分的重灾区。本文梳理 6 个高频语法错误点，提供对照纠错表、冠词/介词/时态速查表和 30 天专项提升计划，帮助针对性攻克语法短板。
 - [WACE English/Literature 怎么拿高分——中国学生写作策略、扣分避坑与选课建议](/wace/wace-english-literature-high-score-chinese-students/): WACE English 和 Literature 是中国学生丢分最多的科目之一。本文从评分标准、高频扣分点、写作策略和选课对比四个维度，提供针对性的高分备考方案。
 - [O-Level DSA直接收生计划全解析——中国学生申请条件、竞争力领域与准备策略](/o-level/o-level-dsa-guide-chinese-students/): 新加坡O-Level DSA直接收生计划中国学生能否申请？详解DSA资格限制、中国学生有竞争力的领域、申请时间线与各JC录取难度，附完整准备清单。
 - [WACE 科目 scaling 规则全解析：哪些科目天然"加分"？如何利用 scaling 机制拉高 ATAR？](/wace/wace-subject-scaling-guide/): WACE 各科目 scaling 系数差异可达 10 分以上——选对科目组合比单纯刷分更有效。拆解 Methods、Specialist、物理、化学、EALD 等科目的加减分规律，对比五种选课方案的 ATAR 产出，提供数据驱动的选课优化策略。

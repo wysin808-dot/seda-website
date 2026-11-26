@@ -16,7 +16,19 @@ import { fileURLToPath } from 'node:url';
 const START = '<!-- SEDA_ALL_SCHOOLS_START -->';
 const END = '<!-- SEDA_ALL_SCHOOLS_END -->';
 
-export function addStaticSchoolList(root, { checkOnly = false } = {}) {
+// 与原列表样式逐字一致；中学生成块标记来源，测试可独立校验共享样式。
+export const STATIC_SCHOOL_LIST_STYLE = `
+    .all-schools{max-width:1240px;margin:40px auto 0;padding:0 clamp(16px,4vw,40px)}
+    .all-schools details{border:1px solid #e7e1d6;border-radius:12px;background:#fbf8f2;padding:14px 18px}
+    .all-schools summary{cursor:pointer;font-weight:700;color:#1f2328}
+    .all-schools ul{list-style:none;margin:14px 0 0;padding:0;columns:3;column-gap:28px;font-size:14px;line-height:1.9}
+    .all-schools li{break-inside:avoid}
+    .all-schools a{color:#0b5cad;text-decoration:none;border-bottom:1px solid rgba(11,92,173,.25)}
+    @media(max-width:900px){.all-schools ul{columns:2}}
+    @media(max-width:600px){.all-schools ul{columns:1}}
+  `;
+
+export function addStaticSchoolList(root, { checkOnly = false, targetDirs = null } = {}) {
   // 显式列出的学校库用固定标题；其余栏目自动扫描（只补未链接的子页）
   const explicit = {
     'primary-schools': '全部政府小学',
@@ -27,6 +39,8 @@ export function addStaticSchoolList(root, { checkOnly = false } = {}) {
   for (const dirent of fs.readdirSync(root, { withFileTypes: true })) {
     if (!dirent.isDirectory()) continue;
     const dir = dirent.name;
+    // 定向运行时既不读写其他 hub，也不枚举其详情页面。
+    if (targetDirs && !targetDirs.includes(dir)) continue;
     if (dir.startsWith('.') || ['node_modules', 'content', 'assets', 'cms', 'content-review', 'reports', 'scripts', 'docs', 'data'].includes(dir)) continue;
     const hub = path.join(root, dir, 'index.html');
     if (!fs.existsSync(hub)) continue;
@@ -56,43 +70,47 @@ export function addStaticSchoolList(root, { checkOnly = false } = {}) {
 
     if (entries.length < 5) continue;
 
-    // 只补「枢纽页还没链接到」的学校：secondary 已有预渲染卡片，
-    // 全量再列一遍只会产生重复链接。统计时排除脚本自己生成过的块。
-    const cleanHub = fs.readFileSync(hub, 'utf8').replace(new RegExp(`${START}[\\s\\S]*?${END}`, 'g'), '');
+    // 默认只补缺少内链的详情页。中学另保留既有补充索引中仍存在的目标：
+    // 卡片修正不应删除独立的可展开查校通道；新增缺链合并，过期目标剔除。
+    const before = fs.readFileSync(hub, 'utf8');
+    const blockRe = new RegExp(`${START}[\\s\\S]*?${END}`, 'g');
+    const previousBlock = (before.match(blockRe) || []).join('\n');
+    const cleanHub = before.replace(blockRe, '');
+    const retained = new Set(t.dir === 'secondary-schools'
+      ? (previousBlock.match(/href=["']([^"']+)["']/g) || [])
+        .map(m => m.replace(/^href=["']/, '').replace(/["']$/, ''))
+      : []);
     // 单双引号都要认（二级页的卡片用的是 href='...'），并且按 URL 去重
     const linked = new Set(
       (cleanHub.match(new RegExp(`href=["'](${t.urlPrefix}[^"']+)["']`, 'g')) || [])
         .map((m) => m.replace(/^href=["']/, '').replace(/["']$/, '')),
     );
-    const missing = entries.filter((e) => !linked.has(e.link));
-    if (!missing.length) {
-      let cur = fs.readFileSync(hub, 'utf8');
+    const listed = entries.filter((e) => !linked.has(e.link) || retained.has(e.link));
+    if (!listed.length) {
+      let cur = before;
       if (cur.includes(START)) {
-        cur = cur.replace(new RegExp(`${START}[\\s\\S]*?${END}\\n?`), '');
+        const removalRe = t.dir === 'secondary-schools'
+          ? new RegExp(`^[\\t ]*${START}[\\s\\S]*?${END}[\\t ]*\\n?`, 'm')
+          : new RegExp(`${START}[\\s\\S]*?${END}\\n?`);
+        cur = cur.replace(removalRe, '');
         if (!checkOnly) fs.writeFileSync(hub, cur, 'utf8');
+        if (t.dir === 'secondary-schools' && cur !== before) updated += 1;
       }
       continue;
     }
 
-    const items = missing.map((s2) => `      <li><a href="${s2.link}">${s2.name}</a></li>`).join('\n');
+    const items = listed.map((s2) => `      <li><a href="${s2.link}">${s2.name}</a></li>`).join('\n');
 
     const isSchoolLib = Boolean(explicit[t.dir]);
     const unit = isSchoolLib ? '所' : '个页面';
-    const label = missing.length === entries.length
-      ? `${t.label}（${missing.length} ${unit}，按拼音排序，可展开）`
-      : `其余 ${missing.length} ${unit}（共 ${entries.length} ${unit}，按拼音排序，可展开）`;
+    const label = t.dir === 'secondary-schools'
+      ? `补充学校索引（${listed.length} 所，共 ${entries.length} 所，按拼音排序，可展开）`
+      : listed.length === entries.length
+        ? `${t.label}（${listed.length} ${unit}，按拼音排序，可展开）`
+        : `其余 ${listed.length} ${unit}（共 ${entries.length} ${unit}，按拼音排序，可展开）`;
     const block = `${START}
 <section class="all-schools" aria-labelledby="all-schools-title">
-  <style>
-    .all-schools{max-width:1240px;margin:40px auto 0;padding:0 clamp(16px,4vw,40px)}
-    .all-schools details{border:1px solid #e7e1d6;border-radius:12px;background:#fbf8f2;padding:14px 18px}
-    .all-schools summary{cursor:pointer;font-weight:700;color:#1f2328}
-    .all-schools ul{list-style:none;margin:14px 0 0;padding:0;columns:3;column-gap:28px;font-size:14px;line-height:1.9}
-    .all-schools li{break-inside:avoid}
-    .all-schools a{color:#0b5cad;text-decoration:none;border-bottom:1px solid rgba(11,92,173,.25)}
-    @media(max-width:900px){.all-schools ul{columns:2}}
-    @media(max-width:600px){.all-schools ul{columns:1}}
-  </style>
+  <style${t.dir === 'secondary-schools' ? ' data-seda-generator="add-static-school-list"' : ''}>${STATIC_SCHOOL_LIST_STYLE}</style>
   <details>
     <summary id="all-schools-title">${label}</summary>
     <ul>
@@ -102,7 +120,7 @@ ${items}
 </section>
 ${END}`;
 
-    let html = fs.readFileSync(hub, 'utf8');
+    let html = before;
     if (html.includes(START)) {
       html = html.replace(new RegExp(`${START}[\\s\\S]*?${END}`), block);
     } else if (html.includes('</main>')) {
@@ -113,7 +131,6 @@ ${END}`;
     } else {
       continue;
     }
-    const before = fs.readFileSync(hub, 'utf8');
     if (html !== before) {
       if (!checkOnly) fs.writeFileSync(hub, html, 'utf8');
       updated += 1;

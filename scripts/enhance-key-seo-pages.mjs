@@ -177,29 +177,8 @@ const pages = [
       { q: '中国学生更适合 WACE 还是 A-Level？', a: '如果英文和学术抗压能力强，可看 A-Level；如果希望更灵活、更重视数学和过渡支持，可重点看 WACE。' },
     ],
   },
-  {
-    path: '/wace-atar/',
-    file: 'wace-atar/index.html',
-    title: 'WACE ATAR 成绩与大学申请',
-    description: '解释 WACE ATAR 的含义、计算逻辑、科目组合、目标分数和申请新加坡、澳洲、香港大学的参考方式。',
-    about: ['WACE ATAR', 'ATAR 分数', '大学申请', 'WACE 科目组合', '新加坡大学申请', '澳洲八大', '香港大学申请'],
-    summary: [
-      'ATAR 不是百分制分数，而是澳洲大学录取使用的排名指标，直接影响大学和专业选择。',
-      '中国学生准备 WACE 时，要把目标大学专业反推到 ATAR 目标和科目组合上。',
-      '本页应承接 WACE 课程页，并导向 NUS/NTU、澳洲大学、香港大学申请相关页面。',
-    ],
-    links: [
-      { name: 'WACE 课程总览', url: '/wace/' },
-      { name: 'WACE 申请 NUS / NTU', url: '/wace-nus-ntu/' },
-      { name: '新加坡公立大学', url: '/university/' },
-      { name: '升学路径总览', url: '/pathway/' },
-    ],
-    faq: [
-      { q: 'ATAR 是什么？', a: 'ATAR 是 Australian Tertiary Admission Rank，表示学生在同龄申请者中的相对排名。' },
-      { q: 'ATAR 越高越好吗？', a: '是，但还要满足专业科目要求。医学、法律、计算机等热门方向通常竞争更高。' },
-      { q: 'WACE 成绩可以申请哪些地区大学？', a: '常见目标包括新加坡、澳洲、英国、香港、新西兰和部分加拿大大学。' },
-    ],
-  },
+  // /wace-atar/ owns its TISC-reviewed copy, metadata and single visible FAQ schema;
+  // keep it excluded so builds cannot restore the stale summary or inject a second FAQ.
   // /wace-nus-ntu/ owns its reviewed admissions copy and FAQ schema.
   // /aeis/ owns its reviewed body and FAQ schema; do not inject a second FAQ.
   // NOTE: /o-level/ excluded — now a fully hand-built static page with its own

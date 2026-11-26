@@ -44,13 +44,7 @@ Allow: /jc/st-andrews-jc/
 Allow: /international-school/schools/
 Allow: /international-school/singapore-international-school-fees/
 Allow: /poly/admission/
-Allow: /poly/courses/
 Allow: /poly/dae/
-Allow: /poly/np/
-Allow: /poly/nyp/
-Allow: /poly/rp/
-Allow: /poly/sp/
-Allow: /poly/tp/
 # SEDA_BAIDU_ALLOW_END
 
 # Block all other individual school sub-pages (template content)
@@ -61,8 +55,6 @@ Disallow: /poly/*/
 Disallow: /international-school/*/
 Disallow: /private-schools/*/
 
-# Baidu only receives the curated, fully-crawlable map. sitemap.xml is the
-# complete list for Google (submitted in Search Console) and contains template
-# pages that Baiduspider is disallowed from above, so advertising it here made
-# Baidu parse a sitemap where 60% of the URLs are blocked for its own crawler.
+# This Sitemap declaration is visible to all crawlers, not only Baidu.
+# Advertise the curated map; the general map includes restricted templates.
 Sitemap: https://sgeda.org.cn/baidu-sitemap.xml

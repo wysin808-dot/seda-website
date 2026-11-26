@@ -1,6 +1,6 @@
 # SEDA 百度优先收录清单
 #
-# 仅放最重要、最完整、最具原创价值的页面；构建脚本强制限制最多 100 个 URL。
+# 仅放最重要、最完整、最具原创价值的页面；项目内部精选上限 150 个 URL。
 # 不在本文件中不代表禁止抓取，也不会影响完整 sitemap.xml。
 
 # 品牌、核心栏目与课程体系（24）
@@ -118,3 +118,28 @@ https://sgeda.org.cn/o-level/o-level-poly-application-guide/
 https://sgeda.org.cn/o-level/o-level-poly-or-jc/
 https://sgeda.org.cn/o-level/o-level-private-candidate-registration/
 https://sgeda.org.cn/o-level/o-level-subject-combination/
+
+# 2026-11-26 审计补入：已放行的关键课程、学校与发现入口（22）
+# 保留其余模板限制；不将全部允许URL自动视为已经完成内容复核。
+https://sgeda.org.cn/ossd/
+https://sgeda.org.cn/contact/
+https://sgeda.org.cn/news/
+https://sgeda.org.cn/poly/dae/
+https://sgeda.org.cn/primary-schools/kong-hwa/
+https://sgeda.org.cn/jc/hwa-chong-institution/
+https://sgeda.org.cn/jc/raffles-institution/
+https://sgeda.org.cn/jc/national-jc/
+https://sgeda.org.cn/jc/victoria-jc/
+https://sgeda.org.cn/jc/eunoia-jc/
+https://sgeda.org.cn/jc/anglo-chinese-jc/
+https://sgeda.org.cn/jc/nanyang-jc/
+https://sgeda.org.cn/jc/temasek-jc/
+https://sgeda.org.cn/jc/catholic-jc/
+https://sgeda.org.cn/jc/anderson-serangoon-jc/
+https://sgeda.org.cn/jc/jurong-pioneer-jc/
+https://sgeda.org.cn/jc/tampines-meridian-jc/
+https://sgeda.org.cn/jc/yishun-innova-jc/
+https://sgeda.org.cn/jc/dunman-high/
+https://sgeda.org.cn/jc/river-valley-high/
+https://sgeda.org.cn/jc/st-andrews-jc/
+https://sgeda.org.cn/aeis/aeis-primary-english-grammar-chinese-students/

@@ -1,6 +1,6 @@
 # 学校数据库 URL 迁移与 Nginx 部署
 
-PR3已于15:48合并，但实际阿里云部署在前台首次写入之前因固定Nginx配置检查失败；不能把合并或本地检查当作新版已上线。用户15:53已批准限定配置布局兼容修复，在新候选验收通过后合并新PR触发原部署。生产目录仍固定 `/var/www/sgeda`；既有主域TLS配置文件由实际 `nginx -T` 的唯一匹配来源证明，不再假定文件名是 `/etc/nginx/sites-available/sgeda`。不要将仓库 `nginx.conf` 覆盖到已有站点：真实 SSL、analytics 和 API 代理必须保留。
+PR3已于15:48合并，首轮部署在前台首写前失败；后续PR4完成配置布局兼容，以干净367项完整验收后合并，阿里云run45781237478成功。实际加载来源为sites-enabled/sgeda-http的安全叶子别名，最终main为0a5e26e0d18cbf5445682e4d7ce42e0b0dc3c193。生产265页面、415记录和2352精确301已验真；Git目录公开访问这一新发现的安全阻断仍待修复，不称全部安全验收通过。用户17:31批准新增限定安全修复PR，在相关回归与最终验收通过后发布。生产目录仍固定 `/var/www/sgeda`；既有主域TLS配置文件由实际 `nginx -T` 的唯一匹配来源证明，不再假定文件名。不要将仓库 `nginx.conf` 覆盖到已有站点：真实 SSL、analytics 和 API 代理必须保留。
 
 ## 迁移模型与生成
 
@@ -37,7 +37,9 @@ include /etc/nginx/snippets/school-redirects.nginx.conf;
 # END SEDA_SCHOOL_REDIRECT_INCLUDE
 ```
 
-先严格检查生成 include 的 ASCII 精确规则，然后原子写入 include 和管理段。只改变此管理段，其余现有配置按原始字节保留。接着执行 `nginx -t`，再用 `nginx -T` 证明实际选中的配置来源及生成include仍被加载，全部成功后才 `systemctl reload nginx`。任一步失败，恢复原配置与原 include 或删除新建 include，退出非 0；`nginx -t/-T` 失败时绝不 reload。reload 自身失败时也恢复磁盘文件且不报成功，外层事务继续证明并加载原代；验证失败明确返回70并保留私有恢复快照。未在 sites-enabled 写任何备份。重复安装相同规则不重复include、不重复reload。不会向日志输出完整dump或SSL/API配置值。
+17:31批准的安全修复另在同一canonical server起始处插入独立 `SEDA_GIT_ACCESS_GUARD` 管理块。该块仅以server级 `if ($uri ~ "^/+[.]git(?:/|$)") { return 404; }` 拒绝规范化URI的站根Git目录及子路径，在location缓存/精确规则之前执行。它不删除Git目录，不影响`.gitignore`、`.github`或`.well-known`，也不检查查询字符串；学校1176条规则文件不增加通用拒绝指令。管理块必须唯一完整、内容合法且位于canonical server直接作用域，不能借标记覆盖无关配置。
+
+先严格检查生成 include 的 ASCII 精确规则，然后原子写入 include 和两个独立管理段。除学校include与Git安全管理段外，现有配置按原始字节保留。接着执行 `nginx -t`，再用 `nginx -T` 证明实际选中的配置来源及生成include仍被加载，全部成功后才 `systemctl reload nginx`。任一步失败，恢复原配置与原 include 或删除新建 include，退出非 0；`nginx -t/-T` 失败时绝不 reload。reload 自身失败时也恢复磁盘文件且不报成功，外层事务继续证明并加载原代；验证失败明确返回70并保留私有恢复快照。未在 sites-enabled 写任何备份。重复安装相同规则不重复管理块或reload。不会向日志输出完整dump或SSL/API配置值。
 
 非生产路径必须显式 `--test-mode --fixture-root`，且根为当前用户拥有的0700私有 `/tmp/seda-deploy-transaction-*`。站点、include、source、命令替身和快照均须在其内部，禁止生产/等价/symlink逃逸；配置别名仅允许受控nginx/sites-enabled叶子链接到该树内regular文件。fixture命令可验证顺序和恢复，无需root。`--dry-run` 需明确一致的 `--config` 与 `--enabled-config`，只做离线变换预览，不写文件、不调用Nginx或reload，也不打印整配置；它不能替代实际载入证明。
 
@@ -72,7 +74,7 @@ cd /var/www/sgeda
 bash scripts/install-school-redirects.sh --remove
 ```
 
-移除同样先 `nginx -t/-T` 后 reload，失败恢复原磁盘配置与规则。撤下后旧 URL 会暂时返回兼容 HTML（通常 HTTP 200 + noindex + meta refresh），**不再有学校 Nginx 301**。若要完整回滚学校改版，应同时按批准的历史版本恢复旧内容、数据库生成及地图/抓取配置，避免只撤 include 却误称恢复旧索引行为。要恢复上一版精确规则，可将可信历史 generated include 作为 `--source` 再安装；不覆盖其他 live server 设置。
+移除同样先 `nginx -t/-T` 后 reload，失败恢复原磁盘配置与规则。`--remove`仅撤学校include与规则，不撤独立Git安全块；删除学校301不应重新开放Git目录。真正的部署失败恢复仍按私有快照还原本次前的原配置字节（包括最初未有安全块的状态），不冒称旧代已经修复此安全缺口。撤下后旧 URL 会暂时返回兼容 HTML（通常 HTTP 200 + noindex + meta refresh），**不再有学校 Nginx 301**。若要完整回滚学校改版，应同时按批准的历史版本恢复旧内容、数据库生成及地图/抓取配置，避免只撤 include 却误称恢复旧索引行为。要恢复上一版精确规则，可将可信历史 generated include 作为 `--source` 再安装；不覆盖其他 live server 设置。
 
 ## 15:06 授权后的前台故障恢复修复
 

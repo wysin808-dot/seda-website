@@ -33,6 +33,7 @@ const ALLOWED_NEW = new Set([
   'news/news.css', 'news/news.js', 'tests/entry-seo.test.mjs',
   'tests/foreign-university-entry.test.mjs', 'tests/news-categories.test.mjs',
   'tests/news-filtering.test.mjs', 'tests/seo-release-isolation.test.mjs',
+  'tests/custom-page-draft-collision.test.mjs',
   'tests/fixtures/seo-release-baseline.json',
 ]);
 
@@ -160,6 +161,35 @@ function protectable(file) {
   return !EDITABLE_EXISTING.has(file) && !file.endsWith('.html')
     && (!file.endsWith('.md') || file.startsWith('content/articles/'));
 }
+function cmsDraftMatches(file, exception, suppliedRaw) {
+  const row = exception?.drafts.find(item => item.file === file);
+  if (!row) return false;
+  const raw = suppliedRaw ?? read(file);
+  if (sha(raw) !== row.sha256) return false;
+  const { meta } = parseMarkdown(raw, file);
+  return meta.draft === true && meta.category === row.category && meta.slug === row.slug
+    && meta.reviewStatus === 'needs_revision';
+}
+function reviewShellSha256(html) {
+  const $ = load(html);
+  $('article.review-card').remove();
+  $('.review-summary > span').first().text('__DRAFT_COUNT__');
+  return signatureNodes($('html').toArray());
+}
+function productionRuntimeFile(file) {
+  // Policy allowance, NOT proof of deployment-before existence. Never read secrets.
+  if (ROOT !== '/var/www/sgeda' || fs.realpathSync(ROOT) !== ROOT) return false;
+  if (!['.env', 'reports/baidu-crawl-20261125.json', 'reports/baidu-crawl-20261126.json'].includes(file)) return false;
+  let current = ROOT;
+  for (const part of file.split('/')) {
+    current = path.join(current, part);
+    if (fs.lstatSync(current).isSymbolicLink()) return false;
+  }
+  for (let parent = ROOT; parent !== path.dirname(parent); parent = path.dirname(parent)) {
+    if (fs.lstatSync(parent).isSymbolicLink()) return false;
+  }
+  return fs.lstatSync(current).isFile();
+}
 function block(source, name) {
   const start = source.indexOf(`function ${name}(`), end = source.indexOf('\nfunction ', start + 1);
   assert.ok(start >= 0 && end > start, `Unique baseline build function: ${name}`);
@@ -230,6 +260,11 @@ function approvedLockPatch(headRaw) {
 
 function generateFixture(readinessFile) {
   assert.ok(readinessFile, 'Pass the audit readiness JSON path to --generate-fixture');
+  const existing = fs.existsSync(FIXTURE) ? JSON.parse(fs.readFileSync(FIXTURE, 'utf8')) : {};
+  const reviewedExceptions = ['contentValidationException', 'cmsDraftException']
+    .filter(key => existing[key]);
+  assert.ok(!reviewedExceptions.length || process.argv.includes('--preserve-reviewed-exceptions'),
+    'Refusing to discard audited exceptions; explicitly pass --preserve-reviewed-exceptions after re-audit');
   const git = args => execFileSync('git', args, { cwd: ROOT, maxBuffer: 64 * 1024 * 1024 });
   assert.equal(git(['rev-parse', HEAD]).toString().trim(), HEAD);
   const files = git(['ls-tree', '-r', '--name-only', HEAD]).toString().trim().split('\n').sort();
@@ -281,6 +316,7 @@ function generateFixture(readinessFile) {
     entryH1: { 'index.html': 'SEDA 新加坡择校网 留学与升学指南', 'university/index.html': '新加坡大学与本科专业查询' },
   };
   if (process.argv.includes('--approved-lock-patch')) fixture.securityLockException = approvedLockPatch(get('package-lock.json').toString());
+  for (const key of reviewedExceptions) fixture[key] = existing[key];
   fs.mkdirSync(path.dirname(FIXTURE), { recursive: true });
   fs.writeFileSync(FIXTURE, JSON.stringify(fixture, null, 2) + '\n');
   console.log(JSON.stringify({ fixture: FIXTURE, baselineCommit: HEAD, ...fixture.counts, sitemap: maps['sitemap.xml'].length, baiduSitemap: maps['baidu-sitemap.xml'].length, testsExecuted: false }));
@@ -290,6 +326,45 @@ if (process.argv.includes('--generate-fixture')) {
   generateFixture(process.argv[process.argv.indexOf('--generate-fixture') + 1]);
 } else {
   const baseline = JSON.parse(fs.readFileSync(FIXTURE, 'utf8'));
+  const cms = baseline.cmsDraftException;
+  const actualMarkdown = walk(path.join(ROOT, 'content/articles')).map(file => `content/articles/${file}`).filter(file => file.endsWith('.md'));
+  const baselineInventory = Object.keys(baseline.markdownSha256).sort();
+  const cmsInventory = [...baselineInventory, ...(cms?.drafts.filter(row => row.isNew).map(row => row.file) || [])].sort();
+  const inventoryEqual = expected => JSON.stringify(actualMarkdown) === JSON.stringify(expected);
+  const baseProfile = inventoryEqual(baselineInventory) && baselineInventory.every(file => sha(read(file)) === baseline.markdownSha256[file]);
+  const cmsProfile = Boolean(cms) && inventoryEqual(cmsInventory) && cmsInventory.every(file =>
+    cms.drafts.some(row => row.file === file) ? cmsDraftMatches(file, cms) : sha(read(file)) === baseline.markdownSha256[file]);
+  test('CMS exception is bounded to 38 original drafts plus five exact new drafts, never publications', () => {
+    assert.equal(cms.drafts.length, 43);
+    assert.equal(new Set(cms.drafts.map(row => row.file)).size, 43);
+    assert.equal(cms.drafts.filter(row => row.isNew).length, 5);
+    const published = new Set(baseline.publishedArticles.map(row => row.sourceFile));
+    for (const row of cms.drafts) {
+      assert.equal(published.has(row.file), false);
+      assert.equal(row.draft, true); assert.equal(row.reviewStatus, 'needs_revision');
+      assert.match(row.sha256, /^[a-f0-9]{64}$/);
+      assert.equal(row.originalSha256, baseline.markdownSha256[row.file] ?? null);
+      if (!row.isNew) assert.deepEqual(row.originalIdentity, { category: row.category, slug: row.slug, draft: true });
+    }
+    assert.equal(cms.review.generatedDraftCards, 43);
+    assert.equal(cms.review.publishedCount, 85);
+  });
+  test('CMS matcher rejects promotion, identity/review drift, unknown files and unapproved bytes', () => {
+    const row = cms.drafts[0];
+    const raw = `---\ncategory: ${row.category}\nslug: ${row.slug}\ndraft: true\nreviewStatus: needs_revision\n---\nDraft fixture\n`;
+    const exceptionFor = value => ({ drafts: [{ ...row, sha256: sha(value) }] });
+    assert.equal(cmsDraftMatches(row.file, exceptionFor(raw), raw), true);
+    for (const changed of [raw.replace('draft: true', 'draft: false'), raw.replace(`slug: ${row.slug}`, 'slug: unauthorized'),
+      raw.replace(`category: ${row.category}`, 'category: unauthorized'), raw.replace('needs_revision', 'approved')]) {
+      assert.equal(cmsDraftMatches(row.file, exceptionFor(changed), changed), false);
+    }
+    assert.equal(cmsDraftMatches('content/articles/unknown.md', exceptionFor(raw), raw), false);
+    assert.equal(cmsDraftMatches(row.file, exceptionFor(raw), raw + 'unapproved'), false);
+    assert.equal(productionRuntimeFile('reports/evil.json'), false);
+    if (ROOT !== '/var/www/sgeda') {
+      for (const file of cms.runtimePolicy.paths) assert.equal(productionRuntimeFile(file), false, 'Runtime files forbidden in nonproduction source');
+    }
+  });
   test('isolation fixture is bound to deployed HEAD and exact old article source identities', () => {
     assert.equal(baseline.formatVersion, 1); assert.equal(baseline.baselineCommit, HEAD);
     assert.equal(baseline.revisions.length, 14); assert.equal(baseline.publishedArticles.length, 85);
@@ -303,10 +378,12 @@ if (process.argv.includes('--generate-fixture')) {
       assert.equal(sha(revision.oldHtmlBody), baseline.htmlBodies[revision.htmlFile].rawBodySha256);
     }
   });
-  test('every article Markdown, including drafts/templates, and sources.json retain HEAD bytes', () => {
-    const actual = walk(path.join(ROOT, 'content/articles')).map(file => `content/articles/${file}`).filter(file => file.endsWith('.md'));
-    assert.deepEqual(actual, Object.keys(baseline.markdownSha256).sort(), 'No added, missing, renamed article Markdown');
-    for (const [file, expected] of Object.entries(baseline.markdownSha256)) assert.equal(sha(fs.readFileSync(path.join(ROOT, file))), expected, file);
+  test('article sources match complete HEAD or exact audited CMS draft profile; publications/templates stay HEAD', () => {
+    assert.ok(baseProfile || cmsProfile, 'Reject unknown, renamed, promoted, partially mixed or unaudited CMS sources');
+    for (const [file, expected] of Object.entries(baseline.markdownSha256)) {
+      if (cmsProfile && cmsDraftMatches(file, cms)) continue;
+      assert.equal(sha(fs.readFileSync(path.join(ROOT, file))), expected, file);
+    }
     assert.equal(sha(fs.readFileSync(path.join(ROOT, 'content/sources.json'))), baseline.protectedSha256['content/sources.json']);
   });
   test('14 pending revisions retain old body, search/social metadata, canonical, all dates and citation by canonical', () => {
@@ -372,6 +449,16 @@ if (process.argv.includes('--generate-fixture')) {
     const failures = [];
     for (const [file, expected] of Object.entries(baseline.htmlBodies)) {
       try {
+        if (file === 'content-review/index.html' && cmsProfile) {
+          const raw = read(file), $ = load(raw);
+          assert.equal(sha(raw), cms.review.exactGeneratedPageSha256, 'Only exact CMS-derived review variant');
+          assert.equal(reviewShellSha256(raw), cms.review.shellSha256, 'Review shell/scripts/styles/head unchanged');
+          assert.equal($('meta[name="robots"]').attr('content'), 'noindex,nofollow');
+          assert.equal($('article.review-card').length, cms.drafts.length);
+          assert.equal($('.review-summary > span').last().text(), '已发布 85 篇');
+          assert.deepEqual($('button[data-action="approve"]').toArray().map(node => $(node).attr('data-file')).sort(), cms.drafts.map(row => row.file).sort());
+          continue;
+        }
         const actual = bodySnapshot(read(file), file);
         assert.equal(actual.signatureSha256, expected.signatureSha256);
         if (expected.policy === 'entire-body') assert.equal(actual.entityMaskedBodySha256, expected.entityMaskedBodySha256, 'Body bytes drifted');
@@ -386,7 +473,13 @@ if (process.argv.includes('--generate-fixture')) {
     const failures = [];
     for (const [file, expected] of Object.entries(baseline.protectedSha256)) {
       if (file === 'package-lock.json' && baseline.securityLockException) continue;
-      try { assert.equal(sha(fs.readFileSync(path.join(ROOT, file))), expected); }
+      try {
+        if (cmsProfile && cmsDraftMatches(file, cms)) continue;
+        if (file === 'scripts/content-validation.mjs' && baseline.contentValidationException) {
+          assert.equal(baseline.contentValidationException.originalSha256, expected, 'Exception is bound to the original validator');
+          assert.equal(sha(fs.readFileSync(path.join(ROOT, file))), baseline.contentValidationException.exactPatchedSha256, 'Only the exact reviewed custom-link fix is allowed');
+        } else assert.equal(sha(fs.readFileSync(path.join(ROOT, file))), expected);
+      }
       catch { failures.push(file); }
     }
     assert.deepEqual(failures, [], `Out-of-scope protected byte changes:\n${failures.join('\n')}`);
@@ -414,8 +507,10 @@ if (process.argv.includes('--generate-fixture')) {
     const tracked = new Set(baseline.trackedFiles);
     const sensitive = file => /\.(?:html|mjs|cjs|js|py|sh|css|json|ya?ml|xml|png|jpe?g|svg|webp|gif|conf|csv|txt)$/.test(file)
       || /^(?:assets|content|scripts|server|api|\.github)\//.test(file)
+      || file.split('/').some(part => part.startsWith('.env'))
       || ['.npmrc', '.nvmrc', '.env', '.env.production', '.env.local'].includes(file);
-    const unexpected = walk(ROOT).filter(file => sensitive(file) && !tracked.has(file) && !ALLOWED_NEW.has(file));
+    const unexpected = walk(ROOT).filter(file => sensitive(file) && !tracked.has(file) && !ALLOWED_NEW.has(file)
+      && !(cmsProfile && cmsDraftMatches(file, cms)) && !productionRuntimeFile(file));
     assert.deepEqual(unexpected, [], 'Release additions must fit the explicit SEO-only allowlist');
   });
 }

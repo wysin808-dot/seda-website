@@ -12086,5 +12086,653 @@
     ],
     "expectedPatchedLockSha256": "3d61a0144e982fb76cd418a51bf34363aa1d7f0a1e3f32811d50a5eee9a6b5f8",
     "auditEvidence": "Parent-provided npm-audit-after-patch.json reported vulnerabilities.total=0; this CI isolation test does not perform a live security audit."
+  },
+  "contentValidationException": {
+    "authorization": "User requested continuation on 2026-11-26 21:37; local-only confirmed custom-page/draft collision repair, not deployment or CMS publication permission.",
+    "originalSha256": "86b46b55a1dbab1e8b8e6a6662ac3b99a001125b01d9b8e09a1eff042c2ed785",
+    "exactPatchedSha256": "9024f4ce34b80bb81ee7931cbeee20fbf75c6dab2d12d603fc44ec2c3fe4d375",
+    "scope": "Only the exists function replacement; partition/review/publication guards remain byte-identical. No public body or CMS baseline exception."
+  },
+  "cmsDraftException": {
+    "auditDate": "2026-11-26T22:13:00+08:00",
+    "provenance": "Read-only authenticated CMS GET article evidence. 85 published hashes equal baseline; all 43 drafts true/needs_revision, 38 existing retain original URL identity. Only complete original or complete exact CMS profile is allowed. Draft raw content is NOT committed.",
+    "drafts": [
+      {
+        "file": "content/articles/WACE毕业可以申请新加坡本地奖学金吗-84.md",
+        "sha256": "2807a82e41c9060e2c653553351d628b14641207b8647b15daa1a3c8b00820b8",
+        "category": "WACE毕业可以申请新加坡本地奖学金吗",
+        "slug": "84",
+        "draft": true,
+        "reviewStatus": "needs_revision",
+        "isNew": true,
+        "originalSha256": null
+      },
+      {
+        "file": "content/articles/university-undergraduate-application-timeline.md",
+        "sha256": "71f14f315f177a766091239b98e2706572f191d5b93dc389a8802f10d39573ed",
+        "category": "university",
+        "slug": "undergraduate-application-timeline",
+        "draft": true,
+        "reviewStatus": "needs_revision",
+        "isNew": true,
+        "originalSha256": null
+      },
+      {
+        "file": "content/articles/guides-accommodation.md",
+        "sha256": "598bf36e265e65e128ebdc0d75348cb5e3c3c42bde8a6b8fc8c937f93b86106f",
+        "category": "guides",
+        "slug": "accommodation",
+        "draft": true,
+        "reviewStatus": "needs_revision",
+        "isNew": true,
+        "originalSha256": null
+      },
+      {
+        "file": "content/articles/international-school-transfer-to-government-school.md",
+        "sha256": "671f9752b96a8e26b5ebe32f5faf99656430c370206175fcf093757a1cd703c6",
+        "category": "international-school",
+        "slug": "transfer-to-government-school",
+        "draft": true,
+        "reviewStatus": "needs_revision",
+        "isNew": true,
+        "originalSha256": null
+      },
+      {
+        "file": "content/articles/o-level-social-studies-sbq-guide.md",
+        "sha256": "60ba40179864fdb7c172f68c497e5edf20355148ea0cb3e92ca6df22e00fb164",
+        "category": "o-level",
+        "slug": "o-level-social-studies-sbq-guide",
+        "draft": true,
+        "reviewStatus": "needs_revision",
+        "isNew": false,
+        "originalSha256": "e132900a6c4e80f13b1b06e24999d307715ca876334843872fd8ee38d05086ad",
+        "originalIdentity": {
+          "category": "o-level",
+          "slug": "o-level-social-studies-sbq-guide",
+          "draft": true
+        }
+      },
+      {
+        "file": "content/articles/international-school-entrance-test.md",
+        "sha256": "837b8442bda12bf38359b0234efbddecf304291fb5960533456a0b1fed648cc6",
+        "category": "international-school",
+        "slug": "entrance-test",
+        "draft": true,
+        "reviewStatus": "needs_revision",
+        "isNew": true,
+        "originalSha256": null
+      },
+      {
+        "file": "content/articles/wace-atar-to-a-level-ucas-tariff-conversion.md",
+        "sha256": "7c5144163e5dd7e328ec3bf117ce2841e0e2de4beffbc3a94fe8639810325214",
+        "category": "wace",
+        "slug": "wace-atar-to-a-level-ucas-tariff-conversion",
+        "draft": true,
+        "reviewStatus": "needs_revision",
+        "isNew": false,
+        "originalSha256": "0354e1c4c92cf11f591bff7ac7e038e566af91c5d3fe37959c88e6bb3eb6edab",
+        "originalIdentity": {
+          "category": "wace",
+          "slug": "wace-atar-to-a-level-ucas-tariff-conversion",
+          "draft": true
+        }
+      },
+      {
+        "file": "content/articles/aeis-exam-violations-consequences.md",
+        "sha256": "5ee010b75a1812ddae579e024c967a0f6ba89ba43953e4e1e7d41d49a1221c56",
+        "category": "aeis",
+        "slug": "aeis-exam-violations-consequences",
+        "draft": true,
+        "reviewStatus": "needs_revision",
+        "isNew": false,
+        "originalSha256": "e1bc2274631ecddb388aba470effbbf97000ba1ae485b3d1c623f2708e5bb6e7",
+        "originalIdentity": {
+          "category": "aeis",
+          "slug": "aeis-exam-violations-consequences",
+          "draft": true
+        }
+      },
+      {
+        "file": "content/articles/o-level-english-summary-writing.md",
+        "sha256": "711a48a589e059decd98ddf6e6cfb89edb0858a34d737ebc224b6967ff786846",
+        "category": "o-level",
+        "slug": "o-level-english-summary-writing",
+        "draft": true,
+        "reviewStatus": "needs_revision",
+        "isNew": false,
+        "originalSha256": "6ca398f6e8894327457960b412d593c54c7a0dfbcb93645db258501d40fcc332",
+        "originalIdentity": {
+          "category": "o-level",
+          "slug": "o-level-english-summary-writing",
+          "draft": true
+        }
+      },
+      {
+        "file": "content/articles/wace-apply-china-university.md",
+        "sha256": "fc7cc19bca98cb40d7b3eaf328b5904c1c19076e06bd013464984694d8fe8220",
+        "category": "wace",
+        "slug": "wace-apply-china-university",
+        "draft": true,
+        "reviewStatus": "needs_revision",
+        "isNew": false,
+        "originalSha256": "e308b21209dceb942d471bbc9b1b94911c66ee63a22452c5343d55c02c293c78",
+        "originalIdentity": {
+          "category": "wace",
+          "slug": "wace-apply-china-university",
+          "draft": true
+        }
+      },
+      {
+        "file": "content/articles/o-level-listening-comprehension-chinese-students.md",
+        "sha256": "6f6b9bc6623c12fac10042f20f97d3b6b6fcc0f67cf29ddbb883fa437bdf74e9",
+        "category": "o-level",
+        "slug": "o-level-listening-comprehension-chinese-students",
+        "draft": true,
+        "reviewStatus": "needs_revision",
+        "isNew": false,
+        "originalSha256": "7deb8ce0a49bce0adbbd52b86e59668d08093ff57f2657ca3b07213895e2f576",
+        "originalIdentity": {
+          "category": "o-level",
+          "slug": "o-level-listening-comprehension-chinese-students",
+          "draft": true
+        }
+      },
+      {
+        "file": "content/articles/wace-apply-new-zealand-university.md",
+        "sha256": "e1b12c260e36a8594840ab2e5e633f5bf6661536ca51cf243765322df7667273",
+        "category": "wace",
+        "slug": "wace-apply-new-zealand-university",
+        "draft": true,
+        "reviewStatus": "needs_revision",
+        "isNew": false,
+        "originalSha256": "64bcd27abca8afe5c400920504eabe682800bfb08318f654dc034e5e4a431850",
+        "originalIdentity": {
+          "category": "wace",
+          "slug": "wace-apply-new-zealand-university",
+          "draft": true
+        }
+      },
+      {
+        "file": "content/articles/aeis-ltvp-guardian-visa-guide.md",
+        "sha256": "89841d964b167fe5f09bd167f3519883529f05aa56e7fa319ba3df790d9bf9cd",
+        "category": "aeis",
+        "slug": "aeis-ltvp-guardian-visa-guide",
+        "draft": true,
+        "reviewStatus": "needs_revision",
+        "isNew": false,
+        "originalSha256": "a286f6bf760e3fdb4fdc3cb6130af7faf4e1141eaa071383abca739decf1acc6",
+        "originalIdentity": {
+          "category": "aeis",
+          "slug": "aeis-ltvp-guardian-visa-guide",
+          "draft": true
+        }
+      },
+      {
+        "file": "content/articles/o-level-jae-form-filling-guide.md",
+        "sha256": "654cc5f65806bfee45242a9c9021f4139cfff0fb1095f46493d747ac455fd787",
+        "category": "o-level",
+        "slug": "o-level-jae-form-filling-guide",
+        "draft": true,
+        "reviewStatus": "needs_revision",
+        "isNew": false,
+        "originalSha256": "8de8bc2809b621c4ea5d19310ca512e6ef302494154012d83fc1c3fb9be959c1",
+        "originalIdentity": {
+          "category": "o-level",
+          "slug": "o-level-jae-form-filling-guide",
+          "draft": true
+        }
+      },
+      {
+        "file": "content/articles/wace-niche-subjects-scaling-guide.md",
+        "sha256": "cfcaba28205cd18ee39ee2562d67acf9b8eea6cd960aa981a354461b43855d32",
+        "category": "wace",
+        "slug": "wace-niche-subjects-scaling-guide",
+        "draft": true,
+        "reviewStatus": "needs_revision",
+        "isNew": false,
+        "originalSha256": "b1528a04d968748589dee1c1799c1e74c804ed6708da0edd5c80465364df51cc",
+        "originalIdentity": {
+          "category": "wace",
+          "slug": "wace-niche-subjects-scaling-guide",
+          "draft": true
+        }
+      },
+      {
+        "file": "content/articles/aeis-vs-china-zhongkao-comparison.md",
+        "sha256": "d2fde15a7805433c5ff21610fddfc2cfd0d6389b7ecfe5af846858bb8b2102ac",
+        "category": "aeis",
+        "slug": "aeis-vs-china-zhongkao-comparison",
+        "draft": true,
+        "reviewStatus": "needs_revision",
+        "isNew": false,
+        "originalSha256": "9c97365bc43ab2680ed2cc9521c9d3f817047f5fa69ea1c510fb2b3bff66de4b",
+        "originalIdentity": {
+          "category": "aeis",
+          "slug": "aeis-vs-china-zhongkao-comparison",
+          "draft": true
+        }
+      },
+      {
+        "file": "content/articles/o-level-third-language-guide-chinese-students.md",
+        "sha256": "b3ca76d57be6cec1c242e030d561dea3806efd2d9e982b8066963ad87e4029e9",
+        "category": "o-level",
+        "slug": "o-level-third-language-guide-chinese-students",
+        "draft": true,
+        "reviewStatus": "needs_revision",
+        "isNew": false,
+        "originalSha256": "95e245d7dd1ed89cb1bea30625bcb515ce4baeb24329647d9909b29109edd9d3",
+        "originalIdentity": {
+          "category": "o-level",
+          "slug": "o-level-third-language-guide-chinese-students",
+          "draft": true
+        }
+      },
+      {
+        "file": "content/articles/wace-atar-predicted-vs-actual-gap.md",
+        "sha256": "9792c2eafe370880cee1175d9ead568b948d96744ede72f7556bebf6991e5da1",
+        "category": "wace",
+        "slug": "wace-atar-predicted-vs-actual-gap",
+        "draft": true,
+        "reviewStatus": "needs_revision",
+        "isNew": false,
+        "originalSha256": "9b38ec8c9d908923bce0d73b4fed29b6a09df0f4a84b1a7df15889894a1be022",
+        "originalIdentity": {
+          "category": "wace",
+          "slug": "wace-atar-predicted-vs-actual-gap",
+          "draft": true
+        }
+      },
+      {
+        "file": "content/articles/aeis-exam-center-transport-accommodation-guide.md",
+        "sha256": "6df87b1547a13525f28de2f4173e5b83ffc633c9f836fd0f672d27587eafb6be",
+        "category": "aeis",
+        "slug": "aeis-exam-center-transport-accommodation-guide",
+        "draft": true,
+        "reviewStatus": "needs_revision",
+        "isNew": false,
+        "originalSha256": "62fdff588e5e69f88690e2dae3bf44662cba5e93f5e1150c34897fcc451173eb",
+        "originalIdentity": {
+          "category": "aeis",
+          "slug": "aeis-exam-center-transport-accommodation-guide",
+          "draft": true
+        }
+      },
+      {
+        "file": "content/articles/international-school-ib-how-to-choose.md",
+        "sha256": "f0fde492fcbe7edd6b23ace132dd3146df25d1f5703f334710acce67b18fc282",
+        "category": "international-school",
+        "slug": "ib-how-to-choose",
+        "draft": true,
+        "reviewStatus": "needs_revision",
+        "isNew": false,
+        "originalSha256": "1a795842c92d15c0e765e4c2c407e6a3593a4aff514145de7411cb1ad0477334",
+        "originalIdentity": {
+          "category": "international-school",
+          "slug": "ib-how-to-choose",
+          "draft": true
+        }
+      },
+      {
+        "file": "content/articles/o-level-o-level-private-candidate-registration.md",
+        "sha256": "097f6cb42d1a59d7808b183ccb38e540920e473592795ce53ac2c83fd0aa42aa",
+        "category": "o-level",
+        "slug": "o-level-private-candidate-registration",
+        "draft": true,
+        "reviewStatus": "needs_revision",
+        "isNew": false,
+        "originalSha256": "07f67e3f0614343ad255ef16505425deefdce9229e52f6e9295e8e385270488e",
+        "originalIdentity": {
+          "category": "o-level",
+          "slug": "o-level-private-candidate-registration",
+          "draft": true
+        }
+      },
+      {
+        "file": "content/articles/university-ntu-undergraduate-requirements.md",
+        "sha256": "f4cf44b32b36456da716afd28191928581bd6f671183d083ba5080ac87dba630",
+        "category": "university",
+        "slug": "ntu-undergraduate-requirements",
+        "draft": true,
+        "reviewStatus": "needs_revision",
+        "isNew": false,
+        "originalSha256": "477695f2fdde980ecaf9396d04b4939a5216f5b354c163fca4bb19ca7dc2d5e3",
+        "originalIdentity": {
+          "category": "university",
+          "slug": "ntu-undergraduate-requirements",
+          "draft": true
+        }
+      },
+      {
+        "file": "content/articles/university-public-university-wace.md",
+        "sha256": "3119d7eb0b67a27ec29771a542a3705d54992d8f592365fe1b114dcf05145d9f",
+        "category": "university",
+        "slug": "public-university-wace",
+        "draft": true,
+        "reviewStatus": "needs_revision",
+        "isNew": false,
+        "originalSha256": "86cc26529b79275ab4a60b610cb2da4f71602a75d2e36043875572eb9478821f",
+        "originalIdentity": {
+          "category": "university",
+          "slug": "public-university-wace",
+          "draft": true
+        }
+      },
+      {
+        "file": "content/articles/guides-guardian-work.md",
+        "sha256": "1ae75d367c916460b48d6536ab40cfb1b9f4df3319566fd13861db916ce3f9c5",
+        "category": "guides",
+        "slug": "guardian-work",
+        "draft": true,
+        "reviewStatus": "needs_revision",
+        "isNew": false,
+        "originalSha256": "033c974cc97c39594b1f71bf620fb350bd426dcad29a4973140c761cefb6f354",
+        "originalIdentity": {
+          "category": "guides",
+          "slug": "guardian-work",
+          "draft": true
+        }
+      },
+      {
+        "file": "content/articles/guides-total-cost.md",
+        "sha256": "f4dfb9c5f384a4ca4abfeea620998ee57867b9eea9849f9e23363c4eca077cb0",
+        "category": "guides",
+        "slug": "total-cost",
+        "draft": true,
+        "reviewStatus": "needs_revision",
+        "isNew": false,
+        "originalSha256": "0ed47a0189b9fb3f1a17bc6b79c7f854674a10281804d91d4be2d530c8b535ff",
+        "originalIdentity": {
+          "category": "guides",
+          "slug": "total-cost",
+          "draft": true
+        }
+      },
+      {
+        "file": "content/articles/pathway-grade-10-transfer.md",
+        "sha256": "0bb17601f93a586224ed801e6ea816456269f5e46b7f7167a3ed493e77fcb13e",
+        "category": "pathway",
+        "slug": "grade-10-transfer",
+        "draft": true,
+        "reviewStatus": "needs_revision",
+        "isNew": false,
+        "originalSha256": "654e1e464e76380a440444964883134ebae24df0c3e864ac853c5033bd3ab73a",
+        "originalIdentity": {
+          "category": "pathway",
+          "slug": "grade-10-transfer",
+          "draft": true
+        }
+      },
+      {
+        "file": "content/articles/pathway-secondary-student-pathway.md",
+        "sha256": "1ae9dfa476e16eb19efa3ecb9d112f9d38598c5af42c8784eee838735a78b5ba",
+        "category": "pathway",
+        "slug": "secondary-student-pathway",
+        "draft": true,
+        "reviewStatus": "needs_revision",
+        "isNew": false,
+        "originalSha256": "3a7902a0e876a956271a7dc98ecb694adfeb611e81a3ddfc8876f82e5e77e77f",
+        "originalIdentity": {
+          "category": "pathway",
+          "slug": "secondary-student-pathway",
+          "draft": true
+        }
+      },
+      {
+        "file": "content/articles/university-nus-vs-ntu-difficulty.md",
+        "sha256": "5441f0e86c28ac5879e635bac838ac7b279884c273a9f0ba39f69393df42f127",
+        "category": "university",
+        "slug": "nus-vs-ntu-difficulty",
+        "draft": true,
+        "reviewStatus": "needs_revision",
+        "isNew": false,
+        "originalSha256": "8e2647d0d87b155f769f7c596d5947455701f2d9213c18dff25879350ef2d19d",
+        "originalIdentity": {
+          "category": "university",
+          "slug": "nus-vs-ntu-difficulty",
+          "draft": true
+        }
+      },
+      {
+        "file": "content/articles/aeis-aeis-english-writing.md",
+        "sha256": "463ba5f39b9a6e70a1d836a4b7f5549f7fa1ff713e034661393bb48f0340dfa3",
+        "category": "aeis",
+        "slug": "aeis-english-writing",
+        "draft": true,
+        "reviewStatus": "needs_revision",
+        "isNew": false,
+        "originalSha256": "82d49b2fd67ba83d0fb0d6faf7d9d95fe5f1b8dabc77cbd398efb74abaa59708",
+        "originalIdentity": {
+          "category": "aeis",
+          "slug": "aeis-english-writing",
+          "draft": true
+        }
+      },
+      {
+        "file": "content/articles/international-school-annual-fees.md",
+        "sha256": "d40128ec7cb6ef6a2c52b33a8b11c4ec50d00f87c3e22f042b6d66fc91c3481c",
+        "category": "international-school",
+        "slug": "annual-fees",
+        "draft": true,
+        "reviewStatus": "needs_revision",
+        "isNew": false,
+        "originalSha256": "fa63d40fc5f0b8ac32332e76c0f149bf775d50a762f8c690d4e33c32c929d06e",
+        "originalIdentity": {
+          "category": "international-school",
+          "slug": "annual-fees",
+          "draft": true
+        }
+      },
+      {
+        "file": "content/articles/o-level-o-level-english-difficulty-chinese-students.md",
+        "sha256": "943f78b5dadaeb5c8e8a8a40c4bfa6add49e216b4a0628b61c08a2ffe6faf114",
+        "category": "o-level",
+        "slug": "o-level-english-difficulty-chinese-students",
+        "draft": true,
+        "reviewStatus": "needs_revision",
+        "isNew": false,
+        "originalSha256": "21431da0c60461a7820218b21dea7301656ef4567464c316bd6e914632a9f77b",
+        "originalIdentity": {
+          "category": "o-level",
+          "slug": "o-level-english-difficulty-chinese-students",
+          "draft": true
+        }
+      },
+      {
+        "file": "content/articles/wace-wace-apply-australia-go8-atar.md",
+        "sha256": "2247cfab98543cb221bd15b52dacb2dd46e7796bcad4db4b4b9352c5fae26464",
+        "category": "wace",
+        "slug": "wace-apply-australia-go8-atar",
+        "draft": true,
+        "reviewStatus": "needs_revision",
+        "isNew": false,
+        "originalSha256": "f9774f9fa21ff92660f8b4e57112238a02d8b482230dd80d4add7db57793b014",
+        "originalIdentity": {
+          "category": "wace",
+          "slug": "wace-apply-australia-go8-atar",
+          "draft": true
+        }
+      },
+      {
+        "file": "content/articles/aeis-failed-next-step.md",
+        "sha256": "c9977ff5fa395b22d238ef81355ad699d6e9104b7a914f5ad9904b8519e4c93d",
+        "category": "aeis",
+        "slug": "aeis-failed-next-step",
+        "draft": true,
+        "reviewStatus": "needs_revision",
+        "isNew": false,
+        "originalSha256": "04d98a4d6384a4f7070148b4a929dd94195ae02b537f98fb873723c0259aafe7",
+        "originalIdentity": {
+          "category": "aeis",
+          "slug": "aeis-failed-next-step",
+          "draft": true
+        }
+      },
+      {
+        "file": "content/articles/guides-what-to-do.md",
+        "sha256": "d7d9c0ebca044f4610c34c715a13b1e17a5fc7301888bbbb385b26760a670a68",
+        "category": "guides",
+        "slug": "what-to-do",
+        "draft": true,
+        "reviewStatus": "needs_revision",
+        "isNew": false,
+        "originalSha256": "9966cc89df6a037a21746fc1976f6936f8e2e70bbdabeddcdb48826fff506b07",
+        "originalIdentity": {
+          "category": "guides",
+          "slug": "what-to-do",
+          "draft": true
+        }
+      },
+      {
+        "file": "content/articles/international-school-waitlist-singapore.md",
+        "sha256": "7fb01a6d276900781bb729eaa8fcfb1f9523ff1e98c90b64890ee9293d37b9df",
+        "category": "international-school",
+        "slug": "international-school-waitlist-singapore",
+        "draft": true,
+        "reviewStatus": "needs_revision",
+        "isNew": false,
+        "originalSha256": "ed2bfcc250a959917755060d0d6b2a6ddd8fb6aaf157b4a53070dd65bc834eb7",
+        "originalIdentity": {
+          "category": "international-school",
+          "slug": "international-school-waitlist-singapore",
+          "draft": true
+        }
+      },
+      {
+        "file": "content/articles/o-level-o-level-school-recommendation.md",
+        "sha256": "de0c948b3c939989d0c674617228468a31adfb5785baeb94251b3b71c059fd65",
+        "category": "o-level",
+        "slug": "o-level-school-recommendation",
+        "draft": true,
+        "reviewStatus": "needs_revision",
+        "isNew": false,
+        "originalSha256": "ea8db3670f139e767fc83bc8246f13b0b073d25e22ba77a2b51cf306b94aed53",
+        "originalIdentity": {
+          "category": "o-level",
+          "slug": "o-level-school-recommendation",
+          "draft": true
+        }
+      },
+      {
+        "file": "content/articles/o-level-private-candidate-or-school-route.md",
+        "sha256": "546f0940640af7c1dfc6a9785c294b0a27aee043a4e81ced7242ba597481bcf6",
+        "category": "o-level",
+        "slug": "o-level-private-candidate-or-school-route",
+        "draft": true,
+        "reviewStatus": "needs_revision",
+        "isNew": false,
+        "originalSha256": "da4e70794567d8e77f555c307fdd9a56daf4e1ae85540225c891a5962dc0ddc7",
+        "originalIdentity": {
+          "category": "o-level",
+          "slug": "o-level-private-candidate-or-school-route",
+          "draft": true
+        }
+      },
+      {
+        "file": "content/articles/primary-school-international-student-application.md",
+        "sha256": "aed9c17d7feacc36595db499b3eff703fb59f0b85a5f42286e3066608f217c78",
+        "category": "aeis",
+        "slug": "primary-school-international-student-application",
+        "draft": true,
+        "reviewStatus": "needs_revision",
+        "isNew": false,
+        "originalSha256": "ade20a6504eab4dd0fed3a57d6f81292f30e9d8f636440af284fc101a20ca180",
+        "originalIdentity": {
+          "category": "aeis",
+          "slug": "primary-school-international-student-application",
+          "draft": true
+        }
+      },
+      {
+        "file": "content/articles/wace-wace-subject-combination-engineering.md",
+        "sha256": "3d1fe862c05658739e495aba8e9a7cedba124c1d7f6831d63b54410051823077",
+        "category": "wace",
+        "slug": "wace-subject-combination-engineering",
+        "draft": true,
+        "reviewStatus": "needs_revision",
+        "isNew": false,
+        "originalSha256": "7b39ac273a1a67c95ff757ed0e2ed53fec9895583424faaada3d68807ea079d0",
+        "originalIdentity": {
+          "category": "wace",
+          "slug": "wace-subject-combination-engineering",
+          "draft": true
+        }
+      },
+      {
+        "file": "content/articles/aeis-aeis-preparation.md",
+        "sha256": "c9c936b1d4dcb375361b974c49dc25ca2b96dfde4cf053b69775f855182485a0",
+        "category": "aeis",
+        "slug": "aeis-preparation",
+        "draft": true,
+        "reviewStatus": "needs_revision",
+        "isNew": false,
+        "originalSha256": "dc885c4992d7c8e736b7b4dcad93462e10de225436f046834bcfc244dcf07e85",
+        "originalIdentity": {
+          "category": "aeis",
+          "slug": "aeis-preparation",
+          "draft": true
+        }
+      },
+      {
+        "file": "content/articles/international-school-how-to-choose.md",
+        "sha256": "eb937b5ea3837c72cddc4b8543f3a46e71bc9a32c975d2fd04f9224ec1bb377f",
+        "category": "international-school",
+        "slug": "how-to-choose",
+        "draft": true,
+        "reviewStatus": "needs_revision",
+        "isNew": false,
+        "originalSha256": "b8e3dc7760154d742d4ca67c3db85c63b88392d57e3ae392e404a0642ff8611b",
+        "originalIdentity": {
+          "category": "international-school",
+          "slug": "how-to-choose",
+          "draft": true
+        }
+      },
+      {
+        "file": "content/articles/pathway-how-to-choose.md",
+        "sha256": "2dd457b9541a74fcf4c317f0dfa22c37dcfac2ed9efea725e3b1dcd0ec66f2ff",
+        "category": "pathway",
+        "slug": "how-to-choose",
+        "draft": true,
+        "reviewStatus": "needs_revision",
+        "isNew": false,
+        "originalSha256": "89d7389ac4493b7f175329717574917b5e4a1c0d5a5098351ffa37bf7a1ce0df",
+        "originalIdentity": {
+          "category": "pathway",
+          "slug": "how-to-choose",
+          "draft": true
+        }
+      },
+      {
+        "file": "content/articles/university-nus-difficulty.md",
+        "sha256": "c3bd710d4717183f3b16ea34b94660a94e14f0f330419185bbbb4a422ee76c9c",
+        "category": "university",
+        "slug": "nus-difficulty",
+        "draft": true,
+        "reviewStatus": "needs_revision",
+        "isNew": false,
+        "originalSha256": "d628efa142756c589c0f385820b9f3e75a75fb3663389daa000187641589c656",
+        "originalIdentity": {
+          "category": "university",
+          "slug": "nus-difficulty",
+          "draft": true
+        }
+      }
+    ],
+    "review": {
+      "exactGeneratedPageSha256": "58e8694dc5e563f45d52dd05bbe351664129b3030731c59f9f826931f230cf1b",
+      "shellSha256": "19a9f9814bdb4117da16dd5f0b8e594d9784cee592dd162e90e493c31088a037",
+      "publishedCount": 85,
+      "generatedDraftCards": 43,
+      "provenance": "Generated solely from locked builder and exact read-only CMS draft hashes; head/noindex/styles/scripts/shell unchanged after masking draft cards and first count. The exact full generated page SHA also locks all card buttons and API controls."
+    },
+    "runtimePolicy": {
+      "productionRoot": "/var/www/sgeda",
+      "paths": [
+        ".env",
+        "reports/baidu-crawl-20261125.json",
+        "reports/baidu-crawl-20261126.json"
+      ],
+      "note": "Finite production-only regular nonsymlink path allowance, NOT evidence these files predate deployment. Forbidden in this release source/index/patch; never read actual .env bytes."
+    }
   }
 }

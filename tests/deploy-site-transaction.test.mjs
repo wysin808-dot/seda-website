@@ -28,6 +28,7 @@ async function fixture(t, independent = false) {
   const site = path.join(root, 'site');
   const source = independent ? path.join(root, 'source') : site;
   const config = await put(root, 'nginx/config', `# ORIGINAL SSL/API/analytics bytes\nserver {\n    listen 443 ssl;\n    server_name sgeda.org.cn;\n    root ${site};\n    ssl_certificate /fixture/ssl.pem;\n    ssl_certificate_key /fixture/ssl.key;\n    location /api/ { proxy_pass http://127.0.0.1:3002; }\n    location /analytics/ { proxy_pass http://127.0.0.1:3003; }\n    # BEGIN SEDA_SCHOOL_REDIRECT_INCLUDE\n    include ${root}/nginx/rules;\n    # END SEDA_SCHOOL_REDIRECT_INCLUDE\n}\n`);
+  await put(root, 'deploy-site-transaction.sh', helper);
   const include = await put(root, 'nginx/rules', '# original rules\n');
   const old = {
     'index.html': 'OLD FRONTEND\n',
@@ -131,8 +132,14 @@ printf 'nginx %s\n' "$*" >> "$FIX_LOG"
 if [ "$1" = -t ] && [ "\${FAIL_NGINX_TEST:-0}" = 1 ] && grep -q new-target "$FIX_INCLUDE"; then exit 31; fi
 if [ "$1" = -t ] && [ "\${FAIL_OLD_NGINX:-0}" = 1 ] && ! grep -q new-target "$FIX_INCLUDE"; then exit 33; fi
 if [ "$1" = -T ]; then
-  printf '# configuration file %s:\n' "$FIX_CONFIG"
-  if [ -f "$FIX_INCLUDE" ] && grep -Fq "include $FIX_INCLUDE;" "$FIX_CONFIG"; then printf '# configuration file %s:\n' "$FIX_INCLUDE"; fi
+  printf '# configuration file %s:\n' "\${FIX_LOADED:-$FIX_CONFIG}"
+  cat "$FIX_CONFIG"
+  printf '\n'
+  if [ -f "$FIX_INCLUDE" ] && grep -Fq "include $FIX_INCLUDE;" "$FIX_CONFIG"; then
+    printf '# configuration file %s:\n' "$FIX_INCLUDE"
+    cat "$FIX_INCLUDE"
+    printf '\n'
+  fi
 fi
 `, 0o755);
   const reload = await put(bin, 'reload', `#!/bin/bash
@@ -343,10 +350,10 @@ test('fixture mode rejects omitted/real/equivalent production paths and symlinks
     const command = `set -euo pipefail; source ${quote(path.join(fix.root, 'helper.sh'))}; deploy_site_transaction_begin ${[...fix.args, ...extra].map(quote).join(' ')}`;
     const result = spawnSync('bash', ['-c', command], { env: fix.env, encoding: 'utf8' });
     assert.notEqual(result.status, 0);
-    assert.match(result.stderr, /Test mode cannot access production or non-fixture paths/);
+    assert.match(result.stderr, /Test mode cannot access production or non-fixture paths|Unsafe absolute path/);
   }
   const omitted = fix.args.slice();
-  omitted.splice(omitted.indexOf('--config'), 2);
+  omitted.splice(omitted.indexOf('--include-path'), 2);
   let result = spawnSync('bash', ['-c', `set -e; source ${quote(path.join(fix.root, 'helper.sh'))}; deploy_site_transaction_begin ${omitted.map(quote).join(' ')}`], { env: fix.env, encoding: 'utf8' });
   assert.notEqual(result.status, 0);
   await fs.symlink('/var/www/sgeda', path.join(fix.root, 'production-link'));

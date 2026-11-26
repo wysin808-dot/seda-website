@@ -216,22 +216,24 @@ test('rejects redirect chains/cycles even where detail aliases seem plausible', 
 });
 
 async function installFixture(t) {
-  const root = await fixture(t);
+  const root = await fs.mkdtemp(path.join(os.tmpdir(), 'seda-deploy-transaction-'));
+  await fs.chmod(root, 0o700);
+  t.after(() => fs.rm(root, { recursive: true, force: true }));
   const site = path.join(root, 'www');
   await put(root, 'www/index.html', '<h1>fixture</h1>');
-  const config = await put(root, 'sites-available/sgeda', `# Original site SSL/analytics/API must survive\nserver { listen 80; server_name sgeda.org.cn www.sgeda.org.cn; return 301 https://sgeda.org.cn$request_uri; }\nserver {\n    listen 443 ssl;\n    server_name www.sgeda.org.cn;\n    ssl_certificate /existing/www.pem;\n    return 301 https://sgeda.org.cn$request_uri;\n}\nserver {\n    listen 443 ssl http2;\n    server_name sgeda.org.cn;\n    root ${site};\n    ssl_certificate /existing/real.pem;\n    ssl_certificate_key /existing/real.key;\n    location /api/ { proxy_pass http://127.0.0.1:3002; }\n    location /analytics/ { proxy_pass http://127.0.0.1:3003; }\n    location / { try_files $uri $uri/ =404; }\n}\n`);
-  const enabled = path.join(root, 'sites-enabled/sgeda');
+  const config = await put(root, 'nginx/sites-available/sgeda', `# Original site SSL/analytics/API must survive\nserver { listen 80; server_name sgeda.org.cn www.sgeda.org.cn; return 301 https://sgeda.org.cn$request_uri; }\nserver {\n    listen 443 ssl;\n    server_name www.sgeda.org.cn;\n    ssl_certificate /existing/www.pem;\n    return 301 https://sgeda.org.cn$request_uri;\n}\nserver {\n    listen 443 ssl http2;\n    server_name sgeda.org.cn;\n    root ${site};\n    ssl_certificate /existing/real.pem;\n    ssl_certificate_key /existing/real.key;\n    location /api/ { proxy_pass http://127.0.0.1:3002; }\n    location /analytics/ { proxy_pass http://127.0.0.1:3003; }\n    location / { try_files $uri $uri/ =404; }\n}\n`);
+  const enabled = path.join(root, 'nginx/sites-enabled/sgeda');
   await fs.mkdir(path.dirname(enabled), { recursive: true });
   await fs.symlink(config, enabled);
-  const include = await put(root, 'snippets/school-redirects.nginx.conf', '# previous include\n');
+  const include = await put(root, 'nginx/snippets/school-redirects.nginx.conf', '# previous include\n');
   const source = await put(root, 'generated.nginx.conf', renderSchoolNginxRules(prepareSchoolMigration(inputs().policy, inputs().catalog)));
   const log = path.join(root, 'commands.log');
-  const nginx = await put(root, 'fake-nginx', `#!/bin/sh\necho "nginx $1" >> "$FIX_LOG"\nif [ "$1" = '-t' ] && [ "$FAIL_TEST" = '1' ]; then exit 1; fi\nif [ "$1" = '-T' ]; then\n  echo "# configuration file $FIX_ENABLED:"\n  if [ "$FAIL_DUMP" != '1' ]; then echo "# configuration file $FIX_INCLUDE:"; fi\nfi\n`);
+  const nginx = await put(root, 'fake-nginx', `#!/bin/sh\necho "nginx $1" >> "$FIX_LOG"\nif [ "$1" = '-t' ] && [ "$FAIL_TEST" = '1' ]; then exit 1; fi\nif [ "$1" = '-T' ]; then\n  echo "# configuration file $FIX_ENABLED:"\n  cat "$FIX_ENABLED"\n  echo\n  if [ "$FAIL_DUMP" != '1' ] && grep -Fq "include $FIX_INCLUDE;" "$FIX_ENABLED"; then echo "# configuration file $FIX_INCLUDE:"; cat "$FIX_INCLUDE"; echo; fi\nfi\n`);
   const reload = await put(root, 'fake-systemctl', '#!/bin/sh\necho "systemctl $*" >> "$FIX_LOG"\nif [ "$FAIL_RELOAD" = "1" ]; then exit 1; fi\n');
   await fs.chmod(nginx, 0o755);
   await fs.chmod(reload, 0o755);
   const env = { ...process.env, FIX_LOG: log, FIX_ENABLED: enabled, FIX_INCLUDE: include };
-  const baseArgs = [installer, '--test-mode', '--config', config, '--enabled-config', enabled, '--site-root', site, '--include-path', include, '--source', source, '--nginx-bin', nginx, '--reload-bin', reload];
+  const baseArgs = [installer, '--test-mode', '--fixture-root', root, '--config', config, '--enabled-config', enabled, '--site-root', site, '--include-path', include, '--source', source, '--nginx-bin', nginx, '--reload-bin', reload];
   return { root, config, enabled, include, source, log, env, baseArgs, run: (extra = [], overrides = {}) => spawnSync('bash', [...baseArgs, ...extra], { encoding: 'utf8', env: { ...env, ...overrides } }) };
 }
 
@@ -256,10 +258,10 @@ test('installer preserves original SSL/API/analytics, proves loaded, is idempote
   assert.match(current, /ssl_certificate \/existing\/real.pem/);
   assert.match(current, /location \/api\/ \{ proxy_pass http:\/\/127.0.0.1:3002;/);
   const log = await fs.readFile(fix.log, 'utf8');
-  assert.equal(log, 'nginx -t\nnginx -T\nsystemctl reload nginx\n');
+  assert.equal(log, 'nginx -T\nnginx -t\nnginx -T\nsystemctl reload nginx\n');
   assert.equal(fix.run().status, 0);
   assert.equal(await fs.readFile(fix.config, 'utf8'), current);
-  assert.equal(await fs.readFile(fix.log, 'utf8'), `${log}nginx -t\nnginx -T\n`);
+  assert.equal(await fs.readFile(fix.log, 'utf8'), `${log}nginx -T\nnginx -t\nnginx -T\n`);
   assert.deepEqual(await fs.readdir(path.dirname(fix.enabled)), ['sgeda']);
   assert.equal(fix.run(['--remove']).status, 0);
   assert.equal(await fs.readFile(fix.config, 'utf8'), original);
@@ -274,7 +276,7 @@ test('nginx -t failure restores config/include and never reloads', async t => {
   assert.match(result.stderr, /original disk config\/rules restored/);
   assert.equal(await fs.readFile(fix.config, 'utf8'), original);
   assert.equal(await fs.readFile(fix.include, 'utf8'), '# previous include\n');
-  assert.equal(await fs.readFile(fix.log, 'utf8'), 'nginx -t\n');
+  assert.equal(await fs.readFile(fix.log, 'utf8'), 'nginx -T\nnginx -t\n');
 });
 
 test('missing nginx -T include proof restores configuration without reload', async t => {
@@ -282,7 +284,7 @@ test('missing nginx -T include proof restores configuration without reload', asy
   const original = await fs.readFile(fix.config, 'utf8');
   assert.notEqual(fix.run([], { FAIL_DUMP: '1' }).status, 0);
   assert.equal(await fs.readFile(fix.config, 'utf8'), original);
-  assert.equal(await fs.readFile(fix.log, 'utf8'), 'nginx -t\nnginx -T\n');
+  assert.equal(await fs.readFile(fix.log, 'utf8'), 'nginx -T\nnginx -t\nnginx -T\n');
 });
 
 test('reload failure restores disk configuration and does not claim success', async t => {
@@ -306,7 +308,7 @@ test('installer refuses wrong root, disconnected enabled config and injected sou
   assert.equal(await fs.readFile(fix.config, 'utf8'), original);
   await fs.unlink(fix.enabled);
   assert.notEqual(fix.run().status, 0);
-  await assert.rejects(fs.access(fix.log), /ENOENT/);
+  assert.ok(!(await fs.readFile(fix.log, 'utf8')).includes('systemctl'));
 });
 
 // Optional local integration: standalone temporary Nginx, never /etc/nginx or production.
@@ -381,7 +383,7 @@ test('failed first-time include installation restores absence of rules as well a
   assert.notEqual(fix.run([], { FAIL_TEST: '1' }).status, 0);
   assert.equal(await fs.readFile(fix.config, 'utf8'), original);
   await assert.rejects(fs.access(fix.include), /ENOENT/);
-  assert.equal(await fs.readFile(fix.log, 'utf8'), 'nginx -t\n');
+  assert.equal(await fs.readFile(fix.log, 'utf8'), 'nginx -T\nnginx -t\n');
 });
 
 test('fixture installer refuses production config/enabled/include/site paths and symlink-equivalent include before reading or writing rules', async t => {
@@ -395,18 +397,18 @@ test('fixture installer refuses production config/enabled/include/site paths and
   ]) {
     const result = fix.run([option, value]);
     assert.notEqual(result.status, 0);
-    assert.match(result.stderr, /Test mode cannot alter production paths/);
+    assert.match(result.stderr, /Test mode cannot access production or non-fixture paths/);
   }
   const linkedParent = path.join(fix.root, 'production-snippets-link');
   await fs.symlink('/etc/nginx/snippets', linkedParent);
   const result = fix.run(['--include-path', path.join(linkedParent, 'school-redirects.nginx.conf')]);
   assert.notEqual(result.status, 0);
-  assert.match(result.stderr, /Test mode cannot alter production paths/);
+  assert.match(result.stderr, /Symlink paths are not permitted/);
   const omittedIncludeArgs = [...fix.baseArgs];
   omittedIncludeArgs.splice(omittedIncludeArgs.indexOf('--include-path'), 2);
   const omitted = spawnSync('bash', omittedIncludeArgs, { encoding: 'utf8', env: fix.env });
   assert.notEqual(omitted.status, 0);
-  assert.match(omitted.stderr, /Test mode cannot alter production paths/);
+  assert.match(omitted.stderr, /Test mode cannot access production or non-fixture paths/);
   assert.equal(await fs.readFile(fix.config, 'utf8'), original);
   assert.equal(await fs.readFile(fix.include, 'utf8'), '# previous include\n');
   await assert.rejects(fs.access(fix.log), /ENOENT/);

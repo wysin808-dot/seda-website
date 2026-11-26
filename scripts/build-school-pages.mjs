@@ -396,6 +396,12 @@ export function renderPrivateSchoolIndex(schools, header = '', footer = '') {
 export function buildSchoolPages(root = process.cwd()) {
   const dataFile = path.join(root, 'content', 'schools', 'seo-schools.json');
   if (!fs.existsSync(dataFile)) return 0;
+  // The approved catalog owns ordinary records and directory pages. Keeping
+  // this legacy renderer available for isolated fixtures must not cause the
+  // production build to recreate hundreds of migrated school articles.
+  const catalogFile = path.join(root, 'content', 'schools', 'database.json');
+  const policyFile = path.join(root, 'content', 'schools', 'database-policy.json');
+  if (fs.existsSync(catalogFile) && fs.existsSync(policyFile)) return 0;
   const home = read(path.join(root, 'index.html'));
   const header = between(home, '<header class="site-header">', '</header>');
   const footer = between(home, '<footer class="site-footer">', '</footer>');

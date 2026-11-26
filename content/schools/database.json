@@ -1,0 +1,7288 @@
+[
+  {
+    "id": "primary-admiralty",
+    "category": "primary",
+    "nameZh": "海军部小学",
+    "nameEn": "Admiralty Primary School",
+    "location": "Woodlands",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/admiralty/"
+    ]
+  },
+  {
+    "id": "primary-ahmad-ibrahim",
+    "category": "primary",
+    "nameZh": "阿末依布拉欣小学",
+    "nameEn": "Ahmad Ibrahim Primary School",
+    "location": "Yishun",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/ahmad-ibrahim/"
+    ]
+  },
+  {
+    "id": "primary-ai-tong",
+    "category": "primary",
+    "nameZh": "爱同学校",
+    "nameEn": "Ai Tong School",
+    "location": "Bishan",
+    "schoolType": "政府小学 / SAP 特选学校",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/ai-tong/"
+    ]
+  },
+  {
+    "id": "primary-alexandra-primary",
+    "category": "primary",
+    "nameZh": "亚历山大小学",
+    "nameEn": "Alexandra Primary School",
+    "location": "Queenstown",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/alexandra-primary/"
+    ]
+  },
+  {
+    "id": "primary-anchor-green",
+    "category": "primary",
+    "nameZh": "翠苑小学",
+    "nameEn": "Anchor Green Primary School",
+    "location": "Sengkang",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/anchor-green/"
+    ]
+  },
+  {
+    "id": "primary-anderson-primary",
+    "category": "primary",
+    "nameZh": "安德逊小学",
+    "nameEn": "Anderson Primary School",
+    "location": "Ang Mo Kio",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/anderson-primary/"
+    ]
+  },
+  {
+    "id": "primary-ang-mo-kio",
+    "category": "primary",
+    "nameZh": "宏茂桥小学",
+    "nameEn": "Ang Mo Kio Primary School",
+    "location": "Ang Mo Kio",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/ang-mo-kio/"
+    ]
+  },
+  {
+    "id": "primary-anglo-chinese-primary",
+    "category": "primary",
+    "nameZh": "英华小学",
+    "nameEn": "Anglo-Chinese School (Primary)",
+    "location": "Bukit Timah",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/anglo-chinese-primary/"
+    ]
+  },
+  {
+    "id": "primary-anglo-chinese-school-junior",
+    "category": "primary",
+    "nameZh": "英华学校（经禧）",
+    "nameEn": "Anglo-Chinese School (Junior)",
+    "location": "Queenstown",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/anglo-chinese-school-junior/"
+    ]
+  },
+  {
+    "id": "primary-angsana",
+    "category": "primary",
+    "nameZh": "安善小学",
+    "nameEn": "Angsana Primary School",
+    "location": "Ang Mo Kio",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/angsana/"
+    ]
+  },
+  {
+    "id": "primary-beacon",
+    "category": "primary",
+    "nameZh": "明志小学",
+    "nameEn": "Beacon Primary School",
+    "location": "Bukit Panjang",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/beacon/"
+    ]
+  },
+  {
+    "id": "primary-bedok-green",
+    "category": "primary",
+    "nameZh": "勿洛绿苑小学",
+    "nameEn": "Bedok Green Primary School",
+    "location": "Bedok",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/bedok-green/"
+    ]
+  },
+  {
+    "id": "primary-bendemeer",
+    "category": "primary",
+    "nameZh": "明地迷亚小学",
+    "nameEn": "Bendemeer Primary School",
+    "location": "Kallang",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/bendemeer/"
+    ]
+  },
+  {
+    "id": "primary-blangah-rise",
+    "category": "primary",
+    "nameZh": "布兰雅坡小学",
+    "nameEn": "Blangah Rise Primary School",
+    "location": "Bukit Merah",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/blangah-rise/"
+    ]
+  },
+  {
+    "id": "primary-boon-lay-garden",
+    "category": "primary",
+    "nameZh": "文礼花园小学",
+    "nameEn": "Boon Lay Garden Primary School",
+    "location": "Jurong West",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/boon-lay-garden/"
+    ]
+  },
+  {
+    "id": "primary-bukit-panjang",
+    "category": "primary",
+    "nameZh": "武吉班让小学",
+    "nameEn": "Bukit Panjang Primary School",
+    "location": "Bukit Panjang",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/bukit-panjang/"
+    ]
+  },
+  {
+    "id": "primary-bukit-timah-primary",
+    "category": "primary",
+    "nameZh": "武吉知马小学",
+    "nameEn": "Bukit Timah Primary School",
+    "location": "Bukit Timah",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/bukit-timah-primary/"
+    ]
+  },
+  {
+    "id": "primary-bukit-view",
+    "category": "primary",
+    "nameZh": "武吉景小学",
+    "nameEn": "Bukit View Primary School",
+    "location": "Bukit Batok",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/bukit-view/"
+    ]
+  },
+  {
+    "id": "primary-canberra",
+    "category": "primary",
+    "nameZh": "坎培拉小学",
+    "nameEn": "Canberra Primary School",
+    "location": "Sembawang",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/canberra/"
+    ]
+  },
+  {
+    "id": "primary-canossa-primary",
+    "category": "primary",
+    "nameZh": "嘉诺撒天主教小学",
+    "nameEn": "Canossa Catholic Primary School",
+    "location": "Bedok",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/canossa-primary/"
+    ]
+  },
+  {
+    "id": "primary-cantonment",
+    "category": "primary",
+    "nameZh": "贞德小学",
+    "nameEn": "Cantonment Primary School",
+    "location": "Queenstown",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/cantonment/"
+    ]
+  },
+  {
+    "id": "primary-casuarina",
+    "category": "primary",
+    "nameZh": "木麻黄小学",
+    "nameEn": "Casuarina Primary School",
+    "location": "Tampines",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/casuarina/"
+    ]
+  },
+  {
+    "id": "primary-catholic-high-primary",
+    "category": "primary",
+    "nameZh": "公教小学",
+    "nameEn": "Catholic High School (Primary)",
+    "location": "Bishan",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/catholic-high-primary/"
+    ]
+  },
+  {
+    "id": "primary-cedar",
+    "category": "primary",
+    "nameZh": "四德小学",
+    "nameEn": "Cedar Primary School",
+    "location": "Toa Payoh",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/cedar/"
+    ]
+  },
+  {
+    "id": "primary-changkat",
+    "category": "primary",
+    "nameZh": "昌凯小学",
+    "nameEn": "Changkat Primary School",
+    "location": "Bukit Merah",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/changkat/"
+    ]
+  },
+  {
+    "id": "primary-chij",
+    "category": "primary",
+    "nameZh": "圣婴女校（加东）小学",
+    "nameEn": "CHIJ (Katong) Primary",
+    "location": "Marine Parade",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/chij/"
+    ]
+  },
+  {
+    "id": "primary-chij-kellock",
+    "category": "primary",
+    "nameZh": "圣婴女校（基洛）",
+    "nameEn": "CHIJ (Kellock)",
+    "location": "Queenstown",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/chij-kellock/"
+    ]
+  },
+  {
+    "id": "primary-chij-our-lady-of-good-counsel",
+    "category": "primary",
+    "nameZh": "圣婴女校（善导之母）",
+    "nameEn": "CHIJ Our Lady of Good Counsel",
+    "location": "Toa Payoh",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/chij-our-lady-of-good-counsel/"
+    ]
+  },
+  {
+    "id": "primary-chij-our-lady-of-the-nativity",
+    "category": "primary",
+    "nameZh": "圣婴女校（诞生之母）",
+    "nameEn": "CHIJ Our Lady of the Nativity",
+    "location": "Hougang",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/chij-our-lady-of-the-nativity/"
+    ]
+  },
+  {
+    "id": "primary-chij-our-lady-queen-of-peace",
+    "category": "primary",
+    "nameZh": "圣婴女校（和平之后）",
+    "nameEn": "CHIJ Our Lady Queen of Peace",
+    "location": "Bukit Panjang",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/chij-our-lady-queen-of-peace/"
+    ]
+  },
+  {
+    "id": "primary-chij-primary",
+    "category": "primary",
+    "nameZh": "圣婴女校（大巴窑）",
+    "nameEn": "CHIJ (Toa Payoh)",
+    "location": "Toa Payoh",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/chij-primary/"
+    ]
+  },
+  {
+    "id": "primary-chij-st-nicholas-girls-school",
+    "category": "primary",
+    "nameZh": "圣尼各拉女校小学",
+    "nameEn": "CHIJ St. Nicholas Girls' School (Primary)",
+    "location": "Ang Mo Kio",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/chij-st-nicholas-girls-school/"
+    ]
+  },
+  {
+    "id": "primary-chongfu",
+    "category": "primary",
+    "nameZh": "崇福学校",
+    "nameEn": "Chongfu School",
+    "location": "Yishun",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/chongfu/"
+    ]
+  },
+  {
+    "id": "primary-chongzheng",
+    "category": "primary",
+    "nameZh": "崇正小学",
+    "nameEn": "Chongzheng Primary School",
+    "location": "Tampines",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/chongzheng/"
+    ]
+  },
+  {
+    "id": "primary-chua-chu-kang",
+    "category": "primary",
+    "nameZh": "蔡厝港小学",
+    "nameEn": "Chua Chu Kang Primary School",
+    "location": "Choa Chu Kang",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/chua-chu-kang/"
+    ]
+  },
+  {
+    "id": "primary-clementi",
+    "category": "primary",
+    "nameZh": "金文泰小学",
+    "nameEn": "Clementi Primary School",
+    "location": "Clementi",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/clementi/"
+    ]
+  },
+  {
+    "id": "primary-compassvale-primary",
+    "category": "primary",
+    "nameZh": "康柏小学",
+    "nameEn": "Compassvale Primary School",
+    "location": "Sengkang",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/compassvale-primary/"
+    ]
+  },
+  {
+    "id": "primary-concord",
+    "category": "primary",
+    "nameZh": "康科德小学",
+    "nameEn": "Concord Primary School",
+    "location": "Choa Chu Kang",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/concord/"
+    ]
+  },
+  {
+    "id": "primary-corporation",
+    "category": "primary",
+    "nameZh": "公司小学",
+    "nameEn": "Corporation Primary School",
+    "location": "Jurong East",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/corporation/"
+    ]
+  },
+  {
+    "id": "primary-dazhong",
+    "category": "primary",
+    "nameZh": "大众小学",
+    "nameEn": "Dazhong Primary School",
+    "location": "Jurong West",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/dazhong/"
+    ]
+  },
+  {
+    "id": "primary-de-la-salle",
+    "category": "primary",
+    "nameZh": "德拉萨尔学校",
+    "nameEn": "De La Salle School",
+    "location": "Hougang",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/de-la-salle/"
+    ]
+  },
+  {
+    "id": "primary-east-spring",
+    "category": "primary",
+    "nameZh": "东泉小学",
+    "nameEn": "East Spring Primary School",
+    "location": "Tampines",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/east-spring/"
+    ]
+  },
+  {
+    "id": "primary-edgefield",
+    "category": "primary",
+    "nameZh": "毅道小学",
+    "nameEn": "Edgefield Primary School",
+    "location": "Punggol",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/edgefield/"
+    ]
+  },
+  {
+    "id": "primary-elias-park-primary",
+    "category": "primary",
+    "nameZh": "以利雅公园小学",
+    "nameEn": "Elias Park Primary School",
+    "location": "Pasir Ris",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/elias-park-primary/"
+    ]
+  },
+  {
+    "id": "primary-endeavour",
+    "category": "primary",
+    "nameZh": "恩得小学",
+    "nameEn": "Endeavour Primary School",
+    "location": "Jurong West",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/endeavour/"
+    ]
+  },
+  {
+    "id": "primary-evergreen",
+    "category": "primary",
+    "nameZh": "常青小学",
+    "nameEn": "Evergreen Primary School",
+    "location": "Woodlands",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/evergreen/"
+    ]
+  },
+  {
+    "id": "primary-fairfield-methodist-primary",
+    "category": "primary",
+    "nameZh": "花菲卫理小学",
+    "nameEn": "Fairfield Methodist School (Primary)",
+    "location": "Queenstown",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/fairfield-methodist-primary/"
+    ]
+  },
+  {
+    "id": "primary-farrer-park",
+    "category": "primary",
+    "nameZh": "花拉公园小学",
+    "nameEn": "Farrer Park Primary School",
+    "location": "Novena",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/farrer-park/"
+    ]
+  },
+  {
+    "id": "primary-fengshan",
+    "category": "primary",
+    "nameZh": "凤山小学",
+    "nameEn": "Fengshan Primary School",
+    "location": "Bedok",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/fengshan/"
+    ]
+  },
+  {
+    "id": "primary-fern-green",
+    "category": "primary",
+    "nameZh": "蕨绿小学",
+    "nameEn": "Fern Green Primary School",
+    "location": "Sengkang",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/fern-green/"
+    ]
+  },
+  {
+    "id": "primary-fernvale",
+    "category": "primary",
+    "nameZh": "锦泉小学",
+    "nameEn": "Fernvale Primary School",
+    "location": "Sengkang",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/fernvale/"
+    ]
+  },
+  {
+    "id": "primary-first-toa-payoh",
+    "category": "primary",
+    "nameZh": "第一大巴窑小学",
+    "nameEn": "First Toa Payoh Primary School",
+    "location": "Toa Payoh",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/first-toa-payoh/"
+    ]
+  },
+  {
+    "id": "primary-frontier",
+    "category": "primary",
+    "nameZh": "先锋小学",
+    "nameEn": "Frontier Primary School",
+    "location": "Jurong West",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/frontier/"
+    ]
+  },
+  {
+    "id": "primary-fuchun",
+    "category": "primary",
+    "nameZh": "福春小学",
+    "nameEn": "Fuchun Primary School",
+    "location": "Woodlands",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/fuchun/"
+    ]
+  },
+  {
+    "id": "primary-fuhua",
+    "category": "primary",
+    "nameZh": "辅华小学",
+    "nameEn": "Fuhua Primary School",
+    "location": "Jurong West",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/fuhua/"
+    ]
+  },
+  {
+    "id": "primary-gan-eng-seng",
+    "category": "primary",
+    "nameZh": "颜永成小学",
+    "nameEn": "Gan Eng Seng Primary School",
+    "location": "Bukit Merah",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/gan-eng-seng/"
+    ]
+  },
+  {
+    "id": "primary-geylang-methodist-school",
+    "category": "primary",
+    "nameZh": "芽笼美以美小学",
+    "nameEn": "Geylang Methodist School (Primary)",
+    "location": "Central",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/geylang-methodist-school/"
+    ]
+  },
+  {
+    "id": "primary-gongshang-primary",
+    "category": "primary",
+    "nameZh": "工商小学",
+    "nameEn": "Gongshang Primary School",
+    "location": "Tampines",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/gongshang-primary/"
+    ]
+  },
+  {
+    "id": "primary-greendale-primary",
+    "category": "primary",
+    "nameZh": "青景小学",
+    "nameEn": "Greendale Primary School",
+    "location": "Punggol",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/greendale-primary/"
+    ]
+  },
+  {
+    "id": "primary-greenridge",
+    "category": "primary",
+    "nameZh": "青岭小学",
+    "nameEn": "Greenridge Primary School",
+    "location": "Bukit Panjang",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/greenridge/"
+    ]
+  },
+  {
+    "id": "primary-greenwood",
+    "category": "primary",
+    "nameZh": "绿林小学",
+    "nameEn": "Greenwood Primary School",
+    "location": "Bukit Panjang",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/greenwood/"
+    ]
+  },
+  {
+    "id": "primary-haig-girls",
+    "category": "primary",
+    "nameZh": "海格女校",
+    "nameEn": "Haig Girls' School",
+    "location": "Geylang",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/haig-girls/"
+    ]
+  },
+  {
+    "id": "primary-henry-park",
+    "category": "primary",
+    "nameZh": "恒力小学",
+    "nameEn": "Henry Park Primary School",
+    "location": "Bukit Timah / Holland",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/henry-park/"
+    ]
+  },
+  {
+    "id": "primary-holy-innocents-primary",
+    "category": "primary",
+    "nameZh": "圣婴小学",
+    "nameEn": "Holy Innocents' Primary School",
+    "location": "Serangoon",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/holy-innocents-primary/"
+    ]
+  },
+  {
+    "id": "primary-hong-wen",
+    "category": "primary",
+    "nameZh": "宏文学校",
+    "nameEn": "Hong Wen School",
+    "location": "Kallang",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/hong-wen/"
+    ]
+  },
+  {
+    "id": "primary-horizon",
+    "category": "primary",
+    "nameZh": "地平线小学",
+    "nameEn": "Horizon Primary School",
+    "location": "Punggol",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/horizon/"
+    ]
+  },
+  {
+    "id": "primary-hougang",
+    "category": "primary",
+    "nameZh": "后港小学",
+    "nameEn": "Hougang Primary School",
+    "location": "Hougang",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/hougang/"
+    ]
+  },
+  {
+    "id": "primary-huamin",
+    "category": "primary",
+    "nameZh": "华民小学",
+    "nameEn": "Huamin Primary School",
+    "location": "Hougang",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/huamin/"
+    ]
+  },
+  {
+    "id": "primary-innova",
+    "category": "primary",
+    "nameZh": "创新小学",
+    "nameEn": "Innova Primary School",
+    "location": "Jurong West",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/innova/"
+    ]
+  },
+  {
+    "id": "primary-jiemin",
+    "category": "primary",
+    "nameZh": "洁明小学",
+    "nameEn": "Jiemin Primary School",
+    "location": "Sengkang",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/jiemin/"
+    ]
+  },
+  {
+    "id": "primary-jing-shan",
+    "category": "primary",
+    "nameZh": "景山小学",
+    "nameEn": "Jing Shan Primary School",
+    "location": "Ang Mo Kio",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/jing-shan/"
+    ]
+  },
+  {
+    "id": "primary-junyuan",
+    "category": "primary",
+    "nameZh": "俊源小学",
+    "nameEn": "Junyuan Primary School",
+    "location": "Tampines",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/junyuan/"
+    ]
+  },
+  {
+    "id": "primary-jurong-primary",
+    "category": "primary",
+    "nameZh": "裕廊小学",
+    "nameEn": "Jurong Primary School",
+    "location": "Jurong East",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/jurong-primary/"
+    ]
+  },
+  {
+    "id": "primary-jurong-west",
+    "category": "primary",
+    "nameZh": "裕廊西小学",
+    "nameEn": "Jurong West Primary School",
+    "location": "Jurong West",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/jurong-west/"
+    ]
+  },
+  {
+    "id": "primary-keming",
+    "category": "primary",
+    "nameZh": "克明小学",
+    "nameEn": "Keming Primary School",
+    "location": "Bukit Batok",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/keming/"
+    ]
+  },
+  {
+    "id": "primary-kheng-cheng",
+    "category": "primary",
+    "nameZh": "庆成学校",
+    "nameEn": "Kheng Cheng School",
+    "location": "Queenstown",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/kheng-cheng/"
+    ]
+  },
+  {
+    "id": "primary-kong-hwa",
+    "category": "primary",
+    "nameZh": "光华学校",
+    "nameEn": "Kong Hwa School",
+    "location": "350 Guillemard Road, Singapore 399772",
+    "schoolType": "政府辅助小学 / SAP",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "https://www.konghwa.moe.edu.sg/",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "/primary-schools/kong-hwa/",
+    "legacyUrls": [
+      "/primary-schools/kong-hwa/"
+    ]
+  },
+  {
+    "id": "primary-kuo-chuan-presbyterian",
+    "category": "primary",
+    "nameZh": "国专长老会小学",
+    "nameEn": "Kuo Chuan Presbyterian Primary School",
+    "location": "Bishan",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/kuo-chuan-presbyterian/"
+    ]
+  },
+  {
+    "id": "primary-lakeside",
+    "category": "primary",
+    "nameZh": "湖畔小学",
+    "nameEn": "Lakeside Primary School",
+    "location": "Jurong West",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/lakeside/"
+    ]
+  },
+  {
+    "id": "primary-lianhua-primary",
+    "category": "primary",
+    "nameZh": "联华小学",
+    "nameEn": "Lianhua Primary School",
+    "location": "Bukit Batok",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/lianhua-primary/"
+    ]
+  },
+  {
+    "id": "primary-maha-bodhi",
+    "category": "primary",
+    "nameZh": "菩提学校",
+    "nameEn": "Maha Bodhi School",
+    "location": "Tampines",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/maha-bodhi/"
+    ]
+  },
+  {
+    "id": "primary-maris-stella-high-primary",
+    "category": "primary",
+    "nameZh": "海星中学小学部",
+    "nameEn": "Maris Stella High School (Primary)",
+    "location": "Bedok",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/maris-stella-high-primary/"
+    ]
+  },
+  {
+    "id": "primary-marsiling",
+    "category": "primary",
+    "nameZh": "马西岭小学",
+    "nameEn": "Marsiling Primary School",
+    "location": "Woodlands",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/marsiling/"
+    ]
+  },
+  {
+    "id": "primary-marymount-convent",
+    "category": "primary",
+    "nameZh": "玛丽蒙修道院学校",
+    "nameEn": "Marymount Convent School",
+    "location": "Bishan",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/marymount-convent/"
+    ]
+  },
+  {
+    "id": "primary-mayflower-primary",
+    "category": "primary",
+    "nameZh": "美华小学",
+    "nameEn": "Mayflower Primary School",
+    "location": "Ang Mo Kio",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/mayflower-primary/"
+    ]
+  },
+  {
+    "id": "primary-mee-toh",
+    "category": "primary",
+    "nameZh": "美桃学校",
+    "nameEn": "Mee Toh School",
+    "location": "Punggol",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/mee-toh/"
+    ]
+  },
+  {
+    "id": "primary-meridian",
+    "category": "primary",
+    "nameZh": "美廉小学",
+    "nameEn": "Meridian Primary School",
+    "location": "Pasir Ris",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/meridian/"
+    ]
+  },
+  {
+    "id": "primary-methodist-girls-school",
+    "category": "primary",
+    "nameZh": "美以美女校小学",
+    "nameEn": "Methodist Girls' School (Primary)",
+    "location": "Bukit Timah",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/methodist-girls-school/"
+    ]
+  },
+  {
+    "id": "primary-montfort-junior",
+    "category": "primary",
+    "nameZh": "蒙福学校小学部",
+    "nameEn": "Montfort Junior School",
+    "location": "Hougang",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/montfort-junior/"
+    ]
+  },
+  {
+    "id": "primary-nan-chiau",
+    "category": "primary",
+    "nameZh": "南侨小学",
+    "nameEn": "Nan Chiau Primary School",
+    "location": "Sengkang",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/nan-chiau/"
+    ]
+  },
+  {
+    "id": "primary-nan-hua-primary",
+    "category": "primary",
+    "nameZh": "南华小学",
+    "nameEn": "Nan Hua Primary School",
+    "location": "Clementi",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/nan-hua-primary/"
+    ]
+  },
+  {
+    "id": "primary-nanyang-primary",
+    "category": "primary",
+    "nameZh": "南洋小学",
+    "nameEn": "Nanyang Primary School",
+    "location": "Bukit Timah / King's Road",
+    "schoolType": "政府小学 / SAP 特选学校",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/nanyang-primary/"
+    ]
+  },
+  {
+    "id": "primary-naval-base",
+    "category": "primary",
+    "nameZh": "海军基地小学",
+    "nameEn": "Naval Base Primary School",
+    "location": "Yishun",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/naval-base/"
+    ]
+  },
+  {
+    "id": "primary-new-town",
+    "category": "primary",
+    "nameZh": "新镇小学",
+    "nameEn": "New Town Primary School",
+    "location": "Queenstown",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/new-town/"
+    ]
+  },
+  {
+    "id": "primary-ngee-ann",
+    "category": "primary",
+    "nameZh": "义安小学",
+    "nameEn": "Ngee Ann Primary School",
+    "location": "Clementi",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/ngee-ann/"
+    ]
+  },
+  {
+    "id": "primary-north-spring-primary",
+    "category": "primary",
+    "nameZh": "北泉小学",
+    "nameEn": "North Spring Primary School",
+    "location": "Yishun",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/north-spring-primary/"
+    ]
+  },
+  {
+    "id": "primary-north-view",
+    "category": "primary",
+    "nameZh": "北景小学",
+    "nameEn": "North View Primary School",
+    "location": "Yishun",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/north-view/"
+    ]
+  },
+  {
+    "id": "primary-north-vista",
+    "category": "primary",
+    "nameZh": "北景小学",
+    "nameEn": "North Vista Primary School",
+    "location": "Sengkang",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/north-vista/"
+    ]
+  },
+  {
+    "id": "primary-northland",
+    "category": "primary",
+    "nameZh": "北地小学",
+    "nameEn": "Northland Primary School",
+    "location": "Yishun",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/northland/"
+    ]
+  },
+  {
+    "id": "primary-northoaks",
+    "category": "primary",
+    "nameZh": "北橡小学",
+    "nameEn": "Northoaks Primary School",
+    "location": "Woodlands",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/northoaks/"
+    ]
+  },
+  {
+    "id": "primary-northshore",
+    "category": "primary",
+    "nameZh": "北岸小学",
+    "nameEn": "Northshore Primary School",
+    "location": "Punggol",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/northshore/"
+    ]
+  },
+  {
+    "id": "primary-oasis",
+    "category": "primary",
+    "nameZh": "绿洲小学",
+    "nameEn": "Oasis Primary School",
+    "location": "Punggol",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/oasis/"
+    ]
+  },
+  {
+    "id": "primary-opera-estate",
+    "category": "primary",
+    "nameZh": "歌剧园小学",
+    "nameEn": "Opera Estate Primary School",
+    "location": "Bedok",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/opera-estate/"
+    ]
+  },
+  {
+    "id": "primary-palm-view",
+    "category": "primary",
+    "nameZh": "棕榈景小学",
+    "nameEn": "Palm View Primary School",
+    "location": "Bukit Panjang",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/palm-view/"
+    ]
+  },
+  {
+    "id": "primary-park-view",
+    "category": "primary",
+    "nameZh": "百景小学",
+    "nameEn": "Park View Primary School",
+    "location": "Sengkang",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/park-view/"
+    ]
+  },
+  {
+    "id": "primary-pasir-ris",
+    "category": "primary",
+    "nameZh": "巴西立小学",
+    "nameEn": "Pasir Ris Primary School",
+    "location": "Pasir Ris",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/pasir-ris/"
+    ]
+  },
+  {
+    "id": "primary-paya-lebar-methodist-girls-school",
+    "category": "primary",
+    "nameZh": "巴耶利峇美以美女校小学",
+    "nameEn": "Paya Lebar Methodist Girls' School (Primary)",
+    "location": "Hougang",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/paya-lebar-methodist-girls-school/"
+    ]
+  },
+  {
+    "id": "primary-pei-chun-public",
+    "category": "primary",
+    "nameZh": "培群学校",
+    "nameEn": "Pei Chun Public School",
+    "location": "Toa Payoh",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/pei-chun-public/"
+    ]
+  },
+  {
+    "id": "primary-pei-hwa-presbyterian",
+    "category": "primary",
+    "nameZh": "培华长老会小学",
+    "nameEn": "Pei Hwa Presbyterian Primary School",
+    "location": "Bukit Panjang",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/pei-hwa-presbyterian/"
+    ]
+  },
+  {
+    "id": "primary-pei-tong",
+    "category": "primary",
+    "nameZh": "培同小学",
+    "nameEn": "Pei Tong Primary School",
+    "location": "Clementi",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/pei-tong/"
+    ]
+  },
+  {
+    "id": "primary-peiying",
+    "category": "primary",
+    "nameZh": "培英小学",
+    "nameEn": "Peiying Primary School",
+    "location": "Yishun",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/peiying/"
+    ]
+  },
+  {
+    "id": "primary-pioneer",
+    "category": "primary",
+    "nameZh": "先驱小学",
+    "nameEn": "Pioneer Primary School",
+    "location": "Jurong West",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/pioneer/"
+    ]
+  },
+  {
+    "id": "primary-poi-ching",
+    "category": "primary",
+    "nameZh": "培青学校",
+    "nameEn": "Poi Ching School",
+    "location": "Tampines",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/poi-ching/"
+    ]
+  },
+  {
+    "id": "primary-princess-elizabeth-primary",
+    "category": "primary",
+    "nameZh": "伊丽莎白公主小学",
+    "nameEn": "Princess Elizabeth Primary School",
+    "location": "Bukit Batok",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/princess-elizabeth-primary/"
+    ]
+  },
+  {
+    "id": "primary-punggol-cove",
+    "category": "primary",
+    "nameZh": "榜鹅湾小学",
+    "nameEn": "Punggol Cove Primary School",
+    "location": "Punggol",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/punggol-cove/"
+    ]
+  },
+  {
+    "id": "primary-punggol-green",
+    "category": "primary",
+    "nameZh": "榜鹅绿苑小学",
+    "nameEn": "Punggol Green Primary School",
+    "location": "Punggol",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/punggol-green/"
+    ]
+  },
+  {
+    "id": "primary-punggol-primary",
+    "category": "primary",
+    "nameZh": "榜鹅小学",
+    "nameEn": "Punggol Primary School",
+    "location": "Punggol",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/punggol-primary/"
+    ]
+  },
+  {
+    "id": "primary-punggol-view",
+    "category": "primary",
+    "nameZh": "榜鹅景小学",
+    "nameEn": "Punggol View Primary School",
+    "location": "Punggol",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/punggol-view/"
+    ]
+  },
+  {
+    "id": "primary-qifa",
+    "category": "primary",
+    "nameZh": "启发小学",
+    "nameEn": "Qifa Primary School",
+    "location": "Queenstown",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/qifa/"
+    ]
+  },
+  {
+    "id": "primary-qihua",
+    "category": "primary",
+    "nameZh": "启化小学",
+    "nameEn": "Qihua Primary School",
+    "location": "Woodlands",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/qihua/"
+    ]
+  },
+  {
+    "id": "primary-queenstown",
+    "category": "primary",
+    "nameZh": "女皇镇小学",
+    "nameEn": "Queenstown Primary School",
+    "location": "Queenstown",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/queenstown/"
+    ]
+  },
+  {
+    "id": "primary-radin-mas",
+    "category": "primary",
+    "nameZh": "拉丁马士小学",
+    "nameEn": "Radin Mas Primary School",
+    "location": "Queenstown",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/radin-mas/"
+    ]
+  },
+  {
+    "id": "primary-raffles-girls-primary",
+    "category": "primary",
+    "nameZh": "莱佛士女子小学",
+    "nameEn": "Raffles Girls' Primary School",
+    "location": "Bukit Timah",
+    "schoolType": "政府女子小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/raffles-girls-primary/"
+    ]
+  },
+  {
+    "id": "primary-red-swastika",
+    "category": "primary",
+    "nameZh": "卍慈学校",
+    "nameEn": "Red Swastika School",
+    "location": "Bedok",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/red-swastika/"
+    ]
+  },
+  {
+    "id": "primary-river-valley-primary",
+    "category": "primary",
+    "nameZh": "立化小学",
+    "nameEn": "River Valley Primary School",
+    "location": "Queenstown",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/river-valley-primary/"
+    ]
+  },
+  {
+    "id": "primary-riverside",
+    "category": "primary",
+    "nameZh": "河畔小学",
+    "nameEn": "Riverside Primary School",
+    "location": "Woodlands",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/riverside/"
+    ]
+  },
+  {
+    "id": "primary-rivervale",
+    "category": "primary",
+    "nameZh": "河谷小学",
+    "nameEn": "Rivervale Primary School",
+    "location": "Sengkang",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/rivervale/"
+    ]
+  },
+  {
+    "id": "primary-rosyth",
+    "category": "primary",
+    "nameZh": "乐赛学校",
+    "nameEn": "Rosyth School",
+    "location": "Serangoon",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/rosyth/"
+    ]
+  },
+  {
+    "id": "primary-rulang",
+    "category": "primary",
+    "nameZh": "如兰小学",
+    "nameEn": "Rulang Primary School",
+    "location": "Jurong West",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/rulang/"
+    ]
+  },
+  {
+    "id": "primary-sembawang",
+    "category": "primary",
+    "nameZh": "三巴旺小学",
+    "nameEn": "Sembawang Primary School",
+    "location": "Sembawang",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/sembawang/"
+    ]
+  },
+  {
+    "id": "primary-sengkang-green",
+    "category": "primary",
+    "nameZh": "盛港绿苑小学",
+    "nameEn": "Sengkang Green Primary School",
+    "location": "Sengkang",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/sengkang-green/"
+    ]
+  },
+  {
+    "id": "primary-sengkang-primary",
+    "category": "primary",
+    "nameZh": "盛港小学",
+    "nameEn": "Seng Kang Primary School",
+    "location": "Sengkang",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/sengkang-primary/"
+    ]
+  },
+  {
+    "id": "primary-shuqun",
+    "category": "primary",
+    "nameZh": "淑群小学",
+    "nameEn": "Shuqun Primary School",
+    "location": "Jurong West",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/shuqun/"
+    ]
+  },
+  {
+    "id": "primary-si-ling",
+    "category": "primary",
+    "nameZh": "思励小学",
+    "nameEn": "Si Ling Primary School",
+    "location": "Woodlands",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/si-ling/"
+    ]
+  },
+  {
+    "id": "primary-singapore-chinese-girls-school",
+    "category": "primary",
+    "nameZh": "新加坡华族女校小学",
+    "nameEn": "Singapore Chinese Girls' School (Primary)",
+    "location": "Novena",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/singapore-chinese-girls-school/"
+    ]
+  },
+  {
+    "id": "primary-south-view-primary",
+    "category": "primary",
+    "nameZh": "南景小学",
+    "nameEn": "South View Primary School",
+    "location": "Jurong West",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/south-view-primary/"
+    ]
+  },
+  {
+    "id": "primary-springdale",
+    "category": "primary",
+    "nameZh": "春田小学",
+    "nameEn": "Springdale Primary School",
+    "location": "Bukit Panjang",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/springdale/"
+    ]
+  },
+  {
+    "id": "primary-st-andrew-s-junior",
+    "category": "primary",
+    "nameZh": "圣安德烈小学",
+    "nameEn": "St. Andrew's Junior School",
+    "location": "Toa Payoh",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/st-andrew-s-junior/"
+    ]
+  },
+  {
+    "id": "primary-st-anthony-s",
+    "category": "primary",
+    "nameZh": "圣安东尼小学",
+    "nameEn": "St. Anthony's Primary School",
+    "location": "Woodlands",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/st-anthony-s/"
+    ]
+  },
+  {
+    "id": "primary-st-anthony-s-canossian",
+    "category": "primary",
+    "nameZh": "圣安东尼天主教小学",
+    "nameEn": "St. Anthony's Canossian Primary School",
+    "location": "Bedok",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/st-anthony-s-canossian/"
+    ]
+  },
+  {
+    "id": "primary-st-gabriel-s",
+    "category": "primary",
+    "nameZh": "圣嘉百利小学",
+    "nameEn": "St. Gabriel's Primary School",
+    "location": "Serangoon",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/st-gabriel-s/"
+    ]
+  },
+  {
+    "id": "primary-st-hildas-primary",
+    "category": "primary",
+    "nameZh": "圣希尔达小学",
+    "nameEn": "St. Hilda's Primary School",
+    "location": "Tampines",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/st-hildas-primary/"
+    ]
+  },
+  {
+    "id": "primary-st-joseph-s-institution-junior",
+    "category": "primary",
+    "nameZh": "圣约瑟书院小学",
+    "nameEn": "St. Joseph's Institution Junior",
+    "location": "Novena",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/st-joseph-s-institution-junior/"
+    ]
+  },
+  {
+    "id": "primary-st-margarets-primary",
+    "category": "primary",
+    "nameZh": "圣玛格烈小学",
+    "nameEn": "St. Margaret's Primary School",
+    "location": "Queenstown",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/st-margarets-primary/"
+    ]
+  },
+  {
+    "id": "primary-st-stephen-s",
+    "category": "primary",
+    "nameZh": "圣斯特芬学校",
+    "nameEn": "St. Stephen's School",
+    "location": "Bedok",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/st-stephen-s/"
+    ]
+  },
+  {
+    "id": "primary-tampines",
+    "category": "primary",
+    "nameZh": "淡滨尼小学",
+    "nameEn": "Tampines Primary School",
+    "location": "Tampines",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/tampines/"
+    ]
+  },
+  {
+    "id": "primary-tampines-north",
+    "category": "primary",
+    "nameZh": "淡滨尼北小学",
+    "nameEn": "Tampines North Primary School",
+    "location": "Tampines",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/tampines-north/"
+    ]
+  },
+  {
+    "id": "primary-tanjong-katong-primary",
+    "category": "primary",
+    "nameZh": "丹绒加东小学",
+    "nameEn": "Tanjong Katong Primary School",
+    "location": "Marine Parade",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/tanjong-katong-primary/"
+    ]
+  },
+  {
+    "id": "primary-tao-nan",
+    "category": "primary",
+    "nameZh": "道南学校",
+    "nameEn": "Tao Nan School",
+    "location": "Marine Parade",
+    "schoolType": "政府小学 / SAP 特选学校",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/tao-nan/"
+    ]
+  },
+  {
+    "id": "primary-teck-ghee",
+    "category": "primary",
+    "nameZh": "德义小学",
+    "nameEn": "Teck Ghee Primary School",
+    "location": "Ang Mo Kio",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/teck-ghee/"
+    ]
+  },
+  {
+    "id": "primary-teck-whye",
+    "category": "primary",
+    "nameZh": "德惠小学",
+    "nameEn": "Teck Whye Primary School",
+    "location": "Choa Chu Kang",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/teck-whye/"
+    ]
+  },
+  {
+    "id": "primary-telok-kurau",
+    "category": "primary",
+    "nameZh": "直落古楼小学",
+    "nameEn": "Telok Kurau Primary School",
+    "location": "Bedok",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/telok-kurau/"
+    ]
+  },
+  {
+    "id": "primary-temasek-primary",
+    "category": "primary",
+    "nameZh": "淡马锡小学",
+    "nameEn": "Temasek Primary School",
+    "location": "Bedok",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/temasek-primary/"
+    ]
+  },
+  {
+    "id": "primary-unity",
+    "category": "primary",
+    "nameZh": "友诺小学",
+    "nameEn": "Unity Primary School",
+    "location": "Choa Chu Kang",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/unity/"
+    ]
+  },
+  {
+    "id": "primary-valour",
+    "category": "primary",
+    "nameZh": "勇毅小学",
+    "nameEn": "Valour Primary School",
+    "location": "Punggol",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/valour/"
+    ]
+  },
+  {
+    "id": "primary-waterway",
+    "category": "primary",
+    "nameZh": "水道小学",
+    "nameEn": "Waterway Primary School",
+    "location": "Punggol",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/waterway/"
+    ]
+  },
+  {
+    "id": "primary-wellington",
+    "category": "primary",
+    "nameZh": "威灵顿小学",
+    "nameEn": "Wellington Primary School",
+    "location": "Pasir Ris",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/wellington/"
+    ]
+  },
+  {
+    "id": "primary-west-grove",
+    "category": "primary",
+    "nameZh": "西丛小学",
+    "nameEn": "West Grove Primary School",
+    "location": "Jurong West",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/west-grove/"
+    ]
+  },
+  {
+    "id": "primary-west-spring-primary",
+    "category": "primary",
+    "nameZh": "西泉小学",
+    "nameEn": "West Spring Primary School",
+    "location": "Bukit Panjang",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/west-spring-primary/"
+    ]
+  },
+  {
+    "id": "primary-west-view",
+    "category": "primary",
+    "nameZh": "西景小学",
+    "nameEn": "West View Primary School",
+    "location": "Bukit Batok",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/west-view/"
+    ]
+  },
+  {
+    "id": "primary-westwood",
+    "category": "primary",
+    "nameZh": "西林小学",
+    "nameEn": "Westwood Primary School",
+    "location": "Jurong West",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/westwood/"
+    ]
+  },
+  {
+    "id": "primary-white-sands",
+    "category": "primary",
+    "nameZh": "白沙小学",
+    "nameEn": "White Sands Primary School",
+    "location": "Pasir Ris",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/white-sands/"
+    ]
+  },
+  {
+    "id": "primary-woodgrove",
+    "category": "primary",
+    "nameZh": "林景小学",
+    "nameEn": "Woodgrove Primary School",
+    "location": "Woodlands",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/woodgrove/"
+    ]
+  },
+  {
+    "id": "primary-woodlands-primary",
+    "category": "primary",
+    "nameZh": "兀兰小学",
+    "nameEn": "Woodlands Primary School",
+    "location": "Woodlands",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/woodlands-primary/"
+    ]
+  },
+  {
+    "id": "primary-woodlands-ring",
+    "category": "primary",
+    "nameZh": "兀兰环小学",
+    "nameEn": "Woodlands Ring Primary School",
+    "location": "Woodlands",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/woodlands-ring/"
+    ]
+  },
+  {
+    "id": "primary-xinghua-primary",
+    "category": "primary",
+    "nameZh": "兴化小学",
+    "nameEn": "Xinghua Primary School",
+    "location": "Punggol",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/xinghua-primary/"
+    ]
+  },
+  {
+    "id": "primary-xingnan",
+    "category": "primary",
+    "nameZh": "兴南小学",
+    "nameEn": "Xingnan Primary School",
+    "location": "Jurong West",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/xingnan/"
+    ]
+  },
+  {
+    "id": "primary-xinmin-primary",
+    "category": "primary",
+    "nameZh": "新民小学",
+    "nameEn": "Xinmin Primary School",
+    "location": "Hougang",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/xinmin-primary/"
+    ]
+  },
+  {
+    "id": "primary-xishan",
+    "category": "primary",
+    "nameZh": "西山小学",
+    "nameEn": "Xishan Primary School",
+    "location": "Choa Chu Kang",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/xishan/"
+    ]
+  },
+  {
+    "id": "primary-yangzheng",
+    "category": "primary",
+    "nameZh": "养正小学",
+    "nameEn": "Yangzheng Primary School",
+    "location": "Ang Mo Kio",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/yangzheng/"
+    ]
+  },
+  {
+    "id": "primary-yew-tee",
+    "category": "primary",
+    "nameZh": "油池小学",
+    "nameEn": "Yew Tee Primary School",
+    "location": "Choa Chu Kang",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/yew-tee/"
+    ]
+  },
+  {
+    "id": "primary-yio-chu-kang",
+    "category": "primary",
+    "nameZh": "杨厝港小学",
+    "nameEn": "Yio Chu Kang Primary School",
+    "location": "Ang Mo Kio",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/yio-chu-kang/"
+    ]
+  },
+  {
+    "id": "primary-yishun",
+    "category": "primary",
+    "nameZh": "义顺小学",
+    "nameEn": "Yishun Primary School",
+    "location": "Yishun",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/yishun/"
+    ]
+  },
+  {
+    "id": "primary-yu-neng",
+    "category": "primary",
+    "nameZh": "育能小学",
+    "nameEn": "Yu Neng Primary School",
+    "location": "Jurong West",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/yu-neng/"
+    ]
+  },
+  {
+    "id": "primary-yuhua",
+    "category": "primary",
+    "nameZh": "裕华小学",
+    "nameEn": "Yuhua Primary School",
+    "location": "Jurong East",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/yuhua/"
+    ]
+  },
+  {
+    "id": "primary-yumin-primary",
+    "category": "primary",
+    "nameZh": "裕民小学",
+    "nameEn": "Yumin Primary School",
+    "location": "Ang Mo Kio",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/yumin-primary/"
+    ]
+  },
+  {
+    "id": "primary-zhangde-primary",
+    "category": "primary",
+    "nameZh": "彰德小学",
+    "nameEn": "Zhangde Primary School",
+    "location": "Ang Mo Kio",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/zhangde-primary/"
+    ]
+  },
+  {
+    "id": "primary-zhenghua",
+    "category": "primary",
+    "nameZh": "正华小学",
+    "nameEn": "Zhenghua Primary School",
+    "location": "Bukit Panjang",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/zhenghua/"
+    ]
+  },
+  {
+    "id": "primary-zhonghua",
+    "category": "primary",
+    "nameZh": "中华小学",
+    "nameEn": "Zhonghua Primary School",
+    "location": "Serangoon",
+    "schoolType": "政府小学",
+    "curriculum": "新加坡小学课程 / PSLE",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/primary-schools/zhonghua/"
+    ]
+  },
+  {
+    "id": "secondary-acs-barker-road",
+    "category": "secondary",
+    "nameZh": "英华学校（巴克路）",
+    "nameEn": "Anglo-Chinese School (Barker Road)",
+    "location": "Novena",
+    "schoolType": "政府中学 / Autonomous",
+    "curriculum": "O-Level / SEC 中学课程",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/acs-barker-road/"
+    ]
+  },
+  {
+    "id": "secondary-admiralty",
+    "category": "secondary",
+    "nameZh": "海军部中学",
+    "nameEn": "Admiralty Secondary School",
+    "location": "Woodlands",
+    "schoolType": "政府中学 / Government",
+    "curriculum": "O-Level / SEC 中学课程",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/admiralty/"
+    ]
+  },
+  {
+    "id": "secondary-ahmad-ibrahim",
+    "category": "secondary",
+    "nameZh": "阿末依布拉欣中学",
+    "nameEn": "Ahmad Ibrahim Secondary School",
+    "location": "Yishun",
+    "schoolType": "政府中学 / Government",
+    "curriculum": "O-Level / SEC 中学课程",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/ahmad-ibrahim/"
+    ]
+  },
+  {
+    "id": "secondary-anderson",
+    "category": "secondary",
+    "nameZh": "安德逊中学",
+    "nameEn": "Anderson Secondary School",
+    "location": "Ang Mo Kio",
+    "schoolType": "政府中学 / Autonomous",
+    "curriculum": "O-Level / SEC 中学课程",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/anderson/"
+    ]
+  },
+  {
+    "id": "secondary-ang-mo-kio",
+    "category": "secondary",
+    "nameZh": "宏茂桥中学",
+    "nameEn": "Ang Mo Kio Secondary School",
+    "location": "Ang Mo Kio",
+    "schoolType": "政府中学 / Government",
+    "curriculum": "O-Level / SEC 中学课程",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/ang-mo-kio/"
+    ]
+  },
+  {
+    "id": "secondary-anglican-high-school",
+    "category": "secondary",
+    "nameZh": "圣公会中学",
+    "nameEn": "Anglican High School",
+    "location": "Bedok",
+    "schoolType": "政府中学 / Autonomous",
+    "curriculum": "O-Level / SEC 中学课程",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/anglican-high-school/"
+    ]
+  },
+  {
+    "id": "secondary-anglo-chinese-independent",
+    "category": "secondary",
+    "nameZh": "英华自主中学",
+    "nameEn": "Anglo-Chinese School (Independent)",
+    "location": "Dover",
+    "schoolType": "自主中学 / IB 路径",
+    "curriculum": "IB Diploma Programme 路径",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/anglo-chinese-independent/"
+    ]
+  },
+  {
+    "id": "secondary-assumption-english",
+    "category": "secondary",
+    "nameZh": "阿桑普申英校",
+    "nameEn": "Assumption English School",
+    "location": "Bukit Panjang",
+    "schoolType": "政府中学 / Government",
+    "curriculum": "O-Level / SEC 中学课程",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/assumption-english/"
+    ]
+  },
+  {
+    "id": "secondary-assumption-pathway",
+    "category": "secondary",
+    "nameZh": "阿桑普申道路学校",
+    "nameEn": "Assumption Pathway School",
+    "location": "Bukit Panjang",
+    "schoolType": "政府中学 / Specialised / 特殊或专门路径",
+    "curriculum": "O-Level / SEC 中学课程",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/assumption-pathway/"
+    ]
+  },
+  {
+    "id": "secondary-bartley",
+    "category": "secondary",
+    "nameZh": "巴特利中学",
+    "nameEn": "Bartley Secondary School",
+    "location": "Toa Payoh",
+    "schoolType": "政府中学 / Government",
+    "curriculum": "O-Level / SEC 中学课程",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/bartley/"
+    ]
+  },
+  {
+    "id": "secondary-beatty",
+    "category": "secondary",
+    "nameZh": "碧蒂中学",
+    "nameEn": "Beatty Secondary School",
+    "location": "Toa Payoh",
+    "schoolType": "政府中学 / Government",
+    "curriculum": "O-Level / SEC 中学课程",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/beatty/"
+    ]
+  },
+  {
+    "id": "secondary-bedok-green",
+    "category": "secondary",
+    "nameZh": "勿洛绿苑中学",
+    "nameEn": "Bedok Green Secondary School",
+    "location": "Bedok",
+    "schoolType": "政府中学 / Government",
+    "curriculum": "O-Level / SEC 中学课程",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/bedok-green/"
+    ]
+  },
+  {
+    "id": "secondary-bedok-south",
+    "category": "secondary",
+    "nameZh": "勿洛南中学",
+    "nameEn": "Bedok South Secondary School",
+    "location": "Bedok",
+    "schoolType": "政府中学 / Government",
+    "curriculum": "O-Level / SEC 中学课程",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/bedok-south/"
+    ]
+  },
+  {
+    "id": "secondary-bedok-view",
+    "category": "secondary",
+    "nameZh": "勿洛景中学",
+    "nameEn": "Bedok View Secondary School",
+    "location": "Bedok",
+    "schoolType": "政府中学 / Government",
+    "curriculum": "O-Level / SEC 中学课程",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/bedok-view/"
+    ]
+  },
+  {
+    "id": "secondary-bendemeer",
+    "category": "secondary",
+    "nameZh": "明地迷亚中学",
+    "nameEn": "Bendemeer Secondary School",
+    "location": "Kallang",
+    "schoolType": "政府中学 / Government",
+    "curriculum": "O-Level / SEC 中学课程",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/bendemeer/"
+    ]
+  },
+  {
+    "id": "secondary-boon-lay",
+    "category": "secondary",
+    "nameZh": "文礼中学",
+    "nameEn": "Boon Lay Secondary School",
+    "location": "Jurong West",
+    "schoolType": "政府中学 / Government",
+    "curriculum": "O-Level / SEC 中学课程",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/boon-lay/"
+    ]
+  },
+  {
+    "id": "secondary-bowen",
+    "category": "secondary",
+    "nameZh": "博文中学",
+    "nameEn": "Bowen Secondary School",
+    "location": "Hougang",
+    "schoolType": "政府中学 / Government",
+    "curriculum": "O-Level / SEC 中学课程",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/bowen/"
+    ]
+  },
+  {
+    "id": "secondary-broadrick",
+    "category": "secondary",
+    "nameZh": "博雅中学",
+    "nameEn": "Broadrick Secondary School",
+    "location": "Geylang",
+    "schoolType": "政府中学 / Government",
+    "curriculum": "O-Level / SEC 中学课程",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/broadrick/"
+    ]
+  },
+  {
+    "id": "secondary-bukit-batok",
+    "category": "secondary",
+    "nameZh": "武吉巴督中学",
+    "nameEn": "Bukit Batok Secondary School",
+    "location": "Bukit Batok",
+    "schoolType": "政府中学 / Government",
+    "curriculum": "O-Level / SEC 中学课程",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/bukit-batok/"
+    ]
+  },
+  {
+    "id": "secondary-bukit-merah",
+    "category": "secondary",
+    "nameZh": "红山中学",
+    "nameEn": "Bukit Merah Secondary School",
+    "location": "Bukit Merah",
+    "schoolType": "政府中学 / Government",
+    "curriculum": "O-Level / SEC 中学课程",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/bukit-merah/"
+    ]
+  },
+  {
+    "id": "secondary-bukit-panjang-govt-high",
+    "category": "secondary",
+    "nameZh": "武吉班让政府中学",
+    "nameEn": "Bukit Panjang Government High School",
+    "location": "Bukit Panjang",
+    "schoolType": "政府中学 / Autonomous",
+    "curriculum": "O-Level / SEC 中学课程",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/bukit-panjang-govt-high/"
+    ]
+  },
+  {
+    "id": "secondary-bukit-view",
+    "category": "secondary",
+    "nameZh": "武吉景中学",
+    "nameEn": "Bukit View Secondary School",
+    "location": "Bukit Batok",
+    "schoolType": "政府中学 / Government",
+    "curriculum": "O-Level / SEC 中学课程",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/bukit-view/"
+    ]
+  },
+  {
+    "id": "secondary-canberra",
+    "category": "secondary",
+    "nameZh": "坎培拉中学",
+    "nameEn": "Canberra Secondary School",
+    "location": "Sembawang",
+    "schoolType": "政府中学 / Government",
+    "curriculum": "O-Level / SEC 中学课程",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/canberra/"
+    ]
+  },
+  {
+    "id": "secondary-catholic-high",
+    "category": "secondary",
+    "nameZh": "公教中学",
+    "nameEn": "Catholic High School",
+    "location": "Bishan",
+    "schoolType": "政府中学 / Autonomous",
+    "curriculum": "Integrated Programme / A-Level 路径",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/catholic-high/"
+    ]
+  },
+  {
+    "id": "secondary-cedar-girls",
+    "category": "secondary",
+    "nameZh": "四德女子中学",
+    "nameEn": "Cedar Girls' Secondary School",
+    "location": "Toa Payoh",
+    "schoolType": "政府中学 / Autonomous",
+    "curriculum": "Integrated Programme / A-Level 路径",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/cedar-girls/"
+    ]
+  },
+  {
+    "id": "secondary-changkat-changi",
+    "category": "secondary",
+    "nameZh": "樟迪中学",
+    "nameEn": "Changkat Changi Secondary School",
+    "location": "Tampines",
+    "schoolType": "政府中学 / Government",
+    "curriculum": "O-Level / SEC 中学课程",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/changkat-changi/"
+    ]
+  },
+  {
+    "id": "secondary-chij-katong-convent",
+    "category": "secondary",
+    "nameZh": "圣婴女校（加东）",
+    "nameEn": "CHIJ Katong Convent",
+    "location": "Marine Parade",
+    "schoolType": "政府中学 / Government-Aided",
+    "curriculum": "O-Level / SEC 中学课程",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/chij-katong-convent/"
+    ]
+  },
+  {
+    "id": "secondary-chij-st-josephs-convent",
+    "category": "secondary",
+    "nameZh": "圣婴女校（圣约瑟）",
+    "nameEn": "CHIJ St. Joseph's Convent",
+    "location": "Sengkang",
+    "schoolType": "政府中学 / Government-Aided",
+    "curriculum": "O-Level / SEC 中学课程",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/chij-st-josephs-convent/"
+    ]
+  },
+  {
+    "id": "secondary-chij-st-nicholas",
+    "category": "secondary",
+    "nameZh": "圣尼各拉女校",
+    "nameEn": "CHIJ St. Nicholas Girls' School",
+    "location": "Ang Mo Kio",
+    "schoolType": "政府中学 / Autonomous",
+    "curriculum": "Integrated Programme / A-Level 路径",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/chij-st-nicholas/"
+    ]
+  },
+  {
+    "id": "secondary-chij-st-theresas-convent",
+    "category": "secondary",
+    "nameZh": "圣婴女校（圣德肋撒）",
+    "nameEn": "CHIJ St. Theresa's Convent",
+    "location": "Bukit Merah",
+    "schoolType": "政府中学 / Government-Aided",
+    "curriculum": "O-Level / SEC 中学课程",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/chij-st-theresas-convent/"
+    ]
+  },
+  {
+    "id": "secondary-chij-toa-payoh",
+    "category": "secondary",
+    "nameZh": "圣婴女校（大巴窑）",
+    "nameEn": "CHIJ Secondary (Toa Payoh)",
+    "location": "Toa Payoh",
+    "schoolType": "政府中学 / Government-Aided",
+    "curriculum": "O-Level / SEC 中学课程",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/chij-toa-payoh/"
+    ]
+  },
+  {
+    "id": "secondary-christ-church",
+    "category": "secondary",
+    "nameZh": "基督堂中学",
+    "nameEn": "Christ Church Secondary School",
+    "location": "Woodlands",
+    "schoolType": "政府中学 / Government",
+    "curriculum": "O-Level / SEC 中学课程",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/christ-church/"
+    ]
+  },
+  {
+    "id": "secondary-chua-chu-kang",
+    "category": "secondary",
+    "nameZh": "蔡厝港中学",
+    "nameEn": "Chua Chu Kang Secondary School",
+    "location": "Choa Chu Kang",
+    "schoolType": "政府中学 / Government",
+    "curriculum": "O-Level / SEC 中学课程",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/chua-chu-kang/"
+    ]
+  },
+  {
+    "id": "secondary-chung-cheng-high-main",
+    "category": "secondary",
+    "nameZh": "中正中学（总校）",
+    "nameEn": "Chung Cheng High School (Main)",
+    "location": "Marine Parade",
+    "schoolType": "政府中学 / Autonomous",
+    "curriculum": "O-Level / SEC 中学课程",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/chung-cheng-high-main/"
+    ]
+  },
+  {
+    "id": "secondary-chung-cheng-high-yishun",
+    "category": "secondary",
+    "nameZh": "中正中学（义顺）",
+    "nameEn": "Chung Cheng High School (Yishun)",
+    "location": "Yishun",
+    "schoolType": "政府中学 / Autonomous",
+    "curriculum": "O-Level / SEC 中学课程",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/chung-cheng-high-yishun/"
+    ]
+  },
+  {
+    "id": "secondary-clementi-town",
+    "category": "secondary",
+    "nameZh": "金文泰城中学",
+    "nameEn": "Clementi Town Secondary School",
+    "location": "Clementi",
+    "schoolType": "政府中学 / Government",
+    "curriculum": "O-Level / SEC 中学课程",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/clementi-town/"
+    ]
+  },
+  {
+    "id": "secondary-commonwealth",
+    "category": "secondary",
+    "nameZh": "联邦中学",
+    "nameEn": "Commonwealth Secondary School",
+    "location": "Jurong East",
+    "schoolType": "政府中学 / Government",
+    "curriculum": "O-Level / SEC 中学课程",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/commonwealth/"
+    ]
+  },
+  {
+    "id": "secondary-compassvale",
+    "category": "secondary",
+    "nameZh": "康柏中学",
+    "nameEn": "Compassvale Secondary School",
+    "location": "Sengkang",
+    "schoolType": "政府中学 / Government",
+    "curriculum": "O-Level / SEC 中学课程",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/compassvale/"
+    ]
+  },
+  {
+    "id": "secondary-crescent-girls",
+    "category": "secondary",
+    "nameZh": "克信女子中学",
+    "nameEn": "Crescent Girls' School",
+    "location": "Bukit Merah",
+    "schoolType": "政府中学 / Autonomous",
+    "curriculum": "O-Level / SEC 中学课程",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/crescent-girls/"
+    ]
+  },
+  {
+    "id": "secondary-crest",
+    "category": "secondary",
+    "nameZh": "科源中学",
+    "nameEn": "Crest Secondary School",
+    "location": "Jurong East",
+    "schoolType": "政府中学 / Specialised / 特殊或专门路径",
+    "curriculum": "O-Level / SEC 中学课程",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/crest/"
+    ]
+  },
+  {
+    "id": "secondary-damai",
+    "category": "secondary",
+    "nameZh": "达迈中学",
+    "nameEn": "Damai Secondary School",
+    "location": "Bedok",
+    "schoolType": "政府中学 / Government",
+    "curriculum": "O-Level / SEC 中学课程",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/damai/"
+    ]
+  },
+  {
+    "id": "secondary-deyi",
+    "category": "secondary",
+    "nameZh": "德义中学",
+    "nameEn": "Deyi Secondary School",
+    "location": "Ang Mo Kio",
+    "schoolType": "政府中学 / Government",
+    "curriculum": "O-Level / SEC 中学课程",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/deyi/"
+    ]
+  },
+  {
+    "id": "secondary-dunearn",
+    "category": "secondary",
+    "nameZh": "敦恩中学",
+    "nameEn": "Dunearn Secondary School",
+    "location": "Bukit Batok",
+    "schoolType": "政府中学 / Government",
+    "curriculum": "O-Level / SEC 中学课程",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/dunearn/"
+    ]
+  },
+  {
+    "id": "secondary-dunman",
+    "category": "secondary",
+    "nameZh": "德明中学",
+    "nameEn": "Dunman Secondary School",
+    "location": "Tampines",
+    "schoolType": "政府中学 / Government",
+    "curriculum": "O-Level / SEC 中学课程",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/dunman/"
+    ]
+  },
+  {
+    "id": "secondary-dunman-high",
+    "category": "secondary",
+    "nameZh": "德明政府中学",
+    "nameEn": "Dunman High School",
+    "location": "Kallang",
+    "schoolType": "政府中学 / Autonomous",
+    "curriculum": "Integrated Programme / A-Level 路径",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/dunman-high/"
+    ]
+  },
+  {
+    "id": "secondary-east-spring",
+    "category": "secondary",
+    "nameZh": "东泉中学",
+    "nameEn": "East Spring Secondary School",
+    "location": "Tampines",
+    "schoolType": "政府中学 / Government",
+    "curriculum": "O-Level / SEC 中学课程",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/east-spring/"
+    ]
+  },
+  {
+    "id": "secondary-edgefield",
+    "category": "secondary",
+    "nameZh": "毅道中学",
+    "nameEn": "Edgefield Secondary School",
+    "location": "Punggol",
+    "schoolType": "政府中学 / Government",
+    "curriculum": "O-Level / SEC 中学课程",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/edgefield/"
+    ]
+  },
+  {
+    "id": "secondary-evergreen",
+    "category": "secondary",
+    "nameZh": "常青中学",
+    "nameEn": "Evergreen Secondary School",
+    "location": "Woodlands",
+    "schoolType": "政府中学 / Government",
+    "curriculum": "O-Level / SEC 中学课程",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/evergreen/"
+    ]
+  },
+  {
+    "id": "secondary-fairfield-methodist",
+    "category": "secondary",
+    "nameZh": "花菲卫理中学",
+    "nameEn": "Fairfield Methodist School (Secondary)",
+    "location": "Queenstown",
+    "schoolType": "政府中学 / Government-Aided",
+    "curriculum": "O-Level / SEC 中学课程",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/fairfield-methodist/"
+    ]
+  },
+  {
+    "id": "secondary-fuhua",
+    "category": "secondary",
+    "nameZh": "辅华中学",
+    "nameEn": "Fuhua Secondary School",
+    "location": "Jurong West",
+    "schoolType": "政府中学 / Government",
+    "curriculum": "O-Level / SEC 中学课程",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/fuhua/"
+    ]
+  },
+  {
+    "id": "secondary-gan-eng-seng",
+    "category": "secondary",
+    "nameZh": "颜永成中学",
+    "nameEn": "Gan Eng Seng School",
+    "location": "Bukit Merah",
+    "schoolType": "政府中学 / Government",
+    "curriculum": "O-Level / SEC 中学课程",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/gan-eng-seng/"
+    ]
+  },
+  {
+    "id": "secondary-geylang-methodist",
+    "category": "secondary",
+    "nameZh": "芽笼美以美中学",
+    "nameEn": "Geylang Methodist School (Secondary)",
+    "location": "Central",
+    "schoolType": "政府中学 / Government-Aided",
+    "curriculum": "O-Level / SEC 中学课程",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/geylang-methodist/"
+    ]
+  },
+  {
+    "id": "secondary-greendale",
+    "category": "secondary",
+    "nameZh": "青景中学",
+    "nameEn": "Greendale Secondary School",
+    "location": "Punggol",
+    "schoolType": "政府中学 / Government",
+    "curriculum": "O-Level / SEC 中学课程",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/greendale/"
+    ]
+  },
+  {
+    "id": "secondary-greenridge",
+    "category": "secondary",
+    "nameZh": "青岭中学",
+    "nameEn": "Greenridge Secondary School",
+    "location": "Bukit Panjang",
+    "schoolType": "政府中学 / Government",
+    "curriculum": "O-Level / SEC 中学课程",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/greenridge/"
+    ]
+  },
+  {
+    "id": "secondary-guangyang",
+    "category": "secondary",
+    "nameZh": "光洋中学",
+    "nameEn": "Guangyang Secondary School",
+    "location": "Bishan",
+    "schoolType": "政府中学 / Government",
+    "curriculum": "O-Level / SEC 中学课程",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/guangyang/"
+    ]
+  },
+  {
+    "id": "secondary-hai-sing-catholic",
+    "category": "secondary",
+    "nameZh": "海星天主教中学",
+    "nameEn": "Hai Sing Catholic School",
+    "location": "Pasir Ris",
+    "schoolType": "政府中学 / Government-Aided",
+    "curriculum": "O-Level / SEC 中学课程",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/hai-sing-catholic/"
+    ]
+  },
+  {
+    "id": "secondary-hillgrove",
+    "category": "secondary",
+    "nameZh": "丘景中学",
+    "nameEn": "Hillgrove Secondary School",
+    "location": "Bukit Batok",
+    "schoolType": "政府中学 / Government",
+    "curriculum": "O-Level / SEC 中学课程",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/hillgrove/"
+    ]
+  },
+  {
+    "id": "secondary-holy-innocents-high",
+    "category": "secondary",
+    "nameZh": "圣婴中学",
+    "nameEn": "Holy Innocents' High School",
+    "location": "Serangoon",
+    "schoolType": "政府中学 / Government-Aided",
+    "curriculum": "O-Level / SEC 中学课程",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/holy-innocents-high/"
+    ]
+  },
+  {
+    "id": "secondary-hougang",
+    "category": "secondary",
+    "nameZh": "后港中学",
+    "nameEn": "Hougang Secondary School",
+    "location": "Hougang",
+    "schoolType": "政府中学 / Government",
+    "curriculum": "O-Level / SEC 中学课程",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/hougang/"
+    ]
+  },
+  {
+    "id": "secondary-hua-yi",
+    "category": "secondary",
+    "nameZh": "华义中学",
+    "nameEn": "Hua Yi Secondary School",
+    "location": "Jurong West",
+    "schoolType": "政府中学 / Government",
+    "curriculum": "O-Level / SEC 中学课程",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/hua-yi/"
+    ]
+  },
+  {
+    "id": "secondary-hwa-chong-institution",
+    "category": "secondary",
+    "nameZh": "华侨中学",
+    "nameEn": "Hwa Chong Institution",
+    "location": "Bukit Timah",
+    "schoolType": "政府中学 / SAP / IP",
+    "curriculum": "Integrated Programme / A-Level 路径",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/hwa-chong-institution/"
+    ]
+  },
+  {
+    "id": "secondary-junyuan",
+    "category": "secondary",
+    "nameZh": "俊源中学",
+    "nameEn": "Junyuan Secondary School",
+    "location": "Tampines",
+    "schoolType": "政府中学 / Government",
+    "curriculum": "O-Level / SEC 中学课程",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/junyuan/"
+    ]
+  },
+  {
+    "id": "secondary-jurong",
+    "category": "secondary",
+    "nameZh": "裕廊中学",
+    "nameEn": "Jurong Secondary School",
+    "location": "Jurong West",
+    "schoolType": "政府中学 / Government",
+    "curriculum": "O-Level / SEC 中学课程",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/jurong/"
+    ]
+  },
+  {
+    "id": "secondary-jurong-west",
+    "category": "secondary",
+    "nameZh": "裕廊西中学",
+    "nameEn": "Jurong West Secondary School",
+    "location": "Jurong West",
+    "schoolType": "政府中学 / Government",
+    "curriculum": "O-Level / SEC 中学课程",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/jurong-west/"
+    ]
+  },
+  {
+    "id": "secondary-jurongville",
+    "category": "secondary",
+    "nameZh": "裕廊谷中学",
+    "nameEn": "Jurongville Secondary School",
+    "location": "Jurong East",
+    "schoolType": "政府中学 / Government",
+    "curriculum": "O-Level / SEC 中学课程",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/jurongville/"
+    ]
+  },
+  {
+    "id": "secondary-juying",
+    "category": "secondary",
+    "nameZh": "聚英中学",
+    "nameEn": "Juying Secondary School",
+    "location": "Jurong West",
+    "schoolType": "政府中学 / Government",
+    "curriculum": "O-Level / SEC 中学课程",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/juying/"
+    ]
+  },
+  {
+    "id": "secondary-kent-ridge",
+    "category": "secondary",
+    "nameZh": "肯特岗中学",
+    "nameEn": "Kent Ridge Secondary School",
+    "location": "Clementi",
+    "schoolType": "政府中学 / Government",
+    "curriculum": "O-Level / SEC 中学课程",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/kent-ridge/"
+    ]
+  },
+  {
+    "id": "secondary-kranji",
+    "category": "secondary",
+    "nameZh": "克兰芝中学",
+    "nameEn": "Kranji Secondary School",
+    "location": "Choa Chu Kang",
+    "schoolType": "政府中学 / Government",
+    "curriculum": "O-Level / SEC 中学课程",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/kranji/"
+    ]
+  },
+  {
+    "id": "secondary-kuo-chuan-presbyterian",
+    "category": "secondary",
+    "nameZh": "国专长老会中学",
+    "nameEn": "Kuo Chuan Presbyterian Secondary School",
+    "location": "Bishan",
+    "schoolType": "政府中学 / Government-Aided",
+    "curriculum": "O-Level / SEC 中学课程",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/kuo-chuan-presbyterian/"
+    ]
+  },
+  {
+    "id": "secondary-loyang-view",
+    "category": "secondary",
+    "nameZh": "洛阳景中学",
+    "nameEn": "Loyang View Secondary School",
+    "location": "Pasir Ris",
+    "schoolType": "政府中学 / Government",
+    "curriculum": "O-Level / SEC 中学课程",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/loyang-view/"
+    ]
+  },
+  {
+    "id": "secondary-manjusri",
+    "category": "secondary",
+    "nameZh": "文殊中学",
+    "nameEn": "Manjusri Secondary School",
+    "location": "Geylang",
+    "schoolType": "政府中学 / Government-Aided",
+    "curriculum": "O-Level / SEC 中学课程",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/manjusri/"
+    ]
+  },
+  {
+    "id": "secondary-maris-stella-high",
+    "category": "secondary",
+    "nameZh": "海星中学",
+    "nameEn": "Maris Stella High School",
+    "location": "Bedok",
+    "schoolType": "政府中学 / Autonomous",
+    "curriculum": "O-Level / SEC 中学课程",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/maris-stella-high/"
+    ]
+  },
+  {
+    "id": "secondary-marsiling",
+    "category": "secondary",
+    "nameZh": "马西岭中学",
+    "nameEn": "Marsiling Secondary School",
+    "location": "Woodlands",
+    "schoolType": "政府中学 / Government",
+    "curriculum": "O-Level / SEC 中学课程",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/marsiling/"
+    ]
+  },
+  {
+    "id": "secondary-mayflower",
+    "category": "secondary",
+    "nameZh": "美华中学",
+    "nameEn": "Mayflower Secondary School",
+    "location": "Ang Mo Kio",
+    "schoolType": "政府中学 / Government",
+    "curriculum": "O-Level / SEC 中学课程",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/mayflower/"
+    ]
+  },
+  {
+    "id": "secondary-meridian",
+    "category": "secondary",
+    "nameZh": "美廉中学",
+    "nameEn": "Meridian Secondary School",
+    "location": "Pasir Ris",
+    "schoolType": "政府中学 / Government",
+    "curriculum": "O-Level / SEC 中学课程",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/meridian/"
+    ]
+  },
+  {
+    "id": "secondary-methodist-girls",
+    "category": "secondary",
+    "nameZh": "美以美女校",
+    "nameEn": "Methodist Girls' School",
+    "location": "Bukit Timah",
+    "schoolType": "政府中学 / Independent",
+    "curriculum": "Integrated Programme / A-Level 路径",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/methodist-girls/"
+    ]
+  },
+  {
+    "id": "secondary-montfort",
+    "category": "secondary",
+    "nameZh": "蒙福中学",
+    "nameEn": "Montfort Secondary School",
+    "location": "Hougang",
+    "schoolType": "政府中学 / Government-Aided",
+    "curriculum": "O-Level / SEC 中学课程",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/montfort/"
+    ]
+  },
+  {
+    "id": "secondary-nan-chiau-high",
+    "category": "secondary",
+    "nameZh": "南侨中学",
+    "nameEn": "Nan Chiau High School",
+    "location": "Sengkang",
+    "schoolType": "政府中学 / Autonomous",
+    "curriculum": "O-Level / SEC 中学课程",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/nan-chiau-high/"
+    ]
+  },
+  {
+    "id": "secondary-nan-hua-high",
+    "category": "secondary",
+    "nameZh": "南华中学",
+    "nameEn": "Nan Hua High School",
+    "location": "Clementi",
+    "schoolType": "政府中学 / Autonomous",
+    "curriculum": "O-Level / SEC 中学课程",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/nan-hua-high/"
+    ]
+  },
+  {
+    "id": "secondary-nanyang-girls",
+    "category": "secondary",
+    "nameZh": "南洋女子中学",
+    "nameEn": "Nanyang Girls' High School",
+    "location": "Bukit Timah",
+    "schoolType": "政府女子中学 / SAP / IP",
+    "curriculum": "Integrated Programme / A-Level 路径",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/nanyang-girls/"
+    ]
+  },
+  {
+    "id": "secondary-national-junior-college",
+    "category": "secondary",
+    "nameZh": "国家初级学院",
+    "nameEn": "National Junior College",
+    "location": "Bukit Timah",
+    "schoolType": "政府中学 / Independent",
+    "curriculum": "Integrated Programme / A-Level 路径",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/national-junior-college/"
+    ]
+  },
+  {
+    "id": "secondary-naval-base",
+    "category": "secondary",
+    "nameZh": "海军基地中学",
+    "nameEn": "Naval Base Secondary School",
+    "location": "Yishun",
+    "schoolType": "政府中学 / Government",
+    "curriculum": "O-Level / SEC 中学课程",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/naval-base/"
+    ]
+  },
+  {
+    "id": "secondary-new-town",
+    "category": "secondary",
+    "nameZh": "新镇中学",
+    "nameEn": "New Town Secondary School",
+    "location": "Queenstown",
+    "schoolType": "政府中学 / Government",
+    "curriculum": "O-Level / SEC 中学课程",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/new-town/"
+    ]
+  },
+  {
+    "id": "secondary-ngee-ann",
+    "category": "secondary",
+    "nameZh": "义安中学",
+    "nameEn": "Ngee Ann Secondary School",
+    "location": "Tampines",
+    "schoolType": "政府中学 / Autonomous",
+    "curriculum": "O-Level / SEC 中学课程",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/ngee-ann/"
+    ]
+  },
+  {
+    "id": "secondary-north-vista",
+    "category": "secondary",
+    "nameZh": "北景中学",
+    "nameEn": "North Vista Secondary School",
+    "location": "Sengkang",
+    "schoolType": "政府中学 / Government",
+    "curriculum": "O-Level / SEC 中学课程",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/north-vista/"
+    ]
+  },
+  {
+    "id": "secondary-northbrooks",
+    "category": "secondary",
+    "nameZh": "北溪中学",
+    "nameEn": "Northbrooks Secondary School",
+    "location": "Yishun",
+    "schoolType": "政府中学 / Government",
+    "curriculum": "O-Level / SEC 中学课程",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/northbrooks/"
+    ]
+  },
+  {
+    "id": "secondary-northland",
+    "category": "secondary",
+    "nameZh": "北地中学",
+    "nameEn": "Northland Secondary School",
+    "location": "Yishun",
+    "schoolType": "政府中学 / Government",
+    "curriculum": "O-Level / SEC 中学课程",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/northland/"
+    ]
+  },
+  {
+    "id": "secondary-nus-high",
+    "category": "secondary",
+    "nameZh": "新加坡国立大学附属数理中学",
+    "nameEn": "NUS High School of Mathematics and Science",
+    "location": "Clementi",
+    "schoolType": "专门学校 / 数理方向",
+    "curriculum": "六年制数理课程 / 大学预备路径",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/nus-high/"
+    ]
+  },
+  {
+    "id": "secondary-orchid-park",
+    "category": "secondary",
+    "nameZh": "兰苑中学",
+    "nameEn": "Orchid Park Secondary School",
+    "location": "Yishun",
+    "schoolType": "政府中学 / Government",
+    "curriculum": "O-Level / SEC 中学课程",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/orchid-park/"
+    ]
+  },
+  {
+    "id": "secondary-outram",
+    "category": "secondary",
+    "nameZh": "欧南中学",
+    "nameEn": "Outram Secondary School",
+    "location": "Sengkang",
+    "schoolType": "政府中学 / Government",
+    "curriculum": "O-Level / SEC 中学课程",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/outram/"
+    ]
+  },
+  {
+    "id": "secondary-pasir-ris",
+    "category": "secondary",
+    "nameZh": "巴西立中学",
+    "nameEn": "Pasir Ris Secondary School",
+    "location": "Tampines",
+    "schoolType": "政府中学 / Government",
+    "curriculum": "O-Level / SEC 中学课程",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/pasir-ris/"
+    ]
+  },
+  {
+    "id": "secondary-pasir-ris-crest",
+    "category": "secondary",
+    "nameZh": "巴西立峰中学",
+    "nameEn": "Pasir Ris Crest Secondary School",
+    "location": "Pasir Ris",
+    "schoolType": "政府中学 / Government",
+    "curriculum": "O-Level / SEC 中学课程",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/pasir-ris-crest/"
+    ]
+  },
+  {
+    "id": "secondary-paya-lebar-methodist",
+    "category": "secondary",
+    "nameZh": "巴耶利峇美以美女校",
+    "nameEn": "Paya Lebar Methodist Girls' School",
+    "location": "Hougang",
+    "schoolType": "政府中学 / Government-Aided",
+    "curriculum": "O-Level / SEC 中学课程",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/paya-lebar-methodist/"
+    ]
+  },
+  {
+    "id": "secondary-pei-hwa",
+    "category": "secondary",
+    "nameZh": "培华中学",
+    "nameEn": "Pei Hwa Secondary School",
+    "location": "Sengkang",
+    "schoolType": "政府中学 / Government",
+    "curriculum": "O-Level / SEC 中学课程",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/pei-hwa/"
+    ]
+  },
+  {
+    "id": "secondary-peicai",
+    "category": "secondary",
+    "nameZh": "培才中学",
+    "nameEn": "Peicai Secondary School",
+    "location": "Serangoon",
+    "schoolType": "政府中学 / Government",
+    "curriculum": "O-Level / SEC 中学课程",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/peicai/"
+    ]
+  },
+  {
+    "id": "secondary-peirce",
+    "category": "secondary",
+    "nameZh": "培尔斯中学",
+    "nameEn": "Peirce Secondary School",
+    "location": "Bishan",
+    "schoolType": "政府中学 / Government",
+    "curriculum": "O-Level / SEC 中学课程",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/peirce/"
+    ]
+  },
+  {
+    "id": "secondary-presbyterian-high",
+    "category": "secondary",
+    "nameZh": "长老会中学",
+    "nameEn": "Presbyterian High School",
+    "location": "Ang Mo Kio",
+    "schoolType": "政府中学 / Government-Aided",
+    "curriculum": "O-Level / SEC 中学课程",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/presbyterian-high/"
+    ]
+  },
+  {
+    "id": "secondary-punggol",
+    "category": "secondary",
+    "nameZh": "榜鹅中学",
+    "nameEn": "Punggol Secondary School",
+    "location": "Punggol",
+    "schoolType": "政府中学 / Government",
+    "curriculum": "O-Level / SEC 中学课程",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/punggol/"
+    ]
+  },
+  {
+    "id": "secondary-queenstown",
+    "category": "secondary",
+    "nameZh": "女皇镇中学",
+    "nameEn": "Queenstown Secondary School",
+    "location": "Queenstown",
+    "schoolType": "政府中学 / Government",
+    "curriculum": "O-Level / SEC 中学课程",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/queenstown/"
+    ]
+  },
+  {
+    "id": "secondary-queensway",
+    "category": "secondary",
+    "nameZh": "女皇道中学",
+    "nameEn": "Queensway Secondary School",
+    "location": "Queenstown",
+    "schoolType": "政府中学 / Government",
+    "curriculum": "O-Level / SEC 中学课程",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/queensway/"
+    ]
+  },
+  {
+    "id": "secondary-raffles-girls",
+    "category": "secondary",
+    "nameZh": "莱佛士女中",
+    "nameEn": "Raffles Girls' School",
+    "location": "Toa Payoh",
+    "schoolType": "政府中学 / Independent",
+    "curriculum": "Integrated Programme / A-Level 路径",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/raffles-girls/"
+    ]
+  },
+  {
+    "id": "secondary-raffles-institution",
+    "category": "secondary",
+    "nameZh": "莱佛士书院",
+    "nameEn": "Raffles Institution",
+    "location": "Bishan",
+    "schoolType": "政府中学 / 男校 / IP",
+    "curriculum": "Integrated Programme / A-Level 路径",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/raffles-institution/"
+    ]
+  },
+  {
+    "id": "secondary-regent",
+    "category": "secondary",
+    "nameZh": "丽晶中学",
+    "nameEn": "Regent Secondary School",
+    "location": "Choa Chu Kang",
+    "schoolType": "政府中学 / Government",
+    "curriculum": "O-Level / SEC 中学课程",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/regent/"
+    ]
+  },
+  {
+    "id": "secondary-river-valley-high",
+    "category": "secondary",
+    "nameZh": "立化中学",
+    "nameEn": "River Valley High School",
+    "location": "Jurong West",
+    "schoolType": "政府中学 / Autonomous",
+    "curriculum": "Integrated Programme / A-Level 路径",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/river-valley-high/"
+    ]
+  },
+  {
+    "id": "secondary-riverside",
+    "category": "secondary",
+    "nameZh": "河畔中学",
+    "nameEn": "Riverside Secondary School",
+    "location": "Woodlands",
+    "schoolType": "政府中学 / Government",
+    "curriculum": "O-Level / SEC 中学课程",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/riverside/"
+    ]
+  },
+  {
+    "id": "secondary-school-of-science-technology",
+    "category": "secondary",
+    "nameZh": "科技中学",
+    "nameEn": "School of Science and Technology",
+    "location": "Clementi",
+    "schoolType": "政府中学 / Specialised / 特殊或专门路径",
+    "curriculum": "O-Level / SEC 中学课程",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/school-of-science-technology/"
+    ]
+  },
+  {
+    "id": "secondary-school-of-the-arts",
+    "category": "secondary",
+    "nameZh": "艺术中学",
+    "nameEn": "School of the Arts",
+    "location": "Central",
+    "schoolType": "政府中学 / Specialised / 特殊或专门路径",
+    "curriculum": "O-Level / SEC 中学课程",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/school-of-the-arts/"
+    ]
+  },
+  {
+    "id": "secondary-sembawang",
+    "category": "secondary",
+    "nameZh": "三巴旺中学",
+    "nameEn": "Sembawang Secondary School",
+    "location": "Sembawang",
+    "schoolType": "政府中学 / Government",
+    "curriculum": "O-Level / SEC 中学课程",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/sembawang/"
+    ]
+  },
+  {
+    "id": "secondary-seng-kang",
+    "category": "secondary",
+    "nameZh": "盛港中学",
+    "nameEn": "Seng Kang Secondary School",
+    "location": "Sengkang",
+    "schoolType": "政府中学 / Government",
+    "curriculum": "O-Level / SEC 中学课程",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/seng-kang/"
+    ]
+  },
+  {
+    "id": "secondary-serangoon",
+    "category": "secondary",
+    "nameZh": "实龙岗中学",
+    "nameEn": "Serangoon Secondary School",
+    "location": "Serangoon",
+    "schoolType": "政府中学 / Government",
+    "curriculum": "O-Level / SEC 中学课程",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/serangoon/"
+    ]
+  },
+  {
+    "id": "secondary-serangoon-garden",
+    "category": "secondary",
+    "nameZh": "实龙岗花园中学",
+    "nameEn": "Serangoon Garden Secondary School",
+    "location": "Serangoon",
+    "schoolType": "政府中学 / Government",
+    "curriculum": "O-Level / SEC 中学课程",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/serangoon-garden/"
+    ]
+  },
+  {
+    "id": "secondary-singapore-chinese-girls",
+    "category": "secondary",
+    "nameZh": "新加坡华族女校",
+    "nameEn": "Singapore Chinese Girls' School",
+    "location": "Novena",
+    "schoolType": "政府中学 / Autonomous",
+    "curriculum": "Integrated Programme / A-Level 路径",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/singapore-chinese-girls/"
+    ]
+  },
+  {
+    "id": "secondary-singapore-sports-school",
+    "category": "secondary",
+    "nameZh": "新加坡体育中学",
+    "nameEn": "Singapore Sports School",
+    "location": "Woodlands",
+    "schoolType": "政府中学 / Specialised / 特殊或专门路径",
+    "curriculum": "O-Level / SEC 中学课程",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/singapore-sports-school/"
+    ]
+  },
+  {
+    "id": "secondary-spectra",
+    "category": "secondary",
+    "nameZh": "光谱中学",
+    "nameEn": "Spectra Secondary School",
+    "location": "Woodlands",
+    "schoolType": "政府中学 / Specialised",
+    "curriculum": "O-Level / SEC 中学课程",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/spectra/"
+    ]
+  },
+  {
+    "id": "secondary-springfield",
+    "category": "secondary",
+    "nameZh": "春田中学",
+    "nameEn": "Springfield Secondary School",
+    "location": "Tampines",
+    "schoolType": "政府中学 / Government",
+    "curriculum": "O-Level / SEC 中学课程",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/springfield/"
+    ]
+  },
+  {
+    "id": "secondary-st-andrews",
+    "category": "secondary",
+    "nameZh": "圣安德烈中学",
+    "nameEn": "St. Andrew's Secondary School",
+    "location": "Toa Payoh",
+    "schoolType": "政府中学 / Government-Aided",
+    "curriculum": "O-Level / SEC 中学课程",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/st-andrews/"
+    ]
+  },
+  {
+    "id": "secondary-st-anthonys-canossian",
+    "category": "secondary",
+    "nameZh": "圣安东尼女校",
+    "nameEn": "St. Anthony's Canossian Secondary School",
+    "location": "Bedok",
+    "schoolType": "政府中学 / Government-Aided",
+    "curriculum": "O-Level / SEC 中学课程",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/st-anthonys-canossian/"
+    ]
+  },
+  {
+    "id": "secondary-st-gabriels",
+    "category": "secondary",
+    "nameZh": "圣嘉百利中学",
+    "nameEn": "St. Gabriel's Secondary School",
+    "location": "Serangoon",
+    "schoolType": "政府中学 / Government-Aided",
+    "curriculum": "O-Level / SEC 中学课程",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/st-gabriels/"
+    ]
+  },
+  {
+    "id": "secondary-st-hildas",
+    "category": "secondary",
+    "nameZh": "圣希尔达中学",
+    "nameEn": "St. Hilda's Secondary School",
+    "location": "Tampines",
+    "schoolType": "政府中学 / Government-Aided",
+    "curriculum": "O-Level / SEC 中学课程",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/st-hildas/"
+    ]
+  },
+  {
+    "id": "secondary-st-josephs-institution",
+    "category": "secondary",
+    "nameZh": "圣约瑟书院",
+    "nameEn": "St. Joseph's Institution",
+    "location": "Novena",
+    "schoolType": "政府中学 / Independent",
+    "curriculum": "Integrated Programme / A-Level 路径",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/st-josephs-institution/"
+    ]
+  },
+  {
+    "id": "secondary-st-margarets",
+    "category": "secondary",
+    "nameZh": "圣玛格烈中学",
+    "nameEn": "St. Margaret's Secondary School",
+    "location": "Bukit Timah",
+    "schoolType": "政府中学 / Government-Aided",
+    "curriculum": "O-Level / SEC 中学课程",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/st-margarets/"
+    ]
+  },
+  {
+    "id": "secondary-st-patricks",
+    "category": "secondary",
+    "nameZh": "圣巴特里中学",
+    "nameEn": "St. Patrick's School",
+    "location": "Bedok",
+    "schoolType": "政府中学 / Government-Aided",
+    "curriculum": "O-Level / SEC 中学课程",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/st-patricks/"
+    ]
+  },
+  {
+    "id": "secondary-swiss-cottage",
+    "category": "secondary",
+    "nameZh": "瑞士村中学",
+    "nameEn": "Swiss Cottage Secondary School",
+    "location": "Bukit Batok",
+    "schoolType": "政府中学 / Autonomous",
+    "curriculum": "O-Level / SEC 中学课程",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/swiss-cottage/"
+    ]
+  },
+  {
+    "id": "secondary-tampines",
+    "category": "secondary",
+    "nameZh": "淡滨尼中学",
+    "nameEn": "Tampines Secondary School",
+    "location": "Tampines",
+    "schoolType": "政府中学 / Government",
+    "curriculum": "O-Level / SEC 中学课程",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/tampines/"
+    ]
+  },
+  {
+    "id": "secondary-tanjong-katong",
+    "category": "secondary",
+    "nameZh": "丹绒加东中学",
+    "nameEn": "Tanjong Katong Secondary School",
+    "location": "Marine Parade",
+    "schoolType": "政府中学 / Government",
+    "curriculum": "O-Level / SEC 中学课程",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/tanjong-katong/"
+    ]
+  },
+  {
+    "id": "secondary-tanjong-katong-girls",
+    "category": "secondary",
+    "nameZh": "丹绒加东女校",
+    "nameEn": "Tanjong Katong Girls' School",
+    "location": "Marine Parade",
+    "schoolType": "政府中学 / Government",
+    "curriculum": "O-Level / SEC 中学课程",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/tanjong-katong-girls/"
+    ]
+  },
+  {
+    "id": "secondary-temasek",
+    "category": "secondary",
+    "nameZh": "淡马锡中学",
+    "nameEn": "Temasek Secondary School",
+    "location": "Bedok",
+    "schoolType": "政府中学 / Autonomous",
+    "curriculum": "O-Level / SEC 中学课程",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/temasek/"
+    ]
+  },
+  {
+    "id": "secondary-temasek-junior-college",
+    "category": "secondary",
+    "nameZh": "淡马锡初级学院",
+    "nameEn": "Temasek Junior College",
+    "location": "Tampines",
+    "schoolType": "政府中学 / Independent",
+    "curriculum": "Integrated Programme / A-Level 路径",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/temasek-junior-college/"
+    ]
+  },
+  {
+    "id": "secondary-unity",
+    "category": "secondary",
+    "nameZh": "友诺中学",
+    "nameEn": "Unity Secondary School",
+    "location": "Choa Chu Kang",
+    "schoolType": "政府中学 / Government",
+    "curriculum": "O-Level / SEC 中学课程",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/unity/"
+    ]
+  },
+  {
+    "id": "secondary-victoria-school",
+    "category": "secondary",
+    "nameZh": "维多利亚中学",
+    "nameEn": "Victoria School",
+    "location": "Bedok",
+    "schoolType": "政府中学 / Independent",
+    "curriculum": "Integrated Programme / A-Level 路径",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/victoria-school/"
+    ]
+  },
+  {
+    "id": "secondary-west-spring",
+    "category": "secondary",
+    "nameZh": "西泉中学",
+    "nameEn": "West Spring Secondary School",
+    "location": "Bukit Panjang",
+    "schoolType": "政府中学 / Government",
+    "curriculum": "O-Level / SEC 中学课程",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/west-spring/"
+    ]
+  },
+  {
+    "id": "secondary-westwood",
+    "category": "secondary",
+    "nameZh": "西林中学",
+    "nameEn": "Westwood Secondary School",
+    "location": "Jurong West",
+    "schoolType": "政府中学 / Government",
+    "curriculum": "O-Level / SEC 中学课程",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/westwood/"
+    ]
+  },
+  {
+    "id": "secondary-whitley",
+    "category": "secondary",
+    "nameZh": "惠特利中学",
+    "nameEn": "Whitley Secondary School",
+    "location": "Bishan",
+    "schoolType": "政府中学 / Government",
+    "curriculum": "O-Level / SEC 中学课程",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/whitley/"
+    ]
+  },
+  {
+    "id": "secondary-woodgrove",
+    "category": "secondary",
+    "nameZh": "林景中学",
+    "nameEn": "Woodgrove Secondary School",
+    "location": "Woodlands",
+    "schoolType": "政府中学 / Government",
+    "curriculum": "O-Level / SEC 中学课程",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/woodgrove/"
+    ]
+  },
+  {
+    "id": "secondary-woodlands",
+    "category": "secondary",
+    "nameZh": "兀兰中学",
+    "nameEn": "Woodlands Secondary School",
+    "location": "Woodlands",
+    "schoolType": "政府中学 / Government",
+    "curriculum": "O-Level / SEC 中学课程",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/woodlands/"
+    ]
+  },
+  {
+    "id": "secondary-woodlands-ring",
+    "category": "secondary",
+    "nameZh": "兀兰环中学",
+    "nameEn": "Woodlands Ring Secondary School",
+    "location": "Woodlands",
+    "schoolType": "政府中学 / Government",
+    "curriculum": "O-Level / SEC 中学课程",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/woodlands-ring/"
+    ]
+  },
+  {
+    "id": "secondary-xinmin",
+    "category": "secondary",
+    "nameZh": "新民中学",
+    "nameEn": "Xinmin Secondary School",
+    "location": "Hougang",
+    "schoolType": "政府中学 / Autonomous",
+    "curriculum": "O-Level / SEC 中学课程",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/xinmin/"
+    ]
+  },
+  {
+    "id": "secondary-yio-chu-kang",
+    "category": "secondary",
+    "nameZh": "杨厝港中学",
+    "nameEn": "Yio Chu Kang Secondary School",
+    "location": "Ang Mo Kio",
+    "schoolType": "政府中学 / Government",
+    "curriculum": "O-Level / SEC 中学课程",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/yio-chu-kang/"
+    ]
+  },
+  {
+    "id": "secondary-yishun",
+    "category": "secondary",
+    "nameZh": "义顺中学",
+    "nameEn": "Yishun Secondary School",
+    "location": "Yishun",
+    "schoolType": "政府中学 / Government",
+    "curriculum": "O-Level / SEC 中学课程",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/yishun/"
+    ]
+  },
+  {
+    "id": "secondary-yishun-town",
+    "category": "secondary",
+    "nameZh": "义顺城中学",
+    "nameEn": "Yishun Town Secondary School",
+    "location": "Yishun",
+    "schoolType": "政府中学 / Government",
+    "curriculum": "O-Level / SEC 中学课程",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/yishun-town/"
+    ]
+  },
+  {
+    "id": "secondary-yuan-ching",
+    "category": "secondary",
+    "nameZh": "元青中学",
+    "nameEn": "Yuan Ching Secondary School",
+    "location": "Jurong West",
+    "schoolType": "政府中学 / Government",
+    "curriculum": "O-Level / SEC 中学课程",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/yuan-ching/"
+    ]
+  },
+  {
+    "id": "secondary-yuhua",
+    "category": "secondary",
+    "nameZh": "裕华中学",
+    "nameEn": "Yuhua Secondary School",
+    "location": "Jurong West",
+    "schoolType": "政府中学 / Government",
+    "curriculum": "O-Level / SEC 中学课程",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/yuhua/"
+    ]
+  },
+  {
+    "id": "secondary-yusof-ishak",
+    "category": "secondary",
+    "nameZh": "尤索夫依萨中学",
+    "nameEn": "Yusof Ishak Secondary School",
+    "location": "Punggol",
+    "schoolType": "政府中学 / Government",
+    "curriculum": "O-Level / SEC 中学课程",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/yusof-ishak/"
+    ]
+  },
+  {
+    "id": "secondary-yuying",
+    "category": "secondary",
+    "nameZh": "育英中学",
+    "nameEn": "Yuying Secondary School",
+    "location": "Hougang",
+    "schoolType": "政府中学 / Government",
+    "curriculum": "O-Level / SEC 中学课程",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/yuying/"
+    ]
+  },
+  {
+    "id": "secondary-zhenghua",
+    "category": "secondary",
+    "nameZh": "正华中学",
+    "nameEn": "Zhenghua Secondary School",
+    "location": "Bukit Panjang",
+    "schoolType": "政府中学 / Government",
+    "curriculum": "O-Level / SEC 中学课程",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/zhenghua/"
+    ]
+  },
+  {
+    "id": "secondary-zhonghua",
+    "category": "secondary",
+    "nameZh": "中华中学",
+    "nameEn": "Zhonghua Secondary School",
+    "location": "Serangoon",
+    "schoolType": "政府中学 / Autonomous",
+    "curriculum": "O-Level / SEC 中学课程",
+    "website": "",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/secondary-schools/zhonghua/"
+    ]
+  },
+  {
+    "id": "international-5-steps-academy",
+    "category": "international",
+    "nameZh": "5 Steps Academy",
+    "nameEn": "5 Steps Academy",
+    "location": "River Valley",
+    "schoolType": "小规模国际课程学校",
+    "curriculum": "Cambridge / AP / SAT 支持",
+    "website": "https://5steps.academy/",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/international-school/5-steps-academy/"
+    ]
+  },
+  {
+    "id": "international-acs-international",
+    "category": "international",
+    "nameZh": "英华国际学校",
+    "nameEn": "ACS International Singapore",
+    "location": "Holland Village",
+    "schoolType": "本地品牌国际学校 / IB 路径",
+    "curriculum": "IGCSE / IBDP",
+    "website": "https://www.acsinternational.edu.sg/",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/international-school/acs-international/"
+    ]
+  },
+  {
+    "id": "international-astor-international",
+    "category": "international",
+    "nameZh": "Astor 国际学校",
+    "nameEn": "Astor International School",
+    "location": "Tanglin / Central",
+    "schoolType": "小学阶段国际学校",
+    "curriculum": "International Primary Curriculum",
+    "website": "https://astor.edu.sg/",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/international-school/astor-international/"
+    ]
+  },
+  {
+    "id": "international-australian-international",
+    "category": "international",
+    "nameZh": "澳洲国际学校",
+    "nameEn": "Australian International School Singapore",
+    "location": "Serangoon",
+    "schoolType": "澳洲体系国际学校",
+    "curriculum": "澳洲课程 / IBDP / HSC",
+    "website": "https://www.ais.com.sg/",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/international-school/australian-international/"
+    ]
+  },
+  {
+    "id": "international-brighton-college",
+    "category": "international",
+    "nameZh": "布莱顿学院新加坡",
+    "nameEn": "Brighton College Singapore",
+    "location": "Lorong Chuan",
+    "schoolType": "英国体系国际学校",
+    "curriculum": "英国课程",
+    "website": "https://www.brightoncollege.edu.sg/",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/international-school/brighton-college/"
+    ]
+  },
+  {
+    "id": "international-canadian-international",
+    "category": "international",
+    "nameZh": "加拿大国际学校",
+    "nameEn": "Canadian International School",
+    "location": "Lakeside / Tanjong Katong",
+    "schoolType": "IB 国际学校",
+    "curriculum": "IB PYP / MYP / DP",
+    "website": "https://www.cis.edu.sg/",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/international-school/canadian-international/"
+    ]
+  },
+  {
+    "id": "international-chatsworth",
+    "category": "international",
+    "nameZh": "Chatsworth 国际学校",
+    "nameEn": "Chatsworth International School",
+    "location": "Bukit Timah",
+    "schoolType": "IB 国际学校",
+    "curriculum": "IB PYP / MYP / DP",
+    "website": "https://www.chatsworth.com.sg/",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/international-school/chatsworth/"
+    ]
+  },
+  {
+    "id": "international-dimensions-international",
+    "category": "international",
+    "nameZh": "博伟国际教育学院",
+    "nameEn": "Dimensions International College",
+    "location": "Kovan / Bukit Timah / City",
+    "schoolType": "私立国际课程学校",
+    "curriculum": "Cambridge / O-Level / A-Level / Diploma",
+    "website": "https://dimensions.edu.sg/",
+    "majorAreas": [
+      "O-Level 预备",
+      "A-Level 预备",
+      "酒店旅游",
+      "商科管理",
+      "英文课程"
+    ],
+    "admissionPaths": [
+      "初高中成绩单评估",
+      "英文测评",
+      "根据年龄和学历进入对应课程",
+      "学生准证申请"
+    ],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/international-school/dimensions-international/",
+      "/private-schools/dimensions-international/"
+    ]
+  },
+  {
+    "id": "international-dover-court",
+    "category": "international",
+    "nameZh": "多佛阁国际学校",
+    "nameEn": "Dover Court International School",
+    "location": "Dover",
+    "schoolType": "英国体系国际学校",
+    "curriculum": "英国课程 / IGCSE / IB",
+    "website": "https://www.dovercourt.edu.sg/",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/international-school/dover-court/"
+    ]
+  },
+  {
+    "id": "international-dps-international",
+    "category": "international",
+    "nameZh": "DPS 国际学校",
+    "nameEn": "DPS International School Singapore",
+    "location": "Aroozoo Avenue",
+    "schoolType": "印度体系与国际课程学校",
+    "curriculum": "Cambridge / CBSE / IGCSE",
+    "website": "https://www.dps.edu.sg/",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/international-school/dps-international/"
+    ]
+  },
+  {
+    "id": "international-dulwich",
+    "category": "international",
+    "nameZh": "德威国际学校",
+    "nameEn": "Dulwich College (Singapore)",
+    "location": "Bukit Batok",
+    "schoolType": "英国体系国际学校",
+    "curriculum": "英国课程 / IGCSE / IB",
+    "website": "https://singapore.dulwich.org/",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/international-school/dulwich/"
+    ]
+  },
+  {
+    "id": "international-etonhouse-international",
+    "category": "international",
+    "nameZh": "伊顿国际学校",
+    "nameEn": "EtonHouse International School",
+    "location": "Orchard / Broadrick",
+    "schoolType": "国际学校",
+    "curriculum": "IB PYP / IGCSE / International A-Level",
+    "website": "https://www.etonhouse.edu.sg/",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/international-school/etonhouse-international/"
+    ]
+  },
+  {
+    "id": "international-furen-international",
+    "category": "international",
+    "nameZh": "辅仁国际学校",
+    "nameEn": "Furen International School",
+    "location": "Orchard / Central",
+    "schoolType": "私立国际课程学校",
+    "curriculum": "IGCSE / A-Level / Foundation",
+    "website": "https://www.fis.edu.sg/",
+    "majorAreas": [
+      "IGCSE",
+      "A-Level",
+      "Foundation",
+      "大学申请支持",
+      "英文过渡"
+    ],
+    "admissionPaths": [
+      "初高中成绩单评估",
+      "英文测评或入学测试",
+      "进入 IGCSE / A-Level / Foundation 对应阶段",
+      "学生准证申请"
+    ],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/international-school/furen-international/",
+      "/private-schools/furen-international/"
+    ]
+  },
+  {
+    "id": "international-gems-world-academy",
+    "category": "international",
+    "nameZh": "XCL World Academy",
+    "nameEn": "XCL World Academy",
+    "location": "Yishun",
+    "schoolType": "IB 国际学校",
+    "curriculum": "IB PYP / MYP / DP",
+    "website": "https://www.xwa.edu.sg/",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/international-school/gems-world-academy/"
+    ]
+  },
+  {
+    "id": "international-gess",
+    "category": "international",
+    "nameZh": "德国欧洲学校",
+    "nameEn": "German European School Singapore (GESS)",
+    "location": "Dairy Farm",
+    "schoolType": "欧洲体系国际学校",
+    "curriculum": "IB / 德国课程",
+    "website": "https://www.gess.sg/",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/international-school/gess/"
+    ]
+  },
+  {
+    "id": "international-global-indian",
+    "category": "international",
+    "nameZh": "环球印度国际学校",
+    "nameEn": "Global Indian International School Singapore",
+    "location": "Punggol / East Coast",
+    "schoolType": "印度体系与国际课程学校",
+    "curriculum": "IB / Cambridge / CBSE",
+    "website": "https://singapore.globalindianschool.org/",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/international-school/global-indian/"
+    ]
+  },
+  {
+    "id": "international-holland-international",
+    "category": "international",
+    "nameZh": "荷兰国际学校",
+    "nameEn": "Holland International School",
+    "location": "Bukit Timah",
+    "schoolType": "荷兰体系国际学校",
+    "curriculum": "荷兰课程 / IPC",
+    "website": "https://www.hollandinternationalschool.sg/",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/international-school/holland-international/"
+    ]
+  },
+  {
+    "id": "international-hwa-chong-international",
+    "category": "international",
+    "nameZh": "华中国际学校",
+    "nameEn": "Hwa Chong International School",
+    "location": "Bukit Timah",
+    "schoolType": "本地品牌国际学校 / IB 路径",
+    "curriculum": "六年制国际课程 / IBDP",
+    "website": "https://www.hcis.edu.sg/",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/international-school/hwa-chong-international/"
+    ]
+  },
+  {
+    "id": "international-insworld-institute",
+    "category": "international",
+    "nameZh": "Insworld 学院",
+    "nameEn": "Insworld Institute",
+    "location": "Beach Road",
+    "schoolType": "私立国际课程学校",
+    "curriculum": "IGCSE / A-Level",
+    "website": "https://www.insworld.edu.sg/",
+    "majorAreas": [
+      "IGCSE",
+      "A-Level",
+      "英文过渡",
+      "小班教学",
+      "大学申请准备"
+    ],
+    "admissionPaths": [
+      "成绩单评估",
+      "英文测试",
+      "进入 IGCSE 或 A-Level 阶段",
+      "学生准证申请"
+    ],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/international-school/insworld-institute/",
+      "/private-schools/insworld-institute/"
+    ]
+  },
+  {
+    "id": "international-integrated-international",
+    "category": "international",
+    "nameZh": "Integrated International School",
+    "nameEn": "Integrated International School",
+    "location": "Bukit Merah",
+    "schoolType": "学习支持型国际学校",
+    "curriculum": "澳洲课程 / 个性化支持",
+    "website": "https://iis.edu.sg/",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/international-school/integrated-international/"
+    ]
+  },
+  {
+    "id": "international-international-french-school",
+    "category": "international",
+    "nameZh": "新加坡法国国际学校",
+    "nameEn": "International French School Singapore",
+    "location": "Ang Mo Kio",
+    "schoolType": "法国体系国际学校",
+    "curriculum": "法国课程 / International Stream",
+    "website": "https://www.ifs.edu.sg/",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/international-school/international-french-school/"
+    ]
+  },
+  {
+    "id": "international-invictus",
+    "category": "international",
+    "nameZh": "英维特国际学校",
+    "nameEn": "Invictus International School",
+    "location": "Dempsey / Centrium / Bukit Timah",
+    "schoolType": "Cambridge 国际学校",
+    "curriculum": "Cambridge / IGCSE / A-Level",
+    "website": "https://www.invictus.edu.sg/",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/international-school/invictus/"
+    ]
+  },
+  {
+    "id": "international-iss",
+    "category": "international",
+    "nameZh": "ISS 国际学校",
+    "nameEn": "ISS International School",
+    "location": "Preston / Paterson",
+    "schoolType": "IB 国际学校",
+    "curriculum": "IB PYP / MYP / DP",
+    "website": "https://www.iss.edu.sg/",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/international-school/iss/"
+    ]
+  },
+  {
+    "id": "international-knightsbridge-house",
+    "category": "international",
+    "nameZh": "Knightsbridge House 国际学校",
+    "nameEn": "Knightsbridge House International School",
+    "location": "Bukit Merah",
+    "schoolType": "Cambridge 国际学校",
+    "curriculum": "Cambridge Primary / Lower Secondary / IGCSE",
+    "website": "https://www.kbh.edu.sg/",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/international-school/knightsbridge-house/"
+    ]
+  },
+  {
+    "id": "international-lotus-bridge",
+    "category": "international",
+    "nameZh": "Lotus Bridge 国际学校",
+    "nameEn": "Lotus Bridge International School",
+    "location": "Singapore",
+    "schoolType": "国际学校",
+    "curriculum": "国际课程",
+    "website": "https://lotusbridge.edu.sg/",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/international-school/lotus-bridge/"
+    ]
+  },
+  {
+    "id": "international-melbourne-specialist",
+    "category": "international",
+    "nameZh": "墨尔本专门学校",
+    "nameEn": "Melbourne Specialist International School",
+    "location": "Tanglin",
+    "schoolType": "特殊教育支持型国际学校",
+    "curriculum": "澳洲课程 / 特殊教育支持",
+    "website": "https://msis.edu.sg/",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/international-school/melbourne-specialist/"
+    ]
+  },
+  {
+    "id": "international-middleton-international",
+    "category": "international",
+    "nameZh": "Middleton 国际学校",
+    "nameEn": "Middleton International School",
+    "location": "Tampines / West Coast / Upper Bukit Timah",
+    "schoolType": "国际学校",
+    "curriculum": "International Primary Curriculum / Cambridge IGCSE / A-Level",
+    "website": "https://www.middleton.edu.sg/",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/international-school/middleton-international/"
+    ]
+  },
+  {
+    "id": "international-nexus",
+    "category": "international",
+    "nameZh": "Nexus 国际学校",
+    "nameEn": "Nexus International School Singapore",
+    "location": "Aljunied",
+    "schoolType": "IB 国际学校",
+    "curriculum": "IB PYP / MYP / DP",
+    "website": "https://www.nexus.edu.sg/",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/international-school/nexus/"
+    ]
+  },
+  {
+    "id": "international-north-london-collegiate",
+    "category": "international",
+    "nameZh": "北伦敦学院新加坡",
+    "nameEn": "North London Collegiate School Singapore",
+    "location": "Depot Road",
+    "schoolType": "英国体系国际学校",
+    "curriculum": "英国课程 / IGCSE / IBDP",
+    "website": "https://nlcssingapore.sg/",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/international-school/north-london-collegiate/"
+    ]
+  },
+  {
+    "id": "international-nps-international",
+    "category": "international",
+    "nameZh": "NPS 国际学校",
+    "nameEn": "NPS International School Singapore",
+    "location": "Chai Chee",
+    "schoolType": "印度体系与国际课程学校",
+    "curriculum": "CBSE / IGCSE / IB",
+    "website": "https://www.npsinternational.com.sg/",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/international-school/nps-international/"
+    ]
+  },
+  {
+    "id": "international-one-world",
+    "category": "international",
+    "nameZh": "One World 国际学校",
+    "nameEn": "One World International School",
+    "location": "Jurong West / Punggol",
+    "schoolType": "国际学校",
+    "curriculum": "IB PYP / Cambridge / IGCSE",
+    "website": "https://www.owis.org/",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/international-school/one-world/"
+    ]
+  },
+  {
+    "id": "international-overseas-family-school",
+    "category": "international",
+    "nameZh": "海外家庭学校",
+    "nameEn": "Overseas Family School",
+    "location": "Pasir Ris",
+    "schoolType": "IB 国际学校",
+    "curriculum": "IB PYP / MYP / DP",
+    "website": "https://www.ofs.edu.sg/",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/international-school/overseas-family-school/"
+    ]
+  },
+  {
+    "id": "international-perse-school",
+    "category": "international",
+    "nameZh": "珀斯学校新加坡",
+    "nameEn": "The Perse School Singapore",
+    "location": "Upper Bukit Timah",
+    "schoolType": "英国体系国际学校",
+    "curriculum": "英国课程 / Cambridge",
+    "website": "https://www.perse.edu.sg/",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/international-school/perse-school/"
+    ]
+  },
+  {
+    "id": "international-raeburn-park",
+    "category": "international",
+    "nameZh": "Raeburn Park 学校",
+    "nameEn": "Raeburn Park School",
+    "location": "Bukit Merah",
+    "schoolType": "英国体系国际学校",
+    "curriculum": "英国课程",
+    "website": "https://www.raeburnpark.com/",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/international-school/raeburn-park/"
+    ]
+  },
+  {
+    "id": "international-san-yu-adventist",
+    "category": "international",
+    "nameZh": "三育中小学",
+    "nameEn": "San Yu Adventist School",
+    "location": "Thomson",
+    "schoolType": "私立国际学校",
+    "curriculum": "新加坡课程 / Cambridge IGCSE",
+    "website": "https://www.sanyu.edu.sg/",
+    "majorAreas": [
+      "小学课程",
+      "中学课程",
+      "Cambridge IGCSE",
+      "英文过渡",
+      "私立学校路径"
+    ],
+    "admissionPaths": [
+      "年龄和年级评估",
+      "成绩单和英文能力评估",
+      "进入小学或中学对应阶段",
+      "学生准证申请"
+    ],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/international-school/san-yu-adventist/",
+      "/private-schools/san-yu-adventist/"
+    ]
+  },
+  {
+    "id": "international-singapore-american",
+    "category": "international",
+    "nameZh": "新加坡美国学校",
+    "nameEn": "Singapore American School",
+    "location": "Woodlands",
+    "schoolType": "美国体系国际学校",
+    "curriculum": "美国课程 / AP",
+    "website": "https://www.sas.edu.sg/",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/international-school/singapore-american/"
+    ]
+  },
+  {
+    "id": "international-singapore-korean-international",
+    "category": "international",
+    "nameZh": "新加坡韩国国际学校",
+    "nameEn": "Singapore Korean International School",
+    "location": "Bukit Timah",
+    "schoolType": "韩国体系国际学校",
+    "curriculum": "韩国课程 / 国际课程",
+    "website": "https://www.skis.kr/",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/international-school/singapore-korean-international/"
+    ]
+  },
+  {
+    "id": "international-sir-manasseh-meyer",
+    "category": "international",
+    "nameZh": "Sir Manasseh Meyer 国际学校",
+    "nameEn": "Sir Manasseh Meyer International School",
+    "location": "Sembawang",
+    "schoolType": "国际学校",
+    "curriculum": "国际课程 / IPC / Cambridge",
+    "website": "https://www.smm.edu.sg/",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/international-school/sir-manasseh-meyer/"
+    ]
+  },
+  {
+    "id": "international-sji-international",
+    "category": "international",
+    "nameZh": "圣若瑟国际学校",
+    "nameEn": "St. Joseph’s Institution International",
+    "location": "Thomson",
+    "schoolType": "本地品牌国际学校 / IB 路径",
+    "curriculum": "IGCSE / IBDP",
+    "website": "https://www.sji-international.com.sg/",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/international-school/sji-international/"
+    ]
+  },
+  {
+    "id": "international-st-francis-methodist",
+    "category": "international",
+    "nameZh": "圣法兰西斯卫理学校",
+    "nameEn": "St. Francis Methodist School",
+    "location": "Upper Bukit Timah",
+    "schoolType": "私立国际课程学校",
+    "curriculum": "Cambridge / IGCSE / A-Level / WACE",
+    "website": "https://www.sfms.edu.sg/",
+    "majorAreas": [
+      "WACE",
+      "A-Level",
+      "IGCSE",
+      "英文过渡",
+      "大学申请准备"
+    ],
+    "admissionPaths": [
+      "成绩单评估",
+      "英文测评",
+      "按年龄和目标课程进入对应阶段",
+      "学生准证申请"
+    ],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/international-school/st-francis-methodist/",
+      "/private-schools/st-francis-methodist/"
+    ]
+  },
+  {
+    "id": "international-stamford-american",
+    "category": "international",
+    "nameZh": "斯坦福美国国际学校",
+    "nameEn": "Stamford American International School",
+    "location": "Woodleigh",
+    "schoolType": "美国体系国际学校",
+    "curriculum": "美国课程 / IB / AP",
+    "website": "https://www.sais.edu.sg/",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/international-school/stamford-american/"
+    ]
+  },
+  {
+    "id": "international-swiss-school",
+    "category": "international",
+    "nameZh": "新加坡瑞士学校",
+    "nameEn": "Swiss School in Singapore",
+    "location": "Bukit Timah",
+    "schoolType": "瑞士体系国际学校",
+    "curriculum": "瑞士课程 / 德语与英语环境",
+    "website": "https://www.swiss-school.edu.sg/",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/international-school/swiss-school/"
+    ]
+  },
+  {
+    "id": "international-tanglin-trust",
+    "category": "international",
+    "nameZh": "东陵信托学校",
+    "nameEn": "Tanglin Trust School",
+    "location": "Portsdown / One-North",
+    "schoolType": "英国体系国际学校",
+    "curriculum": "英国课程 / IGCSE / A-Level / IB",
+    "website": "https://www.tts.edu.sg/",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/international-school/tanglin-trust/"
+    ]
+  },
+  {
+    "id": "international-the-grange-institution",
+    "category": "international",
+    "nameZh": "格兰治学校",
+    "nameEn": "The Grange Institution",
+    "location": "Yio Chu Kang",
+    "schoolType": "小学阶段国际学校",
+    "curriculum": "International Primary Curriculum / Cambridge",
+    "website": "https://www.thegrange.edu.sg/",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/international-school/the-grange-institution/"
+    ]
+  },
+  {
+    "id": "international-uwcsea",
+    "category": "international",
+    "nameZh": "东南亚世界联合书院",
+    "nameEn": "United World College of South East Asia (UWCSEA)",
+    "location": "Dover / Tampines",
+    "schoolType": "非营利国际学校 / IB 路径",
+    "curriculum": "IB / IGCSE / UWC 课程体系",
+    "website": "https://www.uwcsea.edu.sg/",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/international-school/uwcsea/"
+    ]
+  },
+  {
+    "id": "international-waseda-shibuya",
+    "category": "international",
+    "nameZh": "早稻田涩谷新加坡学校",
+    "nameEn": "Waseda Shibuya Senior High School Singapore",
+    "location": "West Coast",
+    "schoolType": "日本体系国际学校",
+    "curriculum": "日本高中课程",
+    "website": "https://www.waseda-shibuya.edu.sg/",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/international-school/waseda-shibuya/"
+    ]
+  },
+  {
+    "id": "international-winstedt",
+    "category": "international",
+    "nameZh": "Winstedt 学校",
+    "nameEn": "The Winstedt School",
+    "location": "Newton",
+    "schoolType": "学习支持型国际学校",
+    "curriculum": "国际课程 / 个性化支持",
+    "website": "https://www.winstedt.edu.sg/",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/international-school/winstedt/"
+    ]
+  },
+  {
+    "id": "international-yuvabharathi",
+    "category": "international",
+    "nameZh": "Yuvabharathi 国际学校",
+    "nameEn": "Yuvabharathi International School",
+    "location": "Jurong West",
+    "schoolType": "印度体系国际学校",
+    "curriculum": "CBSE",
+    "website": "https://www.yuvabharathi.sg/",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/international-school/yuvabharathi/"
+    ]
+  },
+  {
+    "id": "private-amity-global-institute",
+    "category": "private",
+    "nameZh": "Amity Global Institute",
+    "nameEn": "Amity Global Institute",
+    "location": "Singapore",
+    "schoolType": "私立教育机构 / 海外大学合作课程",
+    "curriculum": "Diploma / Bachelor / Master Pathway",
+    "website": "https://www.amitysingapore.sg/",
+    "majorAreas": [
+      "商科管理",
+      "信息技术",
+      "数据分析",
+      "旅游酒店",
+      "研究生课程",
+      "商科",
+      "IT计算机",
+      "传媒",
+      "会计与金融",
+      "物流供应链",
+      "数据与分析",
+      "市场营销",
+      "教育"
+    ],
+    "admissionPaths": [
+      "高中毕业申请 Diploma 或本科路径",
+      "大专或本科申请硕士路径",
+      "英文成绩或校内测试",
+      "学历背景评估",
+      "预科 / 文凭",
+      "本科学位（Top-up）",
+      "硕士学位"
+    ],
+    "detailUrl": "/private-university/amity/",
+    "legacyUrls": [
+      "/private-schools/amity-global-institute/",
+      "/private-university/amity/"
+    ]
+  },
+  {
+    "id": "private-brentvale-college-international",
+    "category": "private",
+    "nameZh": "BCI",
+    "nameEn": "Brentvale College International",
+    "location": "Singapore",
+    "schoolType": "私立国际高中 / 国际课程学校",
+    "curriculum": "WACE / 国际高中 / ATAR 大学申请路径",
+    "website": "",
+    "majorAreas": [
+      "WACE 课程",
+      "ATAR 升学",
+      "国际高中",
+      "英文过渡",
+      "大学申请规划"
+    ],
+    "admissionPaths": [
+      "初三至高二阶段评估入学",
+      "成绩单和英文能力评估",
+      "按年级进入国际高中或预科阶段",
+      "学生准证申请"
+    ],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/private-schools/bci/",
+      "/private-schools/brentvale-college-international/"
+    ]
+  },
+  {
+    "id": "private-curtin-singapore",
+    "category": "private",
+    "nameZh": "科廷大学新加坡校区",
+    "nameEn": "Curtin Singapore",
+    "location": "Singapore",
+    "schoolType": "澳洲大学新加坡校区",
+    "curriculum": "澳洲大学本科 / 硕士课程",
+    "website": "https://curtin.edu.sg/",
+    "majorAreas": [
+      "商科",
+      "会计金融",
+      "市场营销",
+      "传媒",
+      "管理",
+      "预科",
+      "会计与金融",
+      "IT计算机",
+      "网络安全",
+      "护理",
+      "物流供应链",
+      "数据与分析",
+      "健康科学"
+    ],
+    "admissionPaths": [
+      "高中毕业申请预科或本科路径",
+      "国际课程或同等学历申请",
+      "英文成绩要求",
+      "部分课程可通过 Diploma 衔接",
+      "预科 / 英语",
+      "本科学位",
+      "研究生 / 硕士",
+      "博士研究"
+    ],
+    "detailUrl": "/private-university/curtin/",
+    "legacyUrls": [
+      "/private-schools/curtin-singapore/",
+      "/private-university/curtin/"
+    ]
+  },
+  {
+    "id": "private-erc-institute",
+    "category": "private",
+    "nameZh": "ERC Institute",
+    "nameEn": "ERC Institute",
+    "location": "Singapore",
+    "schoolType": "私立教育机构 / 商科创业方向",
+    "curriculum": "Diploma / Degree Pathway / 商科管理课程",
+    "website": "https://www.erci.edu.sg/",
+    "majorAreas": [
+      "商科管理",
+      "创业",
+      "市场营销",
+      "酒店旅游",
+      "金融相关课程"
+    ],
+    "admissionPaths": [
+      "高中毕业申请 Diploma",
+      "Diploma 后衔接本科",
+      "英文成绩或校内测试",
+      "学历背景评估"
+    ],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/private-schools/erc-institute/"
+    ]
+  },
+  {
+    "id": "private-jcu-singapore",
+    "category": "private",
+    "nameZh": "詹姆斯库克大学新加坡校区",
+    "nameEn": "James Cook University Singapore",
+    "location": "Sims Drive",
+    "schoolType": "澳洲大学新加坡校区",
+    "curriculum": "澳洲大学本科 / 硕士课程",
+    "website": "https://www.jcu.edu.sg/",
+    "majorAreas": [
+      "商科",
+      "心理学",
+      "信息技术",
+      "环境科学",
+      "教育与社会科学",
+      "预科",
+      "会计与金融",
+      "IT计算机",
+      "网络安全",
+      "生命科学",
+      "设计",
+      "酒店旅游",
+      "教育",
+      "数据与分析",
+      "社会科学"
+    ],
+    "admissionPaths": [
+      "高中毕业申请预科或本科路径",
+      "A-Level、IB、国际课程或同等学历申请",
+      "英文成绩要求",
+      "部分学生可通过 Diploma 或转学分衔接",
+      "预科 / 大专",
+      "本科学位",
+      "荣誉 / 硕士",
+      "博士研究"
+    ],
+    "detailUrl": "/private-university/jcu/",
+    "legacyUrls": [
+      "/private-schools/jcu-singapore/",
+      "/private-university/jcu/"
+    ]
+  },
+  {
+    "id": "private-kaplan",
+    "category": "private",
+    "nameZh": "Kaplan 新加坡",
+    "nameEn": "Kaplan Singapore",
+    "location": "City Campus / Downtown",
+    "schoolType": "私立教育机构 / 海外大学合作课程",
+    "curriculum": "Diploma / Degree Pathway / 海外大学合作课程",
+    "website": "https://www.kaplan.com.sg/",
+    "majorAreas": [
+      "商科管理",
+      "信息技术",
+      "传播传媒",
+      "金融会计",
+      "酒店与旅游管理",
+      "会计与金融",
+      "法律",
+      "商科",
+      "市场营销",
+      "物流供应链",
+      "酒店旅游",
+      "网络安全",
+      "传媒",
+      "IT计算机",
+      "设计"
+    ],
+    "admissionPaths": [
+      "高中毕业或同等学历申请 Diploma",
+      "Diploma 后衔接合作大学本科",
+      "英文测试或 IELTS 等成绩",
+      "部分课程可评估过往学历",
+      "文凭 / 基础课程",
+      "本科学位",
+      "硕士学位"
+    ],
+    "detailUrl": "/private-university/kaplan/",
+    "legacyUrls": [
+      "/private-schools/kaplan/",
+      "/private-university/kaplan/"
+    ]
+  },
+  {
+    "id": "private-lsbf-singapore",
+    "category": "private",
+    "nameZh": "伦敦商业金融学院新加坡校区 LSBF",
+    "nameEn": "London School of Business and Finance Singapore",
+    "location": "Central Singapore",
+    "schoolType": "私立教育机构 / 商科与会计金融",
+    "curriculum": "Diploma / ACCA / 商科与金融课程",
+    "website": "https://www.lsbf.edu.sg/",
+    "majorAreas": [
+      "会计金融",
+      "ACCA",
+      "商科管理",
+      "酒店旅游",
+      "数据与科技课程",
+      "会计与金融",
+      "商科",
+      "物流供应链",
+      "网络安全"
+    ],
+    "admissionPaths": [
+      "高中毕业或同等学历申请 Diploma",
+      "英文成绩或内部测试",
+      "部分课程衔接合作大学或职业证书",
+      "文凭 / ACCA 备考",
+      "本科学位（Top-up）",
+      "硕士学位"
+    ],
+    "detailUrl": "/private-university/lsbf/",
+    "legacyUrls": [
+      "/private-schools/lsbf-singapore/",
+      "/private-university/lsbf/"
+    ]
+  },
+  {
+    "id": "private-mdis",
+    "category": "private",
+    "nameZh": "新加坡管理发展学院 MDIS",
+    "nameEn": "Management Development Institute of Singapore (MDIS)",
+    "location": "Stirling Road / Queenstown",
+    "schoolType": "私立教育机构 / 综合课程学院",
+    "curriculum": "Diploma / Foundation / 海外大学合作本科与硕士",
+    "website": "https://www.mdis.edu.sg/",
+    "majorAreas": [
+      "商科管理",
+      "工程",
+      "生命科学",
+      "传媒",
+      "旅游酒店",
+      "心理学",
+      "IT计算机",
+      "商科",
+      "时尚设计",
+      "护理",
+      "会计与金融",
+      "预科",
+      "酒店旅游"
+    ],
+    "admissionPaths": [
+      "高中毕业申请 Foundation 或 Diploma",
+      "Diploma 后衔接本科",
+      "英文成绩或内部英文课程",
+      "部分课程可评估转学分",
+      "预科 / 文凭",
+      "本科学位",
+      "硕士学位"
+    ],
+    "detailUrl": "/private-university/mdis/",
+    "legacyUrls": [
+      "/private-schools/mdis/",
+      "/private-university/mdis/"
+    ]
+  },
+  {
+    "id": "private-psb-academy",
+    "category": "private",
+    "nameZh": "PSB Academy",
+    "nameEn": "PSB Academy",
+    "location": "Marina Square / STEM Campus",
+    "schoolType": "私立教育机构 / 应用型课程",
+    "curriculum": "Diploma / Degree Pathway / 海外大学合作课程",
+    "website": "https://www.psb-academy.edu.sg/",
+    "majorAreas": [
+      "工程与科技",
+      "生命科学",
+      "商科管理",
+      "网络安全与 IT",
+      "传媒与体育科学",
+      "会计与金融",
+      "医疗健康",
+      "数据与分析",
+      "商科",
+      "市场营销",
+      "工程",
+      "网络安全",
+      "IT计算机",
+      "护理",
+      "传媒",
+      "酒店旅游",
+      "体育运动",
+      "物流供应链",
+      "设计"
+    ],
+    "admissionPaths": [
+      "高中毕业申请 Diploma",
+      "Diploma 衔接本科合作课程",
+      "英文成绩或校内英文测试",
+      "部分专业可能有科目背景要求",
+      "语言课程 CEP",
+      "证书 / 预科",
+      "PSB 文凭",
+      "本科学位",
+      "硕士学位"
+    ],
+    "detailUrl": "/private-university/psb/",
+    "legacyUrls": [
+      "/private-schools/psb-academy/",
+      "/private-schools/psb/",
+      "/private-university/psb/"
+    ]
+  },
+  {
+    "id": "private-raffles-college-higher-education",
+    "category": "private",
+    "nameZh": "莱佛士高等教育学院",
+    "nameEn": "Raffles College of Higher Education",
+    "location": "Singapore",
+    "schoolType": "私立艺术设计学院",
+    "curriculum": "Design / Fashion / Business / Creative Industries",
+    "website": "https://www.raffles-college.edu.sg/",
+    "majorAreas": [
+      "时尚设计",
+      "室内设计",
+      "视觉传达",
+      "产品设计",
+      "商业与创意管理"
+    ],
+    "admissionPaths": [
+      "高中毕业申请 Diploma 或本科路径",
+      "作品集或创作背景评估",
+      "英文要求",
+      "部分课程可衔接高阶文凭或本科"
+    ],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/private-schools/raffles-college-higher-education/"
+    ]
+  },
+  {
+    "id": "private-shelton-college",
+    "category": "private",
+    "nameZh": "莎顿国际学院",
+    "nameEn": "Shelton College International",
+    "location": "Singapore",
+    "schoolType": "私立学校 / 中学与国际课程路径",
+    "curriculum": "O-Level / A-Level / Foundation Pathway",
+    "website": "https://sheltoncollege.edu.sg/",
+    "majorAreas": [
+      "O-Level 预备",
+      "A-Level 预备",
+      "Foundation 路径",
+      "英文过渡",
+      "大学衔接"
+    ],
+    "admissionPaths": [
+      "初中或高中阶段申请对应课程",
+      "英文测评或入学测试",
+      "成绩单评估",
+      "学生准证申请"
+    ],
+    "detailUrl": "",
+    "legacyUrls": [
+      "/private-schools/shelton-college/"
+    ]
+  },
+  {
+    "id": "private-shrm",
+    "category": "private",
+    "nameZh": "SHRM 学院",
+    "nameEn": "SHRM College Singapore",
+    "location": "Singapore",
+    "schoolType": "私立教育机构",
+    "curriculum": "文凭 / 本科 / 硕士",
+    "website": "https://shrm.edu.sg/",
+    "majorAreas": [
+      "商科",
+      "酒店旅游"
+    ],
+    "admissionPaths": [
+      "文凭 / 高级大专",
+      "本科学位（Top-up）",
+      "硕士 MBA"
+    ],
+    "detailUrl": "/private-university/shrm/",
+    "legacyUrls": [
+      "/private-university/shrm/"
+    ]
+  },
+  {
+    "id": "private-sim",
+    "category": "private",
+    "nameZh": "新加坡管理学院 SIM",
+    "nameEn": "Singapore Institute of Management (SIM)",
+    "location": "Clementi / Dover",
+    "schoolType": "私立教育机构 / 海外大学合作课程",
+    "curriculum": "Foundation / Diploma / 海外大学本科合作课程",
+    "website": "https://www.sim.edu.sg/",
+    "majorAreas": [
+      "商科与管理",
+      "会计与金融",
+      "计算机与数据",
+      "传播与社会科学",
+      "国际本科衔接",
+      "经济",
+      "商科",
+      "数据与分析",
+      "IT计算机",
+      "社会科学",
+      "市场营销",
+      "传媒",
+      "物流供应链",
+      "设计",
+      "工程",
+      "心理学",
+      "体育运动",
+      "护理"
+    ],
+    "admissionPaths": [
+      "高中毕业申请 Foundation 或 Diploma",
+      "O-Level / A-Level / IB 申请对应课程",
+      "大专或本科转学分路径",
+      "英文成绩或校内英文测试",
+      "预科 / 文凭",
+      "英语 / 桥梁",
+      "本科学位",
+      "荣誉年 / 硕士"
+    ],
+    "detailUrl": "/private-university/sim/",
+    "legacyUrls": [
+      "/private-schools/sim/",
+      "/private-university/sim/"
+    ]
+  },
+  {
+    "id": "private-tmc-academy",
+    "category": "private",
+    "nameZh": "TMC Academy",
+    "nameEn": "TMC Academy",
+    "location": "Singapore",
+    "schoolType": "私立教育机构 / 海外大学合作课程",
+    "curriculum": "Diploma / Degree Pathway / 英国大学合作课程",
+    "website": "https://www.tmc.edu.sg/",
+    "majorAreas": [
+      "商科管理",
+      "信息技术",
+      "心理学",
+      "大众传媒",
+      "酒店旅游",
+      "市场营销",
+      "商科",
+      "物流供应链",
+      "会计与金融",
+      "IT计算机",
+      "传媒"
+    ],
+    "admissionPaths": [
+      "高中毕业申请 Diploma",
+      "Diploma 衔接合作大学本科",
+      "英文成绩或校内测试",
+      "学历背景评估",
+      "文凭 / 高级文凭",
+      "本科学位（Top-up）",
+      "硕士 MBA"
+    ],
+    "detailUrl": "/private-university/tmc/",
+    "legacyUrls": [
+      "/private-schools/tmc-academy/",
+      "/private-university/tmc/"
+    ]
+  },
+  {
+    "id": "jc-anderson-serangoon-jc",
+    "category": "jc",
+    "nameZh": "安德逊施里兰甘初级学院",
+    "nameEn": "Anderson Serangoon Junior College",
+    "location": "4500 Ang Mo Kio Ave 6",
+    "schoolType": "初级学院",
+    "curriculum": "A-Level / H1 H2 H3",
+    "website": "",
+    "majorAreas": [
+      "数学、物理、化学、生物",
+      "经济学、历史、地理、英文文学",
+      "中国研究（华文媒介）、华文与文学",
+      "计算机科学（H2 Computing）",
+      "General Paper（H1）、Project Work（H1）"
+    ],
+    "admissionPaths": [
+      "JAE 理科方向",
+      "JAE 文科方向"
+    ],
+    "detailUrl": "/jc/anderson-serangoon-jc/",
+    "legacyUrls": [
+      "/jc/anderson-serangoon-jc/"
+    ]
+  },
+  {
+    "id": "jc-anglo-chinese-jc",
+    "category": "jc",
+    "nameZh": "英华初级学院",
+    "nameEn": "Anglo-Chinese Junior College",
+    "location": "25 Dover Close East, S139745",
+    "schoolType": "初级学院",
+    "curriculum": "A-Level / H1 H2 H3",
+    "website": "",
+    "majorAreas": [
+      "数学、物理、化学、生物",
+      "Further Mathematics（H2）",
+      "经济学、地理",
+      "历史、英文文学",
+      "H1 中文、H1 翻译",
+      "Knowledge & Inquiry（H2）"
+    ],
+    "admissionPaths": [
+      "JAE 主要招生（理科方向）",
+      "JAE 主要招生（文科方向）",
+      "国际学生（持学生准证）"
+    ],
+    "detailUrl": "/jc/anglo-chinese-jc/",
+    "legacyUrls": [
+      "/jc/anglo-chinese-jc/"
+    ]
+  },
+  {
+    "id": "jc-catholic-jc",
+    "category": "jc",
+    "nameZh": "公教初级学院",
+    "nameEn": "Catholic Junior College",
+    "location": "129 Whitley Road, S297822",
+    "schoolType": "初级学院",
+    "curriculum": "A-Level / H1 H2 H3",
+    "website": "https://www.cjc.moe.edu.sg/contact-us/",
+    "majorAreas": [
+      "数学、物理、化学",
+      "生物、化学",
+      "Further Mathematics（H2）",
+      "经济学、商业研究",
+      "历史、地理、英文文学",
+      "Knowledge & Inquiry（H2）"
+    ],
+    "admissionPaths": [
+      "JAE 主要招生（理科方向）",
+      "JAE 主要招生（文科方向）",
+      "国际学生（持学生准证）"
+    ],
+    "detailUrl": "/jc/catholic-jc/",
+    "legacyUrls": [
+      "/jc/catholic-jc/"
+    ]
+  },
+  {
+    "id": "jc-dunman-high",
+    "category": "jc",
+    "nameZh": "德明政府中学",
+    "nameEn": "Dunman High School",
+    "location": "10 Tanjong Rhu Road",
+    "schoolType": "初级学院",
+    "curriculum": "A-Level",
+    "website": "",
+    "majorAreas": [
+      "数学、进阶数学、物理、化学、生物",
+      "经济学、历史、地理、英文文学",
+      "中国语文与文学（H2）、双语双文化课程（BSP）",
+      "H3 科目（与大学合作）",
+      "General Paper（H1）、Project Work（H1）"
+    ],
+    "admissionPaths": [],
+    "detailUrl": "/jc/dunman-high/",
+    "legacyUrls": [
+      "/jc/dunman-high/"
+    ]
+  },
+  {
+    "id": "jc-eunoia-jc",
+    "category": "jc",
+    "nameZh": "尤诺斯初级学院",
+    "nameEn": "Eunoia Junior College",
+    "location": "2 Sin Ming Place, S573838",
+    "schoolType": "初级学院",
+    "curriculum": "A-Level / H1 H2 H3",
+    "website": "",
+    "majorAreas": [
+      "物理、化学、生物",
+      "数学（H2）、进阶数学（H2）、计算机科学（H2）",
+      "历史、地理、经济学",
+      "英文文学、华文、华文文学",
+      "美术（Art）、音乐（Music）",
+      "戏剧研究（Theatre Studies and Drama）"
+    ],
+    "admissionPaths": [
+      "JAE（O-Level 外部申请）",
+      "MGS / SCGS IP 直通",
+      "DSA（才艺 / 特长申请）",
+      "国际学生"
+    ],
+    "detailUrl": "/jc/eunoia-jc/",
+    "legacyUrls": [
+      "/jc/eunoia-jc/"
+    ]
+  },
+  {
+    "id": "jc-hwa-chong-institution",
+    "category": "jc",
+    "nameZh": "华侨中学高中部",
+    "nameEn": "Hwa Chong Institution College Section",
+    "location": "661 Bukit Timah Road",
+    "schoolType": "初级学院",
+    "curriculum": "A-Level",
+    "website": "",
+    "majorAreas": [
+      "物理、化学、生物",
+      "数学 H2、进阶数学 H2",
+      "经济学、历史、地理、文学",
+      "华文 H2 / H3、华文文学、双文化研究（BSP）",
+      "KI（代替 General Paper）",
+      "General Paper（H1）、Project Work"
+    ],
+    "admissionPaths": [
+      "IP 直通车（内部升读）",
+      "JAE 外部报名",
+      "DSA 直接录取",
+      "国际学生"
+    ],
+    "detailUrl": "/jc/hwa-chong-institution/",
+    "legacyUrls": [
+      "/jc/hwa-chong-institution/"
+    ]
+  },
+  {
+    "id": "jc-jurong-pioneer-jc",
+    "category": "jc",
+    "nameZh": "裕廊先驱初级学院",
+    "nameEn": "Jurong Pioneer Junior College",
+    "location": "20 Jurong West St 93",
+    "schoolType": "初级学院",
+    "curriculum": "A-Level / H1 H2 H3",
+    "website": "",
+    "majorAreas": [
+      "数学、物理、化学、生物",
+      "经济学、历史、地理、英文文学",
+      "中国研究（华文媒介）、华文与文学",
+      "计算机科学（H2 Computing）",
+      "General Paper（H1）、Project Work（H1）"
+    ],
+    "admissionPaths": [
+      "JAE 理科方向",
+      "JAE 文科方向"
+    ],
+    "detailUrl": "/jc/jurong-pioneer-jc/",
+    "legacyUrls": [
+      "/jc/jurong-pioneer-jc/"
+    ]
+  },
+  {
+    "id": "jc-nanyang-jc",
+    "category": "jc",
+    "nameZh": "南洋初级学院",
+    "nameEn": "Nanyang Junior College",
+    "location": "128 Serangoon Ave 3, S556111",
+    "schoolType": "初级学院",
+    "curriculum": "A-Level / H1 H2 H3",
+    "website": "",
+    "majorAreas": [
+      "数学、物理、化学",
+      "生物、化学",
+      "Further Mathematics（H2）",
+      "经济学、地理",
+      "历史、英文文学",
+      "H2 中华语文与文学、H1 中文"
+    ],
+    "admissionPaths": [
+      "JAE 主要招生（理科方向）",
+      "JAE 主要招生（文科方向）",
+      "国际学生（持学生准证）"
+    ],
+    "detailUrl": "/jc/nanyang-jc/",
+    "legacyUrls": [
+      "/jc/nanyang-jc/"
+    ]
+  },
+  {
+    "id": "jc-national-jc",
+    "category": "jc",
+    "nameZh": "国家初级学院",
+    "nameEn": "National Junior College",
+    "location": "37 Hillcrest Road",
+    "schoolType": "JC / IP / A-Level",
+    "curriculum": "Integrated Programme / A-Level 路径",
+    "website": "",
+    "majorAreas": [
+      "物理、化学、生物",
+      "数学 H2、进阶数学 H2",
+      "经济学、历史、地理、英文文学",
+      "华文 H2 / H3、华文文学 H2",
+      "视觉艺术 H2",
+      "General Paper（H1）、Project Work"
+    ],
+    "admissionPaths": [
+      "IP 直通车（内部升读）",
+      "JAE 外部报名",
+      "DSA（艺术特长）",
+      "国际学生"
+    ],
+    "detailUrl": "/jc/national-jc/",
+    "legacyUrls": [
+      "/jc/national-jc/"
+    ]
+  },
+  {
+    "id": "jc-raffles-institution",
+    "category": "jc",
+    "nameZh": "莱佛士初级学院",
+    "nameEn": "Raffles Institution Junior College",
+    "location": "1 Raffles Institution Lane",
+    "schoolType": "初级学院",
+    "curriculum": "A-Level",
+    "website": "",
+    "majorAreas": [
+      "物理、化学、生物（H2 / H3）",
+      "数学 H2、进阶数学 H2、数学 H3",
+      "历史、地理、经济学、英文文学",
+      "视觉艺术、音乐（H2 / H3）",
+      "Knowledge & Inquiry（KI）",
+      "General Paper（H1）、Project Work"
+    ],
+    "admissionPaths": [
+      "IP 直通车（内部升读）",
+      "RGS 学生（Year 5 加入）",
+      "JAE 外部报名",
+      "DSA 直接录取"
+    ],
+    "detailUrl": "/jc/raffles-institution/",
+    "legacyUrls": [
+      "/jc/raffles-institution/"
+    ]
+  },
+  {
+    "id": "jc-river-valley-high",
+    "category": "jc",
+    "nameZh": "里弗威利中学",
+    "nameEn": "River Valley High School",
+    "location": "6 Boon Lay Avenue",
+    "schoolType": "初级学院",
+    "curriculum": "A-Level",
+    "website": "",
+    "majorAreas": [
+      "数学、进阶数学、物理、化学、生物",
+      "经济学、历史、地理、英文文学",
+      "中国语文与文学（H2）",
+      "H3 科目（与大学合作）",
+      "General Paper（H1）、Project Work（H1）"
+    ],
+    "admissionPaths": [],
+    "detailUrl": "/jc/river-valley-high/",
+    "legacyUrls": [
+      "/jc/river-valley-high/"
+    ]
+  },
+  {
+    "id": "jc-st-andrews-jc",
+    "category": "jc",
+    "nameZh": "圣安德烈初级学院",
+    "nameEn": "St Andrew's Junior College",
+    "location": "5 Sorby Adams Drive, S357691",
+    "schoolType": "初级学院",
+    "curriculum": "A-Level",
+    "website": "https://www.standrewsjc.moe.edu.sg/about-us/contact-us/",
+    "majorAreas": [],
+    "admissionPaths": [],
+    "detailUrl": "/jc/st-andrews-jc/",
+    "legacyUrls": [
+      "/jc/st-andrews-jc/"
+    ]
+  },
+  {
+    "id": "jc-tampines-meridian-jc",
+    "category": "jc",
+    "nameZh": "淡滨尼子午线初级学院",
+    "nameEn": "Tampines Meridian Junior College",
+    "location": "21 Pasir Ris St 71",
+    "schoolType": "初级学院",
+    "curriculum": "A-Level / H1 H2 H3",
+    "website": "",
+    "majorAreas": [
+      "数学、物理、化学、生物",
+      "经济学、历史、地理、英文文学",
+      "中国研究（华文媒介）、华文与文学",
+      "艺术（H2 Art）",
+      "General Paper（H1）、Project Work（H1）"
+    ],
+    "admissionPaths": [
+      "JAE 理科方向",
+      "JAE 文科方向"
+    ],
+    "detailUrl": "/jc/tampines-meridian-jc/",
+    "legacyUrls": [
+      "/jc/tampines-meridian-jc/"
+    ]
+  },
+  {
+    "id": "jc-temasek-jc",
+    "category": "jc",
+    "nameZh": "淡马锡初级学院",
+    "nameEn": "Temasek Junior College",
+    "location": "22 Bedok South Road, S469278",
+    "schoolType": "初级学院",
+    "curriculum": "A-Level / H1 H2 H3",
+    "website": "",
+    "majorAreas": [
+      "生物、化学",
+      "物理、数学、化学",
+      "Further Mathematics（H2）",
+      "经济学、地理",
+      "历史、英文文学",
+      "H1 中文、H1 翻译"
+    ],
+    "admissionPaths": [
+      "JAE 主要招生（理科方向）",
+      "JAE 主要招生（文科方向）",
+      "国际学生（持学生准证）"
+    ],
+    "detailUrl": "/jc/temasek-jc/",
+    "legacyUrls": [
+      "/jc/temasek-jc/"
+    ]
+  },
+  {
+    "id": "jc-victoria-jc",
+    "category": "jc",
+    "nameZh": "维多利亚初级学院",
+    "nameEn": "Victoria Junior College",
+    "location": "20 Marine Vista, S449035",
+    "schoolType": "初级学院",
+    "curriculum": "A-Level / H1 H2 H3",
+    "website": "",
+    "majorAreas": [
+      "物理、化学、生物",
+      "数学（H2）、进阶数学（H2）",
+      "历史、地理、经济学",
+      "英文文学、华文",
+      "戏剧研究（Theatre Studies and Drama）",
+      "体育（Physical Education）"
+    ],
+    "admissionPaths": [
+      "JAE（O-Level 外部申请）",
+      "DSA（才艺 / 特长申请）",
+      "国际学生"
+    ],
+    "detailUrl": "/jc/victoria-jc/",
+    "legacyUrls": [
+      "/jc/victoria-jc/"
+    ]
+  },
+  {
+    "id": "jc-yishun-innova-jc",
+    "category": "jc",
+    "nameZh": "义顺因诺瓦初级学院",
+    "nameEn": "Yishun Innova Junior College",
+    "location": "3 Champions Way",
+    "schoolType": "初级学院",
+    "curriculum": "A-Level / H1 H2 H3",
+    "website": "",
+    "majorAreas": [
+      "数学、物理、化学、生物",
+      "经济学、历史、地理、英文文学",
+      "中国研究（华文媒介）、华文与文学",
+      "计算机科学（H2 Computing）",
+      "General Paper（H1）、Project Work（H1）"
+    ],
+    "admissionPaths": [
+      "JAE 理科方向",
+      "JAE 文科方向"
+    ],
+    "detailUrl": "/jc/yishun-innova-jc/",
+    "legacyUrls": [
+      "/jc/yishun-innova-jc/"
+    ]
+  },
+  {
+    "id": "poly-np",
+    "category": "poly",
+    "nameZh": "义安理工学院",
+    "nameEn": "Ngee Ann Polytechnic",
+    "location": "Clementi",
+    "schoolType": "Poly / 理工学院",
+    "curriculum": "Diploma 文凭课程",
+    "website": "https://www.np.edu.sg/",
+    "majorAreas": [
+      "商业与会计",
+      "传媒与电影",
+      "信息通信科技",
+      "工程",
+      "健康科学",
+      "设计与环境"
+    ],
+    "admissionPaths": [
+      "O-Level 通过 JAE 申请",
+      "EAE",
+      "国际学生需按 NP 要求提交成绩和英文材料",
+      "Poly GPA 可用于申请新加坡公立大学或海外大学"
+    ],
+    "detailUrl": "/poly/np/",
+    "legacyUrls": [
+      "/poly/np/"
+    ]
+  },
+  {
+    "id": "poly-nyp",
+    "category": "poly",
+    "nameZh": "南洋理工学院",
+    "nameEn": "Nanyang Polytechnic",
+    "location": "Ang Mo Kio / Yio Chu Kang",
+    "schoolType": "Poly / 理工学院",
+    "curriculum": "Diploma 文凭课程",
+    "website": "https://www.nyp.edu.sg/",
+    "majorAreas": [
+      "护理与健康科学",
+      "工程",
+      "信息科技",
+      "商业管理",
+      "设计与媒体",
+      "化学与生命科学"
+    ],
+    "admissionPaths": [
+      "O-Level 通过 JAE 申请",
+      "有明确专业兴趣可通过 EAE 申请",
+      "国际学生按 NYP 要求提交学历、成绩和英文材料",
+      "毕业后可用 Diploma 和 GPA 申请公立大学或海外大学"
+    ],
+    "detailUrl": "/poly/nyp/",
+    "legacyUrls": [
+      "/poly/nyp/"
+    ]
+  },
+  {
+    "id": "poly-rp",
+    "category": "poly",
+    "nameZh": "共和理工学院",
+    "nameEn": "Republic Polytechnic",
+    "location": "Woodlands",
+    "schoolType": "Poly / 理工学院",
+    "curriculum": "Diploma 文凭课程",
+    "website": "https://www.rp.edu.sg/",
+    "majorAreas": [
+      "应用科学",
+      "工程",
+      "信息通信科技",
+      "体育与健康",
+      "酒店与旅游",
+      "商业与传媒"
+    ],
+    "admissionPaths": [
+      "O-Level 通过 JAE 申请",
+      "EAE",
+      "国际学生按 RP 要求提交成绩和英文材料",
+      "毕业后可用 GPA 申请新加坡或海外大学"
+    ],
+    "detailUrl": "/poly/rp/",
+    "legacyUrls": [
+      "/poly/rp/"
+    ]
+  },
+  {
+    "id": "poly-sp",
+    "category": "poly",
+    "nameZh": "新加坡理工学院",
+    "nameEn": "Singapore Polytechnic",
+    "location": "Dover",
+    "schoolType": "Poly / 理工学院",
+    "curriculum": "Diploma 文凭课程",
+    "website": "https://www.sp.edu.sg/",
+    "majorAreas": [
+      "工程与科技",
+      "商业与管理",
+      "信息技术",
+      "媒体与设计",
+      "生命科学与化工",
+      "建筑环境与可持续发展"
+    ],
+    "admissionPaths": [
+      "O-Level 通过 JAE 申请 Poly",
+      "中学在读学生通过 EAE 提前申请",
+      "国际学生按学校要求提交学历、成绩和英文材料",
+      "Poly 毕业后可用 GPA 申请 SIT、NUS、NTU、SMU、SUTD、SUSS 或海外大学"
+    ],
+    "detailUrl": "/poly/sp/",
+    "legacyUrls": [
+      "/poly/sp/"
+    ]
+  },
+  {
+    "id": "poly-tp",
+    "category": "poly",
+    "nameZh": "淡马锡理工学院",
+    "nameEn": "Temasek Polytechnic",
+    "location": "Tampines",
+    "schoolType": "Poly / 理工学院",
+    "curriculum": "Diploma 文凭课程",
+    "website": "https://www.tp.edu.sg/",
+    "majorAreas": [
+      "商业",
+      "设计",
+      "工程",
+      "信息科技",
+      "应用科学",
+      "人文与社会科学"
+    ],
+    "admissionPaths": [
+      "O-Level 通过 JAE 申请",
+      "EAE",
+      "国际学生按 TP 要求提交申请材料",
+      "Diploma 后可衔接 SIT、NUS、NTU、SMU、SUTD、SUSS 或海外大学"
+    ],
+    "detailUrl": "/poly/tp/",
+    "legacyUrls": [
+      "/poly/tp/"
+    ]
+  },
+  {
+    "id": "university-ntu",
+    "category": "university",
+    "nameZh": "南洋理工大学",
+    "nameEn": "Nanyang Technological University",
+    "location": "Jurong West / Novena",
+    "schoolType": "Autonomous University / 综合研究型大学",
+    "curriculum": "本科 / 硕士 / 博士学位课程",
+    "website": "https://www.ntu.edu.sg/",
+    "majorAreas": [
+      "工程",
+      "计算机与人工智能",
+      "商科",
+      "理学",
+      "传媒",
+      "教育",
+      "医学",
+      "人文社科"
+    ],
+    "admissionPaths": [
+      "中国高考成绩申请",
+      "新加坡 A-Level 申请",
+      "IB Diploma 申请",
+      "Poly Diploma 申请",
+      "国际课程成绩申请",
+      "研究生按学院要求提交学术和语言材料"
+    ],
+    "detailUrl": "/university/ntu/",
+    "legacyUrls": [
+      "/university/ntu/"
+    ]
+  },
+  {
+    "id": "university-nus",
+    "category": "university",
+    "nameZh": "新加坡国立大学",
+    "nameEn": "National University of Singapore",
+    "location": "Kent Ridge / Bukit Timah / Outram",
+    "schoolType": "Autonomous University / 综合研究型大学",
+    "curriculum": "本科 / 硕士 / 博士学位课程",
+    "website": "https://www.nus.edu.sg/",
+    "majorAreas": [
+      "计算机与数据科学",
+      "工程",
+      "商科",
+      "医学与生命科学",
+      "法律",
+      "人文社科",
+      "建筑与设计",
+      "理学"
+    ],
+    "admissionPaths": [
+      "中国高考成绩申请部分本科专业",
+      "新加坡 A-Level 申请",
+      "IB Diploma 申请",
+      "Poly Diploma 申请",
+      "WACE / A-Level / AP 等国际课程申请",
+      "研究生按专业提交本科成绩、语言、推荐信和相关材料"
+    ],
+    "detailUrl": "/university/nus/",
+    "legacyUrls": [
+      "/university/nus/"
+    ]
+  },
+  {
+    "id": "university-sit",
+    "category": "university",
+    "nameZh": "新加坡理工大学",
+    "nameEn": "Singapore Institute of Technology",
+    "location": "Punggol / distributed campuses",
+    "schoolType": "Autonomous University / 应用型大学",
+    "curriculum": "应用型本科 / 硕士课程",
+    "website": "https://www.singaporetech.edu.sg/",
+    "majorAreas": [
+      "工程",
+      "信息通信科技",
+      "健康与社会科学",
+      "食品化工与生物科技",
+      "设计与专门行业",
+      "商科与酒店"
+    ],
+    "admissionPaths": [
+      "Poly Diploma 申请",
+      "A-Level 或 IB 申请",
+      "相关工作或专业经历可增强匹配度",
+      "部分专业有面试、测评或作品要求"
+    ],
+    "detailUrl": "/university/sit/",
+    "legacyUrls": [
+      "/university/sit/"
+    ]
+  },
+  {
+    "id": "university-smu",
+    "category": "university",
+    "nameZh": "新加坡管理大学",
+    "nameEn": "Singapore Management University",
+    "location": "City Campus / Bras Basah",
+    "schoolType": "Autonomous University / 商科与社会科学研究型大学",
+    "curriculum": "本科 / 硕士 / 博士学位课程",
+    "website": "https://www.smu.edu.sg/",
+    "majorAreas": [
+      "商业管理",
+      "会计",
+      "经济学",
+      "信息系统",
+      "法律",
+      "社会科学",
+      "计算机与法律科技"
+    ],
+    "admissionPaths": [
+      "新加坡 A-Level 申请",
+      "IB Diploma 申请",
+      "Poly Diploma 申请",
+      "中国高考或国际课程成绩申请",
+      "部分专业可能要求面试、写作或补充材料"
+    ],
+    "detailUrl": "/university/smu/",
+    "legacyUrls": [
+      "/university/smu/"
+    ]
+  },
+  {
+    "id": "university-suss",
+    "category": "university",
+    "nameZh": "新跃社科大学",
+    "nameEn": "Singapore University of Social Sciences",
+    "location": "Clementi",
+    "schoolType": "Autonomous University / 应用社科大学",
+    "curriculum": "本科 / 硕士 / 终身学习课程",
+    "website": "https://www.suss.edu.sg/",
+    "majorAreas": [
+      "社会科学",
+      "教育",
+      "商业与管理",
+      "法律相关课程",
+      "人力资源",
+      "社会服务",
+      "数据与数字媒体"
+    ],
+    "admissionPaths": [
+      "A-Level 申请",
+      "IB Diploma 申请",
+      "Poly Diploma 申请",
+      "国际课程或相关学历申请",
+      "部分课程看面试、工作经历或个人陈述"
+    ],
+    "detailUrl": "/university/suss/",
+    "legacyUrls": [
+      "/university/suss/"
+    ]
+  },
+  {
+    "id": "university-sutd",
+    "category": "university",
+    "nameZh": "新加坡科技设计大学",
+    "nameEn": "Singapore University of Technology and Design",
+    "location": "Changi / Upper Changi",
+    "schoolType": "Autonomous University / 科技设计型大学",
+    "curriculum": "本科 / 硕士 / 博士学位课程",
+    "website": "https://www.sutd.edu.sg/",
+    "majorAreas": [
+      "工程产品开发",
+      "信息系统技术与设计",
+      "建筑与可持续设计",
+      "工程系统与设计",
+      "设计与人工智能",
+      "城市科学"
+    ],
+    "admissionPaths": [
+      "新加坡 A-Level 申请",
+      "IB Diploma 申请",
+      "Poly Diploma 申请",
+      "国际课程或中国高考成绩申请",
+      "重视数理基础、作品或项目经历"
+    ],
+    "detailUrl": "/university/sutd/",
+    "legacyUrls": [
+      "/university/sutd/"
+    ]
+  },
+  {
+    "id": "university-uas",
+    "category": "university",
+    "nameZh": "新加坡艺术大学",
+    "nameEn": "University of the Arts Singapore",
+    "location": "LASALLE / NAFA campuses",
+    "schoolType": "Private university of the arts / LASALLE 与 NAFA 联盟",
+    "curriculum": "艺术、设计、媒体、表演、音乐等本科与硕士学位课程",
+    "website": "https://uas.edu.sg/",
+    "majorAreas": [
+      "设计",
+      "美术",
+      "媒体艺术",
+      "音乐",
+      "舞蹈与戏剧",
+      "时尚",
+      "艺术管理",
+      "创意写作",
+      "艺术教育",
+      "创意治疗"
+    ],
+    "admissionPaths": [
+      "作品集申请",
+      "面试或试镜",
+      "英文能力要求",
+      "Diploma 后升本科",
+      "国际学生按专业提交学历、作品和补充材料"
+    ],
+    "detailUrl": "/university/uas/",
+    "legacyUrls": [
+      "/university/uas/"
+    ]
+  }
+]

@@ -1,0 +1,27 @@
+[1mdiff --git a/.github/workflows/deploy-aliyun.yml b/.github/workflows/deploy-aliyun.yml[m
+[1mindex 1fea68d1e..1ef029f53 100644[m
+[1m--- a/.github/workflows/deploy-aliyun.yml[m
+[1m+++ b/.github/workflows/deploy-aliyun.yml[m
+[36m@@ -3,7 +3,6 @@[m [mname: Deploy to Aliyun ECS[m
+ on:[m
+   push:[m
+     branches: ["main"][m
+[31m-  workflow_dispatch:[m
+ [m
+ concurrency:[m
+   group: aliyun-ecs-deploy[m
+[36m@@ -46,9 +45,13 @@[m [mjobs:[m
+             node scripts/restore-cms-content.mjs "$CMS_BACKUP" "$PREVIOUS_SHA"[m
+ [m
+             npm ci[m
+[31m-            npm test[m
+             node scripts/build-content.mjs[m
+[32m+[m[32m            npm test[m
+[32m+[m[32m            # Final targets must exist, including each stable school fragment.[m
+[32m+[m[32m            node scripts/migrate-school-pages.mjs --validate-only[m
+             node scripts/seo-check.mjs[m
+[32m+[m[32m            # Preserve live SSL/analytics/API config; test, prove loaded, then reload.[m
+[32m+[m[32m            bash scripts/install-school-redirects.sh --source /var/www/sgeda/data/seo/school-redirects.nginx.conf[m
+             node scripts/indexnow-submit.mjs || true[m
+             bash scripts/install-daily-drafts-cron.sh[m
+             bash scripts/install-seo-submit-cron.sh[m

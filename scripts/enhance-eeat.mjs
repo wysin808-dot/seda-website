@@ -11,6 +11,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { load } from 'cheerio';
 
 const CITATION_START = '<!-- SEDA_CITATION_START -->';
 const CITATION_END = '<!-- SEDA_CITATION_END -->';
@@ -118,7 +119,7 @@ function patchCitation(html, url, entry) {
 
 function* htmlFiles(directory) {
   for (const entry of fs.readdirSync(directory, { withFileTypes: true })) {
-    if (entry.name.startsWith('.') || ['node_modules', 'dist', 'coverage'].includes(entry.name)) continue;
+    if (entry.name.startsWith('.') || ['node_modules', 'dist', 'coverage', 'tests', 'scripts', 'data', 'docs', 'reports'].includes(entry.name)) continue;
     const file = path.join(directory, entry.name);
     if (entry.isDirectory()) yield* htmlFiles(file);
     else if (entry.isFile() && entry.name.endsWith('.html')) yield file;
@@ -130,6 +131,8 @@ export function applySources(root, { checkOnly = false } = {}) {
   if (!fs.existsSync(configPath)) throw new Error('缺少 content/sources.json');
   const config = JSON.parse(fs.readFileSync(configPath, 'utf8'));
   const urls = Object.keys(config).filter(key => !key.startsWith('_'));
+  const policyFile = path.join(root, 'content/schools/database-policy.json');
+  const redirects = fs.existsSync(policyFile) ? JSON.parse(fs.readFileSync(policyFile, 'utf8')).redirects || [] : [];
   const handled = new Set();
   const issues = [];
   let updated = 0;
@@ -141,6 +144,22 @@ export function applySources(root, { checkOnly = false } = {}) {
     if (!fs.existsSync(file)) { issues.push(`缺页面 ${url}`); continue; }
     const before = fs.readFileSync(file, 'utf8');
     handled.add(file);
+    if (before.includes('<!-- SEDA_SCHOOL_REDIRECT -->')) {
+      // The archived source record still validates, but a redirect is no longer
+      // an Article/WebPage about the old school. Never restore its old @id.
+      const redirect = redirects.find(item => item.from === new URL(url).pathname);
+      const $ = load(before);
+      if (!redirect || !/noindex/i.test($('meta[name="robots"]').attr('content') || '')
+        || $('link[rel="canonical"]').attr('href') !== 'https://sgeda.org.cn' + redirect.to.split('#')[0]
+        || !$('a[href]').toArray().some(el => $(el).attr('href') === 'https://sgeda.org.cn' + redirect.to)) {
+        issues.push(`迁移页与归档来源记录目标不一致 ${url}`);
+      }
+      if (!checkOnly) {
+        const html = removeLegacySources(before);
+        if (html !== before) { fs.writeFileSync(file, html, 'utf8'); updated += 1; }
+      }
+      continue;
+    }
     if (checkOnly) {
       // 不依赖可见来源区块或 footer/main：只检查真实维护记录及对应元数据。
       issues.push(...checkCitation(before, url, entry));

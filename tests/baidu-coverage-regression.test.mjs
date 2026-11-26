@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
 import { BAIDU_PRIORITY_LIMIT, SITE, baiduAllowed, inspectPage, localFile, parseSitemap, prioritySitemapEntries } from '../scripts/seo-pages.mjs';
+import { loadCatalogPolicy } from '../scripts/school-catalog.mjs';
 
 const root = path.resolve(import.meta.dirname, '..');
 const read = name => fs.readFileSync(path.join(root, name), 'utf8');
@@ -10,9 +11,11 @@ const robots = read('robots.txt');
 const allowed = baiduAllowed(robots);
 const entries = parseSitemap(read('sitemap.xml'));
 const priority = prioritySitemapEntries(entries, read('data/seo/baidu-priority-urls.txt'), { allowed });
+const catalogPolicy = loadCatalogPolicy(root);
 
 const requiredRoutes = [
   '/', '/wace/', '/aeis/', '/ossd/', '/contact/', '/news/', '/poly/dae/', '/primary-schools/kong-hwa/',
+  '/school-database/', ...catalogPolicy.categories.map(category => category.route),
   '/aeis/aeis-primary-english-grammar-chinese-students/',
   ...['hwa-chong-institution', 'raffles-institution', 'national-jc', 'victoria-jc', 'eunoia-jc',
     'anglo-chinese-jc', 'nanyang-jc', 'temasek-jc', 'catholic-jc', 'anderson-serangoon-jc',
@@ -20,15 +23,26 @@ const requiredRoutes = [
     'river-valley-high', 'st-andrews-jc'].map(slug => `/jc/${slug}/`),
 ];
 
-test('approved key omissions are in the curated map without opening templates', () => {
+test('approved public pages and all school catalog hubs are in the curated map', () => {
   const urls = new Set(priority.map(entry => entry.url));
   for (const route of requiredRoutes) assert.ok(urls.has(SITE + route), `missing approved route ${route}`);
-  assert.equal(priority.length, 122);
+  assert.ok(priority.length >= 122 && priority.length <= BAIDU_PRIORITY_LIMIT);
   assert.equal(BAIDU_PRIORITY_LIMIT, 150);
-  for (const route of ['/cms/', '/content-review/', '/api/site-config', '/primary-schools/admiralty/',
-    '/secondary-schools/pei-hwa/', '/private-schools/psb/', '/international-school/chatsworth/']) {
+  for (const route of ['/cms/', '/content-review/', '/api/site-config', '/content/articles/draft.md', '/tests/fixtures/']) {
     assert.equal(allowed(SITE + route), false, `unexpectedly unblocked ${route}`);
   }
+});
+
+test('migrated schools are crawlable for their 301 and absent from the active sitemap', () => {
+  const urls = new Set(entries.map(entry => entry.url));
+  for (const redirect of catalogPolicy.redirects) {
+    assert.equal(allowed(SITE + redirect.from), true, `Baidu must read the 301: ${redirect.from}`);
+    assert.equal(urls.has(SITE + redirect.from), false, `redirect in sitemap: ${redirect.from}`);
+    const html = fs.readFileSync(localFile(root, SITE + redirect.from), 'utf8');
+    assert.match(html, /SEDA_SCHOOL_REDIRECT/);
+    assert.ok(inspectPage(html, SITE + redirect.from).issues.includes('noindex'));
+  }
+  for (const entry of entries) assert.equal(allowed(entry.url), true, `public page blocked: ${entry.url}`);
 });
 
 test('every curated map page exists with its intended canonical and indexable HTML', () => {

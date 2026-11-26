@@ -10,7 +10,7 @@
   </url>
   <url>
     <loc>https://sgeda.org.cn/school-database/</loc>
-    <lastmod>2026-06-15</lastmod>
+    <lastmod>2026-11-26</lastmod>
   </url>
   <url>
     <loc>https://sgeda.org.cn/pathway/</loc>
@@ -74,7 +74,7 @@
   </url>
   <url>
     <loc>https://sgeda.org.cn/international-alevel/</loc>
-    <lastmod>2026-09-17</lastmod>
+    <lastmod>2026-11-26</lastmod>
   </url>
   <url>
     <loc>https://sgeda.org.cn/ib/</loc>
@@ -82,7 +82,7 @@
   </url>
   <url>
     <loc>https://sgeda.org.cn/ap/</loc>
-    <lastmod>2026-06-15</lastmod>
+    <lastmod>2026-11-26</lastmod>
   </url>
   <url>
     <loc>https://sgeda.org.cn/foundation/</loc>
@@ -246,7 +246,7 @@
   </url>
   <url>
     <loc>https://sgeda.org.cn/wace/what-is/</loc>
-    <lastmod>2026-06-09</lastmod>
+    <lastmod>2026-11-26</lastmod>
   </url>
   <url>
     <loc>https://sgeda.org.cn/wace/chinese-students/</loc>
@@ -486,6 +486,18 @@
   </url>
   <url>
     <loc>https://sgeda.org.cn/aeis/aeis-primary-english-grammar-chinese-students/</loc>
+    <lastmod>2026-11-26</lastmod>
+  </url>
+  <url>
+    <loc>https://sgeda.org.cn/school-database/jc/</loc>
+    <lastmod>2026-11-26</lastmod>
+  </url>
+  <url>
+    <loc>https://sgeda.org.cn/school-database/poly/</loc>
+    <lastmod>2026-11-26</lastmod>
+  </url>
+  <url>
+    <loc>https://sgeda.org.cn/school-database/university/</loc>
     <lastmod>2026-11-26</lastmod>
   </url>
 </urlset>

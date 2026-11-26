@@ -1,9 +1,4 @@
-# SEDA 百度优先收录清单
-#
-# 仅放最重要、最完整、最具原创价值的页面；项目内部精选上限 150 个 URL。
-# 不在本文件中不代表禁止抓取，也不会影响完整 sitemap.xml。
-
-# 品牌、核心栏目与课程体系（24）
+# Reviewed canonical pages; this list is not a Baidu submission quota.
 https://sgeda.org.cn/
 https://sgeda.org.cn/about/
 https://sgeda.org.cn/school-database/
@@ -29,8 +24,6 @@ https://sgeda.org.cn/foundation/
 https://sgeda.org.cn/wace/
 https://sgeda.org.cn/o-level/
 https://sgeda.org.cn/aeis/
-
-# 实用指南（9）
 https://sgeda.org.cn/guides/accommodation/
 https://sgeda.org.cn/guides/checklist/
 https://sgeda.org.cn/guides/cost/
@@ -40,8 +33,6 @@ https://sgeda.org.cn/guides/scholarship/
 https://sgeda.org.cn/guides/student-pass-application-singapore/
 https://sgeda.org.cn/guides/student-pass/
 https://sgeda.org.cn/guides/timeline/
-
-# 升学路径（8）
 https://sgeda.org.cn/pathway/a-level-to-university/
 https://sgeda.org.cn/pathway/by-age/
 https://sgeda.org.cn/pathway/chinese-students-singapore-pathway/
@@ -50,8 +41,6 @@ https://sgeda.org.cn/pathway/nus/
 https://sgeda.org.cn/pathway/ntu/
 https://sgeda.org.cn/pathway/transfer-from-china/
 https://sgeda.org.cn/pathway/wace-to-uk/
-
-# 新加坡大学（9）
 https://sgeda.org.cn/university/admission/
 https://sgeda.org.cn/university/degrees/
 https://sgeda.org.cn/university/nus/
@@ -61,8 +50,6 @@ https://sgeda.org.cn/university/sutd/
 https://sgeda.org.cn/university/sit/
 https://sgeda.org.cn/university/suss/
 https://sgeda.org.cn/university/nus-undergraduate-application-chinese-students/
-
-# 理工学院（7）
 https://sgeda.org.cn/poly/admission/
 https://sgeda.org.cn/poly/courses/
 https://sgeda.org.cn/poly/sp/
@@ -70,8 +57,6 @@ https://sgeda.org.cn/poly/np/
 https://sgeda.org.cn/poly/nyp/
 https://sgeda.org.cn/poly/tp/
 https://sgeda.org.cn/poly/rp/
-
-# WACE 原创专题（15）
 https://sgeda.org.cn/wace-vs-a-level/
 https://sgeda.org.cn/wace-atar/
 https://sgeda.org.cn/wace-nus-ntu/
@@ -87,8 +72,6 @@ https://sgeda.org.cn/wace/wace-suitable-for-chinese-students/
 https://sgeda.org.cn/wace/wace-subject-selection/
 https://sgeda.org.cn/wace/wace-tuition-fees/
 https://sgeda.org.cn/wace/wace-year-11-transfer/
-
-# AEIS 原创专题（14）
 https://sgeda.org.cn/aeis/age-requirements/
 https://sgeda.org.cn/aeis/english/
 https://sgeda.org.cn/aeis/math/
@@ -102,8 +85,6 @@ https://sgeda.org.cn/aeis/aeis-primary-vs-secondary-application/
 https://sgeda.org.cn/aeis/aeis-school-selection-after-passing/
 https://sgeda.org.cn/aeis/aeis-self-study-vs-tuition/
 https://sgeda.org.cn/aeis/s-aeis-vs-aeis/
-
-# O-Level / SEC 原创专题（14）
 https://sgeda.org.cn/o-level/exam-format/
 https://sgeda.org.cn/o-level/preparation/
 https://sgeda.org.cn/o-level/registration/
@@ -118,9 +99,6 @@ https://sgeda.org.cn/o-level/o-level-poly-application-guide/
 https://sgeda.org.cn/o-level/o-level-poly-or-jc/
 https://sgeda.org.cn/o-level/o-level-private-candidate-registration/
 https://sgeda.org.cn/o-level/o-level-subject-combination/
-
-# 2026-11-26 审计补入：已放行的关键课程、学校与发现入口（22）
-# 保留其余模板限制；不将全部允许URL自动视为已经完成内容复核。
 https://sgeda.org.cn/ossd/
 https://sgeda.org.cn/contact/
 https://sgeda.org.cn/news/
@@ -143,3 +121,6 @@ https://sgeda.org.cn/jc/dunman-high/
 https://sgeda.org.cn/jc/river-valley-high/
 https://sgeda.org.cn/jc/st-andrews-jc/
 https://sgeda.org.cn/aeis/aeis-primary-english-grammar-chinese-students/
+https://sgeda.org.cn/school-database/jc/
+https://sgeda.org.cn/school-database/poly/
+https://sgeda.org.cn/school-database/university/

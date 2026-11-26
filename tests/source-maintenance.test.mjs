@@ -182,6 +182,23 @@ test('all registered site pages keep real records and Article/WebPage citations 
   assert.equal(fs.readFileSync(configFile, 'utf8'), configText);
 });
 
+test('redirected records keep archived sources without restoring the former Article or WebPage', () => {
+  const target = 'https://sgeda.org.cn/primary-schools/#school-primary-example';
+  const html = `<!-- SEDA_SCHOOL_REDIRECT --><html><head><meta name="robots" content="noindex,follow"><link rel="canonical" href="https://sgeda.org.cn/primary-schools/"></head><body><main><h1>学校甲</h1><a href="${target}">学校甲资料</a></main></body></html>`;
+  withFixture(html, ({ fixture, file, read }) => {
+    fs.mkdirSync(path.join(fixture, 'content/schools'));
+    fs.writeFileSync(path.join(fixture, 'content/schools/database-policy.json'), JSON.stringify({ redirects: [{ from: '/example/', to: '/primary-schools/#school-primary-example' }] }));
+    const sourcesBefore = fs.readFileSync(path.join(fixture, 'content/sources.json'), 'utf8');
+    assert.deepEqual(applySources(fixture), { updated: 0, total: 1, issues: [] });
+    assert.deepEqual(applySources(fixture, { checkOnly: true }), { updated: 0, total: 1, issues: [] });
+    assert.equal(read(), html);
+    assert.deepEqual(entities(read()), []);
+    assert.equal(fs.readFileSync(path.join(fixture, 'content/sources.json'), 'utf8'), sourcesBefore);
+    fs.writeFileSync(file, html.replace(target, 'https://sgeda.org.cn/'));
+    assert.match(applySources(fixture, { checkOnly: true }).issues.join('\n'), /迁移页与归档来源记录目标不一致/);
+  });
+});
+
 test('manual source-only blocks and their dead TOC links disappear; editorial explanation and Kong Hwa facts remain accurate', () => {
   for (const [route, id] of [['pathway', 'sources'], ['guides/student-pass', 'official-sources'], ['ossd', 'ossd-sources'], ['wace-atar', 'atar-official-sources']]) {
     const $ = load(fs.readFileSync(path.join(root, route, 'index.html'), 'utf8'));

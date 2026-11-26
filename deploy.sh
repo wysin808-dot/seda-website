@@ -11,14 +11,25 @@ DOMAIN="sgeda.org.cn"
 echo "=== SGEDA 部署脚本 ==="
 
 if [ "$1" == "update" ]; then
+  build_for_school_redirects() {
+    cd "$1"
+    npm ci
+    node scripts/build-content.mjs
+    npm test
+    node scripts/migrate-school-pages.mjs --validate-only
+    node scripts/seo-check.mjs
+  }
   # ── 更新代码 ──
   echo "[1/4] 拉取最新代码..."
   cd $SITE_DIR && git pull origin main
+  DEPLOY_SOURCE="$SITE_DIR"
 
   # 如果存在独立的 git 仓库目录，同步静态文件到 Nginx 服务目录
   if [ -d "/var/www/seda-website" ] && [ "/var/www/seda-website" != "$SITE_DIR" ]; then
     echo "[1.5/4] 同步 git 仓库内容到网站目录..."
-    cd /var/www/seda-website && git pull origin main 2>/dev/null || true
+    DEPLOY_SOURCE="/var/www/seda-website"
+    cd "$DEPLOY_SOURCE" && git pull origin main
+    build_for_school_redirects "$DEPLOY_SOURCE"
     rsync -av --delete \
       --exclude='.git' \
       --exclude='.env' \
@@ -29,6 +40,8 @@ if [ "$1" == "update" ]; then
       --exclude='scripts/' \
       /var/www/seda-website/ $SITE_DIR/
     echo "✅ 文件同步完成"
+  else
+    build_for_school_redirects "$DEPLOY_SOURCE"
   fi
   if [ ! -f "$SITE_DIR/.env" ]; then
     touch "$SITE_DIR/.env"
@@ -47,10 +60,11 @@ if [ "$1" == "update" ]; then
     CMS_SECRET=$(node -e "console.log(require('crypto').randomBytes(24).toString('hex'))")
     echo "CMS_SESSION_SECRET=$CMS_SECRET" >> "$SITE_DIR/.env"
   fi
-  echo "[2/4] 重启 API 服务..."
+  echo "[2/4] 安装学校精确 301、校验并重载 Nginx..."
+  bash "$DEPLOY_SOURCE/scripts/install-school-redirects.sh" \
+    --source "$SITE_DIR/data/seo/school-redirects.nginx.conf"
+  echo "[3/4] 重启 API 服务..."
   pm2 restart seda-api
-  echo "[3/4] 重载 Nginx..."
-  nginx -t && systemctl reload nginx
   echo "✅ 更新完成！"
   exit 0
 fi
@@ -98,7 +112,14 @@ EOF
 fi
 
 echo "[6/9] 配置 Nginx..."
-cp $SITE_DIR/nginx.conf /etc/nginx/sites-available/sgeda
+if [ -f /etc/nginx/sites-available/sgeda ]; then
+  echo "保留已有 Nginx SSL/API 配置；已有站点请使用 deploy.sh update。"
+else
+  # Bootstrap only: never replace an existing production SSL/API configuration.
+  echo "首次配置请先按 docs/school-database-deployment.md 准备生成的 include。"
+  test -f /etc/nginx/snippets/school-redirects.nginx.conf
+  cp "$SITE_DIR/nginx.conf" /etc/nginx/sites-available/sgeda
+fi
 # 替换占位域名（如果需要）
 ln -sf /etc/nginx/sites-available/sgeda /etc/nginx/sites-enabled/sgeda
 rm -f /etc/nginx/sites-enabled/default

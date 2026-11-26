@@ -80,7 +80,7 @@ test('migrated representative school body no longer carries four-part generic FA
     assert.doesNotMatch($('main').text(),/如果孩子英文基础稳定、自我管理能力较强|SEDA 建议家长把预算分成四块看|真正稳妥的选校/);
     assert.equal($('.seo-tags').length,0);
     assert.equal($('h1').length,1);
-    assert.ok($('main a[href^="/"]').length>0,'navigation remains');
+    assert.ok($('main a[href^="/"], main a[href^="https://sgeda.org.cn/"]').length>0,'same-site navigation remains');
   }
 });
 

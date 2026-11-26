@@ -60,12 +60,13 @@ export function addStaticSchoolList(root, { checkOnly = false, targetDirs = null
       .filter((e) => e.isDirectory() && fs.existsSync(path.join(root, t.dir, e.name, 'index.html')))
       .map((e) => {
         const page = fs.readFileSync(path.join(root, t.dir, e.name, 'index.html'), 'utf8');
+        if (page.includes('<!-- SEDA_SCHOOL_REDIRECT -->')) return null;
         const h1 = (page.match(/<h1[^>]*>([\s\S]*?)<\/h1>/) || [])[1] || e.name;
         const name = h1.replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim()
           .replace(/\s*(完全指南|完全攻略|中文指南|指南)$/, '');
         return { name, link: `${t.urlPrefix}${e.name}/` };
       })
-      .filter((x) => x.name)
+      .filter((x) => x?.name)
       .sort((a, b) => a.name.localeCompare(b.name, 'zh-Hans-CN'));
 
     if (entries.length < 5) continue;
@@ -73,6 +74,9 @@ export function addStaticSchoolList(root, { checkOnly = false, targetDirs = null
     // 默认只补缺少内链的详情页。中学另保留既有补充索引中仍存在的目标：
     // 卡片修正不应删除独立的可展开查校通道；新增缺链合并，过期目标剔除。
     const before = fs.readFileSync(hub, 'utf8');
+    // Progressive-enhanced catalog directories already contain every record;
+    // do not add a second list of old article URLs or related category hubs.
+    if (before.includes('<!-- SEDA_SCHOOL_DATABASE -->')) continue;
     const blockRe = new RegExp(`${START}[\\s\\S]*?${END}`, 'g');
     const previousBlock = (before.match(blockRe) || []).join('\n');
     const cleanHub = before.replace(blockRe, '');

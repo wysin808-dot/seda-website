@@ -8,13 +8,19 @@ import { createHash } from 'node:crypto';
 import { load } from 'cheerio';
 import { readSecondarySchools, prerenderSecondarySchools } from '../scripts/prerender-secondary-schools.mjs';
 import { addStaticSchoolList, STATIC_SCHOOL_LIST_STYLE } from '../scripts/add-static-school-list.mjs';
+import { loadCatalog, loadCatalogPolicy } from '../scripts/school-catalog.mjs';
 
 const root = path.resolve(import.meta.dirname, '..');
-const html = fs.readFileSync(path.join(root, 'secondary-schools/index.html'), 'utf8');
+// Freeze the old 146-card interface as a legacy import/link-repair fixture.
+// Production now uses the catalog; these tests must not demand restoration of
+// COP cards, inline data scripts or 146 individual indexable articles.
+const html = fs.readFileSync(path.join(root, 'tests/fixtures/secondary-schools-before-database.html'), 'utf8');
 const $ = load(html);
 const arrayRe = /const schools = \[([\s\S]*?)\n\s*\];/;
 const schools = new Function(`return [${html.match(arrayRe)[1]}];`)();
 const byName = new Map(schools.map(s => [s.name, s]));
+const legacyHeadings = new Map(JSON.parse(fs.readFileSync(path.join(root, 'tests/fixtures/secondary-school-identity.json'), 'utf8')).map(item => [item.link,item.h1]));
+const escapeText = value => String(value).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 
 // 已有页末21所链接及其本地详情H1确认的修复目标；不依赖外部审计目录。
 const correctedTargets = {
@@ -70,9 +76,23 @@ function assertDetailEntity(s) {
   assert.ok(fs.existsSync(detailFile), `${s.name}: local detail exists`);
   const detail = load(fs.readFileSync(detailFile, 'utf8'));
   assert.equal(detail('h1').length, 1, s.name);
-  // 本站原有数理中学使用中文全称及 Mathematics 别名，不修改详情或校名事实。
   const cn = s.name === 'NUS High School of Math and Science' ? '新加坡国立大学附属数理中学' : s.cn;
   const en = s.name === 'NUS High School of Math and Science' ? 'NUS High School of Mathematics and Science' : s.name;
+  if (fs.readFileSync(detailFile, 'utf8').includes('<!-- SEDA_SCHOOL_REDIRECT -->')) {
+    const record = loadCatalog(root).find(record => record.legacyUrls.includes(s.link));
+    assert.ok(record, `${s.name}: migrated record exists`);
+    const redirect = loadCatalogPolicy(root).redirects.find(redirect => redirect.from === s.link);
+    assert.ok(redirect, `${s.name}: exact redirect exists`);
+    assert.equal(record.nameZh, cn, `${s.name}: Chinese identity preserved`);
+    assert.equal(record.nameEn, en, `${s.name}: English identity preserved`);
+    const target = new URL(redirect.to, 'https://sgeda.org.cn');
+    const page = load(fs.readFileSync(path.join(root, target.pathname, 'index.html'), 'utf8'));
+    assert.equal(page('link[rel="canonical"]').attr('href'), target.origin + target.pathname);
+    if (target.hash) assert.equal(page('[id]').toArray().filter(el => page(el).attr('id') === target.hash.slice(1)).length, 1, `${s.name}: exact record target exists`);
+    assert.match(detail('meta[name="robots"]').attr('content'), /noindex/);
+    return;
+  }
+  // 本站原有数理中学使用中文全称及 Mathematics 别名，不修改详情或校名事实。
   assert.ok(detail('h1').text().includes(cn), `${s.name}: H1 matches school entity`);
   assert.ok(detail('main').text().includes(en), `${s.name}: English entity matches`);
   assert.equal(detail('link[rel="canonical"]').attr('href'), `https://sgeda.org.cn${s.link}`, s.name);
@@ -139,7 +159,9 @@ function secondaryFixture(t, source = html) {
   for (const s of schools) {
     const slug = s.link.split('/')[2];
     fs.mkdirSync(path.join(dir, slug));
-    fs.copyFileSync(path.join(root, 'secondary-schools', slug, 'index.html'), path.join(dir, slug, 'index.html'));
+    // The fixture isolates the retired list builder from migrated production
+    // fallback pages, which it must never enumerate as active school details.
+    fs.writeFileSync(path.join(dir, slug, 'index.html'), `<h1>${escapeText(legacyHeadings.get(s.link))}</h1>`);
   }
   return {
     root: fixtureRoot, dir, file,
